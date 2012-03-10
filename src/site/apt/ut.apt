@@ -1,0 +1,62 @@
+ ------
+ View Test by JUnit
+ ------
+
+View Test by JUnit
+
+ mixer2の利点のひとつが、Webアプリの画面をJUnitでテストできることです。
+ JSPとカスタムタグを使った画面では、ブラウザを通じてテストするしかありませんでした。
+ mixer2は画面に対する操作、情報の埋め込みをJSPではなくjavaソース上で実現し、
+ 「htmlの文字列」ではなく「htmlのオブジェクト」として画面全体を扱うことができるため、
+ 従来では難しかったJUnitでの画面のテストが可能です。
+
+ 以下は、ごく単純な画面(Htmlオブジェクト）を出力するクラスとそのテンプレート、
+ そしてJUnitテストケースの例です。
+
+ テンプレート：
+
+----
+<html xml:lang="ja" lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<div id="foo">
+here comes message
+</div>
+</body>
+</html>
+----
+
+ Javaクラス：
+
+----
+public class Sample {
+
+    public Html createHtml(String message) throws IOException, TagTypeUnmatchException {
+        Mixer2Engine m2e = new Mixer2Engine();
+        Html html = m2e.loadHtmlTemplate(new File("Sample.html"));
+        html.getById("foo", Div.class).unsetContent();
+        html.getById("foo", Div.class).getContent().add(message);
+        return html;
+    }
+
+}
+----
+
+ JUnit4テストケース：
+
+----
+public class SampleTest {
+
+    @Test
+    public void executeHtmlTest() throws IOException, TagTypeUnmatchException {
+        Sample sample = new Sample();
+        Html html = sample.createHtml("aaa");
+        assertEquals("aaa",html.getById("foo", Div.class).getContent().get(0));
+    }
+
+}
+----
+
+

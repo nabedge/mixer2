@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>page title</title>
+    <meta name="description" content="foo.........." />
+    <meta name="keywords" content="foo,bar" />
+    <link rel="shortcut icon" href="foo.ico" />
+    <link rel="stylesheet" href="foo.css" />
+    <script src="foo.js"> </script>
+</head>
+<body>
+
+    <header>
+        <hgroup>
+            <h1>name</h1>
+            <h2>description</h2>
+        </hgroup>
+    </header>
+    <nav>
+        here comes navigation.
+        <ul>
+            <li><a href="#">page</a></li>
+            <li><a href="#">page</a></li>
+        </ul>
+    </nav>
+    <article id="article1">
+        <section>
+            <h1>content name</h1>
+            <p>
+                コンテンツの内容
+                &cent;
+                &pound;
+                &#8364;
+                &amp;
+                &quot;
+                &lt;
+                &gt;
+            </p>
+        </section>
+        <section>
+            <h1>content name</h1>
+            <p>
+                コンテンツの内容
+            </p>
+        </section>
+    </article>
+    <article id="article2">
+        <section>
+            <h1>content name</h1>
+            <p>
+                <ruby>a<rp> えー </rp>b<rp> びー </rp></ruby>
+            </p>
+            <figure id="figure1">
+                <figcaption id="figcaption1">Listing 4. The primary core interface API declaration.</figcaption>
+                <pre>hogehogehogehogehoge</pre>
+            </figure>
+        </section>
+        <section>
+            <h1>content name</h1>
+            <p>
+                <video id="video1" src="tgif.vid" autoplay="autoplay" onerror="failed(event)">
+                    <track id="track1" kind="subtitles" src="brave.ja.vtt" srclang="ja" label="Japanese" />
+                    <track id="track2" kind="subtitles" src="brave.en.vtt" srclang="en" label="English" />
+                </video>
+            </p>
+
+<canvas id="canvas1"></canvas>
+<audio id="audio1" src="sample/sample.ogg" controls="controls" >
+    <track src="audio1.src" />
+</audio>
+The <abbr title="Web Hypertext Application Technology Working Group">WHATWG</abbr> <wbr /> zzz
+
+<progress>hoge:<meter>1</meter></progress>
+<time datetime="2011-07-11"> 2011年7月11日 </time>
+
+        </section>
+    </article>
+    <aside>
+        <section>
+            <h1>aside-section-h1</h1>
+            <ul>
+                <li><a href="#">page</a></li>
+                <li><a href="#">page</a></li>
+                <li><a href="#">page</a></li>
+            </ul>
+        </section>
+    </aside>
+    <footer id="footer">
+        <p>Copyright 2011 サイト名. All rights reserved.</p>
+        <br id="dummy_br" />
+    </footer>
+
+</body>
+</html>

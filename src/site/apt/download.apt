@@ -1,0 +1,29 @@
+ ------
+ Download
+ ------
+
+Download
+
+ jar files: {{http://mixer2.org/mvn/org/mixer2/}}
+
+ maven repository:
+
+----
+<repositories>
+  <repository>
+    <id>mixer2</id>
+    <name>Project Mixer2 Maven Repository</name>
+    <url>http://mixer2.org/mvn</url>
+  </repository>
+</repositories>
+
+<dependencies>
+  <dependency>
+    <groupId>org.mixer2</groupId>
+    <artifactId>mixer2</artifactId>
+    <version>x.x.x(set latest version on http://mixer2.org/mvn/org/mixer2/mixer2 )</version>
+  </dependency>
+</dependencies>
+
+----
+

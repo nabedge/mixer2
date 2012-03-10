@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/DECORATION/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/DECORATION/1.0.0 http://maven.apache.org/xsd/decoration-1.0.0.xsd">
+
+  <publishDate position="none"/>
+  <version position="left"/>
+
+  <body>
+
+    <head>
+
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-21194230-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+
+    </head>
+
+    <menu name="Documentation">
+      <item name="top" href="index.html" />
+      <item name="Download" href="download.html" />
+      <item name="Hello World" href="helloworld.html" />
+      <item name="SAStruts Sample" href="sastrutssample.html" />
+      <item name="SpringMVC Sample" href="springmvcsample.html" />
+      <item name="View Test by JUnit" href="ut.html" />
+      <item name="html5" href="html5.html" />
+      <item name="FAQ" href="faq.html" />
+      <item name="TIPS" href="tips.html" />
+      <item name="Form and JavaBean" href="formandjavabean.html" />
+      <item name="TableBuilder" href="tablebuilder.html" />
+      <item name="Zero Template" href="zerotemplate.html" />
+      <item name="TODO" href="todo.html" />
+      <item name="Release Note" href="releasenote.html"/>
+    </menu>
+
+    <menu ref="reports" />
+
+    <menu name="External Site">
+      <item name="Developer Blog" href="http://nabedge.blogspot.com/" />
+      <item name="Mailing List" href="http://groups.google.com/group/mixer2-ja" />
+    </menu>
+
+  </body>
+</project>

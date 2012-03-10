@@ -1,0 +1,53 @@
+ ------
+ Hello World
+ ------
+
+Hello World
+
+ これがHelloWorldのテンプレートです。
+
+----
+<html xml:lang="ja" lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<div id="hellomsg">here comes message.</div>
+</body>
+</html>
+----
+
+ Javaコードです。
+
+----
+import java.io.File;
+import org.mixer2.Mixer2Engine;
+import org.mixer2.jaxb.xhtml.Div;
+import org.mixer2.jaxb.xhtml.Html;
+
+public class HelloWorld {
+
+    public static void main(String[] args) throws Exception {
+        Mixer2Engine m2e = new Mixer2Engine();
+        Html html = m2e.loadHtmlTemplate(new File("HelloWorld.html"));
+        html.getById("hellomsg",Div.class).getContent().clear();
+        html.getById("hellomsg",Div.class).getContent().add("Hello World !");
+        System.out.println(m2e.saveToString(html));
+    }
+
+}
+----
+
+ 実行結果です。
+
+----
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<div id="hellomsg">Hello World !</div>
+</body>
+</html>
+----
+

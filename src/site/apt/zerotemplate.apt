@@ -1,0 +1,51 @@
+ ------
+ Zero Template
+ ------
+
+Zero Template
+
+ mixer2はテンプレートエンジンですが、
+ テンプレートがまったくない状態でもhtmlを生成することが可能です。
+ 利用シーンは少ないと思われますが、mixer2(正確にはJAXB)による
+ Htmlオブジェクトの基本構造とその組み立て方の参考にしてください。
+
+ java code:
+
+----
+//...
+import static org.mixer2.xhtml.TagCreator.*;
+//...
+
+Title title = title(); // short cut of Title title = new Title();
+title.setContent("zero template");
+Meta meta = meta();
+meta.setHttpEquiv("Content-Type");
+meta.setContent("text/html; charset=utf-8");
+Div div = div();
+div.getContent().add("Hello World !");
+Head head = head();
+head.getContent().add(meta);
+head.getContent().add(title);
+Body body = body();
+body.getContent().add(div);
+Html html = html();
+html.setHead(head);
+html.setBody(body);
+Mixer2Engine m2e = new Mixer2Engine();
+System.out.println(m2e.saveToString(html));
+----
+
+ output:
+
+----
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>zero template</title>
+</head>
+<body>
+<div>Hello World !</div>
+</body>
+</html>
+----
+

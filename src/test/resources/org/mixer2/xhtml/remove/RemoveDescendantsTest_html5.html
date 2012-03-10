@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>page title</title>
+    <meta name="description" content="foo.........." />
+    <meta name="keywords" content="foo,bar" />
+    <link rel="shortcut icon" href="foo.ico" />
+    <link rel="stylesheet" href="foo.css" />
+    <script src="foo.js"> </script>
+</head>
+<body>
+
+    <header id="header" class="aaa bbb ccc">
+        <hgroup>
+            <h1>name</h1>
+            <h2>description</h2>
+        </hgroup>
+    </header>
+    <nav id="nav" class="bbb ccc">
+        here comes navigation.
+        <ul>
+            <li><a href="#">page</a></li>
+            <li><a href="#">page</a></li>
+        </ul>
+    </nav>
+    <article id="article1" class="aaa ccc">
+        <map>
+            <area id="area1" class="aaa" alt="clothes" coords="0,0,100,50" href="/clothes/" />
+            <area id="area2" class="bbb" alt="toys" coords="0,0,100,50" href="/toys/" />
+        </map>
+        <section id="section1" class="aaa bbb">
+            <h1>content name</h1>
+            <p>
+                コンテンツの内容
+                &cent;
+                &pound;
+                &#8364;
+                &amp;
+                &quot;
+                &lt;
+                &gt;
+            </p>
+        </section>
+        <section id="section2" class="ccc">
+            <h1>content name</h1>
+            <p>
+            zzzzzzzzzzzzzzz
+            </p>
+            <figure id="figure1">
+                <figcaption id="figcaption1" class="aaa">Listing 4. The primary core interface API declaration.</figcaption>
+                <pre>hogehogehogehogehoge</pre>
+            </figure>
+            <figure id="figure2">
+                <figcaption id="figcaption2" class="bbb">Listing 4. The primary core interface API declaration.</figcaption>
+                <pre>hogehogehogehogehoge</pre>
+            </figure>
+        </section>
+    </article>
+    <article id="article2">
+        <section>
+            <h1>content name</h1>
+            <p>
+                コンテンツの内容
+                <b>hoge<bdo id="bdo1" class="aaa">fuga</bdo></b>
+                <bdo id="bdo2" class="bbb">fuga</bdo>
+                <i>italic</i>
+            </p>
+            <pre id="pre1" class="bbb"><code>
+                echo "Hello world!";
+            </code></pre>
+        </section>
+        <section>
+            <h1>content name</h1>
+            <p>
+                <video id="video1" src="tgif.vid" autoplay="autoplay" onerror="failed(event)">
+                    <track
+                        id="track1"
+                        kind="subtitles"
+                        src="brave.ja.vtt"
+                        srclang="ja"
+                        label="Japanese" />
+                    <track id="track2" kind="subtitles" src="brave.en.vtt" srclang="en" label="English" />
+                </video>
+            </p>
+
+<form
+    id="form1"
+    action="processkey.cgi"
+    method="post"
+    enctype="multipart/form-data">
+    <textarea cols="80" rows="20">hogehogehogehogehogehogehoge</textarea>
+    <keygen name="key" />
+    <label id="label1">keywords:<input type="search" name="q" autocomplete="on" list="keywords" /></label>
+    <datalist id="datalist_keywords">
+        <option value="wikipedia" >Wikipedia</option>
+        <option value="antivirus" >Anti Virus</option>
+        <option value="windows" >Windows</option>
+    </datalist>
+    <kbd>submit</kbd>
+    <input type="submit" value="Submit key..." />
+    <output id="output1" name="o"></output>
+</form>
+
+<form id="form2">
+    <select>
+        <optgroup>
+            <option value="a">a</option>
+            <option value="b">b</option>
+        </optgroup>
+        <optgroup>
+            <option value="1">1</option>
+            <option value="1">2</option>
+        </optgroup>
+    </select>
+</form>
+
+
+<hr />
+<blockquote>
+    test
+    <dfn>hogehoge</dfn>
+    <em>fugafuga</em>
+</blockquote>
+
+<table>
+<thead>
+    <tr id="tr1">
+        <td id="td1" class="aaa"></td><td id="td2" class="bbb"></td>
+    </tr>
+    <tr id="tr2">
+        <td id="td3" class="aaa"></td><td id="td4" class="bbb"></td>
+    </tr>
+</thead>
+<tbody>
+    <tr id="tr3">
+        <td id="td5" class="aaa"></td><td id="td6" class="bbb"></td>
+    </tr>
+    <tr id="tr4">
+        <td id="td7" class="aaa"></td><td id="td8" class="bbb"></td>
+    </tr>
+</tbody>
+<tfoot>
+    <tr id="tr5">
+        <td id="td9" class="aaa"></td><td id="td10" class="bbb"></td>
+    </tr>
+</tfoot>
+</table>
+
+<div>
+    <details id="details1" class="ccc">
+        <summary id="summary1">Copying... <progress max="375505392" value="97543282"></progress> 25%</summary>
+        <dl>
+            <dt>Transfer rate:</dt> <dd>452KB/s</dd>
+            <dt>Local filename:</dt> <dd>/home/rpausch/raycd.m4v</dd>
+            </dl>
+    </details>
+    <canvas id="canvas1" class="bbb"> </canvas>
+    <canvas id="canvas2" class="aaa"> </canvas>
+</div>
+
+<ul>
+    <li>User <bdi id="bdi1" class="aaa">jcranmer</bdi>: 12 posts.</li>
+    <li>User <bdi id="bdi2" class="bbb">hober</bdi>: 5 posts.</li>
+</ul>
+
+<p>
+<audio id="audio1" src="sample/sample.ogg" controls="controls" />
+The <abbr id="abbr1" title="Web Hypertext Application Technology Working Group">WHATWG</abbr> <wbr /> zzz
+<time id="time1" class="dtstart" datetime="2007-10-05">October 5</time>
+<mark id="mark1">color</mark>
+<meter id="meter0" min="0" max="100" value="1" title="centimeters">1cm</meter>
+<meter id="meter1" min="0" max="20" value="12" title="centimeters">12cm</meter>
+<progress id="progress1" class="bbb" max="100"><span>0</span>%</progress>
+<ruby id="ruby1" class="ccc"> 漢 <rt id="rt1"> かん </rt> 字 <rt id="rt2"> じ </rt></ruby>
+
+</p>
+
+        </section>
+    </article>
+    <aside id="aside" class="aaa">
+        <section>
+            <h1>content name</h1>
+            <ul>
+                <li><a href="#">page</a></li>
+            </ul>
+        </section>
+    </aside>
+    <footer id="footer" class="bbb">
+        <p>Copyright 2011 サイト名. All rights reserved.</p>
+        <br id="dummy_br" />
+    </footer>
+
+</body>
+</html>

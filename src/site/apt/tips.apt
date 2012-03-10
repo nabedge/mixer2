@@ -1,0 +1,309 @@
+ ------
+ TIPS
+ ------
+
+TIPS
+
+* {よく使うメソッド}
+
+ mixer2でのViewプログラミングは、HTMLの各種タグに直接ひもづくクラスに共通に実装されたメソッドが中心となります。
+
+ 共通のメソッドはorg.mixer.xhtml.AbstractJaxbクラスに実装されていますので、
+ まずは{{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html}そのJavaDoc}}をご覧ください。
+
+* {取得する}
+
+ ※ここで紹介している例がすべてではありません。
+ 詳しくは{{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html}javadoc}}を参照。
+
+ <<注意：取得系のメソッドが返すオブジェクトはすべて、コピーではなくリファレンスです。>>
+
+ id属性を使う
+
+----
+// htmlタグ内部を走査してid属性がfooのDivタグを取得する。見つからなければnull。
+Div div = html.getById("foo", Div.class);
+
+// さらにそのdivタグ内を走査してid属性がbarのSpanタグを取得する。見つからなければnull。
+Span span = div.getById("bar", Span.class);
+
+// 上記を1行で済ませたい場合
+Span span = html.getById("foo",Div.class).getById("bar", Span.class);
+
+// ただし、htmlの仕様では一つのwebページ内でid属性はユニークなはずなので、
+// 実際はこれだけで済むはず。
+Span span = html.getById("bar", Span.class);
+
+// <div id="foo">aaa</div> というdivタグの中に文字列を追加する
+html.getById("foo", Div.class).getContent().add("bbb"); // <div id="foo">aaa bbb</div> になる
+
+// <div id="foo">aaa</div> というdivタグの中身を全削除してから文字列を追加する
+html.getById("foo", Div.class).getContent().unsetContent();
+html.getById("foo", Div.class).getContent().add("bbb"); // <div id="foo">bbb</div> になる
+----
+
+ class属性を使う
+
+----
+// htmlタグ内部を走査してid属性がfooのDivタグを返す。
+Div div = html.getById("foo", Div.class);
+
+// さらにそのdivタグ内を走査してclass属性がbarのSpanタグをListで取得する。
+List<Span> spanList = div.getDescendants("bar", Span.class);
+
+// 上記を1行で済ませたい場合
+List<Span> spanList = html.getById("foo", Div.class).getDescendants("bar", Span.class);
+
+// 上で取得したspanタグすべてに対してclass属性に"zzz"を追加する
+// これで <span class="bar zzz">...</span> のようになる
+for (Span span : spanList) {
+    span.addCssclass("zzz"); // 他にもremoveCssclass(), hasCssclass()もあります
+}
+----
+
+~~ TODO あとで追加 * {指定したタグ型へキャスト済みの状態で取得する}
+
+
+* {削除する}
+
+ ※ここで紹介している例がすべてではありません。
+ 詳しくは{{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html}javadoc}}を参照。
+
+----
+// htmlタグ内部を走査してid属性がfooのdivタグを削除する。成功すればtrue、失敗（見つからない）場合はfalse。
+boolean result = html.removeById("foo", Div.class);
+
+// id属性がfooのdivタグの中にあるspanタグをすべて削除する
+html.getById("foo", Div.class).removeDescendants(Span.class);
+
+// id属性がfooのdivタグの中にあるタグのうち、class属性にbarを持つあらゆるタグを削除する
+html.getById("foo", Div.class).removeDescendants("bar");
+
+// id属性がfooのdivタグの中のうち、class属性にbarを持つspanタグを削除する
+html.getById("foo", Div.class).removeDescendants("bar", Span.class);
+----
+
+* {新規にタグを生成する}
+
+----
+// <a id="foo" href="example.html">example</a>というアンカーリンクを作る
+A a = new A();
+a.setid("foo");
+a.setHref("example.html");
+a.getContent().add("example");
+
+// divタグを作って上のアンカーリンクタグを入れる
+Div div = new Div();
+div.getContent.add(a);
+// <div><a id="foo" href="example.html">example</a></div> になる
+----
+
+ 簡単なショートカットもあります。
+
+----
+import static org.mixer2.xhtml.TagCreator.*;
+
+Div div = div();
+// 上は Div div = new Div(); と全く同じです
+
+Div div = divWithId("foo");
+// 上は Div div = new Div(); div.setId("foo"); と全く同じです
+----
+
+* {タグをコピーする}
+
+ copy()メソッドはそのタグのインスタンスのディープコピーをとります。
+ 複雑なコンテンツ、class属性、style属性を持つタグを
+ まったく新規に作成するとコード量が増えてしまいます。
+ 読み込んだテンプレート上に目的のタグの雛型となるものが既にあるのであれば、
+ そのコピーを取って中身を入れ替えて使うと手間が省けます。
+
+----
+Html html = mixer2Engine.loadHtmlTemplate(new File("HelloWorld.html"));
+Div div = html.getById("hellomsg",Div.class).copy(Div.class);
+div.setId("bar");
+div.unsetContent();
+div.getContent().add("Life is beautiful");
+html.getBody().add(div);
+// これで、bodyタグの最後に新たに
+// <div id="bar">Life is beautiful</div>が追加されます。
+// <div id="hellomsg">のタグにclass属性やstyle属性がもともとあった場合
+// には、それもそのままコピーされます。
+// もともとの<div id="hellomsg">のdivタグ自体は変化せずそのまま残ります。
+----
+
+* {置換する}
+
+ ※ここで紹介している例がすべてではありません。
+ 詳しくは{{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html}javadoc}}を参照。
+
+ ※replace系のメソッドでは、replaceのディープコピーで置換されます。
+
+----
+// htmlタグ内部を走査してid属性がfooのタグ（種類は問わない）を、
+// あらかじめ生成しておいたspanタグで置換する。
+// 指定したid属性を持つタグが見つからなければfalse
+Span span = new Span();
+span.getContent.add("abc");
+boolean result = html.replaceById("foo", span);
+----
+
+* {挿入する}
+
+ ※ここで紹介している例がすべてではありません。
+ 詳しくは{{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html}javadoc}}を参照。
+
+ 下のようなテンプレートをloadしたと仮定します。
+
+----
+<html xml:lang="ja" lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<div id="div_main">
+    <div id="div_a">aaaa</div>
+</div>
+</body>
+</html>
+----
+
+ insertAfterId()で新たなspanタグを挿入します
+
+----
+import static org.mixer2.xhtml.TagCreator.*;
+
+Span span = span();
+span.getContent.add("insert!");
+html.insertAfterId("div_a");
+----
+
+ htmlの内部は下のようになります。（抜粋）
+
+----
+<div id="div_main">
+    <div id="div_a">aaaa</div>
+    <span>insert!</span>
+</div>
+----
+
+ \<div id="div_a"\>タグの「中」に挿入するのではなく、「次」に挿入されることに注意してください。
+
+* {型キャストする}
+
+ タグの種類によっては、キャストが必要になります。たとえばtrタグに含まれるのは
+ thタグかtdタグのどちらかなので、たとえば table.getTr().get(0).getThOrTd().get(0) のような形になります。
+ この戻り値の型はFlow型というXHTMLの抽象要素の型になってしまいます。
+
+ そうした場合の型キャストの手間を省くためにcast()メソッドが用意されています。
+ たとえばgetThOrTd()で返される要素がtdだとあらかじめもうわかっている場合には、
+ 次のように書くことができます。
+
+----
+// tableが文字通りTable型だとします。最初の行(tr)の最初のtdを取得する
+Td td = table.getTr().get(0).getThOrTd().get(0).cast(Td.class);
+
+// 上記はこれと同じです。
+Td td = (Td) table.getTr().get(0).getThOrTd().get(0);
+----
+
+ 括弧記号でのキャストよりもわかりやすく、またメソッドチェインを続けて書きやすくなります。
+
+* {繰り返し（ループ）}
+
+ JSPのカスタムタグではループ処理のための専用のカスタムタグを使うことがあります。
+ \<c:foreach\>などです。しかしmixer2では単なるJavaコードで書けるので、
+ 通常よく使うforやwhileをそのまま使うだけです。
+
+ 住所録にある名前をliタグで一覧表示すると想定します。テンプレートは下記だとします。
+
+----
+<ul id="namelist">
+    <li class="foo">ここに名前を表示</li>
+    <li class="foo">ここに名前を表示</li>
+</ul>
+----
+
+ アプリとしては、とにかくliタグを繰り返し出せばよいはずです。
+ ただしclass属性やその他の属性が含まれているようですので、
+ それらは残しつつliタグの中を動的に差し替えながらループさせる必要があります。
+
+ そこで、この例では、最初のliタグのcopyをとっておいてそれを使いまわすようにします。
+
+----
+ArrayList<String> nameArray = new ArrayList<String>();
+nameArray.add("磯野カツオ");
+nameArray.add("花沢花子");
+
+// 目的のulタグを取得する
+Ul ul = html.getById("namelist", Ul.class);
+
+// ulの中の最初のliタグのコピーを取得しておく。
+// さらにそのliタグの中身を空にしておく。属性はそのまま残る。
+Li baseLi = ul.getLi().get(0).copy(Li.class);
+baseLi.getContent().clear();
+
+// ulの中の全てのliタグを削除しておく。
+ul.getLi().clear();
+
+// とっておいたbaseLiのcopyをとって中身に名前を入れながらループする
+for (String name : nameArray) {
+    Li li = baseLi.copy();
+    li.getContent().add(name);
+    ul.getLi().add(li);
+}
+----
+
+ 得られる結果：
+
+----
+<ul id="namelist">
+    <li class="foo">磯野カツオ</li>
+    <li class="foo">花沢花子</li>
+</ul>
+----
+
+ ここではやや長いコードになってしまいましたが、
+ 実際にはメソッド分割などによってよりスッキリとしたコードになるでしょう。
+
+* {部分マーシャル}
+
+ version1.0.4以降、部分マーシャルが可能になりました。
+ 従来はHtmlオブジェクトのみを文字列化（マーシャル）可能でした。
+ つまり \<html\> から \</html\> までを出力することしかできませんでしたが、
+ version1.0.4以降は任意のタグオブジェクトを文字列化可能です。
+
+ ただし、テンプレートは従来どおり\<html\> から \</html\>までが必要です。
+
+ テンプレートの例：
+
+----
+<html xml:lang="ja" lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<body>
+<div id="foo">
+abc
+</div>
+</body>
+</html>
+----
+
+ コード：
+
+----
+html = m2e.loadHtmlTemplate(new File("test.html"));
+Div div = html.getById("foo", Div.class);
+Span span = new Span();
+span.getContent().add("def");
+div.getContent().add(span);
+StringWriter sw = new StringWriter();
+m2e.saveToStringWriter(div, sw);
+System.out.println(sw.toString());
+----
+
+ 結果：
+
+----
+<div id="foo">abc def
+</div>
+----
+
