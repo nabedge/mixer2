@@ -6,7 +6,6 @@
         <encoding>UTF-8</encoding>
         <jdk.version>1.6</jdk.version>
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
-        <cobertura.maven.plugin.version>2.5.1</cobertura.maven.plugin.version>
     </properties>
 
     <groupId>org.mixer2</groupId>
@@ -17,6 +16,12 @@
     <description>Mixer2 is template engine for java. </description>
     <url>http://mixer2.org/</url>
 
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
+
     <organization>
         <name>Project Mixer2</name>
         <url>http://mixer2.org/</url>
@@ -24,7 +29,7 @@
 
     <developers>
         <developer>
-            <id>watanabe</id>
+            <id>nabedge</id>
             <name>watanabe</name>
             <email>nabedge_at_gmail_dot_com</email>
             <url>http://twitter.com/nabedge/</url>
@@ -45,6 +50,19 @@
             <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
         </license>
     </licenses>
+
+    <scm>
+        <connection>scm:git:git://github.com/nabedge/mixer2.git</connection>
+        <developerConnection>scm:git:git://github.com/nabedge/mixer2.git</developerConnection>
+        <url>https://github.com/nabedge/mixer2</url>
+    </scm>
+
+    <distributionManagement>
+        <site>
+            <id>edge.mixer2.org</id>
+            <url>dav:http://edge.mixer2.org/site</url>
+        </site>
+    </distributionManagement>
 
     <dependencies>
         <dependency>
@@ -142,6 +160,23 @@
                         <phase>package</phase>
                         <goals>
                             <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.4</version>
+                <configuration>
+                    <keyname>nabedge</keyname>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>sign</goal>
                         </goals>
                     </execution>
                 </executions>
