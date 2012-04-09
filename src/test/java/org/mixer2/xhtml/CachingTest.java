@@ -10,7 +10,6 @@ import javax.cache.CacheBuilder;
 import javax.cache.CacheManager;
 import javax.cache.Caching;
 
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import org.mixer2.Mixer2Engine;
@@ -23,17 +22,12 @@ public class CachingTest {
     private String templateFileName2 = "sample-html5.html";
     private String templateFilePath;
     private String templateFilePath2;
-    private static Mixer2Engine m2e = new Mixer2Engine();
-
-    @AfterClass
-    public static void afterClass() {
-        m2e = null;
-    }
+    private Mixer2Engine m2e = new Mixer2Engine();
 
     @Before
-    public void init() throws IOException {
+    public void before() {
         CacheManager cacheManager = Caching.getCacheManager();
-        CacheBuilder<String,Html> cacheBuilder = cacheManager.createCacheBuilder("org.mixer2.jaxb.xhtml");
+        CacheBuilder<String,Html> cacheBuilder = cacheManager.createCacheBuilder("testCache");
         Cache<String, Html> cache = cacheBuilder.build();
         m2e.setCache(cache);
         templateFilePath = getClass().getResource(templateFileName).toString();
@@ -63,7 +57,7 @@ public class CachingTest {
     @Test
     public void loopWithCache() throws IOException {
         File file;
-        for (int i=0; i<5000; i++) {
+        for (int i=0; i<1000; i++) {
             if (i%2 == 0) {
                 file = new File(templateFilePath);
             } else {
@@ -76,7 +70,7 @@ public class CachingTest {
     @Test
     public void loopWithoutCache() throws IOException {
         File file;
-        for (int i=0; i<5000; i++) {
+        for (int i=0; i<1000; i++) {
             if (i%2 == 1) {
                 file = new File(templateFilePath);
             } else {
