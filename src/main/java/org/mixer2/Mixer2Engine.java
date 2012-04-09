@@ -11,6 +11,7 @@ import java.nio.charset.Charset;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.cache.Cache;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -26,6 +27,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.mixer2.jaxb.xhtml.Html;
@@ -34,19 +36,21 @@ import org.mixer2.xhtml.NamedEntityEnum;
 import org.mixer2.xhtml.TagCustomizeWriter;
 
 /**
- * <p>
- * mixer2のエンジンです。現在はxhtml1.0またはhtml5のXML構文で書かれたテンプレートだけを取り扱います
- * </p>
- * <p>
- * このクラスのインスタンスは、APサーバもしくはDIコンテナ内において、 singletonとして使いまわすことをお勧めします。
- * </p>
+ * mixer2のエンジンです。現在はxhtml1.0またはhtml5の
+ * XML構文で書かれたテンプレートだけを取り扱います
+ * このクラスのインスタンスは、APサーバもしくはDIコンテナ内において、
+ * singletonとして使いまわすことをお勧めします。
+ *
+ * テンプレート上にDOCTYPE宣言が指定されていてもそれは削除されます。
  *
  * @author watanabe
  *
  */
 public class Mixer2Engine {
 
-    private JAXBContext jaxbContext;
+    private JAXBContext jaxbContext = null;
+
+    private Cache<String, Html> cache = null;
 
     private static Log log = LogFactory.getLog(Mixer2Engine.class);
 
@@ -55,32 +59,87 @@ public class Mixer2Engine {
     }
 
     /**
+     * unmarshal済みのテンプレートをキャッシュするためのオブジェクトをセットします。
+     * キャッシュのキーはStringで、テンプレート文字列自体のsha1ハッシュ値が自動的に使われます。
+     *
+     * @param cache
+     */
+    public void setCache(Cache<String, Html> cache) {
+        this.cache = cache;
+    }
+
+    /**
      * 初期化です。 インスタンス化する際にコンストラクタから自動的に呼び出されます。
      *
      */
     public synchronized void init() {
         log.info("initializing mixer2 engine...");
-        //
         try {
             jaxbContext = JAXBContext.newInstance("org.mixer2.jaxb.xhtml");
         } catch (JAXBException e) {
             log.fatal("can't make newInstance of JAXBContext.");
             e.printStackTrace();
         }
-        //
-        // xmlOutputFactory = XMLOutputFactory.newInstance();
+    }
+
+    /**
+     * テンプレート文字列をJAXBのHtmlオブジェクト型にロード（unmarshal)します。
+     * cacheがある場合にはそれを返します。
+     * cacheがない場合にはFileをunmarshalした結果をcacheに保存しつつそれを返します。
+     */
+    public Html loadHtmlTemplateThroughCache(StringBuffer sb) {
+        Html html = null;
+        String cacheKey = DigestUtils.shaHex(sb.toString());
+        if (cache == null) {
+            if (log.isDebugEnabled()) {
+                log.debug("cache object is null. processing without cache...");
+            }
+        } else {
+            html = cache.get(cacheKey);
+            if (log.isDebugEnabled() && html != null) {
+                log.debug("cache hit ! " + cacheKey);
+            }
+        }
+        if (html == null) {
+            html = loadHtmlTemplate(sb);
+            if (cache != null) {
+                cache.putIfAbsent(cacheKey, html);
+            }
+        }
+        return html;
+    }
+
+    /**
+     * テンプレート文字列をJAXBのHtmlオブジェクト型にロード（unmarshal)します。
+     * cacheがある場合にはそれを返します。
+     * cacheがない場合にはFileをunmarshalした結果をcacheに保存しつつそれを返します。
+     *
+     * @throws IOException
+     *
+     */
+    public Html loadHtmlTemplateThroughCache(File file) throws IOException {
+        StringBuffer sb = fileToStringBuffer(file);
+        return loadHtmlTemplateThroughCache(sb);
+    }
+
+    /**
+     * <p>
+     * テンプレートファイルをJAXBのHtmlオブジェクト型にロード（unmarshal)します。
+     * cacheがある場合にはそれを返します。
+     * cacheがない場合にはFileをunmarshalした結果をcacheに保存しつつそれを返します。
+     * </p>
+     */
+    public Html loadHtmlTemplateThroughCache(String str) {
+        StringBuffer sb = new StringBuffer(str);
+        return loadHtmlTemplateThroughCache(sb);
     }
 
     /**
      * <p>
      * テンプレート文字列をJAXBのHtmlオブジェクト型にロード（unmarshal)します。
      * </p>
-     * <p>
-     * テンプレート上にDOCTYPE宣言が指定されていてもそれは削除されます。
-     * </p>
-     *
      */
-    public Html loadHtmlTemplate(StringBuffer sb) throws IOException {
+    public Html loadHtmlTemplate(StringBuffer sb) {
         Html html = null;
         sb = removeDoctypeDeclaration(sb);
         sb = replaceNamedEntity(sb);
@@ -96,25 +155,16 @@ public class Mixer2Engine {
     }
 
     /**
-     * <p>
      * テンプレートファイルをJAXBのHtmlオブジェクト型にロード（unmarshal)します。
-     * </p>
-     * <p>
-     * テンプレート上にDOCTYPE宣言が指定されていてもそれは削除されます。
-     * </p>
-     *
      */
     public Html loadHtmlTemplate(File file) throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader(file));
-        StringBuffer sb = new StringBuffer();
-        while (br.ready()) {
-            sb.append(br.readLine());
-        }
-        br.close();
-        return loadHtmlTemplate(sb);
+        return loadHtmlTemplate(fileToStringBuffer(file));
     }
 
-    public Html loadHtmlTemplate(String str) throws IOException {
+    /**
+     * テンプレートファイルをJAXBのHtmlオブジェクト型にロード（unmarshal)します。
+     */
+    public Html loadHtmlTemplate(String str) {
         StringBuffer sb = new StringBuffer(str);
         return loadHtmlTemplate(sb);
     }
@@ -131,7 +181,6 @@ public class Mixer2Engine {
 
     /**
      * 任意のタグのオブジェクトをmarshalして指定されたStringWriterに書き込みます。
-     *
      */
     public <T extends AbstractJaxb> void saveToStringWriter(T tag,
             StringWriter writer) {
@@ -175,7 +224,6 @@ public class Mixer2Engine {
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION,
                     "yes");
-            // transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount",String.valueOf(1));
             transformer.transform(new StreamSource(xml), new StreamResult(
                     writer));
         } catch (TransformerConfigurationException e) {
@@ -189,7 +237,6 @@ public class Mixer2Engine {
 
     /**
      * DOCTYPE宣言を除去します。
-     *
      */
     public StringBuffer removeDoctypeDeclaration(StringBuffer sb) {
         if (sb == null) {
@@ -199,15 +246,18 @@ public class Mixer2Engine {
         Pattern ptn = Pattern.compile(patternStr, Pattern.DOTALL);
         Matcher m = ptn.matcher(sb);
         if (m.find()) {
-            return new StringBuffer(m.group(1).trim() + "\n" + m.group(2).trim());
+            return new StringBuffer(m.group(1).trim() + "\n"
+                    + m.group(2).trim());
         } else {
             return sb;
         }
     }
 
     /**
-     * 文字列内の&amp;copy; や &amp;trade; のようなHTMLの特殊文字の参照を、数値実体参照に置換します。
+     * 文字列内の&amp;copy; や &amp;trade; のようなHTMLの特殊文字の参照を、
+     * 数値実体参照に置換します。
      * 主にxhtmlテンプレートをHtmlオブジェクトにunmarshalする直前に使用します。
+     *
      * @param sb xhtmlテンプレート
      * @return 該当箇所を置換したxhtmlテンプレート
      */
@@ -218,6 +268,22 @@ public class Mixer2Engine {
                 sb.replace(i, i + nEnum.getName().length(), nEnum.getNumber());
             }
         }
+        return sb;
+    }
+
+    public void removeAllCache() {
+        if (this.cache != null) {
+            cache.removeAll();
+        }
+    }
+
+    private StringBuffer fileToStringBuffer(File file) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        StringBuffer sb = new StringBuffer();
+        while (br.ready()) {
+            sb.append(br.readLine());
+        }
+        br.close();
         return sb;
     }
 
