@@ -19,8 +19,10 @@ import org.mixer2.jaxb.xhtml.Html;
 
 public class CachingTest {
 
-    private String templateFileName = "sample-html5.html";
+    private String templateFileName = "sample.html";
+    private String templateFileName2 = "sample-html5.html";
     private String templateFilePath;
+    private String templateFilePath2;
     private static Mixer2Engine m2e = new Mixer2Engine();
 
     @AfterClass
@@ -35,15 +37,18 @@ public class CachingTest {
         Cache<String, Html> cache = cacheBuilder.build();
         m2e.setCache(cache);
         templateFilePath = getClass().getResource(templateFileName).toString();
+        templateFilePath2 = getClass().getResource(templateFileName2).toString();
         String osname = System.getProperty("os.name");
         if(osname.indexOf("Windows")>=0){
             templateFilePath = templateFilePath.replaceFirst("file:/", "");
+            templateFilePath2 = templateFilePath2.replaceFirst("file:/", "");
         } else {
             templateFilePath = templateFilePath.replaceFirst("file:", "");
+            templateFilePath2 = templateFilePath2.replaceFirst("file:", "");
         }
     }
 
-    @Test
+    @Test()
     public void test01() throws IOException {
         Html html = m2e.loadHtmlTemplate(new File(templateFilePath));
         Html html2;
@@ -52,6 +57,33 @@ public class CachingTest {
         // get from cache
         html2 = m2e.loadHtmlTemplateThroughCache(new File(templateFilePath));
         assertEquals(m2e.saveToString(html), m2e.saveToString(html2));
+        //System.out.println(m2e.saveToString(html2));
+    }
+
+    @Test
+    public void loopWithCache() throws IOException {
+        File file;
+        for (int i=0; i<5000; i++) {
+            if (i%2 == 0) {
+                file = new File(templateFilePath);
+            } else {
+                file = new File(templateFilePath2);
+            }
+            m2e.loadHtmlTemplateThroughCache(file);
+        }
+    }
+
+    @Test
+    public void loopWithoutCache() throws IOException {
+        File file;
+        for (int i=0; i<5000; i++) {
+            if (i%2 == 1) {
+                file = new File(templateFilePath);
+            } else {
+                file = new File(templateFilePath2);
+            }
+            m2e.loadHtmlTemplate(file);
+        }
     }
 
 }

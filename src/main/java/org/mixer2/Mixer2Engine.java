@@ -83,8 +83,8 @@ public class Mixer2Engine {
     }
 
     /**
-     * テンプレート文字列をJAXBのHtmlオブジェクト型にロード（unmarshal)します。
-     * cacheがある場合にはそれを返します。
+     * テンプレートをJAXBのHtmlオブジェクト型にロード（unmarshal)します。
+     * ただし、既にcacheがある場合にはそれを返します。
      * cacheがない場合にはFileをunmarshalした結果をcacheに保存しつつそれを返します。
      */
     public Html loadHtmlTemplateThroughCache(StringBuffer sb) {
@@ -124,7 +124,7 @@ public class Mixer2Engine {
 
     /**
      * <p>
-     * テンプレートファイルをJAXBのHtmlオブジェクト型にロード（unmarshal)します。
+     * テンプレートをJAXBのHtmlオブジェクト型にロード（unmarshal)します。
      * cacheがある場合にはそれを返します。
      * cacheがない場合にはFileをunmarshalした結果をcacheに保存しつつそれを返します。
      * </p>
@@ -136,7 +136,7 @@ public class Mixer2Engine {
 
     /**
      * <p>
-     * テンプレート文字列をJAXBのHtmlオブジェクト型にロード（unmarshal)します。
+     * テンプレートをJAXBのHtmlオブジェクト型にロード（unmarshal)します。
      * </p>
      */
     public Html loadHtmlTemplate(StringBuffer sb) {
@@ -162,7 +162,7 @@ public class Mixer2Engine {
     }
 
     /**
-     * テンプレートファイルをJAXBのHtmlオブジェクト型にロード（unmarshal)します。
+     * テンプレートをJAXBのHtmlオブジェクト型にロード（unmarshal)します。
      */
     public Html loadHtmlTemplate(String str) {
         StringBuffer sb = new StringBuffer(str);
