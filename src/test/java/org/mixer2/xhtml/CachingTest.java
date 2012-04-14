@@ -18,10 +18,8 @@ import org.mixer2.jaxb.xhtml.Html;
 
 public class CachingTest {
 
-    private String templateFileName = "sample.html";
-    private String templateFileName2 = "sample-html5.html";
+    private String templateFileName = "sample-xhtml1-transitional.html";
     private String templateFilePath;
-    private String templateFilePath2;
     private Mixer2Engine m2e = new Mixer2Engine();
 
     @Before
@@ -31,14 +29,11 @@ public class CachingTest {
         Cache<String, Html> cache = cacheBuilder.build();
         m2e.setCache(cache);
         templateFilePath = getClass().getResource(templateFileName).toString();
-        templateFilePath2 = getClass().getResource(templateFileName2).toString();
         String osname = System.getProperty("os.name");
         if(osname.indexOf("Windows")>=0){
             templateFilePath = templateFilePath.replaceFirst("file:/", "");
-            templateFilePath2 = templateFilePath2.replaceFirst("file:/", "");
         } else {
             templateFilePath = templateFilePath.replaceFirst("file:", "");
-            templateFilePath2 = templateFilePath2.replaceFirst("file:", "");
         }
     }
 
@@ -58,11 +53,7 @@ public class CachingTest {
     public void loopWithCache() throws IOException {
         File file;
         for (int i=0; i<1000; i++) {
-            if (i%2 == 0) {
-                file = new File(templateFilePath);
-            } else {
-                file = new File(templateFilePath2);
-            }
+            file = new File(templateFilePath);
             m2e.loadHtmlTemplateThroughCache(file);
         }
     }
@@ -71,11 +62,7 @@ public class CachingTest {
     public void loopWithoutCache() throws IOException {
         File file;
         for (int i=0; i<1000; i++) {
-            if (i%2 == 1) {
-                file = new File(templateFilePath);
-            } else {
-                file = new File(templateFilePath2);
-            }
+            file = new File(templateFilePath);
             m2e.loadHtmlTemplate(file);
         }
     }
