@@ -1,13 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <properties>
-        <encoding>UTF-8</encoding>
-        <jdk.version>1.6</jdk.version>
-        <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
-    </properties>
-
     <groupId>org.mixer2</groupId>
     <artifactId>mixer2</artifactId>
     <version>1.1.2-SNAPSHOT</version>
@@ -16,11 +9,24 @@
     <description>Mixer2 is template engine for java. </description>
     <url>http://mixer2.org/</url>
 
+    <scm>
+        <connection>scm:git:ssh://github.com/nabedge/mixer2.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/nabedge/mixer2.git</developerConnection>
+        <url>https://github.com/nabedge/mixer2</url>
+    </scm>
+
     <!-- <parent> -->
     <!-- <groupId>org.sonatype.oss</groupId> -->
     <!-- <artifactId>oss-parent</artifactId> -->
     <!-- <version>7</version> -->
     <!-- </parent> -->
+
+    <properties>
+        <encoding>UTF-8</encoding>
+        <jdk.version>1.6</jdk.version>
+        <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+    </properties>
 
     <organization>
         <name>Project Mixer2</name>
@@ -50,12 +56,6 @@
             <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
         </license>
     </licenses>
-
-    <scm>
-        <connection>scm:git:ssh://github.com/nabedge/mixer2.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/nabedge/mixer2.git</developerConnection>
-        <url>https://github.com/nabedge/mixer2</url>
-    </scm>
 
 <!--     <distributionManagement> -->
 <!--         <repository> -->
