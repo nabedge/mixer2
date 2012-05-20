@@ -167,7 +167,7 @@
                     <charset>${encoding}</charset>
                     <encoding>${encoding}</encoding>
                     <docencoding>UTF-8</docencoding>
-                    <maxmemory>256m</maxmemory>
+                    <maxmemory>128m</maxmemory>
                 </configuration>
                 <executions>
                     <execution>
