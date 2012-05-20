@@ -1,0 +1,38 @@
+ ------
+ Release Note
+ ------
+
+Release Note
+
+ * 1.0.0 2011-02-05 first release.
+
+ * 1.0.1 2011-02-11 cast()メソッドを追加
+
+ * 1.0.2 2011-02-17 addCssclass(), removeCssclass(), hasCssclass() の各メソッドを追加
+
+ * 1.0.3 2011-03-04
+
+   * getById(String id, Class\<T\> tagType) のシグネチャ違いの別メソッドとして getById(String id) を追加。
+
+   * AbstractJaxbクラスに getId(), setId(), isSetId() を追加。インスタンスの型がAbstractJaxbのままでもid属性を操作するため。
+
+   * unsetAllId()を追加。子孫要素のid属性をすべて削除できます。
+
+   []
+
+ * 1.0.4 2011-03-19 部分マーシャル機能を追加
+
+ * 1.0.5 2011-04-17
+
+   * FormUtilクラスを追加。JavaBeanの内容を使って自動的にformタグの内部（inputタグ等）に値をセットすることができます。
+
+   * ビルド用のmavenをmaven3からmaven2にバージョンダウンした。それに伴ってpom.xmlの内容も一部変更した。
+
+   []
+
+ * 1.0.6 2011-04-20 FormUtilクラスのバグを修正
+
+ * 1.1.10 2011-07-31 html5対応
+ 
+ []
+

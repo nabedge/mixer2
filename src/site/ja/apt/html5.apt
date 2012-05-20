@@ -1,0 +1,101 @@
+ ------
+ html5
+ ------
+
+HTML5
+
+ mixer2はversion1.1.0以降でhtml5にも対応しています。
+ ただし、テンプレートはhtml5をXML構文で書く必要があります。
+
+* {Hello World (html5 version)}
+
+ テンプレートです
+
+----
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <article>
+        <section>
+            <h1>headline</h1>
+            <p id="hellomsg">here comes hello message</p>
+        </section>
+    </article>
+</body>
+<html>
+----
+
+ Javaコードです。
+
+----
+import java.io.File;
+import org.mixer2.Mixer2Engine;
+import org.mixer2.jaxb.xhtml.P;
+import org.mixer2.jaxb.xhtml.Html;
+
+public class HelloWorld {
+
+    public static void main(String[] args) throws Exception {
+        Mixer2Engine m2e = new Mixer2Engine();
+        Html html = m2e.loadHtmlTemplate(new File("HelloWorld.html"));
+        html.getById("hellomsg",P.class).getContent().clear();
+        html.getById("hellomsg",P.class).getContent().add("Hello World !");
+        System.out.println(m2e.saveToString(html));
+    }
+
+}
+----
+
+ 実行結果です。
+
+----
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta charset="utf-8"/>
+</head>
+<body>
+<article>
+<section>
+<h1>headline</h1>
+<p id="hellomsg">Hello World !</p>
+</section>
+</article>
+</body>
+</html>
+----
+
+* {html5のXML構文}
+
+ たとえば \<br\> ではなく \<br /\> と書くべきことはもちろんですが、属性などの書き方にも注意が必要です。
+
+*----:-----------------------------------------------+
+| NG | \<input type="email" required\>               |
+*----:-----------------------------------------------+
+| OK | \<input type="email" required="required" /\>  |
+*----:-----------------------------------------------+
+
+* {data-*属性、aria-*属性}
+
+ html5では、すべてのタグにおいて、属性名の先頭が data- や aria- の任意の名称の属性を
+ つけることが許されています。
+ mixer2ではそれらを簡単に取り扱うためのメソッドも用意されています。
+
+----
+import static org.mixer2.xhtml.TagCreator.*;
+
+Div div = div();
+div.setData("foo", "bar");
+// これで <div data-foo="bar"></div> を作ることができます。
+----
+
+----
+// htmlテンプレート上に <div id="fooid" data-foo="bar">abc...</div> があるとして、
+String foo = html.getById("fooid", Div.class).getData("foo");
+// String型変数fooには"bar"が入ります。
+----
+
+ aria属性も同様に、getAria(), setAria()メソッドが用意されています。
+

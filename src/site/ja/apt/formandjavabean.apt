@@ -1,0 +1,185 @@
+ ------
+ Form and JavaBean
+ ------
+
+Form and JavaBean
+
+ FormUtilクラスを使うと、一般的なJavaBeanの内容を、
+ form内のinputやselectのようなタグの内容にあてはめて出力させることができます。
+
+ template:
+
+----
+<html xml:lang="ja" lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<form id="the_form">
+<table>
+<tr>
+<td>Full Name:</td>
+<td><input name="fullName" type="text" /></td>
+</tr>
+<tr>
+<td>Sex:</td>
+<td>male:<input name="sex" type="radio" value="male" /><br />
+    female:<input name="sex" type="radio" value="female" /></td>
+</tr>
+<tr>
+<td>Subscribe to newsletter?:</td>
+<td><input name="subscribeNewsLetter" type="checkbox" value="true" /></td>
+</tr>
+<tr>
+<td>Country:</td>
+<td>
+    <select name="country">
+        <option value="Japan">Japan</option>
+        <option value="China">China</option>
+        <option value="U.K">U.K</option>
+    </select>
+</td>
+</tr>
+<tr>
+<td>Interests:</td>
+<td>
+    Quidditch: <input type="checkbox" name="interests" value="Quidditch" /><br />
+    Herbology: <input type="checkbox" name="interests" value="Herbology" /><br />
+    Defence Against the Dark Arts: <input type="checkbox" name="interests"
+        value="Defence Against the Dark Arts" />
+</td>
+</tr>
+</table>
+</form>
+
+</body>
+</html>
+----
+
+ show on browser:
+
+[../images/formandjavabean_before.png]
+
+ Java Bean code:
+
+----
+    public class Bean {
+
+        private String fullName;
+        private String sex;
+        private boolean subscribeNewsLetter;
+        private String country;
+        private String[] interests;
+
+        public String getFullName() {
+            return fullName;
+        }
+        public void setFullName(String fullName) {
+            this.fullName = fullName;
+        }
+        public String getSex() {
+            return sex;
+        }
+        public void setSex(String sex) {
+            this.sex = sex;
+        }
+        public boolean isSubscribeNewsLetter() {
+            return subscribeNewsLetter;
+        }
+        public void setSubscribeNewsLetter(boolean subscribeNewsLetter) {
+            this.subscribeNewsLetter = subscribeNewsLetter;
+        }
+        public String getCountry() {
+            return country;
+        }
+        public void setCountry(String country) {
+            this.country = country;
+        }
+        public String[] getInterests() {
+            return interests;
+        }
+        public void setInterests(String[] interests) {
+            this.interests = interests;
+        }
+    }
+----
+
+ application code:
+
+----
+public class Foo {
+
+    public static void main(String[] args) throws Exception {
+        Mixer2Engine m2e = new Mixer2Engine();
+        Html html = m2e.loadHtmlTemplate(new File("template.html"));
+        Form form = html.getById("the_form", Form.class);
+
+        Bean bean = new Bean();
+        bean.setFullName("Hally Potter");
+        bean.setSex("male");
+        bean.setSubscribeNewsLetter(false);
+        bean.setCountry("U.K");
+        bean.setInterests(new String[]{"Quidditch","Defence Against the Dark Arts"});
+
+        FormUtil.populateForm(form, bean);
+        System.out.println(m2e.saveToString(html));
+    }
+
+}
+
+----
+
+ output:
+
+----
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<form id="the_form">
+<table>
+<tr>
+<td>Full Name:</td>
+<td>
+<input value="Harry Potter" name="fullName" type="text"/>
+</td>
+</tr>
+<tr>
+<td>Sex:</td>
+<td>male:<input checked="checked" value="male" name="sex" type="radio"/>
+<br/>    female:<input value="female" name="sex" type="radio"/>
+</td>
+</tr>
+<tr>
+<td>Subscribe to newsletter?:</td>
+<td>
+<input checked="checked" value="true" name="subscribeNewsLetter" type="checkbox"/>
+</td>
+</tr>
+<tr>
+<td>Country:</td>
+<td>    <select name="country">
+<option value="Japan">Japan</option>
+<option value="China">China</option>
+<option value="U.K" selected="selected">U.K</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>Interests:</td>
+<td>    Quidditch: <input checked="checked" value="Quidditch" name="interests" type="checkbox"/>
+<br/>    Herbology: <input value="Herbology" name="interests" type="checkbox"/>
+<br/>    Defence Against the Dark Arts: <input checked="checked" value="Defence Against the Dark Arts" name="interests" type="checkbox"/>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+----
+
+ show on browser:
+
+[../images/formandjavabean_after.png]

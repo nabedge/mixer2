@@ -1,0 +1,158 @@
+ ------
+ SAStruts Sample
+ ------
+
+SAStruts Sample
+
+ {{{http://sastruts.seasar.org/}SAStruts (Super Agile Struts)}}は、
+ DIコンテナとして有名なSeasar2のサブプロジェクトとして提供されているWebアプリケーションフレームワークです。
+
+ ここではSAStrutsのViewとしてmixer2を利用するサンプルを紹介します。
+ HelloWorldレベルのサンプルと、もう少し複雑な画面のサンプルです。
+
+準備
+
+ {{{http://dolteng.sandbox.seasar.org/}Dolteng(どぅるてん)}}という、
+ SAStruts開発用のeclipseプラグインを利用しますので、eclipseとDoltengを準備してください。
+
+ また、mavenも使いますので、
+ {{{http://www.google.co.jp/search?q=m2eclipse}m2eclipseプラグイン}}もインストールしておいてください。
+
+ 準備ができたら、{{{http://dolteng.sandbox.seasar.org/usage.html}Doltengの使い方}}に沿って、
+ 新規プロジェクトを作成してください。
+ プロジェクト・ファセット設定」の「表示」のところでは、「SAStruts」を選択してください。
+ プロジェクトが作成されたらTomcatで起動して、
+ ブラウザ上に「Hello World」が表示されることを確認してください。
+
+ 以降、このサンプルプロジェクトをベースに説明します。
+
+Hello World on SAStruts
+
+* {jarの追加}
+
+ mixer2-x.x.x.jarをダウンロードしてサンプルプロジェクトのsrc/main/webapp/WEB-INF/libに置き、
+ ビルド・パスに追加しておきます。
+
+ なお、mixer2はcommons-lang-2.5.jarとcommons-logging-1.1.1.jarに依存しているので、これらも同様に
+ WEB-INF/lib配下に置いてビルドパスに追加します。
+
+ mavenを使う場合には{{{download.html}download}}にあるようにpom.xmlにdependencyを追加するだけで大丈夫です。
+
+* {Mixer2Engineのコンポーネント登録}
+
+ src/main/resources配下にあるapp.diconにMixer2Engineのコンポーネントを登録します。
+
+----
+<components>
+  <include path="convention.dicon"/>
+  <include path="aop.dicon"/>
+  <include path="j2ee.dicon"/>
+  <include path="s2jdbc.dicon"/>
+  <component name="actionMessagesThrowsInterceptor"
+      class="org.seasar.struts.interceptor.ActionMessagesThrowsInterceptor"/>
+
+  <component name="mixer2Engine" class="org.mixer2.Mixer2Engine"  />
+
+</components>
+
+----
+
+* {テンプレートを書く}
+
+ src/main/resources/ の直下に、 HelloWorld.html という名前で下のようなテンプレートを作ります。
+
+----
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<div id="hellomsg">here comes message.</div>
+</body>
+</html>
+----
+
+* {Actionクラスの改造}
+
+ src/main/java/[パッケージ名]/action/IndexAction.java を開いてください。
+ 最初は下のようになっているはずです。
+
+----
+import org.seasar.struts.annotation.Execute;
+
+public class IndexAction {
+
+    @Execute(validator = false)
+    public String index() {
+        return "index.jsp";
+    }
+}
+----
+
+ これを、下のように改造します。
+
+----
+import java.io.File;
+import java.io.IOException;
+
+import javax.annotation.Resource;
+
+import org.mixer2.Mixer2Engine;
+import org.mixer2.jaxb.xhtml.Div;
+import org.mixer2.jaxb.xhtml.Html;
+import org.mixer2.xhtml.exception.TagTypeUnmatchException;
+import org.seasar.framework.util.ResourceUtil;
+import org.seasar.struts.annotation.Execute;
+
+public class IndexAction {
+
+    @Resource
+    Mixer2Engine mixer2Engine;
+
+    public String htmlString;
+
+    @Execute(validator = false)
+    public String index() throws IOException, TagTypeUnmatchException {
+        File file = ResourceUtil.getResourceAsFile("HelloWorld.html");
+        Html html = mixer2Engine.loadHtmlTemplate(file);
+        html.getById("hellomsg", Div.class).getContent().clear();
+        html.getById("hellomsg", Div.class).getContent().add("Hello World!");
+        htmlString = mixer2Engine.saveToString(html);
+        return "index.jsp";
+    }
+}
+----
+
+* {JSPの改造}
+
+ src/main/webapp/WEB-INF/view/index.jsp を開きます。
+ 最初は下のようになっているはずです。
+
+----
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Dolteng Auto Generated</title>
+</head>
+<body>
+<h1>Hello World!</h1>
+</body>
+</html>
+----
+
+ これを、下のように書きなおします。
+
+----
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<bean:write name="htmlString" filter="false" />
+----
+
+ たった3行のシンプルなJSPになりました。DOCTYPE宣言をあらためて書いているのは、
+ mixer2がDOCTYPE宣言を無かったことにしてしまうためです。(FAQ参照)
+
+ 改造はこれで終わりです。
+ ブラウザで確認して、Hello Worldが表示されていることを確認してください。
+

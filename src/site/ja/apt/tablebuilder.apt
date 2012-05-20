@@ -1,0 +1,285 @@
+ ------
+ TableBuilder
+ ------
+
+TableBuilder
+
+ TableBuilderクラスを使うと、table,tr,tdタグを使ったテーブルを楽に組めます。
+ なお、TableBuilderクラスはスレッドセーフではありません。
+ メソッド内で new TableBuilder() した後、
+ そのメソッド内でbuild()まで実行して目的のタグオブジェクトを生成してしまうことをお勧めします。
+
+ template:
+
+----
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ja" lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<h1>search result</h1>
+
+<span class="comment">プログラマーさんへ。最初の1行はそのままで、
+残りの行にDBの値を入れてください。</span>
+
+<table id="search_result" border="1">
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>price</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>fooooooooooo</td>
+        <td>999999999999</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>barrrrrrrrrrr</td>
+        <td>9999999999999</td>
+    </tr>
+</table>
+
+</body>
+</html>
+----
+
+ show on browser:
+
+[./images/tablebuilder_before.png]
+
+ Java code:
+
+----
+    // テンプレートファイルがFile型ですでに取得済みと想定します。
+    // テンプレートをロードします。
+    Html html = mixer2Engine.loadHtmlTemplate(templateFile);
+
+    // commentというclass属性を含むタグは、デザイナーからプログラマーへの
+    // 伝言のようです。実際の画面上では必要ないので、消します。
+    html.removeDescendants("comment");
+
+    // tableに入れたいデータです。本来はDB情報などを取得します。
+    String[][] data = new String[][]{
+            // id, name, price
+            {"1", "cookie", "2.50"},
+            {"2", "candy",  "3.75"}
+    };
+
+    // これでtableタグができます。
+    TableBuilder tBuilder = new TableBuilder();
+    for (String[] row : data) {
+        tBuilder.addTr()
+                .addTd(row[0])
+                .addTd(row[1])
+                .addTd(row[2]);
+    }
+    Table newtable = tBuilder.build();
+
+    // テンプレート上のテーブルタグにはid属性やborder属性があります。
+    // また、最初のtrはid,name,priceといったヘッダ情報なので、残しておきたいです。
+    // このような情報を残しておくために、tableタグ自体を入れ替えるのではなく、
+    // tableタグ内部のtrタグを入れ替えます。
+    Table table = html.getById("search_result", Table.class);
+    Tr headTr = table.getTr().get(0);
+    table.getTr().clear();
+    table.getTr().add(headTr);
+    table.getTr().addAll(newtable.getTr());
+
+    System.out.println(mixer2Engine.saveToString(html));
+----
+
+ output:
+
+----
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+</head>
+<body>
+<h1>search result</h1>
+<table id="search_result" border="1">
+<tr>
+<td>id</td>
+<td>name</td>
+<td>price</td>
+</tr>
+<tr>
+<td>1</td>
+<td>cookie</td>
+<td>2.50</td>
+</tr>
+<tr>
+<td>2</td>
+<td>candy</td>
+<td>3.75</td>
+</tr>
+</table>
+</body>
+</html>
+----
+
+ show on browser:
+
+[./images/tablebuilder_after.png]
+
+* {tr,tdについて}
+
+ 例えば tr(0).td(0) のようにして特定の位置のセルにアクセスすることができます。
+ その位置にまだセルが無い場合には自動的に生成されます。
+
+----
+TableBuilder tableBuilder = new TableBuilder();
+tableBuilder.tr(0).td(0).add("a");
+tableBuilder.tr(0).td(1).add("b");
+tableBuilder.tr(1).td(0).add("c");
+tableBuilder.tr(1).td(1).add("d");
+Table table = tableBuilder.build();
+
+/*
+tableは下記のようになります。
+<table>
+<tr>
+  <td>a</td>
+  <td>b</td>
+</tr>
+<tr>
+  <td>c</td>
+  <td>d</td>
+</tr>
+</table>
+*/
+----
+
+* {addTr(List\<Object\>)}
+
+ 一部のメソッドはListを受け取ってそのままテーブルのセルを組み立てることができます。
+
+----
+ArrayList<Object> data = new ArrayList<Object>();
+B b = new B();
+b.getContent.add("bold!");
+data.add("normal");
+data.add(b);
+
+TableBuilder tableBuilder = new TableBuilder();
+tableBuilder.addTr(data);
+
+/*
+tableは下記のようになります。
+<table>
+<tr>
+  <td>normal</td>
+  <td><b>bold!</b></td>
+</tr>
+</table>
+*/
+----
+
+* {method chain}
+
+ 一部のメソッドは tr(0).addTd("foo").addTd("bar") のように連続させることができます。
+
+----
+TableBuilder tableBuilder = new TableBuilder();
+tableBuilder.tr(0).addTd("a").addTd("b").addTd("c");
+
+/*
+tableは下記のようになります。
+<table>
+<tr>
+  <td>a</td>
+  <td>b</td>
+  <td>c</td>
+</tr>
+</table>
+*/
+----
+
+* {tbody, thead, tfootについて}
+
+----
+TableBuilder tableBuilder = new TableBuilder();
+tableBuilder.thead.tr(0).addTd("id").addTd("name").addTd("price");
+tableBuilder.tbody(0).tr(0).addTd(1).addTd("cookie").addTd("2.75");
+tableBuilder.tbody(0).tr(1).addTd(2).addTd("candy").addTd("3.25");
+
+/*
+tableは下記のようになります。
+<table>
+<thead>
+<tr>
+  <td>id</td>
+  <td>name</td>
+  <td>price</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td>cookie</td>
+  <td>2.75</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>candy</td>
+  <td>3.25</td>
+</tr>
+</tbody>
+</table>
+*/
+----
+
+ tfootも、上のtheadと同様に出力可能です。
+
+* {タグの生成}
+
+ tableタグだけでなく、tr,tbody,thead,tfootの各タグについても
+ 独立して生成させることができます。
+
+----
+TableBuilder tableBuilder = new TableBuilder();
+tableBuilder.tr(0).td(0).add("foo");
+Tr tr = tableBuilder.tr(0).buildTr();
+System.out.println(mixer2Engine.saveToString(tr));
+
+/*
+下記が得られます
+
+<tr>
+<td>foo</td>
+</tr>
+*/
+----
+
+
+* {属性について}
+
+ td,tr,tbody,tfoot,theadのそれぞれに対して属性を追加することができます。
+ HashMap\<String,Object\>でまとめて追加する方法と、setAttr(name, value)のように
+ 一つずつ属性を追加する方法があります。
+
+ なお、class属性はStringまたはList\<String\>のどちらの方法でも指定可能です。
+
+----
+HashMap<String,Object> attrMap = new HashMap<String, Object>();
+attrMap.put("id", "foo_id");
+attrMap.put("class", "class_1 class_2"); // classの属性名はcssClassでもかまいません
+TableBuilder tableBuilder = new TableBuilder();
+tableBuilder.tr(0).td(0).add("foo");
+tableBuilder.tr(0).td(0).setAttr(attrMap);
+tableBuilder.tr(0).td(0).setAttr("title", "foo_title");
+
+/*
+tableは下記のようになります
+<table>
+<tr>
+<td title="foo_title" class="class_1 class_2" id="foo_id">foo</td>
+</tr>
+</table>
+*/
+----
+
