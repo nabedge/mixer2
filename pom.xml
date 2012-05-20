@@ -17,11 +17,11 @@
     <description>Mixer2 is template engine for java. </description>
     <url>http://mixer2.org/</url>
 
-    <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>7</version>
-    </parent>
+<!--     <parent> -->
+<!--         <groupId>org.sonatype.oss</groupId> -->
+<!--         <artifactId>oss-parent</artifactId> -->
+<!--         <version>7</version> -->
+<!--     </parent> -->
 
     <organization>
         <name>Project Mixer2</name>
