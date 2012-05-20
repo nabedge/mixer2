@@ -4,9 +4,6 @@
 
 Form and JavaBean
 
- FormUtilクラスを使うと、一般的なJavaBeanの内容を、
- form内のinputやselectのようなタグの内容にあてはめて出力させることができます。
-
  template:
 
 ----

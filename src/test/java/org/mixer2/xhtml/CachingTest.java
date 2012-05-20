@@ -21,6 +21,8 @@ public class CachingTest {
     private String templateFileName = "sample-xhtml1-transitional.html";
     private String templateFilePath;
     private Mixer2Engine m2e = new Mixer2Engine();
+//    private int loop = 1000;
+    private int loop = 1;
 
     @Before
     public void before() {
@@ -38,13 +40,12 @@ public class CachingTest {
     }
 
     @Test()
-    public void test01() throws IOException {
+    public void simpleCacheTest() throws IOException {
         Html html = m2e.loadHtmlTemplate(new File(templateFilePath));
-        Html html2;
         // create cache
         m2e.loadHtmlTemplateThroughCache(new File(templateFilePath));
         // get from cache
-        html2 = m2e.loadHtmlTemplateThroughCache(new File(templateFilePath));
+        Html html2 = m2e.loadHtmlTemplateThroughCache(new File(templateFilePath));
         assertEquals(m2e.saveToString(html), m2e.saveToString(html2));
         //System.out.println(m2e.saveToString(html2));
     }
@@ -52,7 +53,7 @@ public class CachingTest {
     @Test
     public void loopWithCache() throws IOException {
         File file;
-        for (int i=0; i<1000; i++) {
+        for (int i=0; i<loop; i++) {
             file = new File(templateFilePath);
             m2e.loadHtmlTemplateThroughCache(file);
         }
@@ -61,7 +62,7 @@ public class CachingTest {
     @Test
     public void loopWithoutCache() throws IOException {
         File file;
-        for (int i=0; i<1000; i++) {
+        for (int i=0; i<loop; i++) {
             file = new File(templateFilePath);
             m2e.loadHtmlTemplate(file);
         }

@@ -4,16 +4,10 @@
 
 View Test by JUnit
 
- mixer2の利点のひとつが、Webアプリの画面をJUnitでテストできることです。
- JSPとカスタムタグを使った画面では、ブラウザを通じてテストするしかありませんでした。
- mixer2は画面に対する操作、情報の埋め込みをJSPではなくjavaソース上で実現し、
- 「htmlの文字列」ではなく「htmlのオブジェクト」として画面全体を扱うことができるため、
- 従来では難しかったJUnitでの画面のテストが可能です。
+ The advantage of mixer2 is that you can test web application view
+ by junit .
 
- 以下は、ごく単純な画面(Htmlオブジェクト）を出力するクラスとそのテンプレート、
- そしてJUnitテストケースの例です。
-
- テンプレート：
+ template
 
 ----
 <html xml:lang="ja" lang="ja" xmlns="http://www.w3.org/1999/xhtml">
@@ -28,7 +22,7 @@ here comes message
 </html>
 ----
 
- Javaクラス：
+ java class
 
 ----
 public class Sample {
@@ -44,7 +38,7 @@ public class Sample {
 }
 ----
 
- JUnit4テストケース：
+ test class
 
 ----
 public class SampleTest {
@@ -58,5 +52,4 @@ public class SampleTest {
 
 }
 ----
-
 

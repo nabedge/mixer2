@@ -17,7 +17,7 @@ import javax.xml.stream.events.XMLEvent;
  * なお、個別のタグに関係する実装は、scriptタグに関する実装のみです。
  * 例えばテンプレートに次のようにインラインでJavaScriptが書かれているとすると、
  * </p>
- * 
+ *
  * <pre>
  * &lt;script type=&quot;text/javascript&quot;&gt;
  * //&lt;![CDATA[
@@ -25,40 +25,40 @@ import javax.xml.stream.events.XMLEvent;
  * //]]&gt;
  * &lt;/script&gt;
  * </pre>
- * 
+ *
  * <p>
  * 通常のMarshalでは、下記のように不等号記号が文字参照に置換されてしまい、 JavaScriptとして正常に作動しなくなってしまいます。
  * このEventWriterはそれを防いでいます。
  * </p>
- * 
+ *
  * <pre>
  * if (a &amp;gt; 0) { alert('foo');} // this javascript can't work!
  * </pre>
- * 
+ *
  * <p>
  * 同様に、外部ファイルのJavascriptを読み込む場合についても細工されます。 下記のようなテンプレートがあったとして、
  * </p>
- * 
+ *
  * <pre>
  * &lt;script type=&quot;text/javascript&quot; src=&quot;foo.js&quot;&gt;&lt;/script&gt;
  * </pre>
  * <p>
  * 通常のXMLEventWriterでは、下記のように空要素として出力してしまいます。 これはFireFox等ではJavaScriptが作動しません。
  * </p>
- * 
+ *
  * <pre>
  * &lt;script type=&quot;text/javascript&quot; src=&quot;foo.js&quot; /&gt;
  * </pre>
  * <p>
  * そのため、このクラスでは、script要素の内容として、空白を1個入れることで 回避しています。
  * </p>
- * 
+ *
  * <pre>
- * &lt;script type=&quot;text/javascript&quot; src=&quot;foo.js&quot;&gt;(1個の空白)&lt;/script&gt;
+ * &lt;script type=&quot;text/javascript&quot; src=&quot;foo.js&quot;&gt;(one white space)&lt;/script&gt;
  * </pre>
- * 
+ *
  * @author watanabe
- * 
+ *
  */
 public class TagCustomizeWriter implements XMLEventWriter {
 

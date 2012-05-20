@@ -4,12 +4,12 @@
 
 HTML5
 
- mixer2はversion1.1.0以降でhtml5にも対応しています。
- ただし、テンプレートはhtml5をXML構文で書く必要があります。
+ You can use mixer2 with html5.
+ You write template with xml syntax.
 
 * {Hello World (html5 version)}
 
- テンプレートです
+ template:
 
 ----
 <!DOCTYPE html>
@@ -28,7 +28,7 @@ HTML5
 <html>
 ----
 
- Javaコードです。
+ java code:
 
 ----
 import java.io.File;
@@ -49,7 +49,7 @@ public class HelloWorld {
 }
 ----
 
- 実行結果です。
+ result
 
 ----
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
@@ -67,9 +67,10 @@ public class HelloWorld {
 </html>
 ----
 
-* {html5のXML構文}
+* {html5 with xml syntax}
 
- たとえば \<br\> ではなく \<br /\> と書くべきことはもちろんですが、属性などの書き方にも注意が必要です。
+ For example, you have to write \<br /\> rather than \<br\>.
+ Also you should care property.
 
 *----:-----------------------------------------------+
 | NG | \<input type="email" required\>               |
@@ -77,25 +78,23 @@ public class HelloWorld {
 | OK | \<input type="email" required="required" /\>  |
 *----:-----------------------------------------------+
 
-* {data-*属性、aria-*属性}
+* {data-*, aria-* property}
 
- html5では、すべてのタグにおいて、属性名の先頭が data- や aria- の任意の名称の属性を
- つけることが許されています。
- mixer2ではそれらを簡単に取り扱うためのメソッドも用意されています。
+ In html5, you can write any property start with date-* or aria-* at all tags.
 
 ----
 import static org.mixer2.xhtml.TagCreator.*;
 
 Div div = div();
 div.setData("foo", "bar");
-// これで <div data-foo="bar"></div> を作ることができます。
+// you get <div data-foo="bar"></div>
 ----
 
 ----
-// htmlテンプレート上に <div id="fooid" data-foo="bar">abc...</div> があるとして、
+// html template: <div id="fooid" data-foo="bar">abc...</div>
 String foo = html.getById("fooid", Div.class).getData("foo");
-// String型変数fooには"bar"が入ります。
+// String variable "foo" has "bar".
 ----
 
- aria属性も同様に、getAria(), setAria()メソッドが用意されています。
+ By the same token, you can use getArea() and setArea() method.
 

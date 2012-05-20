@@ -21,7 +21,8 @@ import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 /**
  * table,tr,td,tbody,thead,tfoot等のタグを作ります。
  * org.mixer2.jaxb.xhtml.*の配下のタグ型を直接使うよりも、より直感的にテーブルを組み立てることができます。
- * なお、このクラスはスレッドセーフではありません。This class is not thread safe.
+ *
+ * なお、このクラスはスレッドセーフではありません。 This class is not thread safe.
  *
  * @author watanabe
  *

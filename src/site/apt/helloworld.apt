@@ -4,7 +4,7 @@
 
 Hello World
 
- これがHelloWorldのテンプレートです。
+ template:
 
 ----
 <html xml:lang="ja" lang="ja" xmlns="http://www.w3.org/1999/xhtml">
@@ -17,7 +17,7 @@ Hello World
 </html>
 ----
 
- Javaコードです。
+ Java code:
 
 ----
 import java.io.File;
@@ -38,7 +38,7 @@ public class HelloWorld {
 }
 ----
 
- 実行結果です。
+ result:
 
 ----
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">

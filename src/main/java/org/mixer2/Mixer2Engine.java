@@ -36,12 +36,17 @@ import org.mixer2.xhtml.NamedEntityEnum;
 import org.mixer2.xhtml.TagCustomizeWriter;
 
 /**
+ * <p>
+ * mixer2 engine.
+ * The instance of this class should be a singleton
+ * because of high cost to initialize.
+ * </p>
+ * <p>
  * mixer2のエンジンです。現在はxhtml1.0またはhtml5の
  * XML構文で書かれたテンプレートだけを取り扱います
  * このクラスのインスタンスは、APサーバもしくはDIコンテナ内において、
  * singletonとして使いまわすことをお勧めします。
- *
- * テンプレート上にDOCTYPE宣言が指定されていてもそれは削除されます。
+ * </p>
  *
  * @author watanabe
  *
@@ -59,9 +64,15 @@ public class Mixer2Engine {
     }
 
     /**
+     * <p>
+     * set cache object for loaded(unmashalled) template.
+     * The key of cache is String, sha1 hash value of template string.
+     * You need not to create cache key.
+     * </p>
+     * <p>
      * unmarshal済みのテンプレートをキャッシュするためのオブジェクトをセットします。
      * キャッシュのキーはStringで、テンプレート文字列自体のsha1ハッシュ値が自動的に使われます。
-     *
+     * </p>
      * @param cache
      */
     public void setCache(Cache<String, Html> cache) {
@@ -69,8 +80,12 @@ public class Mixer2Engine {
     }
 
     /**
+     * <p>
+     * initialize method. This is called automatically by constructor method.
+     * </p>
+     * <p>
      * 初期化です。 インスタンス化する際にコンストラクタから自動的に呼び出されます。
-     *
+     * </p>
      */
     public synchronized void init() {
         log.info("initializing mixer2 engine...");
@@ -83,10 +98,61 @@ public class Mixer2Engine {
     }
 
     /**
+     * <p>
+     * load (unmarshal) a template to Html type object.
+     * Doctype declaration on template will be deleted.
+     * </p>
+     * <p>
+     * テンプレートをJAXBのHtmlオブジェクト型にロード（unmarshal)します。
+     * テンプレート上にDOCTYPE宣言が指定されていてもそれは削除されます。
+     * </p>
+     * @param file
+     * @return
+     * @throws IOException
+     */
+    public Html loadHtmlTemplate(File file) throws IOException {
+        return loadHtmlTemplate(fileToStringBuffer(file));
+    }
+
+    public Html loadHtmlTemplate(String str) {
+        StringBuffer sb = new StringBuffer(str);
+        return loadHtmlTemplate(sb);
+    }
+
+    public Html loadHtmlTemplate(StringBuffer sb) {
+        Html html = null;
+        sb = removeDoctypeDeclaration(sb);
+        sb = replaceNamedEntity(sb);
+        StringReader stringReader = new StringReader(sb.toString());
+        try {
+            html = (Html) jaxbContext.createUnmarshaller().unmarshal(
+                    stringReader);
+        } catch (JAXBException e) {
+            log.warn("unmarshal failed.");
+            e.printStackTrace();
+        }
+        return html;
+    }
+
+    /**
+     * <p>
+     * load (unmarshal) a template to Html type object.
+     * If there is cache of the template, return it.
+     * Otherwise, unmarshal, save Html object to cache, and reaturn it.
+     * Doctype declaration on template will be deleted.
+     * </p>
+     * <p>
      * テンプレートをJAXBのHtmlオブジェクト型にロード（unmarshal)します。
      * ただし、既にcacheがある場合にはそれを返します。
      * cacheがない場合にはFileをunmarshalした結果をcacheに保存しつつそれを返します。
+     * テンプレート上にDOCTYPE宣言が指定されていてもそれは削除されます。
+     * </p>
      */
+    public Html loadHtmlTemplateThroughCache(File file) throws IOException {
+        StringBuffer sb = fileToStringBuffer(file);
+        return loadHtmlTemplateThroughCache(sb);
+    }
+
     public Html loadHtmlTemplateThroughCache(StringBuffer sb) {
         Html html = null;
         String cacheKey = DigestUtils.shaHex(sb.toString());
@@ -109,26 +175,6 @@ public class Mixer2Engine {
         return html;
     }
 
-    /**
-     * テンプレート文字列をJAXBのHtmlオブジェクト型にロード（unmarshal)します。
-     * cacheがある場合にはそれを返します。
-     * cacheがない場合にはFileをunmarshalした結果をcacheに保存しつつそれを返します。
-     *
-     * @throws IOException
-     *
-     */
-    public Html loadHtmlTemplateThroughCache(File file) throws IOException {
-        StringBuffer sb = fileToStringBuffer(file);
-        return loadHtmlTemplateThroughCache(sb);
-    }
-
-    /**
-     * <p>
-     * テンプレートをJAXBのHtmlオブジェクト型にロード（unmarshal)します。
-     * cacheがある場合にはそれを返します。
-     * cacheがない場合にはFileをunmarshalした結果をcacheに保存しつつそれを返します。
-     * </p>
-     */
     public Html loadHtmlTemplateThroughCache(String str) {
         StringBuffer sb = new StringBuffer(str);
         return loadHtmlTemplateThroughCache(sb);
@@ -136,42 +182,11 @@ public class Mixer2Engine {
 
     /**
      * <p>
-     * テンプレートをJAXBのHtmlオブジェクト型にロード（unmarshal)します。
+     * marshal tag object to string and return it.
      * </p>
-     */
-    public Html loadHtmlTemplate(StringBuffer sb) {
-        Html html = null;
-        sb = removeDoctypeDeclaration(sb);
-        sb = replaceNamedEntity(sb);
-        StringReader stringReader = new StringReader(sb.toString());
-        try {
-            html = (Html) jaxbContext.createUnmarshaller().unmarshal(
-                    stringReader);
-        } catch (JAXBException e) {
-            log.warn("unmarshal failed.");
-            e.printStackTrace();
-        }
-        return html;
-    }
-
-    /**
-     * テンプレートファイルをJAXBのHtmlオブジェクト型にロード（unmarshal)します。
-     */
-    public Html loadHtmlTemplate(File file) throws IOException {
-        return loadHtmlTemplate(fileToStringBuffer(file));
-    }
-
-    /**
-     * テンプレートをJAXBのHtmlオブジェクト型にロード（unmarshal)します。
-     */
-    public Html loadHtmlTemplate(String str) {
-        StringBuffer sb = new StringBuffer(str);
-        return loadHtmlTemplate(sb);
-    }
-
-    /**
+     * <p>
      * 任意のタグオブジェクトをmarshalして文字列にして返します。
-     *
+     * </p>
      */
     public <T extends AbstractJaxb> String saveToString(T tag) {
         StringWriter sw = new StringWriter();
@@ -180,7 +195,12 @@ public class Mixer2Engine {
     }
 
     /**
+     * <p>
+     * marshal tag object and write to StringWriter.
+     * </p>
+     * <p>
      * 任意のタグのオブジェクトをmarshalして指定されたStringWriterに書き込みます。
+     * </p>
      */
     public <T extends AbstractJaxb> void saveToStringWriter(T tag,
             StringWriter writer) {
@@ -236,7 +256,12 @@ public class Mixer2Engine {
     }
 
     /**
+     * <p>
+     * remove doctype declaration
+     * </p>
+     * <p>
      * DOCTYPE宣言を除去します。
+     * </p>
      */
     public StringBuffer removeDoctypeDeclaration(StringBuffer sb) {
         if (sb == null) {
@@ -254,12 +279,17 @@ public class Mixer2Engine {
     }
 
     /**
+     * <p>
+     * replace the reference of character entity reference to numeric character reference.
+     * </p>
+     * <p>
      * 文字列内の&amp;copy; や &amp;trade; のようなHTMLの特殊文字の参照を、
      * 数値実体参照に置換します。
      * 主にxhtmlテンプレートをHtmlオブジェクトにunmarshalする直前に使用します。
+     * </p>
      *
-     * @param sb xhtmlテンプレート
-     * @return 該当箇所を置換したxhtmlテンプレート
+     * @param sb xhtml template
+     * @return replaced xhtml template
      */
     public StringBuffer replaceNamedEntity(StringBuffer sb) {
         for (NamedEntityEnum nEnum : NamedEntityEnum.values()) {
@@ -271,6 +301,10 @@ public class Mixer2Engine {
         return sb;
     }
 
+    /**
+     * remove all cache.
+     * if cache is null, do nothing.
+     */
     public void removeAllCache() {
         if (this.cache != null) {
             cache.removeAll();

@@ -4,10 +4,8 @@
 
 Zero Template
 
- mixer2はテンプレートエンジンですが、
- テンプレートがまったくない状態でもhtmlを生成することが可能です。
- 利用シーンは少ないと思われますが、mixer2(正確にはJAXB)による
- Htmlオブジェクトの基本構造とその組み立て方の参考にしてください。
+ mixer2 is a template engine. But you can create html without no template.
+ We hope you find it informative.
 
  java code:
 
