@@ -10,5 +10,7 @@ Release Note
 
  * 1.1.3 cache for template loading (JSR-107)
 
+ * 1.1.4 2012-06-16 bug fix (delete not wanted properties)
+
  []
 
