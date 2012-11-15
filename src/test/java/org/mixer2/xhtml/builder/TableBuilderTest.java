@@ -20,6 +20,7 @@ import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 public class TableBuilderTest {
 
+    @SuppressWarnings("unused")
     private static Mixer2Engine m2e = new Mixer2Engine();
 
     @AfterClass

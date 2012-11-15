@@ -129,7 +129,7 @@ public enum TagEnum {
     , WBR(org.mixer2.jaxb.xhtml.Wbr.class, false) //
     ;
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("rawtypes")
     private Class tagType;
 
     /**  */
