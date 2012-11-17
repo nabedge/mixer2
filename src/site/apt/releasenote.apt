@@ -12,5 +12,7 @@ Release Note
 
  * 1.1.4 2012-06-16 bug fix (delete not wanted properties)
 
+ * 1.1.5 pom.xml fix (no other change)
+
  []
 
