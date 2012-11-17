@@ -4,9 +4,11 @@
 
 Download
 
- jar files: {{http://search.maven.org/#search|ga|1|a%3A%22mixer2%22}}
+ * jar files: {{http://search.maven.org/#search|ga|1|a%3A%22mixer2%22}}
 
- maven dependency:
+ * zip archive : {{http://mixer2.org/dist/}}
+
+ * maven dependency:
 
 ----
 <dependencies>
