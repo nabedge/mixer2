@@ -22,11 +22,11 @@
         <tag>HEAD</tag>
     </scm>
 
-    <!-- <parent> -->
-    <!-- <groupId>org.sonatype.oss</groupId> -->
-    <!-- <artifactId>oss-parent</artifactId> -->
-    <!-- <version>7</version> -->
-    <!-- </parent> -->
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
 
     <properties>
         <encoding>UTF-8</encoding>
@@ -63,21 +63,6 @@
             <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
         </license>
     </licenses>
-
-    <distributionManagement>
-        <repository>
-            <id>sonatype-nexus-staging</id>
-            <name>staging fo release repository</name>
-            <uniqueVersion>false</uniqueVersion>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-        </repository>
-        <snapshotRepository>
-            <id>local</id>
-            <name>snapshot repository</name>
-            <uniqueVersion>false</uniqueVersion>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
 
     <dependencies>
         <dependency>
