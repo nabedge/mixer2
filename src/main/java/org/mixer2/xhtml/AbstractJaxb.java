@@ -539,7 +539,7 @@ public abstract class AbstractJaxb implements Serializable {
      * 自分自身のディープコピーを返します。
      * </p>
      * <p>
-     * FIXME this method using serialize/unserialize. it's slow. please remake.
+     * MEMO: this method using serialize/unserialize. it's slow. please remake.
      * </p>
      *
      * <pre>
@@ -561,7 +561,7 @@ public abstract class AbstractJaxb implements Serializable {
             throw new TagTypeUnmatchException(getClass(), tagType);
         }
 
-        ObjectInputStream in;
+        ObjectInputStream in = null;
         Object result = null;
         try {
             ByteArrayInputStream byteIn = new ByteArrayInputStream(
@@ -574,6 +574,14 @@ public abstract class AbstractJaxb implements Serializable {
         } catch (ClassNotFoundException e) {
             log.warn("ClassNotFoundException occurred while copy() on jaxb object.");
             e.printStackTrace();
+        } finally {
+            if (in != null) {
+                try {
+                    in.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
         return (T) result;
@@ -670,14 +678,14 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * get id property. return null if not set.
-     * NOTICE: this method is dummy for make coding easy.
-     * Acrually, this method is overridden by each tag class.
+     * get id property. return null if not set. NOTICE: this method is dummy for
+     * make coding easy. Acrually, this method is overridden by each tag class.
      * </p>
      * <p>
      * id属性を取得します。設定されていなければnullを返します。 このメソッドはコーディングしやすくするためのダミーです。
      * 実際は各タグ型の同名メソッドによってオーバーライドされ、そちらが実行されます。 （xhtmlでは全種類のタグがid属性を持ちます）
      * </p>
+     *
      * @return
      */
     public String getId() {
@@ -686,8 +694,7 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * set id property.
-     * NOTICE: this method is dummy for make coding easy.
+     * set id property. NOTICE: this method is dummy for make coding easy.
      * Acrually, this method is overridden by each tag class.
      * </p>
      * <p>
@@ -700,8 +707,8 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * NOTICE: this method is dummy for make coding easy.
-     * Acrually, this method is overridden by each tag class.
+     * NOTICE: this method is dummy for make coding easy. Acrually, this method
+     * is overridden by each tag class.
      * </p>
      * <p>
      * id属性がセットされているか（nullではないか）を返します。 このメソッドはコーディングしやすくするためのダミーです。
@@ -714,7 +721,8 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * delete id property of all descendant elements. Also, remove id property of myself.
+     * delete id property of all descendant elements. Also, remove id property
+     * of myself.
      * </p>
      * <p>
      * 自分の子孫要素すべてのid属性を削除します。 自分自身のid属性も削除します。
@@ -736,8 +744,8 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * NOTICE: this method is dummy for make coding easy.
-     * Acrually, this method is overridden by each tag class.
+     * NOTICE: this method is dummy for make coding easy. Acrually, this method
+     * is overridden by each tag class.
      * </p>
      * <p>
      * タグのstyle属性を返します。このメソッドはコーディングしやすくするためのダミーです。
@@ -753,14 +761,15 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * NOTICE: this method is dummy for make coding easy.
-     * Acrually, this method is overridden by each tag class.
+     * NOTICE: this method is dummy for make coding easy. Acrually, this method
+     * is overridden by each tag class.
      * </p>
      * <p>
      * タグのstyle属性をセットします。このメソッドはコーディングしやすくするためのダミーです。
      * 実際は各タグ型の同名メソッドによってオーバーライドされ、そちらが実行されます。
      * （html5では全てのタグがclass属性とstyle属性を持ちます。）
      * </p>
+     *
      * @return
      */
     public void setStyle(String value) {
@@ -769,15 +778,13 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * return class property as List.
-     * NOTICE: this method is dummy for make coding easy.
-     * Acrually, this method is overridden by each tag class.
+     * return class property as List. NOTICE: this method is dummy for make
+     * coding easy. Acrually, this method is overridden by each tag class.
      * </p>
-     * </p>
-     * タグのclass属性をリストで返します。このメソッドはコーディングしやすくするためのダミーです。
+     * </p> タグのclass属性をリストで返します。このメソッドはコーディングしやすくするためのダミーです。
      * 実際は各タグ型の同名メソッドによってオーバーライドされ、そちらが実行されます。
-     * （html5では全てのタグがclass属性とstyle属性を持ちます。）
-     * </p>
+     * （html5では全てのタグがclass属性とstyle属性を持ちます。） </p>
+     *
      * @return
      */
     public List<String> getCssClass() {
@@ -792,7 +799,8 @@ public abstract class AbstractJaxb implements Serializable {
      * 指定した文字列がclass属性に含まれているかどうかを判定します
      * </p>
      *
-     * @param clazz class property
+     * @param clazz
+     *            class property
      * @return
      */
     public <T extends AbstractJaxb> boolean hasCssClass(String clazz) {
