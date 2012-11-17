@@ -67,15 +67,15 @@
     <distributionManagement>
         <repository>
             <id>sonatype-nexus-staging</id>
-            <name>Nexus Release Repository</name>
+            <name>staging fo release repository</name>
             <uniqueVersion>false</uniqueVersion>
-            <url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
         </repository>
         <snapshotRepository>
             <id>local</id>
-            <name>local repository</name>
-            <uniqueVersion>true</uniqueVersion>
-            <url>file:${user.home}/.m2/</url>
+            <name>snapshot repository</name>
+            <uniqueVersion>false</uniqueVersion>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 
