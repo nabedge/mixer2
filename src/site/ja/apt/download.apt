@@ -1,0 +1,22 @@
+ ------
+ Download
+ ------
+
+Download
+
+ * jar files: {{http://search.maven.org/#search|ga|1|a%3A%22mixer2%22}}
+
+ * zip archive : {{http://mixer2.org/dist/}}
+
+ * maven dependency:
+
+----
+<dependencies>
+  <dependency>
+    <groupId>org.mixer2</groupId>
+    <artifactId>mixer2</artifactId>
+    <version>x.x.x(set latest version on http://search.maven.org/#search|ga|1|a%3A%22mixer2%22 )</version>
+  </dependency>
+</dependencies>
+----
+
