@@ -14,5 +14,7 @@ Release Note
 
  * 1.1.5 pom.xml fix (no other change)
 
+ * 1.1.6 add removeAria(), removeData() methods.
+
  []
 
