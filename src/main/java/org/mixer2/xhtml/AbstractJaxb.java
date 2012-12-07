@@ -662,6 +662,36 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
+     * 指定されたdata-* 属性を消去します。
+     * </p>
+     * <p>
+     * remove attribute of data-* property.
+     * </p>
+     * @param key data-"key"
+     * @return the previous value associated with key, or null if there was no mapping for key.
+     */
+    public String removeData(String key) {
+        QName qn = new QName("data-" + key);
+        return this.getOtherAttributes().remove(qn);
+    }
+
+    /**
+     * <p>
+     * 指定されたaria-* 属性を消去します。
+     * </p>
+     * <p>
+     * remove attribute of aria-* property.
+     * </p>
+     * @param key data-"key"
+     * @return the previous value associated with key, or null if there was no mapping for key.
+     */
+    public String removeAria(String key) {
+        QName qn = new QName("aria-" + key);
+        return this.getOtherAttributes().remove(qn);
+    }
+
+    /**
+     * <p>
      * get other attribute map. NOTICE: this method is dummy for make coding
      * easy. Acrually, this method is overridden by each tag class.
      * </p>

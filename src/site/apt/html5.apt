@@ -96,5 +96,5 @@ String foo = html.getById("fooid", Div.class).getData("foo");
 // String variable "foo" has "bar".
 ----
 
- By the same token, you can use getArea() and setArea() method.
+ By the same token, you can use getAria() and setAria() method.
 
