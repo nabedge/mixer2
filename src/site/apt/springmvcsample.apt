@@ -9,6 +9,14 @@ Spring MVC Sample
 
  ここではSpringMVCのViewとしてmixer2を利用するサンプルを紹介します。
 
+Practical sample : Fruit shop sample web application on SpringMVC
+
+ * see: {{https://github.com/nabedge/mixer2-sample/tree/master/mixer2-fruitshop-springmvc}}
+
+ * see: {{http://nabedge.blogspot.jp/2012/12/mixer2jspspringmvc-java-advent-calendar.html}}
+
+Simple sample : Hello World on SpringMVC
+
 準備
 
  {{{http://www.google.co.jp/search?q=springsource+tool+suite}Spring Source Tool Suite (STS)}}という、

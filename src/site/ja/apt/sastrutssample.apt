@@ -8,9 +8,16 @@ SAStruts Sample
  DIコンテナとして有名なSeasar2のサブプロジェクトとして提供されているWebアプリケーションフレームワークです。
 
  ここではSAStrutsのViewとしてmixer2を利用するサンプルを紹介します。
- HelloWorldレベルのサンプルと、もう少し複雑な画面のサンプルです。
 
-準備
+Practical sample : Fruit shop sample web application on SAStruts
+
+ * see: {{https://github.com/nabedge/mixer2-sample/tree/master/mixer2-fruitshop-sastruts}}
+
+ * see: {{http://nabedge.blogspot.jp/2012/12/mixer2jspsastruts-javaee-advent.html}}
+
+Simple sample : Hello World on SAStruts
+
+* 準備
 
  {{{http://dolteng.sandbox.seasar.org/}Dolteng(どぅるてん)}}という、
  SAStruts開発用のeclipseプラグインを利用しますので、eclipseとDoltengを準備してください。
@@ -24,9 +31,7 @@ SAStruts Sample
  プロジェクトが作成されたらTomcatで起動して、
  ブラウザ上に「Hello World」が表示されることを確認してください。
 
- 以降、このサンプルプロジェクトをベースに説明します。
-
-Hello World on SAStruts
+ 以降、このサンプルプロジェクトを改造していきます。
 
 * {jarの追加}
 
