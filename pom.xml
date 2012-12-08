@@ -86,8 +86,7 @@
         <dependency>
             <groupId>javax.cache</groupId>
             <artifactId>cache-api</artifactId>
-            <version>0.5</version>
-            <optional>true</optional>
+            <version>[0.5,)</version>
         </dependency>
         <dependency>
             <groupId>net.sf.ehcache</groupId>
