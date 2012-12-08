@@ -119,6 +119,7 @@ Div div = divWithId("foo");
  そのコピーを取って中身を入れ替えて使うと手間が省けます。
 
  template:
+
 ----
 <html xml:lang="ja" lang="ja" xmlns="http://www.w3.org/1999/xhtml">
 <head>

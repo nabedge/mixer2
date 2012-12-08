@@ -121,6 +121,7 @@ Div div = divWithId("foo");
  copy() method create deep copy of the tag instance.
 
  template:
+
 ----
 <html xml:lang="ja" lang="ja" xmlns="http://www.w3.org/1999/xhtml">
 <head>
