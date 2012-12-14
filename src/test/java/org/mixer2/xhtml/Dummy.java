@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
+import org.mixer2.jaxb.xhtml.Meta;
 
 import static org.mixer2.xhtml.TagCreator.*;
 
@@ -21,7 +22,9 @@ public class Dummy {
 
     @Test
     public void test() throws Exception {
-        //
+        Meta meta = new Meta();
+        meta.setContent("foo");
+        meta.setProperty("prop");
     }
 
 }
