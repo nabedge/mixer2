@@ -29,9 +29,9 @@ import javax.xml.namespace.QName;
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;extension base="{http://www.w3.org/1999/xhtml}Flow">
- *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellvalign"/>
  *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellhalign"/>
  *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}attrs"/>
+ *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellvalign"/>
  *       &lt;attribute name="abbr" type="{http://www.w3.org/1999/xhtml}Text" />
  *       &lt;attribute name="axis" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
  *       &lt;attribute name="headers" type="{http://www.w3.org/2001/XMLSchema}IDREFS" />
@@ -90,9 +90,6 @@ public class Td
     protected String width;
     @XmlAttribute
     protected String height;
-    @XmlAttribute
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String valign;
     @XmlAttribute
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String align;
@@ -258,6 +255,9 @@ public class Td
     protected String onvolumechange;
     @XmlAttribute
     protected String onwaiting;
+    @XmlAttribute
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String valign;
     @XmlAnyAttribute
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
@@ -556,34 +556,6 @@ public class Td
 
     public boolean isSetHeight() {
         return (this.height!= null);
-    }
-
-    /**
-     * Gets the value of the valign property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getValign() {
-        return valign;
-    }
-
-    /**
-     * Sets the value of the valign property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setValign(String value) {
-        this.valign = value;
-    }
-
-    public boolean isSetValign() {
-        return (this.valign!= null);
     }
 
     /**
@@ -2714,6 +2686,34 @@ public class Td
 
     public boolean isSetOnwaiting() {
         return (this.onwaiting!= null);
+    }
+
+    /**
+     * Gets the value of the valign property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getValign() {
+        return valign;
+    }
+
+    /**
+     * Sets the value of the valign property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setValign(String value) {
+        this.valign = value;
+    }
+
+    public boolean isSetValign() {
+        return (this.valign!= null);
     }
 
     /**

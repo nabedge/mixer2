@@ -28,8 +28,8 @@ import javax.xml.namespace.QName;
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;extension base="{http://www.w3.org/1999/xhtml}Flow">
- *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}attrs"/>
  *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}media"/>
+ *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}attrs"/>
  *       &lt;attribute name="poster" type="{http://www.w3.org/1999/xhtml}URI" />
  *       &lt;attribute name="width" type="{http://www.w3.org/1999/xhtml}Pixels" />
  *       &lt;attribute name="height" type="{http://www.w3.org/1999/xhtml}Pixels" />
@@ -57,6 +57,25 @@ public class Video
     @XmlAttribute
     @XmlJavaTypeAdapter(Adapter1 .class)
     protected Integer height;
+    @XmlAttribute
+    protected String src;
+    @XmlAttribute
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String preload;
+    @XmlAttribute
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String autoplay;
+    @XmlAttribute
+    protected String mediagroup;
+    @XmlAttribute
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String muted;
+    @XmlAttribute
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String loop;
+    @XmlAttribute
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String controls;
     @XmlAttribute
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -215,25 +234,6 @@ public class Video
     protected String onvolumechange;
     @XmlAttribute
     protected String onwaiting;
-    @XmlAttribute
-    protected String src;
-    @XmlAttribute
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String preload;
-    @XmlAttribute
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String autoplay;
-    @XmlAttribute
-    protected String mediagroup;
-    @XmlAttribute
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String muted;
-    @XmlAttribute
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String loop;
-    @XmlAttribute
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String controls;
     @XmlAnyAttribute
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
@@ -319,6 +319,202 @@ public class Video
 
     public boolean isSetHeight() {
         return (this.height!= null);
+    }
+
+    /**
+     * Gets the value of the src property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getSrc() {
+        return src;
+    }
+
+    /**
+     * Sets the value of the src property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setSrc(String value) {
+        this.src = value;
+    }
+
+    public boolean isSetSrc() {
+        return (this.src!= null);
+    }
+
+    /**
+     * Gets the value of the preload property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPreload() {
+        return preload;
+    }
+
+    /**
+     * Sets the value of the preload property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPreload(String value) {
+        this.preload = value;
+    }
+
+    public boolean isSetPreload() {
+        return (this.preload!= null);
+    }
+
+    /**
+     * Gets the value of the autoplay property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAutoplay() {
+        return autoplay;
+    }
+
+    /**
+     * Sets the value of the autoplay property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAutoplay(String value) {
+        this.autoplay = value;
+    }
+
+    public boolean isSetAutoplay() {
+        return (this.autoplay!= null);
+    }
+
+    /**
+     * Gets the value of the mediagroup property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getMediagroup() {
+        return mediagroup;
+    }
+
+    /**
+     * Sets the value of the mediagroup property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setMediagroup(String value) {
+        this.mediagroup = value;
+    }
+
+    public boolean isSetMediagroup() {
+        return (this.mediagroup!= null);
+    }
+
+    /**
+     * Gets the value of the muted property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getMuted() {
+        return muted;
+    }
+
+    /**
+     * Sets the value of the muted property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setMuted(String value) {
+        this.muted = value;
+    }
+
+    public boolean isSetMuted() {
+        return (this.muted!= null);
+    }
+
+    /**
+     * Gets the value of the loop property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getLoop() {
+        return loop;
+    }
+
+    /**
+     * Sets the value of the loop property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setLoop(String value) {
+        this.loop = value;
+    }
+
+    public boolean isSetLoop() {
+        return (this.loop!= null);
+    }
+
+    /**
+     * Gets the value of the controls property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getControls() {
+        return controls;
+    }
+
+    /**
+     * Sets the value of the controls property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setControls(String value) {
+        this.controls = value;
+    }
+
+    public boolean isSetControls() {
+        return (this.controls!= null);
     }
 
     /**
@@ -2365,202 +2561,6 @@ public class Video
 
     public boolean isSetOnwaiting() {
         return (this.onwaiting!= null);
-    }
-
-    /**
-     * Gets the value of the src property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSrc() {
-        return src;
-    }
-
-    /**
-     * Sets the value of the src property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSrc(String value) {
-        this.src = value;
-    }
-
-    public boolean isSetSrc() {
-        return (this.src!= null);
-    }
-
-    /**
-     * Gets the value of the preload property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPreload() {
-        return preload;
-    }
-
-    /**
-     * Sets the value of the preload property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPreload(String value) {
-        this.preload = value;
-    }
-
-    public boolean isSetPreload() {
-        return (this.preload!= null);
-    }
-
-    /**
-     * Gets the value of the autoplay property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAutoplay() {
-        return autoplay;
-    }
-
-    /**
-     * Sets the value of the autoplay property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAutoplay(String value) {
-        this.autoplay = value;
-    }
-
-    public boolean isSetAutoplay() {
-        return (this.autoplay!= null);
-    }
-
-    /**
-     * Gets the value of the mediagroup property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getMediagroup() {
-        return mediagroup;
-    }
-
-    /**
-     * Sets the value of the mediagroup property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setMediagroup(String value) {
-        this.mediagroup = value;
-    }
-
-    public boolean isSetMediagroup() {
-        return (this.mediagroup!= null);
-    }
-
-    /**
-     * Gets the value of the muted property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getMuted() {
-        return muted;
-    }
-
-    /**
-     * Sets the value of the muted property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setMuted(String value) {
-        this.muted = value;
-    }
-
-    public boolean isSetMuted() {
-        return (this.muted!= null);
-    }
-
-    /**
-     * Gets the value of the loop property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getLoop() {
-        return loop;
-    }
-
-    /**
-     * Sets the value of the loop property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setLoop(String value) {
-        this.loop = value;
-    }
-
-    public boolean isSetLoop() {
-        return (this.loop!= null);
-    }
-
-    /**
-     * Gets the value of the controls property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getControls() {
-        return controls;
-    }
-
-    /**
-     * Sets the value of the controls property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setControls(String value) {
-        this.controls = value;
-    }
-
-    public boolean isSetControls() {
-        return (this.controls!= null);
     }
 
     /**

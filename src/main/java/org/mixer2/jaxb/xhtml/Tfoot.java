@@ -34,8 +34,8 @@ import org.mixer2.xhtml.AbstractJaxb;
  *         &lt;element ref="{http://www.w3.org/1999/xhtml}tr" maxOccurs="unbounded"/>
  *       &lt;/sequence>
  *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellvalign"/>
- *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellhalign"/>
  *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}attrs"/>
+ *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellhalign"/>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -59,13 +59,6 @@ public class Tfoot
     @XmlAttribute
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String valign;
-    @XmlAttribute
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String align;
-    @XmlAttribute(name = "char")
-    protected String _char;
-    @XmlAttribute
-    protected String charoff;
     @XmlAttribute
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -224,6 +217,13 @@ public class Tfoot
     protected String onvolumechange;
     @XmlAttribute
     protected String onwaiting;
+    @XmlAttribute
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String align;
+    @XmlAttribute(name = "char")
+    protected String _char;
+    @XmlAttribute
+    protected String charoff;
     @XmlAnyAttribute
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
@@ -290,90 +290,6 @@ public class Tfoot
 
     public boolean isSetValign() {
         return (this.valign!= null);
-    }
-
-    /**
-     * Gets the value of the align property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAlign() {
-        return align;
-    }
-
-    /**
-     * Sets the value of the align property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAlign(String value) {
-        this.align = value;
-    }
-
-    public boolean isSetAlign() {
-        return (this.align!= null);
-    }
-
-    /**
-     * Gets the value of the char property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getChar() {
-        return _char;
-    }
-
-    /**
-     * Sets the value of the char property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setChar(String value) {
-        this._char = value;
-    }
-
-    public boolean isSetChar() {
-        return (this._char!= null);
-    }
-
-    /**
-     * Gets the value of the charoff property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCharoff() {
-        return charoff;
-    }
-
-    /**
-     * Sets the value of the charoff property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCharoff(String value) {
-        this.charoff = value;
-    }
-
-    public boolean isSetCharoff() {
-        return (this.charoff!= null);
     }
 
     /**
@@ -2420,6 +2336,90 @@ public class Tfoot
 
     public boolean isSetOnwaiting() {
         return (this.onwaiting!= null);
+    }
+
+    /**
+     * Gets the value of the align property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAlign() {
+        return align;
+    }
+
+    /**
+     * Sets the value of the align property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAlign(String value) {
+        this.align = value;
+    }
+
+    public boolean isSetAlign() {
+        return (this.align!= null);
+    }
+
+    /**
+     * Gets the value of the char property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getChar() {
+        return _char;
+    }
+
+    /**
+     * Sets the value of the char property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setChar(String value) {
+        this._char = value;
+    }
+
+    public boolean isSetChar() {
+        return (this._char!= null);
+    }
+
+    /**
+     * Gets the value of the charoff property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCharoff() {
+        return charoff;
+    }
+
+    /**
+     * Sets the value of the charoff property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCharoff(String value) {
+        this.charoff = value;
+    }
+
+    public boolean isSetCharoff() {
+        return (this.charoff!= null);
     }
 
     /**

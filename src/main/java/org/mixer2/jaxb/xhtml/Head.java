@@ -71,14 +71,14 @@ public class Head
 
     private final static long serialVersionUID = 10000L;
     @XmlElementRefs({
+        @XmlElementRef(name = "base", namespace = "http://www.w3.org/1999/xhtml", type = Base.class),
         @XmlElementRef(name = "meta", namespace = "http://www.w3.org/1999/xhtml", type = Meta.class),
-        @XmlElementRef(name = "title", namespace = "http://www.w3.org/1999/xhtml", type = Title.class),
-        @XmlElementRef(name = "object", namespace = "http://www.w3.org/1999/xhtml", type = Object.class),
         @XmlElementRef(name = "link", namespace = "http://www.w3.org/1999/xhtml", type = Link.class),
         @XmlElementRef(name = "isindex", namespace = "http://www.w3.org/1999/xhtml", type = Isindex.class),
-        @XmlElementRef(name = "base", namespace = "http://www.w3.org/1999/xhtml", type = Base.class),
+        @XmlElementRef(name = "script", namespace = "http://www.w3.org/1999/xhtml", type = Script.class),
         @XmlElementRef(name = "style", namespace = "http://www.w3.org/1999/xhtml", type = Style.class),
-        @XmlElementRef(name = "script", namespace = "http://www.w3.org/1999/xhtml", type = Script.class)
+        @XmlElementRef(name = "title", namespace = "http://www.w3.org/1999/xhtml", type = Title.class),
+        @XmlElementRef(name = "object", namespace = "http://www.w3.org/1999/xhtml", type = Object.class)
     })
     protected List<AbstractJaxb> content;
     @XmlAttribute
@@ -250,8 +250,8 @@ public class Head
      * <p>
      * You are getting this "catch-all" property because of the following reason: 
      * The field name "Base" is used by two different parts of a schema. See: 
-     * line 979 of file:/D:/tool/pleiades-e3.6-java_20101025/workspace/mixer2/xjc/mixer2-xhtml.xsd
-     * line 974 of file:/D:/tool/pleiades-e3.6-java_20101025/workspace/mixer2/xjc/mixer2-xhtml.xsd
+     * line 979 of file:/C:/Users/watanabe/git/mixer2/xjc/mixer2-xhtml.xsd
+     * line 974 of file:/C:/Users/watanabe/git/mixer2/xjc/mixer2-xhtml.xsd
      * <p>
      * To get rid of this property, apply a property customization to one 
      * of both of the following declarations to change their names: 
@@ -272,14 +272,14 @@ public class Head
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
+     * {@link Base }
      * {@link Meta }
-     * {@link Title }
-     * {@link Object }
      * {@link Link }
      * {@link Isindex }
-     * {@link Base }
-     * {@link Style }
      * {@link Script }
+     * {@link Style }
+     * {@link Title }
+     * {@link Object }
      * 
      * 
      */

@@ -32,9 +32,9 @@ import org.mixer2.xhtml.AbstractJaxb;
  *       &lt;sequence>
  *         &lt;element ref="{http://www.w3.org/1999/xhtml}col" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
+ *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellvalign"/>
  *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellhalign"/>
  *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}attrs"/>
- *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellvalign"/>
  *       &lt;attribute name="span" type="{http://www.w3.org/1999/xhtml}Number" default="1" />
  *       &lt;attribute name="width" type="{http://www.w3.org/1999/xhtml}MultiLength" />
  *     &lt;/restriction>
@@ -61,6 +61,9 @@ public class Colgroup
     protected Integer span;
     @XmlAttribute
     protected String width;
+    @XmlAttribute
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String valign;
     @XmlAttribute
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String align;
@@ -226,9 +229,6 @@ public class Colgroup
     protected String onvolumechange;
     @XmlAttribute
     protected String onwaiting;
-    @XmlAttribute
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String valign;
     @XmlAnyAttribute
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
@@ -327,6 +327,34 @@ public class Colgroup
 
     public boolean isSetWidth() {
         return (this.width!= null);
+    }
+
+    /**
+     * Gets the value of the valign property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getValign() {
+        return valign;
+    }
+
+    /**
+     * Sets the value of the valign property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setValign(String value) {
+        this.valign = value;
+    }
+
+    public boolean isSetValign() {
+        return (this.valign!= null);
     }
 
     /**
@@ -2457,34 +2485,6 @@ public class Colgroup
 
     public boolean isSetOnwaiting() {
         return (this.onwaiting!= null);
-    }
-
-    /**
-     * Gets the value of the valign property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getValign() {
-        return valign;
-    }
-
-    /**
-     * Sets the value of the valign property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setValign(String value) {
-        this.valign = value;
-    }
-
-    public boolean isSetValign() {
-        return (this.valign!= null);
     }
 
     /**

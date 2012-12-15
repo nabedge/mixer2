@@ -35,9 +35,9 @@ import org.mixer2.xhtml.AbstractJaxb;
  *         &lt;element ref="{http://www.w3.org/1999/xhtml}th"/>
  *         &lt;element ref="{http://www.w3.org/1999/xhtml}td"/>
  *       &lt;/choice>
- *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellvalign"/>
- *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}attrs"/>
  *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellhalign"/>
+ *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}attrs"/>
+ *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellvalign"/>
  *       &lt;attribute name="bgcolor" type="{http://www.w3.org/1999/xhtml}Color" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -66,7 +66,11 @@ public class Tr
     protected String bgcolor;
     @XmlAttribute
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String valign;
+    protected String align;
+    @XmlAttribute(name = "char")
+    protected String _char;
+    @XmlAttribute
+    protected String charoff;
     @XmlAttribute
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -227,11 +231,7 @@ public class Tr
     protected String onwaiting;
     @XmlAttribute
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String align;
-    @XmlAttribute(name = "char")
-    protected String _char;
-    @XmlAttribute
-    protected String charoff;
+    protected String valign;
     @XmlAnyAttribute
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
@@ -302,31 +302,87 @@ public class Tr
     }
 
     /**
-     * Gets the value of the valign property.
+     * Gets the value of the align property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getValign() {
-        return valign;
+    public String getAlign() {
+        return align;
     }
 
     /**
-     * Sets the value of the valign property.
+     * Sets the value of the align property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setValign(String value) {
-        this.valign = value;
+    public void setAlign(String value) {
+        this.align = value;
     }
 
-    public boolean isSetValign() {
-        return (this.valign!= null);
+    public boolean isSetAlign() {
+        return (this.align!= null);
+    }
+
+    /**
+     * Gets the value of the char property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getChar() {
+        return _char;
+    }
+
+    /**
+     * Sets the value of the char property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setChar(String value) {
+        this._char = value;
+    }
+
+    public boolean isSetChar() {
+        return (this._char!= null);
+    }
+
+    /**
+     * Gets the value of the charoff property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCharoff() {
+        return charoff;
+    }
+
+    /**
+     * Sets the value of the charoff property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCharoff(String value) {
+        this.charoff = value;
+    }
+
+    public boolean isSetCharoff() {
+        return (this.charoff!= null);
     }
 
     /**
@@ -2376,87 +2432,31 @@ public class Tr
     }
 
     /**
-     * Gets the value of the align property.
+     * Gets the value of the valign property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getAlign() {
-        return align;
+    public String getValign() {
+        return valign;
     }
 
     /**
-     * Sets the value of the align property.
+     * Sets the value of the valign property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setAlign(String value) {
-        this.align = value;
+    public void setValign(String value) {
+        this.valign = value;
     }
 
-    public boolean isSetAlign() {
-        return (this.align!= null);
-    }
-
-    /**
-     * Gets the value of the char property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getChar() {
-        return _char;
-    }
-
-    /**
-     * Sets the value of the char property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setChar(String value) {
-        this._char = value;
-    }
-
-    public boolean isSetChar() {
-        return (this._char!= null);
-    }
-
-    /**
-     * Gets the value of the charoff property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCharoff() {
-        return charoff;
-    }
-
-    /**
-     * Sets the value of the charoff property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCharoff(String value) {
-        this.charoff = value;
-    }
-
-    public boolean isSetCharoff() {
-        return (this.charoff!= null);
+    public boolean isSetValign() {
+        return (this.valign!= null);
     }
 
     /**

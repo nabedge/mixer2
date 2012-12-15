@@ -59,12 +59,12 @@ public class Hgroup
 
     private final static long serialVersionUID = 10000L;
     @XmlElements({
-        @XmlElement(name = "h5", type = H5 .class),
-        @XmlElement(name = "h4", type = H4 .class),
-        @XmlElement(name = "h2", type = H2 .class),
-        @XmlElement(name = "h1", type = H1 .class),
         @XmlElement(name = "h6", type = H6 .class),
-        @XmlElement(name = "h3", type = H3 .class)
+        @XmlElement(name = "h1", type = H1 .class),
+        @XmlElement(name = "h3", type = H3 .class),
+        @XmlElement(name = "h4", type = H4 .class),
+        @XmlElement(name = "h5", type = H5 .class),
+        @XmlElement(name = "h2", type = H2 .class)
     })
     protected List<Inline> h1OrH2OrH3;
     @XmlAttribute
@@ -246,12 +246,12 @@ public class Hgroup
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link H5 }
-     * {@link H4 }
-     * {@link H2 }
-     * {@link H1 }
      * {@link H6 }
+     * {@link H1 }
      * {@link H3 }
+     * {@link H4 }
+     * {@link H5 }
+     * {@link H2 }
      * 
      * 
      */

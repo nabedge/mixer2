@@ -4,7 +4,9 @@
     <property name="src.dir" value="../src/main/java" />
 
     <target name="main" depends="backup_abstractjaxb, replace_abstractjaxb, xjc, restore_abstractjaxb">
-        <eclipse.refreshLocal resource="${src.dir}" depth="infinite" />
+<!--
+    	<eclipse.refreshLocal resource="${src.dir}" depth="infinite" />
+-->
     </target>
 
     <target name="backup_abstractjaxb">
@@ -13,7 +15,9 @@
 
     <target name="replace_abstractjaxb">
         <copy file="DummyAbstractJaxb.java" tofile="${src.dir}/org/mixer2/xhtml/AbstractJaxb.java" />
-        <eclipse.refreshLocal resource="${src.dir}" depth="infinite" />
+    	<!--
+    	        <eclipse.refreshLocal resource="${src.dir}" depth="infinite" />
+    	-->
         <sleep seconds="15" />
     </target>
 

@@ -33,9 +33,9 @@ import org.mixer2.xhtml.AbstractJaxb;
  *       &lt;sequence>
  *         &lt;element ref="{http://www.w3.org/1999/xhtml}tr" maxOccurs="unbounded"/>
  *       &lt;/sequence>
+ *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellvalign"/>
  *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellhalign"/>
  *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}attrs"/>
- *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellvalign"/>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -56,6 +56,9 @@ public class Thead
     private final static long serialVersionUID = 10000L;
     @XmlElement(required = true)
     protected List<Tr> tr;
+    @XmlAttribute
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String valign;
     @XmlAttribute
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String align;
@@ -221,9 +224,6 @@ public class Thead
     protected String onvolumechange;
     @XmlAttribute
     protected String onwaiting;
-    @XmlAttribute
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String valign;
     @XmlAnyAttribute
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
@@ -262,6 +262,34 @@ public class Thead
 
     public void unsetTr() {
         this.tr = null;
+    }
+
+    /**
+     * Gets the value of the valign property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getValign() {
+        return valign;
+    }
+
+    /**
+     * Sets the value of the valign property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setValign(String value) {
+        this.valign = value;
+    }
+
+    public boolean isSetValign() {
+        return (this.valign!= null);
     }
 
     /**
@@ -2392,34 +2420,6 @@ public class Thead
 
     public boolean isSetOnwaiting() {
         return (this.onwaiting!= null);
-    }
-
-    /**
-     * Gets the value of the valign property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getValign() {
-        return valign;
-    }
-
-    /**
-     * Sets the value of the valign property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setValign(String value) {
-        this.valign = value;
-    }
-
-    public boolean isSetValign() {
-        return (this.valign!= null);
     }
 
     /**

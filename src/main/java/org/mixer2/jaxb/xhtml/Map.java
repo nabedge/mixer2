@@ -60,45 +60,45 @@ public class Map
 
     private final static long serialVersionUID = 10000L;
     @XmlElements({
-        @XmlElement(name = "h5", type = H5 .class),
-        @XmlElement(name = "center", type = Center.class),
-        @XmlElement(name = "h4", type = H4 .class),
-        @XmlElement(name = "article", type = Article.class),
-        @XmlElement(name = "hgroup", type = Hgroup.class),
-        @XmlElement(name = "isindex", type = Isindex.class),
-        @XmlElement(name = "aside", type = Aside.class),
-        @XmlElement(name = "fieldset", type = Fieldset.class),
-        @XmlElement(name = "hr", type = Hr.class),
-        @XmlElement(name = "p", type = P.class),
-        @XmlElement(name = "dl", type = Dl.class),
-        @XmlElement(name = "h1", type = H1 .class),
-        @XmlElement(name = "noscript", type = Noscript.class),
-        @XmlElement(name = "ol", type = Ol.class),
-        @XmlElement(name = "menu", type = Menu.class),
-        @XmlElement(name = "script", type = Script.class),
-        @XmlElement(name = "ins", type = Ins.class),
-        @XmlElement(name = "pre", type = Pre.class),
-        @XmlElement(name = "h6", type = H6 .class),
-        @XmlElement(name = "h2", type = H2 .class),
-        @XmlElement(name = "section", type = Section.class),
-        @XmlElement(name = "noframes", type = Noframes.class),
-        @XmlElement(name = "footer", type = Footer.class),
-        @XmlElement(name = "header", type = Header.class),
-        @XmlElement(name = "blockquote", type = Blockquote.class),
-        @XmlElement(name = "div", type = Div.class),
-        @XmlElement(name = "form", type = Form.class),
-        @XmlElement(name = "nav", type = Nav.class),
         @XmlElement(name = "h3", type = H3 .class),
-        @XmlElement(name = "address", type = Address.class),
-        @XmlElement(name = "datalist", type = Datalist.class),
-        @XmlElement(name = "dir", type = Dir.class),
-        @XmlElement(name = "del", type = Del.class),
+        @XmlElement(name = "div", type = Div.class),
+        @XmlElement(name = "h5", type = H5 .class),
+        @XmlElement(name = "article", type = Article.class),
+        @XmlElement(name = "form", type = Form.class),
+        @XmlElement(name = "canvas", type = Canvas.class),
+        @XmlElement(name = "noframes", type = Noframes.class),
+        @XmlElement(name = "ol", type = Ol.class),
+        @XmlElement(name = "ins", type = Ins.class),
+        @XmlElement(name = "menu", type = Menu.class),
+        @XmlElement(name = "p", type = P.class),
         @XmlElement(name = "details", type = Details.class),
-        @XmlElement(name = "ul", type = Ul.class),
+        @XmlElement(name = "isindex", type = Isindex.class),
+        @XmlElement(name = "h4", type = H4 .class),
+        @XmlElement(name = "noscript", type = Noscript.class),
+        @XmlElement(name = "dl", type = Dl.class),
+        @XmlElement(name = "section", type = Section.class),
+        @XmlElement(name = "center", type = Center.class),
+        @XmlElement(name = "pre", type = Pre.class),
+        @XmlElement(name = "h2", type = H2 .class),
+        @XmlElement(name = "header", type = Header.class),
         @XmlElement(name = "figure", type = Figure.class),
-        @XmlElement(name = "table", type = Table.class),
+        @XmlElement(name = "address", type = Address.class),
+        @XmlElement(name = "aside", type = Aside.class),
+        @XmlElement(name = "footer", type = Footer.class),
+        @XmlElement(name = "blockquote", type = Blockquote.class),
+        @XmlElement(name = "del", type = Del.class),
         @XmlElement(name = "figcaption", type = Figcaption.class),
-        @XmlElement(name = "canvas", type = Canvas.class)
+        @XmlElement(name = "dir", type = Dir.class),
+        @XmlElement(name = "h1", type = H1 .class),
+        @XmlElement(name = "nav", type = Nav.class),
+        @XmlElement(name = "hgroup", type = Hgroup.class),
+        @XmlElement(name = "script", type = Script.class),
+        @XmlElement(name = "datalist", type = Datalist.class),
+        @XmlElement(name = "hr", type = Hr.class),
+        @XmlElement(name = "table", type = Table.class),
+        @XmlElement(name = "h6", type = H6 .class),
+        @XmlElement(name = "fieldset", type = Fieldset.class),
+        @XmlElement(name = "ul", type = Ul.class)
     })
     protected List<AbstractJaxb> pOrH1OrH2;
     protected List<Area> area;
@@ -285,45 +285,45 @@ public class Map
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link H5 }
-     * {@link Center }
-     * {@link H4 }
-     * {@link Article }
-     * {@link Hgroup }
-     * {@link Isindex }
-     * {@link Aside }
-     * {@link Fieldset }
-     * {@link Hr }
-     * {@link P }
-     * {@link Dl }
-     * {@link H1 }
-     * {@link Noscript }
-     * {@link Ol }
-     * {@link Menu }
-     * {@link Script }
-     * {@link Ins }
-     * {@link Pre }
-     * {@link H6 }
-     * {@link H2 }
-     * {@link Section }
-     * {@link Noframes }
-     * {@link Footer }
-     * {@link Header }
-     * {@link Blockquote }
-     * {@link Div }
-     * {@link Form }
-     * {@link Nav }
      * {@link H3 }
-     * {@link Address }
-     * {@link Datalist }
-     * {@link Dir }
-     * {@link Del }
-     * {@link Details }
-     * {@link Ul }
-     * {@link Figure }
-     * {@link Table }
-     * {@link Figcaption }
+     * {@link Div }
+     * {@link H5 }
+     * {@link Article }
+     * {@link Form }
      * {@link Canvas }
+     * {@link Noframes }
+     * {@link Ol }
+     * {@link Ins }
+     * {@link Menu }
+     * {@link P }
+     * {@link Details }
+     * {@link Isindex }
+     * {@link H4 }
+     * {@link Noscript }
+     * {@link Dl }
+     * {@link Section }
+     * {@link Center }
+     * {@link Pre }
+     * {@link H2 }
+     * {@link Header }
+     * {@link Figure }
+     * {@link Address }
+     * {@link Aside }
+     * {@link Footer }
+     * {@link Blockquote }
+     * {@link Del }
+     * {@link Figcaption }
+     * {@link Dir }
+     * {@link H1 }
+     * {@link Nav }
+     * {@link Hgroup }
+     * {@link Script }
+     * {@link Datalist }
+     * {@link Hr }
+     * {@link Table }
+     * {@link H6 }
+     * {@link Fieldset }
+     * {@link Ul }
      * 
      * 
      */

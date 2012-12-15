@@ -1028,6 +1028,7 @@
       <xs:attribute name="http-equiv"/>
       <xs:attribute name="name"/>
       <xs:attribute name="content" use="required"/>
+      <xs:attribute name="property" />
       <!-- <xs:attribute name="scheme"/> -->
       <xs:attribute name="charset" type="Charset"/>
     </xs:complexType>
