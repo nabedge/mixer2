@@ -20,5 +20,7 @@ Release Note
 
  * 1.1.11 add "property" attribute to meta tag. (Open Graph Protocol)
 
+ * 1.1.12 {{{https://github.com/nabedge/mixer2/pull/1}improve a string representation by jfut}}
+
  []
 
