@@ -16,6 +16,7 @@ import java.util.regex.Pattern;
 import javax.xml.namespace.QName;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 import org.apache.commons.logging.Log;
@@ -914,16 +915,37 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * for debug.
+     * for debug. This method does not include the field of a null object in the
+     * returned string.
      * </p>
      * <p>
-     * デバッグ用です。
+     * デバッグ用です。このメソッドは文字列表現に null オブジェクトを持つフィールドを加えません。
      * {@link org.apache.commons.lang.builder.ToStringBuilder#toString()}
      * </p>
      */
     public String toString() {
-        return ToStringBuilder.reflectionToString(this,
-                ToStringStyle.MULTI_LINE_STYLE).toString();
+        return (new ReflectionToStringBuilder(
+            this,
+            ToStringStyle.MULTI_LINE_STYLE) {
+            public ToStringBuilder append(String fieldName, Object obj) {
+                if (obj != null) {
+                    if (obj instanceof List<?>) {
+                        List<?> list = CastUtil.cast(obj);
+                        if (0 < list.size()) {
+                            super.append(fieldName, obj);
+                        }
+                    } else if (obj instanceof Map<?, ?>) {
+                        Map<?, ?> map = CastUtil.cast(obj);
+                        if (0 < map.size()) {
+                            super.append(fieldName, obj);
+                        }
+                    } else {
+                        super.append(fieldName, obj);
+                    }
+                }
+                return this;
+            }
+        }).toString();
     }
 
 }
