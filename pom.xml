@@ -313,6 +313,7 @@
                             <report>project-team</report>
                             <report>plugins</report>
                             <report>summary</report>
+                            <report>issue-tracking</report>
                         </reports>
                     </reportSet>
                 </reportSets>
