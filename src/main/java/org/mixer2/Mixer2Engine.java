@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -132,6 +134,16 @@ public class Mixer2Engine {
             e.printStackTrace();
         }
         return html;
+    }
+
+    public Html loadHtmlTemplate(InputStream inputStream) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+        StringBuffer sb = new StringBuffer();
+        while (br.ready()) {
+            sb.append(br.readLine());
+        }
+        br.close();
+        return loadHtmlTemplate(sb);
     }
 
     /**

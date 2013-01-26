@@ -3,8 +3,9 @@ package org.mixer2.xhtml;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertNotNull;
 
-import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.xml.bind.JAXBException;
 
@@ -41,7 +42,8 @@ public class SampleHtml5 {
     @Test
     public void test() throws IOException, TagTypeUnmatchException,
             JAXBException {
-        Html html = m2e.loadHtmlTemplate(new File(templateFilePath));
+        InputStream in = new FileInputStream(templateFilePath);
+        Html html = m2e.loadHtmlTemplate(in);
 //        System.out.println(m2e.saveToString(html));
 
         assertNotNull(html.getById("summary1"));
