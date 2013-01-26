@@ -22,5 +22,7 @@ Release Note
 
  * 1.1.12 {{{https://github.com/nabedge/mixer2/pull/1}improve a string representation by jfut}}
 
+ * 1.1.14 can load html template from InputStream.
+
  []
 
