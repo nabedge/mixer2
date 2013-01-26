@@ -132,6 +132,7 @@ import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -149,6 +150,9 @@ public class HomeController {
     @Autowired
     Mixer2Engine mixer2Engine;
 
+    @Autowired
+    ResourceLoader resourceLoader;
+
     /**
      * Simply selects the home view to render by returning its name.
      * @throws IOException
@@ -162,8 +166,9 @@ public class HomeController {
     @RequestMapping(value="/hellomixer2", method=RequestMethod.GET)
     public ModelAndView mixer2test() throws IOException, TagTypeUnmatchException {
 
-        File file = ResourceUtils.getFile("classpath:HelloWorld.html");
-        Html html = mixer2Engine.loadHtmlTemplate(file);
+        String template = "classpath:HelloWorld.html";
+        Html html = m2e.loadHtmlTemplate(
+            resourceLoader.getResource(template).getInputStream());
         html.getById("hellomsg", Div.class).getContent().clear();
         html.getById("hellomsg", Div.class).getContent().add("Hello Mixer2 !");
 
