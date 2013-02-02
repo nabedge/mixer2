@@ -4,10 +4,10 @@
 
 Spring MVC Sample
 
- {{{http://www.google.co.jp/search?q=springmvc}SpringMVC}}は、
- DIコンテナとして有名なSpringのサブプロジェクトとして提供されているWebアプリケーションフレームワークです。
+ {{{http://www.google.co.jp/search?q=springmvc}SpringMVC}} is a Web application framework
+ produced by Spring, the popular DI container and framework.
 
- ここではSpringMVCのViewとしてmixer2を利用するサンプルを紹介します。
+ Here is a sample for use mxier2 as the "view" of SpringMVC.
 
 Practical sample : Fruit shop sample web application on SpringMVC
 
@@ -15,51 +15,33 @@ Practical sample : Fruit shop sample web application on SpringMVC
 
  * see: {{http://nabedge.blogspot.jp/2012/12/mixer2jspspringmvc-java-advent-calendar.html}}
 
-Simple sample : Hello World on SpringMVC
+Simple sample
 
-準備
+* preparation
 
- {{{http://www.google.co.jp/search?q=springsource+tool+suite}Spring Source Tool Suite (STS)}}という、
- SpringMVC開発用のeclipseプラグインを利用しますので、eclipseとSTSを準備してください。
- eclipse3.6.xであれば、ヘルプ→Eclipseマーケットプレイス のダイアログで
- 「Spring Source Tool Suite」で検索するとすぐにインストール可能です。
+ We recommend to use
+ {{{http://www.google.co.jp/search?q=springsource+tool+suite}Spring Source Tool Suite (STS)}},
+ that is a eclpse plugin for Spring. So, make up eclipse and STS engironment.
+ You can install quickly through the eclipse menu "help" -> Eclipse Market Place
+ and search "Spring Source Tool Suite".
 
- また、mavenも使いますので、
- {{{http://www.google.co.jp/search?q=m2eclipse}m2eclipseプラグイン}}もインストールしておいてください。
+ Also, the sample and practice uses maven command.
+ Install {{http://eclipse.org/m2e/}}.
 
- 準備ができたら、SpringMVCの新規プロジェクトを作成してください。
- 新規プロジェクトのウィザードでSpringTemplateProjectを選択し、
- さらにSpringMVCを選択します。ルートパッケージ名は任意でかまいません。
+ If you ready, create "SpringMVC project" on eclipse.
+ choice "SpringTemplateProject" on the project creation wizard and choice "SpringMVC".
+ Input the root package name as you like.
 
- プロジェクトが作成されたらTomcat6を起動して、
- ブラウザ上に「Hello World」が表示されることを確認してください。
+Hello World on Spring MVC with JSP
 
- なお、Tomcatが起動しても、
- JSTLタグライブラリ用のjarがうまく読み込めないというエラーメッセージが出て、
- Webアプリが起動しない症状が出ることがあるようです。
- SpringMVCプロジェクトの直下のpom.xmlで指定されている依存ライブラリが
- TOMCAT_HOME/lib配下にあるjarと競合しているためと思われます。
- pom.xmlのdependencyのうち、artifactId が servlet-api と jsp-api であるものを
- 削除またはコメントアウトすると解決できるようです。
+* add dependency to pom.xml
 
- 以降、このサンプルプロジェクトをベースに説明します。
+ see {{{download.html}download}}.
 
-Hello World on Spring MVC
+* {add EncodingFilter into web.xml}
 
-* {jarの追加}
-
- mixer2-x.x.x.jarをダウンロードしてサンプルプロジェクトのsrc/main/webapp/WEB-INF/libに置き、
- ビルド・パスに追加しておきます。
-
- なお、mixer2はcommons-lang-2.5.jarとcommons-logging-1.1.1.jarに依存しているので、これらも同様に
- WEB-INF/lib配下に置いてビルドパスに追加します。
-
- mavenを使う場合には{{{download.html}download}}にあるようにpom.xmlにdependencyを追加するだけで大丈夫です。
-
-* {web.xmlにEncodingFilterを追加}
-
- 日本語（マルチバイト文字）を表示する場合に必要です。
- src/main/webapp/WEB-INF/web.xml に下記を追加します。
+ You should use CharacterEncodingFIlter.
+ add src/main/webapp/WEB-INF/web.xml
 
 ----
 <filter>
@@ -80,24 +62,21 @@ Hello World on Spring MVC
 </filter-mapping>
 ----
 
-* {Mixer2Engineのコンポーネント登録}
+* {add Mixer2Engine component into spring bean definition}
 
- src/main/webapp/WEB-INF/spring 配下にあるroot-context.xmlにMixer2Engineのコンポーネントを登録します。
+ add bean definition into src/main/webapp/WEB-INF/spring/root-context.xml
 
 ----
- (一部省略)
 <beans>
-
   <!-- Root Context: defines shared resources visible to all other web components -->
-
   <bean id="mixer2Engine" class="org.mixer2.Mixer2Engine" scope="singleton" />
 </beans>
 
 ----
 
-* {テンプレートを書く}
+* {write template}
 
- src/main/resources/ の直下に、 HelloWorld.html という名前で下のようなテンプレートを作ります。
+ src/main/resource/HelloWorld.html
 
 ----
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -112,10 +91,10 @@ Hello World on Spring MVC
 </html>
 ----
 
-* {Controllerクラスの改造}
+* {re-make Controller}
 
- src/main/java/[パッケージ名]/HomeController.java を開いてください。
- 既存のメソッドはそのままで、新たにメソッドを追加します。
+ Open src/main/java/[package name]/HomeController.java
+ and add new method.
 
 ----
 package com.example.sample;
@@ -148,10 +127,10 @@ public class HomeController {
     private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
     @Autowired
-    Mixer2Engine mixer2Engine;
+    private Mixer2Engine mixer2Engine;
 
     @Autowired
-    ResourceLoader resourceLoader;
+    private ResourceLoader resourceLoader;
 
     /**
      * Simply selects the home view to render by returning its name.
@@ -166,9 +145,10 @@ public class HomeController {
     @RequestMapping(value="/hellomixer2", method=RequestMethod.GET)
     public ModelAndView mixer2test() throws IOException, TagTypeUnmatchException {
 
-        String template = "classpath:HelloWorld.html";
-        Html html = m2e.loadHtmlTemplate(
-            resourceLoader.getResource(template).getInputStream());
+        // load html template
+        Html html = mixer2Engine.loadHtmlTemplate(resourceLoader.getResource(
+                "classpath:HelloWorld.html").getInputStream());
+
         html.getById("hellomsg", Div.class).getContent().clear();
         html.getById("hellomsg", Div.class).getContent().add("Hello Mixer2 !");
 
@@ -176,7 +156,7 @@ public class HomeController {
         model.put("htmlString", mixer2Engine.saveToString(html));
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("hellomixer2");
+        modelAndView.setViewName("mixer2view");
         modelAndView.addAllObjects(model);
 
         return modelAndView;
@@ -184,9 +164,9 @@ public class HomeController {
 }
 ----
 
-* {JSPの改造}
+* {JSP}
 
- src/main/webapp/WEB-INF/views の配下に hellomixer2.jsp というファイルを新規作成します。
+ create new jsp. src/main/webapp/WEB-INF/views/mixer2view.jsp
 
 ----
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -194,11 +174,44 @@ public class HomeController {
 ${htmlString}
 ----
 
- たった3行のシンプルなJSPになりました。DOCTYPE宣言をあらためて書いているのは、
- mixer2がDOCTYPE宣言を無かったことにしてしまうためです。(FAQ参照)
+ Simple JSP !
+ You should re-write doctype declaration because mixer2 ignore the doctype declaration on template.
+ (see {{faq.html}})
 
- 改造はこれで終わりです。ブラウザで
- http://localhost:8080/(コンテキストパス名)/hellomixer2
- にアクセスして、Hello Mixer2 と表示されていることを確認してください。
+ Fix up is over.
+ Open the browser, access http://localhost:8080/[contextPath]/hellomixer2
+ and see "Hello Mixer2 !" .
 
+Hello World on Spring MVC with View and ViewResolver
 
+ Mixer2 includes View and ViewResolver implementation for SpringMVC.
+ You can use Html(org.mixer2.jaxb.xhtml.Html) type object as a return value
+ of the method of Controller instead of ModelAndView object.
+ <<You need not to make jsp !>>
+
+ The Controller will be very simple.
+
+----
+   @Controller
+   public class FooController {
+
+     @Autowired
+     Mixer2Engine mixer2Engine;
+
+     @Autowired
+     ResourceLoader resourceLoader;
+
+     @RequestMapping(value = "/bar")
+     public Html bar() {
+         String template = "classpath:HelloWorld.html";
+         Html html = m2e.loadHtmlTemplate(
+             resourceLoader.getResource(template).getInputStream());
+         html.getById("hellomsg", Div.class).getContent().clear();
+         html.getById("hellomsg", Div.class).getContent().add("Hello Mixer2 !");
+         return html;
+     }
+----
+
+ see
+ {{{./apidocs/org/mixer2/springmvc/Mixer2XhtmlViewResolver.html}Mixer2XhtmlViewResolver javadoc}}
+ for detail.
