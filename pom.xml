@@ -198,7 +198,7 @@
                     <charset>${encoding}</charset>
                     <encoding>${encoding}</encoding>
                     <docencoding>${encoding}</docencoding>
-                    <locale>en_us</locale>
+                    <locale>en_US</locale>
                     <maxmemory>128m</maxmemory>
                 </configuration>
                 <executions>
