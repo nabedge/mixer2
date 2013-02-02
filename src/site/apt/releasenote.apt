@@ -24,5 +24,7 @@ Release Note
 
  * 1.1.14 can load html template from InputStream.
 
+ * 1.1.17 add Mixer2XhtmlView for Spring MVC.
+
  []
 
