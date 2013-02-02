@@ -185,7 +185,7 @@ ${htmlString}
 Hello World on Spring MVC with View and ViewResolver
 
  Mixer2 includes View and ViewResolver implementation for SpringMVC.
- You can use Html(org.mixer2.jaxb.xhtml.Html) type object as a return value
+ You can use Mixer2XhtmlView type object as a return value
  of the method of Controller instead of ModelAndView object.
  <<You need not to make jsp !>>
 
@@ -202,16 +202,16 @@ Hello World on Spring MVC with View and ViewResolver
      ResourceLoader resourceLoader;
 
      @RequestMapping(value = "/bar")
-     public Html bar() {
+     public Mixer2XhtmlView bar() {
          String template = "classpath:HelloWorld.html";
          Html html = mixer2Engine.loadHtmlTemplate(
              resourceLoader.getResource(template).getInputStream());
          html.getById("hellomsg", Div.class).getContent().clear();
          html.getById("hellomsg", Div.class).getContent().add("Hello Mixer2 !");
-         return html;
+         return new Mixer2XhtmlView(mixer2Engine, html);
      }
 ----
 
  see
- {{{./apidocs/org/mixer2/springmvc/Mixer2XhtmlViewResolver.html}Mixer2XhtmlViewResolver javadoc}}
+ {{{./apidocs/org/mixer2/springmvc/Mixer2XhtmlView.html}Mixer2XhtmlView javadoc}}
  for detail.
