@@ -63,7 +63,7 @@ import org.springframework.web.servlet.mvc.annotation.ModelAndViewResolver;
  *     {@literal @}RequestMapping(value = "/bar")
  *     public Html bar() {
  *         String template = "classpath:HelloWorld.html";
- *         Html html = m2e.loadHtmlTemplate(
+ *         Html html = mixer2Engine.loadHtmlTemplate(
  *             resourceLoader.getResource(template).getInputStream());
  *         html.getById("hellomsg", Div.class).getContent().clear();
  *         html.getById("hellomsg", Div.class).getContent().add("Hello Mixer2 !");
