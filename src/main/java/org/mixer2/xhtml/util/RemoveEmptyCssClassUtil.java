@@ -387,6 +387,9 @@ public class RemoveEmptyCssClassUtil {
             break;
         case HEAD:
             Head head = (Head) target;
+            if (head.getCssClass().isEmpty()) {
+                head.unsetCssClass();
+            }
             for (AbstractJaxb obj : head.getContent()) {
                 removeEmptyCssClass(obj);
             }
@@ -518,7 +521,7 @@ public class RemoveEmptyCssClassUtil {
             break;
         case META:
             Meta meta = (Meta) target;
-            if (meta.isSetCssClass()) {
+            if (meta.getCssClass().isEmpty()) {
                 meta.unsetCssClass();
             }
             break;
