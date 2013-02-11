@@ -1,0 +1,30 @@
+ ------
+ Maven archetype for SpringMVC and mixer2
+ ------
+
+Maven archetype for SpringMVC and mixer2
+
+ mixer2とSpringMVCフレームワークを組み合わせて使用することを想定したmavenアーキタイプを用意しています。
+ 開発のスタート地点となる初期プロジェクトの作成に使うと便利です。
+
+* requirement
+
+ * maven 2.2.x or maven 3.x が必要です。
+
+ * インターネットにhttp(s)アクセス可能な環境。
+
+* How to (command line)
+
+ [[1]] aaa
+
+----
+ zzzz
+ xxx
+----
+
+
+ [[1]] ccc
+
+* How to (eclipse)
+
+
