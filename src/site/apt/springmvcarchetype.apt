@@ -1,0 +1,75 @@
+ ------
+ Maven archetype for SpringMVC and mixer2
+ ------
+
+Maven archetype for SpringMVC and mixer2
+
+ There is a maven archetype for SpringMVC web application with mixer2.
+ It is useful as a first project for make up the start point of development.
+
+* requirement
+
+ * maven 2.2.x or maven 3.x
+
+ * internet access (http/https)
+
+* How to (command line)
+
+ on windows:
+
+----
+C:\>
+C:\>set JAVA_HOME=C:\jdk1.6.0_xx
+C:\>mkdir C:\work
+C:\>cd C:\work
+C:\work>C:\apache-maven-2.2.1\bin\mvn.bat archetype:generate ^
+More?  -DarchetypeGroupId=org.mixer2 ^
+More?  -DarchetypeArtifactId=mixer2-springmvc-archetype ^
+More?  -DarchetypeVersion=0.1.14 ^
+More?  -DgroupId=com.mycompany ^
+More?  -DartifactId=myproject ^
+More?  -Dversion=0.0.1-SNAPSHOT ^
+More?
+----
+
+ you should cheese archetypeVersion: 0.1.14 or higher.
+ see {{http://search.maven.org/#search|ga|1|a%3A%22mixer2-springmvc-archetype%22}})
+
+* How to (eclipse)
+
+ * requirement
+
+  * eclipse3.7.2 or higher
+
+  * m2e plugin and m2e-wtp plugin.
+
+  []
+
+ start new project wizard and choose maven project.
+
+[./images/mixer2-springmvc-archetype-eclipse-010.png]
+
+ push <<Add Archetype>> button.
+
+[./images/mixer2-springmvc-archetype-eclipse-020.png]
+
+ set parameters:
+
+  * groupId: <<org.mixer2>>
+
+  * artifactId: <<mixer2-springmvc-archetype>>
+
+  * version: <<0.1.14>> (or higher. see {{http://search.maven.org/#search|ga|1|a%3A%22mixer2-springmvc-archetype%22}})
+
+  []
+
+[./images/mixer2-springmvc-archetype-eclipse-030.png]
+
+ set GAV(groupId,artifactId,version) information and base package name of this project as you like.
+
+[./images/mixer2-springmvc-archetype-eclipse-040.png]
+
+ done. project right click and <<Run as>> -> <<Run on Server>>
+
+[./images/mixer2-springmvc-archetype-eclipse-050.png]
+

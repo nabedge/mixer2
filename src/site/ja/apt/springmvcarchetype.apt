@@ -15,16 +15,64 @@ Maven archetype for SpringMVC and mixer2
 
 * How to (command line)
 
- [[1]] aaa
+ on windows:
 
 ----
- zzzz
- xxx
+C:\>
+C:\>set JAVA_HOME=C:\jdk1.6.0_xx
+C:\>mkdir C:\work
+C:\>cd C:\work
+C:\work>C:\apache-maven-2.2.1\bin\mvn.bat archetype:generate ^
+More?  -DarchetypeGroupId=org.mixer2 ^
+More?  -DarchetypeArtifactId=mixer2-springmvc-archetype ^
+More?  -DarchetypeVersion=0.1.14 ^
+More?  -DgroupId=com.mycompany ^
+More?  -DartifactId=myproject ^
+More?  -Dversion=0.0.1-SNAPSHOT ^
+More?
 ----
 
-
- [[1]] ccc
+ archetypeVersionは 0.1.14 以上を指定してください。最新のバージョン番号は
+ {{http://search.maven.org/#search|ga|1|a%3A%22mixer2-springmvc-archetype%22}}) で探せます。
 
 * How to (eclipse)
 
+ * requirement
+
+  * eclipse3.7.2 or higher
+
+  * m2e plugin and m2e-wtp plugin.
+
+  []
+
+ 新規プロジェクトの作成ウィザードで、maven projectを選択します。
+
+[../images/mixer2-springmvc-archetype-eclipse-010.png]
+
+ <<Add Archetype>> ボタンを押します
+
+[../images/mixer2-springmvc-archetype-eclipse-020.png]
+
+ set parameters:
+
+  * groupId: <<org.mixer2>>
+
+  * artifactId: <<mixer2-springmvc-archetype>>
+
+  * version: <<0.1.14>> (or higher. see {{http://search.maven.org/#search|ga|1|a%3A%22mixer2-springmvc-archetype%22}})
+
+  []
+
+[../images/mixer2-springmvc-archetype-eclipse-030.png]
+
+ GAV(groupId,artifactId,version)情報とjavaのパッケージ名を好きなように決定します。
+
+[../images/mixer2-springmvc-archetype-eclipse-040.png]
+
+ これでeclipse上にプロジェクトが出来上がるはずです。
+ WTPプラグインにあらかじめAPサーバが登録されていれば、
+ プロジェクトを右クリックし、<<Run as>> -> <<Run on Server>> で、
+ このプロジェクトがサーバ上にデプロイされ、下のようなトップページが見えるはずです。
+
+[../images/mixer2-springmvc-archetype-eclipse-050.png]
 
