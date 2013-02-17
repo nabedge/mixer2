@@ -327,10 +327,10 @@
                             <report>index</report>
                             <report>license</report>
                             <report>mailing-list</report>
-                            <report>plugin-management</report>
+                            <!-- <report>plugin-management</report> -->
                             <report>project-team</report>
-                            <report>plugins</report>
-                            <report>summary</report>
+                            <!-- <report>plugins</report> -->
+                            <!-- <report>summary</report> -->
                             <report>issue-tracking</report>
                             <report>scm</report>
                         </reports>
