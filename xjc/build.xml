@@ -18,7 +18,7 @@
     	<!--
     	        <eclipse.refreshLocal resource="${src.dir}" depth="infinite" />
     	-->
-        <sleep seconds="15" />
+        <sleep seconds="1" />
     </target>
 
     <target name="restore_abstractjaxb">
@@ -38,7 +38,7 @@
             <arg value="-p" />
             <arg value="org.mixer2.jaxb.xhtml" />
             <arg value="-b" />
-            <arg value="binding.jxb" />
+            <arg value="binding.xml" />
             <arg value="mixer2-xhtml.xsd" />
         </exec>
     </target>

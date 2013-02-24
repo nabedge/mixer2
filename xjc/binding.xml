@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jxb:bindings version="2.1" xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    jxb:extensionBindingPrefixes="xjc">
+
+<!--     <jxb:bindings schemaLocation="http://www.w3.org/2002/08/xhtml/xhtml1-transitional.xsd" -->
+<!--         node="/xs:schema"> -->
+
+    <jxb:bindings schemaLocation="mixer2-xhtml.xsd" node="/xs:schema">
+
+        <jxb:globalBindings generateIsSetMethod="true">
+            <xjc:serializable uid="10000"/>
+            <xjc:superClass name="org.mixer2.xhtml.AbstractJaxb"/>
+            <jxb:javaType name="int" xmlType="xs:nonNegativeInteger"/>
+<!--             <xjc:javaType name="java.lang.String" xmlType="xs:string" -->
+<!--                 adapter="javax.xml.bind.annotation.adapters.CollapsedStringAdapter"/> -->
+<!--             <xjc:javaType name="java.lang.String" xmlType="xs:string" -->
+<!--                 adapter="org.mixer2.xhtml.M2StringAdapter"/> -->
+        </jxb:globalBindings>
+
+        <jxb:bindings
+            node="//xs:attributeGroup[@name='coreattrs']/xs:attribute[@name='class']">
+            <jxb:property name="cssClass"/>
+        </jxb:bindings>
+
+        <!--
+        <jxb:bindings
+            node="//xs:attributeGroup[@name='i18n']/xs:attribute[@name='lang']">
+            <jxb:property name="langCode" />
+        </jxb:bindings>
+        -->
+
+        <jxb:bindings
+            node="//xs:attributeGroup[@name='coreattrs']/xs:attribute[@name='lang']">
+            <jxb:property name="langCode"/>
+        </jxb:bindings>
+
+        <!--
+        <jxb:bindings
+            node="//xs:element[@name='bdo']//xs:attribute[@name='lang']">
+            <jxb:property name="langCode" />
+        </jxb:bindings>
+        -->
+
+
+    </jxb:bindings>
+</jxb:bindings>
