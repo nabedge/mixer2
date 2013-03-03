@@ -4,12 +4,39 @@
 </head>
 <body>
 
-<h2>pre tag.</h2>
+<script>
+//<![CDATA[
+var foo = 1;
+var bar = 2;
+if (foo > bar || foo < bar) {
+	var bar = 3;
+}
+//]]></script>
 
 <pre>
 aaa
    bbb
+   <b>ccc</b>
+   <h2>hogehoge</h2>
+ddd
 </pre>
+
+<pre><![CDATA[
+aaa
+   bbb
+   <b>ccc</b>
+   <h2>hogehoge</h2>
+ddd
+]]></pre>
+
+
+<script>
+var foo = 4;
+if (foo == 5) {
+    var bar = 6;
+}
+</script>
+
 
 </body>
 </html>

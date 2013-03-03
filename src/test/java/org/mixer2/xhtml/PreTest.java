@@ -10,7 +10,6 @@ import org.mixer2.Mixer2Engine;
 import org.mixer2.jaxb.xhtml.Html;
 
 /**
- * @author watanabe
  *
  */
 public class PreTest {

@@ -136,13 +136,25 @@ public class Mixer2Engine {
         return html;
     }
 
+    /**
+     * <p>
+     * load html template from input stream.
+     * inputStream will be closed at the end of this method.
+     * </p>
+     *
+     * @param inputStream
+     * @return
+     * @throws IOException
+     */
     public Html loadHtmlTemplate(InputStream inputStream) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
         StringBuffer sb = new StringBuffer();
-        while (br.ready()) {
-            sb.append(br.readLine());
+        int c;
+        while ((c = br.read()) != -1) {
+          sb.append((char) c);
         }
         br.close();
+        inputStream.close();
         return loadHtmlTemplate(sb);
     }
 
@@ -324,12 +336,15 @@ public class Mixer2Engine {
     }
 
     private StringBuffer fileToStringBuffer(File file) throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader(file));
+        FileReader fileReader = new FileReader(file);
+        BufferedReader br = new BufferedReader(fileReader);
         StringBuffer sb = new StringBuffer();
-        while (br.ready()) {
-            sb.append(br.readLine());
+        int c;
+        while ((c = br.read()) != -1) {
+          sb.append((char) c);
         }
         br.close();
+        fileReader.close();
         return sb;
     }
 
