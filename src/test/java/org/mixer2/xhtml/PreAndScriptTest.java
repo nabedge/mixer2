@@ -12,9 +12,9 @@ import org.mixer2.jaxb.xhtml.Html;
 /**
  *
  */
-public class PreTest {
+public class PreAndScriptTest {
 
-    private String templateFileName = "pre.html";
+    private String templateFileName = "preAndScript.html";
     private String templateFilePath;
     private static Mixer2Engine m2e = new Mixer2Engine();
     private Html html;

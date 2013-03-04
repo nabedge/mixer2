@@ -121,27 +121,31 @@ FAQ
  template:
 
 ----
-<script type="text/javascript">
+<script>
 //<![CDATA[
-if (1 > 0) { alert('foo!');}
-if (1 > 0) { alert('bar!');}
-//]]>
-</script>
-
+var foo = 1;
+var bar = 2;
+if (foo > bar || foo < bar) {
+    var bar = 3;
+}
+//]]></script>
 ----
 
  output by mixer2：
 
 ----
-<script type="text/javascript">
+<script>
 //<![CDATA[
-if (1 > 0) { alert('foo!');}if (1 > 0) { alert('bar!');}//
+
+var foo = 1;
+var bar = 2;
+if (foo > bar || foo < bar) {
+    var bar = 3;
+}
+//
 //]]>
 </script>
 ----
-
- It is expected behavior that mixer2 delete line break on javascript code.
- (It should be improved in the future).
 
 * {Thread safe}
 
@@ -160,7 +164,7 @@ if (1 > 0) { alert('foo!');}if (1 > 0) { alert('bar!');}//
  For example, to make \<script\> tag, It must be exists on template or
  you must write code "Script script = new Script();" explicitly.
 
-chaching
+* {chaching}
 
  You may get performance gain to cache the result of template loading(unmashal).
 

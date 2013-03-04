@@ -135,29 +135,32 @@ public class Foo {
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 </head>
 <body>
+
 <form id="the_form">
 <table>
 <tr>
 <td>Full Name:</td>
 <td>
-<input value="Harry Potter" name="fullName" type="text"/>
+<input value="Harry Potter" type="text" name="fullName"/>
 </td>
 </tr>
 <tr>
 <td>Sex:</td>
-<td>male:<input checked="checked" value="male" name="sex" type="radio"/>
-<br/>    female:<input value="female" name="sex" type="radio"/>
+<td>male:<input value="male" type="radio" name="sex" checked="checked"/>
+<br/>
+    female:<input value="female" type="radio" name="sex"/>
 </td>
 </tr>
 <tr>
 <td>Subscribe to newsletter?:</td>
 <td>
-<input checked="checked" value="true" name="subscribeNewsLetter" type="checkbox"/>
+<input value="true" type="checkbox" name="subscribeNewsLetter" checked="checked"/>
 </td>
 </tr>
 <tr>
 <td>Country:</td>
-<td>    <select name="country">
+<td>
+    <select name="country">
 <option value="Japan">Japan</option>
 <option value="China">China</option>
 <option value="U.K" selected="selected">U.K</option>
@@ -166,13 +169,17 @@ public class Foo {
 </tr>
 <tr>
 <td>Interests:</td>
-<td>    Quidditch: <input checked="checked" value="Quidditch" name="interests" type="checkbox"/>
-<br/>    Herbology: <input value="Herbology" name="interests" type="checkbox"/>
-<br/>    Defence Against the Dark Arts: <input checked="checked" value="Defence Against the Dark Arts" name="interests" type="checkbox"/>
+<td>
+    Quidditch: <input value="Quidditch" type="checkbox" name="interests" checked="checked"/>
+<br/>
+    Herbology: <input value="Herbology" type="checkbox" name="interests"/>
+<br/>
+    Defence Against the Dark Arts: <input value="Defence Against the Dark Arts" type="checkbox" name="interests" checked="checked"/>
 </td>
 </tr>
 </table>
 </form>
+
 </body>
 </html>
 ----

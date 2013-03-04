@@ -1,6 +1,5 @@
 package org.mixer2.springmvc;
 
-import java.io.File;
 import java.io.PrintWriter;
 import java.util.Map;
 
@@ -92,7 +91,7 @@ public class Mixer2XhtmlView extends AbstractView {
         StringBuffer sb = new StringBuffer();
         if (docType != null) {
             sb.append(docType.trim());
-            sb.append(File.separator);
+            sb.append(System.getProperty("line.separator"));
         }
         sb.append(getMixer2Engine().saveToString(getHtml()).trim());
         writer.write(sb.toString());

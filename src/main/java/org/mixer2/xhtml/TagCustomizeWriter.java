@@ -11,7 +11,6 @@ import javax.xml.stream.events.XMLEvent;
 /**
  * <p>
  * mixer2Engine内のJAXB MarshallerにセットされるXMLEventWriterです。
- * TagEnum内で改行の挿入アリに指定されているタグについて、 その開始タグの直前に改行を挿入します。
  * </p>
  * <p>
  * なお、個別のタグに関係する実装は、scriptタグに関する実装のみです。
@@ -65,19 +64,16 @@ public class TagCustomizeWriter implements XMLEventWriter {
     private String targetTagName = "script";
     private XMLEventWriter writer;
     private XMLEventFactory xmlEventFactory;
-    private XMLEvent lineBreakEvent;
 
     public TagCustomizeWriter(XMLEventWriter writer) {
         this.writer = writer;
         xmlEventFactory = XMLEventFactory.newInstance();
-        lineBreakEvent = xmlEventFactory.createCharacters("\n");
     }
 
     private boolean flag = false;
 
     @Override
     public void add(XMLEvent event) throws XMLStreamException {
-        TagEnum tagEnum;
         if (event.isEndElement()) {
             flag = false;
         }
@@ -88,12 +84,8 @@ public class TagCustomizeWriter implements XMLEventWriter {
             if (tagName.equals(targetTagName.toUpperCase())) {
                 flag = true;
             }
-            tagEnum = TagEnum.valueOf(tagName);
-            if (tagEnum.getAddLineBreak()) {
-                writer.add(lineBreakEvent);
-            }
         }
-
+        
         if (flag && event.isCharacters()) {
             flag = false;
             String script = event.asCharacters().getData().trim();
@@ -105,16 +97,19 @@ public class TagCustomizeWriter implements XMLEventWriter {
             if (script.startsWith("//")) {
                 script = script.replaceFirst("//", "");
             }
-            XMLEvent event_before = xmlEventFactory.createCharacters("\n//");
+            if (script.endsWith("//")) {
+                script = script.substring(0, script.length() - 2);
+            }
             event = xmlEventFactory.createCData("\n" + script + "\n//");
+            XMLEvent event_before = xmlEventFactory.createCharacters("\n//");
             XMLEvent event_after = xmlEventFactory.createCharacters("\n");
             writer.add(event_before);
             writer.add(event);
             writer.add(event_after);
-        } else {
-            writer.add(event);
+            return;
         }
 
+        writer.add(event);
     }
 
     @Override

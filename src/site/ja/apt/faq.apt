@@ -127,29 +127,32 @@ FAQ
  どうしてもxhtml内部にインラインでJavaScriptを書きたい場合には、
  CDATAと//（コメントアウト）を組み合わせてテンプレートを書いてください。
 
- テンプレート：
+----
+<script>
+//<![CDATA[
+var foo = 1;
+var bar = 2;
+if (foo > bar || foo < bar) {
+    var bar = 3;
+}
+//]]></script>
+----
+
+ output by mixer2：
 
 ----
-<script type="text/javascript">
+<script>
 //<![CDATA[
-if (1 > 0) { alert('foo!');}
-if (1 > 0) { alert('bar!');}
+
+var foo = 1;
+var bar = 2;
+if (foo > bar || foo < bar) {
+    var bar = 3;
+}
+//
 //]]>
 </script>
-
 ----
-
- mixer2による出力：
-
-----
-<script type="text/javascript">
-//<![CDATA[
-if (1 > 0) { alert('foo!');}if (1 > 0) { alert('bar!');}//
-//]]>
-</script>
-----
-
- JavaScriptコード上の改行が消えてしまうのは仕様です。（将来的に改善されるべき）
 
 * {Thread safe}
 
@@ -176,7 +179,7 @@ if (1 > 0) { alert('foo!');}if (1 > 0) { alert('bar!');}//
  様々なものがありますが、主にJAXBを使用しています。
  DOMはメモリを消費しすぎるため使用していません。
 
-キャッシュ機能について
+* {Caching}
 
  テンプレートをロード(unmarshal)した結果を何らかの形でキャッシュしておくことで、
  ある程度の性能向上が見込めます。
