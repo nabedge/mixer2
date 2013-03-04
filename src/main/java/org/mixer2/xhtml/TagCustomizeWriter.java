@@ -13,10 +13,9 @@ import javax.xml.stream.events.XMLEvent;
  * mixer2Engine内のJAXB MarshallerにセットされるXMLEventWriterです。
  * </p>
  * <p>
- * なお、個別のタグに関係する実装は、scriptタグに関する実装のみです。
- * 例えばテンプレートに次のようにインラインでJavaScriptが書かれているとすると、
+ * なお、個別のタグに関係する実装は、scriptタグに関する実装のみです。 例えばテンプレートに次のようにインラインでJavaScriptが書かれているとすると、
  * </p>
- *
+ * 
  * <pre>
  * &lt;script type=&quot;text/javascript&quot;&gt;
  * //&lt;![CDATA[
@@ -24,45 +23,42 @@ import javax.xml.stream.events.XMLEvent;
  * //]]&gt;
  * &lt;/script&gt;
  * </pre>
- *
  * <p>
- * 通常のMarshalでは、下記のように不等号記号が文字参照に置換されてしまい、 JavaScriptとして正常に作動しなくなってしまいます。
- * このEventWriterはそれを防いでいます。
+ * 通常のMarshalでは、下記のように不等号記号が文字参照に置換されてしまい、 JavaScriptとして正常に作動しなくなってしまいます。 このEventWriterはそれを防いでいます。
  * </p>
- *
+ * 
  * <pre>
  * if (a &amp;gt; 0) { alert('foo');} // this javascript can't work!
  * </pre>
- *
  * <p>
  * 同様に、外部ファイルのJavascriptを読み込む場合についても細工されます。 下記のようなテンプレートがあったとして、
  * </p>
- *
+ * 
  * <pre>
  * &lt;script type=&quot;text/javascript&quot; src=&quot;foo.js&quot;&gt;&lt;/script&gt;
  * </pre>
  * <p>
  * 通常のXMLEventWriterでは、下記のように空要素として出力してしまいます。 これはFireFox等ではJavaScriptが作動しません。
  * </p>
- *
+ * 
  * <pre>
  * &lt;script type=&quot;text/javascript&quot; src=&quot;foo.js&quot; /&gt;
  * </pre>
  * <p>
  * そのため、このクラスでは、script要素の内容として、空白を1個入れることで 回避しています。
  * </p>
- *
+ * 
  * <pre>
  * &lt;script type=&quot;text/javascript&quot; src=&quot;foo.js&quot;&gt;(one white space)&lt;/script&gt;
  * </pre>
- *
  * @author watanabe
- *
  */
 public class TagCustomizeWriter implements XMLEventWriter {
 
     private String targetTagName = "script";
+
     private XMLEventWriter writer;
+
     private XMLEventFactory xmlEventFactory;
 
     public TagCustomizeWriter(XMLEventWriter writer) {
@@ -70,24 +66,36 @@ public class TagCustomizeWriter implements XMLEventWriter {
         xmlEventFactory = XMLEventFactory.newInstance();
     }
 
-    private boolean flag = false;
+    private boolean scriptElementFlag = false;
+    private boolean scriptAttributeFlag = false;
 
     @Override
     public void add(XMLEvent event) throws XMLStreamException {
         if (event.isEndElement()) {
-            flag = false;
+            scriptElementFlag = false;
+            scriptAttributeFlag = false;
         }
 
         if (event.isStartElement()) {
             StartElement se = event.asStartElement();
             String tagName = se.getName().getLocalPart().toUpperCase();
             if (tagName.equals(targetTagName.toUpperCase())) {
-                flag = true;
+                scriptElementFlag = true;
             }
         }
         
-        if (flag && event.isCharacters()) {
-            flag = false;
+        if (scriptElementFlag && event.isAttribute()) {
+            String str = event.toString().toLowerCase();
+            if (str.startsWith("type") && str.contains("javascript")) {
+                scriptAttributeFlag = true;
+            } else {
+                scriptAttributeFlag = false;
+            }
+        }
+        
+        if (scriptElementFlag && scriptAttributeFlag && event.isCharacters()) {
+            scriptElementFlag = false;
+            scriptAttributeFlag = false;
             String script = event.asCharacters().getData().trim();
             if (script.length() < 1) {
                 event = xmlEventFactory.createSpace(" ");
@@ -138,8 +146,7 @@ public class TagCustomizeWriter implements XMLEventWriter {
     }
 
     @Override
-    public void setNamespaceContext(NamespaceContext context)
-            throws XMLStreamException {
+    public void setNamespaceContext(NamespaceContext context) throws XMLStreamException {
     }
 
     @Override
