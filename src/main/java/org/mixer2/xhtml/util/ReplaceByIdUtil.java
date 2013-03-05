@@ -452,13 +452,8 @@ public class ReplaceByIdUtil {
                 for (int j = 0; j < map.getArea().size(); j++) {
                     Area area2 = map.getArea().get(j);
                     if (area2.isSetId() && id.equals(area2.getId())) {
-                        if (area2 instanceof Area) {
-                            map.getArea().set(j, (Area) replace);
-                            return true;
-                        } else {
-                            throw new TagTypeUnmatchException(Area.class,
-                                    replace.getClass());
-                        }
+                        map.getArea().set(j, (Area) replace);
+                        return true;
                     }
                     // area has no child element.
                 }
@@ -467,13 +462,8 @@ public class ReplaceByIdUtil {
                 for (int k = 0; k < map.getPOrH1OrH2().size(); k++) {
                     AbstractJaxb obj = map.getPOrH1OrH2().get(k);
                     if (id.equals(obj.getId())) {
-                        if (obj instanceof AbstractJaxb) {
-                            map.getPOrH1OrH2().set(k, (AbstractJaxb) replace);
-                            return true;
-                        } else {
-                            throw new TagTypeUnmatchException(
-                                    AbstractJaxb.class, obj.getClass());
-                        }
+                        map.getPOrH1OrH2().set(k, (AbstractJaxb) replace);
+                        return true;
                     } else {
                         if (execute(id, obj, replace)) {
                             return true;
