@@ -142,7 +142,7 @@ var bar = 2;
 if (foo > bar || foo < bar) {
     var bar = 3;
 }
-//
+
 //]]>
 </script>
 ----

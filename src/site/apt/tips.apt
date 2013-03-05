@@ -313,7 +313,9 @@ System.out.println(sw.toString());
  output
 
 ----
-<div id="foo">abc def
+<div id="foo">
+abc
+<span>def</span>
 </div>
 ----
 

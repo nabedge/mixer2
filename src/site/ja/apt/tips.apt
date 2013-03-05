@@ -329,7 +329,9 @@ System.out.println(sw.toString());
  結果：
 
 ----
-<div id="foo">abc def
+<div id="foo">
+abc
+<span>def</span>
 </div>
 ----
 

@@ -146,14 +146,16 @@ public class Mixer2Engine {
      * @return
      * @throws IOException
      */
-    public Html loadHtmlTemplate(InputStream inputStream) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+    public Html loadHtmlTemplate(InputStream inputStream) throws IOException  {
+        InputStreamReader in = new InputStreamReader(inputStream);
+        BufferedReader br = new BufferedReader(in);
         StringBuffer sb = new StringBuffer();
         int c;
         while ((c = br.read()) != -1) {
           sb.append((char) c);
         }
         br.close();
+        in.close();
         inputStream.close();
         return loadHtmlTemplate(sb);
     }
