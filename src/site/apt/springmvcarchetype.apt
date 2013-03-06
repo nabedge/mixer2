@@ -25,14 +25,14 @@ C:\>cd C:\work
 C:\work>C:\apache-maven-2.2.1\bin\mvn.bat archetype:generate ^
 More?  -DarchetypeGroupId=org.mixer2 ^
 More?  -DarchetypeArtifactId=mixer2-springmvc-archetype ^
-More?  -DarchetypeVersion=0.1.14 ^
+More?  -DarchetypeVersion=0.2.1 ^
 More?  -DgroupId=com.mycompany ^
 More?  -DartifactId=myproject ^
 More?  -Dversion=0.0.1-SNAPSHOT ^
 More?
 ----
 
- you should cheese archetypeVersion: 0.1.14 or higher.
+ you should cheese archetypeVersion: 0.2.1 or higher.
  see {{http://search.maven.org/#search|ga|1|a%3A%22mixer2-springmvc-archetype%22}})
 
 * How to (eclipse)
@@ -59,7 +59,7 @@ More?
 
   * artifactId: <<mixer2-springmvc-archetype>>
 
-  * version: <<0.1.14>> (or higher. see {{http://search.maven.org/#search|ga|1|a%3A%22mixer2-springmvc-archetype%22}})
+  * version: <<0.2.1>> (or higher. see {{http://search.maven.org/#search|ga|1|a%3A%22mixer2-springmvc-archetype%22}})
 
   []
 
