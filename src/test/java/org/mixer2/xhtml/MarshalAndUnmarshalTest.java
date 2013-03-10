@@ -3,7 +3,6 @@ package org.mixer2.xhtml;
 import static org.junit.Assert.assertEquals;
 
 import java.io.File;
-import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.AfterClass;
@@ -43,5 +42,5 @@ public class MarshalAndUnmarshalTest {
         String str2 = m2e.saveToString(html2);
         assertEquals(str1, str2);
     }
-    
+
 }
