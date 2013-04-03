@@ -12,6 +12,9 @@ import org.mixer2.xhtml.TagEnum;
 
 /**
  *
+ * @see org.mixer2.xhtml.AbstractJaxb#removeDescendants(Class)
+ * @see org.mixer2.xhtml.AbstractJaxb#removeDescendants(String)
+ * @see org.mixer2.xhtml.AbstractJaxb#removeDescendants(String, Class)
  * @author watanabe
  *
  */

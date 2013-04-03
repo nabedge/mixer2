@@ -11,6 +11,8 @@ import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 /**
  *
+ * @see org.mixer2.xhtml.AbstractJaxb#replaceById(String, String)
+ * @see org.mixer2.xhtml.AbstractJaxb#replaceById(String, AbstractJaxb)
  * @author watanabe
  *
  */

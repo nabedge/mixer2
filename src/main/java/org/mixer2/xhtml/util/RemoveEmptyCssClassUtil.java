@@ -10,6 +10,7 @@ import org.mixer2.xhtml.TagEnum;
 
 /**
  *
+ * @see org.mixer2.xhtml.AbstractJaxb#removeEmptyCssClass()
  * @author watanabe
  *
  */

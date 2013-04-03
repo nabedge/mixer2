@@ -9,8 +9,10 @@ import org.mixer2.xhtml.TagEnum;
 
 /**
  *
+ * @see org.mixer2.xhtml.AbstractJaxb#getDescendants(Class)
+ * @see org.mixer2.xhtml.AbstractJaxb#getDescendants(String)
+ * @see org.mixer2.xhtml.AbstractJaxb#getDescendants(String, Class)
  * @author watanabe
- *
  */
 public class GetDescendantsUtil {
 

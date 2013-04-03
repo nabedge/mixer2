@@ -13,6 +13,12 @@ import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 /**
  *
+ * @see org.mixer2.xhtml.AbstractJaxb#replaceDescendants(Class, String)
+ * @see org.mixer2.xhtml.AbstractJaxb#replaceDescendants(Class, AbstractJaxb)
+ * @see org.mixer2.xhtml.AbstractJaxb#replaceDescendants(String, String)
+ * @see org.mixer2.xhtml.AbstractJaxb#replaceDescendants(String, AbstractJaxb)
+ * @see org.mixer2.xhtml.AbstractJaxb#replaceDescendants(String, Class, String)
+ * @see org.mixer2.xhtml.AbstractJaxb#replaceDescendants(String, Class, AbstractJaxb)
  * @author watanabe
  *
  */

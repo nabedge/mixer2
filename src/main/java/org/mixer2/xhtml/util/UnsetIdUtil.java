@@ -7,6 +7,13 @@ import org.mixer2.jaxb.xhtml.*;
 import org.mixer2.xhtml.AbstractJaxb;
 import org.mixer2.xhtml.TagEnum;
 
+/**
+ *
+ * @see org.mixer2.xhtml.AbstractJaxb#unsetAllId()
+ * @see org.mixer2.xhtml.AbstractJaxb#unsetAllId(Pattern)
+ * @author watanabe
+ *
+ */
 public class UnsetIdUtil {
 
     public static <T extends AbstractJaxb> void unsetAllId(T target) {

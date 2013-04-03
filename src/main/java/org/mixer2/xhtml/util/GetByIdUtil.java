@@ -11,8 +11,9 @@ import org.mixer2.xhtml.TagEnum;
 
 /**
  *
+ * @see org.mixer2.xhtml.AbstractJaxb#getById(String)
+ * @see org.mixer2.xhtml.AbstractJaxb#getById(String, Class)
  * @author watanabe
- *
  */
 public class GetByIdUtil {
 
