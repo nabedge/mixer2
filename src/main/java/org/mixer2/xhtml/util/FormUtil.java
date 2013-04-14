@@ -15,7 +15,12 @@ import org.mixer2.jaxb.xhtml.Select;
 import org.mixer2.jaxb.xhtml.Textarea;
 
 /**
+ * <p>
+ * set javabean value into input,radio,textarea etc.
+ * </p>
+ * <p>
  * formタグ内部の入力フォーム（input,radio,textarea等）にJavaBeanの値をセットするユーティリティ
+ * </p>
  *
  * @author watanabe
  *
@@ -25,10 +30,13 @@ public class FormUtil {
     private static Log log = LogFactory.getLog(FormUtil.class);
 
     /**
+     * <p>
      * LabelValueBeanのリストをもとに、optionタグのlistを返します。
+     * </p>
      *
      * @param list
      * @param resultList
+     *            empty List. Usually, put new ArrayList<Option> as is.
      *            空のlist。通常は new ArrayList してそのまま渡してください
      * @return
      */
@@ -41,7 +49,9 @@ public class FormUtil {
     }
 
     /**
+     * <p>
      * LabelValueBeanをもとに、ひとつのoptionタグを返します。
+     * </p>
      *
      * @param bean
      * @return
@@ -65,11 +75,13 @@ public class FormUtil {
     }
 
     /**
-     * formタグオブジェクトにJavaBeanの値をセットします。 <br />
+     * <p>
+     * formタグオブジェクトにJavaBeanの値をセットします。
      * 複数の値を取りうるpropertyは配列としてBeanにセットしておいてください。
+     * </p>
      *
      * @param form
-     *            Formタグオブジェクト
+     *            Form tag type object
      * @param bean
      *            JavaBean
      * @throws IllegalAccessException
@@ -122,7 +134,7 @@ public class FormUtil {
                 }
             }
         } catch (NoSuchMethodException e) {
-            log.debug("form内のinputタグに対してマッチするbeanのpropertyが見つかりませんでした");
+            log.debug("bean property not found that match the input tag in form.");
         }
 
         // textarea
@@ -137,7 +149,7 @@ public class FormUtil {
                 }
             }
         } catch (NoSuchMethodException e) {
-            log.debug("form内のtextareaタグに対してマッチするbeanのpropertyが見つかりませんでした");
+            log.debug("bean property not found that match the textarea tag in form.");
         }
 
         // select
@@ -165,7 +177,7 @@ public class FormUtil {
                 }
             }
         } catch (NoSuchMethodException e) {
-            log.debug("select内のoptionタグに対してマッチするbeanのpropertyが見つかりませんでした");
+            log.debug("bean property not found that match the option tag in select tag.");
         }
     }
 }

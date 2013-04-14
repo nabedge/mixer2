@@ -328,8 +328,10 @@ public class Mixer2Engine {
     }
 
     /**
+     * <p>
      * remove all cache.
      * if cache is null, do nothing.
+     * </p>
      */
     public void removeAllCache() {
         if (this.cache != null) {
