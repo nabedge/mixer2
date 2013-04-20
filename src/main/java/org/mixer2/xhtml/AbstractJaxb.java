@@ -1,9 +1,7 @@
 package org.mixer2.xhtml;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,6 +13,7 @@ import java.util.regex.Pattern;
 
 import javax.xml.namespace.QName;
 
+import org.apache.commons.lang.SerializationUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
@@ -561,31 +560,8 @@ public abstract class AbstractJaxb implements Serializable {
             log.warn("to use copy() method, tagType must be same type of the original object.");
             throw new TagTypeUnmatchException(getClass(), tagType);
         }
-
-        ObjectInputStream in = null;
-        Object result = null;
-        try {
-            ByteArrayInputStream byteIn = new ByteArrayInputStream(
-                    this.toByteArray());
-            in = new ObjectInputStream(byteIn);
-            result = in.readObject();
-        } catch (IOException e) {
-            log.warn("IOException occurred while copy() on jaxb object.");
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            log.warn("ClassNotFoundException occurred while copy() on jaxb object.");
-            e.printStackTrace();
-        } finally {
-            if (in != null) {
-                try {
-                    in.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        return (T) result;
+        
+        return (T) SerializationUtils.clone(this);
     }
 
     /**

@@ -1,5 +1,7 @@
 package org.mixer2.xhtml;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -13,7 +15,7 @@ import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 public class CopyTest {
 
-    private String templateFileName = "HelloWorld.html";
+    private String templateFileName = "copytest.html";
     private String templateFilePath;
     private static Mixer2Engine m2e = new Mixer2Engine();
 
@@ -41,8 +43,11 @@ public class CopyTest {
         newDiv.setId("bar");
         newDiv.unsetContent();
         newDiv.getContent().add("Life is beautiful.");
-        html.getBody().getContent().add(newDiv);
-        System.out.println(m2e.saveToString(html));
+        assertEquals("Div", newDiv.getClass().getSimpleName());
+        assertEquals("Hello World !", helloWorldDiv.getContent().get(0));
+        assertEquals("Life is beautiful.", newDiv.getContent().get(0));
+        assertEquals("hellomsg", helloWorldDiv.getId());
+        assertEquals("bar", newDiv.getId());
     }
 
 }

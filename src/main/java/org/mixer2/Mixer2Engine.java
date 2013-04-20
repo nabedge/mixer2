@@ -147,17 +147,26 @@ public class Mixer2Engine {
      * @throws IOException
      */
     public Html loadHtmlTemplate(InputStream inputStream) throws IOException  {
-        InputStreamReader in = new InputStreamReader(inputStream);
-        BufferedReader br = new BufferedReader(in);
-        StringBuffer sb = new StringBuffer();
-        int c;
-        while ((c = br.read()) != -1) {
-          sb.append((char) c);
+        if (inputStream == null) {
+            throw new IOException("InputStream is null.");
         }
-        br.close();
-        in.close();
-        inputStream.close();
-        return loadHtmlTemplate(sb);
+        
+        InputStreamReader inputStreamReader = null;
+        BufferedReader bufferedReader = null;
+        StringBuffer stringBuffer = new StringBuffer();
+        try {
+            inputStreamReader = new InputStreamReader(inputStream);
+            bufferedReader = new BufferedReader(inputStreamReader);
+            int c;
+            while ((c = bufferedReader.read()) != -1) {
+                stringBuffer.append((char) c);
+            }
+        } finally {
+            bufferedReader.close();
+            inputStreamReader.close();
+            inputStream.close();
+        }
+        return loadHtmlTemplate(stringBuffer);
     }
 
     /**
@@ -340,16 +349,24 @@ public class Mixer2Engine {
     }
 
     private StringBuffer fileToStringBuffer(File file) throws IOException {
-        FileReader fileReader = new FileReader(file);
-        BufferedReader br = new BufferedReader(fileReader);
-        StringBuffer sb = new StringBuffer();
-        int c;
-        while ((c = br.read()) != -1) {
-          sb.append((char) c);
+        if (file == null) {
+            throw new IOException("File is null.");
         }
-        br.close();
-        fileReader.close();
-        return sb;
+        StringBuffer stringBuffer = new StringBuffer();
+        FileReader fileReader = null;
+        BufferedReader bufferedReader = null;
+        try {
+            fileReader = new FileReader(file);
+            bufferedReader = new BufferedReader(fileReader);
+            int c;
+            while ((c = bufferedReader.read()) != -1) {
+                stringBuffer.append((char) c);
+            }
+        } finally {
+            bufferedReader.close();
+            fileReader.close();
+        }
+        return stringBuffer;
     }
 
 }
