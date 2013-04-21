@@ -17,6 +17,12 @@ FAQ
  Mixer2 can't understand orignal tag like \<foo\>bar\</foo\> .
  If you use original tag on template, mixer2 will delete it.
 
+** {no support for frameset document type}
+
+ The xhtml1-transitional doctype and xhtml1-frameset doctype are different.
+ Mixer2 does not support xhtml1-frameset.
+ So, mixer2 ignore \<frame\> and \<frameset\> tag but support \<iframe\> tag.
+
 * {write correct xhtml}
 
  Mixer2 does NOT validate html when load(unmarshal) template html

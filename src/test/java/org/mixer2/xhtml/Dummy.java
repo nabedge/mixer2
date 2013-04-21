@@ -7,6 +7,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import org.mixer2.Mixer2Engine;
+import org.mixer2.jaxb.xhtml.Div;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.Meta;
 import org.mixer2.jaxb.xhtml.P;
@@ -42,4 +43,13 @@ public class Dummy {
         html.getById("hellomsg", P.class).getContent().add("Hello World !");
         System.out.println(m2e.saveToString(html));
     }
+
+//    @Test
+//    public void dummy01() throws Exception {
+//        Div div = new Div();
+//        AbstractJaxb aj = (AbstractJaxb) div;
+//        System.out.println("div: " + div.getClass().getSimpleName());
+//        System.out.println("aj: " + aj.getClass().getSimpleName());
+//    }
+
 }

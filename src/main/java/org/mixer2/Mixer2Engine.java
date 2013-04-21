@@ -150,7 +150,7 @@ public class Mixer2Engine {
         if (inputStream == null) {
             throw new IOException("InputStream is null.");
         }
-        
+
         InputStreamReader inputStreamReader = null;
         BufferedReader bufferedReader = null;
         StringBuffer stringBuffer = new StringBuffer();
@@ -162,8 +162,12 @@ public class Mixer2Engine {
                 stringBuffer.append((char) c);
             }
         } finally {
-            bufferedReader.close();
-            inputStreamReader.close();
+            if (bufferedReader != null) {
+                bufferedReader.close();
+            }
+            if (inputStreamReader != null) {
+                inputStreamReader.close();
+            }
             inputStream.close();
         }
         return loadHtmlTemplate(stringBuffer);
@@ -363,8 +367,12 @@ public class Mixer2Engine {
                 stringBuffer.append((char) c);
             }
         } finally {
-            bufferedReader.close();
-            fileReader.close();
+            if (bufferedReader != null) {
+                bufferedReader.close();
+            }
+            if (fileReader != null) {
+                fileReader.close();
+            }
         }
         return stringBuffer;
     }

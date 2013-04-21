@@ -23,6 +23,13 @@ FAQ
  任意のオリジナルタグ、例えば \<foo\>bar\</foo\>のようなタグを
  テンプレートに書いてもmixer2はそれを削除します。
 
+** {frame, frameset文書には対応していません}
+
+ xhtml1-transitional と xhtml1-frameset は明確に異なる文書型です。
+ mixer2はframeタグやframesetタグに対応していませんので、
+ テンプレートにあってもそれを削除します。
+ \<iframe\>タグには対応しています。
+
 * {正しいxhtmlを書いてください}
 
  mixer2は、テンプレートhtml文字列の読み込み(load≒unmarshal)時、

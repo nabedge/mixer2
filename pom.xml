@@ -82,11 +82,13 @@
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
             <version>1.6</version>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>javax.cache</groupId>
             <artifactId>cache-api</artifactId>
             <version>0.5</version>
+            <optional>true</optional>
             <!-- use 0.5 or later! -->
         </dependency>
         <dependency>
