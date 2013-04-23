@@ -9,6 +9,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mixer2.Mixer2Engine;
+import org.mixer2.jaxb.xhtml.Body;
+import org.mixer2.jaxb.xhtml.Head;
 import org.mixer2.jaxb.xhtml.Html;
 
 
@@ -18,7 +20,7 @@ public class CopyPerformanceTest {
     private String templateFilePath;
     private static Mixer2Engine m2e;
 
-    private int loop = 10;
+    private int loop = 100;
     
     @BeforeClass
     public static void beforeClass() {
@@ -50,6 +52,20 @@ public class CopyPerformanceTest {
     }
 
 //    @Test()
+//    public void honestCopy() throws Exception {
+//        Html html = m2e.loadHtmlTemplate(new File(templateFilePath));
+//        StopWatch stopWatch = new StopWatch();
+//        stopWatch.start();
+//        for (int i=0; i<loop; i++) {
+//            Html tmp = new Html();
+//            tmp.setHead(html.getHead().copy(Head.class));
+//            tmp.setBody(html.getBody().copy(Body.class));
+//        }
+//        stopWatch.stop();
+//        System.out.println("honest Copy: loop= " + loop + ", time(msec)= " + stopWatch.getTime());
+//    }
+
+    //    @Test()
 //    public void apacheCommonsClone() throws Exception {
 //        Html html = m2e.loadHtmlTemplate(new File(templateFilePath));
 //        Html tmp = null;
@@ -65,15 +81,15 @@ public class CopyPerformanceTest {
 //    }
 //
 //    @Test()
-//    public void apacheCommonsCopyProperties() throws Exception {
+//    public void apacheCommonsCloneBean() throws Exception {
 //        Html html = m2e.loadHtmlTemplate(new File(templateFilePath));
 //        Html tmp = null;
 //        StopWatch stopWatch = new StopWatch();
 //        stopWatch.start();
 //        for (int i=0; i<loop; i++) {
-//            BeanUtils.copyProperties(tmp, html);
+//            BeanUtils.cloneBean(html);
 //        }
 //        stopWatch.stop();
-//        System.out.println("normal Copy: loop= " + loop + ", time(msec)= " + stopWatch.getTime());
+//        System.out.println("cloneBean: loop= " + loop + ", time(msec)= " + stopWatch.getTime());
 //    }
 }
