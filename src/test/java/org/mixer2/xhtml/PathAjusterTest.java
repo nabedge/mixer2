@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mixer2.Mixer2Engine;
@@ -21,7 +20,6 @@ import org.mixer2.jaxb.xhtml.Img;
 import org.mixer2.jaxb.xhtml.Link;
 import org.mixer2.jaxb.xhtml.Script;
 import org.mixer2.jaxb.xhtml.Track;
-import org.mixer2.xhtml.PathAjuster;
 
 public class PathAjusterTest extends PathAjuster {
 
@@ -59,7 +57,7 @@ public class PathAjusterTest extends PathAjuster {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         List<String> clazz = new ArrayList<String>();
         clazz.add("foo");
-        PathAjuster.replacePathIncludesClass(html, Pattern.compile("^.*$"), "zzz", clazz);
+        PathAjuster.replacePathIncludeClass(html, Pattern.compile("^.*$"), "zzz", clazz);
         assertThat(html.getById("track1",Track.class).getSrc(), is("zzz"));
         assertThat(html.getById("track2",Track.class).getSrc(), not("zzz"));
     }
@@ -70,7 +68,7 @@ public class PathAjusterTest extends PathAjuster {
         List<Class<?>> tagTypes = new ArrayList<Class<?>>();
         tagTypes.add(A.class);
         tagTypes.add(Form.class);
-        PathAjuster.replacePathIncludesTag(html, Pattern.compile(".*"), "zzz", tagTypes);
+        PathAjuster.replacePathIncludeTag(html, Pattern.compile(".*"), "zzz", tagTypes);
         assertThat(html.getById("track1", Track.class).getSrc(), not("zzz"));
         assertThat(html.getById("a_001", A.class).getHref(), is("zzz"));
         assertThat(html.getById("form01", Form.class).getAction(), is("zzz"));
@@ -90,6 +88,48 @@ public class PathAjusterTest extends PathAjuster {
         assertThat(html.getById("img_02", Img.class).getSrc(), is("zzz"));
         assertThat(html.getById("iframe_01", Iframe.class).getSrc(), is("zzz"));
         assertThat(html.getById("iframe_02", Iframe.class).getSrc(), is("example.html"));
+    }
+
+    @Test
+    public void testReplacePathExcludeClass() throws Exception {
+        html = m2e.loadHtmlTemplate(new File(templateFilePath));
+        List<String> clazz = new ArrayList<String>();
+        clazz.add("foo");
+        PathAjuster.replacePathExcludeClass(html, Pattern.compile("^.*$"), "zzz", clazz);
+        assertThat(html.getById("track1",Track.class).getSrc(), not("zzz"));
+        assertThat(html.getById("track2",Track.class).getSrc(), is("zzz"));
+    }
+
+    @Test
+    public void testReplacePathExcludesTag() throws Exception {
+        html = m2e.loadHtmlTemplate(new File(templateFilePath));
+        List<Class<?>> tagTypes = new ArrayList<Class<?>>();
+        tagTypes.add(Iframe.class);
+        tagTypes.add(Form.class);
+        PathAjuster.replacePathExcludeTag(html, Pattern.compile(".*"), "zzz", tagTypes);
+        assertThat(html.getById("track1", Track.class).getSrc(), is("zzz"));
+        assertThat(html.getById("a_001", A.class).getHref(), is("zzz"));
+        assertThat(html.getById("form01", Form.class).getAction(), not("zzz"));
+        assertThat(html.getById("iframe_01", Iframe.class).getSrc(), not("zzz"));
+    }
+
+    @Test
+    public void testReplacePathExclude() throws Exception {
+        html = m2e.loadHtmlTemplate(new File(templateFilePath));
+        List<String> clazz = new ArrayList<String>();
+        clazz.add("bar");
+        List<Class<?>> tagTypes = new ArrayList<Class<?>>();
+        tagTypes.add(Img.class);
+        tagTypes.add(Iframe.class);
+        PathAjuster.replacePathExclude(html, Pattern.compile(".*"), "zzz", clazz, tagTypes);
+
+        assertThat(html.getById("form01", Form.class).getAction(), is("zzz"));
+        assertThat(html.getById("img_01", Img.class).getSrc(), is("zzz"));
+        assertThat(html.getById("img_02", Img.class).getSrc(), not("zzz"));
+        assertThat(html.getById("iframe_01", Iframe.class).getSrc(), not("zzz"));
+        assertThat(html.getById("iframe_02", Iframe.class).getSrc(), is("zzz"));
+        assertThat(html.getById("track1", Track.class).getSrc(), is("zzz"));
+        assertThat(html.getById("track2", Track.class).getSrc(), is("zzz"));
     }
 
 }

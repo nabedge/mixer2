@@ -61,6 +61,39 @@ public class PathAjuster {
      * replace all the path.
      * </p>
      *
+     * <h4>template html</h4>
+     * <pre>{@code
+     * <html>
+     * <head>
+     *   <script src="foo/bar.js"> </script>
+     * </head>
+     * <body>
+     *   <a href="foo/bar.html">bar.html</a>
+     *   <img src="foo/bar.png" />
+     * </body>
+     * </html>
+     * }</pre>
+     *
+     * <h4>code</h4>
+     * <pre>{@code
+     * Html html = mixer2Engine.loadHtmlTemplate(templateString);
+     * PathAjuster.replacePath(html, Pattern.compile("^foo/"), "xyz/");
+     * System.out.println(mixer2Engine.saveToString(html));
+     * }</pre>
+     *
+     * <h4>result:</h4>
+     * <pre>{@code
+     * <html>
+     * <head>
+     *   <script src="xyz/bar.js"> </script>
+     * </head>
+     * <body>
+     *   <a href="xyz/bar.html">bar.html</a>
+     *   <img src="xyz/bar.png" />
+     * </body>
+     * </html>
+     * }</pre>
+     *
      * @param target tag
      * @param pattern regex pattern
      * @param replacement replacemnet string.
@@ -70,13 +103,13 @@ public class PathAjuster {
         execute(target, pattern, replacement, WHICH.ALL, null, null);
     }
 
-    public static <T extends AbstractJaxb> void replacePathIncludesClass(
+    public static <T extends AbstractJaxb> void replacePathIncludeClass(
             T target, Pattern pattern, String replacement,
             List<String> includeClazz) {
         execute(target, pattern, replacement, WHICH.INCLUDE, includeClazz, null);
     }
 
-    public static <T extends AbstractJaxb> void replacePathIncludesTag(
+    public static <T extends AbstractJaxb> void replacePathIncludeTag(
             T target, Pattern pattern, String replacement,
             List<Class<?>> includeTagType) {
         execute(target, pattern, replacement, WHICH.INCLUDE, null,
@@ -90,7 +123,7 @@ public class PathAjuster {
                 includeTagType);
     }
 
-    public static <T extends AbstractJaxb> void replacePathExcludesClass(
+    public static <T extends AbstractJaxb> void replacePathExcludeClass(
             T target, Pattern pattern, String replacement,
             List<String> excludeClazz) {
         execute(target, pattern, replacement, WHICH.EXCLUDE, excludeClazz, null);
@@ -121,41 +154,23 @@ public class PathAjuster {
             List<Class<?>> tagType
             ) {
 
-        boolean result = false;
-        boolean clazzMatch = false;
-        boolean tagTypeMatch = false;
-        if (clazz != null) {
-            CLASSMATCH: for (String cssClazz : clazz) {
-                if (targetClazz.contains(cssClazz)) {
-                    clazzMatch = true;
-                    break CLASSMATCH;
-                }
-            }
-        } else {
-            clazzMatch = true;
-        }
-        if (tagType != null) {
-            TAGTYPEMATCH: for (Class<?> c : tagType) {
-                if (c.getName().equals(targetTagType.getName())) {
-                    tagTypeMatch = true;
-                    break TAGTYPEMATCH;
-                }
-            }
-        } else {
-            tagTypeMatch = true;
-        }
+        boolean result;
 
         switch (which) {
         case ALL:
             result = true;
             break;
         case INCLUDE:
-            if (clazzMatch && tagTypeMatch) {
+            result = false;
+            if (clazzMatch(targetClazz, clazz)
+                    && tagTypeMatch(targetTagType, tagType)) {
                 result = true;
             }
             break;
         case EXCLUDE:
-            if (clazzMatch && tagTypeMatch) {
+            result = true;
+            if (clazzMatch(targetClazz, clazz)
+                    && tagTypeMatch(targetTagType, tagType)) {
                 result = false;
             }
             break;
@@ -163,6 +178,36 @@ public class PathAjuster {
             result = true;
         }
         return result;
+    }
+
+    private static boolean tagTypeMatch(Class<?> targetTagType, List<Class<?>> tagType) {
+        boolean tagTypeMatch = false;
+        if (tagType == null) {
+            tagTypeMatch = true;
+        } else {
+            TAGTYPEMATCH: for (Class<?> c : tagType) {
+                if (c.getName().equals(targetTagType.getName())) {
+                    tagTypeMatch = true;
+                    break TAGTYPEMATCH;
+                }
+            }
+        }
+        return tagTypeMatch;
+    }
+
+    private static boolean clazzMatch(List<String> targetClazz,List<String> clazz) {
+        boolean clazzMatch = false;
+        if (clazz == null) {
+            clazzMatch = true;
+        } else {
+            CLASSMATCH: for (String cssClazz : clazz) {
+                if (targetClazz.contains(cssClazz)) {
+                    clazzMatch = true;
+                    break CLASSMATCH;
+                }
+            }
+        }
+        return clazzMatch;
     }
 
     private static <T extends AbstractJaxb> void execute(
