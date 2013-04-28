@@ -22,14 +22,14 @@
     <nav>
         here comes navigation.
         <ul>
-            <li><a href="#">page name</a></li>
-            <li><a href="#">page name</a></li>
+            <li><a id="a_001" href="#">page name</a></li>
+            <li><a id="a_002" href="#">page name</a></li>
         </ul>
     </nav>
 
     <article id="article1">
         <section>
-            <h1>content name</h1>
+            <h3>content name</h3>
             <p>
                 &cent;
                 &pound;
@@ -41,7 +41,7 @@
             </p>
         </section>
         <section>
-            <h1>content name</h1>
+            <h4>content name</h4>
             <p>
                 <b>bold</b>
             </p>
@@ -64,21 +64,21 @@
     </article>
     <article id="article2">
         <section>
-            <h1>content name</h1>
+            <h5>content name</h5>
             <p>
                zzzzzzzzzzzz
             </p>
         </section>
         <section>
-            <h1>content name</h1>
+            <h6>content name</h6>
             <p>
-                <video id="video1" src="tgif.vid" autoplay="autoplay" onerror="failed(event)">
-                    <track id="track1" kind="subtitles" src="brave.ja.vtt" srclang="ja" label="Japanese" />
-                    <track id="track2" kind="subtitles" src="brave.en.vtt" srclang="en" label="English" />
-                </video>
+               <video id="video1" src="tgif.vid" autoplay="autoplay" onerror="failed(event)">
+                 <track id="track1" class="aaa foo bbb" kind="subtitles" src="xxx/brave.ja.vtt" srclang="ja" label="Japanese" />
+                 <track id="track2" class="aaa bar bbb" kind="subtitles" src="yyy/brave.en.vtt" srclang="en" label="English" />
+               </video>
             </p>
 
-<form action="processkey.cgi" method="post" enctype="multipart/form-data">
+<form id="form01" action="xxx/yyy/processkey.cgi" method="post" enctype="multipart/form-data">
     <keygen name="key" />
     <label id="label1">keywords:<input type="search" name="q" autocomplete="on" list="keywords" /></label>
     <datalist id="datalist_keywords">
@@ -89,6 +89,45 @@
     <input type="submit" value="Submit key..." />
     <output id="output1" name="o"></output>
 </form>
+
+<table>
+    <thead>
+        <tr>
+            <td>
+                <img id="img_01" class="xyz foo" src="xyz" />
+            </td>
+        </tr>
+    </thead>
+    <tr>
+        <td>
+            <img id="img_02" class="xyz bar" src="xyz" />
+        </td>
+    </tr>
+</table>
+
+<table>
+    <tbody>
+        <tr>
+            <th>header header header...</th>
+            <td>
+                <iframe id="iframe_01" class="bar xyz" src="example.html"></iframe>
+            </td>
+            <td>
+                <p>foo bar</p>
+                <blockquote
+                    cite="http://example.com/foo.html">
+                    zzzzzzzzzzzzzzzzz</blockquote>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>
+                <iframe id="iframe_02" src="example.html"></iframe>
+            </td>
+        </tr>
+    </tfoot>
+</table>
 
 <div>
     <details>

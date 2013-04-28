@@ -2,16 +2,13 @@ package org.mixer2.xhtml;
 
 import java.io.File;
 
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.beanutils.BeanUtilsBean;
 import org.apache.commons.lang.time.StopWatch;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mixer2.Mixer2Engine;
-import org.mixer2.jaxb.xhtml.Body;
-import org.mixer2.jaxb.xhtml.Head;
 import org.mixer2.jaxb.xhtml.Html;
+import org.mixer2.jaxb.xhtml.Meta;
 
 
 public class CopyPerformanceTest {
@@ -20,13 +17,13 @@ public class CopyPerformanceTest {
     private String templateFilePath;
     private static Mixer2Engine m2e;
 
-    private int loop = 100;
-    
+    private int loop = 500;
+
     @BeforeClass
     public static void beforeClass() {
-        m2e = new Mixer2Engine();        
+        m2e = new Mixer2Engine();
     }
-    
+
     @Before
     public void before() {
         templateFilePath = getClass().getResource(templateFileName).toString();
@@ -39,13 +36,26 @@ public class CopyPerformanceTest {
     }
 
     @Test()
-    public void normalCopy() throws Exception {
+    public void wholeHtmlCopy() throws Exception {
         Html html = m2e.loadHtmlTemplate(new File(templateFilePath));
         Html tmp = null;
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         for (int i=0; i<loop; i++) {
             tmp = html.copy(Html.class);
+        }
+        stopWatch.stop();
+        System.out.println("normal Copy: loop= " + loop + ", time(msec)= " + stopWatch.getTime());
+    }
+
+    @Test()
+    public void smallTagCopy() throws Exception {
+        Html html = m2e.loadHtmlTemplate(new File(templateFilePath));
+        Meta tmp = html.getById("meta-content-type", Meta.class);
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
+        for (int i=0; i<loop; i++) {
+            tmp = tmp.copy(Meta.class);
         }
         stopWatch.stop();
         System.out.println("normal Copy: loop= " + loop + ", time(msec)= " + stopWatch.getTime());

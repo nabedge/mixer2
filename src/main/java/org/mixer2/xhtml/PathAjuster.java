@@ -1,4 +1,4 @@
-package org.mixer2.xhtml.util;
+package org.mixer2.xhtml;
 
 import java.util.List;
 import java.util.ListIterator;
@@ -8,25 +8,170 @@ import java.util.regex.Pattern;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.mixer2.jaxb.xhtml.*;
-import org.mixer2.xhtml.AbstractJaxb;
-import org.mixer2.xhtml.TagEnum;
 
 /**
+ * <p>
+ * path ajustment utility for image, style sheet, etc.
+ * </p>
  *
+ * <h4>target tag and attribute.</h4>
+ * <table border="1">
+ * <thead>
+ * <tr>
+ * <th>tag</th>
+ * <th>attribute</th>
+ * </tr>
+ * </thead>
+ * <tbody>
+ * <tr><td>a</td><td>href</td></tr>
+ * <tr><td rowspan="2">applet</td><td>code</td></tr>
+ * <tr><!-- applet --><td>codebase</td></tr>
+ * <tr><td>area</td><td>href</td></tr>
+ * <tr><td>audio</td><td>src</td></tr>
+ * <tr><td>base</td><td>href</td></tr>
+ * <tr><td>blockquote</td><td>cite</td></tr>
+ * <tr><td>del</td><td>cite</td></tr>
+ * <tr><td>embed</td><td>src</td></tr>
+ * <tr><td>form</td><td>action</td></tr>
+ * <tr><td>iframe</td><td>src</td></tr>
+ * <tr><td rowspan="2">img</td><td>src</td></tr>
+ * <tr><!-- img --><td>usemap</td></tr>
+ * <tr><td rowspan="2">input</td><td>src</td></tr>
+ * <tr><!-- input --><td>usemap</td></tr>
+ * <tr><td>ins</td><td>cite</td></tr>
+ * <tr><td>link</td><td>href</td></tr>
+ * <tr><td rowspan="3">object</td><td>codebase</td></tr>
+ * <tr><!-- object  --><td>data</td></tr>
+ * <tr><!-- object  --><td>usemap</td></tr>
+ * <tr><td>q</td><td>cite</td></tr>
+ * <tr><td>script</td><td>src</td></tr>
+ * <tr><td>track</td><td>src</td></tr>
+ * <tr><td>video</td><td>src</td></tr>
+ * </tbody>
+ * </table>
  *
  */
-public class ReplacePathUtil {
+public class PathAjuster {
 
     @SuppressWarnings("unused")
-    private static Log log = LogFactory.getLog(ReplacePathUtil.class);
+    private static Log log = LogFactory.getLog(PathAjuster.class);
 
+    /**
+     * <p>
+     * replace all the path.
+     * </p>
+     *
+     * @param target tag
+     * @param pattern regex pattern
+     * @param replacement replacemnet string.
+     */
     public static <T extends AbstractJaxb> void replacePath(T target,
             Pattern pattern, String replacement) {
-        execute(target, pattern, replacement);
+        execute(target, pattern, replacement, WHICH.ALL, null, null);
     }
 
-    private static <T extends AbstractJaxb> void execute(T target,
-            Pattern pattern, String replacement) {
+    public static <T extends AbstractJaxb> void replacePathIncludesClass(
+            T target, Pattern pattern, String replacement,
+            List<String> includeClazz) {
+        execute(target, pattern, replacement, WHICH.INCLUDE, includeClazz, null);
+    }
+
+    public static <T extends AbstractJaxb> void replacePathIncludesTag(
+            T target, Pattern pattern, String replacement,
+            List<Class<?>> includeTagType) {
+        execute(target, pattern, replacement, WHICH.INCLUDE, null,
+                includeTagType);
+    }
+
+    public static <T extends AbstractJaxb> void replacePathInclude(T target,
+            Pattern pattern, String replacement, List<String> includeClazz,
+            List<Class<?>> includeTagType) {
+        execute(target, pattern, replacement, WHICH.INCLUDE, includeClazz,
+                includeTagType);
+    }
+
+    public static <T extends AbstractJaxb> void replacePathExcludesClass(
+            T target, Pattern pattern, String replacement,
+            List<String> excludeClazz) {
+        execute(target, pattern, replacement, WHICH.EXCLUDE, excludeClazz, null);
+    }
+
+    public static <T extends AbstractJaxb> void replacePathExcludeTag(T target,
+            Pattern pattern, String replacement, List<Class<?>> excludeTagType) {
+        execute(target, pattern, replacement, WHICH.EXCLUDE, null,
+                excludeTagType);
+    }
+
+    public static <T extends AbstractJaxb> void replacePathExclude(T target,
+            Pattern pattern, String replacement, List<String> excludeClazz,
+            List<Class<?>> excludeTagType) {
+        execute(target, pattern, replacement, WHICH.EXCLUDE, excludeClazz,
+                excludeTagType);
+    }
+
+    private enum WHICH {
+        ALL, INCLUDE, EXCLUDE
+    }
+
+    private static <T extends AbstractJaxb> boolean match(
+            List<String> targetClazz,
+            Class<?> targetTagType,
+            WHICH which,
+            List<String> clazz,
+            List<Class<?>> tagType
+            ) {
+
+        boolean result = false;
+        boolean clazzMatch = false;
+        boolean tagTypeMatch = false;
+        if (clazz != null) {
+            CLASSMATCH: for (String cssClazz : clazz) {
+                if (targetClazz.contains(cssClazz)) {
+                    clazzMatch = true;
+                    break CLASSMATCH;
+                }
+            }
+        } else {
+            clazzMatch = true;
+        }
+        if (tagType != null) {
+            TAGTYPEMATCH: for (Class<?> c : tagType) {
+                if (c.getName().equals(targetTagType.getName())) {
+                    tagTypeMatch = true;
+                    break TAGTYPEMATCH;
+                }
+            }
+        } else {
+            tagTypeMatch = true;
+        }
+
+        switch (which) {
+        case ALL:
+            result = true;
+            break;
+        case INCLUDE:
+            if (clazzMatch && tagTypeMatch) {
+                result = true;
+            }
+            break;
+        case EXCLUDE:
+            if (clazzMatch && tagTypeMatch) {
+                result = false;
+            }
+            break;
+        default:
+            result = true;
+        }
+        return result;
+    }
+
+    private static <T extends AbstractJaxb> void execute(
+            T target,
+            Pattern pattern,
+            String replacement,
+            WHICH which,
+            List<String> clazz,
+            List<Class<?>> tagType) {
 
         TagEnum tagEnum;
 
@@ -41,70 +186,81 @@ public class ReplacePathUtil {
         switch (tagEnum) {
         case A:
             A a = (A) target;
-            if (a.isSetHref()) {
-                Matcher matcher = pattern.matcher(a.getHref());
-                a.setHref(matcher.replaceFirst(replacement));
+            if (match(a.getCssClass(), a.getClass(), which, clazz, tagType)) {
+                if (a.isSetHref()) {
+                    Matcher matcher = pattern.matcher(a.getHref());
+                    a.setHref(matcher.replaceFirst(replacement));
+                }
             }
             if (a.isSetContent()) {
                 replacePathWithinObjectList(a.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case ABBR:
             Abbr abbr = (Abbr) target;
             if (abbr.isSetContent()) {
                 replacePathWithinObjectList(abbr.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case ACRONYM:
             Acronym acronym = (Acronym) target;
             if (acronym.isSetContent()) {
                 replacePathWithinObjectList(acronym.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case ADDRESS:
             Address address = (Address) target;
             if (address.isSetContent()) {
                 replacePathWithinObjectList(address.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case APPLET:
             Applet applet = (Applet) target;
-            if (applet.isSetCode()) {
-                Matcher matcher = pattern.matcher(applet.getCode());
-                applet.setCode(matcher.replaceFirst(replacement));
-            }
-            if (applet.isSetCodebase()) {
-                Matcher matcher = pattern.matcher(applet.getCodebase());
-                applet.setCodebase(matcher.replaceFirst(replacement));
+            if (match(applet.getCssClass(), applet.getClass(), which, clazz,
+                    tagType)) {
+                if (applet.isSetCode()) {
+                    Matcher matcher = pattern.matcher(applet.getCode());
+                    applet.setCode(matcher.replaceFirst(replacement));
+                }
+                if (applet.isSetCodebase()) {
+                    Matcher matcher = pattern.matcher(applet.getCodebase());
+                    applet.setCodebase(matcher.replaceFirst(replacement));
+                }
             }
             if (applet.isSetContent()) {
                 replacePathWithinObjectList(applet.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case AREA:
             Area area = (Area) target;
-            if (area.isSetHref()) {
-                Matcher matcher = pattern.matcher(area.getHref());
-                area.setHref(matcher.replaceFirst(replacement));
+            if (match(area.getCssClass(), area.getClass(), which, clazz,
+                    tagType)) {
+                if (area.isSetHref()) {
+                    Matcher matcher = pattern.matcher(area.getHref());
+                    area.setHref(matcher.replaceFirst(replacement));
+                }
             }
             break;
         case B:
             B b = (B) target;
             if (b.isSetContent()) {
                 replacePathWithinObjectList(b.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case BASE:
             Base base = (Base) target;
-            if (base.isSetHref()) {
-                Matcher matcher = pattern.matcher(base.getHref());
-                base.setHref(matcher.replaceFirst(replacement));
+            if (match(base.getCssClass(), base.getClass(), which, clazz,
+                    tagType)) {
+                if (base.isSetHref()) {
+                    Matcher matcher = pattern.matcher(base.getHref());
+                    base.setHref(matcher.replaceFirst(replacement));
+                }
             }
             break;
         case BASEFONT:
@@ -113,32 +269,35 @@ public class ReplacePathUtil {
             Bdo bdo = (Bdo) target;
             if (bdo.isSetContent()) {
                 replacePathWithinObjectList(bdo.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case BIG:
             Big big = (Big) target;
             if (big.isSetContent()) {
                 replacePathWithinObjectList(big.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case BLOCKQUOTE:
             Blockquote blockquote = (Blockquote) target;
-            if (blockquote.isSetCite()) {
-                Matcher matcher = pattern.matcher(blockquote.getCite());
-                blockquote.setCite(matcher.replaceFirst(replacement));
+            if (match(blockquote.getCssClass(), blockquote.getClass(), which,
+                    clazz, tagType)) {
+                if (blockquote.isSetCite()) {
+                    Matcher matcher = pattern.matcher(blockquote.getCite());
+                    blockquote.setCite(matcher.replaceFirst(replacement));
+                }
             }
             if (blockquote.isSetContent()) {
                 replacePathWithinObjectList(blockquote.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case BODY:
             Body body = (Body) target;
             if (body.isSetContent()) {
                 replacePathWithinObjectList(body.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case BR:
@@ -147,35 +306,35 @@ public class ReplacePathUtil {
             Button button = (Button) target;
             if (button.isSetContent()) {
                 replacePathWithinObjectList(button.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case CAPTION:
             Caption caption = (Caption) target;
             if (caption.isSetContent()) {
                 replacePathWithinObjectList(caption.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case CENTER:
             Center center = (Center) target;
             if (center.isSetContent()) {
                 replacePathWithinObjectList(center.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case CITE:
             Cite cite = (Cite) target;
             if (cite.isSetContent()) {
                 replacePathWithinObjectList(cite.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case CODE:
             Code code = (Code) target;
             if (code.isSetContent()) {
                 replacePathWithinObjectList(code.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case COL:
@@ -186,7 +345,7 @@ public class ReplacePathUtil {
             Dd dd = (Dd) target;
             if (dd.isSetContent()) {
                 replacePathWithinObjectList(dd.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case DEL:
@@ -198,14 +357,14 @@ public class ReplacePathUtil {
             }
             if (del.isSetContent()) {
                 replacePathWithinObjectList(del.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case DFN:
             Dfn dfn = (Dfn) target;
             if (dfn.isSetContent()) {
                 replacePathWithinObjectList(dfn.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case DIR:
@@ -215,7 +374,7 @@ public class ReplacePathUtil {
                         .hasNext();) {
                     Li li = i.next();
                     replacePathWithinObjectList(li.getContent(), pattern,
-                            replacement);
+                            replacement, which, clazz, tagType);
                 }
             }
             break;
@@ -223,7 +382,7 @@ public class ReplacePathUtil {
             Div div = (Div) target;
             if (div.isSetContent()) {
                 replacePathWithinObjectList(div.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case DL:
@@ -245,88 +404,91 @@ public class ReplacePathUtil {
             Dt dt = (Dt) target;
             if (dt.isSetContent()) {
                 replacePathWithinObjectList(dt.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case EM:
             Em em = (Em) target;
             if (em.isSetContent()) {
                 replacePathWithinObjectList(em.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case FIELDSET:
             Fieldset fieldset = (Fieldset) target;
             if (fieldset.isSetContent()) {
                 replacePathWithinObjectList(fieldset.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case FONT:
             Font font = (Font) target;
             if (font.isSetContent()) {
                 replacePathWithinObjectList(font.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case FORM:
             Form form = (Form) target;
-            if (form.isSetAction()) {
-                Matcher matcher = pattern.matcher(form.getAction());
-                form.setAction(matcher.replaceFirst(replacement));
+            if (match(form.getCssClass(), form.getClass(), which, clazz,
+                    tagType)) {
+                if (form.isSetAction()) {
+                    Matcher matcher = pattern.matcher(form.getAction());
+                    form.setAction(matcher.replaceFirst(replacement));
+                }
             }
             if (form.isSetContent()) {
                 replacePathWithinObjectList(form.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case H1:
             H1 h1 = (H1) target;
             if (h1.isSetContent()) {
                 replacePathWithinObjectList(h1.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case H2:
             H2 h2 = (H2) target;
             if (h2.isSetContent()) {
                 replacePathWithinObjectList(h2.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case H3:
             H3 h3 = (H3) target;
             if (h3.isSetContent()) {
                 replacePathWithinObjectList(h3.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case H4:
             H4 h4 = (H4) target;
             if (h4.isSetContent()) {
                 replacePathWithinObjectList(h4.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case H5:
             H5 h5 = (H5) target;
             if (h5.isSetContent()) {
                 replacePathWithinObjectList(h5.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case H6:
             H6 h6 = (H6) target;
             if (h6.isSetContent()) {
                 replacePathWithinObjectList(h6.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case HGROUP:
             Hgroup hgroup = (Hgroup) target;
             if (hgroup.isSetH1OrH2OrH3()) {
                 for (AbstractJaxb aj: hgroup.getH1OrH2OrH3()) {
-                    execute(aj, pattern, replacement);
+                    execute(aj, pattern, replacement, which, clazz, tagType);
                 }
             }
             break;
@@ -335,7 +497,7 @@ public class ReplacePathUtil {
             for (ListIterator<AbstractJaxb> i = head.getContent()
                     .listIterator(); i.hasNext();) {
                 AbstractJaxb aj = i.next();
-                execute(aj, pattern, replacement);
+                execute(aj, pattern, replacement, which, clazz, tagType);
             }
             break;
         case HR:
@@ -343,57 +505,69 @@ public class ReplacePathUtil {
         case HTML:
             Html html = (Html) target;
             if (html.isSetHead()) {
-                execute(html.getHead(), pattern, replacement);
+                execute(html.getHead(), pattern, replacement, which, clazz,
+                        tagType);
             }
             if (html.isSetBody()) {
-                execute(html.getBody(), pattern, replacement);
+                execute(html.getBody(), pattern, replacement, which, clazz,
+                        tagType);
             }
             break;
         case I:
             I i = (I) target;
             if (i.isSetContent()) {
                 replacePathWithinObjectList(i.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case IFRAME:
             Iframe iframe = (Iframe) target;
-            if (iframe.isSetSrc()) {
-                Matcher matcher = pattern.matcher(iframe.getSrc());
-                iframe.setSrc(matcher.replaceFirst(replacement));
+            if (match(iframe.getCssClass(), iframe.getClass(), which, clazz,
+                    tagType)) {
+                if (iframe.isSetSrc()) {
+                    Matcher matcher = pattern.matcher(iframe.getSrc());
+                    iframe.setSrc(matcher.replaceFirst(replacement));
+                }
             }
             if (iframe.isSetContent()) {
                 replacePathWithinObjectList(iframe.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case IMG:
             Img img = (Img) target;
-            if (img.isSetSrc()) {
-                Matcher matcher = pattern.matcher(img.getSrc());
-                img.setSrc(matcher.replaceFirst(replacement));
-            }
-            if (img.isSetUsemap()) {
-                Matcher matcher = pattern.matcher(img.getUsemap());
-                img.setUsemap(matcher.replaceFirst(replacement));
+            if (match(img.getCssClass(), img.getClass(), which, clazz, tagType)) {
+                if (img.isSetSrc()) {
+                    Matcher matcher = pattern.matcher(img.getSrc());
+                    img.setSrc(matcher.replaceFirst(replacement));
+                }
+                if (img.isSetUsemap()) {
+                    Matcher matcher = pattern.matcher(img.getUsemap());
+                    img.setUsemap(matcher.replaceFirst(replacement));
+                }
             }
             break;
         case INPUT:
             Input input = (Input) target;
-            if (input.isSetSrc()) {
-                Matcher matcher = pattern.matcher(input.getSrc());
-                input.setSrc(matcher.replaceFirst(replacement));
+            if (match(input.getCssClass(), input.getClass(), which, clazz,
+                    tagType)) {
+                if (input.isSetSrc()) {
+                    Matcher matcher = pattern.matcher(input.getSrc());
+                    input.setSrc(matcher.replaceFirst(replacement));
+                }
             }
             break;
         case INS:
             Ins ins = (Ins) target;
-            if (ins.isSetCite()) {
-                Matcher matcher = pattern.matcher(ins.getCite());
-                ins.setCite(matcher.replaceFirst(replacement));
+            if (match(ins.getCssClass(), ins.getClass(), which, clazz, tagType)) {
+                if (ins.isSetCite()) {
+                    Matcher matcher = pattern.matcher(ins.getCite());
+                    ins.setCite(matcher.replaceFirst(replacement));
+                }
             }
             if (ins.isSetContent()) {
                 replacePathWithinObjectList(ins.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case ISINDEX:
@@ -402,35 +576,38 @@ public class ReplacePathUtil {
             Kbd kbd = (Kbd) target;
             if (kbd.isSetContent()) {
                 replacePathWithinObjectList(kbd.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case LABEL:
             Label label = (Label) target;
             if (label.isSetContent()) {
                 replacePathWithinObjectList(label.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case LEGEND:
             Legend legend = (Legend) target;
             if (legend.isSetContent()) {
                 replacePathWithinObjectList(legend.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case LI:
             Li li = (Li) target;
             if (li.isSetContent()) {
                 replacePathWithinObjectList(li.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case LINK:
             Link link = (Link) target;
-            if (link.isSetHref()) {
-                Matcher matcher = pattern.matcher(link.getHref());
-                link.setHref(matcher.replaceFirst(replacement));
+            if (match(link.getCssClass(), link.getClass(), which, clazz,
+                    tagType)) {
+                if (link.isSetHref()) {
+                    Matcher matcher = pattern.matcher(link.getHref());
+                    link.setHref(matcher.replaceFirst(replacement));
+                }
             }
             break;
         case MAP:
@@ -439,14 +616,14 @@ public class ReplacePathUtil {
                 for (ListIterator<Area> j = map.getArea().listIterator(); j
                         .hasNext();) {
                     Area tmpArea = j.next();
-                    execute(tmpArea, pattern, replacement);
+                    execute(tmpArea, pattern, replacement, which, clazz, tagType);
                 }
             }
             if (map.isSetPOrH1OrH2()) {
                 for (ListIterator<AbstractJaxb> j = map.getPOrH1OrH2()
                         .listIterator(); j.hasNext();) {
                     AbstractJaxb aj = j.next();
-                    execute(aj, pattern, replacement);
+                    execute(aj, pattern, replacement, which, clazz, tagType);
                 }
             }
             break;
@@ -454,7 +631,7 @@ public class ReplacePathUtil {
             Menu menu = (Menu) target;
             if (menu.isSetContent()) {
                 replacePathWithinObjectList(menu.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case META:
@@ -463,33 +640,36 @@ public class ReplacePathUtil {
             Noframes noframes = (Noframes) target;
             if (noframes.isSetContent()) {
                 replacePathWithinObjectList(noframes.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case NOSCRIPT:
             Noscript noscript = (Noscript) target;
             if (noscript.isSetContent()) {
                 replacePathWithinObjectList(noscript.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case OBJECT:
             org.mixer2.jaxb.xhtml.Object object = (org.mixer2.jaxb.xhtml.Object) target;
-            if (object.isSetCodebase()) {
-                Matcher matcher = pattern.matcher(object.getCodebase());
-                object.setCodebase(matcher.replaceFirst(replacement));
-            }
-            if (object.isSetData()) {
-                Matcher matcher = pattern.matcher(object.getData());
-                object.setData(matcher.replaceFirst(replacement));
-            }
-            if (object.isSetUsemap()) {
-                Matcher matcher = pattern.matcher(object.getUsemap());
-                object.setUsemap(matcher.replaceFirst(replacement));
+            if (match(object.getCssClass(), object.getClass(), which, clazz,
+                    tagType)) {
+                if (object.isSetCodebase()) {
+                    Matcher matcher = pattern.matcher(object.getCodebase());
+                    object.setCodebase(matcher.replaceFirst(replacement));
+                }
+                if (object.isSetData()) {
+                    Matcher matcher = pattern.matcher(object.getData());
+                    object.setData(matcher.replaceFirst(replacement));
+                }
+                if (object.isSetUsemap()) {
+                    Matcher matcher = pattern.matcher(object.getUsemap());
+                    object.setUsemap(matcher.replaceFirst(replacement));
+                }
             }
             if (object.isSetContent()) {
                 replacePathWithinObjectList(object.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case OL:
@@ -499,7 +679,7 @@ public class ReplacePathUtil {
                         .hasNext();) {
                     Li li2 = j.next();
                     replacePathWithinObjectList(li2.getContent(), pattern,
-                            replacement);
+                            replacement, which, clazz, tagType);
                 }
             }
             break;
@@ -511,7 +691,7 @@ public class ReplacePathUtil {
             P p = (P) target;
             if (p.isSetContent()) {
                 replacePathWithinObjectList(p.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case PARAM:
@@ -520,39 +700,44 @@ public class ReplacePathUtil {
             Pre pre = (Pre) target;
             if (pre.isSetContent()) {
                 replacePathWithinObjectList(pre.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case Q:
             Q q = (Q) target;
-            if (q.isSetCite()) {
-                Matcher matcher = pattern.matcher(q.getCite());
-                q.setCite(matcher.replaceFirst(replacement));
+            if (match(q.getCssClass(), q.getClass(), which, clazz, tagType)) {
+                if (q.isSetCite()) {
+                    Matcher matcher = pattern.matcher(q.getCite());
+                    q.setCite(matcher.replaceFirst(replacement));
+                }
             }
             if (q.isSetContent()) {
                 replacePathWithinObjectList(q.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case S:
             S s = (S) target;
             if (s.isSetContent()) {
                 replacePathWithinObjectList(s.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case SAMP:
             Samp samp = (Samp) target;
             if (samp.isSetContent()) {
                 replacePathWithinObjectList(samp.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case SCRIPT:
             Script script = (Script) target;
-            if (script.isSetSrc()) {
-                Matcher matcher = pattern.matcher(script.getSrc());
-                script.setSrc(matcher.replaceFirst(replacement));
+            if (match(script.getCssClass(), script.getClass(), which, clazz,
+                    tagType)) {
+                if (script.isSetSrc()) {
+                    Matcher matcher = pattern.matcher(script.getSrc());
+                    script.setSrc(matcher.replaceFirst(replacement));
+                }
             }
             break;
         case SELECT:
@@ -561,7 +746,7 @@ public class ReplacePathUtil {
                 for (ListIterator<AbstractJaxb> j = select
                         .getOptgroupOrOption().listIterator(); j.hasNext();) {
                     AbstractJaxb aj = j.next();
-                    execute(aj, pattern, replacement);
+                    execute(aj, pattern, replacement, which, clazz, tagType);
                 }
             }
             break;
@@ -569,28 +754,28 @@ public class ReplacePathUtil {
             Small small = (Small) target;
             if (small.isSetContent()) {
                 replacePathWithinObjectList(small.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case SPAN:
             Span span = (Span) target;
             if (span.isSetContent()) {
                 replacePathWithinObjectList(span.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case STRIKE:
             Strike strike = (Strike) target;
             if (strike.isSetContent()) {
                 replacePathWithinObjectList(strike.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case STRONG:
             Strong strong = (Strong) target;
             if (strong.isSetContent()) {
                 replacePathWithinObjectList(strong.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case STYLE:
@@ -599,14 +784,14 @@ public class ReplacePathUtil {
             Sub sub = (Sub) target;
             if (sub.isSetContent()) {
                 replacePathWithinObjectList(sub.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case SUP:
             Sup sup = (Sup) target;
             if (sup.isSetContent()) {
                 replacePathWithinObjectList(sup.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case TABLE:
@@ -615,34 +800,34 @@ public class ReplacePathUtil {
                 for (ListIterator<Col> j = table.getCol().listIterator(); j
                         .hasNext();) {
                     Col col1 = j.next();
-                    execute(col1, pattern, replacement);
+                    execute(col1, pattern, replacement, which, clazz, tagType);
                 }
             }
             if (table.isSetColgroup()) {
                 for (ListIterator<Colgroup> j = table.getColgroup()
                         .listIterator(); j.hasNext();) {
                     Colgroup cg = j.next();
-                    execute(cg, pattern, replacement);
+                    execute(cg, pattern, replacement, which, clazz, tagType);
                 }
             }
             if (table.isSetTbody()) {
                 for (ListIterator<Tbody> j = table.getTbody().listIterator(); j
                         .hasNext();) {
                     Tbody tbody = j.next();
-                    execute(tbody, pattern, replacement);
+                    execute(tbody, pattern, replacement, which, clazz, tagType);
                 }
             }
             if (table.isSetThead()) {
-                execute(table.getThead(), pattern, replacement);
+                execute(table.getThead(), pattern, replacement, which, clazz, tagType);
             }
             if (table.isSetTfoot()) {
-                execute(table.getTfoot(), pattern, replacement);
+                execute(table.getTfoot(), pattern, replacement, which, clazz, tagType);
             }
             if (table.isSetTr()) {
                 for (ListIterator<Tr> j = table.getTr().listIterator(); j
                         .hasNext();) {
                     Tr tr = j.next();
-                    execute(tr, pattern, replacement);
+                    execute(tr, pattern, replacement, which, clazz, tagType);
                 }
             }
             break;
@@ -652,7 +837,7 @@ public class ReplacePathUtil {
                 for (ListIterator<Tr> j = tbody.getTr().listIterator(); j
                         .hasNext();) {
                     Tr tr = j.next();
-                    execute(tr, pattern, replacement);
+                    execute(tr, pattern, replacement, which, clazz, tagType);
                 }
             }
             break;
@@ -660,7 +845,7 @@ public class ReplacePathUtil {
             Td td = (Td) target;
             if (td.isSetContent()) {
                 replacePathWithinObjectList(td.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case TEXTAREA:
@@ -671,7 +856,7 @@ public class ReplacePathUtil {
                 for (ListIterator<Tr> j = tfoot.getTr().listIterator(); j
                         .hasNext();) {
                     Tr tr = j.next();
-                    execute(tr, pattern, replacement);
+                    execute(tr, pattern, replacement, which, clazz, tagType);
                 }
             }
             break;
@@ -679,7 +864,7 @@ public class ReplacePathUtil {
             Th th = (Th) target;
             if (th.isSetContent()) {
                 replacePathWithinObjectList(th.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case THEAD:
@@ -688,7 +873,7 @@ public class ReplacePathUtil {
                 for (ListIterator<Tr> j = thead.getTr().listIterator(); j
                         .hasNext();) {
                     Tr tr = j.next();
-                    execute(tr, pattern, replacement);
+                    execute(tr, pattern, replacement, which, clazz, tagType);
                 }
             }
             break;
@@ -700,7 +885,7 @@ public class ReplacePathUtil {
                 for (ListIterator<Flow> j = tr.getThOrTd().listIterator(); j
                         .hasNext();) {
                     Flow flow = j.next();
-                    execute(flow, pattern, replacement);
+                    execute(flow, pattern, replacement, which, clazz, tagType);
                 }
             }
             break;
@@ -708,14 +893,14 @@ public class ReplacePathUtil {
             Tt tt = (Tt) target;
             if (tt.isSetContent()) {
                 replacePathWithinObjectList(tt.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case U:
             U u = (U) target;
             if (u.isSetContent()) {
                 replacePathWithinObjectList(u.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case UL:
@@ -724,7 +909,7 @@ public class ReplacePathUtil {
                 for (ListIterator<Li> j = ul.getLi().listIterator(); j
                         .hasNext();) {
                     Li li2 = j.next();
-                    execute(li2, pattern, replacement);
+                    execute(li2, pattern, replacement, which, clazz, tagType);
                 }
             }
             break;
@@ -732,42 +917,45 @@ public class ReplacePathUtil {
             Var var = (Var) target;
             if (var.isSetContent()) {
                 replacePathWithinObjectList(var.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case ARTICLE:
             Article article = (Article) target;
             if (article.isSetContent()) {
                 replacePathWithinObjectList(article.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case ASIDE:
             Aside aside = (Aside) target;
             if (aside.isSetContent()) {
                 replacePathWithinObjectList(aside.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case AUDIO:
             Audio audio = (Audio) target;
-            if (audio.isSetContent()) {
-                replacePathWithinObjectList(audio.getContent(), pattern,
-                        replacement);
+            if (match(audio.getCssClass(), audio.getClass(), which, clazz,
+                    tagType)) {
+                if (audio.isSetContent()) {
+                    replacePathWithinObjectList(audio.getContent(), pattern,
+                            replacement, which, clazz, tagType);
+                }
             }
             break;
         case BDI:
             Bdi bdi = (Bdi) target;
             if (bdi.isSetContent()) {
                 replacePathWithinObjectList(bdi.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case CANVAS:
             Canvas canvas = (Canvas) target;
             if (canvas.isSetContent()) {
                 replacePathWithinObjectList(canvas.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case COMMAND:
@@ -776,49 +964,52 @@ public class ReplacePathUtil {
             Datalist datalist = (Datalist) target;
             if (datalist.isSetContent()) {
                 replacePathWithinObjectList(datalist.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case DETAILS:
             Details details = (Details) target;
             if (details.isSetContent()) {
                 replacePathWithinObjectList(details.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case EMBED:
             Embed embed = (Embed) target;
-            if (embed.isSetSrc()) {
-                Matcher matcher = pattern.matcher(embed.getSrc());
-                embed.setSrc(matcher.replaceFirst(replacement));
+            if (match(embed.getCssClass(), embed.getClass(), which, clazz,
+                    tagType)) {
+                if (embed.isSetSrc()) {
+                    Matcher matcher = pattern.matcher(embed.getSrc());
+                    embed.setSrc(matcher.replaceFirst(replacement));
+                }
             }
             break;
         case FIGCAPTION:
             Figcaption figcaption = (Figcaption) target;
             if (figcaption.isSetContent()) {
                 replacePathWithinObjectList(figcaption.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case FIGURE:
             Figure figure = (Figure) target;
             if (figure.isSetContent()) {
                 replacePathWithinObjectList(figure.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case FOOTER:
             Footer footer = (Footer) target;
             if (footer.isSetContent()) {
                 replacePathWithinObjectList(footer.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case HEADER:
             Header header = (Header) target;
             if (header.isSetContent()) {
                 replacePathWithinObjectList(header.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case KEYGEN:
@@ -827,102 +1018,111 @@ public class ReplacePathUtil {
             Mark mark = (Mark) target;
             if (mark.isSetContent()) {
                 replacePathWithinObjectList(mark.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case METER:
             Meter meter = (Meter) target;
             if (meter.isSetContent()) {
                 replacePathWithinObjectList(meter.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case NAV:
             Nav nav = (Nav) target;
             if (nav.isSetContent()) {
                 replacePathWithinObjectList(nav.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case OUTPUT:
             Output output = (Output) target;
             if (output.isSetContent()) {
                 replacePathWithinObjectList(output.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case PROGRESS:
             Progress progress = (Progress) target;
             if (progress.isSetContent()) {
                 replacePathWithinObjectList(progress.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case RP:
             Rp rp = (Rp) target;
             if (rp.isSetContent()) {
                 replacePathWithinObjectList(rp.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case RT:
             Rt rt = (Rt) target;
             if (rt.isSetContent()) {
                 replacePathWithinObjectList(rt.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case RUBY:
             Ruby ruby = (Ruby) target;
             if (ruby.isSetContent()) {
                 replacePathWithinObjectList(ruby.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case SECTION:
             Section section = (Section) target;
             if (section.isSetContent()) {
                 replacePathWithinObjectList(section.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case SOURCE:
             Source source = (Source) target;
-            if (source.isSetSrc()) {
-                Matcher matcher = pattern.matcher(source.getSrc());
-                source.setSrc(matcher.replaceFirst(replacement));
+            if (match(source.getCssClass(), source.getClass(), which, clazz,
+                    tagType)) {
+                if (source.isSetSrc()) {
+                    Matcher matcher = pattern.matcher(source.getSrc());
+                    source.setSrc(matcher.replaceFirst(replacement));
+                }
             }
             break;
         case SUMMARY:
             Summary summary = (Summary) target;
             if (summary.isSetContent()) {
                 replacePathWithinObjectList(summary.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case TIME:
             Time time = (Time) target;
             if (time.isSetContent()) {
                 replacePathWithinObjectList(time.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case TRACK:
             Track track = (Track) target;
-            if (track.isSetSrc()) {
-                Matcher matcher = pattern.matcher(track.getSrc());
-                track.setSrc(matcher.replaceFirst(replacement));
+            if (match(track.getCssClass(), track.getClass(), which, clazz,
+                    tagType)) {
+                if (track.isSetSrc()) {
+                    Matcher matcher = pattern.matcher(track.getSrc());
+                    track.setSrc(matcher.replaceFirst(replacement));
+                }
             }
             break;
         case VIDEO:
             Video video = (Video) target;
-            if (video.isSetSrc()) {
-                Matcher matcher = pattern.matcher(video.getSrc());
-                video.setSrc(matcher.replaceFirst(replacement));
+            if (match(video.getCssClass(), video.getClass(), which, clazz,
+                    tagType)) {
+                if (video.isSetSrc()) {
+                    Matcher matcher = pattern.matcher(video.getSrc());
+                    video.setSrc(matcher.replaceFirst(replacement));
+                }
             }
             if (video.isSetContent()) {
                 replacePathWithinObjectList(video.getContent(), pattern,
-                        replacement);
+                        replacement, which, clazz, tagType);
             }
             break;
         case WBR:
@@ -932,13 +1132,14 @@ public class ReplacePathUtil {
     }
 
     private static void replacePathWithinObjectList(
-            List<java.lang.Object> list, Pattern pattern, String replacement) {
+            List<java.lang.Object> list, Pattern pattern, String replacement,
+            WHICH which, List<String> clazz, List<Class<?>> tagType) {
 
         for (ListIterator<java.lang.Object> i = list.listIterator(); i
                 .hasNext();) {
             java.lang.Object tmpobj = i.next();
             if (tmpobj instanceof AbstractJaxb) {
-                execute((AbstractJaxb) tmpobj, pattern, replacement);
+                execute((AbstractJaxb) tmpobj, pattern, replacement, which, clazz, tagType);
             }
         }
     }
