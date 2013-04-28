@@ -319,3 +319,11 @@ abc
 </div>
 ----
 
+* {path ajuster}
+
+ The static file path may change if you open template directly in browser
+ and the run-time on server.
+
+ You can use PathAjuster class. See
+ {{{./apidocs/org/mixer2/xhtml/PathAjuster.html} javadoc}}
+ for detail.

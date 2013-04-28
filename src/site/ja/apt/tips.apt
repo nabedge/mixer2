@@ -335,3 +335,13 @@ abc
 </div>
 ----
 
+* {path ajuster}
+
+ テンプレートファイルをブラウザで直接見る場合と
+ Webアプリケーションとしてサーバ上で実行してみる場合とで
+ 静的ファイルのパスが異なる場合があります。
+
+ PathAjusterクラスを使うとパスを自動調整することができます。
+ 詳しくは
+ {{{./apidocs/org/mixer2/xhtml/PathAjuster.html} javadoc}}
+ をご覧ください。
