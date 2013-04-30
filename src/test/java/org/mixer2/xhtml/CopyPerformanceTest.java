@@ -15,13 +15,12 @@ public class CopyPerformanceTest {
 
     private String templateFileName = "sample-xhtml1-transitional.html";
     private String templateFilePath;
-    private static Mixer2Engine m2e;
+    private static Mixer2Engine m2e = Mixer2EngineFactory.getInstance();
 
-    private int loop = 500;
+    private int loop = 200;
 
     @BeforeClass
     public static void beforeClass() {
-        m2e = new Mixer2Engine();
     }
 
     @Before

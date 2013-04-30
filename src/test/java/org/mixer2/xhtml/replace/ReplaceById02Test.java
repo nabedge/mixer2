@@ -19,6 +19,7 @@ import org.mixer2.jaxb.xhtml.Div;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.Img;
 import org.mixer2.jaxb.xhtml.Li;
+import org.mixer2.xhtml.Mixer2EngineFactory;
 import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 /**
@@ -29,7 +30,7 @@ public class ReplaceById02Test {
 
     private String templateFileName = "ReplaceByIdTest02.html";
     private String templateFilePath;
-    private static Mixer2Engine m2e = new Mixer2Engine();
+    private static Mixer2Engine m2e = Mixer2EngineFactory.getInstance();
     private Html html;
 
     @AfterClass

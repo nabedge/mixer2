@@ -21,7 +21,7 @@ import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 public class SampleHtml5 {
     private String templateFileName = "sample-html5.html";
     private String templateFilePath;
-    private static Mixer2Engine m2e = new Mixer2Engine();
+    private static Mixer2Engine m2e = Mixer2EngineFactory.getInstance();
 
     @AfterClass
     public static void afterClass() {

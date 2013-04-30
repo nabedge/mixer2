@@ -16,12 +16,12 @@ import org.mixer2.jaxb.xhtml.Span;
 import org.mixer2.jaxb.xhtml.Table;
 import org.mixer2.jaxb.xhtml.Td;
 import org.mixer2.jaxb.xhtml.Tr;
+import org.mixer2.xhtml.Mixer2EngineFactory;
 import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 public class TableBuilderTest {
 
-    @SuppressWarnings("unused")
-    private static Mixer2Engine m2e = new Mixer2Engine();
+    private static Mixer2Engine m2e = Mixer2EngineFactory.getInstance();
 
     @AfterClass
     public static void afterClass() {

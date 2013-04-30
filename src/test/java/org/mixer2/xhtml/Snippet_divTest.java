@@ -16,7 +16,7 @@ import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 public class Snippet_divTest {
     private String templateFileName = "snippet_div.html";
     private String templateFilePath;
-    private static Mixer2Engine m2e = new Mixer2Engine();
+    private static Mixer2Engine m2e = Mixer2EngineFactory.getInstance();
     private Html html;
 
     @AfterClass

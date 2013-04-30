@@ -17,7 +17,7 @@ import static org.mixer2.xhtml.TagCreator.*;
 @SuppressWarnings("unused")
 public class Dummy {
 
-    private static Mixer2Engine m2e = new Mixer2Engine();
+    private static Mixer2Engine m2e = Mixer2EngineFactory.getInstance();
 
     @AfterClass
     public static void afterClass() {

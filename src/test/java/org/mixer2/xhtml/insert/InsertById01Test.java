@@ -21,6 +21,7 @@ import org.mixer2.jaxb.xhtml.Span;
 import org.mixer2.jaxb.xhtml.Table;
 import org.mixer2.jaxb.xhtml.Td;
 import org.mixer2.jaxb.xhtml.Tr;
+import org.mixer2.xhtml.Mixer2EngineFactory;
 import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 /**
@@ -32,7 +33,7 @@ public class InsertById01Test {
 
     private String templateFileName = "InsertByIdTest01.html";
     private String templateFilePath;
-    private static Mixer2Engine m2e = new Mixer2Engine();
+    private static Mixer2Engine m2e = Mixer2EngineFactory.getInstance();
     private Html html;
 
     @AfterClass

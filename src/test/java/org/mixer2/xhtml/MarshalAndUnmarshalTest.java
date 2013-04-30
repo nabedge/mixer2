@@ -15,7 +15,7 @@ public class MarshalAndUnmarshalTest {
 
     private String templateFileName = "sample-xhtml1-transitional.html";
     private String templateFilePath;
-    private static Mixer2Engine m2e = new Mixer2Engine();
+    private static Mixer2Engine m2e = Mixer2EngineFactory.getInstance();
 
     @AfterClass
     public static void afterClass() {

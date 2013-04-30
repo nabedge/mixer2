@@ -15,6 +15,7 @@ import org.mixer2.Mixer2Engine;
 import org.mixer2.jaxb.xhtml.Form;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.Input;
+import org.mixer2.xhtml.Mixer2EngineFactory;
 import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 import org.mixer2.xhtml.util.FormUtil;
 
@@ -22,7 +23,7 @@ public class FormUtilSampleTest {
 
     private String templateFileName = "FormUtilSampleTest.html";
     private String templateFilePath;
-    private static Mixer2Engine m2e = new Mixer2Engine();
+    private static Mixer2Engine m2e = Mixer2EngineFactory.getInstance();
     private Html html;
 
     @AfterClass

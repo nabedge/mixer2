@@ -20,7 +20,7 @@ public class UnsetId01Test {
 
     private String templateFileName = "UnsetIdTest01.html";
     private String templateFilePath;
-    private static Mixer2Engine m2e = new Mixer2Engine();
+    private static Mixer2Engine m2e = Mixer2EngineFactory.getInstance();
     private Html html;
 
     @AfterClass
