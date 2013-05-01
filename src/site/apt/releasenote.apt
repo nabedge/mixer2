@@ -28,5 +28,7 @@ Release Note
 
  * 1.2.1 2013-03 bug fix. The bug had remove line break on html template. 
  
+ * 1.2.2 add PathAjuster class and some fix.
+ 
  []
 
