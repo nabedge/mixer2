@@ -257,7 +257,7 @@ Ul ul = html.getById("namelist", Ul.class);
 // get first li and copy. remove content of it.
 // property of li tag will remain.
 Li baseLi = ul.getLi().get(0).copy(Li.class);
-baseLi.getContent().clear();
+baseLi.unsetContent();
 
 // delete all li
 ul.getLi().clear();

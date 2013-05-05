@@ -149,7 +149,7 @@ public class HomeController {
         Html html = mixer2Engine.loadHtmlTemplate(resourceLoader.getResource(
                 "classpath:HelloWorld.html").getInputStream());
 
-        html.getById("hellomsg", Div.class).getContent().clear();
+        html.getById("hellomsg", Div.class).unsetContent();
         html.getById("hellomsg", Div.class).getContent().add("Hello Mixer2 !");
 
         Map<String,String> model = new HashMap<String,String>();
@@ -206,7 +206,7 @@ Hello World on Spring MVC with View
          String template = "classpath:HelloWorld.html";
          Html html = mixer2Engine.loadHtmlTemplate(
              resourceLoader.getResource(template).getInputStream());
-         html.getById("hellomsg", Div.class).getContent().clear();
+         html.getById("hellomsg", Div.class).unsetContent();
          html.getById("hellomsg", Div.class).getContent().add("Hello Mixer2 !");
          return new Mixer2XhtmlView(mixer2Engine, html);
      }

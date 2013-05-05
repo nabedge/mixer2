@@ -122,7 +122,7 @@ public class IndexAction {
     public String index() throws IOException, TagTypeUnmatchException {
         File file = ResourceUtil.getResourceAsFile("HelloWorld.html");
         Html html = mixer2Engine.loadHtmlTemplate(file);
-        html.getById("hellomsg", Div.class).getContent().clear();
+        html.getById("hellomsg", Div.class).unsetContent();
         html.getById("hellomsg", Div.class).getContent().add("Hello World!");
         htmlString = mixer2Engine.saveToString(html);
         return "index.jsp";

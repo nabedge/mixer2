@@ -44,7 +44,7 @@ import org.springframework.web.servlet.view.AbstractView;
  *         String template = "classpath:HelloWorld.html";
  *         Html html = mixer2Engine.loadHtmlTemplate(
  *             resourceLoader.getResource(template).getInputStream());
- *         html.getById("hellomsg", Div.class).getContent().clear();
+ *         html.getById("hellomsg", Div.class).unsetContent();
  *         html.getById("hellomsg", Div.class).getContent().add("Hello Mixer2 !");
  *         return new Mixer2XhtmlView(mixer2Engine, html);
  *     }
@@ -54,7 +54,7 @@ import org.springframework.web.servlet.view.AbstractView;
  *         String template = "classpath:HelloWorld.html";
  *         Html html = mixer2Engine.loadHtmlTemplate(
  *             resourceLoader.getResource(template).getInputStream());
- *         html.getById("hellomsg", Div.class).getContent().clear();
+ *         html.getById("hellomsg", Div.class).unsetContent();
  *         html.getById("hellomsg", Div.class).getContent().add("Life is beautiful !");
  *
  *         // You can also set Mixer2XhtmlView into normal ModelAndView .
