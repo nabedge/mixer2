@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.mixer2.Mixer2Engine;
 import org.mixer2.jaxb.xhtml.Html;
+import org.springframework.util.Assert;
 import org.springframework.web.servlet.view.AbstractView;
 
 /**
@@ -77,18 +78,22 @@ public class Mixer2XhtmlView extends AbstractView {
     private Mixer2Engine mixer2Engine;
 
     public Mixer2XhtmlView(Mixer2Engine mixer2Engine, Html html) {
-        this.mixer2Engine = mixer2Engine;
-        this.html = html;
+        Assert.notNull(mixer2Engine);
+        Assert.notNull(html);
+        setMixer2Engine(mixer2Engine);
+        setHtml(html);
     }
 
     @Override
     protected void renderMergedOutputModel(Map<String, Object> model,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+        Assert.notNull(mixer2Engine);
+        Assert.notNull(html);
 
         response.setContentType(getContentType());
         PrintWriter writer = response.getWriter();
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         if (docType != null) {
             sb.append(docType.trim());
             sb.append(System.getProperty("line.separator"));
@@ -96,6 +101,7 @@ public class Mixer2XhtmlView extends AbstractView {
         sb.append(getMixer2Engine().saveToString(getHtml()).trim());
         writer.write(sb.toString());
         writer.close();
+        sb = null;
     }
 
     public String getDocType() {
