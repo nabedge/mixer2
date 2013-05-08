@@ -113,15 +113,19 @@ public class Mixer2Engine {
      * @throws IOException
      */
     public Html loadHtmlTemplate(File file) throws IOException {
-        return loadHtmlTemplate(fileToStringBuffer(file));
+        return loadHtmlTemplate(fileToStringBuilder(file));
     }
 
     public Html loadHtmlTemplate(String str) {
-        StringBuffer sb = new StringBuffer(str);
+        StringBuilder sb = new StringBuilder(str);
         return loadHtmlTemplate(sb);
     }
 
     public Html loadHtmlTemplate(StringBuffer sb) {
+        return loadHtmlTemplate(new StringBuilder(sb));
+    }
+
+    public Html loadHtmlTemplate(StringBuilder sb) {
         Html html = null;
         sb = removeDoctypeDeclaration(sb);
         sb = replaceNamedEntity(sb);
@@ -153,13 +157,13 @@ public class Mixer2Engine {
 
         InputStreamReader inputStreamReader = null;
         BufferedReader bufferedReader = null;
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuilder stringBuilder = new StringBuilder();
         try {
             inputStreamReader = new InputStreamReader(inputStream);
             bufferedReader = new BufferedReader(inputStreamReader);
             int c;
             while ((c = bufferedReader.read()) != -1) {
-                stringBuffer.append((char) c);
+                stringBuilder.append((char) c);
             }
         } finally {
             if (bufferedReader != null) {
@@ -170,7 +174,7 @@ public class Mixer2Engine {
             }
             inputStream.close();
         }
-        return loadHtmlTemplate(stringBuffer);
+        return loadHtmlTemplate(stringBuilder);
     }
 
     /**
@@ -188,11 +192,15 @@ public class Mixer2Engine {
      * </p>
      */
     public Html loadHtmlTemplateThroughCache(File file) throws IOException {
-        StringBuffer sb = fileToStringBuffer(file);
+        StringBuilder sb = fileToStringBuilder(file);
         return loadHtmlTemplateThroughCache(sb);
     }
 
     public Html loadHtmlTemplateThroughCache(StringBuffer sb) {
+        return loadHtmlTemplateThroughCache(new StringBuilder(sb));
+    }
+
+    public Html loadHtmlTemplateThroughCache(StringBuilder sb) {
         Html html = null;
         String cacheKey = DigestUtils.shaHex(sb.toString());
         if (cache == null) {
@@ -302,7 +310,7 @@ public class Mixer2Engine {
      * DOCTYPE宣言を除去します。
      * </p>
      */
-    public StringBuffer removeDoctypeDeclaration(StringBuffer sb) {
+    public StringBuilder removeDoctypeDeclaration(StringBuilder sb) {
         if (sb == null) {
             return null;
         }
@@ -310,11 +318,15 @@ public class Mixer2Engine {
         Pattern ptn = Pattern.compile(patternStr, Pattern.DOTALL);
         Matcher m = ptn.matcher(sb);
         if (m.find()) {
-            return new StringBuffer(m.group(1).trim() + "\n"
+            return new StringBuilder(m.group(1).trim() + "\n"
                     + m.group(2).trim());
         } else {
             return sb;
         }
+    }
+
+    public StringBuffer removeDoctypeDeclaration(StringBuffer sb) {
+        return removeDoctypeDeclaration(sb);
     }
 
     /**
@@ -330,7 +342,7 @@ public class Mixer2Engine {
      * @param sb xhtml template
      * @return replaced xhtml template
      */
-    public StringBuffer replaceNamedEntity(StringBuffer sb) {
+    public StringBuilder replaceNamedEntity(StringBuilder sb) {
         for (NamedEntityEnum nEnum : NamedEntityEnum.values()) {
             int i;
             while ((i = sb.indexOf(nEnum.getName())) > -1) {
@@ -338,6 +350,10 @@ public class Mixer2Engine {
             }
         }
         return sb;
+    }
+
+    public StringBuffer replaceNamedEntity(StringBuffer sb) {
+        return replaceNamedEntity(sb);
     }
 
     /**
@@ -351,12 +367,12 @@ public class Mixer2Engine {
             cache.removeAll();
         }
     }
-
-    private StringBuffer fileToStringBuffer(File file) throws IOException {
+    
+    private StringBuilder fileToStringBuilder(File file) throws IOException {
         if (file == null) {
             throw new IOException("File is null.");
         }
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuilder stringBuilder = new StringBuilder();
         FileReader fileReader = null;
         BufferedReader bufferedReader = null;
         try {
@@ -364,7 +380,7 @@ public class Mixer2Engine {
             bufferedReader = new BufferedReader(fileReader);
             int c;
             while ((c = bufferedReader.read()) != -1) {
-                stringBuffer.append((char) c);
+                stringBuilder.append((char) c);
             }
         } finally {
             if (bufferedReader != null) {
@@ -374,7 +390,7 @@ public class Mixer2Engine {
                 fileReader.close();
             }
         }
-        return stringBuffer;
+        return stringBuilder;
     }
 
 }
