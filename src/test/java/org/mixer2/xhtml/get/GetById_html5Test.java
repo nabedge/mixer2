@@ -20,7 +20,7 @@ import org.mixer2.jaxb.xhtml.Progress;
 import org.mixer2.jaxb.xhtml.Span;
 import org.mixer2.jaxb.xhtml.Track;
 import org.mixer2.jaxb.xhtml.Video;
-import org.mixer2.xhtml.Mixer2EngineFactory;
+import org.mixer2.xhtml.Mixer2EngineSingleton;
 import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 /**
@@ -30,7 +30,7 @@ import org.mixer2.xhtml.exception.TagTypeUnmatchException;
  */
 public class GetById_html5Test  {
 
-    private static Mixer2Engine m2e = Mixer2EngineFactory.getInstance();
+    private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
     private String templateFileName = "GetByIdTest_html5.html";
     private String templateFilePath;
     private Html html;

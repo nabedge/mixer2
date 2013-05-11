@@ -2,7 +2,6 @@ package org.mixer2.xhtml.springmvc;
 
 import static org.hamcrest.CoreMatchers.is;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
@@ -14,7 +13,7 @@ import org.junit.Test;
 import org.mixer2.Mixer2Engine;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.springmvc.Mixer2XhtmlView;
-import org.mixer2.xhtml.Mixer2EngineFactory;
+import org.mixer2.xhtml.Mixer2EngineSingleton;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
@@ -24,7 +23,7 @@ public class Mixer2XhtmlViewTest {
 
     private String templateFilePath;
 
-    private static Mixer2Engine m2e = Mixer2EngineFactory.getInstance();
+    private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
 
     @Before
     public void init() throws IOException {

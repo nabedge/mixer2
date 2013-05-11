@@ -24,7 +24,7 @@ public class UnsetId_html5Test {
 
     private String templateFileName = "UnsetIdTest_html5.html";
     private String templateFilePath;
-    private static Mixer2Engine m2e = Mixer2EngineFactory.getInstance();
+    private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
     private Html html;
 
     @AfterClass

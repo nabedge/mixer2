@@ -22,7 +22,7 @@ import org.mixer2.jaxb.xhtml.Strong;
 import org.mixer2.jaxb.xhtml.Td;
 import org.mixer2.jaxb.xhtml.Thead;
 import org.mixer2.xhtml.AbstractJaxb;
-import org.mixer2.xhtml.Mixer2EngineFactory;
+import org.mixer2.xhtml.Mixer2EngineSingleton;
 import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 /**
@@ -32,7 +32,7 @@ import org.mixer2.xhtml.exception.TagTypeUnmatchException;
  */
 public class GetByIdTest {
 
-    private static Mixer2Engine m2e = Mixer2EngineFactory.getInstance();
+    private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
     private String templateFileName = "GetByIdTest.html";
     private String templateFilePath;
     private Html html;

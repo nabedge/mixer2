@@ -21,12 +21,12 @@ import org.mixer2.jaxb.xhtml.Tbody;
 import org.mixer2.jaxb.xhtml.Td;
 import org.mixer2.jaxb.xhtml.Tr;
 import org.mixer2.xhtml.AbstractJaxb;
-import org.mixer2.xhtml.Mixer2EngineFactory;
+import org.mixer2.xhtml.Mixer2EngineSingleton;
 import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 public class GetDescendantsTest {
 
-    private static Mixer2Engine m2e = Mixer2EngineFactory.getInstance();
+    private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
     private String templateFileName = "GetDescendantsTest.html";
     private String templateFilePath;
     private Html html;

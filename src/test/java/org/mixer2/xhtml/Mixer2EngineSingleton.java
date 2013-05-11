@@ -2,9 +2,9 @@ package org.mixer2.xhtml;
 
 import org.mixer2.Mixer2Engine;
 
-public class Mixer2EngineFactory {
+public class Mixer2EngineSingleton {
 
-	private Mixer2EngineFactory() {
+	private Mixer2EngineSingleton() {
 	}
 
 	private static final Mixer2Engine m2e = new Mixer2Engine();

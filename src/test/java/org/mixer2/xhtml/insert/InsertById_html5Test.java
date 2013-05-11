@@ -18,7 +18,7 @@ import org.mixer2.jaxb.xhtml.Header;
 import org.mixer2.jaxb.xhtml.Hgroup;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.P;
-import org.mixer2.xhtml.Mixer2EngineFactory;
+import org.mixer2.xhtml.Mixer2EngineSingleton;
 import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 /**
@@ -30,7 +30,7 @@ public class InsertById_html5Test {
 
     private String templateFileName = "InsertById_html5.html";
     private String templateFilePath;
-    private static Mixer2Engine m2e = Mixer2EngineFactory.getInstance();
+    private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
     private Html html;
 
     @AfterClass

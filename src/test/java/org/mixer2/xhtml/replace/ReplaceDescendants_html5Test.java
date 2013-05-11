@@ -17,14 +17,14 @@ import org.mixer2.jaxb.xhtml.Br;
 import org.mixer2.jaxb.xhtml.Footer;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.Li;
-import org.mixer2.xhtml.Mixer2EngineFactory;
+import org.mixer2.xhtml.Mixer2EngineSingleton;
 import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 public class ReplaceDescendants_html5Test {
 
     private String templateFileName = "ReplaceDescendantsTest_html5.html";
     private String templateFilePath;
-    private static Mixer2Engine m2e = Mixer2EngineFactory.getInstance();
+    private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
     private Html html;
 
     @AfterClass

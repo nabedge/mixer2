@@ -15,7 +15,7 @@ public class CopyPerformanceTest {
 
     private String templateFileName = "sample-xhtml1-transitional.html";
     private String templateFilePath;
-    private static Mixer2Engine m2e = Mixer2EngineFactory.getInstance();
+    private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
 
     private int loop = 200;
 

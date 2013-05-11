@@ -13,7 +13,7 @@ import org.mixer2.Mixer2Engine;
 import org.mixer2.jaxb.xhtml.Article;
 import org.mixer2.jaxb.xhtml.Br;
 import org.mixer2.jaxb.xhtml.Html;
-import org.mixer2.xhtml.Mixer2EngineFactory;
+import org.mixer2.xhtml.Mixer2EngineSingleton;
 import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 /**
@@ -25,7 +25,7 @@ public class RemoveById_html5Test {
 
     private String templateFileName = "RemoveByIdTest_html5.html";
     private String templateFilePath;
-    private static Mixer2Engine m2e = Mixer2EngineFactory.getInstance();
+    private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
 
     @AfterClass
     public static void afterClass() {

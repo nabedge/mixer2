@@ -16,7 +16,7 @@ import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 public class CssClassTest {
     private String templateFileName = "CssClassTest.html";
     private String templateFilePath;
-    private static Mixer2Engine m2e = Mixer2EngineFactory.getInstance();
+    private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
     private Html html;
 
     @AfterClass
