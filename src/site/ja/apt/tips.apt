@@ -38,7 +38,7 @@ Span span = html.getById("bar", Span.class);
 html.getById("foo", Div.class).getContent().add("bbb"); // <div id="foo">aaa bbb</div> になる
 
 // <div id="foo">aaa</div> というdivタグの中身を全削除してから文字列を追加する
-html.getById("foo", Div.class).getContent().unsetContent();
+html.getById("foo", Div.class).unsetContent();
 html.getById("foo", Div.class).getContent().add("bbb"); // <div id="foo">bbb</div> になる
 ----
 

@@ -42,7 +42,7 @@ html.getById("foo", Div.class).getContent().add("bbb");
 // you get <div id="foo">aaa bbb</div>
 
 // delete all content of divtag and add string to div tag.
-html.getById("foo", Div.class).getContent().unsetContent();
+html.getById("foo", Div.class).unsetContent();
 html.getById("foo", Div.class).getContent().add("bbb");
 // you get<div id="foo">bbb</div>
 ----
