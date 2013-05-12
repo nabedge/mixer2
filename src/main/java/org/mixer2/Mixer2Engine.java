@@ -29,7 +29,6 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
-import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.mixer2.jaxb.xhtml.Html;
@@ -57,8 +56,6 @@ public class Mixer2Engine {
 
     private JAXBContext jaxbContext = null;
 
-    private Cache<String, Html> cache = null;
-
     private static Log log = LogFactory.getLog(Mixer2Engine.class);
 
     public Mixer2Engine() {
@@ -77,8 +74,9 @@ public class Mixer2Engine {
      * </p>
      * @param cache
      */
+    @Deprecated
     public void setCache(Cache<String, Html> cache) {
-        this.cache = cache;
+        //this.cache = cache;
     }
 
     /**
@@ -191,40 +189,26 @@ public class Mixer2Engine {
      * テンプレート上にDOCTYPE宣言が指定されていてもそれは削除されます。
      * </p>
      */
+    @Deprecated
     public Html loadHtmlTemplateThroughCache(File file) throws IOException {
-        StringBuilder sb = fileToStringBuilder(file);
-        return loadHtmlTemplateThroughCache(sb);
+        return loadHtmlTemplate(file);
     }
 
+    @Deprecated
     public Html loadHtmlTemplateThroughCache(StringBuffer sb) {
-        return loadHtmlTemplateThroughCache(new StringBuilder(sb));
+        //return loadHtmlTemplateThroughCache(new StringBuilder(sb));
+        return loadHtmlTemplate(new StringBuilder(sb));
     }
 
-    public Html loadHtmlTemplateThroughCache(StringBuilder sb) {
-        Html html = null;
-        String cacheKey = DigestUtils.shaHex(sb.toString());
-        if (cache == null) {
-            if (log.isDebugEnabled()) {
-                log.debug("cache object is null. processing without cache...");
-            }
-        } else {
-            html = cache.get(cacheKey);
-            if (log.isDebugEnabled() && html != null) {
-                log.debug("cache hit ! " + cacheKey);
-            }
-        }
-        if (html == null) {
-            html = loadHtmlTemplate(sb);
-            if (cache != null) {
-                cache.putIfAbsent(cacheKey, html);
-            }
-        }
-        return html;
-    }
+	@Deprecated
+	public Html loadHtmlTemplateThroughCache(StringBuilder sb) {
+		return loadHtmlTemplate(sb);
+	}
 
+    @Deprecated
     public Html loadHtmlTemplateThroughCache(String str) {
-        StringBuffer sb = new StringBuffer(str);
-        return loadHtmlTemplateThroughCache(sb);
+        //return loadHtmlTemplateThroughCache(sb);
+        return loadHtmlTemplate(str);
     }
 
     /**
@@ -362,11 +346,12 @@ public class Mixer2Engine {
      * if cache is null, do nothing.
      * </p>
      */
-    public void removeAllCache() {
-        if (this.cache != null) {
-            cache.removeAll();
-        }
-    }
+	@Deprecated
+	public void removeAllCache() {
+		// if (this.cache != null) {
+		// cache.removeAll();
+		// }
+	}
     
     private StringBuilder fileToStringBuilder(File file) throws IOException {
         if (file == null) {
