@@ -1,0 +1,42 @@
+ ------
+ Development Environment recommendation
+ ------
+
+Development Environment
+
+ mixer2を使ったアプリケーションの開発は、一般的なJava言語用<<IDE>>（統合開発環境）で可能です。
+ Eclipse, NetBeans, IntelliJ IDEAなど、お好みのIDEを使ってください。
+ 
+ ビルドツールに関しても、ant、mavenなどを問いません。
+ mavenの場合は{{{./download.html}download}}のページを参考にpom.xmlにdependencyタグを追加するだけです。
+ antの場合は{{{./download.html}download}}のページからzipアーカイブをダウンロードし、含まれているjarファイルをクラスパスに追加してください。
+ 
+For BEGINNER
+
+ もしもあなたがまだJava開発に慣れない初心者なら、こうした開発環境の準備には意外とてこずるかもしれません。
+ そこで、ここでは<<JDK>>と<<Tomcat>>、そして<<Spring Tool Suite (STS)という
+ eclipseベースの開発環境>>の準備方法を解説します。
+ 
+* JDK installation
+
+ JDKをまだインストールしていない場合にはまず先にJDKを準備しなければなりません。
+ JRE(Java実行環境)ではなくJDK(Java開発環境）が必要です。
+
+ Windowsの場合はOracleの公式ホームページからJDKのインストーラをダウンロードし、インストーラを実行するだけです。
+ MacOSの場合はデフォルトでJDKがインストールされています。
+ いずれの場合もバージョンは<<JDK6以上>>を使用してください。
+
+* Tomcat installation
+
+* Spring Tool Suite (STS) installation
+
+** STSをおすすめする理由
+
+ STSはSpringSourceが開発しているeclipseベースのIDEで、<<無償>>で公開されています。
+ ノーマルのeclipseを使う場合はm2e(ビルドツールのmavenと連携するプラグイン）や
+ WTP（Tomcat等のコンテナと連携するプラグイン）などを別にダウンロードして追加する必要がありますが、
+ <<STSではそれらがはじめから搭載済み>>の状態であるため、
+ 結果として開発環境の準備が非常に簡単です。
+
+** STSインストーラのダウンロード
+

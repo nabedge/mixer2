@@ -29,6 +29,7 @@
     <menu name="Documentation">
       <item name="top" href="index.html" />
       <item name="Download" href="download.html" />
+      <item name="Development Environment" href="DevelopmentEnvironment.html" />
       <item name="Hello World" href="helloworld.html" />
       <item name="SAStruts Sample" href="sastrutssample.html" />
       <item name="SpringMVC Sample" href="springmvcsample.html" />
