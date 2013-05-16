@@ -14,21 +14,20 @@ Development Environment
 For BEGINNER
 
  もしもあなたがまだJava開発に慣れない初心者なら、こうした開発環境の準備には意外とてこずるかもしれません。
- そこで、ここでは<<JDK>>と<<Tomcat>>、そして<<Spring Tool Suite (STS)という
- eclipseベースの開発環境>>の準備方法を解説します。
+ そこで、ここではJDK,Tomcat,そして<<Spring Tool Suite (STS)というeclipseベースの開発環境>>の準備方法を解説します。
  
-* JDK installation
+* JDK
 
- JDKをまだインストールしていない場合にはまず先にJDKを準備しなければなりません。
- JRE(Java実行環境)ではなくJDK(Java開発環境）が必要です。
+ JDKをまだインストールしていない場合にはまず最初にインストールしなければなりません。
+ JRE(Java実行環境)ではなくJDK(Java開発環境）です。
 
  Windowsの場合はOracleの公式ホームページからJDKのインストーラをダウンロードし、インストーラを実行するだけです。
  MacOSの場合はデフォルトでJDKがインストールされています。
  いずれの場合もバージョンは<<JDK6以上>>を使用してください。
 
-* Tomcat installation
+* Tomcat
 
-* Spring Tool Suite (STS) installation
+* Spring Tool Suite (STS)
 
 ** STSをおすすめする理由
 
