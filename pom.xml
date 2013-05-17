@@ -48,6 +48,13 @@
         </developer>
     </developers>
 
+    <contributors>
+        <contributor>
+            <name>jfut</name>
+            <url>http://twitter.com/jfut</url>
+        </contributor>
+    </contributors>
+
     <mailingLists>
         <mailingList>
             <name>mixer2-ja</name>
