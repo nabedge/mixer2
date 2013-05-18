@@ -78,3 +78,6 @@ More?
 
 [../images/mixer2-springmvc-archetype-eclipse-050.png]
 
+ もしもうまく起動しない場合は、
+ <<プロジェクトを右クリック->Maven->UpdateProject>>で再構成と再コンパイルが走るので
+ 問題が修正されるかもしれません。試してみてください。
