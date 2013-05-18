@@ -1,0 +1,117 @@
+ ------
+ Development Environment recommendation
+ ------
+
+Development Environment
+
+ You can develop java application using mixer2 on 
+ general IDE (Integrated Development Environment).
+ You can choice it as you like. eclipse, netbeans, intellij-IDEA...
+
+ Also, You can use any build tool. ant, maven, etc.
+ If you use maven, add dependency into your pom.xml. see {{{download.html}download}}.
+ If you use ant, download zip archive from {{{download.html}download}} page
+ and add jars into your classpath.
+ 
+For BEGINNER
+
+ If you were inexperienced to in java programming,
+ you will have a little trouble to prepqre your own local develop environment.
+ 
+ This chapter explains how to prepare JDK, Tomcat, and
+ <<Spring Tool Suite (STS) - eclipse based IDE>> .
+
+* JDK
+
+ If you have not install JDK, <<First>>, you should install it.
+ You need NOT JRE(Java Runtime Environment) but <<JDK>>(Java Development Environment).
+
+ On Windows, you can download jdk installer from oracle official web site.
+ On MacOS, JDK is installed already.
+ You MUST use <<JDK6 or higher>> in each case.
+ 
+* Tomcat
+
+ You need application server to develop web application.
+ Download zip archive from {{{http://tomcat.apache.org/}Tomcat official site}}
+ and unzip into any directory. 
+ Later, Tomcat is used coordination with IDE(STS) .
+
+* Spring Tool Suite (STS)
+
+** Why STS ?
+
+ STS is the eclipse based IDE developed by {{{http://www.springsource.org/}SpringSource}}.
+ It's free. 
+ If you use normal eclipse, you should install m2e-plug-in (maven collaboration),
+ WTP-plug-in (ap server collaboration) and other plug-in.
+ You can setup your development environment easily
+ because STS includes those plug-ins.
+ 
+ Conversely, If you can set up your own development environment
+ by your own hand and choice plug-ins, 
+ you need not to read this document.
+
+** STSインストーラのダウンロード
+
+ Download the installer of STS from 
+ {{{https://www.google.com/search?q=spring+tool+suite}Spring Tool Suite offical site}}.
+ (This document explain the download frow at the time, May 2013.)
+
+ It's free but you need to user registration.
+
+ If you reach download page, download the installer for your OS.
+
+[./images/sts-download.png]
+ 
+** STS install
+
+ Run installer.
+
+[./images/sts-installer-01.png]
+
+ On choice of product dialog, choice <<STS and Maven>>
+
+[./images/sts-installer-02.png]
+
+** start STS and Tomcat
+
+ Run sts.exe in installed directory.
+ and you should set collaboration with tomcat.
+
+ Go on menu -> Window -> Preference and
+ choice Server -> RuntimeEnvironment.
+ Click <<Add>> button.
+ 
+[./images/sts-tomcat-01.png] 
+
+ Choice ApacheTomcat, fit the version that you installed already.
+ You should check <<"create a new local server">> checkbox to <<on>>
+ and click <<Next>> button
+ 
+[./images/sts-tomcat-02.png] 
+
+ Input "Tomcat installation directory" that you installed already.
+ JRE should be <<Workbench Default JRE>>.
+
+[./images/sts-tomcat-03.png] 
+
+ Then, <<Finish>>.
+
+[./images/sts-tomcat-04.png] 
+
+ Confirm tomcat server on <<Servers>>view.
+
+[./images/sts-tomcat-05.png] 
+
+ If you can see Servers view, 
+ Go to menu -> Window -> Show View -> Servers.
+  
+* start coding !
+
+ Now, you should create your own project.
+ You can use {{{springmvcarchetype.html}maven archetype for mixer2 and SpringMVC}}.
+ 
+ Of course, you can use fruitshop sample web application
+ on your own IDE cloning from github.
+

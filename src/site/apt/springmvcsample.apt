@@ -2,216 +2,96 @@
  Spring MVC Sample
  ------
 
-Spring MVC Sample
+Fruit shop sample web application on SpringMVC
 
- {{{http://www.google.co.jp/search?q=springmvc}SpringMVC}} is a Web application framework
- produced by Spring, the popular DI container and framework.
+ {{{http://www.google.com/search?q=springmvc}SpringMVC}} is
+ web application framework. 
+ It is a sub-project of {{{http://www.springsource.org/spring-framework}springframework}}.
 
- Here is a sample for use mxier2 as the "view" of SpringMVC.
+ This document explains how to expand and use 
+ fruit shop sample application that uses
+ mixer2 as view technology of SpringMVC
+ on your own develop environment.
 
-Practical sample : Fruit shop sample web application on SpringMVC
+[./images/flowershop-springmvc-01.png]
 
- * see: {{https://github.com/nabedge/mixer2-sample/tree/master/mixer2-fruitshop-springmvc}}
+get source code from github.com
 
- * see: {{http://nabedge.blogspot.jp/2012/12/mixer2jspspringmvc-java-advent-calendar.html}}
+ If you have no development environment,
+ see {{{DevelopmentEnvironment.html}Development Environment page}}.
 
-Simple sample
+ First, you should clone the source code repository.
+ Several sample applications are published in one repository on github.com .
 
-* preparation
+ Here is the how-to clone repository using eclipse EGit plug-in.
+ 
+ Now, Go {{https://github.com/nabedge/mixer2-sample/}} with browser
+ and <<copy the URL on clip board>>.
 
- We recommend to use
- {{{http://www.google.co.jp/search?q=springsource+tool+suite}Spring Source Tool Suite (STS)}},
- that is a eclpse plugin for Spring. So, make up eclipse and STS engironment.
- You can install quickly through the eclipse menu "help" -> Eclipse Market Place
- and search "Spring Source Tool Suite".
+[./images/flowershop-springmvc-github-url.png]
 
- Also, the sample and practice uses maven command.
- Install {{http://eclipse.org/m2e/}}.
+ Start eclipse and open Git-Perspective.
 
- If you ready, create "SpringMVC project" on eclipse.
- choice "SpringTemplateProject" on the project creation wizard and choice "SpringMVC".
- Input the root package name as you like.
+[./images/flowershop-springmvc-github-01.png]
 
-Hello World on Spring MVC with JSP
+ Choice "Git Repository Explorer".
 
-* add dependency to pom.xml
+[./images/flowershop-springmvc-github-02.png]
 
- see {{{download.html}download}}.
+ click button icon "<<Clone a Git Repository and add the clone to this view>>" .
 
-* {add EncodingFilter into web.xml}
+[./images/flowershop-springmvc-github-03.png]
 
- You should use CharacterEncodingFIlter.
- add src/main/webapp/WEB-INF/web.xml
+ Github repository url that you got on clip boaard firstly 
+ should be inputed already on dialog box.
 
-----
-<filter>
-  <filter-name>characterEncodingFilter</filter-name>
-  <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-  <init-param>
-    <param-name>encoding</param-name>
-    <param-value>UTF-8</param-value>
-  </init-param>
-  <init-param>
-    <param-name>forceEncoding</param-name>
-    <param-value>true</param-value>
-  </init-param>
-</filter>
-<filter-mapping>
-  <filter-name>characterEncodingFilter</filter-name>
-  <url-pattern>/*</url-pattern>
-</filter-mapping>
-----
+[./images/flowershop-springmvc-github-04.png]
 
-* {add Mixer2Engine component into spring bean definition}
+ At the end, <<Finish>>. and you get clone 
+ mixer2-sample repository on your own environment.
 
- add bean definition into src/main/webapp/WEB-INF/spring/root-context.xml
+import mixer2-fruitshop-springmvc project into your workspace
 
-----
-<beans>
-  <!-- Root Context: defines shared resources visible to all other web components -->
-  <bean id="mixer2Engine" class="org.mixer2.Mixer2Engine" scope="singleton" />
-</beans>
+ right-click mixer2-flowershop-springmvc on "WorkDirectory"
+ and choice "import".
 
-----
+[./images/flowershop-springmvc-import-01.png]
 
-* {write template}
+ choice <<Import as general project>> radio button.
+ click "Next" .
 
- src/main/resource/HelloWorld.html
+[./images/flowershop-springmvc-import-02.png]
 
-----
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xml:lang="ja" lang="ja" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
-<body>
-<div id="hellomsg">here comes message.</div>
-</body>
-</html>
-----
+ Switch the window to Java or JavaEE perspective.
+ You can see mixer2-fruitshop-springmvc on your work space.
+ 
+ But, this project is "general project" format.
+ You need convert it to Maven project format.
+ 
+ right-click on project and choice
+ <<Configure->Convert to Maven Project>>
+ 
+[./images/flowershop-springmvc-import-03.png]
 
-* {re-make Controller}
+ If converted successfully, tree view is re-constructed.
+ See project icon that have small "M" mark.
+ That is a symbol of maven project format.
 
- Open src/main/java/[package name]/HomeController.java
- and add new method.
+[./images/flowershop-springmvc-import-04.png]
 
-----
-package com.example.sample;
+start mixer2-fruitshop-springmvc project on tomcat as a web application
 
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+ You can run mixer2-fruitshop-springmvc application on tomcat useing eclipse.
+ Right-click on project and click <<Run As -> Run on Server>>.
+ 
+[./images/flowershop-springmvc-import-05.png]
 
-import org.mixer2.Mixer2Engine;
-import org.mixer2.jaxb.xhtml.Div;
-import org.mixer2.jaxb.xhtml.Html;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ResourceLoader;
-import org.springframework.stereotype.Controller;
-import org.springframework.util.ResourceUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+ Eclipse m2e-wtp plugin compile the source and deploy it into tomcat.
+ If you can see top page on internal browser, Congratulations!
+ 
+ If the internal browser don't start, 
+ You can use normal browser and go 
+ http://localhost:8080/mixer2-springmvc-fruitshop/ .
 
-/**
- * Handles requests for the application home page.
- */
-@Controller
-public class HomeController {
+[./images/flowershop-springmvc-01.png]
 
-    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-
-    @Autowired
-    private Mixer2Engine mixer2Engine;
-
-    @Autowired
-    private ResourceLoader resourceLoader;
-
-    /**
-     * Simply selects the home view to render by returning its name.
-     * @throws IOException
-     */
-    @RequestMapping(value="/", method=RequestMethod.GET)
-    public String home() throws IOException {
-        logger.info("Welcome home!");
-        return "home";
-    }
-
-    @RequestMapping(value="/hellomixer2", method=RequestMethod.GET)
-    public ModelAndView mixer2test() throws IOException, TagTypeUnmatchException {
-
-        // load html template
-        Html html = mixer2Engine.loadHtmlTemplate(resourceLoader.getResource(
-                "classpath:HelloWorld.html").getInputStream());
-
-        html.getById("hellomsg", Div.class).unsetContent();
-        html.getById("hellomsg", Div.class).getContent().add("Hello Mixer2 !");
-
-        Map<String,String> model = new HashMap<String,String>();
-        model.put("htmlString", mixer2Engine.saveToString(html));
-
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("mixer2view");
-        modelAndView.addAllObjects(model);
-
-        return modelAndView;
-    }
-}
-----
-
-* {JSP}
-
- create new jsp. src/main/webapp/WEB-INF/views/mixer2view.jsp
-
-----
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-${htmlString}
-----
-
- Simple JSP !
- You should re-write doctype declaration because mixer2 ignore the doctype declaration on template.
- (see {{faq.html}})
-
- Fix up is over.
- Open the browser, access http://localhost:8080/[contextPath]/hellomixer2
- and see "Hello Mixer2 !" .
-
-Hello World on Spring MVC with View
-
- Mixer2 includes View implementation for SpringMVC.
- You can use Mixer2XhtmlView type object as a return value
- of the method of Controller instead of ModelAndView object.
- <<You need not to make jsp !>>
-
- The Controller will be very simple.
-
-----
-   @Controller
-   public class FooController {
-
-     @Autowired
-     Mixer2Engine mixer2Engine;
-
-     @Autowired
-     ResourceLoader resourceLoader;
-
-     @RequestMapping(value = "/bar")
-     public Mixer2XhtmlView bar() {
-         String template = "classpath:HelloWorld.html";
-         Html html = mixer2Engine.loadHtmlTemplate(
-             resourceLoader.getResource(template).getInputStream());
-         html.getById("hellomsg", Div.class).unsetContent();
-         html.getById("hellomsg", Div.class).getContent().add("Hello Mixer2 !");
-         return new Mixer2XhtmlView(mixer2Engine, html);
-     }
-----
-
- see
- {{{./apidocs/org/mixer2/springmvc/Mixer2XhtmlView.html}Mixer2XhtmlView javadoc}}
- for detail.

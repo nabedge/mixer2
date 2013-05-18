@@ -8,13 +8,15 @@ Development Environment
  Eclipse, NetBeans, IntelliJ IDEAなど、お好みのIDEを使ってください。
  
  ビルドツールに関しても、ant、mavenなどを問いません。
- mavenの場合は{{{./download.html}download}}のページを参考にpom.xmlにdependencyタグを追加するだけです。
- antの場合は{{{./download.html}download}}のページからzipアーカイブをダウンロードし、含まれているjarファイルをクラスパスに追加してください。
+ mavenの場合は{{{download.html}download}}のページを参考にpom.xmlにdependencyタグを追加するだけです。
+ antの場合は{{{download.html}download}}のページからzipアーカイブをダウンロードし、
+ 含まれているjarファイルをクラスパスに追加してください。
  
 For BEGINNER
 
  もしもあなたがまだJava開発に慣れない初心者なら、こうした開発環境の準備には意外とてこずるかもしれません。
- そこで、ここではJDK,Tomcat,そして<<Spring Tool Suite (STS)というeclipseベースの開発環境>>の準備方法を解説します。
+ そこで、ここではJDK,Tomcat,そして<<Spring Tool Suite (STS)というeclipseベースの開発環境>>の
+ 準備方法を解説します。
  
 * JDK
 
@@ -35,7 +37,8 @@ For BEGINNER
 
 ** STSをおすすめする理由
 
- STSはSpringSourceが開発しているeclipseベースのIDEで、<<無償>>で公開されています。
+ STSは{{{http://www.springsource.org/}SpringSource}}が開発している
+ eclipseベースのIDEで、<<無償>>で公開されています。
  ノーマルのeclipseを使う場合はm2e(ビルドツールのmavenと連携するプラグイン）や
  WTP（Tomcat等のコンテナと連携するプラグイン）などを別にダウンロードして追加する必要がありますが、
  <<STSではそれらがはじめから搭載済み>>の状態であるため、
@@ -53,34 +56,62 @@ For BEGINNER
  {{{https://www.google.com/search?q=spring+tool+suite}Spring Tool Suite}}の
  公式サイトでいつでもダウンロード可能です。無償ですが、ユーザー登録は必要です。
 
-[../images/sts-download.png]
+ ダウンロードページにたどり着いたら、
+ 自分のOSに合わせてインストーラをダウンロードしてください。 
 
- ダウンロードページにたどり着いたら、自分のOSに合わせてインストーラをダウンロードしてください。 
+[../images/sts-download.png]
  
 ** STSのインストール
 
- STSインストーラの開始
+  STSインストーラを実行してください。
 
 [../images/sts-installer-01.png]
 
- <<プロダクトの選択画面では、STS本体とMavenを選択してください。>>
+  プロダクトの選択画面では、<<STS本体とMavenを選択>>してください。
 
 [../images/sts-installer-02.png]
 
 ** STSの起動とTomcatの設定
 
- インストール先フォルダのsts.exeで起動します。
- 起動したら、先にインストールしたTomcatとの連携を設定しておきます。
+  インストール先フォルダの<<sts.exe>>を実行するとSTSが起動します。
+  起動したら、インストールしたTomcatとの連携を設定しておきます。
 
  メニューのWindow -> Preferencesから設定ダイアログを開き、
-
+ Server->RuntimeEnvironmentを選択します。
+ この画面の<<Add>>ボタンを押してください。
  
+[../images/sts-tomcat-01.png] 
+ 
+ 続いて、ApacheTomcatを選択します。バージョンは先ほどインストールしておいたTomcatに
+ あわせて選択してください。<<create a new local server>>のチェックボックスを<<オン>>
+ にして<<Nextボタン>>を押します。
+
+[../images/sts-tomcat-02.png] 
+
+ Tomcat installation directoryには先にインストールしておいた
+ Tomcatの解凍先ディレクトリを指定します。
+ JREは<<Workbench Default JRE>>です。
+
+[../images/sts-tomcat-03.png] 
+
+ これで<<Finishボタン>>を押せば完了です。
+
+[../images/sts-tomcat-04.png] 
+
+ <<Serversビュー>>に図のようにTomcatサーバが表示されていることを確認してください。
+
+[../images/sts-tomcat-05.png] 
+
+ もしもServersビュー自体が表示されていない場合は
+ メニューのWindow->Show View->Serversです。
+  
 * 開発を始める
 
- あとは{{{./springmvcarchetype.html}SpringMVCアーキタイプ}}や
- {{{./sastrutsarchetype.html}SAStrutsアーキタイプ}}を使って
- あなた自身のアプリケーション開発プロジェクトを作成してください。
+ あとは{{{springmvcarchetype.html}SpringMVCアーキタイプ}}や
+ を使ってあなた自身のアプリケーション開発プロジェクトを作成してください。
  
- もちろん、{{{./springmvcsample}SpringMVCとmixer2によるフルーツショップサンプルアプリケーション}}を
+ もちろん、フルーツショップサンプルアプリケーションの
+ {{{springmvcsample.html}SpringMVC+mixer2版}}や
+ {{{sastrutssample.html}SAStruts+mixer2版}}を
  githubからクローンしてSTSのワークスペースに展開し、実行することも改造することもできます。
 

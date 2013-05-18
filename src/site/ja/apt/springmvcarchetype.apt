@@ -9,7 +9,9 @@ Maven archetype for SpringMVC and mixer2
 
 * requirement
 
- * maven 2.2.x or maven 3.x が必要です。
+ * JDK6 or higher
+
+ * maven 2.2.x or maven 3.x
 
  * インターネットにhttp(s)アクセス可能な環境。
 
@@ -25,25 +27,25 @@ C:\>cd C:\work
 C:\work>C:\apache-maven-2.2.1\bin\mvn.bat archetype:generate ^
 More?  -DarchetypeGroupId=org.mixer2 ^
 More?  -DarchetypeArtifactId=mixer2-springmvc-archetype ^
-More?  -DarchetypeVersion=0.2.1 ^
+More?  -DarchetypeVersion=0.2.3 ^
 More?  -DgroupId=com.mycompany ^
 More?  -DartifactId=myproject ^
 More?  -Dversion=0.0.1-SNAPSHOT ^
 More?
 ----
 
- archetypeVersionは 0.2.1 以上を指定してください。最新のバージョン番号は
+ archetypeVersionは 0.2.3 以上を指定してください。最新のバージョン番号は
  {{http://search.maven.org/#search|ga|1|a%3A%22mixer2-springmvc-archetype%22}}) で探せます。
 
 * How to (eclipse)
 
  * requirement
 
-  * eclipse3.7.2 or higher
+  * eclipse or {{{DevelopmentEnvironment.html}STS}}
 
   * m2e plugin and m2e-wtp plugin.
 
-  []
+ []
 
  新規プロジェクトの作成ウィザードで、maven projectを選択します。
 
@@ -59,7 +61,7 @@ More?
 
   * artifactId: <<mixer2-springmvc-archetype>>
 
-  * version: <<0.2.1>> (or higher. see {{http://search.maven.org/#search|ga|1|a%3A%22mixer2-springmvc-archetype%22}})
+  * version: <<0.2.3>> (or higher. see {{http://search.maven.org/#search|ga|1|a%3A%22mixer2-springmvc-archetype%22}})
 
   []
 
