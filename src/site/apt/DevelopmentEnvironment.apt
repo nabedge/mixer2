@@ -6,11 +6,11 @@ Development Environment
 
  You can develop java application using mixer2 on 
  general IDE (Integrated Development Environment).
- You can choice it as you like. eclipse, netbeans, intellij-IDEA...
+ You can choice it as you like. Eclipse, NetBeans, Intellij-IDEA...
 
  Also, You can use any build tool. ant, maven, etc.
- If you use maven, add dependency into your pom.xml. see {{{download.html}download}}.
- If you use ant, download zip archive from {{{download.html}download}} page
+ If you use maven, add dependency into your pom.xml. see {{{./download.html}download}}.
+ If you use ant, download zip archive from {{{./download.html}download}} page
  and add jars into your classpath.
  
 For BEGINNER
@@ -110,7 +110,7 @@ For BEGINNER
 * start coding !
 
  Now, you should create your own project.
- You can use {{{springmvcarchetype.html}maven archetype for mixer2 and SpringMVC}}.
+ You can use {{{./springmvcarchetype.html}maven archetype for mixer2 and SpringMVC}}.
  
  Of course, you can use fruitshop sample web application
  on your own IDE cloning from github.
