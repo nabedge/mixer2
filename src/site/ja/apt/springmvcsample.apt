@@ -90,3 +90,11 @@ mixer2-fruitshop-springmvcプロジェクトをTomcat上で起動する
  <<プロジェクトを右クリック->Maven->UpdateProject>>で再構成と再コンパイルが走るので
  問題が修正されるかもしれません。試してみてください。
 
+* maven and web proxy
+
+　Mavenは必要なライブラリをインターネット上のセントラルリポジトリから自動的にダウンロードします。
+ ネットワーク環境によっては認証つきのWebプロキシサーバを通過しなければならない場合があります。
+ その場合はFAQページの
+ {{{./faq.html#Use_Maven_through_proxy}use maven through proxy}}
+ を参考にしてください。
+

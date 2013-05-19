@@ -14,6 +14,9 @@ Maven archetype for SpringMVC and mixer2
  * maven 2.2.x or maven 3.x
 
  * internet access (http/https)
+  
+  * If your network environment needs to use web proxy, 
+    see {{{./faq.html#Use_Maven_through_proxy}use maven through proxy}} in FAQ page.
 
 * How to (command line)
 

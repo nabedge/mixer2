@@ -95,3 +95,13 @@ start mixer2-fruitshop-springmvc project on tomcat as a web application
 
 [./images/flowershop-springmvc-01.png]
 
+* maven and web proxy
+
+ Maven will download java libraries with http(s)
+ from central repository on internet automatically.
+
+ In some cases, you need web proxy authentication to internet access.
+ Here is document of it on maven official site.
+ 
+ see {{{./faq.html#Use_Maven_through_proxy}use maven through proxy}} in FAQ page.
+

@@ -172,14 +172,28 @@ if (foo > bar || foo < bar) {
 
 * {chaching}
 
- You may get performance gain to cache the result of template loading(unmashal).
-
- Version1.1.1 and earlier, you can use caching mechanism
- that have javax.cache.* (JSR-107) implementation.
- See javadoc of Mixer2Engine class for details.
+ From version1.2.3 or higher, the methods of mixer2 using caching
+ are deprecated. 
+ You must implement caching mechanism originally if you need.
 
  All the tag class of mixer2 implements java.io.Seralizable
  and has toByteArray() method to convert tag itself to byte[].
- If you feel unacceptable for JSR107, you can implements
- original caching function by combination of general caching framework.
+ You can implements original caching function 
+ by combination of general caching framework.
 
+
+* {Use Maven through proxy}
+
+ Sample application or maven archetype of mixer2 uses maven.
+ Maven will download java libraries with http(s)
+ from central repository on internet automatically.
+
+ In some cases, you need web proxy authentication to internet access.
+ Here is document of it on maven official site.
+ 
+ * {{{http://maven.apache.org/guides/mini/guide-proxies.html}Guide to using proxys}}
+
+ * {{{http://maven.apache.org/guides/mini/guide-encryption.html}Password encryption}}
+ 
+ []
+ 

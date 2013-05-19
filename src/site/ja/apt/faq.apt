@@ -188,15 +188,31 @@ if (foo > bar || foo < bar) {
 
 * {Caching}
 
- テンプレートをロード(unmarshal)した結果を何らかの形でキャッシュしておくことで、
- ある程度の性能向上が見込めます。
-
- version 1.1.1以降なら、javax.cache.* (JSR-107)を実装したキャッシュ機構を
- Mixer2Engine内で使用可能です。
- 詳しくは Mixer2Engineのjavadocをご覧ください。
+ version1.2.3以降でMixer2のテンプレートキャッシュ機構関連のメソッドは
+ すべてDeprecated（廃止予定）となり、コールしてもキャッシュを使わない
+ 通常のメソッドを呼び出したのと同じ効果しかありません。
+ キャッシュが必要な場合は各自での実装をお願いします。
 
  なお、全てのhtmlタグのクラスは implements Serializable であり、
- また自分自身をバイト列化する toByteArray() メソッドを備えています。
- JSR-107でなくとも、Java向けの汎用キャッシングフレームワークを組み合わて
+ また自分自身をバイト列化する toByteArray() メソッドも備えています。
+ Java向けの汎用キャッシングフレームワークを組み合わて
  キャッシュ機能を実装することは可能でしょう。
 
+* {Use Maven through proxy}
+
+ Mixer2のサンプルアプリケーションはmavenを使用しています。
+ mavenは必要なライブラリをインターネット上のセントラルリポジトリからhttp(s)で自動的にダウンロードします。 
+ ネットワーク環境によっては外部へのhttp(s)アクセスのために認証つきのWebプロキシサーバを
+ 通過させなければならない場合があります。
+ 
+ proxy設定の方法はmavenの公式サイトにありますので参考にしてください。
+ 
+ * {{{http://maven.apache.org/guides/mini/guide-proxies.html}Guide to using proxys}}
+
+ * {{{http://maven.apache.org/guides/mini/guide-encryption.html}Password encryption}}
+   通常は、認証つきWebプロキシーサーバのパスワードを、ホームディレクトリ/.m2/settings.xmlファイルに平文で書きますが、
+   平文保存を避けたい場合は暗号化機能を使います。
+ 
+ []
+ 
+ 
