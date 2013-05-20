@@ -1,8 +1,13 @@
 package org.mixer2.xhtml;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.*;
+
 import java.io.File;
 import java.io.IOException;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
@@ -38,7 +43,10 @@ public class PreAndScriptTest {
     @Test
     public void test() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
-        System.out.println(m2e.saveToString(html));
+        String xmlStr = m2e.saveToString(html);
+        System.out.println(xmlStr);
+        Document doc = Jsoup.parse(xmlStr);
+        assertThat(doc.getElementById("fooJs").data(), is(" "));
     }
 
 }

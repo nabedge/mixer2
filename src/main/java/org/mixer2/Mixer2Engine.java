@@ -32,6 +32,7 @@ import javax.xml.transform.stream.StreamSource;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.mixer2.jaxb.xhtml.Html;
+import org.mixer2.jaxb.xhtml.Script;
 import org.mixer2.xhtml.AbstractJaxb;
 import org.mixer2.xhtml.NamedEntityEnum;
 import org.mixer2.xhtml.TagCustomizeWriter;
@@ -235,6 +236,15 @@ public class Mixer2Engine {
      */
     public <T extends AbstractJaxb> void saveToStringWriter(T tag,
             StringWriter writer) {
+
+        // add one white space into script tag 
+        // having empty content and type="text/javascript"
+        for (Script script : tag.getDescendants(Script.class)) {
+            if (script.getContent().length() < 1) {
+                script.setContent(" ");
+            }
+        }
+
         tag.removeEmptyCssClass();
         StringWriter tmpWriter = new StringWriter();
         Marshaller m;
@@ -244,7 +254,6 @@ public class Mixer2Engine {
                     .name());
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             m.setProperty(Marshaller.JAXB_FRAGMENT, true);
-            // m.marshal(html, writer);
             XMLEventWriter xmlEventWriter = XMLOutputFactory.newInstance()
                     .createXMLEventWriter(tmpWriter);
             m.marshal(tag, new TagCustomizeWriter(xmlEventWriter));
@@ -259,7 +268,7 @@ public class Mixer2Engine {
             e.printStackTrace();
         }
 
-        // 整形する
+        // transform xhtml strings
         String xmlStr;
         if (tag.getClass().getSimpleName().toLowerCase().equals("html")) {
             xmlStr = tmpWriter.toString().trim();
