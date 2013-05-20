@@ -20,3 +20,26 @@ Download
 </dependencies>
 ----
 
+SNAPSHOT version
+
+ To use SNAPSHOT version, search on 
+ {{{https://oss.sonatype.org/index.html#nexus-search;gav~org.mixer2~mixer2~1.2-SNAPSHOT~~}oss.sonatype.org}}
+ and add <dependency> and <repositories> tags to pom.xml
+ 
+----
+<repositories>
+  <repository>
+    <id>oss-sonatype-org-snapshots</id>
+    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+  </repository>
+</repositories>
+
+<dependencies>
+  <dependency>
+    <groupId>org.mixer2</groupId>
+    <artifactId>mixer2</artifactId>
+    <version>1.2-SNAPSHOT</version>
+  </dependency>
+</dependencies>
+----
+ 
