@@ -12,6 +12,32 @@ TIPS
  All common method is implemented on org.mixer.xhtml.AbstractJaxb class.
  See {{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html}javaDoc}} for details.
 
+** {attribute manipulation method}
+
+ get*, set* and isSet* methods.
+
+----
+// on template, <div id="foo" onClick="bar();">xxxxx</div>
+Div div = html.getById("foo", Div.class);
+boolean b = div.isSetOnClick(); // you get true
+String s = div.getOnClick(); // you get "bar();"
+div.setId("foo2");
+div.setOnMouseover("bar2();")
+// you get <div id="foo2" onClick="bar();" onMouseover="bar2();">xxxxx</div>
+----
+
+ unset* methods.
+
+----
+// on template, <div id="foo" onClick="bar();">xxxxx</div>
+Div div = html.getById("foo", Div.class);
+div.unsetId();
+div.unsetOnClick();
+div.unsetContent();
+div.getContent().add("hello");
+// you get <div>hello</div>
+----
+
 * {get tag}
 
  Example belows is not enough.
