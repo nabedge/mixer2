@@ -193,7 +193,14 @@ System.out.println(html.saveToString());
  replace() method use deep copy of replacer object.
 
 ----
-// tag (no matter of variation) thag has "id" property will be replace by span tag.
+// tag (no matter of variation) will be replace by p tag.
+// if missing, return false;
+P p = new P();
+p.getContent.add("abc");
+Div target = html.getDescendants(Div.class).get(0);
+boolean result = html.replace(target, p);
+
+// tag (no matter of variation) that has "id" property will be replace by span tag.
 // if missing, return false;
 Span span = new Span();
 span.getContent.add("abc");
