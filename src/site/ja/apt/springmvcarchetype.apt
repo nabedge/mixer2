@@ -30,14 +30,14 @@ C:\>cd C:\work
 C:\work>C:\apache-maven-2.2.1\bin\mvn.bat archetype:generate ^
 More?  -DarchetypeGroupId=org.mixer2 ^
 More?  -DarchetypeArtifactId=mixer2-springmvc-archetype ^
-More?  -DarchetypeVersion=0.2.3 ^
+More?  -DarchetypeVersion=0.2.4 ^
 More?  -DgroupId=com.mycompany ^
 More?  -DartifactId=myproject ^
 More?  -Dversion=0.0.1-SNAPSHOT ^
 More?
 ----
 
- archetypeVersionは 0.2.3 以上を指定してください。最新のバージョン番号は
+ archetypeVersionは 0.2.4 以上を指定してください。最新のバージョン番号は
  {{http://search.maven.org/#search|ga|1|a%3A%22mixer2-springmvc-archetype%22}}) で探せます。
 
 * How to (eclipse)
