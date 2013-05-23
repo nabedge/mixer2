@@ -64,7 +64,7 @@ More?
 
   * artifactId: <<mixer2-springmvc-archetype>>
 
-  * version: <<0.2.3>> (or higher. see {{http://search.maven.org/#search|ga|1|a%3A%22mixer2-springmvc-archetype%22}})
+  * version: <<0.2.4>> (or higher. see {{http://search.maven.org/#search|ga|1|a%3A%22mixer2-springmvc-archetype%22}})
 
   []
 
