@@ -192,6 +192,13 @@ System.out.println(html.saveToString());
  ※replace系のメソッドでは、replaceのディープコピーで置換されます。
 
 ----
+// htmlタグ内部にあるターゲットタグを、あらかじめ生成しておいたpタグで置換する。
+// 指定したターゲットタグが見つからなければfalse
+P p = new P();
+p.getContent.add("abc");
+Div target = html.getDescendants(Div.class).get(0);
+boolean result = html.replace(target, p);
+
 // htmlタグ内部を走査してid属性がfooのタグ（種類は問わない）を、
 // あらかじめ生成しておいたspanタグで置換する。
 // 指定したid属性を持つタグが見つからなければfalse

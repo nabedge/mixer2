@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 
 import javax.xml.namespace.QName;
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang.SerializationUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
@@ -134,6 +135,37 @@ public abstract class AbstractJaxb implements Serializable {
      */
     public boolean removeById(String id) {
         return RemoveByIdUtil.removeById(id, this);
+    }
+
+    /**
+     * <p>
+     * replace element that has specified property within descendant element of
+     * oneself. you can't replace oneself. It will be replaced by deep copy of
+     * "replacement"
+     * </p>
+     * <p>
+     * 自分自身の子孫要素のうち、指定した要素を置換します。 自分自身を置換することはできません。
+     * なお、replaceのディープコピーで置換されます。
+     * </p>
+     *
+     * @param target
+     * @param replacement
+     * @return if success to replace, return true. if no hit, return false.
+     * @throws TagTypeUnmatchException
+     */
+    public <T extends AbstractJaxb> boolean replace(T target, T replacement)
+            throws TagTypeUnmatchException {
+        String id = target.getId();
+        if (id == null) {
+            for (int i = 0; i < 256; i++) {
+                id = RandomStringUtils.randomAlphabetic(4);
+                if (this.getById(id) == null && replacement.getById(id) == null) {
+                    target.setId(id);
+                    break;
+                }
+            }
+        }
+        return ReplaceByIdUtil.replaceById(id, this, replacement);
     }
 
     /**
