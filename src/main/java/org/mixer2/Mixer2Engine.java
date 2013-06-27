@@ -93,8 +93,7 @@ public class Mixer2Engine {
         try {
             jaxbContext = JAXBContext.newInstance("org.mixer2.jaxb.xhtml");
         } catch (JAXBException e) {
-            log.fatal("can't make newInstance of JAXBContext.");
-            e.printStackTrace();
+            log.fatal("can't make newInstance of JAXBContext.", e);
         }
     }
 
@@ -133,8 +132,7 @@ public class Mixer2Engine {
             html = (Html) jaxbContext.createUnmarshaller().unmarshal(
                     stringReader);
         } catch (JAXBException e) {
-            log.warn("unmarshal failed.");
-            e.printStackTrace();
+            log.warn("unmarshal failed.", e);
         }
         return html;
     }
@@ -258,14 +256,11 @@ public class Mixer2Engine {
                     .createXMLEventWriter(tmpWriter);
             m.marshal(tag, new TagCustomizeWriter(xmlEventWriter));
         } catch (JAXBException e) {
-            log.warn("marshal failed.");
-            e.printStackTrace();
+            log.warn("marshal failed.", e);
         } catch (XMLStreamException e) {
-            log.warn("XMLStreamException happend. while saveToWriter().");
-            e.printStackTrace();
+            log.warn("XMLStreamException happend. while saveToWriter().", e);
         } catch (FactoryConfigurationError e) {
-            log.warn("FactoryConfigurationError happend. while saveToWriter().");
-            e.printStackTrace();
+            log.warn("FactoryConfigurationError happend. while saveToWriter().", e);
         }
 
         // transform xhtml strings
@@ -287,11 +282,9 @@ public class Mixer2Engine {
             transformer.transform(new StreamSource(xml), new StreamResult(
                     writer));
         } catch (TransformerConfigurationException e) {
-            log.warn("TransformerConfigurationException happend. while saveToWriter().");
-            e.printStackTrace();
+            log.warn("TransformerConfigurationException happend. while saveToWriter().", e);
         } catch (TransformerException e) {
-            log.warn("TransformerException happend. while saveToWriter().");
-            e.printStackTrace();
+            log.warn("TransformerException happend. while saveToWriter().", e);
         }
     }
 

@@ -730,9 +730,9 @@ public class TableBuilder {
                 try {
                     BeanUtils.setProperty(obj, key, map.get(key));
                 } catch (IllegalAccessException e) {
-                    e.printStackTrace();
+                    log.error("IllegalAccessException occured", e);
                 } catch (InvocationTargetException e) {
-                    e.printStackTrace();
+                    log.error("InvocationTargetException occured", e);
                 }
             }
         }
