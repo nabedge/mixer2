@@ -14,7 +14,6 @@ import java.util.regex.Pattern;
 import javax.xml.namespace.QName;
 
 import org.apache.commons.lang.RandomStringUtils;
-import org.apache.commons.lang.SerializationUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
@@ -587,13 +586,17 @@ public abstract class AbstractJaxb implements Serializable {
     @SuppressWarnings("unchecked")
     public <T extends AbstractJaxb> T copy(Class<T> tagType)
             throws TagTypeUnmatchException {
-
+    	T result = null;
         if (!tagType.equals(this.getClass())) {
             log.warn("to use copy() method, tagType must be same type of the original object.");
             throw new TagTypeUnmatchException(getClass(), tagType);
         }
-        
-        return (T) SerializationUtils.clone(this);
+        try {
+			result = (T) this.clone();
+		} catch (CloneNotSupportedException e) {
+			log.error("",e);
+		}
+		return result;
     }
 
     /**
