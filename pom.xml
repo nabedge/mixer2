@@ -296,6 +296,7 @@
                 <version>0.8.3</version>
                 <executions>
                     <execution>
+                        <phase>dummy</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>

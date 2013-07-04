@@ -5,7 +5,6 @@ import static org.mixer2.xhtml.TagCreator.pWithId;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -61,8 +60,8 @@ public class InsertById_html5Test {
         html.insertAfterId("hgroup1", p);
 //        html = m2e.loadHtmlTemplate(m2e.saveToString(html));
 
-        List<Serializable> objList = html.getById("header1", Header.class).getContent();
-        for (ListIterator<Serializable> i = objList.listIterator(); i.hasNext();) {
+        List<Object> objList = html.getById("header1", Header.class).getContent();
+        for (ListIterator<Object> i = objList.listIterator(); i.hasNext();) {
             Object obj = i.next();
             if (obj instanceof Hgroup) {
                 assertEquals("p1",((P) i.next()).getId());
@@ -81,7 +80,7 @@ public class InsertById_html5Test {
         p.getContent().add("paragraph");
         html.insertBeforeId("hgroup1", p);
 
-        List<Serializable> objList = html.getById("header1", Header.class).getContent();
+        List<Object> objList = html.getById("header1", Header.class).getContent();
         for (int i=0; i<objList.size(); i++) {
             if (objList.get(i) instanceof Hgroup) {
                 assertEquals("p1",((P) objList.get(i - 1)).getId());
@@ -99,7 +98,7 @@ public class InsertById_html5Test {
     public void insertAfterDummyBr() throws IOException, TagTypeUnmatchException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         html.insertAfterId("dummy_br", "test");
-        List<Serializable> list = html.getById("footer",Footer.class).getContent();
+        List<Object> list = html.getById("footer",Footer.class).getContent();
         for (int i=0; i<list.size(); i++) {
             java.lang.Object obj = list.get(i);
             if (obj instanceof Br) {

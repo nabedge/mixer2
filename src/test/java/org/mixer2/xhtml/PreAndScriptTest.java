@@ -1,7 +1,7 @@
 package org.mixer2.xhtml;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 import java.io.File;
 import java.io.IOException;

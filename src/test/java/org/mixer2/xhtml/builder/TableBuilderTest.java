@@ -21,7 +21,8 @@ import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 public class TableBuilderTest {
 
-    private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
+    @SuppressWarnings("unused")
+	private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
 
     @AfterClass
     public static void afterClass() {

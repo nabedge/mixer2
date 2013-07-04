@@ -9,7 +9,7 @@
     <jxb:bindings schemaLocation="mixer2-xhtml.xsd" node="/xs:schema">
 
         <jxb:globalBindings generateIsSetMethod="true">
-            <xjc:serializable uid="10000"/>
+<!--             <xjc:serializable uid="10000"/> -->
             <xjc:superClass name="org.mixer2.xhtml.AbstractJaxb"/>
             <jxb:javaType name="int" xmlType="xs:nonNegativeInteger"/>
 <!--             <xjc:javaType name="java.lang.String" xmlType="xs:string" -->

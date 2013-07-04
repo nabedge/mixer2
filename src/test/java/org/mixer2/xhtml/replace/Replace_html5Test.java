@@ -1,6 +1,6 @@
 package org.mixer2.xhtml.replace;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.io.File;
 import java.io.IOException;

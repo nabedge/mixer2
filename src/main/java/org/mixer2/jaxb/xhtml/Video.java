@@ -2,13 +2,12 @@
 // このファイルは、JavaTM Architecture for XML Binding(JAXB) Reference Implementation、v2.2.6によって生成されました 
 // <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a>を参照してください 
 // ソース・スキーマの再コンパイル時にこのファイルの変更は失われます。 
-// 生成日: 2013.07.04 時間 07:48:27 PM JST 
+// 生成日: 2013.07.04 時間 09:23:41 PM JST 
 //
 
 
 package org.mixer2.jaxb.xhtml;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -49,8 +48,8 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;extension base="{http://www.w3.org/1999/xhtml}Flow">
- *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}media"/>
  *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}attrs"/>
+ *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}media"/>
  *       &lt;attribute name="poster" type="{http://www.w3.org/1999/xhtml}URI" />
  *       &lt;attribute name="width" type="{http://www.w3.org/1999/xhtml}Pixels" />
  *       &lt;attribute name="height" type="{http://www.w3.org/1999/xhtml}Pixels" />
@@ -66,10 +65,9 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 @XmlRootElement(name = "video")
 public class Video
     extends Flow
-    implements Serializable, Cloneable, CopyTo, Equals, HashCode, ToString
+    implements Cloneable, CopyTo, Equals, HashCode, ToString
 {
 
-    private final static long serialVersionUID = 10000L;
     @XmlAttribute(name = "poster")
     protected String poster;
     @XmlAttribute(name = "width")
@@ -78,25 +76,52 @@ public class Video
     @XmlAttribute(name = "height")
     @XmlJavaTypeAdapter(Adapter1 .class)
     protected Integer height;
-    @XmlAttribute(name = "src")
-    protected String src;
-    @XmlAttribute(name = "preload")
+    @XmlAttribute(name = "id")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String preload;
-    @XmlAttribute(name = "autoplay")
+    @XmlID
+    @XmlSchemaType(name = "ID")
+    protected String id;
+    @XmlAttribute(name = "class")
+    @XmlSchemaType(name = "NMTOKENS")
+    protected List<String> cssClass;
+    @XmlAttribute(name = "style")
+    protected String style;
+    @XmlAttribute(name = "title")
+    protected String title;
+    @XmlAttribute(name = "accesskey")
+    protected String accesskey;
+    @XmlAttribute(name = "contenteditable")
+    protected Boolean contenteditable;
+    @XmlAttribute(name = "contextmenu")
+    protected String contextmenu;
+    @XmlAttribute(name = "dir")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String autoplay;
-    @XmlAttribute(name = "mediagroup")
-    protected String mediagroup;
-    @XmlAttribute(name = "muted")
+    protected String dir;
+    @XmlAttribute(name = "draggable")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String muted;
-    @XmlAttribute(name = "loop")
+    protected String draggable;
+    @XmlAttribute(name = "dropzone")
+    protected List<String> dropzone;
+    @XmlAttribute(name = "hidden")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String loop;
-    @XmlAttribute(name = "controls")
+    protected String hidden;
+    @XmlAttribute(name = "lang")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String controls;
+    protected String langCode;
+    @XmlAttribute(name = "role")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    @XmlSchemaType(name = "NMTOKEN")
+    protected String role;
+    @XmlAttribute(name = "spellcheck")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String spellcheck;
+    @XmlAttribute(name = "tabindex")
+    @XmlJavaTypeAdapter(Adapter1 .class)
+    protected Integer tabindex;
+    @XmlAttribute(name = "lang", namespace = "http://www.w3.org/XML/1998/namespace")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    @XmlSchemaType(name = "language")
+    protected String lang;
     @XmlAttribute(name = "onclick")
     protected String onclick;
     @XmlAttribute(name = "ondblclick")
@@ -209,52 +234,25 @@ public class Video
     protected String onvolumechange;
     @XmlAttribute(name = "onwaiting")
     protected String onwaiting;
-    @XmlAttribute(name = "id")
+    @XmlAttribute(name = "src")
+    protected String src;
+    @XmlAttribute(name = "preload")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlID
-    @XmlSchemaType(name = "ID")
-    protected String id;
-    @XmlAttribute(name = "class")
-    @XmlSchemaType(name = "NMTOKENS")
-    protected List<String> cssClass;
-    @XmlAttribute(name = "style")
-    protected String style;
-    @XmlAttribute(name = "title")
-    protected String title;
-    @XmlAttribute(name = "accesskey")
-    protected String accesskey;
-    @XmlAttribute(name = "contenteditable")
-    protected Boolean contenteditable;
-    @XmlAttribute(name = "contextmenu")
-    protected String contextmenu;
-    @XmlAttribute(name = "dir")
+    protected String preload;
+    @XmlAttribute(name = "autoplay")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String dir;
-    @XmlAttribute(name = "draggable")
+    protected String autoplay;
+    @XmlAttribute(name = "mediagroup")
+    protected String mediagroup;
+    @XmlAttribute(name = "muted")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String draggable;
-    @XmlAttribute(name = "dropzone")
-    protected List<String> dropzone;
-    @XmlAttribute(name = "hidden")
+    protected String muted;
+    @XmlAttribute(name = "loop")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String hidden;
-    @XmlAttribute(name = "lang")
+    protected String loop;
+    @XmlAttribute(name = "controls")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String langCode;
-    @XmlAttribute(name = "role")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlSchemaType(name = "NMTOKEN")
-    protected String role;
-    @XmlAttribute(name = "spellcheck")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String spellcheck;
-    @XmlAttribute(name = "tabindex")
-    @XmlJavaTypeAdapter(Adapter1 .class)
-    protected Integer tabindex;
-    @XmlAttribute(name = "lang", namespace = "http://www.w3.org/XML/1998/namespace")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlSchemaType(name = "language")
-    protected String lang;
+    protected String controls;
     @XmlAnyAttribute
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
@@ -343,199 +341,481 @@ public class Video
     }
 
     /**
-     * srcプロパティの値を取得します。
+     * idプロパティの値を取得します。
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getSrc() {
-        return src;
+    public String getId() {
+        return id;
     }
 
     /**
-     * srcプロパティの値を設定します。
+     * idプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setSrc(String value) {
-        this.src = value;
+    public void setId(String value) {
+        this.id = value;
     }
 
-    public boolean isSetSrc() {
-        return (this.src!= null);
+    public boolean isSetId() {
+        return (this.id!= null);
     }
 
     /**
-     * preloadプロパティの値を取得します。
+     * Gets the value of the cssClass property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the cssClass property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getCssClass().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link String }
+     * 
+     * 
+     */
+    public List<String> getCssClass() {
+        if (cssClass == null) {
+            cssClass = new ArrayList<String>();
+        }
+        return this.cssClass;
+    }
+
+    public boolean isSetCssClass() {
+        return ((this.cssClass!= null)&&(!this.cssClass.isEmpty()));
+    }
+
+    public void unsetCssClass() {
+        this.cssClass = null;
+    }
+
+    /**
+     * styleプロパティの値を取得します。
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getPreload() {
-        return preload;
+    public String getStyle() {
+        return style;
     }
 
     /**
-     * preloadプロパティの値を設定します。
+     * styleプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setPreload(String value) {
-        this.preload = value;
+    public void setStyle(String value) {
+        this.style = value;
     }
 
-    public boolean isSetPreload() {
-        return (this.preload!= null);
+    public boolean isSetStyle() {
+        return (this.style!= null);
     }
 
     /**
-     * autoplayプロパティの値を取得します。
+     * titleプロパティの値を取得します。
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getAutoplay() {
-        return autoplay;
+    public String getTitle() {
+        return title;
     }
 
     /**
-     * autoplayプロパティの値を設定します。
+     * titleプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setAutoplay(String value) {
-        this.autoplay = value;
+    public void setTitle(String value) {
+        this.title = value;
     }
 
-    public boolean isSetAutoplay() {
-        return (this.autoplay!= null);
+    public boolean isSetTitle() {
+        return (this.title!= null);
     }
 
     /**
-     * mediagroupプロパティの値を取得します。
+     * accesskeyプロパティの値を取得します。
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getMediagroup() {
-        return mediagroup;
+    public String getAccesskey() {
+        return accesskey;
     }
 
     /**
-     * mediagroupプロパティの値を設定します。
+     * accesskeyプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setMediagroup(String value) {
-        this.mediagroup = value;
+    public void setAccesskey(String value) {
+        this.accesskey = value;
     }
 
-    public boolean isSetMediagroup() {
-        return (this.mediagroup!= null);
+    public boolean isSetAccesskey() {
+        return (this.accesskey!= null);
     }
 
     /**
-     * mutedプロパティの値を取得します。
+     * contenteditableプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
+     */
+    public boolean isContenteditable() {
+        return contenteditable;
+    }
+
+    /**
+     * contenteditableプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Boolean }
+     *     
+     */
+    public void setContenteditable(boolean value) {
+        this.contenteditable = value;
+    }
+
+    public boolean isSetContenteditable() {
+        return (this.contenteditable!= null);
+    }
+
+    public void unsetContenteditable() {
+        this.contenteditable = null;
+    }
+
+    /**
+     * contextmenuプロパティの値を取得します。
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getMuted() {
-        return muted;
+    public String getContextmenu() {
+        return contextmenu;
     }
 
     /**
-     * mutedプロパティの値を設定します。
+     * contextmenuプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setMuted(String value) {
-        this.muted = value;
+    public void setContextmenu(String value) {
+        this.contextmenu = value;
     }
 
-    public boolean isSetMuted() {
-        return (this.muted!= null);
+    public boolean isSetContextmenu() {
+        return (this.contextmenu!= null);
     }
 
     /**
-     * loopプロパティの値を取得します。
+     * dirプロパティの値を取得します。
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getLoop() {
-        return loop;
+    public String getDir() {
+        if (dir == null) {
+            return "auto";
+        } else {
+            return dir;
+        }
     }
 
     /**
-     * loopプロパティの値を設定します。
+     * dirプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setLoop(String value) {
-        this.loop = value;
+    public void setDir(String value) {
+        this.dir = value;
     }
 
-    public boolean isSetLoop() {
-        return (this.loop!= null);
+    public boolean isSetDir() {
+        return (this.dir!= null);
     }
 
     /**
-     * controlsプロパティの値を取得します。
+     * draggableプロパティの値を取得します。
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getControls() {
-        return controls;
+    public String getDraggable() {
+        if (draggable == null) {
+            return "auto";
+        } else {
+            return draggable;
+        }
     }
 
     /**
-     * controlsプロパティの値を設定します。
+     * draggableプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setControls(String value) {
-        this.controls = value;
+    public void setDraggable(String value) {
+        this.draggable = value;
     }
 
-    public boolean isSetControls() {
-        return (this.controls!= null);
+    public boolean isSetDraggable() {
+        return (this.draggable!= null);
+    }
+
+    /**
+     * Gets the value of the dropzone property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the dropzone property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getDropzone().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link String }
+     * 
+     * 
+     */
+    public List<String> getDropzone() {
+        if (dropzone == null) {
+            dropzone = new ArrayList<String>();
+        }
+        return this.dropzone;
+    }
+
+    public boolean isSetDropzone() {
+        return ((this.dropzone!= null)&&(!this.dropzone.isEmpty()));
+    }
+
+    public void unsetDropzone() {
+        this.dropzone = null;
+    }
+
+    /**
+     * hiddenプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getHidden() {
+        return hidden;
+    }
+
+    /**
+     * hiddenプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setHidden(String value) {
+        this.hidden = value;
+    }
+
+    public boolean isSetHidden() {
+        return (this.hidden!= null);
+    }
+
+    /**
+     * langCodeプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getLangCode() {
+        return langCode;
+    }
+
+    /**
+     * langCodeプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setLangCode(String value) {
+        this.langCode = value;
+    }
+
+    public boolean isSetLangCode() {
+        return (this.langCode!= null);
+    }
+
+    /**
+     * roleプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRole() {
+        return role;
+    }
+
+    /**
+     * roleプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRole(String value) {
+        this.role = value;
+    }
+
+    public boolean isSetRole() {
+        return (this.role!= null);
+    }
+
+    /**
+     * spellcheckプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getSpellcheck() {
+        return spellcheck;
+    }
+
+    /**
+     * spellcheckプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setSpellcheck(String value) {
+        this.spellcheck = value;
+    }
+
+    public boolean isSetSpellcheck() {
+        return (this.spellcheck!= null);
+    }
+
+    /**
+     * tabindexプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public Integer getTabindex() {
+        return tabindex;
+    }
+
+    /**
+     * tabindexプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setTabindex(Integer value) {
+        this.tabindex = value;
+    }
+
+    public boolean isSetTabindex() {
+        return (this.tabindex!= null);
+    }
+
+    /**
+     * langプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getLang() {
+        return lang;
+    }
+
+    /**
+     * langプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setLang(String value) {
+        this.lang = value;
+    }
+
+    public boolean isSetLang() {
+        return (this.lang!= null);
     }
 
     /**
@@ -2107,481 +2387,199 @@ public class Video
     }
 
     /**
-     * idプロパティの値を取得します。
+     * srcプロパティの値を取得します。
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getId() {
-        return id;
+    public String getSrc() {
+        return src;
     }
 
     /**
-     * idプロパティの値を設定します。
+     * srcプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setId(String value) {
-        this.id = value;
+    public void setSrc(String value) {
+        this.src = value;
     }
 
-    public boolean isSetId() {
-        return (this.id!= null);
-    }
-
-    /**
-     * Gets the value of the cssClass property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the cssClass property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getCssClass().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
-     * 
-     * 
-     */
-    public List<String> getCssClass() {
-        if (cssClass == null) {
-            cssClass = new ArrayList<String>();
-        }
-        return this.cssClass;
-    }
-
-    public boolean isSetCssClass() {
-        return ((this.cssClass!= null)&&(!this.cssClass.isEmpty()));
-    }
-
-    public void unsetCssClass() {
-        this.cssClass = null;
+    public boolean isSetSrc() {
+        return (this.src!= null);
     }
 
     /**
-     * styleプロパティの値を取得します。
+     * preloadプロパティの値を取得します。
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getStyle() {
-        return style;
+    public String getPreload() {
+        return preload;
     }
 
     /**
-     * styleプロパティの値を設定します。
+     * preloadプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setStyle(String value) {
-        this.style = value;
+    public void setPreload(String value) {
+        this.preload = value;
     }
 
-    public boolean isSetStyle() {
-        return (this.style!= null);
+    public boolean isSetPreload() {
+        return (this.preload!= null);
     }
 
     /**
-     * titleプロパティの値を取得します。
+     * autoplayプロパティの値を取得します。
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getTitle() {
-        return title;
+    public String getAutoplay() {
+        return autoplay;
     }
 
     /**
-     * titleプロパティの値を設定します。
+     * autoplayプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setTitle(String value) {
-        this.title = value;
+    public void setAutoplay(String value) {
+        this.autoplay = value;
     }
 
-    public boolean isSetTitle() {
-        return (this.title!= null);
+    public boolean isSetAutoplay() {
+        return (this.autoplay!= null);
     }
 
     /**
-     * accesskeyプロパティの値を取得します。
+     * mediagroupプロパティの値を取得します。
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getAccesskey() {
-        return accesskey;
+    public String getMediagroup() {
+        return mediagroup;
     }
 
     /**
-     * accesskeyプロパティの値を設定します。
+     * mediagroupプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setAccesskey(String value) {
-        this.accesskey = value;
+    public void setMediagroup(String value) {
+        this.mediagroup = value;
     }
 
-    public boolean isSetAccesskey() {
-        return (this.accesskey!= null);
-    }
-
-    /**
-     * contenteditableプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
-     */
-    public boolean isContenteditable() {
-        return contenteditable;
+    public boolean isSetMediagroup() {
+        return (this.mediagroup!= null);
     }
 
     /**
-     * contenteditableプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
-     */
-    public void setContenteditable(boolean value) {
-        this.contenteditable = value;
-    }
-
-    public boolean isSetContenteditable() {
-        return (this.contenteditable!= null);
-    }
-
-    public void unsetContenteditable() {
-        this.contenteditable = null;
-    }
-
-    /**
-     * contextmenuプロパティの値を取得します。
+     * mutedプロパティの値を取得します。
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getContextmenu() {
-        return contextmenu;
+    public String getMuted() {
+        return muted;
     }
 
     /**
-     * contextmenuプロパティの値を設定します。
+     * mutedプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setContextmenu(String value) {
-        this.contextmenu = value;
+    public void setMuted(String value) {
+        this.muted = value;
     }
 
-    public boolean isSetContextmenu() {
-        return (this.contextmenu!= null);
+    public boolean isSetMuted() {
+        return (this.muted!= null);
     }
 
     /**
-     * dirプロパティの値を取得します。
+     * loopプロパティの値を取得します。
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getDir() {
-        if (dir == null) {
-            return "auto";
-        } else {
-            return dir;
-        }
+    public String getLoop() {
+        return loop;
     }
 
     /**
-     * dirプロパティの値を設定します。
+     * loopプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setDir(String value) {
-        this.dir = value;
+    public void setLoop(String value) {
+        this.loop = value;
     }
 
-    public boolean isSetDir() {
-        return (this.dir!= null);
+    public boolean isSetLoop() {
+        return (this.loop!= null);
     }
 
     /**
-     * draggableプロパティの値を取得します。
+     * controlsプロパティの値を取得します。
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getDraggable() {
-        if (draggable == null) {
-            return "auto";
-        } else {
-            return draggable;
-        }
+    public String getControls() {
+        return controls;
     }
 
     /**
-     * draggableプロパティの値を設定します。
+     * controlsプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setDraggable(String value) {
-        this.draggable = value;
+    public void setControls(String value) {
+        this.controls = value;
     }
 
-    public boolean isSetDraggable() {
-        return (this.draggable!= null);
-    }
-
-    /**
-     * Gets the value of the dropzone property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the dropzone property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getDropzone().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
-     * 
-     * 
-     */
-    public List<String> getDropzone() {
-        if (dropzone == null) {
-            dropzone = new ArrayList<String>();
-        }
-        return this.dropzone;
-    }
-
-    public boolean isSetDropzone() {
-        return ((this.dropzone!= null)&&(!this.dropzone.isEmpty()));
-    }
-
-    public void unsetDropzone() {
-        this.dropzone = null;
-    }
-
-    /**
-     * hiddenプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getHidden() {
-        return hidden;
-    }
-
-    /**
-     * hiddenプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setHidden(String value) {
-        this.hidden = value;
-    }
-
-    public boolean isSetHidden() {
-        return (this.hidden!= null);
-    }
-
-    /**
-     * langCodeプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getLangCode() {
-        return langCode;
-    }
-
-    /**
-     * langCodeプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setLangCode(String value) {
-        this.langCode = value;
-    }
-
-    public boolean isSetLangCode() {
-        return (this.langCode!= null);
-    }
-
-    /**
-     * roleプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getRole() {
-        return role;
-    }
-
-    /**
-     * roleプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setRole(String value) {
-        this.role = value;
-    }
-
-    public boolean isSetRole() {
-        return (this.role!= null);
-    }
-
-    /**
-     * spellcheckプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSpellcheck() {
-        return spellcheck;
-    }
-
-    /**
-     * spellcheckプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSpellcheck(String value) {
-        this.spellcheck = value;
-    }
-
-    public boolean isSetSpellcheck() {
-        return (this.spellcheck!= null);
-    }
-
-    /**
-     * tabindexプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public Integer getTabindex() {
-        return tabindex;
-    }
-
-    /**
-     * tabindexプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTabindex(Integer value) {
-        this.tabindex = value;
-    }
-
-    public boolean isSetTabindex() {
-        return (this.tabindex!= null);
-    }
-
-    /**
-     * langプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getLang() {
-        return lang;
-    }
-
-    /**
-     * langプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setLang(String value) {
-        this.lang = value;
-    }
-
-    public boolean isSetLang() {
-        return (this.lang!= null);
+    public boolean isSetControls() {
+        return (this.controls!= null);
     }
 
     /**
@@ -2634,39 +2632,84 @@ public class Video
             strategy.appendField(locator, this, "height", buffer, theHeight);
         }
         {
-            String theSrc;
-            theSrc = this.getSrc();
-            strategy.appendField(locator, this, "src", buffer, theSrc);
+            String theId;
+            theId = this.getId();
+            strategy.appendField(locator, this, "id", buffer, theId);
         }
         {
-            String thePreload;
-            thePreload = this.getPreload();
-            strategy.appendField(locator, this, "preload", buffer, thePreload);
+            List<String> theCssClass;
+            theCssClass = (this.isSetCssClass()?this.getCssClass():null);
+            strategy.appendField(locator, this, "cssClass", buffer, theCssClass);
         }
         {
-            String theAutoplay;
-            theAutoplay = this.getAutoplay();
-            strategy.appendField(locator, this, "autoplay", buffer, theAutoplay);
+            String theStyle;
+            theStyle = this.getStyle();
+            strategy.appendField(locator, this, "style", buffer, theStyle);
         }
         {
-            String theMediagroup;
-            theMediagroup = this.getMediagroup();
-            strategy.appendField(locator, this, "mediagroup", buffer, theMediagroup);
+            String theTitle;
+            theTitle = this.getTitle();
+            strategy.appendField(locator, this, "title", buffer, theTitle);
         }
         {
-            String theMuted;
-            theMuted = this.getMuted();
-            strategy.appendField(locator, this, "muted", buffer, theMuted);
+            String theAccesskey;
+            theAccesskey = this.getAccesskey();
+            strategy.appendField(locator, this, "accesskey", buffer, theAccesskey);
         }
         {
-            String theLoop;
-            theLoop = this.getLoop();
-            strategy.appendField(locator, this, "loop", buffer, theLoop);
+            boolean theContenteditable;
+            theContenteditable = (this.isSetContenteditable()?this.isContenteditable():false);
+            strategy.appendField(locator, this, "contenteditable", buffer, theContenteditable);
         }
         {
-            String theControls;
-            theControls = this.getControls();
-            strategy.appendField(locator, this, "controls", buffer, theControls);
+            String theContextmenu;
+            theContextmenu = this.getContextmenu();
+            strategy.appendField(locator, this, "contextmenu", buffer, theContextmenu);
+        }
+        {
+            String theDir;
+            theDir = this.getDir();
+            strategy.appendField(locator, this, "dir", buffer, theDir);
+        }
+        {
+            String theDraggable;
+            theDraggable = this.getDraggable();
+            strategy.appendField(locator, this, "draggable", buffer, theDraggable);
+        }
+        {
+            List<String> theDropzone;
+            theDropzone = (this.isSetDropzone()?this.getDropzone():null);
+            strategy.appendField(locator, this, "dropzone", buffer, theDropzone);
+        }
+        {
+            String theHidden;
+            theHidden = this.getHidden();
+            strategy.appendField(locator, this, "hidden", buffer, theHidden);
+        }
+        {
+            String theLangCode;
+            theLangCode = this.getLangCode();
+            strategy.appendField(locator, this, "langCode", buffer, theLangCode);
+        }
+        {
+            String theRole;
+            theRole = this.getRole();
+            strategy.appendField(locator, this, "role", buffer, theRole);
+        }
+        {
+            String theSpellcheck;
+            theSpellcheck = this.getSpellcheck();
+            strategy.appendField(locator, this, "spellcheck", buffer, theSpellcheck);
+        }
+        {
+            Integer theTabindex;
+            theTabindex = this.getTabindex();
+            strategy.appendField(locator, this, "tabindex", buffer, theTabindex);
+        }
+        {
+            String theLang;
+            theLang = this.getLang();
+            strategy.appendField(locator, this, "lang", buffer, theLang);
         }
         {
             String theOnclick;
@@ -2949,84 +2992,39 @@ public class Video
             strategy.appendField(locator, this, "onwaiting", buffer, theOnwaiting);
         }
         {
-            String theId;
-            theId = this.getId();
-            strategy.appendField(locator, this, "id", buffer, theId);
+            String theSrc;
+            theSrc = this.getSrc();
+            strategy.appendField(locator, this, "src", buffer, theSrc);
         }
         {
-            List<String> theCssClass;
-            theCssClass = (this.isSetCssClass()?this.getCssClass():null);
-            strategy.appendField(locator, this, "cssClass", buffer, theCssClass);
+            String thePreload;
+            thePreload = this.getPreload();
+            strategy.appendField(locator, this, "preload", buffer, thePreload);
         }
         {
-            String theStyle;
-            theStyle = this.getStyle();
-            strategy.appendField(locator, this, "style", buffer, theStyle);
+            String theAutoplay;
+            theAutoplay = this.getAutoplay();
+            strategy.appendField(locator, this, "autoplay", buffer, theAutoplay);
         }
         {
-            String theTitle;
-            theTitle = this.getTitle();
-            strategy.appendField(locator, this, "title", buffer, theTitle);
+            String theMediagroup;
+            theMediagroup = this.getMediagroup();
+            strategy.appendField(locator, this, "mediagroup", buffer, theMediagroup);
         }
         {
-            String theAccesskey;
-            theAccesskey = this.getAccesskey();
-            strategy.appendField(locator, this, "accesskey", buffer, theAccesskey);
+            String theMuted;
+            theMuted = this.getMuted();
+            strategy.appendField(locator, this, "muted", buffer, theMuted);
         }
         {
-            boolean theContenteditable;
-            theContenteditable = (this.isSetContenteditable()?this.isContenteditable():false);
-            strategy.appendField(locator, this, "contenteditable", buffer, theContenteditable);
+            String theLoop;
+            theLoop = this.getLoop();
+            strategy.appendField(locator, this, "loop", buffer, theLoop);
         }
         {
-            String theContextmenu;
-            theContextmenu = this.getContextmenu();
-            strategy.appendField(locator, this, "contextmenu", buffer, theContextmenu);
-        }
-        {
-            String theDir;
-            theDir = this.getDir();
-            strategy.appendField(locator, this, "dir", buffer, theDir);
-        }
-        {
-            String theDraggable;
-            theDraggable = this.getDraggable();
-            strategy.appendField(locator, this, "draggable", buffer, theDraggable);
-        }
-        {
-            List<String> theDropzone;
-            theDropzone = (this.isSetDropzone()?this.getDropzone():null);
-            strategy.appendField(locator, this, "dropzone", buffer, theDropzone);
-        }
-        {
-            String theHidden;
-            theHidden = this.getHidden();
-            strategy.appendField(locator, this, "hidden", buffer, theHidden);
-        }
-        {
-            String theLangCode;
-            theLangCode = this.getLangCode();
-            strategy.appendField(locator, this, "langCode", buffer, theLangCode);
-        }
-        {
-            String theRole;
-            theRole = this.getRole();
-            strategy.appendField(locator, this, "role", buffer, theRole);
-        }
-        {
-            String theSpellcheck;
-            theSpellcheck = this.getSpellcheck();
-            strategy.appendField(locator, this, "spellcheck", buffer, theSpellcheck);
-        }
-        {
-            Integer theTabindex;
-            theTabindex = this.getTabindex();
-            strategy.appendField(locator, this, "tabindex", buffer, theTabindex);
-        }
-        {
-            String theLang;
-            theLang = this.getLang();
-            strategy.appendField(locator, this, "lang", buffer, theLang);
+            String theControls;
+            theControls = this.getControls();
+            strategy.appendField(locator, this, "controls", buffer, theControls);
         }
         return buffer;
     }
@@ -3070,65 +3068,146 @@ public class Video
             }
         }
         {
-            String lhsSrc;
-            lhsSrc = this.getSrc();
-            String rhsSrc;
-            rhsSrc = that.getSrc();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "src", lhsSrc), LocatorUtils.property(thatLocator, "src", rhsSrc), lhsSrc, rhsSrc)) {
+            String lhsId;
+            lhsId = this.getId();
+            String rhsId;
+            rhsId = that.getId();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "id", lhsId), LocatorUtils.property(thatLocator, "id", rhsId), lhsId, rhsId)) {
                 return false;
             }
         }
         {
-            String lhsPreload;
-            lhsPreload = this.getPreload();
-            String rhsPreload;
-            rhsPreload = that.getPreload();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "preload", lhsPreload), LocatorUtils.property(thatLocator, "preload", rhsPreload), lhsPreload, rhsPreload)) {
+            List<String> lhsCssClass;
+            lhsCssClass = (this.isSetCssClass()?this.getCssClass():null);
+            List<String> rhsCssClass;
+            rhsCssClass = (that.isSetCssClass()?that.getCssClass():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "cssClass", lhsCssClass), LocatorUtils.property(thatLocator, "cssClass", rhsCssClass), lhsCssClass, rhsCssClass)) {
                 return false;
             }
         }
         {
-            String lhsAutoplay;
-            lhsAutoplay = this.getAutoplay();
-            String rhsAutoplay;
-            rhsAutoplay = that.getAutoplay();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "autoplay", lhsAutoplay), LocatorUtils.property(thatLocator, "autoplay", rhsAutoplay), lhsAutoplay, rhsAutoplay)) {
+            String lhsStyle;
+            lhsStyle = this.getStyle();
+            String rhsStyle;
+            rhsStyle = that.getStyle();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "style", lhsStyle), LocatorUtils.property(thatLocator, "style", rhsStyle), lhsStyle, rhsStyle)) {
                 return false;
             }
         }
         {
-            String lhsMediagroup;
-            lhsMediagroup = this.getMediagroup();
-            String rhsMediagroup;
-            rhsMediagroup = that.getMediagroup();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "mediagroup", lhsMediagroup), LocatorUtils.property(thatLocator, "mediagroup", rhsMediagroup), lhsMediagroup, rhsMediagroup)) {
+            String lhsTitle;
+            lhsTitle = this.getTitle();
+            String rhsTitle;
+            rhsTitle = that.getTitle();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "title", lhsTitle), LocatorUtils.property(thatLocator, "title", rhsTitle), lhsTitle, rhsTitle)) {
                 return false;
             }
         }
         {
-            String lhsMuted;
-            lhsMuted = this.getMuted();
-            String rhsMuted;
-            rhsMuted = that.getMuted();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "muted", lhsMuted), LocatorUtils.property(thatLocator, "muted", rhsMuted), lhsMuted, rhsMuted)) {
+            String lhsAccesskey;
+            lhsAccesskey = this.getAccesskey();
+            String rhsAccesskey;
+            rhsAccesskey = that.getAccesskey();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "accesskey", lhsAccesskey), LocatorUtils.property(thatLocator, "accesskey", rhsAccesskey), lhsAccesskey, rhsAccesskey)) {
                 return false;
             }
         }
         {
-            String lhsLoop;
-            lhsLoop = this.getLoop();
-            String rhsLoop;
-            rhsLoop = that.getLoop();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "loop", lhsLoop), LocatorUtils.property(thatLocator, "loop", rhsLoop), lhsLoop, rhsLoop)) {
+            boolean lhsContenteditable;
+            lhsContenteditable = (this.isSetContenteditable()?this.isContenteditable():false);
+            boolean rhsContenteditable;
+            rhsContenteditable = (that.isSetContenteditable()?that.isContenteditable():false);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "contenteditable", lhsContenteditable), LocatorUtils.property(thatLocator, "contenteditable", rhsContenteditable), lhsContenteditable, rhsContenteditable)) {
                 return false;
             }
         }
         {
-            String lhsControls;
-            lhsControls = this.getControls();
-            String rhsControls;
-            rhsControls = that.getControls();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "controls", lhsControls), LocatorUtils.property(thatLocator, "controls", rhsControls), lhsControls, rhsControls)) {
+            String lhsContextmenu;
+            lhsContextmenu = this.getContextmenu();
+            String rhsContextmenu;
+            rhsContextmenu = that.getContextmenu();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "contextmenu", lhsContextmenu), LocatorUtils.property(thatLocator, "contextmenu", rhsContextmenu), lhsContextmenu, rhsContextmenu)) {
+                return false;
+            }
+        }
+        {
+            String lhsDir;
+            lhsDir = this.getDir();
+            String rhsDir;
+            rhsDir = that.getDir();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "dir", lhsDir), LocatorUtils.property(thatLocator, "dir", rhsDir), lhsDir, rhsDir)) {
+                return false;
+            }
+        }
+        {
+            String lhsDraggable;
+            lhsDraggable = this.getDraggable();
+            String rhsDraggable;
+            rhsDraggable = that.getDraggable();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "draggable", lhsDraggable), LocatorUtils.property(thatLocator, "draggable", rhsDraggable), lhsDraggable, rhsDraggable)) {
+                return false;
+            }
+        }
+        {
+            List<String> lhsDropzone;
+            lhsDropzone = (this.isSetDropzone()?this.getDropzone():null);
+            List<String> rhsDropzone;
+            rhsDropzone = (that.isSetDropzone()?that.getDropzone():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "dropzone", lhsDropzone), LocatorUtils.property(thatLocator, "dropzone", rhsDropzone), lhsDropzone, rhsDropzone)) {
+                return false;
+            }
+        }
+        {
+            String lhsHidden;
+            lhsHidden = this.getHidden();
+            String rhsHidden;
+            rhsHidden = that.getHidden();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "hidden", lhsHidden), LocatorUtils.property(thatLocator, "hidden", rhsHidden), lhsHidden, rhsHidden)) {
+                return false;
+            }
+        }
+        {
+            String lhsLangCode;
+            lhsLangCode = this.getLangCode();
+            String rhsLangCode;
+            rhsLangCode = that.getLangCode();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "langCode", lhsLangCode), LocatorUtils.property(thatLocator, "langCode", rhsLangCode), lhsLangCode, rhsLangCode)) {
+                return false;
+            }
+        }
+        {
+            String lhsRole;
+            lhsRole = this.getRole();
+            String rhsRole;
+            rhsRole = that.getRole();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "role", lhsRole), LocatorUtils.property(thatLocator, "role", rhsRole), lhsRole, rhsRole)) {
+                return false;
+            }
+        }
+        {
+            String lhsSpellcheck;
+            lhsSpellcheck = this.getSpellcheck();
+            String rhsSpellcheck;
+            rhsSpellcheck = that.getSpellcheck();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "spellcheck", lhsSpellcheck), LocatorUtils.property(thatLocator, "spellcheck", rhsSpellcheck), lhsSpellcheck, rhsSpellcheck)) {
+                return false;
+            }
+        }
+        {
+            Integer lhsTabindex;
+            lhsTabindex = this.getTabindex();
+            Integer rhsTabindex;
+            rhsTabindex = that.getTabindex();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "tabindex", lhsTabindex), LocatorUtils.property(thatLocator, "tabindex", rhsTabindex), lhsTabindex, rhsTabindex)) {
+                return false;
+            }
+        }
+        {
+            String lhsLang;
+            lhsLang = this.getLang();
+            String rhsLang;
+            rhsLang = that.getLang();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "lang", lhsLang), LocatorUtils.property(thatLocator, "lang", rhsLang), lhsLang, rhsLang)) {
                 return false;
             }
         }
@@ -3637,146 +3716,65 @@ public class Video
             }
         }
         {
-            String lhsId;
-            lhsId = this.getId();
-            String rhsId;
-            rhsId = that.getId();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "id", lhsId), LocatorUtils.property(thatLocator, "id", rhsId), lhsId, rhsId)) {
+            String lhsSrc;
+            lhsSrc = this.getSrc();
+            String rhsSrc;
+            rhsSrc = that.getSrc();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "src", lhsSrc), LocatorUtils.property(thatLocator, "src", rhsSrc), lhsSrc, rhsSrc)) {
                 return false;
             }
         }
         {
-            List<String> lhsCssClass;
-            lhsCssClass = (this.isSetCssClass()?this.getCssClass():null);
-            List<String> rhsCssClass;
-            rhsCssClass = (that.isSetCssClass()?that.getCssClass():null);
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "cssClass", lhsCssClass), LocatorUtils.property(thatLocator, "cssClass", rhsCssClass), lhsCssClass, rhsCssClass)) {
+            String lhsPreload;
+            lhsPreload = this.getPreload();
+            String rhsPreload;
+            rhsPreload = that.getPreload();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "preload", lhsPreload), LocatorUtils.property(thatLocator, "preload", rhsPreload), lhsPreload, rhsPreload)) {
                 return false;
             }
         }
         {
-            String lhsStyle;
-            lhsStyle = this.getStyle();
-            String rhsStyle;
-            rhsStyle = that.getStyle();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "style", lhsStyle), LocatorUtils.property(thatLocator, "style", rhsStyle), lhsStyle, rhsStyle)) {
+            String lhsAutoplay;
+            lhsAutoplay = this.getAutoplay();
+            String rhsAutoplay;
+            rhsAutoplay = that.getAutoplay();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "autoplay", lhsAutoplay), LocatorUtils.property(thatLocator, "autoplay", rhsAutoplay), lhsAutoplay, rhsAutoplay)) {
                 return false;
             }
         }
         {
-            String lhsTitle;
-            lhsTitle = this.getTitle();
-            String rhsTitle;
-            rhsTitle = that.getTitle();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "title", lhsTitle), LocatorUtils.property(thatLocator, "title", rhsTitle), lhsTitle, rhsTitle)) {
+            String lhsMediagroup;
+            lhsMediagroup = this.getMediagroup();
+            String rhsMediagroup;
+            rhsMediagroup = that.getMediagroup();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "mediagroup", lhsMediagroup), LocatorUtils.property(thatLocator, "mediagroup", rhsMediagroup), lhsMediagroup, rhsMediagroup)) {
                 return false;
             }
         }
         {
-            String lhsAccesskey;
-            lhsAccesskey = this.getAccesskey();
-            String rhsAccesskey;
-            rhsAccesskey = that.getAccesskey();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "accesskey", lhsAccesskey), LocatorUtils.property(thatLocator, "accesskey", rhsAccesskey), lhsAccesskey, rhsAccesskey)) {
+            String lhsMuted;
+            lhsMuted = this.getMuted();
+            String rhsMuted;
+            rhsMuted = that.getMuted();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "muted", lhsMuted), LocatorUtils.property(thatLocator, "muted", rhsMuted), lhsMuted, rhsMuted)) {
                 return false;
             }
         }
         {
-            boolean lhsContenteditable;
-            lhsContenteditable = (this.isSetContenteditable()?this.isContenteditable():false);
-            boolean rhsContenteditable;
-            rhsContenteditable = (that.isSetContenteditable()?that.isContenteditable():false);
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "contenteditable", lhsContenteditable), LocatorUtils.property(thatLocator, "contenteditable", rhsContenteditable), lhsContenteditable, rhsContenteditable)) {
+            String lhsLoop;
+            lhsLoop = this.getLoop();
+            String rhsLoop;
+            rhsLoop = that.getLoop();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "loop", lhsLoop), LocatorUtils.property(thatLocator, "loop", rhsLoop), lhsLoop, rhsLoop)) {
                 return false;
             }
         }
         {
-            String lhsContextmenu;
-            lhsContextmenu = this.getContextmenu();
-            String rhsContextmenu;
-            rhsContextmenu = that.getContextmenu();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "contextmenu", lhsContextmenu), LocatorUtils.property(thatLocator, "contextmenu", rhsContextmenu), lhsContextmenu, rhsContextmenu)) {
-                return false;
-            }
-        }
-        {
-            String lhsDir;
-            lhsDir = this.getDir();
-            String rhsDir;
-            rhsDir = that.getDir();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "dir", lhsDir), LocatorUtils.property(thatLocator, "dir", rhsDir), lhsDir, rhsDir)) {
-                return false;
-            }
-        }
-        {
-            String lhsDraggable;
-            lhsDraggable = this.getDraggable();
-            String rhsDraggable;
-            rhsDraggable = that.getDraggable();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "draggable", lhsDraggable), LocatorUtils.property(thatLocator, "draggable", rhsDraggable), lhsDraggable, rhsDraggable)) {
-                return false;
-            }
-        }
-        {
-            List<String> lhsDropzone;
-            lhsDropzone = (this.isSetDropzone()?this.getDropzone():null);
-            List<String> rhsDropzone;
-            rhsDropzone = (that.isSetDropzone()?that.getDropzone():null);
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "dropzone", lhsDropzone), LocatorUtils.property(thatLocator, "dropzone", rhsDropzone), lhsDropzone, rhsDropzone)) {
-                return false;
-            }
-        }
-        {
-            String lhsHidden;
-            lhsHidden = this.getHidden();
-            String rhsHidden;
-            rhsHidden = that.getHidden();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "hidden", lhsHidden), LocatorUtils.property(thatLocator, "hidden", rhsHidden), lhsHidden, rhsHidden)) {
-                return false;
-            }
-        }
-        {
-            String lhsLangCode;
-            lhsLangCode = this.getLangCode();
-            String rhsLangCode;
-            rhsLangCode = that.getLangCode();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "langCode", lhsLangCode), LocatorUtils.property(thatLocator, "langCode", rhsLangCode), lhsLangCode, rhsLangCode)) {
-                return false;
-            }
-        }
-        {
-            String lhsRole;
-            lhsRole = this.getRole();
-            String rhsRole;
-            rhsRole = that.getRole();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "role", lhsRole), LocatorUtils.property(thatLocator, "role", rhsRole), lhsRole, rhsRole)) {
-                return false;
-            }
-        }
-        {
-            String lhsSpellcheck;
-            lhsSpellcheck = this.getSpellcheck();
-            String rhsSpellcheck;
-            rhsSpellcheck = that.getSpellcheck();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "spellcheck", lhsSpellcheck), LocatorUtils.property(thatLocator, "spellcheck", rhsSpellcheck), lhsSpellcheck, rhsSpellcheck)) {
-                return false;
-            }
-        }
-        {
-            Integer lhsTabindex;
-            lhsTabindex = this.getTabindex();
-            Integer rhsTabindex;
-            rhsTabindex = that.getTabindex();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "tabindex", lhsTabindex), LocatorUtils.property(thatLocator, "tabindex", rhsTabindex), lhsTabindex, rhsTabindex)) {
-                return false;
-            }
-        }
-        {
-            String lhsLang;
-            lhsLang = this.getLang();
-            String rhsLang;
-            rhsLang = that.getLang();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "lang", lhsLang), LocatorUtils.property(thatLocator, "lang", rhsLang), lhsLang, rhsLang)) {
+            String lhsControls;
+            lhsControls = this.getControls();
+            String rhsControls;
+            rhsControls = that.getControls();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "controls", lhsControls), LocatorUtils.property(thatLocator, "controls", rhsControls), lhsControls, rhsControls)) {
                 return false;
             }
         }
@@ -3806,39 +3804,84 @@ public class Video
             currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "height", theHeight), currentHashCode, theHeight);
         }
         {
-            String theSrc;
-            theSrc = this.getSrc();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "src", theSrc), currentHashCode, theSrc);
+            String theId;
+            theId = this.getId();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "id", theId), currentHashCode, theId);
         }
         {
-            String thePreload;
-            thePreload = this.getPreload();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "preload", thePreload), currentHashCode, thePreload);
+            List<String> theCssClass;
+            theCssClass = (this.isSetCssClass()?this.getCssClass():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "cssClass", theCssClass), currentHashCode, theCssClass);
         }
         {
-            String theAutoplay;
-            theAutoplay = this.getAutoplay();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "autoplay", theAutoplay), currentHashCode, theAutoplay);
+            String theStyle;
+            theStyle = this.getStyle();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "style", theStyle), currentHashCode, theStyle);
         }
         {
-            String theMediagroup;
-            theMediagroup = this.getMediagroup();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "mediagroup", theMediagroup), currentHashCode, theMediagroup);
+            String theTitle;
+            theTitle = this.getTitle();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "title", theTitle), currentHashCode, theTitle);
         }
         {
-            String theMuted;
-            theMuted = this.getMuted();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "muted", theMuted), currentHashCode, theMuted);
+            String theAccesskey;
+            theAccesskey = this.getAccesskey();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "accesskey", theAccesskey), currentHashCode, theAccesskey);
         }
         {
-            String theLoop;
-            theLoop = this.getLoop();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "loop", theLoop), currentHashCode, theLoop);
+            boolean theContenteditable;
+            theContenteditable = (this.isSetContenteditable()?this.isContenteditable():false);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "contenteditable", theContenteditable), currentHashCode, theContenteditable);
         }
         {
-            String theControls;
-            theControls = this.getControls();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "controls", theControls), currentHashCode, theControls);
+            String theContextmenu;
+            theContextmenu = this.getContextmenu();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "contextmenu", theContextmenu), currentHashCode, theContextmenu);
+        }
+        {
+            String theDir;
+            theDir = this.getDir();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "dir", theDir), currentHashCode, theDir);
+        }
+        {
+            String theDraggable;
+            theDraggable = this.getDraggable();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "draggable", theDraggable), currentHashCode, theDraggable);
+        }
+        {
+            List<String> theDropzone;
+            theDropzone = (this.isSetDropzone()?this.getDropzone():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "dropzone", theDropzone), currentHashCode, theDropzone);
+        }
+        {
+            String theHidden;
+            theHidden = this.getHidden();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "hidden", theHidden), currentHashCode, theHidden);
+        }
+        {
+            String theLangCode;
+            theLangCode = this.getLangCode();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "langCode", theLangCode), currentHashCode, theLangCode);
+        }
+        {
+            String theRole;
+            theRole = this.getRole();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "role", theRole), currentHashCode, theRole);
+        }
+        {
+            String theSpellcheck;
+            theSpellcheck = this.getSpellcheck();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "spellcheck", theSpellcheck), currentHashCode, theSpellcheck);
+        }
+        {
+            Integer theTabindex;
+            theTabindex = this.getTabindex();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "tabindex", theTabindex), currentHashCode, theTabindex);
+        }
+        {
+            String theLang;
+            theLang = this.getLang();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "lang", theLang), currentHashCode, theLang);
         }
         {
             String theOnclick;
@@ -4121,84 +4164,39 @@ public class Video
             currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onwaiting", theOnwaiting), currentHashCode, theOnwaiting);
         }
         {
-            String theId;
-            theId = this.getId();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "id", theId), currentHashCode, theId);
+            String theSrc;
+            theSrc = this.getSrc();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "src", theSrc), currentHashCode, theSrc);
         }
         {
-            List<String> theCssClass;
-            theCssClass = (this.isSetCssClass()?this.getCssClass():null);
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "cssClass", theCssClass), currentHashCode, theCssClass);
+            String thePreload;
+            thePreload = this.getPreload();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "preload", thePreload), currentHashCode, thePreload);
         }
         {
-            String theStyle;
-            theStyle = this.getStyle();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "style", theStyle), currentHashCode, theStyle);
+            String theAutoplay;
+            theAutoplay = this.getAutoplay();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "autoplay", theAutoplay), currentHashCode, theAutoplay);
         }
         {
-            String theTitle;
-            theTitle = this.getTitle();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "title", theTitle), currentHashCode, theTitle);
+            String theMediagroup;
+            theMediagroup = this.getMediagroup();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "mediagroup", theMediagroup), currentHashCode, theMediagroup);
         }
         {
-            String theAccesskey;
-            theAccesskey = this.getAccesskey();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "accesskey", theAccesskey), currentHashCode, theAccesskey);
+            String theMuted;
+            theMuted = this.getMuted();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "muted", theMuted), currentHashCode, theMuted);
         }
         {
-            boolean theContenteditable;
-            theContenteditable = (this.isSetContenteditable()?this.isContenteditable():false);
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "contenteditable", theContenteditable), currentHashCode, theContenteditable);
+            String theLoop;
+            theLoop = this.getLoop();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "loop", theLoop), currentHashCode, theLoop);
         }
         {
-            String theContextmenu;
-            theContextmenu = this.getContextmenu();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "contextmenu", theContextmenu), currentHashCode, theContextmenu);
-        }
-        {
-            String theDir;
-            theDir = this.getDir();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "dir", theDir), currentHashCode, theDir);
-        }
-        {
-            String theDraggable;
-            theDraggable = this.getDraggable();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "draggable", theDraggable), currentHashCode, theDraggable);
-        }
-        {
-            List<String> theDropzone;
-            theDropzone = (this.isSetDropzone()?this.getDropzone():null);
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "dropzone", theDropzone), currentHashCode, theDropzone);
-        }
-        {
-            String theHidden;
-            theHidden = this.getHidden();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "hidden", theHidden), currentHashCode, theHidden);
-        }
-        {
-            String theLangCode;
-            theLangCode = this.getLangCode();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "langCode", theLangCode), currentHashCode, theLangCode);
-        }
-        {
-            String theRole;
-            theRole = this.getRole();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "role", theRole), currentHashCode, theRole);
-        }
-        {
-            String theSpellcheck;
-            theSpellcheck = this.getSpellcheck();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "spellcheck", theSpellcheck), currentHashCode, theSpellcheck);
-        }
-        {
-            Integer theTabindex;
-            theTabindex = this.getTabindex();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "tabindex", theTabindex), currentHashCode, theTabindex);
-        }
-        {
-            String theLang;
-            theLang = this.getLang();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "lang", theLang), currentHashCode, theLang);
+            String theControls;
+            theControls = this.getControls();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "controls", theControls), currentHashCode, theControls);
         }
         return currentHashCode;
     }
@@ -4246,61 +4244,143 @@ public class Video
             } else {
                 copy.height = null;
             }
-            if (this.isSetSrc()) {
-                String sourceSrc;
-                sourceSrc = this.getSrc();
-                String copySrc = ((String) strategy.copy(LocatorUtils.property(locator, "src", sourceSrc), sourceSrc));
-                copy.setSrc(copySrc);
+            if (this.isSetId()) {
+                String sourceId;
+                sourceId = this.getId();
+                String copyId = ((String) strategy.copy(LocatorUtils.property(locator, "id", sourceId), sourceId));
+                copy.setId(copyId);
             } else {
-                copy.src = null;
+                copy.id = null;
             }
-            if (this.isSetPreload()) {
-                String sourcePreload;
-                sourcePreload = this.getPreload();
-                String copyPreload = ((String) strategy.copy(LocatorUtils.property(locator, "preload", sourcePreload), sourcePreload));
-                copy.setPreload(copyPreload);
+            if (this.isSetCssClass()) {
+                List<String> sourceCssClass;
+                sourceCssClass = (this.isSetCssClass()?this.getCssClass():null);
+                @SuppressWarnings("unchecked")
+                List<String> copyCssClass = ((List<String> ) strategy.copy(LocatorUtils.property(locator, "cssClass", sourceCssClass), sourceCssClass));
+                copy.unsetCssClass();
+                if (copyCssClass!= null) {
+                    List<String> uniqueCssClassl = copy.getCssClass();
+                    uniqueCssClassl.addAll(copyCssClass);
+                }
             } else {
-                copy.preload = null;
+                copy.unsetCssClass();
             }
-            if (this.isSetAutoplay()) {
-                String sourceAutoplay;
-                sourceAutoplay = this.getAutoplay();
-                String copyAutoplay = ((String) strategy.copy(LocatorUtils.property(locator, "autoplay", sourceAutoplay), sourceAutoplay));
-                copy.setAutoplay(copyAutoplay);
+            if (this.isSetStyle()) {
+                String sourceStyle;
+                sourceStyle = this.getStyle();
+                String copyStyle = ((String) strategy.copy(LocatorUtils.property(locator, "style", sourceStyle), sourceStyle));
+                copy.setStyle(copyStyle);
             } else {
-                copy.autoplay = null;
+                copy.style = null;
             }
-            if (this.isSetMediagroup()) {
-                String sourceMediagroup;
-                sourceMediagroup = this.getMediagroup();
-                String copyMediagroup = ((String) strategy.copy(LocatorUtils.property(locator, "mediagroup", sourceMediagroup), sourceMediagroup));
-                copy.setMediagroup(copyMediagroup);
+            if (this.isSetTitle()) {
+                String sourceTitle;
+                sourceTitle = this.getTitle();
+                String copyTitle = ((String) strategy.copy(LocatorUtils.property(locator, "title", sourceTitle), sourceTitle));
+                copy.setTitle(copyTitle);
             } else {
-                copy.mediagroup = null;
+                copy.title = null;
             }
-            if (this.isSetMuted()) {
-                String sourceMuted;
-                sourceMuted = this.getMuted();
-                String copyMuted = ((String) strategy.copy(LocatorUtils.property(locator, "muted", sourceMuted), sourceMuted));
-                copy.setMuted(copyMuted);
+            if (this.isSetAccesskey()) {
+                String sourceAccesskey;
+                sourceAccesskey = this.getAccesskey();
+                String copyAccesskey = ((String) strategy.copy(LocatorUtils.property(locator, "accesskey", sourceAccesskey), sourceAccesskey));
+                copy.setAccesskey(copyAccesskey);
             } else {
-                copy.muted = null;
+                copy.accesskey = null;
             }
-            if (this.isSetLoop()) {
-                String sourceLoop;
-                sourceLoop = this.getLoop();
-                String copyLoop = ((String) strategy.copy(LocatorUtils.property(locator, "loop", sourceLoop), sourceLoop));
-                copy.setLoop(copyLoop);
+            if (this.isSetContenteditable()) {
+                boolean sourceContenteditable;
+                sourceContenteditable = (this.isSetContenteditable()?this.isContenteditable():false);
+                boolean copyContenteditable = strategy.copy(LocatorUtils.property(locator, "contenteditable", sourceContenteditable), sourceContenteditable);
+                copy.setContenteditable(copyContenteditable);
             } else {
-                copy.loop = null;
+                copy.unsetContenteditable();
             }
-            if (this.isSetControls()) {
-                String sourceControls;
-                sourceControls = this.getControls();
-                String copyControls = ((String) strategy.copy(LocatorUtils.property(locator, "controls", sourceControls), sourceControls));
-                copy.setControls(copyControls);
+            if (this.isSetContextmenu()) {
+                String sourceContextmenu;
+                sourceContextmenu = this.getContextmenu();
+                String copyContextmenu = ((String) strategy.copy(LocatorUtils.property(locator, "contextmenu", sourceContextmenu), sourceContextmenu));
+                copy.setContextmenu(copyContextmenu);
             } else {
-                copy.controls = null;
+                copy.contextmenu = null;
+            }
+            if (this.isSetDir()) {
+                String sourceDir;
+                sourceDir = this.getDir();
+                String copyDir = ((String) strategy.copy(LocatorUtils.property(locator, "dir", sourceDir), sourceDir));
+                copy.setDir(copyDir);
+            } else {
+                copy.dir = null;
+            }
+            if (this.isSetDraggable()) {
+                String sourceDraggable;
+                sourceDraggable = this.getDraggable();
+                String copyDraggable = ((String) strategy.copy(LocatorUtils.property(locator, "draggable", sourceDraggable), sourceDraggable));
+                copy.setDraggable(copyDraggable);
+            } else {
+                copy.draggable = null;
+            }
+            if (this.isSetDropzone()) {
+                List<String> sourceDropzone;
+                sourceDropzone = (this.isSetDropzone()?this.getDropzone():null);
+                @SuppressWarnings("unchecked")
+                List<String> copyDropzone = ((List<String> ) strategy.copy(LocatorUtils.property(locator, "dropzone", sourceDropzone), sourceDropzone));
+                copy.unsetDropzone();
+                if (copyDropzone!= null) {
+                    List<String> uniqueDropzonel = copy.getDropzone();
+                    uniqueDropzonel.addAll(copyDropzone);
+                }
+            } else {
+                copy.unsetDropzone();
+            }
+            if (this.isSetHidden()) {
+                String sourceHidden;
+                sourceHidden = this.getHidden();
+                String copyHidden = ((String) strategy.copy(LocatorUtils.property(locator, "hidden", sourceHidden), sourceHidden));
+                copy.setHidden(copyHidden);
+            } else {
+                copy.hidden = null;
+            }
+            if (this.isSetLangCode()) {
+                String sourceLangCode;
+                sourceLangCode = this.getLangCode();
+                String copyLangCode = ((String) strategy.copy(LocatorUtils.property(locator, "langCode", sourceLangCode), sourceLangCode));
+                copy.setLangCode(copyLangCode);
+            } else {
+                copy.langCode = null;
+            }
+            if (this.isSetRole()) {
+                String sourceRole;
+                sourceRole = this.getRole();
+                String copyRole = ((String) strategy.copy(LocatorUtils.property(locator, "role", sourceRole), sourceRole));
+                copy.setRole(copyRole);
+            } else {
+                copy.role = null;
+            }
+            if (this.isSetSpellcheck()) {
+                String sourceSpellcheck;
+                sourceSpellcheck = this.getSpellcheck();
+                String copySpellcheck = ((String) strategy.copy(LocatorUtils.property(locator, "spellcheck", sourceSpellcheck), sourceSpellcheck));
+                copy.setSpellcheck(copySpellcheck);
+            } else {
+                copy.spellcheck = null;
+            }
+            if (this.isSetTabindex()) {
+                Integer sourceTabindex;
+                sourceTabindex = this.getTabindex();
+                Integer copyTabindex = ((Integer) strategy.copy(LocatorUtils.property(locator, "tabindex", sourceTabindex), sourceTabindex));
+                copy.setTabindex(copyTabindex);
+            } else {
+                copy.tabindex = null;
+            }
+            if (this.isSetLang()) {
+                String sourceLang;
+                sourceLang = this.getLang();
+                String copyLang = ((String) strategy.copy(LocatorUtils.property(locator, "lang", sourceLang), sourceLang));
+                copy.setLang(copyLang);
+            } else {
+                copy.lang = null;
             }
             if (this.isSetOnclick()) {
                 String sourceOnclick;
@@ -4750,143 +4830,61 @@ public class Video
             } else {
                 copy.onwaiting = null;
             }
-            if (this.isSetId()) {
-                String sourceId;
-                sourceId = this.getId();
-                String copyId = ((String) strategy.copy(LocatorUtils.property(locator, "id", sourceId), sourceId));
-                copy.setId(copyId);
+            if (this.isSetSrc()) {
+                String sourceSrc;
+                sourceSrc = this.getSrc();
+                String copySrc = ((String) strategy.copy(LocatorUtils.property(locator, "src", sourceSrc), sourceSrc));
+                copy.setSrc(copySrc);
             } else {
-                copy.id = null;
+                copy.src = null;
             }
-            if (this.isSetCssClass()) {
-                List<String> sourceCssClass;
-                sourceCssClass = (this.isSetCssClass()?this.getCssClass():null);
-                @SuppressWarnings("unchecked")
-                List<String> copyCssClass = ((List<String> ) strategy.copy(LocatorUtils.property(locator, "cssClass", sourceCssClass), sourceCssClass));
-                copy.unsetCssClass();
-                if (copyCssClass!= null) {
-                    List<String> uniqueCssClassl = copy.getCssClass();
-                    uniqueCssClassl.addAll(copyCssClass);
-                }
+            if (this.isSetPreload()) {
+                String sourcePreload;
+                sourcePreload = this.getPreload();
+                String copyPreload = ((String) strategy.copy(LocatorUtils.property(locator, "preload", sourcePreload), sourcePreload));
+                copy.setPreload(copyPreload);
             } else {
-                copy.unsetCssClass();
+                copy.preload = null;
             }
-            if (this.isSetStyle()) {
-                String sourceStyle;
-                sourceStyle = this.getStyle();
-                String copyStyle = ((String) strategy.copy(LocatorUtils.property(locator, "style", sourceStyle), sourceStyle));
-                copy.setStyle(copyStyle);
+            if (this.isSetAutoplay()) {
+                String sourceAutoplay;
+                sourceAutoplay = this.getAutoplay();
+                String copyAutoplay = ((String) strategy.copy(LocatorUtils.property(locator, "autoplay", sourceAutoplay), sourceAutoplay));
+                copy.setAutoplay(copyAutoplay);
             } else {
-                copy.style = null;
+                copy.autoplay = null;
             }
-            if (this.isSetTitle()) {
-                String sourceTitle;
-                sourceTitle = this.getTitle();
-                String copyTitle = ((String) strategy.copy(LocatorUtils.property(locator, "title", sourceTitle), sourceTitle));
-                copy.setTitle(copyTitle);
+            if (this.isSetMediagroup()) {
+                String sourceMediagroup;
+                sourceMediagroup = this.getMediagroup();
+                String copyMediagroup = ((String) strategy.copy(LocatorUtils.property(locator, "mediagroup", sourceMediagroup), sourceMediagroup));
+                copy.setMediagroup(copyMediagroup);
             } else {
-                copy.title = null;
+                copy.mediagroup = null;
             }
-            if (this.isSetAccesskey()) {
-                String sourceAccesskey;
-                sourceAccesskey = this.getAccesskey();
-                String copyAccesskey = ((String) strategy.copy(LocatorUtils.property(locator, "accesskey", sourceAccesskey), sourceAccesskey));
-                copy.setAccesskey(copyAccesskey);
+            if (this.isSetMuted()) {
+                String sourceMuted;
+                sourceMuted = this.getMuted();
+                String copyMuted = ((String) strategy.copy(LocatorUtils.property(locator, "muted", sourceMuted), sourceMuted));
+                copy.setMuted(copyMuted);
             } else {
-                copy.accesskey = null;
+                copy.muted = null;
             }
-            if (this.isSetContenteditable()) {
-                boolean sourceContenteditable;
-                sourceContenteditable = (this.isSetContenteditable()?this.isContenteditable():false);
-                boolean copyContenteditable = strategy.copy(LocatorUtils.property(locator, "contenteditable", sourceContenteditable), sourceContenteditable);
-                copy.setContenteditable(copyContenteditable);
+            if (this.isSetLoop()) {
+                String sourceLoop;
+                sourceLoop = this.getLoop();
+                String copyLoop = ((String) strategy.copy(LocatorUtils.property(locator, "loop", sourceLoop), sourceLoop));
+                copy.setLoop(copyLoop);
             } else {
-                copy.unsetContenteditable();
+                copy.loop = null;
             }
-            if (this.isSetContextmenu()) {
-                String sourceContextmenu;
-                sourceContextmenu = this.getContextmenu();
-                String copyContextmenu = ((String) strategy.copy(LocatorUtils.property(locator, "contextmenu", sourceContextmenu), sourceContextmenu));
-                copy.setContextmenu(copyContextmenu);
+            if (this.isSetControls()) {
+                String sourceControls;
+                sourceControls = this.getControls();
+                String copyControls = ((String) strategy.copy(LocatorUtils.property(locator, "controls", sourceControls), sourceControls));
+                copy.setControls(copyControls);
             } else {
-                copy.contextmenu = null;
-            }
-            if (this.isSetDir()) {
-                String sourceDir;
-                sourceDir = this.getDir();
-                String copyDir = ((String) strategy.copy(LocatorUtils.property(locator, "dir", sourceDir), sourceDir));
-                copy.setDir(copyDir);
-            } else {
-                copy.dir = null;
-            }
-            if (this.isSetDraggable()) {
-                String sourceDraggable;
-                sourceDraggable = this.getDraggable();
-                String copyDraggable = ((String) strategy.copy(LocatorUtils.property(locator, "draggable", sourceDraggable), sourceDraggable));
-                copy.setDraggable(copyDraggable);
-            } else {
-                copy.draggable = null;
-            }
-            if (this.isSetDropzone()) {
-                List<String> sourceDropzone;
-                sourceDropzone = (this.isSetDropzone()?this.getDropzone():null);
-                @SuppressWarnings("unchecked")
-                List<String> copyDropzone = ((List<String> ) strategy.copy(LocatorUtils.property(locator, "dropzone", sourceDropzone), sourceDropzone));
-                copy.unsetDropzone();
-                if (copyDropzone!= null) {
-                    List<String> uniqueDropzonel = copy.getDropzone();
-                    uniqueDropzonel.addAll(copyDropzone);
-                }
-            } else {
-                copy.unsetDropzone();
-            }
-            if (this.isSetHidden()) {
-                String sourceHidden;
-                sourceHidden = this.getHidden();
-                String copyHidden = ((String) strategy.copy(LocatorUtils.property(locator, "hidden", sourceHidden), sourceHidden));
-                copy.setHidden(copyHidden);
-            } else {
-                copy.hidden = null;
-            }
-            if (this.isSetLangCode()) {
-                String sourceLangCode;
-                sourceLangCode = this.getLangCode();
-                String copyLangCode = ((String) strategy.copy(LocatorUtils.property(locator, "langCode", sourceLangCode), sourceLangCode));
-                copy.setLangCode(copyLangCode);
-            } else {
-                copy.langCode = null;
-            }
-            if (this.isSetRole()) {
-                String sourceRole;
-                sourceRole = this.getRole();
-                String copyRole = ((String) strategy.copy(LocatorUtils.property(locator, "role", sourceRole), sourceRole));
-                copy.setRole(copyRole);
-            } else {
-                copy.role = null;
-            }
-            if (this.isSetSpellcheck()) {
-                String sourceSpellcheck;
-                sourceSpellcheck = this.getSpellcheck();
-                String copySpellcheck = ((String) strategy.copy(LocatorUtils.property(locator, "spellcheck", sourceSpellcheck), sourceSpellcheck));
-                copy.setSpellcheck(copySpellcheck);
-            } else {
-                copy.spellcheck = null;
-            }
-            if (this.isSetTabindex()) {
-                Integer sourceTabindex;
-                sourceTabindex = this.getTabindex();
-                Integer copyTabindex = ((Integer) strategy.copy(LocatorUtils.property(locator, "tabindex", sourceTabindex), sourceTabindex));
-                copy.setTabindex(copyTabindex);
-            } else {
-                copy.tabindex = null;
-            }
-            if (this.isSetLang()) {
-                String sourceLang;
-                sourceLang = this.getLang();
-                String copyLang = ((String) strategy.copy(LocatorUtils.property(locator, "lang", sourceLang), sourceLang));
-                copy.setLang(copyLang);
-            } else {
-                copy.lang = null;
+                copy.controls = null;
             }
         }
         return draftCopy;

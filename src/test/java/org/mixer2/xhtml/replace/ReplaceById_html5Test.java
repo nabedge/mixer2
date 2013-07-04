@@ -6,7 +6,6 @@ import static org.junit.Assert.assertNull;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.List;
 
 import org.junit.AfterClass;
@@ -108,7 +107,7 @@ public class ReplaceById_html5Test {
         html.replaceById("dummy_br2", dummy_span);
         assertNull(html.getById("dummy_br2", Br.class));
 
-        List<Serializable> list = html.getById("footer", Footer.class).getContent();
+        List<Object> list = html.getById("footer", Footer.class).getContent();
         for (int i=0; i<list.size(); i++) {
             Object obj = list.get(i);
             if (obj instanceof Br){
@@ -131,7 +130,7 @@ public class ReplaceById_html5Test {
         html.replaceById("dummy_br2", "hogehoge");
         assertNull(html.getById("dummy_br2", Br.class));
 
-        List<Serializable> list = html.getById("footer", Footer.class).getContent();
+        List<Object> list = html.getById("footer", Footer.class).getContent();
         for (int i=0; i<list.size(); i++) {
             Object obj = list.get(i);
             if (obj instanceof Br){

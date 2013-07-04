@@ -2,13 +2,12 @@
 // このファイルは、JavaTM Architecture for XML Binding(JAXB) Reference Implementation、v2.2.6によって生成されました 
 // <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a>を参照してください 
 // ソース・スキーマの再コンパイル時にこのファイルの変更は失われます。 
-// 生成日: 2013.07.04 時間 07:48:27 PM JST 
+// 生成日: 2013.07.04 時間 09:23:41 PM JST 
 //
 
 
 package org.mixer2.jaxb.xhtml;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -107,71 +106,70 @@ import org.mixer2.xhtml.AbstractJaxb;
 })
 public class Inline
     extends AbstractJaxb
-    implements Serializable, Cloneable, CopyTo, Equals, HashCode, ToString
+    implements Cloneable, CopyTo, Equals, HashCode, ToString
 {
 
-    private final static long serialVersionUID = 10000L;
     @XmlElementRefs({
-        @XmlElementRef(name = "a", namespace = "http://www.w3.org/1999/xhtml", type = A.class),
-        @XmlElementRef(name = "var", namespace = "http://www.w3.org/1999/xhtml", type = Var.class),
-        @XmlElementRef(name = "strike", namespace = "http://www.w3.org/1999/xhtml", type = Strike.class),
-        @XmlElementRef(name = "input", namespace = "http://www.w3.org/1999/xhtml", type = Input.class),
-        @XmlElementRef(name = "meter", namespace = "http://www.w3.org/1999/xhtml", type = Meter.class),
-        @XmlElementRef(name = "script", namespace = "http://www.w3.org/1999/xhtml", type = Script.class),
-        @XmlElementRef(name = "mark", namespace = "http://www.w3.org/1999/xhtml", type = Mark.class),
-        @XmlElementRef(name = "map", namespace = "http://www.w3.org/1999/xhtml", type = Map.class),
-        @XmlElementRef(name = "select", namespace = "http://www.w3.org/1999/xhtml", type = Select.class),
-        @XmlElementRef(name = "acronym", namespace = "http://www.w3.org/1999/xhtml", type = Acronym.class),
-        @XmlElementRef(name = "bdi", namespace = "http://www.w3.org/1999/xhtml", type = Bdi.class),
-        @XmlElementRef(name = "textarea", namespace = "http://www.w3.org/1999/xhtml", type = Textarea.class),
-        @XmlElementRef(name = "bdo", namespace = "http://www.w3.org/1999/xhtml", type = Bdo.class),
-        @XmlElementRef(name = "keygen", namespace = "http://www.w3.org/1999/xhtml", type = Keygen.class),
-        @XmlElementRef(name = "ins", namespace = "http://www.w3.org/1999/xhtml", type = Ins.class),
-        @XmlElementRef(name = "basefont", namespace = "http://www.w3.org/1999/xhtml", type = Basefont.class),
-        @XmlElementRef(name = "big", namespace = "http://www.w3.org/1999/xhtml", type = Big.class),
-        @XmlElementRef(name = "samp", namespace = "http://www.w3.org/1999/xhtml", type = Samp.class),
-        @XmlElementRef(name = "object", namespace = "http://www.w3.org/1999/xhtml", type = org.mixer2.jaxb.xhtml.Object.class),
-        @XmlElementRef(name = "img", namespace = "http://www.w3.org/1999/xhtml", type = Img.class),
-        @XmlElementRef(name = "abbr", namespace = "http://www.w3.org/1999/xhtml", type = Abbr.class),
-        @XmlElementRef(name = "strong", namespace = "http://www.w3.org/1999/xhtml", type = Strong.class),
-        @XmlElementRef(name = "del", namespace = "http://www.w3.org/1999/xhtml", type = Del.class),
-        @XmlElementRef(name = "button", namespace = "http://www.w3.org/1999/xhtml", type = Button.class),
-        @XmlElementRef(name = "br", namespace = "http://www.w3.org/1999/xhtml", type = Br.class),
-        @XmlElementRef(name = "source", namespace = "http://www.w3.org/1999/xhtml", type = Source.class),
-        @XmlElementRef(name = "sub", namespace = "http://www.w3.org/1999/xhtml", type = Sub.class),
-        @XmlElementRef(name = "rp", namespace = "http://www.w3.org/1999/xhtml", type = Rp.class),
-        @XmlElementRef(name = "ruby", namespace = "http://www.w3.org/1999/xhtml", type = Ruby.class),
-        @XmlElementRef(name = "tt", namespace = "http://www.w3.org/1999/xhtml", type = Tt.class),
-        @XmlElementRef(name = "video", namespace = "http://www.w3.org/1999/xhtml", type = Video.class),
-        @XmlElementRef(name = "applet", namespace = "http://www.w3.org/1999/xhtml", type = Applet.class),
-        @XmlElementRef(name = "iframe", namespace = "http://www.w3.org/1999/xhtml", type = Iframe.class),
-        @XmlElementRef(name = "audio", namespace = "http://www.w3.org/1999/xhtml", type = Audio.class),
-        @XmlElementRef(name = "u", namespace = "http://www.w3.org/1999/xhtml", type = U.class),
-        @XmlElementRef(name = "rt", namespace = "http://www.w3.org/1999/xhtml", type = Rt.class),
-        @XmlElementRef(name = "kbd", namespace = "http://www.w3.org/1999/xhtml", type = Kbd.class),
-        @XmlElementRef(name = "s", namespace = "http://www.w3.org/1999/xhtml", type = S.class),
-        @XmlElementRef(name = "dfn", namespace = "http://www.w3.org/1999/xhtml", type = Dfn.class),
-        @XmlElementRef(name = "font", namespace = "http://www.w3.org/1999/xhtml", type = Font.class),
-        @XmlElementRef(name = "small", namespace = "http://www.w3.org/1999/xhtml", type = Small.class),
-        @XmlElementRef(name = "output", namespace = "http://www.w3.org/1999/xhtml", type = Output.class),
-        @XmlElementRef(name = "i", namespace = "http://www.w3.org/1999/xhtml", type = I.class),
-        @XmlElementRef(name = "b", namespace = "http://www.w3.org/1999/xhtml", type = B.class),
         @XmlElementRef(name = "track", namespace = "http://www.w3.org/1999/xhtml", type = Track.class),
-        @XmlElementRef(name = "q", namespace = "http://www.w3.org/1999/xhtml", type = Q.class),
-        @XmlElementRef(name = "command", namespace = "http://www.w3.org/1999/xhtml", type = Command.class),
-        @XmlElementRef(name = "sup", namespace = "http://www.w3.org/1999/xhtml", type = Sup.class),
-        @XmlElementRef(name = "span", namespace = "http://www.w3.org/1999/xhtml", type = Span.class),
-        @XmlElementRef(name = "code", namespace = "http://www.w3.org/1999/xhtml", type = Code.class),
-        @XmlElementRef(name = "em", namespace = "http://www.w3.org/1999/xhtml", type = Em.class),
+        @XmlElementRef(name = "abbr", namespace = "http://www.w3.org/1999/xhtml", type = Abbr.class),
+        @XmlElementRef(name = "input", namespace = "http://www.w3.org/1999/xhtml", type = Input.class),
         @XmlElementRef(name = "embed", namespace = "http://www.w3.org/1999/xhtml", type = Embed.class),
-        @XmlElementRef(name = "cite", namespace = "http://www.w3.org/1999/xhtml", type = Cite.class),
         @XmlElementRef(name = "label", namespace = "http://www.w3.org/1999/xhtml", type = Label.class),
-        @XmlElementRef(name = "wbr", namespace = "http://www.w3.org/1999/xhtml", type = Wbr.class),
+        @XmlElementRef(name = "font", namespace = "http://www.w3.org/1999/xhtml", type = Font.class),
+        @XmlElementRef(name = "video", namespace = "http://www.w3.org/1999/xhtml", type = Video.class),
+        @XmlElementRef(name = "audio", namespace = "http://www.w3.org/1999/xhtml", type = Audio.class),
+        @XmlElementRef(name = "strike", namespace = "http://www.w3.org/1999/xhtml", type = Strike.class),
+        @XmlElementRef(name = "i", namespace = "http://www.w3.org/1999/xhtml", type = I.class),
+        @XmlElementRef(name = "q", namespace = "http://www.w3.org/1999/xhtml", type = Q.class),
+        @XmlElementRef(name = "u", namespace = "http://www.w3.org/1999/xhtml", type = U.class),
+        @XmlElementRef(name = "textarea", namespace = "http://www.w3.org/1999/xhtml", type = Textarea.class),
+        @XmlElementRef(name = "iframe", namespace = "http://www.w3.org/1999/xhtml", type = Iframe.class),
+        @XmlElementRef(name = "meter", namespace = "http://www.w3.org/1999/xhtml", type = Meter.class),
+        @XmlElementRef(name = "del", namespace = "http://www.w3.org/1999/xhtml", type = Del.class),
+        @XmlElementRef(name = "basefont", namespace = "http://www.w3.org/1999/xhtml", type = Basefont.class),
+        @XmlElementRef(name = "br", namespace = "http://www.w3.org/1999/xhtml", type = Br.class),
+        @XmlElementRef(name = "sup", namespace = "http://www.w3.org/1999/xhtml", type = Sup.class),
+        @XmlElementRef(name = "small", namespace = "http://www.w3.org/1999/xhtml", type = Small.class),
+        @XmlElementRef(name = "dfn", namespace = "http://www.w3.org/1999/xhtml", type = Dfn.class),
+        @XmlElementRef(name = "bdo", namespace = "http://www.w3.org/1999/xhtml", type = Bdo.class),
+        @XmlElementRef(name = "img", namespace = "http://www.w3.org/1999/xhtml", type = Img.class),
+        @XmlElementRef(name = "strong", namespace = "http://www.w3.org/1999/xhtml", type = Strong.class),
+        @XmlElementRef(name = "object", namespace = "http://www.w3.org/1999/xhtml", type = org.mixer2.jaxb.xhtml.Object.class),
+        @XmlElementRef(name = "a", namespace = "http://www.w3.org/1999/xhtml", type = A.class),
+        @XmlElementRef(name = "source", namespace = "http://www.w3.org/1999/xhtml", type = Source.class),
+        @XmlElementRef(name = "b", namespace = "http://www.w3.org/1999/xhtml", type = B.class),
+        @XmlElementRef(name = "map", namespace = "http://www.w3.org/1999/xhtml", type = Map.class),
+        @XmlElementRef(name = "s", namespace = "http://www.w3.org/1999/xhtml", type = S.class),
+        @XmlElementRef(name = "code", namespace = "http://www.w3.org/1999/xhtml", type = Code.class),
+        @XmlElementRef(name = "acronym", namespace = "http://www.w3.org/1999/xhtml", type = Acronym.class),
         @XmlElementRef(name = "progress", namespace = "http://www.w3.org/1999/xhtml", type = Progress.class),
-        @XmlElementRef(name = "time", namespace = "http://www.w3.org/1999/xhtml", type = Time.class)
+        @XmlElementRef(name = "bdi", namespace = "http://www.w3.org/1999/xhtml", type = Bdi.class),
+        @XmlElementRef(name = "wbr", namespace = "http://www.w3.org/1999/xhtml", type = Wbr.class),
+        @XmlElementRef(name = "command", namespace = "http://www.w3.org/1999/xhtml", type = Command.class),
+        @XmlElementRef(name = "output", namespace = "http://www.w3.org/1999/xhtml", type = Output.class),
+        @XmlElementRef(name = "em", namespace = "http://www.w3.org/1999/xhtml", type = Em.class),
+        @XmlElementRef(name = "big", namespace = "http://www.w3.org/1999/xhtml", type = Big.class),
+        @XmlElementRef(name = "sub", namespace = "http://www.w3.org/1999/xhtml", type = Sub.class),
+        @XmlElementRef(name = "mark", namespace = "http://www.w3.org/1999/xhtml", type = Mark.class),
+        @XmlElementRef(name = "script", namespace = "http://www.w3.org/1999/xhtml", type = Script.class),
+        @XmlElementRef(name = "rt", namespace = "http://www.w3.org/1999/xhtml", type = Rt.class),
+        @XmlElementRef(name = "ins", namespace = "http://www.w3.org/1999/xhtml", type = Ins.class),
+        @XmlElementRef(name = "kbd", namespace = "http://www.w3.org/1999/xhtml", type = Kbd.class),
+        @XmlElementRef(name = "applet", namespace = "http://www.w3.org/1999/xhtml", type = Applet.class),
+        @XmlElementRef(name = "samp", namespace = "http://www.w3.org/1999/xhtml", type = Samp.class),
+        @XmlElementRef(name = "cite", namespace = "http://www.w3.org/1999/xhtml", type = Cite.class),
+        @XmlElementRef(name = "keygen", namespace = "http://www.w3.org/1999/xhtml", type = Keygen.class),
+        @XmlElementRef(name = "button", namespace = "http://www.w3.org/1999/xhtml", type = Button.class),
+        @XmlElementRef(name = "var", namespace = "http://www.w3.org/1999/xhtml", type = Var.class),
+        @XmlElementRef(name = "select", namespace = "http://www.w3.org/1999/xhtml", type = Select.class),
+        @XmlElementRef(name = "time", namespace = "http://www.w3.org/1999/xhtml", type = Time.class),
+        @XmlElementRef(name = "tt", namespace = "http://www.w3.org/1999/xhtml", type = Tt.class),
+        @XmlElementRef(name = "ruby", namespace = "http://www.w3.org/1999/xhtml", type = Ruby.class),
+        @XmlElementRef(name = "span", namespace = "http://www.w3.org/1999/xhtml", type = Span.class),
+        @XmlElementRef(name = "rp", namespace = "http://www.w3.org/1999/xhtml", type = Rp.class)
     })
     @XmlMixed
-    protected List<Serializable> content;
+    protected List<java.lang.Object> content;
 
     /**
      * 
@@ -193,70 +191,70 @@ public class Inline
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link A }
-     * {@link Var }
-     * {@link Strike }
-     * {@link Input }
-     * {@link String }
-     * {@link Meter }
-     * {@link Script }
-     * {@link Mark }
-     * {@link Map }
-     * {@link Select }
-     * {@link Acronym }
-     * {@link Bdi }
-     * {@link Textarea }
-     * {@link Bdo }
-     * {@link Keygen }
-     * {@link Ins }
-     * {@link Basefont }
-     * {@link Big }
-     * {@link Samp }
-     * {@link org.mixer2.jaxb.xhtml.Object }
-     * {@link Img }
+     * {@link Track }
      * {@link Abbr }
-     * {@link Strong }
+     * {@link Input }
+     * {@link Embed }
+     * {@link Label }
+     * {@link Font }
+     * {@link Video }
+     * {@link Audio }
+     * {@link Strike }
+     * {@link I }
+     * {@link Q }
+     * {@link U }
+     * {@link Textarea }
+     * {@link Iframe }
+     * {@link Meter }
      * {@link Del }
-     * {@link Button }
+     * {@link Basefont }
      * {@link Br }
+     * {@link Sup }
+     * {@link Small }
+     * {@link Dfn }
+     * {@link Bdo }
+     * {@link Img }
+     * {@link Strong }
+     * {@link org.mixer2.jaxb.xhtml.Object }
+     * {@link A }
      * {@link Source }
+     * {@link B }
+     * {@link Map }
+     * {@link String }
+     * {@link S }
+     * {@link Code }
+     * {@link Acronym }
+     * {@link Progress }
+     * {@link Bdi }
+     * {@link Wbr }
+     * {@link Command }
+     * {@link Output }
+     * {@link Em }
+     * {@link Big }
      * {@link Sub }
-     * {@link Rp }
+     * {@link Mark }
+     * {@link Script }
+     * {@link Rt }
+     * {@link Ins }
+     * {@link Kbd }
+     * {@link Applet }
+     * {@link Samp }
+     * {@link Cite }
+     * {@link Keygen }
+     * {@link Var }
+     * {@link Button }
+     * {@link Select }
+     * {@link Time }
      * {@link Ruby }
      * {@link Tt }
-     * {@link Video }
-     * {@link Applet }
-     * {@link Iframe }
-     * {@link Audio }
-     * {@link U }
-     * {@link Rt }
-     * {@link Kbd }
-     * {@link S }
-     * {@link Dfn }
-     * {@link Font }
-     * {@link Small }
-     * {@link Output }
-     * {@link I }
-     * {@link B }
-     * {@link Track }
-     * {@link Q }
-     * {@link Command }
-     * {@link Sup }
      * {@link Span }
-     * {@link Code }
-     * {@link Em }
-     * {@link Embed }
-     * {@link Cite }
-     * {@link Label }
-     * {@link Time }
-     * {@link Progress }
-     * {@link Wbr }
+     * {@link Rp }
      * 
      * 
      */
-    public List<Serializable> getContent() {
+    public List<java.lang.Object> getContent() {
         if (content == null) {
-            content = new ArrayList<Serializable>();
+            content = new ArrayList<java.lang.Object>();
         }
         return this.content;
     }
@@ -285,7 +283,7 @@ public class Inline
 
     public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
         {
-            List<Serializable> theContent;
+            List<java.lang.Object> theContent;
             theContent = (this.isSetContent()?this.getContent():null);
             strategy.appendField(locator, this, "content", buffer, theContent);
         }
@@ -301,9 +299,9 @@ public class Inline
         }
         final Inline that = ((Inline) object);
         {
-            List<Serializable> lhsContent;
+            List<java.lang.Object> lhsContent;
             lhsContent = (this.isSetContent()?this.getContent():null);
-            List<Serializable> rhsContent;
+            List<java.lang.Object> rhsContent;
             rhsContent = (that.isSetContent()?that.getContent():null);
             if (!strategy.equals(LocatorUtils.property(thisLocator, "content", lhsContent), LocatorUtils.property(thatLocator, "content", rhsContent), lhsContent, rhsContent)) {
                 return false;
@@ -320,7 +318,7 @@ public class Inline
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
         int currentHashCode = 1;
         {
-            List<Serializable> theContent;
+            List<java.lang.Object> theContent;
             theContent = (this.isSetContent()?this.getContent():null);
             currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "content", theContent), currentHashCode, theContent);
         }
@@ -346,13 +344,13 @@ public class Inline
         if (draftCopy instanceof Inline) {
             final Inline copy = ((Inline) draftCopy);
             if (this.isSetContent()) {
-                List<Serializable> sourceContent;
+                List<java.lang.Object> sourceContent;
                 sourceContent = (this.isSetContent()?this.getContent():null);
                 @SuppressWarnings("unchecked")
-                List<Serializable> copyContent = ((List<Serializable> ) strategy.copy(LocatorUtils.property(locator, "content", sourceContent), sourceContent));
+                List<java.lang.Object> copyContent = ((List<java.lang.Object> ) strategy.copy(LocatorUtils.property(locator, "content", sourceContent), sourceContent));
                 copy.unsetContent();
                 if (copyContent!= null) {
-                    List<Serializable> uniqueContentl = copy.getContent();
+                    List<java.lang.Object> uniqueContentl = copy.getContent();
                     uniqueContentl.addAll(copyContent);
                 }
             } else {

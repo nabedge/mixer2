@@ -1,6 +1,5 @@
 package org.mixer2.xhtml.util;
 
-import java.io.Serializable;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -23,7 +22,7 @@ public class GetByIdUtil {
 
     @SuppressWarnings("unchecked")
     private static <T extends AbstractJaxb> T getByIdWithinObjectList(
-            String id, List<Serializable> list) {
+            String id, List<java.lang.Object> list) {
         T result = null;
         for (java.lang.Object obj : list) {
             if (obj instanceof AbstractJaxb) {

@@ -2,13 +2,12 @@
 // このファイルは、JavaTM Architecture for XML Binding(JAXB) Reference Implementation、v2.2.6によって生成されました 
 // <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a>を参照してください 
 // ソース・スキーマの再コンパイル時にこのファイルの変更は失われます。 
-// 生成日: 2013.07.04 時間 07:48:27 PM JST 
+// 生成日: 2013.07.04 時間 09:23:41 PM JST 
 //
 
 
 package org.mixer2.jaxb.xhtml;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -51,8 +50,8 @@ import org.mixer2.xhtml.AbstractJaxb;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}attrs"/>
- *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellvalign"/>
  *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellhalign"/>
+ *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellvalign"/>
  *       &lt;attribute name="span" type="{http://www.w3.org/1999/xhtml}Number" default="1" />
  *       &lt;attribute name="width" type="{http://www.w3.org/1999/xhtml}MultiLength" />
  *     &lt;/restriction>
@@ -67,15 +66,60 @@ import org.mixer2.xhtml.AbstractJaxb;
 @XmlRootElement(name = "col")
 public class Col
     extends AbstractJaxb
-    implements Serializable, Cloneable, CopyTo, Equals, HashCode, ToString
+    implements Cloneable, CopyTo, Equals, HashCode, ToString
 {
 
-    private final static long serialVersionUID = 10000L;
     @XmlAttribute(name = "span")
     @XmlJavaTypeAdapter(Adapter1 .class)
     protected Integer span;
     @XmlAttribute(name = "width")
     protected String width;
+    @XmlAttribute(name = "id")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    @XmlID
+    @XmlSchemaType(name = "ID")
+    protected String id;
+    @XmlAttribute(name = "class")
+    @XmlSchemaType(name = "NMTOKENS")
+    protected List<String> cssClass;
+    @XmlAttribute(name = "style")
+    protected String style;
+    @XmlAttribute(name = "title")
+    protected String title;
+    @XmlAttribute(name = "accesskey")
+    protected String accesskey;
+    @XmlAttribute(name = "contenteditable")
+    protected Boolean contenteditable;
+    @XmlAttribute(name = "contextmenu")
+    protected String contextmenu;
+    @XmlAttribute(name = "dir")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String dir;
+    @XmlAttribute(name = "draggable")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String draggable;
+    @XmlAttribute(name = "dropzone")
+    protected List<String> dropzone;
+    @XmlAttribute(name = "hidden")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String hidden;
+    @XmlAttribute(name = "lang")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String langCode;
+    @XmlAttribute(name = "role")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    @XmlSchemaType(name = "NMTOKEN")
+    protected String role;
+    @XmlAttribute(name = "spellcheck")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String spellcheck;
+    @XmlAttribute(name = "tabindex")
+    @XmlJavaTypeAdapter(Adapter1 .class)
+    protected Integer tabindex;
+    @XmlAttribute(name = "lang", namespace = "http://www.w3.org/XML/1998/namespace")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    @XmlSchemaType(name = "language")
+    protected String lang;
     @XmlAttribute(name = "onclick")
     protected String onclick;
     @XmlAttribute(name = "ondblclick")
@@ -188,55 +232,6 @@ public class Col
     protected String onvolumechange;
     @XmlAttribute(name = "onwaiting")
     protected String onwaiting;
-    @XmlAttribute(name = "id")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlID
-    @XmlSchemaType(name = "ID")
-    protected String id;
-    @XmlAttribute(name = "class")
-    @XmlSchemaType(name = "NMTOKENS")
-    protected List<String> cssClass;
-    @XmlAttribute(name = "style")
-    protected String style;
-    @XmlAttribute(name = "title")
-    protected String title;
-    @XmlAttribute(name = "accesskey")
-    protected String accesskey;
-    @XmlAttribute(name = "contenteditable")
-    protected Boolean contenteditable;
-    @XmlAttribute(name = "contextmenu")
-    protected String contextmenu;
-    @XmlAttribute(name = "dir")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String dir;
-    @XmlAttribute(name = "draggable")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String draggable;
-    @XmlAttribute(name = "dropzone")
-    protected List<String> dropzone;
-    @XmlAttribute(name = "hidden")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String hidden;
-    @XmlAttribute(name = "lang")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String langCode;
-    @XmlAttribute(name = "role")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlSchemaType(name = "NMTOKEN")
-    protected String role;
-    @XmlAttribute(name = "spellcheck")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String spellcheck;
-    @XmlAttribute(name = "tabindex")
-    @XmlJavaTypeAdapter(Adapter1 .class)
-    protected Integer tabindex;
-    @XmlAttribute(name = "lang", namespace = "http://www.w3.org/XML/1998/namespace")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    @XmlSchemaType(name = "language")
-    protected String lang;
-    @XmlAttribute(name = "valign")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String valign;
     @XmlAttribute(name = "align")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String align;
@@ -244,6 +239,9 @@ public class Col
     protected String _char;
     @XmlAttribute(name = "charoff")
     protected String charoff;
+    @XmlAttribute(name = "valign")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String valign;
     @XmlAnyAttribute
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
@@ -305,6 +303,484 @@ public class Col
 
     public boolean isSetWidth() {
         return (this.width!= null);
+    }
+
+    /**
+     * idプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * idプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setId(String value) {
+        this.id = value;
+    }
+
+    public boolean isSetId() {
+        return (this.id!= null);
+    }
+
+    /**
+     * Gets the value of the cssClass property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the cssClass property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getCssClass().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link String }
+     * 
+     * 
+     */
+    public List<String> getCssClass() {
+        if (cssClass == null) {
+            cssClass = new ArrayList<String>();
+        }
+        return this.cssClass;
+    }
+
+    public boolean isSetCssClass() {
+        return ((this.cssClass!= null)&&(!this.cssClass.isEmpty()));
+    }
+
+    public void unsetCssClass() {
+        this.cssClass = null;
+    }
+
+    /**
+     * styleプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getStyle() {
+        return style;
+    }
+
+    /**
+     * styleプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setStyle(String value) {
+        this.style = value;
+    }
+
+    public boolean isSetStyle() {
+        return (this.style!= null);
+    }
+
+    /**
+     * titleプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    /**
+     * titleプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setTitle(String value) {
+        this.title = value;
+    }
+
+    public boolean isSetTitle() {
+        return (this.title!= null);
+    }
+
+    /**
+     * accesskeyプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAccesskey() {
+        return accesskey;
+    }
+
+    /**
+     * accesskeyプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAccesskey(String value) {
+        this.accesskey = value;
+    }
+
+    public boolean isSetAccesskey() {
+        return (this.accesskey!= null);
+    }
+
+    /**
+     * contenteditableプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
+     */
+    public boolean isContenteditable() {
+        return contenteditable;
+    }
+
+    /**
+     * contenteditableプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Boolean }
+     *     
+     */
+    public void setContenteditable(boolean value) {
+        this.contenteditable = value;
+    }
+
+    public boolean isSetContenteditable() {
+        return (this.contenteditable!= null);
+    }
+
+    public void unsetContenteditable() {
+        this.contenteditable = null;
+    }
+
+    /**
+     * contextmenuプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getContextmenu() {
+        return contextmenu;
+    }
+
+    /**
+     * contextmenuプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setContextmenu(String value) {
+        this.contextmenu = value;
+    }
+
+    public boolean isSetContextmenu() {
+        return (this.contextmenu!= null);
+    }
+
+    /**
+     * dirプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getDir() {
+        if (dir == null) {
+            return "auto";
+        } else {
+            return dir;
+        }
+    }
+
+    /**
+     * dirプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setDir(String value) {
+        this.dir = value;
+    }
+
+    public boolean isSetDir() {
+        return (this.dir!= null);
+    }
+
+    /**
+     * draggableプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getDraggable() {
+        if (draggable == null) {
+            return "auto";
+        } else {
+            return draggable;
+        }
+    }
+
+    /**
+     * draggableプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setDraggable(String value) {
+        this.draggable = value;
+    }
+
+    public boolean isSetDraggable() {
+        return (this.draggable!= null);
+    }
+
+    /**
+     * Gets the value of the dropzone property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the dropzone property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getDropzone().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link String }
+     * 
+     * 
+     */
+    public List<String> getDropzone() {
+        if (dropzone == null) {
+            dropzone = new ArrayList<String>();
+        }
+        return this.dropzone;
+    }
+
+    public boolean isSetDropzone() {
+        return ((this.dropzone!= null)&&(!this.dropzone.isEmpty()));
+    }
+
+    public void unsetDropzone() {
+        this.dropzone = null;
+    }
+
+    /**
+     * hiddenプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getHidden() {
+        return hidden;
+    }
+
+    /**
+     * hiddenプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setHidden(String value) {
+        this.hidden = value;
+    }
+
+    public boolean isSetHidden() {
+        return (this.hidden!= null);
+    }
+
+    /**
+     * langCodeプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getLangCode() {
+        return langCode;
+    }
+
+    /**
+     * langCodeプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setLangCode(String value) {
+        this.langCode = value;
+    }
+
+    public boolean isSetLangCode() {
+        return (this.langCode!= null);
+    }
+
+    /**
+     * roleプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRole() {
+        return role;
+    }
+
+    /**
+     * roleプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRole(String value) {
+        this.role = value;
+    }
+
+    public boolean isSetRole() {
+        return (this.role!= null);
+    }
+
+    /**
+     * spellcheckプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getSpellcheck() {
+        return spellcheck;
+    }
+
+    /**
+     * spellcheckプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setSpellcheck(String value) {
+        this.spellcheck = value;
+    }
+
+    public boolean isSetSpellcheck() {
+        return (this.spellcheck!= null);
+    }
+
+    /**
+     * tabindexプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public Integer getTabindex() {
+        return tabindex;
+    }
+
+    /**
+     * tabindexプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setTabindex(Integer value) {
+        this.tabindex = value;
+    }
+
+    public boolean isSetTabindex() {
+        return (this.tabindex!= null);
+    }
+
+    /**
+     * langプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getLang() {
+        return lang;
+    }
+
+    /**
+     * langプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setLang(String value) {
+        this.lang = value;
+    }
+
+    public boolean isSetLang() {
+        return (this.lang!= null);
     }
 
     /**
@@ -1876,512 +2352,6 @@ public class Col
     }
 
     /**
-     * idプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * idプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setId(String value) {
-        this.id = value;
-    }
-
-    public boolean isSetId() {
-        return (this.id!= null);
-    }
-
-    /**
-     * Gets the value of the cssClass property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the cssClass property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getCssClass().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
-     * 
-     * 
-     */
-    public List<String> getCssClass() {
-        if (cssClass == null) {
-            cssClass = new ArrayList<String>();
-        }
-        return this.cssClass;
-    }
-
-    public boolean isSetCssClass() {
-        return ((this.cssClass!= null)&&(!this.cssClass.isEmpty()));
-    }
-
-    public void unsetCssClass() {
-        this.cssClass = null;
-    }
-
-    /**
-     * styleプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getStyle() {
-        return style;
-    }
-
-    /**
-     * styleプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setStyle(String value) {
-        this.style = value;
-    }
-
-    public boolean isSetStyle() {
-        return (this.style!= null);
-    }
-
-    /**
-     * titleプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getTitle() {
-        return title;
-    }
-
-    /**
-     * titleプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTitle(String value) {
-        this.title = value;
-    }
-
-    public boolean isSetTitle() {
-        return (this.title!= null);
-    }
-
-    /**
-     * accesskeyプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAccesskey() {
-        return accesskey;
-    }
-
-    /**
-     * accesskeyプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAccesskey(String value) {
-        this.accesskey = value;
-    }
-
-    public boolean isSetAccesskey() {
-        return (this.accesskey!= null);
-    }
-
-    /**
-     * contenteditableプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link Boolean }
-     *     
-     */
-    public boolean isContenteditable() {
-        return contenteditable;
-    }
-
-    /**
-     * contenteditableプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Boolean }
-     *     
-     */
-    public void setContenteditable(boolean value) {
-        this.contenteditable = value;
-    }
-
-    public boolean isSetContenteditable() {
-        return (this.contenteditable!= null);
-    }
-
-    public void unsetContenteditable() {
-        this.contenteditable = null;
-    }
-
-    /**
-     * contextmenuプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getContextmenu() {
-        return contextmenu;
-    }
-
-    /**
-     * contextmenuプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setContextmenu(String value) {
-        this.contextmenu = value;
-    }
-
-    public boolean isSetContextmenu() {
-        return (this.contextmenu!= null);
-    }
-
-    /**
-     * dirプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDir() {
-        if (dir == null) {
-            return "auto";
-        } else {
-            return dir;
-        }
-    }
-
-    /**
-     * dirプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDir(String value) {
-        this.dir = value;
-    }
-
-    public boolean isSetDir() {
-        return (this.dir!= null);
-    }
-
-    /**
-     * draggableプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDraggable() {
-        if (draggable == null) {
-            return "auto";
-        } else {
-            return draggable;
-        }
-    }
-
-    /**
-     * draggableプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDraggable(String value) {
-        this.draggable = value;
-    }
-
-    public boolean isSetDraggable() {
-        return (this.draggable!= null);
-    }
-
-    /**
-     * Gets the value of the dropzone property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the dropzone property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getDropzone().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link String }
-     * 
-     * 
-     */
-    public List<String> getDropzone() {
-        if (dropzone == null) {
-            dropzone = new ArrayList<String>();
-        }
-        return this.dropzone;
-    }
-
-    public boolean isSetDropzone() {
-        return ((this.dropzone!= null)&&(!this.dropzone.isEmpty()));
-    }
-
-    public void unsetDropzone() {
-        this.dropzone = null;
-    }
-
-    /**
-     * hiddenプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getHidden() {
-        return hidden;
-    }
-
-    /**
-     * hiddenプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setHidden(String value) {
-        this.hidden = value;
-    }
-
-    public boolean isSetHidden() {
-        return (this.hidden!= null);
-    }
-
-    /**
-     * langCodeプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getLangCode() {
-        return langCode;
-    }
-
-    /**
-     * langCodeプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setLangCode(String value) {
-        this.langCode = value;
-    }
-
-    public boolean isSetLangCode() {
-        return (this.langCode!= null);
-    }
-
-    /**
-     * roleプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getRole() {
-        return role;
-    }
-
-    /**
-     * roleプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setRole(String value) {
-        this.role = value;
-    }
-
-    public boolean isSetRole() {
-        return (this.role!= null);
-    }
-
-    /**
-     * spellcheckプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSpellcheck() {
-        return spellcheck;
-    }
-
-    /**
-     * spellcheckプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSpellcheck(String value) {
-        this.spellcheck = value;
-    }
-
-    public boolean isSetSpellcheck() {
-        return (this.spellcheck!= null);
-    }
-
-    /**
-     * tabindexプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public Integer getTabindex() {
-        return tabindex;
-    }
-
-    /**
-     * tabindexプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTabindex(Integer value) {
-        this.tabindex = value;
-    }
-
-    public boolean isSetTabindex() {
-        return (this.tabindex!= null);
-    }
-
-    /**
-     * langプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getLang() {
-        return lang;
-    }
-
-    /**
-     * langプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setLang(String value) {
-        this.lang = value;
-    }
-
-    public boolean isSetLang() {
-        return (this.lang!= null);
-    }
-
-    /**
-     * valignプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getValign() {
-        return valign;
-    }
-
-    /**
-     * valignプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setValign(String value) {
-        this.valign = value;
-    }
-
-    public boolean isSetValign() {
-        return (this.valign!= null);
-    }
-
-    /**
      * alignプロパティの値を取得します。
      * 
      * @return
@@ -2466,6 +2436,34 @@ public class Col
     }
 
     /**
+     * valignプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getValign() {
+        return valign;
+    }
+
+    /**
+     * valignプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setValign(String value) {
+        this.valign = value;
+    }
+
+    public boolean isSetValign() {
+        return (this.valign!= null);
+    }
+
+    /**
      * Gets a map that contains attributes that aren't bound to any typed property on this class.
      * 
      * <p>
@@ -2507,6 +2505,86 @@ public class Col
             String theWidth;
             theWidth = this.getWidth();
             strategy.appendField(locator, this, "width", buffer, theWidth);
+        }
+        {
+            String theId;
+            theId = this.getId();
+            strategy.appendField(locator, this, "id", buffer, theId);
+        }
+        {
+            List<String> theCssClass;
+            theCssClass = (this.isSetCssClass()?this.getCssClass():null);
+            strategy.appendField(locator, this, "cssClass", buffer, theCssClass);
+        }
+        {
+            String theStyle;
+            theStyle = this.getStyle();
+            strategy.appendField(locator, this, "style", buffer, theStyle);
+        }
+        {
+            String theTitle;
+            theTitle = this.getTitle();
+            strategy.appendField(locator, this, "title", buffer, theTitle);
+        }
+        {
+            String theAccesskey;
+            theAccesskey = this.getAccesskey();
+            strategy.appendField(locator, this, "accesskey", buffer, theAccesskey);
+        }
+        {
+            boolean theContenteditable;
+            theContenteditable = (this.isSetContenteditable()?this.isContenteditable():false);
+            strategy.appendField(locator, this, "contenteditable", buffer, theContenteditable);
+        }
+        {
+            String theContextmenu;
+            theContextmenu = this.getContextmenu();
+            strategy.appendField(locator, this, "contextmenu", buffer, theContextmenu);
+        }
+        {
+            String theDir;
+            theDir = this.getDir();
+            strategy.appendField(locator, this, "dir", buffer, theDir);
+        }
+        {
+            String theDraggable;
+            theDraggable = this.getDraggable();
+            strategy.appendField(locator, this, "draggable", buffer, theDraggable);
+        }
+        {
+            List<String> theDropzone;
+            theDropzone = (this.isSetDropzone()?this.getDropzone():null);
+            strategy.appendField(locator, this, "dropzone", buffer, theDropzone);
+        }
+        {
+            String theHidden;
+            theHidden = this.getHidden();
+            strategy.appendField(locator, this, "hidden", buffer, theHidden);
+        }
+        {
+            String theLangCode;
+            theLangCode = this.getLangCode();
+            strategy.appendField(locator, this, "langCode", buffer, theLangCode);
+        }
+        {
+            String theRole;
+            theRole = this.getRole();
+            strategy.appendField(locator, this, "role", buffer, theRole);
+        }
+        {
+            String theSpellcheck;
+            theSpellcheck = this.getSpellcheck();
+            strategy.appendField(locator, this, "spellcheck", buffer, theSpellcheck);
+        }
+        {
+            Integer theTabindex;
+            theTabindex = this.getTabindex();
+            strategy.appendField(locator, this, "tabindex", buffer, theTabindex);
+        }
+        {
+            String theLang;
+            theLang = this.getLang();
+            strategy.appendField(locator, this, "lang", buffer, theLang);
         }
         {
             String theOnclick;
@@ -2789,91 +2867,6 @@ public class Col
             strategy.appendField(locator, this, "onwaiting", buffer, theOnwaiting);
         }
         {
-            String theId;
-            theId = this.getId();
-            strategy.appendField(locator, this, "id", buffer, theId);
-        }
-        {
-            List<String> theCssClass;
-            theCssClass = (this.isSetCssClass()?this.getCssClass():null);
-            strategy.appendField(locator, this, "cssClass", buffer, theCssClass);
-        }
-        {
-            String theStyle;
-            theStyle = this.getStyle();
-            strategy.appendField(locator, this, "style", buffer, theStyle);
-        }
-        {
-            String theTitle;
-            theTitle = this.getTitle();
-            strategy.appendField(locator, this, "title", buffer, theTitle);
-        }
-        {
-            String theAccesskey;
-            theAccesskey = this.getAccesskey();
-            strategy.appendField(locator, this, "accesskey", buffer, theAccesskey);
-        }
-        {
-            boolean theContenteditable;
-            theContenteditable = (this.isSetContenteditable()?this.isContenteditable():false);
-            strategy.appendField(locator, this, "contenteditable", buffer, theContenteditable);
-        }
-        {
-            String theContextmenu;
-            theContextmenu = this.getContextmenu();
-            strategy.appendField(locator, this, "contextmenu", buffer, theContextmenu);
-        }
-        {
-            String theDir;
-            theDir = this.getDir();
-            strategy.appendField(locator, this, "dir", buffer, theDir);
-        }
-        {
-            String theDraggable;
-            theDraggable = this.getDraggable();
-            strategy.appendField(locator, this, "draggable", buffer, theDraggable);
-        }
-        {
-            List<String> theDropzone;
-            theDropzone = (this.isSetDropzone()?this.getDropzone():null);
-            strategy.appendField(locator, this, "dropzone", buffer, theDropzone);
-        }
-        {
-            String theHidden;
-            theHidden = this.getHidden();
-            strategy.appendField(locator, this, "hidden", buffer, theHidden);
-        }
-        {
-            String theLangCode;
-            theLangCode = this.getLangCode();
-            strategy.appendField(locator, this, "langCode", buffer, theLangCode);
-        }
-        {
-            String theRole;
-            theRole = this.getRole();
-            strategy.appendField(locator, this, "role", buffer, theRole);
-        }
-        {
-            String theSpellcheck;
-            theSpellcheck = this.getSpellcheck();
-            strategy.appendField(locator, this, "spellcheck", buffer, theSpellcheck);
-        }
-        {
-            Integer theTabindex;
-            theTabindex = this.getTabindex();
-            strategy.appendField(locator, this, "tabindex", buffer, theTabindex);
-        }
-        {
-            String theLang;
-            theLang = this.getLang();
-            strategy.appendField(locator, this, "lang", buffer, theLang);
-        }
-        {
-            String theValign;
-            theValign = this.getValign();
-            strategy.appendField(locator, this, "valign", buffer, theValign);
-        }
-        {
             String theAlign;
             theAlign = this.getAlign();
             strategy.appendField(locator, this, "align", buffer, theAlign);
@@ -2887,6 +2880,11 @@ public class Col
             String theCharoff;
             theCharoff = this.getCharoff();
             strategy.appendField(locator, this, "charoff", buffer, theCharoff);
+        }
+        {
+            String theValign;
+            theValign = this.getValign();
+            strategy.appendField(locator, this, "valign", buffer, theValign);
         }
         return buffer;
     }
@@ -2914,6 +2912,150 @@ public class Col
             String rhsWidth;
             rhsWidth = that.getWidth();
             if (!strategy.equals(LocatorUtils.property(thisLocator, "width", lhsWidth), LocatorUtils.property(thatLocator, "width", rhsWidth), lhsWidth, rhsWidth)) {
+                return false;
+            }
+        }
+        {
+            String lhsId;
+            lhsId = this.getId();
+            String rhsId;
+            rhsId = that.getId();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "id", lhsId), LocatorUtils.property(thatLocator, "id", rhsId), lhsId, rhsId)) {
+                return false;
+            }
+        }
+        {
+            List<String> lhsCssClass;
+            lhsCssClass = (this.isSetCssClass()?this.getCssClass():null);
+            List<String> rhsCssClass;
+            rhsCssClass = (that.isSetCssClass()?that.getCssClass():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "cssClass", lhsCssClass), LocatorUtils.property(thatLocator, "cssClass", rhsCssClass), lhsCssClass, rhsCssClass)) {
+                return false;
+            }
+        }
+        {
+            String lhsStyle;
+            lhsStyle = this.getStyle();
+            String rhsStyle;
+            rhsStyle = that.getStyle();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "style", lhsStyle), LocatorUtils.property(thatLocator, "style", rhsStyle), lhsStyle, rhsStyle)) {
+                return false;
+            }
+        }
+        {
+            String lhsTitle;
+            lhsTitle = this.getTitle();
+            String rhsTitle;
+            rhsTitle = that.getTitle();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "title", lhsTitle), LocatorUtils.property(thatLocator, "title", rhsTitle), lhsTitle, rhsTitle)) {
+                return false;
+            }
+        }
+        {
+            String lhsAccesskey;
+            lhsAccesskey = this.getAccesskey();
+            String rhsAccesskey;
+            rhsAccesskey = that.getAccesskey();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "accesskey", lhsAccesskey), LocatorUtils.property(thatLocator, "accesskey", rhsAccesskey), lhsAccesskey, rhsAccesskey)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsContenteditable;
+            lhsContenteditable = (this.isSetContenteditable()?this.isContenteditable():false);
+            boolean rhsContenteditable;
+            rhsContenteditable = (that.isSetContenteditable()?that.isContenteditable():false);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "contenteditable", lhsContenteditable), LocatorUtils.property(thatLocator, "contenteditable", rhsContenteditable), lhsContenteditable, rhsContenteditable)) {
+                return false;
+            }
+        }
+        {
+            String lhsContextmenu;
+            lhsContextmenu = this.getContextmenu();
+            String rhsContextmenu;
+            rhsContextmenu = that.getContextmenu();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "contextmenu", lhsContextmenu), LocatorUtils.property(thatLocator, "contextmenu", rhsContextmenu), lhsContextmenu, rhsContextmenu)) {
+                return false;
+            }
+        }
+        {
+            String lhsDir;
+            lhsDir = this.getDir();
+            String rhsDir;
+            rhsDir = that.getDir();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "dir", lhsDir), LocatorUtils.property(thatLocator, "dir", rhsDir), lhsDir, rhsDir)) {
+                return false;
+            }
+        }
+        {
+            String lhsDraggable;
+            lhsDraggable = this.getDraggable();
+            String rhsDraggable;
+            rhsDraggable = that.getDraggable();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "draggable", lhsDraggable), LocatorUtils.property(thatLocator, "draggable", rhsDraggable), lhsDraggable, rhsDraggable)) {
+                return false;
+            }
+        }
+        {
+            List<String> lhsDropzone;
+            lhsDropzone = (this.isSetDropzone()?this.getDropzone():null);
+            List<String> rhsDropzone;
+            rhsDropzone = (that.isSetDropzone()?that.getDropzone():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "dropzone", lhsDropzone), LocatorUtils.property(thatLocator, "dropzone", rhsDropzone), lhsDropzone, rhsDropzone)) {
+                return false;
+            }
+        }
+        {
+            String lhsHidden;
+            lhsHidden = this.getHidden();
+            String rhsHidden;
+            rhsHidden = that.getHidden();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "hidden", lhsHidden), LocatorUtils.property(thatLocator, "hidden", rhsHidden), lhsHidden, rhsHidden)) {
+                return false;
+            }
+        }
+        {
+            String lhsLangCode;
+            lhsLangCode = this.getLangCode();
+            String rhsLangCode;
+            rhsLangCode = that.getLangCode();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "langCode", lhsLangCode), LocatorUtils.property(thatLocator, "langCode", rhsLangCode), lhsLangCode, rhsLangCode)) {
+                return false;
+            }
+        }
+        {
+            String lhsRole;
+            lhsRole = this.getRole();
+            String rhsRole;
+            rhsRole = that.getRole();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "role", lhsRole), LocatorUtils.property(thatLocator, "role", rhsRole), lhsRole, rhsRole)) {
+                return false;
+            }
+        }
+        {
+            String lhsSpellcheck;
+            lhsSpellcheck = this.getSpellcheck();
+            String rhsSpellcheck;
+            rhsSpellcheck = that.getSpellcheck();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "spellcheck", lhsSpellcheck), LocatorUtils.property(thatLocator, "spellcheck", rhsSpellcheck), lhsSpellcheck, rhsSpellcheck)) {
+                return false;
+            }
+        }
+        {
+            Integer lhsTabindex;
+            lhsTabindex = this.getTabindex();
+            Integer rhsTabindex;
+            rhsTabindex = that.getTabindex();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "tabindex", lhsTabindex), LocatorUtils.property(thatLocator, "tabindex", rhsTabindex), lhsTabindex, rhsTabindex)) {
+                return false;
+            }
+        }
+        {
+            String lhsLang;
+            lhsLang = this.getLang();
+            String rhsLang;
+            rhsLang = that.getLang();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "lang", lhsLang), LocatorUtils.property(thatLocator, "lang", rhsLang), lhsLang, rhsLang)) {
                 return false;
             }
         }
@@ -3422,159 +3564,6 @@ public class Col
             }
         }
         {
-            String lhsId;
-            lhsId = this.getId();
-            String rhsId;
-            rhsId = that.getId();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "id", lhsId), LocatorUtils.property(thatLocator, "id", rhsId), lhsId, rhsId)) {
-                return false;
-            }
-        }
-        {
-            List<String> lhsCssClass;
-            lhsCssClass = (this.isSetCssClass()?this.getCssClass():null);
-            List<String> rhsCssClass;
-            rhsCssClass = (that.isSetCssClass()?that.getCssClass():null);
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "cssClass", lhsCssClass), LocatorUtils.property(thatLocator, "cssClass", rhsCssClass), lhsCssClass, rhsCssClass)) {
-                return false;
-            }
-        }
-        {
-            String lhsStyle;
-            lhsStyle = this.getStyle();
-            String rhsStyle;
-            rhsStyle = that.getStyle();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "style", lhsStyle), LocatorUtils.property(thatLocator, "style", rhsStyle), lhsStyle, rhsStyle)) {
-                return false;
-            }
-        }
-        {
-            String lhsTitle;
-            lhsTitle = this.getTitle();
-            String rhsTitle;
-            rhsTitle = that.getTitle();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "title", lhsTitle), LocatorUtils.property(thatLocator, "title", rhsTitle), lhsTitle, rhsTitle)) {
-                return false;
-            }
-        }
-        {
-            String lhsAccesskey;
-            lhsAccesskey = this.getAccesskey();
-            String rhsAccesskey;
-            rhsAccesskey = that.getAccesskey();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "accesskey", lhsAccesskey), LocatorUtils.property(thatLocator, "accesskey", rhsAccesskey), lhsAccesskey, rhsAccesskey)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsContenteditable;
-            lhsContenteditable = (this.isSetContenteditable()?this.isContenteditable():false);
-            boolean rhsContenteditable;
-            rhsContenteditable = (that.isSetContenteditable()?that.isContenteditable():false);
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "contenteditable", lhsContenteditable), LocatorUtils.property(thatLocator, "contenteditable", rhsContenteditable), lhsContenteditable, rhsContenteditable)) {
-                return false;
-            }
-        }
-        {
-            String lhsContextmenu;
-            lhsContextmenu = this.getContextmenu();
-            String rhsContextmenu;
-            rhsContextmenu = that.getContextmenu();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "contextmenu", lhsContextmenu), LocatorUtils.property(thatLocator, "contextmenu", rhsContextmenu), lhsContextmenu, rhsContextmenu)) {
-                return false;
-            }
-        }
-        {
-            String lhsDir;
-            lhsDir = this.getDir();
-            String rhsDir;
-            rhsDir = that.getDir();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "dir", lhsDir), LocatorUtils.property(thatLocator, "dir", rhsDir), lhsDir, rhsDir)) {
-                return false;
-            }
-        }
-        {
-            String lhsDraggable;
-            lhsDraggable = this.getDraggable();
-            String rhsDraggable;
-            rhsDraggable = that.getDraggable();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "draggable", lhsDraggable), LocatorUtils.property(thatLocator, "draggable", rhsDraggable), lhsDraggable, rhsDraggable)) {
-                return false;
-            }
-        }
-        {
-            List<String> lhsDropzone;
-            lhsDropzone = (this.isSetDropzone()?this.getDropzone():null);
-            List<String> rhsDropzone;
-            rhsDropzone = (that.isSetDropzone()?that.getDropzone():null);
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "dropzone", lhsDropzone), LocatorUtils.property(thatLocator, "dropzone", rhsDropzone), lhsDropzone, rhsDropzone)) {
-                return false;
-            }
-        }
-        {
-            String lhsHidden;
-            lhsHidden = this.getHidden();
-            String rhsHidden;
-            rhsHidden = that.getHidden();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "hidden", lhsHidden), LocatorUtils.property(thatLocator, "hidden", rhsHidden), lhsHidden, rhsHidden)) {
-                return false;
-            }
-        }
-        {
-            String lhsLangCode;
-            lhsLangCode = this.getLangCode();
-            String rhsLangCode;
-            rhsLangCode = that.getLangCode();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "langCode", lhsLangCode), LocatorUtils.property(thatLocator, "langCode", rhsLangCode), lhsLangCode, rhsLangCode)) {
-                return false;
-            }
-        }
-        {
-            String lhsRole;
-            lhsRole = this.getRole();
-            String rhsRole;
-            rhsRole = that.getRole();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "role", lhsRole), LocatorUtils.property(thatLocator, "role", rhsRole), lhsRole, rhsRole)) {
-                return false;
-            }
-        }
-        {
-            String lhsSpellcheck;
-            lhsSpellcheck = this.getSpellcheck();
-            String rhsSpellcheck;
-            rhsSpellcheck = that.getSpellcheck();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "spellcheck", lhsSpellcheck), LocatorUtils.property(thatLocator, "spellcheck", rhsSpellcheck), lhsSpellcheck, rhsSpellcheck)) {
-                return false;
-            }
-        }
-        {
-            Integer lhsTabindex;
-            lhsTabindex = this.getTabindex();
-            Integer rhsTabindex;
-            rhsTabindex = that.getTabindex();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "tabindex", lhsTabindex), LocatorUtils.property(thatLocator, "tabindex", rhsTabindex), lhsTabindex, rhsTabindex)) {
-                return false;
-            }
-        }
-        {
-            String lhsLang;
-            lhsLang = this.getLang();
-            String rhsLang;
-            rhsLang = that.getLang();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "lang", lhsLang), LocatorUtils.property(thatLocator, "lang", rhsLang), lhsLang, rhsLang)) {
-                return false;
-            }
-        }
-        {
-            String lhsValign;
-            lhsValign = this.getValign();
-            String rhsValign;
-            rhsValign = that.getValign();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "valign", lhsValign), LocatorUtils.property(thatLocator, "valign", rhsValign), lhsValign, rhsValign)) {
-                return false;
-            }
-        }
-        {
             String lhsAlign;
             lhsAlign = this.getAlign();
             String rhsAlign;
@@ -3601,6 +3590,15 @@ public class Col
                 return false;
             }
         }
+        {
+            String lhsValign;
+            lhsValign = this.getValign();
+            String rhsValign;
+            rhsValign = that.getValign();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "valign", lhsValign), LocatorUtils.property(thatLocator, "valign", rhsValign), lhsValign, rhsValign)) {
+                return false;
+            }
+        }
         return true;
     }
 
@@ -3620,6 +3618,86 @@ public class Col
             String theWidth;
             theWidth = this.getWidth();
             currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "width", theWidth), currentHashCode, theWidth);
+        }
+        {
+            String theId;
+            theId = this.getId();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "id", theId), currentHashCode, theId);
+        }
+        {
+            List<String> theCssClass;
+            theCssClass = (this.isSetCssClass()?this.getCssClass():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "cssClass", theCssClass), currentHashCode, theCssClass);
+        }
+        {
+            String theStyle;
+            theStyle = this.getStyle();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "style", theStyle), currentHashCode, theStyle);
+        }
+        {
+            String theTitle;
+            theTitle = this.getTitle();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "title", theTitle), currentHashCode, theTitle);
+        }
+        {
+            String theAccesskey;
+            theAccesskey = this.getAccesskey();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "accesskey", theAccesskey), currentHashCode, theAccesskey);
+        }
+        {
+            boolean theContenteditable;
+            theContenteditable = (this.isSetContenteditable()?this.isContenteditable():false);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "contenteditable", theContenteditable), currentHashCode, theContenteditable);
+        }
+        {
+            String theContextmenu;
+            theContextmenu = this.getContextmenu();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "contextmenu", theContextmenu), currentHashCode, theContextmenu);
+        }
+        {
+            String theDir;
+            theDir = this.getDir();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "dir", theDir), currentHashCode, theDir);
+        }
+        {
+            String theDraggable;
+            theDraggable = this.getDraggable();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "draggable", theDraggable), currentHashCode, theDraggable);
+        }
+        {
+            List<String> theDropzone;
+            theDropzone = (this.isSetDropzone()?this.getDropzone():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "dropzone", theDropzone), currentHashCode, theDropzone);
+        }
+        {
+            String theHidden;
+            theHidden = this.getHidden();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "hidden", theHidden), currentHashCode, theHidden);
+        }
+        {
+            String theLangCode;
+            theLangCode = this.getLangCode();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "langCode", theLangCode), currentHashCode, theLangCode);
+        }
+        {
+            String theRole;
+            theRole = this.getRole();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "role", theRole), currentHashCode, theRole);
+        }
+        {
+            String theSpellcheck;
+            theSpellcheck = this.getSpellcheck();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "spellcheck", theSpellcheck), currentHashCode, theSpellcheck);
+        }
+        {
+            Integer theTabindex;
+            theTabindex = this.getTabindex();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "tabindex", theTabindex), currentHashCode, theTabindex);
+        }
+        {
+            String theLang;
+            theLang = this.getLang();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "lang", theLang), currentHashCode, theLang);
         }
         {
             String theOnclick;
@@ -3902,91 +3980,6 @@ public class Col
             currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onwaiting", theOnwaiting), currentHashCode, theOnwaiting);
         }
         {
-            String theId;
-            theId = this.getId();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "id", theId), currentHashCode, theId);
-        }
-        {
-            List<String> theCssClass;
-            theCssClass = (this.isSetCssClass()?this.getCssClass():null);
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "cssClass", theCssClass), currentHashCode, theCssClass);
-        }
-        {
-            String theStyle;
-            theStyle = this.getStyle();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "style", theStyle), currentHashCode, theStyle);
-        }
-        {
-            String theTitle;
-            theTitle = this.getTitle();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "title", theTitle), currentHashCode, theTitle);
-        }
-        {
-            String theAccesskey;
-            theAccesskey = this.getAccesskey();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "accesskey", theAccesskey), currentHashCode, theAccesskey);
-        }
-        {
-            boolean theContenteditable;
-            theContenteditable = (this.isSetContenteditable()?this.isContenteditable():false);
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "contenteditable", theContenteditable), currentHashCode, theContenteditable);
-        }
-        {
-            String theContextmenu;
-            theContextmenu = this.getContextmenu();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "contextmenu", theContextmenu), currentHashCode, theContextmenu);
-        }
-        {
-            String theDir;
-            theDir = this.getDir();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "dir", theDir), currentHashCode, theDir);
-        }
-        {
-            String theDraggable;
-            theDraggable = this.getDraggable();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "draggable", theDraggable), currentHashCode, theDraggable);
-        }
-        {
-            List<String> theDropzone;
-            theDropzone = (this.isSetDropzone()?this.getDropzone():null);
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "dropzone", theDropzone), currentHashCode, theDropzone);
-        }
-        {
-            String theHidden;
-            theHidden = this.getHidden();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "hidden", theHidden), currentHashCode, theHidden);
-        }
-        {
-            String theLangCode;
-            theLangCode = this.getLangCode();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "langCode", theLangCode), currentHashCode, theLangCode);
-        }
-        {
-            String theRole;
-            theRole = this.getRole();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "role", theRole), currentHashCode, theRole);
-        }
-        {
-            String theSpellcheck;
-            theSpellcheck = this.getSpellcheck();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "spellcheck", theSpellcheck), currentHashCode, theSpellcheck);
-        }
-        {
-            Integer theTabindex;
-            theTabindex = this.getTabindex();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "tabindex", theTabindex), currentHashCode, theTabindex);
-        }
-        {
-            String theLang;
-            theLang = this.getLang();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "lang", theLang), currentHashCode, theLang);
-        }
-        {
-            String theValign;
-            theValign = this.getValign();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "valign", theValign), currentHashCode, theValign);
-        }
-        {
             String theAlign;
             theAlign = this.getAlign();
             currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "align", theAlign), currentHashCode, theAlign);
@@ -4000,6 +3993,11 @@ public class Col
             String theCharoff;
             theCharoff = this.getCharoff();
             currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "charoff", theCharoff), currentHashCode, theCharoff);
+        }
+        {
+            String theValign;
+            theValign = this.getValign();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "valign", theValign), currentHashCode, theValign);
         }
         return currentHashCode;
     }
@@ -4037,6 +4035,144 @@ public class Col
                 copy.setWidth(copyWidth);
             } else {
                 copy.width = null;
+            }
+            if (this.isSetId()) {
+                String sourceId;
+                sourceId = this.getId();
+                String copyId = ((String) strategy.copy(LocatorUtils.property(locator, "id", sourceId), sourceId));
+                copy.setId(copyId);
+            } else {
+                copy.id = null;
+            }
+            if (this.isSetCssClass()) {
+                List<String> sourceCssClass;
+                sourceCssClass = (this.isSetCssClass()?this.getCssClass():null);
+                @SuppressWarnings("unchecked")
+                List<String> copyCssClass = ((List<String> ) strategy.copy(LocatorUtils.property(locator, "cssClass", sourceCssClass), sourceCssClass));
+                copy.unsetCssClass();
+                if (copyCssClass!= null) {
+                    List<String> uniqueCssClassl = copy.getCssClass();
+                    uniqueCssClassl.addAll(copyCssClass);
+                }
+            } else {
+                copy.unsetCssClass();
+            }
+            if (this.isSetStyle()) {
+                String sourceStyle;
+                sourceStyle = this.getStyle();
+                String copyStyle = ((String) strategy.copy(LocatorUtils.property(locator, "style", sourceStyle), sourceStyle));
+                copy.setStyle(copyStyle);
+            } else {
+                copy.style = null;
+            }
+            if (this.isSetTitle()) {
+                String sourceTitle;
+                sourceTitle = this.getTitle();
+                String copyTitle = ((String) strategy.copy(LocatorUtils.property(locator, "title", sourceTitle), sourceTitle));
+                copy.setTitle(copyTitle);
+            } else {
+                copy.title = null;
+            }
+            if (this.isSetAccesskey()) {
+                String sourceAccesskey;
+                sourceAccesskey = this.getAccesskey();
+                String copyAccesskey = ((String) strategy.copy(LocatorUtils.property(locator, "accesskey", sourceAccesskey), sourceAccesskey));
+                copy.setAccesskey(copyAccesskey);
+            } else {
+                copy.accesskey = null;
+            }
+            if (this.isSetContenteditable()) {
+                boolean sourceContenteditable;
+                sourceContenteditable = (this.isSetContenteditable()?this.isContenteditable():false);
+                boolean copyContenteditable = strategy.copy(LocatorUtils.property(locator, "contenteditable", sourceContenteditable), sourceContenteditable);
+                copy.setContenteditable(copyContenteditable);
+            } else {
+                copy.unsetContenteditable();
+            }
+            if (this.isSetContextmenu()) {
+                String sourceContextmenu;
+                sourceContextmenu = this.getContextmenu();
+                String copyContextmenu = ((String) strategy.copy(LocatorUtils.property(locator, "contextmenu", sourceContextmenu), sourceContextmenu));
+                copy.setContextmenu(copyContextmenu);
+            } else {
+                copy.contextmenu = null;
+            }
+            if (this.isSetDir()) {
+                String sourceDir;
+                sourceDir = this.getDir();
+                String copyDir = ((String) strategy.copy(LocatorUtils.property(locator, "dir", sourceDir), sourceDir));
+                copy.setDir(copyDir);
+            } else {
+                copy.dir = null;
+            }
+            if (this.isSetDraggable()) {
+                String sourceDraggable;
+                sourceDraggable = this.getDraggable();
+                String copyDraggable = ((String) strategy.copy(LocatorUtils.property(locator, "draggable", sourceDraggable), sourceDraggable));
+                copy.setDraggable(copyDraggable);
+            } else {
+                copy.draggable = null;
+            }
+            if (this.isSetDropzone()) {
+                List<String> sourceDropzone;
+                sourceDropzone = (this.isSetDropzone()?this.getDropzone():null);
+                @SuppressWarnings("unchecked")
+                List<String> copyDropzone = ((List<String> ) strategy.copy(LocatorUtils.property(locator, "dropzone", sourceDropzone), sourceDropzone));
+                copy.unsetDropzone();
+                if (copyDropzone!= null) {
+                    List<String> uniqueDropzonel = copy.getDropzone();
+                    uniqueDropzonel.addAll(copyDropzone);
+                }
+            } else {
+                copy.unsetDropzone();
+            }
+            if (this.isSetHidden()) {
+                String sourceHidden;
+                sourceHidden = this.getHidden();
+                String copyHidden = ((String) strategy.copy(LocatorUtils.property(locator, "hidden", sourceHidden), sourceHidden));
+                copy.setHidden(copyHidden);
+            } else {
+                copy.hidden = null;
+            }
+            if (this.isSetLangCode()) {
+                String sourceLangCode;
+                sourceLangCode = this.getLangCode();
+                String copyLangCode = ((String) strategy.copy(LocatorUtils.property(locator, "langCode", sourceLangCode), sourceLangCode));
+                copy.setLangCode(copyLangCode);
+            } else {
+                copy.langCode = null;
+            }
+            if (this.isSetRole()) {
+                String sourceRole;
+                sourceRole = this.getRole();
+                String copyRole = ((String) strategy.copy(LocatorUtils.property(locator, "role", sourceRole), sourceRole));
+                copy.setRole(copyRole);
+            } else {
+                copy.role = null;
+            }
+            if (this.isSetSpellcheck()) {
+                String sourceSpellcheck;
+                sourceSpellcheck = this.getSpellcheck();
+                String copySpellcheck = ((String) strategy.copy(LocatorUtils.property(locator, "spellcheck", sourceSpellcheck), sourceSpellcheck));
+                copy.setSpellcheck(copySpellcheck);
+            } else {
+                copy.spellcheck = null;
+            }
+            if (this.isSetTabindex()) {
+                Integer sourceTabindex;
+                sourceTabindex = this.getTabindex();
+                Integer copyTabindex = ((Integer) strategy.copy(LocatorUtils.property(locator, "tabindex", sourceTabindex), sourceTabindex));
+                copy.setTabindex(copyTabindex);
+            } else {
+                copy.tabindex = null;
+            }
+            if (this.isSetLang()) {
+                String sourceLang;
+                sourceLang = this.getLang();
+                String copyLang = ((String) strategy.copy(LocatorUtils.property(locator, "lang", sourceLang), sourceLang));
+                copy.setLang(copyLang);
+            } else {
+                copy.lang = null;
             }
             if (this.isSetOnclick()) {
                 String sourceOnclick;
@@ -4486,152 +4622,6 @@ public class Col
             } else {
                 copy.onwaiting = null;
             }
-            if (this.isSetId()) {
-                String sourceId;
-                sourceId = this.getId();
-                String copyId = ((String) strategy.copy(LocatorUtils.property(locator, "id", sourceId), sourceId));
-                copy.setId(copyId);
-            } else {
-                copy.id = null;
-            }
-            if (this.isSetCssClass()) {
-                List<String> sourceCssClass;
-                sourceCssClass = (this.isSetCssClass()?this.getCssClass():null);
-                @SuppressWarnings("unchecked")
-                List<String> copyCssClass = ((List<String> ) strategy.copy(LocatorUtils.property(locator, "cssClass", sourceCssClass), sourceCssClass));
-                copy.unsetCssClass();
-                if (copyCssClass!= null) {
-                    List<String> uniqueCssClassl = copy.getCssClass();
-                    uniqueCssClassl.addAll(copyCssClass);
-                }
-            } else {
-                copy.unsetCssClass();
-            }
-            if (this.isSetStyle()) {
-                String sourceStyle;
-                sourceStyle = this.getStyle();
-                String copyStyle = ((String) strategy.copy(LocatorUtils.property(locator, "style", sourceStyle), sourceStyle));
-                copy.setStyle(copyStyle);
-            } else {
-                copy.style = null;
-            }
-            if (this.isSetTitle()) {
-                String sourceTitle;
-                sourceTitle = this.getTitle();
-                String copyTitle = ((String) strategy.copy(LocatorUtils.property(locator, "title", sourceTitle), sourceTitle));
-                copy.setTitle(copyTitle);
-            } else {
-                copy.title = null;
-            }
-            if (this.isSetAccesskey()) {
-                String sourceAccesskey;
-                sourceAccesskey = this.getAccesskey();
-                String copyAccesskey = ((String) strategy.copy(LocatorUtils.property(locator, "accesskey", sourceAccesskey), sourceAccesskey));
-                copy.setAccesskey(copyAccesskey);
-            } else {
-                copy.accesskey = null;
-            }
-            if (this.isSetContenteditable()) {
-                boolean sourceContenteditable;
-                sourceContenteditable = (this.isSetContenteditable()?this.isContenteditable():false);
-                boolean copyContenteditable = strategy.copy(LocatorUtils.property(locator, "contenteditable", sourceContenteditable), sourceContenteditable);
-                copy.setContenteditable(copyContenteditable);
-            } else {
-                copy.unsetContenteditable();
-            }
-            if (this.isSetContextmenu()) {
-                String sourceContextmenu;
-                sourceContextmenu = this.getContextmenu();
-                String copyContextmenu = ((String) strategy.copy(LocatorUtils.property(locator, "contextmenu", sourceContextmenu), sourceContextmenu));
-                copy.setContextmenu(copyContextmenu);
-            } else {
-                copy.contextmenu = null;
-            }
-            if (this.isSetDir()) {
-                String sourceDir;
-                sourceDir = this.getDir();
-                String copyDir = ((String) strategy.copy(LocatorUtils.property(locator, "dir", sourceDir), sourceDir));
-                copy.setDir(copyDir);
-            } else {
-                copy.dir = null;
-            }
-            if (this.isSetDraggable()) {
-                String sourceDraggable;
-                sourceDraggable = this.getDraggable();
-                String copyDraggable = ((String) strategy.copy(LocatorUtils.property(locator, "draggable", sourceDraggable), sourceDraggable));
-                copy.setDraggable(copyDraggable);
-            } else {
-                copy.draggable = null;
-            }
-            if (this.isSetDropzone()) {
-                List<String> sourceDropzone;
-                sourceDropzone = (this.isSetDropzone()?this.getDropzone():null);
-                @SuppressWarnings("unchecked")
-                List<String> copyDropzone = ((List<String> ) strategy.copy(LocatorUtils.property(locator, "dropzone", sourceDropzone), sourceDropzone));
-                copy.unsetDropzone();
-                if (copyDropzone!= null) {
-                    List<String> uniqueDropzonel = copy.getDropzone();
-                    uniqueDropzonel.addAll(copyDropzone);
-                }
-            } else {
-                copy.unsetDropzone();
-            }
-            if (this.isSetHidden()) {
-                String sourceHidden;
-                sourceHidden = this.getHidden();
-                String copyHidden = ((String) strategy.copy(LocatorUtils.property(locator, "hidden", sourceHidden), sourceHidden));
-                copy.setHidden(copyHidden);
-            } else {
-                copy.hidden = null;
-            }
-            if (this.isSetLangCode()) {
-                String sourceLangCode;
-                sourceLangCode = this.getLangCode();
-                String copyLangCode = ((String) strategy.copy(LocatorUtils.property(locator, "langCode", sourceLangCode), sourceLangCode));
-                copy.setLangCode(copyLangCode);
-            } else {
-                copy.langCode = null;
-            }
-            if (this.isSetRole()) {
-                String sourceRole;
-                sourceRole = this.getRole();
-                String copyRole = ((String) strategy.copy(LocatorUtils.property(locator, "role", sourceRole), sourceRole));
-                copy.setRole(copyRole);
-            } else {
-                copy.role = null;
-            }
-            if (this.isSetSpellcheck()) {
-                String sourceSpellcheck;
-                sourceSpellcheck = this.getSpellcheck();
-                String copySpellcheck = ((String) strategy.copy(LocatorUtils.property(locator, "spellcheck", sourceSpellcheck), sourceSpellcheck));
-                copy.setSpellcheck(copySpellcheck);
-            } else {
-                copy.spellcheck = null;
-            }
-            if (this.isSetTabindex()) {
-                Integer sourceTabindex;
-                sourceTabindex = this.getTabindex();
-                Integer copyTabindex = ((Integer) strategy.copy(LocatorUtils.property(locator, "tabindex", sourceTabindex), sourceTabindex));
-                copy.setTabindex(copyTabindex);
-            } else {
-                copy.tabindex = null;
-            }
-            if (this.isSetLang()) {
-                String sourceLang;
-                sourceLang = this.getLang();
-                String copyLang = ((String) strategy.copy(LocatorUtils.property(locator, "lang", sourceLang), sourceLang));
-                copy.setLang(copyLang);
-            } else {
-                copy.lang = null;
-            }
-            if (this.isSetValign()) {
-                String sourceValign;
-                sourceValign = this.getValign();
-                String copyValign = ((String) strategy.copy(LocatorUtils.property(locator, "valign", sourceValign), sourceValign));
-                copy.setValign(copyValign);
-            } else {
-                copy.valign = null;
-            }
             if (this.isSetAlign()) {
                 String sourceAlign;
                 sourceAlign = this.getAlign();
@@ -4655,6 +4645,14 @@ public class Col
                 copy.setCharoff(copyCharoff);
             } else {
                 copy.charoff = null;
+            }
+            if (this.isSetValign()) {
+                String sourceValign;
+                sourceValign = this.getValign();
+                String copyValign = ((String) strategy.copy(LocatorUtils.property(locator, "valign", sourceValign), sourceValign));
+                copy.setValign(copyValign);
+            } else {
+                copy.valign = null;
             }
         }
         return draftCopy;

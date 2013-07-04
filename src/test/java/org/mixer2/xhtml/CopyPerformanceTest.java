@@ -37,7 +37,8 @@ public class CopyPerformanceTest {
     @Test()
     public void wholeHtmlCopy() throws Exception {
         Html html = m2e.loadHtmlTemplate(new File(templateFilePath));
-        Html tmp = null;
+        @SuppressWarnings("unused")
+		Html tmp = null;
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         for (int i=0; i<loop; i++) {

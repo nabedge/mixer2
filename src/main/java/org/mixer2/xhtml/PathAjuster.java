@@ -1177,10 +1177,10 @@ public class PathAjuster {
     }
 
     private static void replacePathWithinObjectList(
-            List<java.io.Serializable> list, Pattern pattern, String replacement,
+            List<java.lang.Object> list, Pattern pattern, String replacement,
             WHICH which, List<String> clazz, List<Class<?>> tagType) {
 
-        for (ListIterator<java.io.Serializable> i = list.listIterator(); i
+        for (ListIterator<java.lang.Object> i = list.listIterator(); i
                 .hasNext();) {
             java.lang.Object tmpobj = i.next();
             if (tmpobj instanceof AbstractJaxb) {

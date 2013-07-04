@@ -27,7 +27,7 @@ public class UnsetIdUtil {
 
     @SuppressWarnings("unchecked")
     private static <T extends AbstractJaxb> void unsetAllIdWithinObjectList(
-            List<java.io.Serializable> list, Pattern pattern) {
+            List<java.lang.Object> list, Pattern pattern) {
         for (java.lang.Object obj : list) {
             if (obj instanceof AbstractJaxb) {
                 execute((T) obj, pattern);

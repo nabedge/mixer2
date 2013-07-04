@@ -1,6 +1,5 @@
 package org.mixer2.xhtml.util;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -59,10 +58,10 @@ public class InsertByIdUtil {
 
     @SuppressWarnings("unchecked")
     private static <T extends AbstractJaxb> boolean executeWithinObjectList(
-            OperationEnum opEnum, String id, Serializable val,
-            List<Serializable> list) throws TagTypeUnmatchException {
+            OperationEnum opEnum, String id, java.lang.Object val,
+            List<java.lang.Object> list) throws TagTypeUnmatchException {
 
-        for (ListIterator<Serializable> j = list.listIterator(); j
+        for (ListIterator<java.lang.Object> j = list.listIterator(); j
                 .hasNext();) {
             java.lang.Object obj = j.next();
             if (obj instanceof AbstractJaxb) {
@@ -93,7 +92,7 @@ public class InsertByIdUtil {
 
     @SuppressWarnings("unchecked")
     private static <T extends AbstractJaxb> boolean execute(
-            OperationEnum opEnum, String id, Serializable val, T target)
+            OperationEnum opEnum, String id, java.lang.Object val, T target)
             throws TagTypeUnmatchException {
 
         TagEnum tagEnum = TagEnum.valueOf(target.getClass().getSimpleName()

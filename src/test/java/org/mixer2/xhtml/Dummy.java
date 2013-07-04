@@ -7,14 +7,9 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import org.mixer2.Mixer2Engine;
-import org.mixer2.jaxb.xhtml.Div;
 import org.mixer2.jaxb.xhtml.Html;
-import org.mixer2.jaxb.xhtml.Meta;
 import org.mixer2.jaxb.xhtml.P;
 
-import static org.mixer2.xhtml.TagCreator.*;
-
-@SuppressWarnings("unused")
 public class Dummy {
 
     private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();

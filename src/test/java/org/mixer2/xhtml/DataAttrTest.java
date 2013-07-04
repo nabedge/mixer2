@@ -1,9 +1,9 @@
 package org.mixer2.xhtml;
 
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
-import static org.hamcrest.CoreMatchers.*;
 
 import java.io.File;
 

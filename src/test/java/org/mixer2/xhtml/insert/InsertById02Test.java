@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.List;
 
 import org.junit.AfterClass;
@@ -52,7 +51,7 @@ public class InsertById02Test {
     public void menu_String_Test() throws IOException, TagTypeUnmatchException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         html.insertAfterId("menu2", "insert_after_menu2");
-        List<Serializable> objList = html.getById("li2",Li.class).getContent();
+        List<Object> objList = html.getById("li2",Li.class).getContent();
         //System.out.println(objList.get(2).toString());
         assertEquals(objList.get(2), "insert_after_menu2");
     }
