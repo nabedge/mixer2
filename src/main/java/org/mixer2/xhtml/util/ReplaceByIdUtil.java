@@ -45,7 +45,7 @@ public class ReplaceByIdUtil {
 
     @SuppressWarnings("unchecked")
     private static <T extends AbstractJaxb> boolean replaceByIdWithinObjectList(
-            String id, List<java.lang.Object> list, java.lang.Object replace)
+            String id, List<java.io.Serializable> list, java.io.Serializable replace)
             throws TagTypeUnmatchException {
 
         for (int i = 0; i < list.size(); i++) {
@@ -72,7 +72,7 @@ public class ReplaceByIdUtil {
     }
 
     private static <T extends AbstractJaxb> boolean execute(String id,
-            T target, java.lang.Object replace) throws TagTypeUnmatchException {
+            T target, java.io.Serializable replace) throws TagTypeUnmatchException {
 
         TagEnum tagEnum = TagEnum.valueOf(target.getClass().getSimpleName()
                 .toUpperCase());

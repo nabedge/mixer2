@@ -213,7 +213,7 @@ public class TableBuilder {
                 Td td = new Td();
                 setAttribute(td, attrMap);
                 for (Object obj : getContent()) {
-                    td.getContent().add(obj);
+                    td.getContent().add((java.io.Serializable)obj);
                 }
                 return td;
             }

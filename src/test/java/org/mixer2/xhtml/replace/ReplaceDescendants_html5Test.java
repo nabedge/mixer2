@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNull;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.List;
 
 import org.junit.AfterClass;
@@ -67,7 +68,7 @@ public class ReplaceDescendants_html5Test {
         assertEquals("a1", ((A)html.getById("li_a", Li.class).getContent().get(0)).getId());
         assertEquals("repA", ((A)html.getById("li_b", Li.class).getContent().get(0)).getCssClass().get(0));
         assertEquals("repA", ((A)html.getById("li_c", Li.class).getContent().get(0)).getCssClass().get(0));
-        List<Object> list = html.getById("footer", Footer.class).getContent();
+        List<Serializable> list = html.getById("footer", Footer.class).getContent();
         for (int i=0; i>list.size(); i++) {
             Object obj = list.get(i);
             if (obj instanceof Br) {

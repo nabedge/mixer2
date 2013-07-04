@@ -75,10 +75,10 @@ public class RemoveDescendantsUtil {
 
     @SuppressWarnings("unchecked")
     private static <T extends AbstractJaxb> void removeDescendantsWithinObjectList(
-            List<java.lang.Object> list, Class<T> tagType, String clazz) {
+            List<java.io.Serializable> list, Class<T> tagType, String clazz) {
         java.lang.Object tmpobj;
 
-        for (ListIterator<java.lang.Object> i = list.listIterator(); i.hasNext();) {
+        for (ListIterator<java.io.Serializable> i = list.listIterator(); i.hasNext();) {
             tmpobj = i.next();
             if (tmpobj instanceof AbstractJaxb) {
                 if (match(tmpobj.getClass(), ((AbstractJaxb) tmpobj).getCssClass(),

@@ -71,6 +71,17 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.jvnet.jaxb2_commons</groupId>
+            <artifactId>jaxb2-basics-runtime</artifactId>
+            <version>0.6.4</version>
+        </dependency>
+<!--         <dependency> -->
+<!--             <groupId>org.jvnet.jaxb2_commons</groupId> -->
+<!--             <artifactId>jaxb2-basics-testing</artifactId> -->
+<!--             <version>0.6.4</version> -->
+<!--             <scope>test</scope> -->
+<!--         </dependency> -->
+        <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
             <version>1.8.3</version>
@@ -278,6 +289,46 @@
                     <forkCount>1</forkCount>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <version>0.8.3</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <args>
+                        <arg>-XtoString</arg>
+                        <arg>-Xequals</arg>
+                        <arg>-XhashCode</arg>
+                        <arg>-Xcopyable</arg>
+                    </args>
+                    <schemaDirectory>xjc</schemaDirectory>
+                    <schemaIncludes>
+                        <include>mixer2-xhtml.xsd</include>
+                    </schemaIncludes>   
+                    <bindingDirectory>xjc</bindingDirectory>
+                    <bindingIncludes>
+                        <include>binding.xml</include>
+                    </bindingIncludes>      
+                    <generatePackage>org.mixer2.jaxb.xhtml</generatePackage>
+                    <generateDirectory>src/main/java</generateDirectory>
+                    <creanPackageDirectories>false</creanPackageDirectories>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.jvnet.jaxb2_commons</groupId>
+                            <artifactId>jaxb2-basics</artifactId>
+                            <version>0.6.4</version>
+                        </plugin>
+                    </plugins>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 

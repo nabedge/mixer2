@@ -7,11 +7,13 @@ import java.io.IOException;
 
 import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mixer2.Mixer2Engine;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
+@Ignore
 public class ToStringTest {
 
     private String templateFileName = "HelloWorld.html";

@@ -21,7 +21,7 @@ public class RemoveEmptyCssClassUtil {
 
     @SuppressWarnings("unchecked")
     private static <T extends AbstractJaxb> void removeCssClassWithinObjectList(
-            List<java.lang.Object> list) {
+            List<java.io.Serializable> list) {
         for (java.lang.Object obj : list) {
             if (obj instanceof AbstractJaxb) {
                 removeEmptyCssClass((T) obj);

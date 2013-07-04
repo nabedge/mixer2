@@ -113,7 +113,7 @@ public class RemoveByIdUtil {
 
     @SuppressWarnings("unchecked")
     private static <T extends AbstractJaxb> boolean removeByIdWithinObjectList(
-            String id, List<java.lang.Object> list) {
+            String id, List<java.io.Serializable> list) {
 
         java.lang.Object tmpobj;
         int size = list.size();
