@@ -1,10 +1,3 @@
-//
-// このファイルは、JavaTM Architecture for XML Binding(JAXB) Reference Implementation、v2.2.6によって生成されました 
-// <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a>を参照してください 
-// ソース・スキーマの再コンパイル時にこのファイルの変更は失われます。 
-// 生成日: 2013.07.04 時間 09:23:41 PM JST 
-//
-
 
 package org.mixer2.jaxb.xhtml;
 
@@ -41,9 +34,9 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
- * <p>anonymous complex typeのJavaクラス。
+ * <p>Java class for anonymous complex type.
  * 
- * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -312,7 +305,7 @@ public class Button
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
     /**
-     * autofocusプロパティの値を取得します。
+     * Gets the value of the autofocus property.
      * 
      * @return
      *     possible object is
@@ -324,7 +317,7 @@ public class Button
     }
 
     /**
-     * autofocusプロパティの値を設定します。
+     * Sets the value of the autofocus property.
      * 
      * @param value
      *     allowed object is
@@ -340,7 +333,7 @@ public class Button
     }
 
     /**
-     * disabledプロパティの値を取得します。
+     * Gets the value of the disabled property.
      * 
      * @return
      *     possible object is
@@ -352,7 +345,7 @@ public class Button
     }
 
     /**
-     * disabledプロパティの値を設定します。
+     * Sets the value of the disabled property.
      * 
      * @param value
      *     allowed object is
@@ -368,7 +361,7 @@ public class Button
     }
 
     /**
-     * formプロパティの値を取得します。
+     * Gets the value of the form property.
      * 
      * @return
      *     possible object is
@@ -380,7 +373,7 @@ public class Button
     }
 
     /**
-     * formプロパティの値を設定します。
+     * Sets the value of the form property.
      * 
      * @param value
      *     allowed object is
@@ -396,7 +389,7 @@ public class Button
     }
 
     /**
-     * formactionプロパティの値を取得します。
+     * Gets the value of the formaction property.
      * 
      * @return
      *     possible object is
@@ -408,7 +401,7 @@ public class Button
     }
 
     /**
-     * formactionプロパティの値を設定します。
+     * Sets the value of the formaction property.
      * 
      * @param value
      *     allowed object is
@@ -424,7 +417,7 @@ public class Button
     }
 
     /**
-     * formenctypeプロパティの値を取得します。
+     * Gets the value of the formenctype property.
      * 
      * @return
      *     possible object is
@@ -440,7 +433,7 @@ public class Button
     }
 
     /**
-     * formenctypeプロパティの値を設定します。
+     * Sets the value of the formenctype property.
      * 
      * @param value
      *     allowed object is
@@ -456,7 +449,7 @@ public class Button
     }
 
     /**
-     * formmethodプロパティの値を取得します。
+     * Gets the value of the formmethod property.
      * 
      * @return
      *     possible object is
@@ -472,7 +465,7 @@ public class Button
     }
 
     /**
-     * formmethodプロパティの値を設定します。
+     * Sets the value of the formmethod property.
      * 
      * @param value
      *     allowed object is
@@ -488,7 +481,7 @@ public class Button
     }
 
     /**
-     * formnovalidateプロパティの値を取得します。
+     * Gets the value of the formnovalidate property.
      * 
      * @return
      *     possible object is
@@ -500,7 +493,7 @@ public class Button
     }
 
     /**
-     * formnovalidateプロパティの値を設定します。
+     * Sets the value of the formnovalidate property.
      * 
      * @param value
      *     allowed object is
@@ -516,7 +509,7 @@ public class Button
     }
 
     /**
-     * formtargetプロパティの値を取得します。
+     * Gets the value of the formtarget property.
      * 
      * @return
      *     possible object is
@@ -528,7 +521,7 @@ public class Button
     }
 
     /**
-     * formtargetプロパティの値を設定します。
+     * Sets the value of the formtarget property.
      * 
      * @param value
      *     allowed object is
@@ -544,7 +537,7 @@ public class Button
     }
 
     /**
-     * nameプロパティの値を取得します。
+     * Gets the value of the name property.
      * 
      * @return
      *     possible object is
@@ -556,7 +549,7 @@ public class Button
     }
 
     /**
-     * nameプロパティの値を設定します。
+     * Sets the value of the name property.
      * 
      * @param value
      *     allowed object is
@@ -572,7 +565,7 @@ public class Button
     }
 
     /**
-     * valueプロパティの値を取得します。
+     * Gets the value of the value property.
      * 
      * @return
      *     possible object is
@@ -584,7 +577,7 @@ public class Button
     }
 
     /**
-     * valueプロパティの値を設定します。
+     * Sets the value of the value property.
      * 
      * @param value
      *     allowed object is
@@ -600,7 +593,7 @@ public class Button
     }
 
     /**
-     * typeプロパティの値を取得します。
+     * Gets the value of the type property.
      * 
      * @return
      *     possible object is
@@ -616,7 +609,7 @@ public class Button
     }
 
     /**
-     * typeプロパティの値を設定します。
+     * Sets the value of the type property.
      * 
      * @param value
      *     allowed object is
@@ -632,7 +625,7 @@ public class Button
     }
 
     /**
-     * idプロパティの値を取得します。
+     * Gets the value of the id property.
      * 
      * @return
      *     possible object is
@@ -644,7 +637,7 @@ public class Button
     }
 
     /**
-     * idプロパティの値を設定します。
+     * Sets the value of the id property.
      * 
      * @param value
      *     allowed object is
@@ -697,7 +690,7 @@ public class Button
     }
 
     /**
-     * styleプロパティの値を取得します。
+     * Gets the value of the style property.
      * 
      * @return
      *     possible object is
@@ -709,7 +702,7 @@ public class Button
     }
 
     /**
-     * styleプロパティの値を設定します。
+     * Sets the value of the style property.
      * 
      * @param value
      *     allowed object is
@@ -725,7 +718,7 @@ public class Button
     }
 
     /**
-     * titleプロパティの値を取得します。
+     * Gets the value of the title property.
      * 
      * @return
      *     possible object is
@@ -737,7 +730,7 @@ public class Button
     }
 
     /**
-     * titleプロパティの値を設定します。
+     * Sets the value of the title property.
      * 
      * @param value
      *     allowed object is
@@ -753,7 +746,7 @@ public class Button
     }
 
     /**
-     * accesskeyプロパティの値を取得します。
+     * Gets the value of the accesskey property.
      * 
      * @return
      *     possible object is
@@ -765,7 +758,7 @@ public class Button
     }
 
     /**
-     * accesskeyプロパティの値を設定します。
+     * Sets the value of the accesskey property.
      * 
      * @param value
      *     allowed object is
@@ -781,7 +774,7 @@ public class Button
     }
 
     /**
-     * contenteditableプロパティの値を取得します。
+     * Gets the value of the contenteditable property.
      * 
      * @return
      *     possible object is
@@ -793,7 +786,7 @@ public class Button
     }
 
     /**
-     * contenteditableプロパティの値を設定します。
+     * Sets the value of the contenteditable property.
      * 
      * @param value
      *     allowed object is
@@ -813,7 +806,7 @@ public class Button
     }
 
     /**
-     * contextmenuプロパティの値を取得します。
+     * Gets the value of the contextmenu property.
      * 
      * @return
      *     possible object is
@@ -825,7 +818,7 @@ public class Button
     }
 
     /**
-     * contextmenuプロパティの値を設定します。
+     * Sets the value of the contextmenu property.
      * 
      * @param value
      *     allowed object is
@@ -841,7 +834,7 @@ public class Button
     }
 
     /**
-     * dirプロパティの値を取得します。
+     * Gets the value of the dir property.
      * 
      * @return
      *     possible object is
@@ -857,7 +850,7 @@ public class Button
     }
 
     /**
-     * dirプロパティの値を設定します。
+     * Sets the value of the dir property.
      * 
      * @param value
      *     allowed object is
@@ -873,7 +866,7 @@ public class Button
     }
 
     /**
-     * draggableプロパティの値を取得します。
+     * Gets the value of the draggable property.
      * 
      * @return
      *     possible object is
@@ -889,7 +882,7 @@ public class Button
     }
 
     /**
-     * draggableプロパティの値を設定します。
+     * Sets the value of the draggable property.
      * 
      * @param value
      *     allowed object is
@@ -942,7 +935,7 @@ public class Button
     }
 
     /**
-     * hiddenプロパティの値を取得します。
+     * Gets the value of the hidden property.
      * 
      * @return
      *     possible object is
@@ -954,7 +947,7 @@ public class Button
     }
 
     /**
-     * hiddenプロパティの値を設定します。
+     * Sets the value of the hidden property.
      * 
      * @param value
      *     allowed object is
@@ -970,7 +963,7 @@ public class Button
     }
 
     /**
-     * langCodeプロパティの値を取得します。
+     * Gets the value of the langCode property.
      * 
      * @return
      *     possible object is
@@ -982,7 +975,7 @@ public class Button
     }
 
     /**
-     * langCodeプロパティの値を設定します。
+     * Sets the value of the langCode property.
      * 
      * @param value
      *     allowed object is
@@ -998,7 +991,7 @@ public class Button
     }
 
     /**
-     * roleプロパティの値を取得します。
+     * Gets the value of the role property.
      * 
      * @return
      *     possible object is
@@ -1010,7 +1003,7 @@ public class Button
     }
 
     /**
-     * roleプロパティの値を設定します。
+     * Sets the value of the role property.
      * 
      * @param value
      *     allowed object is
@@ -1026,7 +1019,7 @@ public class Button
     }
 
     /**
-     * spellcheckプロパティの値を取得します。
+     * Gets the value of the spellcheck property.
      * 
      * @return
      *     possible object is
@@ -1038,7 +1031,7 @@ public class Button
     }
 
     /**
-     * spellcheckプロパティの値を設定します。
+     * Sets the value of the spellcheck property.
      * 
      * @param value
      *     allowed object is
@@ -1054,7 +1047,7 @@ public class Button
     }
 
     /**
-     * tabindexプロパティの値を取得します。
+     * Gets the value of the tabindex property.
      * 
      * @return
      *     possible object is
@@ -1066,7 +1059,7 @@ public class Button
     }
 
     /**
-     * tabindexプロパティの値を設定します。
+     * Sets the value of the tabindex property.
      * 
      * @param value
      *     allowed object is
@@ -1082,7 +1075,7 @@ public class Button
     }
 
     /**
-     * langプロパティの値を取得します。
+     * Gets the value of the lang property.
      * 
      * @return
      *     possible object is
@@ -1094,7 +1087,7 @@ public class Button
     }
 
     /**
-     * langプロパティの値を設定します。
+     * Sets the value of the lang property.
      * 
      * @param value
      *     allowed object is
@@ -1110,7 +1103,7 @@ public class Button
     }
 
     /**
-     * onclickプロパティの値を取得します。
+     * Gets the value of the onclick property.
      * 
      * @return
      *     possible object is
@@ -1122,7 +1115,7 @@ public class Button
     }
 
     /**
-     * onclickプロパティの値を設定します。
+     * Sets the value of the onclick property.
      * 
      * @param value
      *     allowed object is
@@ -1138,7 +1131,7 @@ public class Button
     }
 
     /**
-     * ondblclickプロパティの値を取得します。
+     * Gets the value of the ondblclick property.
      * 
      * @return
      *     possible object is
@@ -1150,7 +1143,7 @@ public class Button
     }
 
     /**
-     * ondblclickプロパティの値を設定します。
+     * Sets the value of the ondblclick property.
      * 
      * @param value
      *     allowed object is
@@ -1166,7 +1159,7 @@ public class Button
     }
 
     /**
-     * onmousedownプロパティの値を取得します。
+     * Gets the value of the onmousedown property.
      * 
      * @return
      *     possible object is
@@ -1178,7 +1171,7 @@ public class Button
     }
 
     /**
-     * onmousedownプロパティの値を設定します。
+     * Sets the value of the onmousedown property.
      * 
      * @param value
      *     allowed object is
@@ -1194,7 +1187,7 @@ public class Button
     }
 
     /**
-     * onmouseupプロパティの値を取得します。
+     * Gets the value of the onmouseup property.
      * 
      * @return
      *     possible object is
@@ -1206,7 +1199,7 @@ public class Button
     }
 
     /**
-     * onmouseupプロパティの値を設定します。
+     * Sets the value of the onmouseup property.
      * 
      * @param value
      *     allowed object is
@@ -1222,7 +1215,7 @@ public class Button
     }
 
     /**
-     * onmouseoverプロパティの値を取得します。
+     * Gets the value of the onmouseover property.
      * 
      * @return
      *     possible object is
@@ -1234,7 +1227,7 @@ public class Button
     }
 
     /**
-     * onmouseoverプロパティの値を設定します。
+     * Sets the value of the onmouseover property.
      * 
      * @param value
      *     allowed object is
@@ -1250,7 +1243,7 @@ public class Button
     }
 
     /**
-     * onmousemoveプロパティの値を取得します。
+     * Gets the value of the onmousemove property.
      * 
      * @return
      *     possible object is
@@ -1262,7 +1255,7 @@ public class Button
     }
 
     /**
-     * onmousemoveプロパティの値を設定します。
+     * Sets the value of the onmousemove property.
      * 
      * @param value
      *     allowed object is
@@ -1278,7 +1271,7 @@ public class Button
     }
 
     /**
-     * onmouseoutプロパティの値を取得します。
+     * Gets the value of the onmouseout property.
      * 
      * @return
      *     possible object is
@@ -1290,7 +1283,7 @@ public class Button
     }
 
     /**
-     * onmouseoutプロパティの値を設定します。
+     * Sets the value of the onmouseout property.
      * 
      * @param value
      *     allowed object is
@@ -1306,7 +1299,7 @@ public class Button
     }
 
     /**
-     * onkeypressプロパティの値を取得します。
+     * Gets the value of the onkeypress property.
      * 
      * @return
      *     possible object is
@@ -1318,7 +1311,7 @@ public class Button
     }
 
     /**
-     * onkeypressプロパティの値を設定します。
+     * Sets the value of the onkeypress property.
      * 
      * @param value
      *     allowed object is
@@ -1334,7 +1327,7 @@ public class Button
     }
 
     /**
-     * onkeydownプロパティの値を取得します。
+     * Gets the value of the onkeydown property.
      * 
      * @return
      *     possible object is
@@ -1346,7 +1339,7 @@ public class Button
     }
 
     /**
-     * onkeydownプロパティの値を設定します。
+     * Sets the value of the onkeydown property.
      * 
      * @param value
      *     allowed object is
@@ -1362,7 +1355,7 @@ public class Button
     }
 
     /**
-     * onkeyupプロパティの値を取得します。
+     * Gets the value of the onkeyup property.
      * 
      * @return
      *     possible object is
@@ -1374,7 +1367,7 @@ public class Button
     }
 
     /**
-     * onkeyupプロパティの値を設定します。
+     * Sets the value of the onkeyup property.
      * 
      * @param value
      *     allowed object is
@@ -1390,7 +1383,7 @@ public class Button
     }
 
     /**
-     * onabortプロパティの値を取得します。
+     * Gets the value of the onabort property.
      * 
      * @return
      *     possible object is
@@ -1402,7 +1395,7 @@ public class Button
     }
 
     /**
-     * onabortプロパティの値を設定します。
+     * Sets the value of the onabort property.
      * 
      * @param value
      *     allowed object is
@@ -1418,7 +1411,7 @@ public class Button
     }
 
     /**
-     * onblurプロパティの値を取得します。
+     * Gets the value of the onblur property.
      * 
      * @return
      *     possible object is
@@ -1430,7 +1423,7 @@ public class Button
     }
 
     /**
-     * onblurプロパティの値を設定します。
+     * Sets the value of the onblur property.
      * 
      * @param value
      *     allowed object is
@@ -1446,7 +1439,7 @@ public class Button
     }
 
     /**
-     * oncanplayプロパティの値を取得します。
+     * Gets the value of the oncanplay property.
      * 
      * @return
      *     possible object is
@@ -1458,7 +1451,7 @@ public class Button
     }
 
     /**
-     * oncanplayプロパティの値を設定します。
+     * Sets the value of the oncanplay property.
      * 
      * @param value
      *     allowed object is
@@ -1474,7 +1467,7 @@ public class Button
     }
 
     /**
-     * oncanplaythroughプロパティの値を取得します。
+     * Gets the value of the oncanplaythrough property.
      * 
      * @return
      *     possible object is
@@ -1486,7 +1479,7 @@ public class Button
     }
 
     /**
-     * oncanplaythroughプロパティの値を設定します。
+     * Sets the value of the oncanplaythrough property.
      * 
      * @param value
      *     allowed object is
@@ -1502,7 +1495,7 @@ public class Button
     }
 
     /**
-     * onchangeプロパティの値を取得します。
+     * Gets the value of the onchange property.
      * 
      * @return
      *     possible object is
@@ -1514,7 +1507,7 @@ public class Button
     }
 
     /**
-     * onchangeプロパティの値を設定します。
+     * Sets the value of the onchange property.
      * 
      * @param value
      *     allowed object is
@@ -1530,7 +1523,7 @@ public class Button
     }
 
     /**
-     * oncontextmenuプロパティの値を取得します。
+     * Gets the value of the oncontextmenu property.
      * 
      * @return
      *     possible object is
@@ -1542,7 +1535,7 @@ public class Button
     }
 
     /**
-     * oncontextmenuプロパティの値を設定します。
+     * Sets the value of the oncontextmenu property.
      * 
      * @param value
      *     allowed object is
@@ -1558,7 +1551,7 @@ public class Button
     }
 
     /**
-     * oncuechangeプロパティの値を取得します。
+     * Gets the value of the oncuechange property.
      * 
      * @return
      *     possible object is
@@ -1570,7 +1563,7 @@ public class Button
     }
 
     /**
-     * oncuechangeプロパティの値を設定します。
+     * Sets the value of the oncuechange property.
      * 
      * @param value
      *     allowed object is
@@ -1586,7 +1579,7 @@ public class Button
     }
 
     /**
-     * ondragプロパティの値を取得します。
+     * Gets the value of the ondrag property.
      * 
      * @return
      *     possible object is
@@ -1598,7 +1591,7 @@ public class Button
     }
 
     /**
-     * ondragプロパティの値を設定します。
+     * Sets the value of the ondrag property.
      * 
      * @param value
      *     allowed object is
@@ -1614,7 +1607,7 @@ public class Button
     }
 
     /**
-     * ondragendプロパティの値を取得します。
+     * Gets the value of the ondragend property.
      * 
      * @return
      *     possible object is
@@ -1626,7 +1619,7 @@ public class Button
     }
 
     /**
-     * ondragendプロパティの値を設定します。
+     * Sets the value of the ondragend property.
      * 
      * @param value
      *     allowed object is
@@ -1642,7 +1635,7 @@ public class Button
     }
 
     /**
-     * ondragenterプロパティの値を取得します。
+     * Gets the value of the ondragenter property.
      * 
      * @return
      *     possible object is
@@ -1654,7 +1647,7 @@ public class Button
     }
 
     /**
-     * ondragenterプロパティの値を設定します。
+     * Sets the value of the ondragenter property.
      * 
      * @param value
      *     allowed object is
@@ -1670,7 +1663,7 @@ public class Button
     }
 
     /**
-     * ondragleaveプロパティの値を取得します。
+     * Gets the value of the ondragleave property.
      * 
      * @return
      *     possible object is
@@ -1682,7 +1675,7 @@ public class Button
     }
 
     /**
-     * ondragleaveプロパティの値を設定します。
+     * Sets the value of the ondragleave property.
      * 
      * @param value
      *     allowed object is
@@ -1698,7 +1691,7 @@ public class Button
     }
 
     /**
-     * ondragoverプロパティの値を取得します。
+     * Gets the value of the ondragover property.
      * 
      * @return
      *     possible object is
@@ -1710,7 +1703,7 @@ public class Button
     }
 
     /**
-     * ondragoverプロパティの値を設定します。
+     * Sets the value of the ondragover property.
      * 
      * @param value
      *     allowed object is
@@ -1726,7 +1719,7 @@ public class Button
     }
 
     /**
-     * ondragstartプロパティの値を取得します。
+     * Gets the value of the ondragstart property.
      * 
      * @return
      *     possible object is
@@ -1738,7 +1731,7 @@ public class Button
     }
 
     /**
-     * ondragstartプロパティの値を設定します。
+     * Sets the value of the ondragstart property.
      * 
      * @param value
      *     allowed object is
@@ -1754,7 +1747,7 @@ public class Button
     }
 
     /**
-     * ondropプロパティの値を取得します。
+     * Gets the value of the ondrop property.
      * 
      * @return
      *     possible object is
@@ -1766,7 +1759,7 @@ public class Button
     }
 
     /**
-     * ondropプロパティの値を設定します。
+     * Sets the value of the ondrop property.
      * 
      * @param value
      *     allowed object is
@@ -1782,7 +1775,7 @@ public class Button
     }
 
     /**
-     * ondurationchangeプロパティの値を取得します。
+     * Gets the value of the ondurationchange property.
      * 
      * @return
      *     possible object is
@@ -1794,7 +1787,7 @@ public class Button
     }
 
     /**
-     * ondurationchangeプロパティの値を設定します。
+     * Sets the value of the ondurationchange property.
      * 
      * @param value
      *     allowed object is
@@ -1810,7 +1803,7 @@ public class Button
     }
 
     /**
-     * onemptiedプロパティの値を取得します。
+     * Gets the value of the onemptied property.
      * 
      * @return
      *     possible object is
@@ -1822,7 +1815,7 @@ public class Button
     }
 
     /**
-     * onemptiedプロパティの値を設定します。
+     * Sets the value of the onemptied property.
      * 
      * @param value
      *     allowed object is
@@ -1838,7 +1831,7 @@ public class Button
     }
 
     /**
-     * onendedプロパティの値を取得します。
+     * Gets the value of the onended property.
      * 
      * @return
      *     possible object is
@@ -1850,7 +1843,7 @@ public class Button
     }
 
     /**
-     * onendedプロパティの値を設定します。
+     * Sets the value of the onended property.
      * 
      * @param value
      *     allowed object is
@@ -1866,7 +1859,7 @@ public class Button
     }
 
     /**
-     * onerrorプロパティの値を取得します。
+     * Gets the value of the onerror property.
      * 
      * @return
      *     possible object is
@@ -1878,7 +1871,7 @@ public class Button
     }
 
     /**
-     * onerrorプロパティの値を設定します。
+     * Sets the value of the onerror property.
      * 
      * @param value
      *     allowed object is
@@ -1894,7 +1887,7 @@ public class Button
     }
 
     /**
-     * onfocusプロパティの値を取得します。
+     * Gets the value of the onfocus property.
      * 
      * @return
      *     possible object is
@@ -1906,7 +1899,7 @@ public class Button
     }
 
     /**
-     * onfocusプロパティの値を設定します。
+     * Sets the value of the onfocus property.
      * 
      * @param value
      *     allowed object is
@@ -1922,7 +1915,7 @@ public class Button
     }
 
     /**
-     * onformchangeプロパティの値を取得します。
+     * Gets the value of the onformchange property.
      * 
      * @return
      *     possible object is
@@ -1934,7 +1927,7 @@ public class Button
     }
 
     /**
-     * onformchangeプロパティの値を設定します。
+     * Sets the value of the onformchange property.
      * 
      * @param value
      *     allowed object is
@@ -1950,7 +1943,7 @@ public class Button
     }
 
     /**
-     * onforminputプロパティの値を取得します。
+     * Gets the value of the onforminput property.
      * 
      * @return
      *     possible object is
@@ -1962,7 +1955,7 @@ public class Button
     }
 
     /**
-     * onforminputプロパティの値を設定します。
+     * Sets the value of the onforminput property.
      * 
      * @param value
      *     allowed object is
@@ -1978,7 +1971,7 @@ public class Button
     }
 
     /**
-     * oninputプロパティの値を取得します。
+     * Gets the value of the oninput property.
      * 
      * @return
      *     possible object is
@@ -1990,7 +1983,7 @@ public class Button
     }
 
     /**
-     * oninputプロパティの値を設定します。
+     * Sets the value of the oninput property.
      * 
      * @param value
      *     allowed object is
@@ -2006,7 +1999,7 @@ public class Button
     }
 
     /**
-     * oninvalidプロパティの値を取得します。
+     * Gets the value of the oninvalid property.
      * 
      * @return
      *     possible object is
@@ -2018,7 +2011,7 @@ public class Button
     }
 
     /**
-     * oninvalidプロパティの値を設定します。
+     * Sets the value of the oninvalid property.
      * 
      * @param value
      *     allowed object is
@@ -2034,7 +2027,7 @@ public class Button
     }
 
     /**
-     * onloadプロパティの値を取得します。
+     * Gets the value of the onload property.
      * 
      * @return
      *     possible object is
@@ -2046,7 +2039,7 @@ public class Button
     }
 
     /**
-     * onloadプロパティの値を設定します。
+     * Sets the value of the onload property.
      * 
      * @param value
      *     allowed object is
@@ -2062,7 +2055,7 @@ public class Button
     }
 
     /**
-     * onloadeddataプロパティの値を取得します。
+     * Gets the value of the onloadeddata property.
      * 
      * @return
      *     possible object is
@@ -2074,7 +2067,7 @@ public class Button
     }
 
     /**
-     * onloadeddataプロパティの値を設定します。
+     * Sets the value of the onloadeddata property.
      * 
      * @param value
      *     allowed object is
@@ -2090,7 +2083,7 @@ public class Button
     }
 
     /**
-     * onloadedmetadataプロパティの値を取得します。
+     * Gets the value of the onloadedmetadata property.
      * 
      * @return
      *     possible object is
@@ -2102,7 +2095,7 @@ public class Button
     }
 
     /**
-     * onloadedmetadataプロパティの値を設定します。
+     * Sets the value of the onloadedmetadata property.
      * 
      * @param value
      *     allowed object is
@@ -2118,7 +2111,7 @@ public class Button
     }
 
     /**
-     * onloadstartプロパティの値を取得します。
+     * Gets the value of the onloadstart property.
      * 
      * @return
      *     possible object is
@@ -2130,7 +2123,7 @@ public class Button
     }
 
     /**
-     * onloadstartプロパティの値を設定します。
+     * Sets the value of the onloadstart property.
      * 
      * @param value
      *     allowed object is
@@ -2146,7 +2139,7 @@ public class Button
     }
 
     /**
-     * onmousewheelプロパティの値を取得します。
+     * Gets the value of the onmousewheel property.
      * 
      * @return
      *     possible object is
@@ -2158,7 +2151,7 @@ public class Button
     }
 
     /**
-     * onmousewheelプロパティの値を設定します。
+     * Sets the value of the onmousewheel property.
      * 
      * @param value
      *     allowed object is
@@ -2174,7 +2167,7 @@ public class Button
     }
 
     /**
-     * onpauseプロパティの値を取得します。
+     * Gets the value of the onpause property.
      * 
      * @return
      *     possible object is
@@ -2186,7 +2179,7 @@ public class Button
     }
 
     /**
-     * onpauseプロパティの値を設定します。
+     * Sets the value of the onpause property.
      * 
      * @param value
      *     allowed object is
@@ -2202,7 +2195,7 @@ public class Button
     }
 
     /**
-     * onplayプロパティの値を取得します。
+     * Gets the value of the onplay property.
      * 
      * @return
      *     possible object is
@@ -2214,7 +2207,7 @@ public class Button
     }
 
     /**
-     * onplayプロパティの値を設定します。
+     * Sets the value of the onplay property.
      * 
      * @param value
      *     allowed object is
@@ -2230,7 +2223,7 @@ public class Button
     }
 
     /**
-     * onplayingプロパティの値を取得します。
+     * Gets the value of the onplaying property.
      * 
      * @return
      *     possible object is
@@ -2242,7 +2235,7 @@ public class Button
     }
 
     /**
-     * onplayingプロパティの値を設定します。
+     * Sets the value of the onplaying property.
      * 
      * @param value
      *     allowed object is
@@ -2258,7 +2251,7 @@ public class Button
     }
 
     /**
-     * onprogressプロパティの値を取得します。
+     * Gets the value of the onprogress property.
      * 
      * @return
      *     possible object is
@@ -2270,7 +2263,7 @@ public class Button
     }
 
     /**
-     * onprogressプロパティの値を設定します。
+     * Sets the value of the onprogress property.
      * 
      * @param value
      *     allowed object is
@@ -2286,7 +2279,7 @@ public class Button
     }
 
     /**
-     * onratechangeプロパティの値を取得します。
+     * Gets the value of the onratechange property.
      * 
      * @return
      *     possible object is
@@ -2298,7 +2291,7 @@ public class Button
     }
 
     /**
-     * onratechangeプロパティの値を設定します。
+     * Sets the value of the onratechange property.
      * 
      * @param value
      *     allowed object is
@@ -2314,7 +2307,7 @@ public class Button
     }
 
     /**
-     * onreadystatechangeプロパティの値を取得します。
+     * Gets the value of the onreadystatechange property.
      * 
      * @return
      *     possible object is
@@ -2326,7 +2319,7 @@ public class Button
     }
 
     /**
-     * onreadystatechangeプロパティの値を設定します。
+     * Sets the value of the onreadystatechange property.
      * 
      * @param value
      *     allowed object is
@@ -2342,7 +2335,7 @@ public class Button
     }
 
     /**
-     * onresetプロパティの値を取得します。
+     * Gets the value of the onreset property.
      * 
      * @return
      *     possible object is
@@ -2354,7 +2347,7 @@ public class Button
     }
 
     /**
-     * onresetプロパティの値を設定します。
+     * Sets the value of the onreset property.
      * 
      * @param value
      *     allowed object is
@@ -2370,7 +2363,7 @@ public class Button
     }
 
     /**
-     * onscrollプロパティの値を取得します。
+     * Gets the value of the onscroll property.
      * 
      * @return
      *     possible object is
@@ -2382,7 +2375,7 @@ public class Button
     }
 
     /**
-     * onscrollプロパティの値を設定します。
+     * Sets the value of the onscroll property.
      * 
      * @param value
      *     allowed object is
@@ -2398,7 +2391,7 @@ public class Button
     }
 
     /**
-     * onseekedプロパティの値を取得します。
+     * Gets the value of the onseeked property.
      * 
      * @return
      *     possible object is
@@ -2410,7 +2403,7 @@ public class Button
     }
 
     /**
-     * onseekedプロパティの値を設定します。
+     * Sets the value of the onseeked property.
      * 
      * @param value
      *     allowed object is
@@ -2426,7 +2419,7 @@ public class Button
     }
 
     /**
-     * onseekingプロパティの値を取得します。
+     * Gets the value of the onseeking property.
      * 
      * @return
      *     possible object is
@@ -2438,7 +2431,7 @@ public class Button
     }
 
     /**
-     * onseekingプロパティの値を設定します。
+     * Sets the value of the onseeking property.
      * 
      * @param value
      *     allowed object is
@@ -2454,7 +2447,7 @@ public class Button
     }
 
     /**
-     * onselectプロパティの値を取得します。
+     * Gets the value of the onselect property.
      * 
      * @return
      *     possible object is
@@ -2466,7 +2459,7 @@ public class Button
     }
 
     /**
-     * onselectプロパティの値を設定します。
+     * Sets the value of the onselect property.
      * 
      * @param value
      *     allowed object is
@@ -2482,7 +2475,7 @@ public class Button
     }
 
     /**
-     * onshowプロパティの値を取得します。
+     * Gets the value of the onshow property.
      * 
      * @return
      *     possible object is
@@ -2494,7 +2487,7 @@ public class Button
     }
 
     /**
-     * onshowプロパティの値を設定します。
+     * Sets the value of the onshow property.
      * 
      * @param value
      *     allowed object is
@@ -2510,7 +2503,7 @@ public class Button
     }
 
     /**
-     * onstalledプロパティの値を取得します。
+     * Gets the value of the onstalled property.
      * 
      * @return
      *     possible object is
@@ -2522,7 +2515,7 @@ public class Button
     }
 
     /**
-     * onstalledプロパティの値を設定します。
+     * Sets the value of the onstalled property.
      * 
      * @param value
      *     allowed object is
@@ -2538,7 +2531,7 @@ public class Button
     }
 
     /**
-     * onsubmitプロパティの値を取得します。
+     * Gets the value of the onsubmit property.
      * 
      * @return
      *     possible object is
@@ -2550,7 +2543,7 @@ public class Button
     }
 
     /**
-     * onsubmitプロパティの値を設定します。
+     * Sets the value of the onsubmit property.
      * 
      * @param value
      *     allowed object is
@@ -2566,7 +2559,7 @@ public class Button
     }
 
     /**
-     * onsuspendプロパティの値を取得します。
+     * Gets the value of the onsuspend property.
      * 
      * @return
      *     possible object is
@@ -2578,7 +2571,7 @@ public class Button
     }
 
     /**
-     * onsuspendプロパティの値を設定します。
+     * Sets the value of the onsuspend property.
      * 
      * @param value
      *     allowed object is
@@ -2594,7 +2587,7 @@ public class Button
     }
 
     /**
-     * ontimeupdateプロパティの値を取得します。
+     * Gets the value of the ontimeupdate property.
      * 
      * @return
      *     possible object is
@@ -2606,7 +2599,7 @@ public class Button
     }
 
     /**
-     * ontimeupdateプロパティの値を設定します。
+     * Sets the value of the ontimeupdate property.
      * 
      * @param value
      *     allowed object is
@@ -2622,7 +2615,7 @@ public class Button
     }
 
     /**
-     * onvolumechangeプロパティの値を取得します。
+     * Gets the value of the onvolumechange property.
      * 
      * @return
      *     possible object is
@@ -2634,7 +2627,7 @@ public class Button
     }
 
     /**
-     * onvolumechangeプロパティの値を設定します。
+     * Sets the value of the onvolumechange property.
      * 
      * @param value
      *     allowed object is
@@ -2650,7 +2643,7 @@ public class Button
     }
 
     /**
-     * onwaitingプロパティの値を取得します。
+     * Gets the value of the onwaiting property.
      * 
      * @return
      *     possible object is
@@ -2662,7 +2655,7 @@ public class Button
     }
 
     /**
-     * onwaitingプロパティの値を設定します。
+     * Sets the value of the onwaiting property.
      * 
      * @param value
      *     allowed object is

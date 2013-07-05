@@ -1,10 +1,3 @@
-//
-// このファイルは、JavaTM Architecture for XML Binding(JAXB) Reference Implementation、v2.2.6によって生成されました 
-// <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a>を参照してください 
-// ソース・スキーマの再コンパイル時にこのファイルの変更は失われます。 
-// 生成日: 2013.07.04 時間 09:23:41 PM JST 
-//
-
 
 package org.mixer2.jaxb.xhtml;
 
@@ -41,9 +34,9 @@ import org.mixer2.xhtml.AbstractJaxb;
 
 
 /**
- * <p>anonymous complex typeのJavaクラス。
+ * <p>Java class for anonymous complex type.
  * 
- * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -240,7 +233,7 @@ public class Br
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
     /**
-     * clearプロパティの値を取得します。
+     * Gets the value of the clear property.
      * 
      * @return
      *     possible object is
@@ -256,7 +249,7 @@ public class Br
     }
 
     /**
-     * clearプロパティの値を設定します。
+     * Sets the value of the clear property.
      * 
      * @param value
      *     allowed object is
@@ -272,7 +265,7 @@ public class Br
     }
 
     /**
-     * idプロパティの値を取得します。
+     * Gets the value of the id property.
      * 
      * @return
      *     possible object is
@@ -284,7 +277,7 @@ public class Br
     }
 
     /**
-     * idプロパティの値を設定します。
+     * Sets the value of the id property.
      * 
      * @param value
      *     allowed object is
@@ -337,7 +330,7 @@ public class Br
     }
 
     /**
-     * styleプロパティの値を取得します。
+     * Gets the value of the style property.
      * 
      * @return
      *     possible object is
@@ -349,7 +342,7 @@ public class Br
     }
 
     /**
-     * styleプロパティの値を設定します。
+     * Sets the value of the style property.
      * 
      * @param value
      *     allowed object is
@@ -365,7 +358,7 @@ public class Br
     }
 
     /**
-     * titleプロパティの値を取得します。
+     * Gets the value of the title property.
      * 
      * @return
      *     possible object is
@@ -377,7 +370,7 @@ public class Br
     }
 
     /**
-     * titleプロパティの値を設定します。
+     * Sets the value of the title property.
      * 
      * @param value
      *     allowed object is
@@ -393,7 +386,7 @@ public class Br
     }
 
     /**
-     * accesskeyプロパティの値を取得します。
+     * Gets the value of the accesskey property.
      * 
      * @return
      *     possible object is
@@ -405,7 +398,7 @@ public class Br
     }
 
     /**
-     * accesskeyプロパティの値を設定します。
+     * Sets the value of the accesskey property.
      * 
      * @param value
      *     allowed object is
@@ -421,7 +414,7 @@ public class Br
     }
 
     /**
-     * contenteditableプロパティの値を取得します。
+     * Gets the value of the contenteditable property.
      * 
      * @return
      *     possible object is
@@ -433,7 +426,7 @@ public class Br
     }
 
     /**
-     * contenteditableプロパティの値を設定します。
+     * Sets the value of the contenteditable property.
      * 
      * @param value
      *     allowed object is
@@ -453,7 +446,7 @@ public class Br
     }
 
     /**
-     * contextmenuプロパティの値を取得します。
+     * Gets the value of the contextmenu property.
      * 
      * @return
      *     possible object is
@@ -465,7 +458,7 @@ public class Br
     }
 
     /**
-     * contextmenuプロパティの値を設定します。
+     * Sets the value of the contextmenu property.
      * 
      * @param value
      *     allowed object is
@@ -481,7 +474,7 @@ public class Br
     }
 
     /**
-     * dirプロパティの値を取得します。
+     * Gets the value of the dir property.
      * 
      * @return
      *     possible object is
@@ -497,7 +490,7 @@ public class Br
     }
 
     /**
-     * dirプロパティの値を設定します。
+     * Sets the value of the dir property.
      * 
      * @param value
      *     allowed object is
@@ -513,7 +506,7 @@ public class Br
     }
 
     /**
-     * draggableプロパティの値を取得します。
+     * Gets the value of the draggable property.
      * 
      * @return
      *     possible object is
@@ -529,7 +522,7 @@ public class Br
     }
 
     /**
-     * draggableプロパティの値を設定します。
+     * Sets the value of the draggable property.
      * 
      * @param value
      *     allowed object is
@@ -582,7 +575,7 @@ public class Br
     }
 
     /**
-     * hiddenプロパティの値を取得します。
+     * Gets the value of the hidden property.
      * 
      * @return
      *     possible object is
@@ -594,7 +587,7 @@ public class Br
     }
 
     /**
-     * hiddenプロパティの値を設定します。
+     * Sets the value of the hidden property.
      * 
      * @param value
      *     allowed object is
@@ -610,7 +603,7 @@ public class Br
     }
 
     /**
-     * langCodeプロパティの値を取得します。
+     * Gets the value of the langCode property.
      * 
      * @return
      *     possible object is
@@ -622,7 +615,7 @@ public class Br
     }
 
     /**
-     * langCodeプロパティの値を設定します。
+     * Sets the value of the langCode property.
      * 
      * @param value
      *     allowed object is
@@ -638,7 +631,7 @@ public class Br
     }
 
     /**
-     * roleプロパティの値を取得します。
+     * Gets the value of the role property.
      * 
      * @return
      *     possible object is
@@ -650,7 +643,7 @@ public class Br
     }
 
     /**
-     * roleプロパティの値を設定します。
+     * Sets the value of the role property.
      * 
      * @param value
      *     allowed object is
@@ -666,7 +659,7 @@ public class Br
     }
 
     /**
-     * spellcheckプロパティの値を取得します。
+     * Gets the value of the spellcheck property.
      * 
      * @return
      *     possible object is
@@ -678,7 +671,7 @@ public class Br
     }
 
     /**
-     * spellcheckプロパティの値を設定します。
+     * Sets the value of the spellcheck property.
      * 
      * @param value
      *     allowed object is
@@ -694,7 +687,7 @@ public class Br
     }
 
     /**
-     * tabindexプロパティの値を取得します。
+     * Gets the value of the tabindex property.
      * 
      * @return
      *     possible object is
@@ -706,7 +699,7 @@ public class Br
     }
 
     /**
-     * tabindexプロパティの値を設定します。
+     * Sets the value of the tabindex property.
      * 
      * @param value
      *     allowed object is
@@ -722,7 +715,7 @@ public class Br
     }
 
     /**
-     * langプロパティの値を取得します。
+     * Gets the value of the lang property.
      * 
      * @return
      *     possible object is
@@ -734,7 +727,7 @@ public class Br
     }
 
     /**
-     * langプロパティの値を設定します。
+     * Sets the value of the lang property.
      * 
      * @param value
      *     allowed object is
@@ -750,7 +743,7 @@ public class Br
     }
 
     /**
-     * onclickプロパティの値を取得します。
+     * Gets the value of the onclick property.
      * 
      * @return
      *     possible object is
@@ -762,7 +755,7 @@ public class Br
     }
 
     /**
-     * onclickプロパティの値を設定します。
+     * Sets the value of the onclick property.
      * 
      * @param value
      *     allowed object is
@@ -778,7 +771,7 @@ public class Br
     }
 
     /**
-     * ondblclickプロパティの値を取得します。
+     * Gets the value of the ondblclick property.
      * 
      * @return
      *     possible object is
@@ -790,7 +783,7 @@ public class Br
     }
 
     /**
-     * ondblclickプロパティの値を設定します。
+     * Sets the value of the ondblclick property.
      * 
      * @param value
      *     allowed object is
@@ -806,7 +799,7 @@ public class Br
     }
 
     /**
-     * onmousedownプロパティの値を取得します。
+     * Gets the value of the onmousedown property.
      * 
      * @return
      *     possible object is
@@ -818,7 +811,7 @@ public class Br
     }
 
     /**
-     * onmousedownプロパティの値を設定します。
+     * Sets the value of the onmousedown property.
      * 
      * @param value
      *     allowed object is
@@ -834,7 +827,7 @@ public class Br
     }
 
     /**
-     * onmouseupプロパティの値を取得します。
+     * Gets the value of the onmouseup property.
      * 
      * @return
      *     possible object is
@@ -846,7 +839,7 @@ public class Br
     }
 
     /**
-     * onmouseupプロパティの値を設定します。
+     * Sets the value of the onmouseup property.
      * 
      * @param value
      *     allowed object is
@@ -862,7 +855,7 @@ public class Br
     }
 
     /**
-     * onmouseoverプロパティの値を取得します。
+     * Gets the value of the onmouseover property.
      * 
      * @return
      *     possible object is
@@ -874,7 +867,7 @@ public class Br
     }
 
     /**
-     * onmouseoverプロパティの値を設定します。
+     * Sets the value of the onmouseover property.
      * 
      * @param value
      *     allowed object is
@@ -890,7 +883,7 @@ public class Br
     }
 
     /**
-     * onmousemoveプロパティの値を取得します。
+     * Gets the value of the onmousemove property.
      * 
      * @return
      *     possible object is
@@ -902,7 +895,7 @@ public class Br
     }
 
     /**
-     * onmousemoveプロパティの値を設定します。
+     * Sets the value of the onmousemove property.
      * 
      * @param value
      *     allowed object is
@@ -918,7 +911,7 @@ public class Br
     }
 
     /**
-     * onmouseoutプロパティの値を取得します。
+     * Gets the value of the onmouseout property.
      * 
      * @return
      *     possible object is
@@ -930,7 +923,7 @@ public class Br
     }
 
     /**
-     * onmouseoutプロパティの値を設定します。
+     * Sets the value of the onmouseout property.
      * 
      * @param value
      *     allowed object is
@@ -946,7 +939,7 @@ public class Br
     }
 
     /**
-     * onkeypressプロパティの値を取得します。
+     * Gets the value of the onkeypress property.
      * 
      * @return
      *     possible object is
@@ -958,7 +951,7 @@ public class Br
     }
 
     /**
-     * onkeypressプロパティの値を設定します。
+     * Sets the value of the onkeypress property.
      * 
      * @param value
      *     allowed object is
@@ -974,7 +967,7 @@ public class Br
     }
 
     /**
-     * onkeydownプロパティの値を取得します。
+     * Gets the value of the onkeydown property.
      * 
      * @return
      *     possible object is
@@ -986,7 +979,7 @@ public class Br
     }
 
     /**
-     * onkeydownプロパティの値を設定します。
+     * Sets the value of the onkeydown property.
      * 
      * @param value
      *     allowed object is
@@ -1002,7 +995,7 @@ public class Br
     }
 
     /**
-     * onkeyupプロパティの値を取得します。
+     * Gets the value of the onkeyup property.
      * 
      * @return
      *     possible object is
@@ -1014,7 +1007,7 @@ public class Br
     }
 
     /**
-     * onkeyupプロパティの値を設定します。
+     * Sets the value of the onkeyup property.
      * 
      * @param value
      *     allowed object is
@@ -1030,7 +1023,7 @@ public class Br
     }
 
     /**
-     * onabortプロパティの値を取得します。
+     * Gets the value of the onabort property.
      * 
      * @return
      *     possible object is
@@ -1042,7 +1035,7 @@ public class Br
     }
 
     /**
-     * onabortプロパティの値を設定します。
+     * Sets the value of the onabort property.
      * 
      * @param value
      *     allowed object is
@@ -1058,7 +1051,7 @@ public class Br
     }
 
     /**
-     * onblurプロパティの値を取得します。
+     * Gets the value of the onblur property.
      * 
      * @return
      *     possible object is
@@ -1070,7 +1063,7 @@ public class Br
     }
 
     /**
-     * onblurプロパティの値を設定します。
+     * Sets the value of the onblur property.
      * 
      * @param value
      *     allowed object is
@@ -1086,7 +1079,7 @@ public class Br
     }
 
     /**
-     * oncanplayプロパティの値を取得します。
+     * Gets the value of the oncanplay property.
      * 
      * @return
      *     possible object is
@@ -1098,7 +1091,7 @@ public class Br
     }
 
     /**
-     * oncanplayプロパティの値を設定します。
+     * Sets the value of the oncanplay property.
      * 
      * @param value
      *     allowed object is
@@ -1114,7 +1107,7 @@ public class Br
     }
 
     /**
-     * oncanplaythroughプロパティの値を取得します。
+     * Gets the value of the oncanplaythrough property.
      * 
      * @return
      *     possible object is
@@ -1126,7 +1119,7 @@ public class Br
     }
 
     /**
-     * oncanplaythroughプロパティの値を設定します。
+     * Sets the value of the oncanplaythrough property.
      * 
      * @param value
      *     allowed object is
@@ -1142,7 +1135,7 @@ public class Br
     }
 
     /**
-     * onchangeプロパティの値を取得します。
+     * Gets the value of the onchange property.
      * 
      * @return
      *     possible object is
@@ -1154,7 +1147,7 @@ public class Br
     }
 
     /**
-     * onchangeプロパティの値を設定します。
+     * Sets the value of the onchange property.
      * 
      * @param value
      *     allowed object is
@@ -1170,7 +1163,7 @@ public class Br
     }
 
     /**
-     * oncontextmenuプロパティの値を取得します。
+     * Gets the value of the oncontextmenu property.
      * 
      * @return
      *     possible object is
@@ -1182,7 +1175,7 @@ public class Br
     }
 
     /**
-     * oncontextmenuプロパティの値を設定します。
+     * Sets the value of the oncontextmenu property.
      * 
      * @param value
      *     allowed object is
@@ -1198,7 +1191,7 @@ public class Br
     }
 
     /**
-     * oncuechangeプロパティの値を取得します。
+     * Gets the value of the oncuechange property.
      * 
      * @return
      *     possible object is
@@ -1210,7 +1203,7 @@ public class Br
     }
 
     /**
-     * oncuechangeプロパティの値を設定します。
+     * Sets the value of the oncuechange property.
      * 
      * @param value
      *     allowed object is
@@ -1226,7 +1219,7 @@ public class Br
     }
 
     /**
-     * ondragプロパティの値を取得します。
+     * Gets the value of the ondrag property.
      * 
      * @return
      *     possible object is
@@ -1238,7 +1231,7 @@ public class Br
     }
 
     /**
-     * ondragプロパティの値を設定します。
+     * Sets the value of the ondrag property.
      * 
      * @param value
      *     allowed object is
@@ -1254,7 +1247,7 @@ public class Br
     }
 
     /**
-     * ondragendプロパティの値を取得します。
+     * Gets the value of the ondragend property.
      * 
      * @return
      *     possible object is
@@ -1266,7 +1259,7 @@ public class Br
     }
 
     /**
-     * ondragendプロパティの値を設定します。
+     * Sets the value of the ondragend property.
      * 
      * @param value
      *     allowed object is
@@ -1282,7 +1275,7 @@ public class Br
     }
 
     /**
-     * ondragenterプロパティの値を取得します。
+     * Gets the value of the ondragenter property.
      * 
      * @return
      *     possible object is
@@ -1294,7 +1287,7 @@ public class Br
     }
 
     /**
-     * ondragenterプロパティの値を設定します。
+     * Sets the value of the ondragenter property.
      * 
      * @param value
      *     allowed object is
@@ -1310,7 +1303,7 @@ public class Br
     }
 
     /**
-     * ondragleaveプロパティの値を取得します。
+     * Gets the value of the ondragleave property.
      * 
      * @return
      *     possible object is
@@ -1322,7 +1315,7 @@ public class Br
     }
 
     /**
-     * ondragleaveプロパティの値を設定します。
+     * Sets the value of the ondragleave property.
      * 
      * @param value
      *     allowed object is
@@ -1338,7 +1331,7 @@ public class Br
     }
 
     /**
-     * ondragoverプロパティの値を取得します。
+     * Gets the value of the ondragover property.
      * 
      * @return
      *     possible object is
@@ -1350,7 +1343,7 @@ public class Br
     }
 
     /**
-     * ondragoverプロパティの値を設定します。
+     * Sets the value of the ondragover property.
      * 
      * @param value
      *     allowed object is
@@ -1366,7 +1359,7 @@ public class Br
     }
 
     /**
-     * ondragstartプロパティの値を取得します。
+     * Gets the value of the ondragstart property.
      * 
      * @return
      *     possible object is
@@ -1378,7 +1371,7 @@ public class Br
     }
 
     /**
-     * ondragstartプロパティの値を設定します。
+     * Sets the value of the ondragstart property.
      * 
      * @param value
      *     allowed object is
@@ -1394,7 +1387,7 @@ public class Br
     }
 
     /**
-     * ondropプロパティの値を取得します。
+     * Gets the value of the ondrop property.
      * 
      * @return
      *     possible object is
@@ -1406,7 +1399,7 @@ public class Br
     }
 
     /**
-     * ondropプロパティの値を設定します。
+     * Sets the value of the ondrop property.
      * 
      * @param value
      *     allowed object is
@@ -1422,7 +1415,7 @@ public class Br
     }
 
     /**
-     * ondurationchangeプロパティの値を取得します。
+     * Gets the value of the ondurationchange property.
      * 
      * @return
      *     possible object is
@@ -1434,7 +1427,7 @@ public class Br
     }
 
     /**
-     * ondurationchangeプロパティの値を設定します。
+     * Sets the value of the ondurationchange property.
      * 
      * @param value
      *     allowed object is
@@ -1450,7 +1443,7 @@ public class Br
     }
 
     /**
-     * onemptiedプロパティの値を取得します。
+     * Gets the value of the onemptied property.
      * 
      * @return
      *     possible object is
@@ -1462,7 +1455,7 @@ public class Br
     }
 
     /**
-     * onemptiedプロパティの値を設定します。
+     * Sets the value of the onemptied property.
      * 
      * @param value
      *     allowed object is
@@ -1478,7 +1471,7 @@ public class Br
     }
 
     /**
-     * onendedプロパティの値を取得します。
+     * Gets the value of the onended property.
      * 
      * @return
      *     possible object is
@@ -1490,7 +1483,7 @@ public class Br
     }
 
     /**
-     * onendedプロパティの値を設定します。
+     * Sets the value of the onended property.
      * 
      * @param value
      *     allowed object is
@@ -1506,7 +1499,7 @@ public class Br
     }
 
     /**
-     * onerrorプロパティの値を取得します。
+     * Gets the value of the onerror property.
      * 
      * @return
      *     possible object is
@@ -1518,7 +1511,7 @@ public class Br
     }
 
     /**
-     * onerrorプロパティの値を設定します。
+     * Sets the value of the onerror property.
      * 
      * @param value
      *     allowed object is
@@ -1534,7 +1527,7 @@ public class Br
     }
 
     /**
-     * onfocusプロパティの値を取得します。
+     * Gets the value of the onfocus property.
      * 
      * @return
      *     possible object is
@@ -1546,7 +1539,7 @@ public class Br
     }
 
     /**
-     * onfocusプロパティの値を設定します。
+     * Sets the value of the onfocus property.
      * 
      * @param value
      *     allowed object is
@@ -1562,7 +1555,7 @@ public class Br
     }
 
     /**
-     * onformchangeプロパティの値を取得します。
+     * Gets the value of the onformchange property.
      * 
      * @return
      *     possible object is
@@ -1574,7 +1567,7 @@ public class Br
     }
 
     /**
-     * onformchangeプロパティの値を設定します。
+     * Sets the value of the onformchange property.
      * 
      * @param value
      *     allowed object is
@@ -1590,7 +1583,7 @@ public class Br
     }
 
     /**
-     * onforminputプロパティの値を取得します。
+     * Gets the value of the onforminput property.
      * 
      * @return
      *     possible object is
@@ -1602,7 +1595,7 @@ public class Br
     }
 
     /**
-     * onforminputプロパティの値を設定します。
+     * Sets the value of the onforminput property.
      * 
      * @param value
      *     allowed object is
@@ -1618,7 +1611,7 @@ public class Br
     }
 
     /**
-     * oninputプロパティの値を取得します。
+     * Gets the value of the oninput property.
      * 
      * @return
      *     possible object is
@@ -1630,7 +1623,7 @@ public class Br
     }
 
     /**
-     * oninputプロパティの値を設定します。
+     * Sets the value of the oninput property.
      * 
      * @param value
      *     allowed object is
@@ -1646,7 +1639,7 @@ public class Br
     }
 
     /**
-     * oninvalidプロパティの値を取得します。
+     * Gets the value of the oninvalid property.
      * 
      * @return
      *     possible object is
@@ -1658,7 +1651,7 @@ public class Br
     }
 
     /**
-     * oninvalidプロパティの値を設定します。
+     * Sets the value of the oninvalid property.
      * 
      * @param value
      *     allowed object is
@@ -1674,7 +1667,7 @@ public class Br
     }
 
     /**
-     * onloadプロパティの値を取得します。
+     * Gets the value of the onload property.
      * 
      * @return
      *     possible object is
@@ -1686,7 +1679,7 @@ public class Br
     }
 
     /**
-     * onloadプロパティの値を設定します。
+     * Sets the value of the onload property.
      * 
      * @param value
      *     allowed object is
@@ -1702,7 +1695,7 @@ public class Br
     }
 
     /**
-     * onloadeddataプロパティの値を取得します。
+     * Gets the value of the onloadeddata property.
      * 
      * @return
      *     possible object is
@@ -1714,7 +1707,7 @@ public class Br
     }
 
     /**
-     * onloadeddataプロパティの値を設定します。
+     * Sets the value of the onloadeddata property.
      * 
      * @param value
      *     allowed object is
@@ -1730,7 +1723,7 @@ public class Br
     }
 
     /**
-     * onloadedmetadataプロパティの値を取得します。
+     * Gets the value of the onloadedmetadata property.
      * 
      * @return
      *     possible object is
@@ -1742,7 +1735,7 @@ public class Br
     }
 
     /**
-     * onloadedmetadataプロパティの値を設定します。
+     * Sets the value of the onloadedmetadata property.
      * 
      * @param value
      *     allowed object is
@@ -1758,7 +1751,7 @@ public class Br
     }
 
     /**
-     * onloadstartプロパティの値を取得します。
+     * Gets the value of the onloadstart property.
      * 
      * @return
      *     possible object is
@@ -1770,7 +1763,7 @@ public class Br
     }
 
     /**
-     * onloadstartプロパティの値を設定します。
+     * Sets the value of the onloadstart property.
      * 
      * @param value
      *     allowed object is
@@ -1786,7 +1779,7 @@ public class Br
     }
 
     /**
-     * onmousewheelプロパティの値を取得します。
+     * Gets the value of the onmousewheel property.
      * 
      * @return
      *     possible object is
@@ -1798,7 +1791,7 @@ public class Br
     }
 
     /**
-     * onmousewheelプロパティの値を設定します。
+     * Sets the value of the onmousewheel property.
      * 
      * @param value
      *     allowed object is
@@ -1814,7 +1807,7 @@ public class Br
     }
 
     /**
-     * onpauseプロパティの値を取得します。
+     * Gets the value of the onpause property.
      * 
      * @return
      *     possible object is
@@ -1826,7 +1819,7 @@ public class Br
     }
 
     /**
-     * onpauseプロパティの値を設定します。
+     * Sets the value of the onpause property.
      * 
      * @param value
      *     allowed object is
@@ -1842,7 +1835,7 @@ public class Br
     }
 
     /**
-     * onplayプロパティの値を取得します。
+     * Gets the value of the onplay property.
      * 
      * @return
      *     possible object is
@@ -1854,7 +1847,7 @@ public class Br
     }
 
     /**
-     * onplayプロパティの値を設定します。
+     * Sets the value of the onplay property.
      * 
      * @param value
      *     allowed object is
@@ -1870,7 +1863,7 @@ public class Br
     }
 
     /**
-     * onplayingプロパティの値を取得します。
+     * Gets the value of the onplaying property.
      * 
      * @return
      *     possible object is
@@ -1882,7 +1875,7 @@ public class Br
     }
 
     /**
-     * onplayingプロパティの値を設定します。
+     * Sets the value of the onplaying property.
      * 
      * @param value
      *     allowed object is
@@ -1898,7 +1891,7 @@ public class Br
     }
 
     /**
-     * onprogressプロパティの値を取得します。
+     * Gets the value of the onprogress property.
      * 
      * @return
      *     possible object is
@@ -1910,7 +1903,7 @@ public class Br
     }
 
     /**
-     * onprogressプロパティの値を設定します。
+     * Sets the value of the onprogress property.
      * 
      * @param value
      *     allowed object is
@@ -1926,7 +1919,7 @@ public class Br
     }
 
     /**
-     * onratechangeプロパティの値を取得します。
+     * Gets the value of the onratechange property.
      * 
      * @return
      *     possible object is
@@ -1938,7 +1931,7 @@ public class Br
     }
 
     /**
-     * onratechangeプロパティの値を設定します。
+     * Sets the value of the onratechange property.
      * 
      * @param value
      *     allowed object is
@@ -1954,7 +1947,7 @@ public class Br
     }
 
     /**
-     * onreadystatechangeプロパティの値を取得します。
+     * Gets the value of the onreadystatechange property.
      * 
      * @return
      *     possible object is
@@ -1966,7 +1959,7 @@ public class Br
     }
 
     /**
-     * onreadystatechangeプロパティの値を設定します。
+     * Sets the value of the onreadystatechange property.
      * 
      * @param value
      *     allowed object is
@@ -1982,7 +1975,7 @@ public class Br
     }
 
     /**
-     * onresetプロパティの値を取得します。
+     * Gets the value of the onreset property.
      * 
      * @return
      *     possible object is
@@ -1994,7 +1987,7 @@ public class Br
     }
 
     /**
-     * onresetプロパティの値を設定します。
+     * Sets the value of the onreset property.
      * 
      * @param value
      *     allowed object is
@@ -2010,7 +2003,7 @@ public class Br
     }
 
     /**
-     * onscrollプロパティの値を取得します。
+     * Gets the value of the onscroll property.
      * 
      * @return
      *     possible object is
@@ -2022,7 +2015,7 @@ public class Br
     }
 
     /**
-     * onscrollプロパティの値を設定します。
+     * Sets the value of the onscroll property.
      * 
      * @param value
      *     allowed object is
@@ -2038,7 +2031,7 @@ public class Br
     }
 
     /**
-     * onseekedプロパティの値を取得します。
+     * Gets the value of the onseeked property.
      * 
      * @return
      *     possible object is
@@ -2050,7 +2043,7 @@ public class Br
     }
 
     /**
-     * onseekedプロパティの値を設定します。
+     * Sets the value of the onseeked property.
      * 
      * @param value
      *     allowed object is
@@ -2066,7 +2059,7 @@ public class Br
     }
 
     /**
-     * onseekingプロパティの値を取得します。
+     * Gets the value of the onseeking property.
      * 
      * @return
      *     possible object is
@@ -2078,7 +2071,7 @@ public class Br
     }
 
     /**
-     * onseekingプロパティの値を設定します。
+     * Sets the value of the onseeking property.
      * 
      * @param value
      *     allowed object is
@@ -2094,7 +2087,7 @@ public class Br
     }
 
     /**
-     * onselectプロパティの値を取得します。
+     * Gets the value of the onselect property.
      * 
      * @return
      *     possible object is
@@ -2106,7 +2099,7 @@ public class Br
     }
 
     /**
-     * onselectプロパティの値を設定します。
+     * Sets the value of the onselect property.
      * 
      * @param value
      *     allowed object is
@@ -2122,7 +2115,7 @@ public class Br
     }
 
     /**
-     * onshowプロパティの値を取得します。
+     * Gets the value of the onshow property.
      * 
      * @return
      *     possible object is
@@ -2134,7 +2127,7 @@ public class Br
     }
 
     /**
-     * onshowプロパティの値を設定します。
+     * Sets the value of the onshow property.
      * 
      * @param value
      *     allowed object is
@@ -2150,7 +2143,7 @@ public class Br
     }
 
     /**
-     * onstalledプロパティの値を取得します。
+     * Gets the value of the onstalled property.
      * 
      * @return
      *     possible object is
@@ -2162,7 +2155,7 @@ public class Br
     }
 
     /**
-     * onstalledプロパティの値を設定します。
+     * Sets the value of the onstalled property.
      * 
      * @param value
      *     allowed object is
@@ -2178,7 +2171,7 @@ public class Br
     }
 
     /**
-     * onsubmitプロパティの値を取得します。
+     * Gets the value of the onsubmit property.
      * 
      * @return
      *     possible object is
@@ -2190,7 +2183,7 @@ public class Br
     }
 
     /**
-     * onsubmitプロパティの値を設定します。
+     * Sets the value of the onsubmit property.
      * 
      * @param value
      *     allowed object is
@@ -2206,7 +2199,7 @@ public class Br
     }
 
     /**
-     * onsuspendプロパティの値を取得します。
+     * Gets the value of the onsuspend property.
      * 
      * @return
      *     possible object is
@@ -2218,7 +2211,7 @@ public class Br
     }
 
     /**
-     * onsuspendプロパティの値を設定します。
+     * Sets the value of the onsuspend property.
      * 
      * @param value
      *     allowed object is
@@ -2234,7 +2227,7 @@ public class Br
     }
 
     /**
-     * ontimeupdateプロパティの値を取得します。
+     * Gets the value of the ontimeupdate property.
      * 
      * @return
      *     possible object is
@@ -2246,7 +2239,7 @@ public class Br
     }
 
     /**
-     * ontimeupdateプロパティの値を設定します。
+     * Sets the value of the ontimeupdate property.
      * 
      * @param value
      *     allowed object is
@@ -2262,7 +2255,7 @@ public class Br
     }
 
     /**
-     * onvolumechangeプロパティの値を取得します。
+     * Gets the value of the onvolumechange property.
      * 
      * @return
      *     possible object is
@@ -2274,7 +2267,7 @@ public class Br
     }
 
     /**
-     * onvolumechangeプロパティの値を設定します。
+     * Sets the value of the onvolumechange property.
      * 
      * @param value
      *     allowed object is
@@ -2290,7 +2283,7 @@ public class Br
     }
 
     /**
-     * onwaitingプロパティの値を取得します。
+     * Gets the value of the onwaiting property.
      * 
      * @return
      *     possible object is
@@ -2302,7 +2295,7 @@ public class Br
     }
 
     /**
-     * onwaitingプロパティの値を設定します。
+     * Sets the value of the onwaiting property.
      * 
      * @param value
      *     allowed object is

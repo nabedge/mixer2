@@ -296,6 +296,8 @@
                 <version>0.8.3</version>
                 <executions>
                     <execution>
+                        <id>jaxb2-generate</id>
+<!--                         <phase>generate-sources</phase> -->
                         <phase>dummy</phase>
                         <goals>
                             <goal>generate</goal>
@@ -308,7 +310,9 @@
                         <arg>-Xequals</arg>
                         <arg>-XhashCode</arg>
                         <arg>-Xcopyable</arg>
+                        <arg>-no-header</arg>
                     </args>
+                    <episode>false</episode>
                     <schemaDirectory>xjc</schemaDirectory>
                     <schemaIncludes>
                         <include>mixer2-xhtml.xsd</include>

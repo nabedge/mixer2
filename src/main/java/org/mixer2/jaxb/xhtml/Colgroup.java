@@ -1,10 +1,3 @@
-//
-// このファイルは、JavaTM Architecture for XML Binding(JAXB) Reference Implementation、v2.2.6によって生成されました 
-// <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a>を参照してください 
-// ソース・スキーマの再コンパイル時にこのファイルの変更は失われます。 
-// 生成日: 2013.07.04 時間 09:23:41 PM JST 
-//
-
 
 package org.mixer2.jaxb.xhtml;
 
@@ -41,9 +34,9 @@ import org.mixer2.xhtml.AbstractJaxb;
 
 
 /**
- * <p>anonymous complex typeのJavaクラス。
+ * <p>Java class for anonymous complex type.
  * 
- * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -52,9 +45,9 @@ import org.mixer2.xhtml.AbstractJaxb;
  *       &lt;sequence>
  *         &lt;element ref="{http://www.w3.org/1999/xhtml}col" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
- *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}attrs"/>
- *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellhalign"/>
  *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellvalign"/>
+ *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellhalign"/>
+ *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}attrs"/>
  *       &lt;attribute name="span" type="{http://www.w3.org/1999/xhtml}Number" default="1" />
  *       &lt;attribute name="width" type="{http://www.w3.org/1999/xhtml}MultiLength" />
  *     &lt;/restriction>
@@ -80,6 +73,16 @@ public class Colgroup
     protected Integer span;
     @XmlAttribute(name = "width")
     protected String width;
+    @XmlAttribute(name = "valign")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String valign;
+    @XmlAttribute(name = "align")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String align;
+    @XmlAttribute(name = "char")
+    protected String _char;
+    @XmlAttribute(name = "charoff")
+    protected String charoff;
     @XmlAttribute(name = "id")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -238,16 +241,6 @@ public class Colgroup
     protected String onvolumechange;
     @XmlAttribute(name = "onwaiting")
     protected String onwaiting;
-    @XmlAttribute(name = "align")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String align;
-    @XmlAttribute(name = "char")
-    protected String _char;
-    @XmlAttribute(name = "charoff")
-    protected String charoff;
-    @XmlAttribute(name = "valign")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String valign;
     @XmlAnyAttribute
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
@@ -289,7 +282,7 @@ public class Colgroup
     }
 
     /**
-     * spanプロパティの値を取得します。
+     * Gets the value of the span property.
      * 
      * @return
      *     possible object is
@@ -305,7 +298,7 @@ public class Colgroup
     }
 
     /**
-     * spanプロパティの値を設定します。
+     * Sets the value of the span property.
      * 
      * @param value
      *     allowed object is
@@ -321,7 +314,7 @@ public class Colgroup
     }
 
     /**
-     * widthプロパティの値を取得します。
+     * Gets the value of the width property.
      * 
      * @return
      *     possible object is
@@ -333,7 +326,7 @@ public class Colgroup
     }
 
     /**
-     * widthプロパティの値を設定します。
+     * Sets the value of the width property.
      * 
      * @param value
      *     allowed object is
@@ -349,7 +342,119 @@ public class Colgroup
     }
 
     /**
-     * idプロパティの値を取得します。
+     * Gets the value of the valign property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getValign() {
+        return valign;
+    }
+
+    /**
+     * Sets the value of the valign property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setValign(String value) {
+        this.valign = value;
+    }
+
+    public boolean isSetValign() {
+        return (this.valign!= null);
+    }
+
+    /**
+     * Gets the value of the align property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAlign() {
+        return align;
+    }
+
+    /**
+     * Sets the value of the align property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAlign(String value) {
+        this.align = value;
+    }
+
+    public boolean isSetAlign() {
+        return (this.align!= null);
+    }
+
+    /**
+     * Gets the value of the char property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getChar() {
+        return _char;
+    }
+
+    /**
+     * Sets the value of the char property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setChar(String value) {
+        this._char = value;
+    }
+
+    public boolean isSetChar() {
+        return (this._char!= null);
+    }
+
+    /**
+     * Gets the value of the charoff property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCharoff() {
+        return charoff;
+    }
+
+    /**
+     * Sets the value of the charoff property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCharoff(String value) {
+        this.charoff = value;
+    }
+
+    public boolean isSetCharoff() {
+        return (this.charoff!= null);
+    }
+
+    /**
+     * Gets the value of the id property.
      * 
      * @return
      *     possible object is
@@ -361,7 +466,7 @@ public class Colgroup
     }
 
     /**
-     * idプロパティの値を設定します。
+     * Sets the value of the id property.
      * 
      * @param value
      *     allowed object is
@@ -414,7 +519,7 @@ public class Colgroup
     }
 
     /**
-     * styleプロパティの値を取得します。
+     * Gets the value of the style property.
      * 
      * @return
      *     possible object is
@@ -426,7 +531,7 @@ public class Colgroup
     }
 
     /**
-     * styleプロパティの値を設定します。
+     * Sets the value of the style property.
      * 
      * @param value
      *     allowed object is
@@ -442,7 +547,7 @@ public class Colgroup
     }
 
     /**
-     * titleプロパティの値を取得します。
+     * Gets the value of the title property.
      * 
      * @return
      *     possible object is
@@ -454,7 +559,7 @@ public class Colgroup
     }
 
     /**
-     * titleプロパティの値を設定します。
+     * Sets the value of the title property.
      * 
      * @param value
      *     allowed object is
@@ -470,7 +575,7 @@ public class Colgroup
     }
 
     /**
-     * accesskeyプロパティの値を取得します。
+     * Gets the value of the accesskey property.
      * 
      * @return
      *     possible object is
@@ -482,7 +587,7 @@ public class Colgroup
     }
 
     /**
-     * accesskeyプロパティの値を設定します。
+     * Sets the value of the accesskey property.
      * 
      * @param value
      *     allowed object is
@@ -498,7 +603,7 @@ public class Colgroup
     }
 
     /**
-     * contenteditableプロパティの値を取得します。
+     * Gets the value of the contenteditable property.
      * 
      * @return
      *     possible object is
@@ -510,7 +615,7 @@ public class Colgroup
     }
 
     /**
-     * contenteditableプロパティの値を設定します。
+     * Sets the value of the contenteditable property.
      * 
      * @param value
      *     allowed object is
@@ -530,7 +635,7 @@ public class Colgroup
     }
 
     /**
-     * contextmenuプロパティの値を取得します。
+     * Gets the value of the contextmenu property.
      * 
      * @return
      *     possible object is
@@ -542,7 +647,7 @@ public class Colgroup
     }
 
     /**
-     * contextmenuプロパティの値を設定します。
+     * Sets the value of the contextmenu property.
      * 
      * @param value
      *     allowed object is
@@ -558,7 +663,7 @@ public class Colgroup
     }
 
     /**
-     * dirプロパティの値を取得します。
+     * Gets the value of the dir property.
      * 
      * @return
      *     possible object is
@@ -574,7 +679,7 @@ public class Colgroup
     }
 
     /**
-     * dirプロパティの値を設定します。
+     * Sets the value of the dir property.
      * 
      * @param value
      *     allowed object is
@@ -590,7 +695,7 @@ public class Colgroup
     }
 
     /**
-     * draggableプロパティの値を取得します。
+     * Gets the value of the draggable property.
      * 
      * @return
      *     possible object is
@@ -606,7 +711,7 @@ public class Colgroup
     }
 
     /**
-     * draggableプロパティの値を設定します。
+     * Sets the value of the draggable property.
      * 
      * @param value
      *     allowed object is
@@ -659,7 +764,7 @@ public class Colgroup
     }
 
     /**
-     * hiddenプロパティの値を取得します。
+     * Gets the value of the hidden property.
      * 
      * @return
      *     possible object is
@@ -671,7 +776,7 @@ public class Colgroup
     }
 
     /**
-     * hiddenプロパティの値を設定します。
+     * Sets the value of the hidden property.
      * 
      * @param value
      *     allowed object is
@@ -687,7 +792,7 @@ public class Colgroup
     }
 
     /**
-     * langCodeプロパティの値を取得します。
+     * Gets the value of the langCode property.
      * 
      * @return
      *     possible object is
@@ -699,7 +804,7 @@ public class Colgroup
     }
 
     /**
-     * langCodeプロパティの値を設定します。
+     * Sets the value of the langCode property.
      * 
      * @param value
      *     allowed object is
@@ -715,7 +820,7 @@ public class Colgroup
     }
 
     /**
-     * roleプロパティの値を取得します。
+     * Gets the value of the role property.
      * 
      * @return
      *     possible object is
@@ -727,7 +832,7 @@ public class Colgroup
     }
 
     /**
-     * roleプロパティの値を設定します。
+     * Sets the value of the role property.
      * 
      * @param value
      *     allowed object is
@@ -743,7 +848,7 @@ public class Colgroup
     }
 
     /**
-     * spellcheckプロパティの値を取得します。
+     * Gets the value of the spellcheck property.
      * 
      * @return
      *     possible object is
@@ -755,7 +860,7 @@ public class Colgroup
     }
 
     /**
-     * spellcheckプロパティの値を設定します。
+     * Sets the value of the spellcheck property.
      * 
      * @param value
      *     allowed object is
@@ -771,7 +876,7 @@ public class Colgroup
     }
 
     /**
-     * tabindexプロパティの値を取得します。
+     * Gets the value of the tabindex property.
      * 
      * @return
      *     possible object is
@@ -783,7 +888,7 @@ public class Colgroup
     }
 
     /**
-     * tabindexプロパティの値を設定します。
+     * Sets the value of the tabindex property.
      * 
      * @param value
      *     allowed object is
@@ -799,7 +904,7 @@ public class Colgroup
     }
 
     /**
-     * langプロパティの値を取得します。
+     * Gets the value of the lang property.
      * 
      * @return
      *     possible object is
@@ -811,7 +916,7 @@ public class Colgroup
     }
 
     /**
-     * langプロパティの値を設定します。
+     * Sets the value of the lang property.
      * 
      * @param value
      *     allowed object is
@@ -827,7 +932,7 @@ public class Colgroup
     }
 
     /**
-     * onclickプロパティの値を取得します。
+     * Gets the value of the onclick property.
      * 
      * @return
      *     possible object is
@@ -839,7 +944,7 @@ public class Colgroup
     }
 
     /**
-     * onclickプロパティの値を設定します。
+     * Sets the value of the onclick property.
      * 
      * @param value
      *     allowed object is
@@ -855,7 +960,7 @@ public class Colgroup
     }
 
     /**
-     * ondblclickプロパティの値を取得します。
+     * Gets the value of the ondblclick property.
      * 
      * @return
      *     possible object is
@@ -867,7 +972,7 @@ public class Colgroup
     }
 
     /**
-     * ondblclickプロパティの値を設定します。
+     * Sets the value of the ondblclick property.
      * 
      * @param value
      *     allowed object is
@@ -883,7 +988,7 @@ public class Colgroup
     }
 
     /**
-     * onmousedownプロパティの値を取得します。
+     * Gets the value of the onmousedown property.
      * 
      * @return
      *     possible object is
@@ -895,7 +1000,7 @@ public class Colgroup
     }
 
     /**
-     * onmousedownプロパティの値を設定します。
+     * Sets the value of the onmousedown property.
      * 
      * @param value
      *     allowed object is
@@ -911,7 +1016,7 @@ public class Colgroup
     }
 
     /**
-     * onmouseupプロパティの値を取得します。
+     * Gets the value of the onmouseup property.
      * 
      * @return
      *     possible object is
@@ -923,7 +1028,7 @@ public class Colgroup
     }
 
     /**
-     * onmouseupプロパティの値を設定します。
+     * Sets the value of the onmouseup property.
      * 
      * @param value
      *     allowed object is
@@ -939,7 +1044,7 @@ public class Colgroup
     }
 
     /**
-     * onmouseoverプロパティの値を取得します。
+     * Gets the value of the onmouseover property.
      * 
      * @return
      *     possible object is
@@ -951,7 +1056,7 @@ public class Colgroup
     }
 
     /**
-     * onmouseoverプロパティの値を設定します。
+     * Sets the value of the onmouseover property.
      * 
      * @param value
      *     allowed object is
@@ -967,7 +1072,7 @@ public class Colgroup
     }
 
     /**
-     * onmousemoveプロパティの値を取得します。
+     * Gets the value of the onmousemove property.
      * 
      * @return
      *     possible object is
@@ -979,7 +1084,7 @@ public class Colgroup
     }
 
     /**
-     * onmousemoveプロパティの値を設定します。
+     * Sets the value of the onmousemove property.
      * 
      * @param value
      *     allowed object is
@@ -995,7 +1100,7 @@ public class Colgroup
     }
 
     /**
-     * onmouseoutプロパティの値を取得します。
+     * Gets the value of the onmouseout property.
      * 
      * @return
      *     possible object is
@@ -1007,7 +1112,7 @@ public class Colgroup
     }
 
     /**
-     * onmouseoutプロパティの値を設定します。
+     * Sets the value of the onmouseout property.
      * 
      * @param value
      *     allowed object is
@@ -1023,7 +1128,7 @@ public class Colgroup
     }
 
     /**
-     * onkeypressプロパティの値を取得します。
+     * Gets the value of the onkeypress property.
      * 
      * @return
      *     possible object is
@@ -1035,7 +1140,7 @@ public class Colgroup
     }
 
     /**
-     * onkeypressプロパティの値を設定します。
+     * Sets the value of the onkeypress property.
      * 
      * @param value
      *     allowed object is
@@ -1051,7 +1156,7 @@ public class Colgroup
     }
 
     /**
-     * onkeydownプロパティの値を取得します。
+     * Gets the value of the onkeydown property.
      * 
      * @return
      *     possible object is
@@ -1063,7 +1168,7 @@ public class Colgroup
     }
 
     /**
-     * onkeydownプロパティの値を設定します。
+     * Sets the value of the onkeydown property.
      * 
      * @param value
      *     allowed object is
@@ -1079,7 +1184,7 @@ public class Colgroup
     }
 
     /**
-     * onkeyupプロパティの値を取得します。
+     * Gets the value of the onkeyup property.
      * 
      * @return
      *     possible object is
@@ -1091,7 +1196,7 @@ public class Colgroup
     }
 
     /**
-     * onkeyupプロパティの値を設定します。
+     * Sets the value of the onkeyup property.
      * 
      * @param value
      *     allowed object is
@@ -1107,7 +1212,7 @@ public class Colgroup
     }
 
     /**
-     * onabortプロパティの値を取得します。
+     * Gets the value of the onabort property.
      * 
      * @return
      *     possible object is
@@ -1119,7 +1224,7 @@ public class Colgroup
     }
 
     /**
-     * onabortプロパティの値を設定します。
+     * Sets the value of the onabort property.
      * 
      * @param value
      *     allowed object is
@@ -1135,7 +1240,7 @@ public class Colgroup
     }
 
     /**
-     * onblurプロパティの値を取得します。
+     * Gets the value of the onblur property.
      * 
      * @return
      *     possible object is
@@ -1147,7 +1252,7 @@ public class Colgroup
     }
 
     /**
-     * onblurプロパティの値を設定します。
+     * Sets the value of the onblur property.
      * 
      * @param value
      *     allowed object is
@@ -1163,7 +1268,7 @@ public class Colgroup
     }
 
     /**
-     * oncanplayプロパティの値を取得します。
+     * Gets the value of the oncanplay property.
      * 
      * @return
      *     possible object is
@@ -1175,7 +1280,7 @@ public class Colgroup
     }
 
     /**
-     * oncanplayプロパティの値を設定します。
+     * Sets the value of the oncanplay property.
      * 
      * @param value
      *     allowed object is
@@ -1191,7 +1296,7 @@ public class Colgroup
     }
 
     /**
-     * oncanplaythroughプロパティの値を取得します。
+     * Gets the value of the oncanplaythrough property.
      * 
      * @return
      *     possible object is
@@ -1203,7 +1308,7 @@ public class Colgroup
     }
 
     /**
-     * oncanplaythroughプロパティの値を設定します。
+     * Sets the value of the oncanplaythrough property.
      * 
      * @param value
      *     allowed object is
@@ -1219,7 +1324,7 @@ public class Colgroup
     }
 
     /**
-     * onchangeプロパティの値を取得します。
+     * Gets the value of the onchange property.
      * 
      * @return
      *     possible object is
@@ -1231,7 +1336,7 @@ public class Colgroup
     }
 
     /**
-     * onchangeプロパティの値を設定します。
+     * Sets the value of the onchange property.
      * 
      * @param value
      *     allowed object is
@@ -1247,7 +1352,7 @@ public class Colgroup
     }
 
     /**
-     * oncontextmenuプロパティの値を取得します。
+     * Gets the value of the oncontextmenu property.
      * 
      * @return
      *     possible object is
@@ -1259,7 +1364,7 @@ public class Colgroup
     }
 
     /**
-     * oncontextmenuプロパティの値を設定します。
+     * Sets the value of the oncontextmenu property.
      * 
      * @param value
      *     allowed object is
@@ -1275,7 +1380,7 @@ public class Colgroup
     }
 
     /**
-     * oncuechangeプロパティの値を取得します。
+     * Gets the value of the oncuechange property.
      * 
      * @return
      *     possible object is
@@ -1287,7 +1392,7 @@ public class Colgroup
     }
 
     /**
-     * oncuechangeプロパティの値を設定します。
+     * Sets the value of the oncuechange property.
      * 
      * @param value
      *     allowed object is
@@ -1303,7 +1408,7 @@ public class Colgroup
     }
 
     /**
-     * ondragプロパティの値を取得します。
+     * Gets the value of the ondrag property.
      * 
      * @return
      *     possible object is
@@ -1315,7 +1420,7 @@ public class Colgroup
     }
 
     /**
-     * ondragプロパティの値を設定します。
+     * Sets the value of the ondrag property.
      * 
      * @param value
      *     allowed object is
@@ -1331,7 +1436,7 @@ public class Colgroup
     }
 
     /**
-     * ondragendプロパティの値を取得します。
+     * Gets the value of the ondragend property.
      * 
      * @return
      *     possible object is
@@ -1343,7 +1448,7 @@ public class Colgroup
     }
 
     /**
-     * ondragendプロパティの値を設定します。
+     * Sets the value of the ondragend property.
      * 
      * @param value
      *     allowed object is
@@ -1359,7 +1464,7 @@ public class Colgroup
     }
 
     /**
-     * ondragenterプロパティの値を取得します。
+     * Gets the value of the ondragenter property.
      * 
      * @return
      *     possible object is
@@ -1371,7 +1476,7 @@ public class Colgroup
     }
 
     /**
-     * ondragenterプロパティの値を設定します。
+     * Sets the value of the ondragenter property.
      * 
      * @param value
      *     allowed object is
@@ -1387,7 +1492,7 @@ public class Colgroup
     }
 
     /**
-     * ondragleaveプロパティの値を取得します。
+     * Gets the value of the ondragleave property.
      * 
      * @return
      *     possible object is
@@ -1399,7 +1504,7 @@ public class Colgroup
     }
 
     /**
-     * ondragleaveプロパティの値を設定します。
+     * Sets the value of the ondragleave property.
      * 
      * @param value
      *     allowed object is
@@ -1415,7 +1520,7 @@ public class Colgroup
     }
 
     /**
-     * ondragoverプロパティの値を取得します。
+     * Gets the value of the ondragover property.
      * 
      * @return
      *     possible object is
@@ -1427,7 +1532,7 @@ public class Colgroup
     }
 
     /**
-     * ondragoverプロパティの値を設定します。
+     * Sets the value of the ondragover property.
      * 
      * @param value
      *     allowed object is
@@ -1443,7 +1548,7 @@ public class Colgroup
     }
 
     /**
-     * ondragstartプロパティの値を取得します。
+     * Gets the value of the ondragstart property.
      * 
      * @return
      *     possible object is
@@ -1455,7 +1560,7 @@ public class Colgroup
     }
 
     /**
-     * ondragstartプロパティの値を設定します。
+     * Sets the value of the ondragstart property.
      * 
      * @param value
      *     allowed object is
@@ -1471,7 +1576,7 @@ public class Colgroup
     }
 
     /**
-     * ondropプロパティの値を取得します。
+     * Gets the value of the ondrop property.
      * 
      * @return
      *     possible object is
@@ -1483,7 +1588,7 @@ public class Colgroup
     }
 
     /**
-     * ondropプロパティの値を設定します。
+     * Sets the value of the ondrop property.
      * 
      * @param value
      *     allowed object is
@@ -1499,7 +1604,7 @@ public class Colgroup
     }
 
     /**
-     * ondurationchangeプロパティの値を取得します。
+     * Gets the value of the ondurationchange property.
      * 
      * @return
      *     possible object is
@@ -1511,7 +1616,7 @@ public class Colgroup
     }
 
     /**
-     * ondurationchangeプロパティの値を設定します。
+     * Sets the value of the ondurationchange property.
      * 
      * @param value
      *     allowed object is
@@ -1527,7 +1632,7 @@ public class Colgroup
     }
 
     /**
-     * onemptiedプロパティの値を取得します。
+     * Gets the value of the onemptied property.
      * 
      * @return
      *     possible object is
@@ -1539,7 +1644,7 @@ public class Colgroup
     }
 
     /**
-     * onemptiedプロパティの値を設定します。
+     * Sets the value of the onemptied property.
      * 
      * @param value
      *     allowed object is
@@ -1555,7 +1660,7 @@ public class Colgroup
     }
 
     /**
-     * onendedプロパティの値を取得します。
+     * Gets the value of the onended property.
      * 
      * @return
      *     possible object is
@@ -1567,7 +1672,7 @@ public class Colgroup
     }
 
     /**
-     * onendedプロパティの値を設定します。
+     * Sets the value of the onended property.
      * 
      * @param value
      *     allowed object is
@@ -1583,7 +1688,7 @@ public class Colgroup
     }
 
     /**
-     * onerrorプロパティの値を取得します。
+     * Gets the value of the onerror property.
      * 
      * @return
      *     possible object is
@@ -1595,7 +1700,7 @@ public class Colgroup
     }
 
     /**
-     * onerrorプロパティの値を設定します。
+     * Sets the value of the onerror property.
      * 
      * @param value
      *     allowed object is
@@ -1611,7 +1716,7 @@ public class Colgroup
     }
 
     /**
-     * onfocusプロパティの値を取得します。
+     * Gets the value of the onfocus property.
      * 
      * @return
      *     possible object is
@@ -1623,7 +1728,7 @@ public class Colgroup
     }
 
     /**
-     * onfocusプロパティの値を設定します。
+     * Sets the value of the onfocus property.
      * 
      * @param value
      *     allowed object is
@@ -1639,7 +1744,7 @@ public class Colgroup
     }
 
     /**
-     * onformchangeプロパティの値を取得します。
+     * Gets the value of the onformchange property.
      * 
      * @return
      *     possible object is
@@ -1651,7 +1756,7 @@ public class Colgroup
     }
 
     /**
-     * onformchangeプロパティの値を設定します。
+     * Sets the value of the onformchange property.
      * 
      * @param value
      *     allowed object is
@@ -1667,7 +1772,7 @@ public class Colgroup
     }
 
     /**
-     * onforminputプロパティの値を取得します。
+     * Gets the value of the onforminput property.
      * 
      * @return
      *     possible object is
@@ -1679,7 +1784,7 @@ public class Colgroup
     }
 
     /**
-     * onforminputプロパティの値を設定します。
+     * Sets the value of the onforminput property.
      * 
      * @param value
      *     allowed object is
@@ -1695,7 +1800,7 @@ public class Colgroup
     }
 
     /**
-     * oninputプロパティの値を取得します。
+     * Gets the value of the oninput property.
      * 
      * @return
      *     possible object is
@@ -1707,7 +1812,7 @@ public class Colgroup
     }
 
     /**
-     * oninputプロパティの値を設定します。
+     * Sets the value of the oninput property.
      * 
      * @param value
      *     allowed object is
@@ -1723,7 +1828,7 @@ public class Colgroup
     }
 
     /**
-     * oninvalidプロパティの値を取得します。
+     * Gets the value of the oninvalid property.
      * 
      * @return
      *     possible object is
@@ -1735,7 +1840,7 @@ public class Colgroup
     }
 
     /**
-     * oninvalidプロパティの値を設定します。
+     * Sets the value of the oninvalid property.
      * 
      * @param value
      *     allowed object is
@@ -1751,7 +1856,7 @@ public class Colgroup
     }
 
     /**
-     * onloadプロパティの値を取得します。
+     * Gets the value of the onload property.
      * 
      * @return
      *     possible object is
@@ -1763,7 +1868,7 @@ public class Colgroup
     }
 
     /**
-     * onloadプロパティの値を設定します。
+     * Sets the value of the onload property.
      * 
      * @param value
      *     allowed object is
@@ -1779,7 +1884,7 @@ public class Colgroup
     }
 
     /**
-     * onloadeddataプロパティの値を取得します。
+     * Gets the value of the onloadeddata property.
      * 
      * @return
      *     possible object is
@@ -1791,7 +1896,7 @@ public class Colgroup
     }
 
     /**
-     * onloadeddataプロパティの値を設定します。
+     * Sets the value of the onloadeddata property.
      * 
      * @param value
      *     allowed object is
@@ -1807,7 +1912,7 @@ public class Colgroup
     }
 
     /**
-     * onloadedmetadataプロパティの値を取得します。
+     * Gets the value of the onloadedmetadata property.
      * 
      * @return
      *     possible object is
@@ -1819,7 +1924,7 @@ public class Colgroup
     }
 
     /**
-     * onloadedmetadataプロパティの値を設定します。
+     * Sets the value of the onloadedmetadata property.
      * 
      * @param value
      *     allowed object is
@@ -1835,7 +1940,7 @@ public class Colgroup
     }
 
     /**
-     * onloadstartプロパティの値を取得します。
+     * Gets the value of the onloadstart property.
      * 
      * @return
      *     possible object is
@@ -1847,7 +1952,7 @@ public class Colgroup
     }
 
     /**
-     * onloadstartプロパティの値を設定します。
+     * Sets the value of the onloadstart property.
      * 
      * @param value
      *     allowed object is
@@ -1863,7 +1968,7 @@ public class Colgroup
     }
 
     /**
-     * onmousewheelプロパティの値を取得します。
+     * Gets the value of the onmousewheel property.
      * 
      * @return
      *     possible object is
@@ -1875,7 +1980,7 @@ public class Colgroup
     }
 
     /**
-     * onmousewheelプロパティの値を設定します。
+     * Sets the value of the onmousewheel property.
      * 
      * @param value
      *     allowed object is
@@ -1891,7 +1996,7 @@ public class Colgroup
     }
 
     /**
-     * onpauseプロパティの値を取得します。
+     * Gets the value of the onpause property.
      * 
      * @return
      *     possible object is
@@ -1903,7 +2008,7 @@ public class Colgroup
     }
 
     /**
-     * onpauseプロパティの値を設定します。
+     * Sets the value of the onpause property.
      * 
      * @param value
      *     allowed object is
@@ -1919,7 +2024,7 @@ public class Colgroup
     }
 
     /**
-     * onplayプロパティの値を取得します。
+     * Gets the value of the onplay property.
      * 
      * @return
      *     possible object is
@@ -1931,7 +2036,7 @@ public class Colgroup
     }
 
     /**
-     * onplayプロパティの値を設定します。
+     * Sets the value of the onplay property.
      * 
      * @param value
      *     allowed object is
@@ -1947,7 +2052,7 @@ public class Colgroup
     }
 
     /**
-     * onplayingプロパティの値を取得します。
+     * Gets the value of the onplaying property.
      * 
      * @return
      *     possible object is
@@ -1959,7 +2064,7 @@ public class Colgroup
     }
 
     /**
-     * onplayingプロパティの値を設定します。
+     * Sets the value of the onplaying property.
      * 
      * @param value
      *     allowed object is
@@ -1975,7 +2080,7 @@ public class Colgroup
     }
 
     /**
-     * onprogressプロパティの値を取得します。
+     * Gets the value of the onprogress property.
      * 
      * @return
      *     possible object is
@@ -1987,7 +2092,7 @@ public class Colgroup
     }
 
     /**
-     * onprogressプロパティの値を設定します。
+     * Sets the value of the onprogress property.
      * 
      * @param value
      *     allowed object is
@@ -2003,7 +2108,7 @@ public class Colgroup
     }
 
     /**
-     * onratechangeプロパティの値を取得します。
+     * Gets the value of the onratechange property.
      * 
      * @return
      *     possible object is
@@ -2015,7 +2120,7 @@ public class Colgroup
     }
 
     /**
-     * onratechangeプロパティの値を設定します。
+     * Sets the value of the onratechange property.
      * 
      * @param value
      *     allowed object is
@@ -2031,7 +2136,7 @@ public class Colgroup
     }
 
     /**
-     * onreadystatechangeプロパティの値を取得します。
+     * Gets the value of the onreadystatechange property.
      * 
      * @return
      *     possible object is
@@ -2043,7 +2148,7 @@ public class Colgroup
     }
 
     /**
-     * onreadystatechangeプロパティの値を設定します。
+     * Sets the value of the onreadystatechange property.
      * 
      * @param value
      *     allowed object is
@@ -2059,7 +2164,7 @@ public class Colgroup
     }
 
     /**
-     * onresetプロパティの値を取得します。
+     * Gets the value of the onreset property.
      * 
      * @return
      *     possible object is
@@ -2071,7 +2176,7 @@ public class Colgroup
     }
 
     /**
-     * onresetプロパティの値を設定します。
+     * Sets the value of the onreset property.
      * 
      * @param value
      *     allowed object is
@@ -2087,7 +2192,7 @@ public class Colgroup
     }
 
     /**
-     * onscrollプロパティの値を取得します。
+     * Gets the value of the onscroll property.
      * 
      * @return
      *     possible object is
@@ -2099,7 +2204,7 @@ public class Colgroup
     }
 
     /**
-     * onscrollプロパティの値を設定します。
+     * Sets the value of the onscroll property.
      * 
      * @param value
      *     allowed object is
@@ -2115,7 +2220,7 @@ public class Colgroup
     }
 
     /**
-     * onseekedプロパティの値を取得します。
+     * Gets the value of the onseeked property.
      * 
      * @return
      *     possible object is
@@ -2127,7 +2232,7 @@ public class Colgroup
     }
 
     /**
-     * onseekedプロパティの値を設定します。
+     * Sets the value of the onseeked property.
      * 
      * @param value
      *     allowed object is
@@ -2143,7 +2248,7 @@ public class Colgroup
     }
 
     /**
-     * onseekingプロパティの値を取得します。
+     * Gets the value of the onseeking property.
      * 
      * @return
      *     possible object is
@@ -2155,7 +2260,7 @@ public class Colgroup
     }
 
     /**
-     * onseekingプロパティの値を設定します。
+     * Sets the value of the onseeking property.
      * 
      * @param value
      *     allowed object is
@@ -2171,7 +2276,7 @@ public class Colgroup
     }
 
     /**
-     * onselectプロパティの値を取得します。
+     * Gets the value of the onselect property.
      * 
      * @return
      *     possible object is
@@ -2183,7 +2288,7 @@ public class Colgroup
     }
 
     /**
-     * onselectプロパティの値を設定します。
+     * Sets the value of the onselect property.
      * 
      * @param value
      *     allowed object is
@@ -2199,7 +2304,7 @@ public class Colgroup
     }
 
     /**
-     * onshowプロパティの値を取得します。
+     * Gets the value of the onshow property.
      * 
      * @return
      *     possible object is
@@ -2211,7 +2316,7 @@ public class Colgroup
     }
 
     /**
-     * onshowプロパティの値を設定します。
+     * Sets the value of the onshow property.
      * 
      * @param value
      *     allowed object is
@@ -2227,7 +2332,7 @@ public class Colgroup
     }
 
     /**
-     * onstalledプロパティの値を取得します。
+     * Gets the value of the onstalled property.
      * 
      * @return
      *     possible object is
@@ -2239,7 +2344,7 @@ public class Colgroup
     }
 
     /**
-     * onstalledプロパティの値を設定します。
+     * Sets the value of the onstalled property.
      * 
      * @param value
      *     allowed object is
@@ -2255,7 +2360,7 @@ public class Colgroup
     }
 
     /**
-     * onsubmitプロパティの値を取得します。
+     * Gets the value of the onsubmit property.
      * 
      * @return
      *     possible object is
@@ -2267,7 +2372,7 @@ public class Colgroup
     }
 
     /**
-     * onsubmitプロパティの値を設定します。
+     * Sets the value of the onsubmit property.
      * 
      * @param value
      *     allowed object is
@@ -2283,7 +2388,7 @@ public class Colgroup
     }
 
     /**
-     * onsuspendプロパティの値を取得します。
+     * Gets the value of the onsuspend property.
      * 
      * @return
      *     possible object is
@@ -2295,7 +2400,7 @@ public class Colgroup
     }
 
     /**
-     * onsuspendプロパティの値を設定します。
+     * Sets the value of the onsuspend property.
      * 
      * @param value
      *     allowed object is
@@ -2311,7 +2416,7 @@ public class Colgroup
     }
 
     /**
-     * ontimeupdateプロパティの値を取得します。
+     * Gets the value of the ontimeupdate property.
      * 
      * @return
      *     possible object is
@@ -2323,7 +2428,7 @@ public class Colgroup
     }
 
     /**
-     * ontimeupdateプロパティの値を設定します。
+     * Sets the value of the ontimeupdate property.
      * 
      * @param value
      *     allowed object is
@@ -2339,7 +2444,7 @@ public class Colgroup
     }
 
     /**
-     * onvolumechangeプロパティの値を取得します。
+     * Gets the value of the onvolumechange property.
      * 
      * @return
      *     possible object is
@@ -2351,7 +2456,7 @@ public class Colgroup
     }
 
     /**
-     * onvolumechangeプロパティの値を設定します。
+     * Sets the value of the onvolumechange property.
      * 
      * @param value
      *     allowed object is
@@ -2367,7 +2472,7 @@ public class Colgroup
     }
 
     /**
-     * onwaitingプロパティの値を取得します。
+     * Gets the value of the onwaiting property.
      * 
      * @return
      *     possible object is
@@ -2379,7 +2484,7 @@ public class Colgroup
     }
 
     /**
-     * onwaitingプロパティの値を設定します。
+     * Sets the value of the onwaiting property.
      * 
      * @param value
      *     allowed object is
@@ -2392,118 +2497,6 @@ public class Colgroup
 
     public boolean isSetOnwaiting() {
         return (this.onwaiting!= null);
-    }
-
-    /**
-     * alignプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAlign() {
-        return align;
-    }
-
-    /**
-     * alignプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAlign(String value) {
-        this.align = value;
-    }
-
-    public boolean isSetAlign() {
-        return (this.align!= null);
-    }
-
-    /**
-     * charプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getChar() {
-        return _char;
-    }
-
-    /**
-     * charプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setChar(String value) {
-        this._char = value;
-    }
-
-    public boolean isSetChar() {
-        return (this._char!= null);
-    }
-
-    /**
-     * charoffプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCharoff() {
-        return charoff;
-    }
-
-    /**
-     * charoffプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCharoff(String value) {
-        this.charoff = value;
-    }
-
-    public boolean isSetCharoff() {
-        return (this.charoff!= null);
-    }
-
-    /**
-     * valignプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getValign() {
-        return valign;
-    }
-
-    /**
-     * valignプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setValign(String value) {
-        this.valign = value;
-    }
-
-    public boolean isSetValign() {
-        return (this.valign!= null);
     }
 
     /**
@@ -2553,6 +2546,26 @@ public class Colgroup
             String theWidth;
             theWidth = this.getWidth();
             strategy.appendField(locator, this, "width", buffer, theWidth);
+        }
+        {
+            String theValign;
+            theValign = this.getValign();
+            strategy.appendField(locator, this, "valign", buffer, theValign);
+        }
+        {
+            String theAlign;
+            theAlign = this.getAlign();
+            strategy.appendField(locator, this, "align", buffer, theAlign);
+        }
+        {
+            String theChar;
+            theChar = this.getChar();
+            strategy.appendField(locator, this, "_char", buffer, theChar);
+        }
+        {
+            String theCharoff;
+            theCharoff = this.getCharoff();
+            strategy.appendField(locator, this, "charoff", buffer, theCharoff);
         }
         {
             String theId;
@@ -2914,26 +2927,6 @@ public class Colgroup
             theOnwaiting = this.getOnwaiting();
             strategy.appendField(locator, this, "onwaiting", buffer, theOnwaiting);
         }
-        {
-            String theAlign;
-            theAlign = this.getAlign();
-            strategy.appendField(locator, this, "align", buffer, theAlign);
-        }
-        {
-            String theChar;
-            theChar = this.getChar();
-            strategy.appendField(locator, this, "_char", buffer, theChar);
-        }
-        {
-            String theCharoff;
-            theCharoff = this.getCharoff();
-            strategy.appendField(locator, this, "charoff", buffer, theCharoff);
-        }
-        {
-            String theValign;
-            theValign = this.getValign();
-            strategy.appendField(locator, this, "valign", buffer, theValign);
-        }
         return buffer;
     }
 
@@ -2969,6 +2962,42 @@ public class Colgroup
             String rhsWidth;
             rhsWidth = that.getWidth();
             if (!strategy.equals(LocatorUtils.property(thisLocator, "width", lhsWidth), LocatorUtils.property(thatLocator, "width", rhsWidth), lhsWidth, rhsWidth)) {
+                return false;
+            }
+        }
+        {
+            String lhsValign;
+            lhsValign = this.getValign();
+            String rhsValign;
+            rhsValign = that.getValign();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "valign", lhsValign), LocatorUtils.property(thatLocator, "valign", rhsValign), lhsValign, rhsValign)) {
+                return false;
+            }
+        }
+        {
+            String lhsAlign;
+            lhsAlign = this.getAlign();
+            String rhsAlign;
+            rhsAlign = that.getAlign();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "align", lhsAlign), LocatorUtils.property(thatLocator, "align", rhsAlign), lhsAlign, rhsAlign)) {
+                return false;
+            }
+        }
+        {
+            String lhsChar;
+            lhsChar = this.getChar();
+            String rhsChar;
+            rhsChar = that.getChar();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "_char", lhsChar), LocatorUtils.property(thatLocator, "_char", rhsChar), lhsChar, rhsChar)) {
+                return false;
+            }
+        }
+        {
+            String lhsCharoff;
+            lhsCharoff = this.getCharoff();
+            String rhsCharoff;
+            rhsCharoff = that.getCharoff();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "charoff", lhsCharoff), LocatorUtils.property(thatLocator, "charoff", rhsCharoff), lhsCharoff, rhsCharoff)) {
                 return false;
             }
         }
@@ -3620,42 +3649,6 @@ public class Colgroup
                 return false;
             }
         }
-        {
-            String lhsAlign;
-            lhsAlign = this.getAlign();
-            String rhsAlign;
-            rhsAlign = that.getAlign();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "align", lhsAlign), LocatorUtils.property(thatLocator, "align", rhsAlign), lhsAlign, rhsAlign)) {
-                return false;
-            }
-        }
-        {
-            String lhsChar;
-            lhsChar = this.getChar();
-            String rhsChar;
-            rhsChar = that.getChar();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "_char", lhsChar), LocatorUtils.property(thatLocator, "_char", rhsChar), lhsChar, rhsChar)) {
-                return false;
-            }
-        }
-        {
-            String lhsCharoff;
-            lhsCharoff = this.getCharoff();
-            String rhsCharoff;
-            rhsCharoff = that.getCharoff();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "charoff", lhsCharoff), LocatorUtils.property(thatLocator, "charoff", rhsCharoff), lhsCharoff, rhsCharoff)) {
-                return false;
-            }
-        }
-        {
-            String lhsValign;
-            lhsValign = this.getValign();
-            String rhsValign;
-            rhsValign = that.getValign();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "valign", lhsValign), LocatorUtils.property(thatLocator, "valign", rhsValign), lhsValign, rhsValign)) {
-                return false;
-            }
-        }
         return true;
     }
 
@@ -3680,6 +3673,26 @@ public class Colgroup
             String theWidth;
             theWidth = this.getWidth();
             currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "width", theWidth), currentHashCode, theWidth);
+        }
+        {
+            String theValign;
+            theValign = this.getValign();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "valign", theValign), currentHashCode, theValign);
+        }
+        {
+            String theAlign;
+            theAlign = this.getAlign();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "align", theAlign), currentHashCode, theAlign);
+        }
+        {
+            String theChar;
+            theChar = this.getChar();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "_char", theChar), currentHashCode, theChar);
+        }
+        {
+            String theCharoff;
+            theCharoff = this.getCharoff();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "charoff", theCharoff), currentHashCode, theCharoff);
         }
         {
             String theId;
@@ -4041,26 +4054,6 @@ public class Colgroup
             theOnwaiting = this.getOnwaiting();
             currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onwaiting", theOnwaiting), currentHashCode, theOnwaiting);
         }
-        {
-            String theAlign;
-            theAlign = this.getAlign();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "align", theAlign), currentHashCode, theAlign);
-        }
-        {
-            String theChar;
-            theChar = this.getChar();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "_char", theChar), currentHashCode, theChar);
-        }
-        {
-            String theCharoff;
-            theCharoff = this.getCharoff();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "charoff", theCharoff), currentHashCode, theCharoff);
-        }
-        {
-            String theValign;
-            theValign = this.getValign();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "valign", theValign), currentHashCode, theValign);
-        }
         return currentHashCode;
     }
 
@@ -4110,6 +4103,38 @@ public class Colgroup
                 copy.setWidth(copyWidth);
             } else {
                 copy.width = null;
+            }
+            if (this.isSetValign()) {
+                String sourceValign;
+                sourceValign = this.getValign();
+                String copyValign = ((String) strategy.copy(LocatorUtils.property(locator, "valign", sourceValign), sourceValign));
+                copy.setValign(copyValign);
+            } else {
+                copy.valign = null;
+            }
+            if (this.isSetAlign()) {
+                String sourceAlign;
+                sourceAlign = this.getAlign();
+                String copyAlign = ((String) strategy.copy(LocatorUtils.property(locator, "align", sourceAlign), sourceAlign));
+                copy.setAlign(copyAlign);
+            } else {
+                copy.align = null;
+            }
+            if (this.isSetChar()) {
+                String sourceChar;
+                sourceChar = this.getChar();
+                String copyChar = ((String) strategy.copy(LocatorUtils.property(locator, "_char", sourceChar), sourceChar));
+                copy.setChar(copyChar);
+            } else {
+                copy._char = null;
+            }
+            if (this.isSetCharoff()) {
+                String sourceCharoff;
+                sourceCharoff = this.getCharoff();
+                String copyCharoff = ((String) strategy.copy(LocatorUtils.property(locator, "charoff", sourceCharoff), sourceCharoff));
+                copy.setCharoff(copyCharoff);
+            } else {
+                copy.charoff = null;
             }
             if (this.isSetId()) {
                 String sourceId;
@@ -4696,38 +4721,6 @@ public class Colgroup
                 copy.setOnwaiting(copyOnwaiting);
             } else {
                 copy.onwaiting = null;
-            }
-            if (this.isSetAlign()) {
-                String sourceAlign;
-                sourceAlign = this.getAlign();
-                String copyAlign = ((String) strategy.copy(LocatorUtils.property(locator, "align", sourceAlign), sourceAlign));
-                copy.setAlign(copyAlign);
-            } else {
-                copy.align = null;
-            }
-            if (this.isSetChar()) {
-                String sourceChar;
-                sourceChar = this.getChar();
-                String copyChar = ((String) strategy.copy(LocatorUtils.property(locator, "_char", sourceChar), sourceChar));
-                copy.setChar(copyChar);
-            } else {
-                copy._char = null;
-            }
-            if (this.isSetCharoff()) {
-                String sourceCharoff;
-                sourceCharoff = this.getCharoff();
-                String copyCharoff = ((String) strategy.copy(LocatorUtils.property(locator, "charoff", sourceCharoff), sourceCharoff));
-                copy.setCharoff(copyCharoff);
-            } else {
-                copy.charoff = null;
-            }
-            if (this.isSetValign()) {
-                String sourceValign;
-                sourceValign = this.getValign();
-                String copyValign = ((String) strategy.copy(LocatorUtils.property(locator, "valign", sourceValign), sourceValign));
-                copy.setValign(copyValign);
-            } else {
-                copy.valign = null;
             }
         }
         return draftCopy;

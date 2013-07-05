@@ -1,10 +1,3 @@
-//
-// このファイルは、JavaTM Architecture for XML Binding(JAXB) Reference Implementation、v2.2.6によって生成されました 
-// <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a>を参照してください 
-// ソース・スキーマの再コンパイル時にこのファイルの変更は失われます。 
-// 生成日: 2013.07.04 時間 09:23:41 PM JST 
-//
-
 
 package org.mixer2.jaxb.xhtml;
 
@@ -42,9 +35,9 @@ import org.mixer2.xhtml.AbstractJaxb;
 
 
 /**
- * <p>anonymous complex typeのJavaクラス。
+ * <p>Java class for anonymous complex type.
  * 
- * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -413,7 +406,7 @@ public class Input
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
     /**
-     * acceptプロパティの値を取得します。
+     * Gets the value of the accept property.
      * 
      * @return
      *     possible object is
@@ -425,7 +418,7 @@ public class Input
     }
 
     /**
-     * acceptプロパティの値を設定します。
+     * Sets the value of the accept property.
      * 
      * @param value
      *     allowed object is
@@ -441,7 +434,7 @@ public class Input
     }
 
     /**
-     * alignプロパティの値を取得します。
+     * Gets the value of the align property.
      * 
      * @return
      *     possible object is
@@ -453,7 +446,7 @@ public class Input
     }
 
     /**
-     * alignプロパティの値を設定します。
+     * Sets the value of the align property.
      * 
      * @param value
      *     allowed object is
@@ -469,7 +462,7 @@ public class Input
     }
 
     /**
-     * altプロパティの値を取得します。
+     * Gets the value of the alt property.
      * 
      * @return
      *     possible object is
@@ -481,7 +474,7 @@ public class Input
     }
 
     /**
-     * altプロパティの値を設定します。
+     * Sets the value of the alt property.
      * 
      * @param value
      *     allowed object is
@@ -497,7 +490,7 @@ public class Input
     }
 
     /**
-     * autocompleteプロパティの値を取得します。
+     * Gets the value of the autocomplete property.
      * 
      * @return
      *     possible object is
@@ -513,7 +506,7 @@ public class Input
     }
 
     /**
-     * autocompleteプロパティの値を設定します。
+     * Sets the value of the autocomplete property.
      * 
      * @param value
      *     allowed object is
@@ -529,7 +522,7 @@ public class Input
     }
 
     /**
-     * autofocusプロパティの値を取得します。
+     * Gets the value of the autofocus property.
      * 
      * @return
      *     possible object is
@@ -541,7 +534,7 @@ public class Input
     }
 
     /**
-     * autofocusプロパティの値を設定します。
+     * Sets the value of the autofocus property.
      * 
      * @param value
      *     allowed object is
@@ -557,7 +550,7 @@ public class Input
     }
 
     /**
-     * checkedプロパティの値を取得します。
+     * Gets the value of the checked property.
      * 
      * @return
      *     possible object is
@@ -569,7 +562,7 @@ public class Input
     }
 
     /**
-     * checkedプロパティの値を設定します。
+     * Sets the value of the checked property.
      * 
      * @param value
      *     allowed object is
@@ -585,7 +578,7 @@ public class Input
     }
 
     /**
-     * disabledプロパティの値を取得します。
+     * Gets the value of the disabled property.
      * 
      * @return
      *     possible object is
@@ -597,7 +590,7 @@ public class Input
     }
 
     /**
-     * disabledプロパティの値を設定します。
+     * Sets the value of the disabled property.
      * 
      * @param value
      *     allowed object is
@@ -613,7 +606,7 @@ public class Input
     }
 
     /**
-     * dirnameプロパティの値を取得します。
+     * Gets the value of the dirname property.
      * 
      * @return
      *     possible object is
@@ -625,7 +618,7 @@ public class Input
     }
 
     /**
-     * dirnameプロパティの値を設定します。
+     * Sets the value of the dirname property.
      * 
      * @param value
      *     allowed object is
@@ -641,7 +634,7 @@ public class Input
     }
 
     /**
-     * formプロパティの値を取得します。
+     * Gets the value of the form property.
      * 
      * @return
      *     possible object is
@@ -653,7 +646,7 @@ public class Input
     }
 
     /**
-     * formプロパティの値を設定します。
+     * Sets the value of the form property.
      * 
      * @param value
      *     allowed object is
@@ -669,7 +662,7 @@ public class Input
     }
 
     /**
-     * formactionプロパティの値を取得します。
+     * Gets the value of the formaction property.
      * 
      * @return
      *     possible object is
@@ -681,7 +674,7 @@ public class Input
     }
 
     /**
-     * formactionプロパティの値を設定します。
+     * Sets the value of the formaction property.
      * 
      * @param value
      *     allowed object is
@@ -697,7 +690,7 @@ public class Input
     }
 
     /**
-     * formenctypeプロパティの値を取得します。
+     * Gets the value of the formenctype property.
      * 
      * @return
      *     possible object is
@@ -713,7 +706,7 @@ public class Input
     }
 
     /**
-     * formenctypeプロパティの値を設定します。
+     * Sets the value of the formenctype property.
      * 
      * @param value
      *     allowed object is
@@ -729,7 +722,7 @@ public class Input
     }
 
     /**
-     * formmethodプロパティの値を取得します。
+     * Gets the value of the formmethod property.
      * 
      * @return
      *     possible object is
@@ -745,7 +738,7 @@ public class Input
     }
 
     /**
-     * formmethodプロパティの値を設定します。
+     * Sets the value of the formmethod property.
      * 
      * @param value
      *     allowed object is
@@ -761,7 +754,7 @@ public class Input
     }
 
     /**
-     * formnovalidateプロパティの値を取得します。
+     * Gets the value of the formnovalidate property.
      * 
      * @return
      *     possible object is
@@ -773,7 +766,7 @@ public class Input
     }
 
     /**
-     * formnovalidateプロパティの値を設定します。
+     * Sets the value of the formnovalidate property.
      * 
      * @param value
      *     allowed object is
@@ -789,7 +782,7 @@ public class Input
     }
 
     /**
-     * formtargetプロパティの値を取得します。
+     * Gets the value of the formtarget property.
      * 
      * @return
      *     possible object is
@@ -801,7 +794,7 @@ public class Input
     }
 
     /**
-     * formtargetプロパティの値を設定します。
+     * Sets the value of the formtarget property.
      * 
      * @param value
      *     allowed object is
@@ -817,7 +810,7 @@ public class Input
     }
 
     /**
-     * heightプロパティの値を取得します。
+     * Gets the value of the height property.
      * 
      * @return
      *     possible object is
@@ -829,7 +822,7 @@ public class Input
     }
 
     /**
-     * heightプロパティの値を設定します。
+     * Sets the value of the height property.
      * 
      * @param value
      *     allowed object is
@@ -845,7 +838,7 @@ public class Input
     }
 
     /**
-     * widthプロパティの値を取得します。
+     * Gets the value of the width property.
      * 
      * @return
      *     possible object is
@@ -857,7 +850,7 @@ public class Input
     }
 
     /**
-     * widthプロパティの値を設定します。
+     * Sets the value of the width property.
      * 
      * @param value
      *     allowed object is
@@ -873,7 +866,7 @@ public class Input
     }
 
     /**
-     * listプロパティの値を取得します。
+     * Gets the value of the list property.
      * 
      * @return
      *     possible object is
@@ -885,7 +878,7 @@ public class Input
     }
 
     /**
-     * listプロパティの値を設定します。
+     * Sets the value of the list property.
      * 
      * @param value
      *     allowed object is
@@ -901,7 +894,7 @@ public class Input
     }
 
     /**
-     * maxlengthプロパティの値を取得します。
+     * Gets the value of the maxlength property.
      * 
      * @return
      *     possible object is
@@ -913,7 +906,7 @@ public class Input
     }
 
     /**
-     * maxlengthプロパティの値を設定します。
+     * Sets the value of the maxlength property.
      * 
      * @param value
      *     allowed object is
@@ -929,7 +922,7 @@ public class Input
     }
 
     /**
-     * maxプロパティの値を取得します。
+     * Gets the value of the max property.
      * 
      * @return
      *     possible object is
@@ -941,7 +934,7 @@ public class Input
     }
 
     /**
-     * maxプロパティの値を設定します。
+     * Sets the value of the max property.
      * 
      * @param value
      *     allowed object is
@@ -957,7 +950,7 @@ public class Input
     }
 
     /**
-     * minプロパティの値を取得します。
+     * Gets the value of the min property.
      * 
      * @return
      *     possible object is
@@ -969,7 +962,7 @@ public class Input
     }
 
     /**
-     * minプロパティの値を設定します。
+     * Sets the value of the min property.
      * 
      * @param value
      *     allowed object is
@@ -985,7 +978,7 @@ public class Input
     }
 
     /**
-     * multipleプロパティの値を取得します。
+     * Gets the value of the multiple property.
      * 
      * @return
      *     possible object is
@@ -997,7 +990,7 @@ public class Input
     }
 
     /**
-     * multipleプロパティの値を設定します。
+     * Sets the value of the multiple property.
      * 
      * @param value
      *     allowed object is
@@ -1013,7 +1006,7 @@ public class Input
     }
 
     /**
-     * nameプロパティの値を取得します。
+     * Gets the value of the name property.
      * 
      * @return
      *     possible object is
@@ -1025,7 +1018,7 @@ public class Input
     }
 
     /**
-     * nameプロパティの値を設定します。
+     * Sets the value of the name property.
      * 
      * @param value
      *     allowed object is
@@ -1041,7 +1034,7 @@ public class Input
     }
 
     /**
-     * patternプロパティの値を取得します。
+     * Gets the value of the pattern property.
      * 
      * @return
      *     possible object is
@@ -1053,7 +1046,7 @@ public class Input
     }
 
     /**
-     * patternプロパティの値を設定します。
+     * Sets the value of the pattern property.
      * 
      * @param value
      *     allowed object is
@@ -1069,7 +1062,7 @@ public class Input
     }
 
     /**
-     * placeholderプロパティの値を取得します。
+     * Gets the value of the placeholder property.
      * 
      * @return
      *     possible object is
@@ -1081,7 +1074,7 @@ public class Input
     }
 
     /**
-     * placeholderプロパティの値を設定します。
+     * Sets the value of the placeholder property.
      * 
      * @param value
      *     allowed object is
@@ -1097,7 +1090,7 @@ public class Input
     }
 
     /**
-     * readonlyプロパティの値を取得します。
+     * Gets the value of the readonly property.
      * 
      * @return
      *     possible object is
@@ -1109,7 +1102,7 @@ public class Input
     }
 
     /**
-     * readonlyプロパティの値を設定します。
+     * Sets the value of the readonly property.
      * 
      * @param value
      *     allowed object is
@@ -1125,7 +1118,7 @@ public class Input
     }
 
     /**
-     * requiredプロパティの値を取得します。
+     * Gets the value of the required property.
      * 
      * @return
      *     possible object is
@@ -1137,7 +1130,7 @@ public class Input
     }
 
     /**
-     * requiredプロパティの値を設定します。
+     * Sets the value of the required property.
      * 
      * @param value
      *     allowed object is
@@ -1153,7 +1146,7 @@ public class Input
     }
 
     /**
-     * sizeプロパティの値を取得します。
+     * Gets the value of the size property.
      * 
      * @return
      *     possible object is
@@ -1165,7 +1158,7 @@ public class Input
     }
 
     /**
-     * sizeプロパティの値を設定します。
+     * Sets the value of the size property.
      * 
      * @param value
      *     allowed object is
@@ -1181,7 +1174,7 @@ public class Input
     }
 
     /**
-     * srcプロパティの値を取得します。
+     * Gets the value of the src property.
      * 
      * @return
      *     possible object is
@@ -1193,7 +1186,7 @@ public class Input
     }
 
     /**
-     * srcプロパティの値を設定します。
+     * Sets the value of the src property.
      * 
      * @param value
      *     allowed object is
@@ -1209,7 +1202,7 @@ public class Input
     }
 
     /**
-     * stepプロパティの値を取得します。
+     * Gets the value of the step property.
      * 
      * @return
      *     possible object is
@@ -1221,7 +1214,7 @@ public class Input
     }
 
     /**
-     * stepプロパティの値を設定します。
+     * Sets the value of the step property.
      * 
      * @param value
      *     allowed object is
@@ -1237,7 +1230,7 @@ public class Input
     }
 
     /**
-     * typeプロパティの値を取得します。
+     * Gets the value of the type property.
      * 
      * @return
      *     possible object is
@@ -1253,7 +1246,7 @@ public class Input
     }
 
     /**
-     * typeプロパティの値を設定します。
+     * Sets the value of the type property.
      * 
      * @param value
      *     allowed object is
@@ -1269,7 +1262,7 @@ public class Input
     }
 
     /**
-     * usemapプロパティの値を取得します。
+     * Gets the value of the usemap property.
      * 
      * @return
      *     possible object is
@@ -1281,7 +1274,7 @@ public class Input
     }
 
     /**
-     * usemapプロパティの値を設定します。
+     * Sets the value of the usemap property.
      * 
      * @param value
      *     allowed object is
@@ -1297,7 +1290,7 @@ public class Input
     }
 
     /**
-     * valueプロパティの値を取得します。
+     * Gets the value of the value property.
      * 
      * @return
      *     possible object is
@@ -1309,7 +1302,7 @@ public class Input
     }
 
     /**
-     * valueプロパティの値を設定します。
+     * Sets the value of the value property.
      * 
      * @param value
      *     allowed object is
@@ -1325,7 +1318,7 @@ public class Input
     }
 
     /**
-     * idプロパティの値を取得します。
+     * Gets the value of the id property.
      * 
      * @return
      *     possible object is
@@ -1337,7 +1330,7 @@ public class Input
     }
 
     /**
-     * idプロパティの値を設定します。
+     * Sets the value of the id property.
      * 
      * @param value
      *     allowed object is
@@ -1390,7 +1383,7 @@ public class Input
     }
 
     /**
-     * styleプロパティの値を取得します。
+     * Gets the value of the style property.
      * 
      * @return
      *     possible object is
@@ -1402,7 +1395,7 @@ public class Input
     }
 
     /**
-     * styleプロパティの値を設定します。
+     * Sets the value of the style property.
      * 
      * @param value
      *     allowed object is
@@ -1418,7 +1411,7 @@ public class Input
     }
 
     /**
-     * titleプロパティの値を取得します。
+     * Gets the value of the title property.
      * 
      * @return
      *     possible object is
@@ -1430,7 +1423,7 @@ public class Input
     }
 
     /**
-     * titleプロパティの値を設定します。
+     * Sets the value of the title property.
      * 
      * @param value
      *     allowed object is
@@ -1446,7 +1439,7 @@ public class Input
     }
 
     /**
-     * accesskeyプロパティの値を取得します。
+     * Gets the value of the accesskey property.
      * 
      * @return
      *     possible object is
@@ -1458,7 +1451,7 @@ public class Input
     }
 
     /**
-     * accesskeyプロパティの値を設定します。
+     * Sets the value of the accesskey property.
      * 
      * @param value
      *     allowed object is
@@ -1474,7 +1467,7 @@ public class Input
     }
 
     /**
-     * contenteditableプロパティの値を取得します。
+     * Gets the value of the contenteditable property.
      * 
      * @return
      *     possible object is
@@ -1486,7 +1479,7 @@ public class Input
     }
 
     /**
-     * contenteditableプロパティの値を設定します。
+     * Sets the value of the contenteditable property.
      * 
      * @param value
      *     allowed object is
@@ -1506,7 +1499,7 @@ public class Input
     }
 
     /**
-     * contextmenuプロパティの値を取得します。
+     * Gets the value of the contextmenu property.
      * 
      * @return
      *     possible object is
@@ -1518,7 +1511,7 @@ public class Input
     }
 
     /**
-     * contextmenuプロパティの値を設定します。
+     * Sets the value of the contextmenu property.
      * 
      * @param value
      *     allowed object is
@@ -1534,7 +1527,7 @@ public class Input
     }
 
     /**
-     * dirプロパティの値を取得します。
+     * Gets the value of the dir property.
      * 
      * @return
      *     possible object is
@@ -1550,7 +1543,7 @@ public class Input
     }
 
     /**
-     * dirプロパティの値を設定します。
+     * Sets the value of the dir property.
      * 
      * @param value
      *     allowed object is
@@ -1566,7 +1559,7 @@ public class Input
     }
 
     /**
-     * draggableプロパティの値を取得します。
+     * Gets the value of the draggable property.
      * 
      * @return
      *     possible object is
@@ -1582,7 +1575,7 @@ public class Input
     }
 
     /**
-     * draggableプロパティの値を設定します。
+     * Sets the value of the draggable property.
      * 
      * @param value
      *     allowed object is
@@ -1635,7 +1628,7 @@ public class Input
     }
 
     /**
-     * hiddenプロパティの値を取得します。
+     * Gets the value of the hidden property.
      * 
      * @return
      *     possible object is
@@ -1647,7 +1640,7 @@ public class Input
     }
 
     /**
-     * hiddenプロパティの値を設定します。
+     * Sets the value of the hidden property.
      * 
      * @param value
      *     allowed object is
@@ -1663,7 +1656,7 @@ public class Input
     }
 
     /**
-     * langCodeプロパティの値を取得します。
+     * Gets the value of the langCode property.
      * 
      * @return
      *     possible object is
@@ -1675,7 +1668,7 @@ public class Input
     }
 
     /**
-     * langCodeプロパティの値を設定します。
+     * Sets the value of the langCode property.
      * 
      * @param value
      *     allowed object is
@@ -1691,7 +1684,7 @@ public class Input
     }
 
     /**
-     * roleプロパティの値を取得します。
+     * Gets the value of the role property.
      * 
      * @return
      *     possible object is
@@ -1703,7 +1696,7 @@ public class Input
     }
 
     /**
-     * roleプロパティの値を設定します。
+     * Sets the value of the role property.
      * 
      * @param value
      *     allowed object is
@@ -1719,7 +1712,7 @@ public class Input
     }
 
     /**
-     * spellcheckプロパティの値を取得します。
+     * Gets the value of the spellcheck property.
      * 
      * @return
      *     possible object is
@@ -1731,7 +1724,7 @@ public class Input
     }
 
     /**
-     * spellcheckプロパティの値を設定します。
+     * Sets the value of the spellcheck property.
      * 
      * @param value
      *     allowed object is
@@ -1747,7 +1740,7 @@ public class Input
     }
 
     /**
-     * tabindexプロパティの値を取得します。
+     * Gets the value of the tabindex property.
      * 
      * @return
      *     possible object is
@@ -1759,7 +1752,7 @@ public class Input
     }
 
     /**
-     * tabindexプロパティの値を設定します。
+     * Sets the value of the tabindex property.
      * 
      * @param value
      *     allowed object is
@@ -1775,7 +1768,7 @@ public class Input
     }
 
     /**
-     * langプロパティの値を取得します。
+     * Gets the value of the lang property.
      * 
      * @return
      *     possible object is
@@ -1787,7 +1780,7 @@ public class Input
     }
 
     /**
-     * langプロパティの値を設定します。
+     * Sets the value of the lang property.
      * 
      * @param value
      *     allowed object is
@@ -1803,7 +1796,7 @@ public class Input
     }
 
     /**
-     * onclickプロパティの値を取得します。
+     * Gets the value of the onclick property.
      * 
      * @return
      *     possible object is
@@ -1815,7 +1808,7 @@ public class Input
     }
 
     /**
-     * onclickプロパティの値を設定します。
+     * Sets the value of the onclick property.
      * 
      * @param value
      *     allowed object is
@@ -1831,7 +1824,7 @@ public class Input
     }
 
     /**
-     * ondblclickプロパティの値を取得します。
+     * Gets the value of the ondblclick property.
      * 
      * @return
      *     possible object is
@@ -1843,7 +1836,7 @@ public class Input
     }
 
     /**
-     * ondblclickプロパティの値を設定します。
+     * Sets the value of the ondblclick property.
      * 
      * @param value
      *     allowed object is
@@ -1859,7 +1852,7 @@ public class Input
     }
 
     /**
-     * onmousedownプロパティの値を取得します。
+     * Gets the value of the onmousedown property.
      * 
      * @return
      *     possible object is
@@ -1871,7 +1864,7 @@ public class Input
     }
 
     /**
-     * onmousedownプロパティの値を設定します。
+     * Sets the value of the onmousedown property.
      * 
      * @param value
      *     allowed object is
@@ -1887,7 +1880,7 @@ public class Input
     }
 
     /**
-     * onmouseupプロパティの値を取得します。
+     * Gets the value of the onmouseup property.
      * 
      * @return
      *     possible object is
@@ -1899,7 +1892,7 @@ public class Input
     }
 
     /**
-     * onmouseupプロパティの値を設定します。
+     * Sets the value of the onmouseup property.
      * 
      * @param value
      *     allowed object is
@@ -1915,7 +1908,7 @@ public class Input
     }
 
     /**
-     * onmouseoverプロパティの値を取得します。
+     * Gets the value of the onmouseover property.
      * 
      * @return
      *     possible object is
@@ -1927,7 +1920,7 @@ public class Input
     }
 
     /**
-     * onmouseoverプロパティの値を設定します。
+     * Sets the value of the onmouseover property.
      * 
      * @param value
      *     allowed object is
@@ -1943,7 +1936,7 @@ public class Input
     }
 
     /**
-     * onmousemoveプロパティの値を取得します。
+     * Gets the value of the onmousemove property.
      * 
      * @return
      *     possible object is
@@ -1955,7 +1948,7 @@ public class Input
     }
 
     /**
-     * onmousemoveプロパティの値を設定します。
+     * Sets the value of the onmousemove property.
      * 
      * @param value
      *     allowed object is
@@ -1971,7 +1964,7 @@ public class Input
     }
 
     /**
-     * onmouseoutプロパティの値を取得します。
+     * Gets the value of the onmouseout property.
      * 
      * @return
      *     possible object is
@@ -1983,7 +1976,7 @@ public class Input
     }
 
     /**
-     * onmouseoutプロパティの値を設定します。
+     * Sets the value of the onmouseout property.
      * 
      * @param value
      *     allowed object is
@@ -1999,7 +1992,7 @@ public class Input
     }
 
     /**
-     * onkeypressプロパティの値を取得します。
+     * Gets the value of the onkeypress property.
      * 
      * @return
      *     possible object is
@@ -2011,7 +2004,7 @@ public class Input
     }
 
     /**
-     * onkeypressプロパティの値を設定します。
+     * Sets the value of the onkeypress property.
      * 
      * @param value
      *     allowed object is
@@ -2027,7 +2020,7 @@ public class Input
     }
 
     /**
-     * onkeydownプロパティの値を取得します。
+     * Gets the value of the onkeydown property.
      * 
      * @return
      *     possible object is
@@ -2039,7 +2032,7 @@ public class Input
     }
 
     /**
-     * onkeydownプロパティの値を設定します。
+     * Sets the value of the onkeydown property.
      * 
      * @param value
      *     allowed object is
@@ -2055,7 +2048,7 @@ public class Input
     }
 
     /**
-     * onkeyupプロパティの値を取得します。
+     * Gets the value of the onkeyup property.
      * 
      * @return
      *     possible object is
@@ -2067,7 +2060,7 @@ public class Input
     }
 
     /**
-     * onkeyupプロパティの値を設定します。
+     * Sets the value of the onkeyup property.
      * 
      * @param value
      *     allowed object is
@@ -2083,7 +2076,7 @@ public class Input
     }
 
     /**
-     * onabortプロパティの値を取得します。
+     * Gets the value of the onabort property.
      * 
      * @return
      *     possible object is
@@ -2095,7 +2088,7 @@ public class Input
     }
 
     /**
-     * onabortプロパティの値を設定します。
+     * Sets the value of the onabort property.
      * 
      * @param value
      *     allowed object is
@@ -2111,7 +2104,7 @@ public class Input
     }
 
     /**
-     * onblurプロパティの値を取得します。
+     * Gets the value of the onblur property.
      * 
      * @return
      *     possible object is
@@ -2123,7 +2116,7 @@ public class Input
     }
 
     /**
-     * onblurプロパティの値を設定します。
+     * Sets the value of the onblur property.
      * 
      * @param value
      *     allowed object is
@@ -2139,7 +2132,7 @@ public class Input
     }
 
     /**
-     * oncanplayプロパティの値を取得します。
+     * Gets the value of the oncanplay property.
      * 
      * @return
      *     possible object is
@@ -2151,7 +2144,7 @@ public class Input
     }
 
     /**
-     * oncanplayプロパティの値を設定します。
+     * Sets the value of the oncanplay property.
      * 
      * @param value
      *     allowed object is
@@ -2167,7 +2160,7 @@ public class Input
     }
 
     /**
-     * oncanplaythroughプロパティの値を取得します。
+     * Gets the value of the oncanplaythrough property.
      * 
      * @return
      *     possible object is
@@ -2179,7 +2172,7 @@ public class Input
     }
 
     /**
-     * oncanplaythroughプロパティの値を設定します。
+     * Sets the value of the oncanplaythrough property.
      * 
      * @param value
      *     allowed object is
@@ -2195,7 +2188,7 @@ public class Input
     }
 
     /**
-     * onchangeプロパティの値を取得します。
+     * Gets the value of the onchange property.
      * 
      * @return
      *     possible object is
@@ -2207,7 +2200,7 @@ public class Input
     }
 
     /**
-     * onchangeプロパティの値を設定します。
+     * Sets the value of the onchange property.
      * 
      * @param value
      *     allowed object is
@@ -2223,7 +2216,7 @@ public class Input
     }
 
     /**
-     * oncontextmenuプロパティの値を取得します。
+     * Gets the value of the oncontextmenu property.
      * 
      * @return
      *     possible object is
@@ -2235,7 +2228,7 @@ public class Input
     }
 
     /**
-     * oncontextmenuプロパティの値を設定します。
+     * Sets the value of the oncontextmenu property.
      * 
      * @param value
      *     allowed object is
@@ -2251,7 +2244,7 @@ public class Input
     }
 
     /**
-     * oncuechangeプロパティの値を取得します。
+     * Gets the value of the oncuechange property.
      * 
      * @return
      *     possible object is
@@ -2263,7 +2256,7 @@ public class Input
     }
 
     /**
-     * oncuechangeプロパティの値を設定します。
+     * Sets the value of the oncuechange property.
      * 
      * @param value
      *     allowed object is
@@ -2279,7 +2272,7 @@ public class Input
     }
 
     /**
-     * ondragプロパティの値を取得します。
+     * Gets the value of the ondrag property.
      * 
      * @return
      *     possible object is
@@ -2291,7 +2284,7 @@ public class Input
     }
 
     /**
-     * ondragプロパティの値を設定します。
+     * Sets the value of the ondrag property.
      * 
      * @param value
      *     allowed object is
@@ -2307,7 +2300,7 @@ public class Input
     }
 
     /**
-     * ondragendプロパティの値を取得します。
+     * Gets the value of the ondragend property.
      * 
      * @return
      *     possible object is
@@ -2319,7 +2312,7 @@ public class Input
     }
 
     /**
-     * ondragendプロパティの値を設定します。
+     * Sets the value of the ondragend property.
      * 
      * @param value
      *     allowed object is
@@ -2335,7 +2328,7 @@ public class Input
     }
 
     /**
-     * ondragenterプロパティの値を取得します。
+     * Gets the value of the ondragenter property.
      * 
      * @return
      *     possible object is
@@ -2347,7 +2340,7 @@ public class Input
     }
 
     /**
-     * ondragenterプロパティの値を設定します。
+     * Sets the value of the ondragenter property.
      * 
      * @param value
      *     allowed object is
@@ -2363,7 +2356,7 @@ public class Input
     }
 
     /**
-     * ondragleaveプロパティの値を取得します。
+     * Gets the value of the ondragleave property.
      * 
      * @return
      *     possible object is
@@ -2375,7 +2368,7 @@ public class Input
     }
 
     /**
-     * ondragleaveプロパティの値を設定します。
+     * Sets the value of the ondragleave property.
      * 
      * @param value
      *     allowed object is
@@ -2391,7 +2384,7 @@ public class Input
     }
 
     /**
-     * ondragoverプロパティの値を取得します。
+     * Gets the value of the ondragover property.
      * 
      * @return
      *     possible object is
@@ -2403,7 +2396,7 @@ public class Input
     }
 
     /**
-     * ondragoverプロパティの値を設定します。
+     * Sets the value of the ondragover property.
      * 
      * @param value
      *     allowed object is
@@ -2419,7 +2412,7 @@ public class Input
     }
 
     /**
-     * ondragstartプロパティの値を取得します。
+     * Gets the value of the ondragstart property.
      * 
      * @return
      *     possible object is
@@ -2431,7 +2424,7 @@ public class Input
     }
 
     /**
-     * ondragstartプロパティの値を設定します。
+     * Sets the value of the ondragstart property.
      * 
      * @param value
      *     allowed object is
@@ -2447,7 +2440,7 @@ public class Input
     }
 
     /**
-     * ondropプロパティの値を取得します。
+     * Gets the value of the ondrop property.
      * 
      * @return
      *     possible object is
@@ -2459,7 +2452,7 @@ public class Input
     }
 
     /**
-     * ondropプロパティの値を設定します。
+     * Sets the value of the ondrop property.
      * 
      * @param value
      *     allowed object is
@@ -2475,7 +2468,7 @@ public class Input
     }
 
     /**
-     * ondurationchangeプロパティの値を取得します。
+     * Gets the value of the ondurationchange property.
      * 
      * @return
      *     possible object is
@@ -2487,7 +2480,7 @@ public class Input
     }
 
     /**
-     * ondurationchangeプロパティの値を設定します。
+     * Sets the value of the ondurationchange property.
      * 
      * @param value
      *     allowed object is
@@ -2503,7 +2496,7 @@ public class Input
     }
 
     /**
-     * onemptiedプロパティの値を取得します。
+     * Gets the value of the onemptied property.
      * 
      * @return
      *     possible object is
@@ -2515,7 +2508,7 @@ public class Input
     }
 
     /**
-     * onemptiedプロパティの値を設定します。
+     * Sets the value of the onemptied property.
      * 
      * @param value
      *     allowed object is
@@ -2531,7 +2524,7 @@ public class Input
     }
 
     /**
-     * onendedプロパティの値を取得します。
+     * Gets the value of the onended property.
      * 
      * @return
      *     possible object is
@@ -2543,7 +2536,7 @@ public class Input
     }
 
     /**
-     * onendedプロパティの値を設定します。
+     * Sets the value of the onended property.
      * 
      * @param value
      *     allowed object is
@@ -2559,7 +2552,7 @@ public class Input
     }
 
     /**
-     * onerrorプロパティの値を取得します。
+     * Gets the value of the onerror property.
      * 
      * @return
      *     possible object is
@@ -2571,7 +2564,7 @@ public class Input
     }
 
     /**
-     * onerrorプロパティの値を設定します。
+     * Sets the value of the onerror property.
      * 
      * @param value
      *     allowed object is
@@ -2587,7 +2580,7 @@ public class Input
     }
 
     /**
-     * onfocusプロパティの値を取得します。
+     * Gets the value of the onfocus property.
      * 
      * @return
      *     possible object is
@@ -2599,7 +2592,7 @@ public class Input
     }
 
     /**
-     * onfocusプロパティの値を設定します。
+     * Sets the value of the onfocus property.
      * 
      * @param value
      *     allowed object is
@@ -2615,7 +2608,7 @@ public class Input
     }
 
     /**
-     * onformchangeプロパティの値を取得します。
+     * Gets the value of the onformchange property.
      * 
      * @return
      *     possible object is
@@ -2627,7 +2620,7 @@ public class Input
     }
 
     /**
-     * onformchangeプロパティの値を設定します。
+     * Sets the value of the onformchange property.
      * 
      * @param value
      *     allowed object is
@@ -2643,7 +2636,7 @@ public class Input
     }
 
     /**
-     * onforminputプロパティの値を取得します。
+     * Gets the value of the onforminput property.
      * 
      * @return
      *     possible object is
@@ -2655,7 +2648,7 @@ public class Input
     }
 
     /**
-     * onforminputプロパティの値を設定します。
+     * Sets the value of the onforminput property.
      * 
      * @param value
      *     allowed object is
@@ -2671,7 +2664,7 @@ public class Input
     }
 
     /**
-     * oninputプロパティの値を取得します。
+     * Gets the value of the oninput property.
      * 
      * @return
      *     possible object is
@@ -2683,7 +2676,7 @@ public class Input
     }
 
     /**
-     * oninputプロパティの値を設定します。
+     * Sets the value of the oninput property.
      * 
      * @param value
      *     allowed object is
@@ -2699,7 +2692,7 @@ public class Input
     }
 
     /**
-     * oninvalidプロパティの値を取得します。
+     * Gets the value of the oninvalid property.
      * 
      * @return
      *     possible object is
@@ -2711,7 +2704,7 @@ public class Input
     }
 
     /**
-     * oninvalidプロパティの値を設定します。
+     * Sets the value of the oninvalid property.
      * 
      * @param value
      *     allowed object is
@@ -2727,7 +2720,7 @@ public class Input
     }
 
     /**
-     * onloadプロパティの値を取得します。
+     * Gets the value of the onload property.
      * 
      * @return
      *     possible object is
@@ -2739,7 +2732,7 @@ public class Input
     }
 
     /**
-     * onloadプロパティの値を設定します。
+     * Sets the value of the onload property.
      * 
      * @param value
      *     allowed object is
@@ -2755,7 +2748,7 @@ public class Input
     }
 
     /**
-     * onloadeddataプロパティの値を取得します。
+     * Gets the value of the onloadeddata property.
      * 
      * @return
      *     possible object is
@@ -2767,7 +2760,7 @@ public class Input
     }
 
     /**
-     * onloadeddataプロパティの値を設定します。
+     * Sets the value of the onloadeddata property.
      * 
      * @param value
      *     allowed object is
@@ -2783,7 +2776,7 @@ public class Input
     }
 
     /**
-     * onloadedmetadataプロパティの値を取得します。
+     * Gets the value of the onloadedmetadata property.
      * 
      * @return
      *     possible object is
@@ -2795,7 +2788,7 @@ public class Input
     }
 
     /**
-     * onloadedmetadataプロパティの値を設定します。
+     * Sets the value of the onloadedmetadata property.
      * 
      * @param value
      *     allowed object is
@@ -2811,7 +2804,7 @@ public class Input
     }
 
     /**
-     * onloadstartプロパティの値を取得します。
+     * Gets the value of the onloadstart property.
      * 
      * @return
      *     possible object is
@@ -2823,7 +2816,7 @@ public class Input
     }
 
     /**
-     * onloadstartプロパティの値を設定します。
+     * Sets the value of the onloadstart property.
      * 
      * @param value
      *     allowed object is
@@ -2839,7 +2832,7 @@ public class Input
     }
 
     /**
-     * onmousewheelプロパティの値を取得します。
+     * Gets the value of the onmousewheel property.
      * 
      * @return
      *     possible object is
@@ -2851,7 +2844,7 @@ public class Input
     }
 
     /**
-     * onmousewheelプロパティの値を設定します。
+     * Sets the value of the onmousewheel property.
      * 
      * @param value
      *     allowed object is
@@ -2867,7 +2860,7 @@ public class Input
     }
 
     /**
-     * onpauseプロパティの値を取得します。
+     * Gets the value of the onpause property.
      * 
      * @return
      *     possible object is
@@ -2879,7 +2872,7 @@ public class Input
     }
 
     /**
-     * onpauseプロパティの値を設定します。
+     * Sets the value of the onpause property.
      * 
      * @param value
      *     allowed object is
@@ -2895,7 +2888,7 @@ public class Input
     }
 
     /**
-     * onplayプロパティの値を取得します。
+     * Gets the value of the onplay property.
      * 
      * @return
      *     possible object is
@@ -2907,7 +2900,7 @@ public class Input
     }
 
     /**
-     * onplayプロパティの値を設定します。
+     * Sets the value of the onplay property.
      * 
      * @param value
      *     allowed object is
@@ -2923,7 +2916,7 @@ public class Input
     }
 
     /**
-     * onplayingプロパティの値を取得します。
+     * Gets the value of the onplaying property.
      * 
      * @return
      *     possible object is
@@ -2935,7 +2928,7 @@ public class Input
     }
 
     /**
-     * onplayingプロパティの値を設定します。
+     * Sets the value of the onplaying property.
      * 
      * @param value
      *     allowed object is
@@ -2951,7 +2944,7 @@ public class Input
     }
 
     /**
-     * onprogressプロパティの値を取得します。
+     * Gets the value of the onprogress property.
      * 
      * @return
      *     possible object is
@@ -2963,7 +2956,7 @@ public class Input
     }
 
     /**
-     * onprogressプロパティの値を設定します。
+     * Sets the value of the onprogress property.
      * 
      * @param value
      *     allowed object is
@@ -2979,7 +2972,7 @@ public class Input
     }
 
     /**
-     * onratechangeプロパティの値を取得します。
+     * Gets the value of the onratechange property.
      * 
      * @return
      *     possible object is
@@ -2991,7 +2984,7 @@ public class Input
     }
 
     /**
-     * onratechangeプロパティの値を設定します。
+     * Sets the value of the onratechange property.
      * 
      * @param value
      *     allowed object is
@@ -3007,7 +3000,7 @@ public class Input
     }
 
     /**
-     * onreadystatechangeプロパティの値を取得します。
+     * Gets the value of the onreadystatechange property.
      * 
      * @return
      *     possible object is
@@ -3019,7 +3012,7 @@ public class Input
     }
 
     /**
-     * onreadystatechangeプロパティの値を設定します。
+     * Sets the value of the onreadystatechange property.
      * 
      * @param value
      *     allowed object is
@@ -3035,7 +3028,7 @@ public class Input
     }
 
     /**
-     * onresetプロパティの値を取得します。
+     * Gets the value of the onreset property.
      * 
      * @return
      *     possible object is
@@ -3047,7 +3040,7 @@ public class Input
     }
 
     /**
-     * onresetプロパティの値を設定します。
+     * Sets the value of the onreset property.
      * 
      * @param value
      *     allowed object is
@@ -3063,7 +3056,7 @@ public class Input
     }
 
     /**
-     * onscrollプロパティの値を取得します。
+     * Gets the value of the onscroll property.
      * 
      * @return
      *     possible object is
@@ -3075,7 +3068,7 @@ public class Input
     }
 
     /**
-     * onscrollプロパティの値を設定します。
+     * Sets the value of the onscroll property.
      * 
      * @param value
      *     allowed object is
@@ -3091,7 +3084,7 @@ public class Input
     }
 
     /**
-     * onseekedプロパティの値を取得します。
+     * Gets the value of the onseeked property.
      * 
      * @return
      *     possible object is
@@ -3103,7 +3096,7 @@ public class Input
     }
 
     /**
-     * onseekedプロパティの値を設定します。
+     * Sets the value of the onseeked property.
      * 
      * @param value
      *     allowed object is
@@ -3119,7 +3112,7 @@ public class Input
     }
 
     /**
-     * onseekingプロパティの値を取得します。
+     * Gets the value of the onseeking property.
      * 
      * @return
      *     possible object is
@@ -3131,7 +3124,7 @@ public class Input
     }
 
     /**
-     * onseekingプロパティの値を設定します。
+     * Sets the value of the onseeking property.
      * 
      * @param value
      *     allowed object is
@@ -3147,7 +3140,7 @@ public class Input
     }
 
     /**
-     * onselectプロパティの値を取得します。
+     * Gets the value of the onselect property.
      * 
      * @return
      *     possible object is
@@ -3159,7 +3152,7 @@ public class Input
     }
 
     /**
-     * onselectプロパティの値を設定します。
+     * Sets the value of the onselect property.
      * 
      * @param value
      *     allowed object is
@@ -3175,7 +3168,7 @@ public class Input
     }
 
     /**
-     * onshowプロパティの値を取得します。
+     * Gets the value of the onshow property.
      * 
      * @return
      *     possible object is
@@ -3187,7 +3180,7 @@ public class Input
     }
 
     /**
-     * onshowプロパティの値を設定します。
+     * Sets the value of the onshow property.
      * 
      * @param value
      *     allowed object is
@@ -3203,7 +3196,7 @@ public class Input
     }
 
     /**
-     * onstalledプロパティの値を取得します。
+     * Gets the value of the onstalled property.
      * 
      * @return
      *     possible object is
@@ -3215,7 +3208,7 @@ public class Input
     }
 
     /**
-     * onstalledプロパティの値を設定します。
+     * Sets the value of the onstalled property.
      * 
      * @param value
      *     allowed object is
@@ -3231,7 +3224,7 @@ public class Input
     }
 
     /**
-     * onsubmitプロパティの値を取得します。
+     * Gets the value of the onsubmit property.
      * 
      * @return
      *     possible object is
@@ -3243,7 +3236,7 @@ public class Input
     }
 
     /**
-     * onsubmitプロパティの値を設定します。
+     * Sets the value of the onsubmit property.
      * 
      * @param value
      *     allowed object is
@@ -3259,7 +3252,7 @@ public class Input
     }
 
     /**
-     * onsuspendプロパティの値を取得します。
+     * Gets the value of the onsuspend property.
      * 
      * @return
      *     possible object is
@@ -3271,7 +3264,7 @@ public class Input
     }
 
     /**
-     * onsuspendプロパティの値を設定します。
+     * Sets the value of the onsuspend property.
      * 
      * @param value
      *     allowed object is
@@ -3287,7 +3280,7 @@ public class Input
     }
 
     /**
-     * ontimeupdateプロパティの値を取得します。
+     * Gets the value of the ontimeupdate property.
      * 
      * @return
      *     possible object is
@@ -3299,7 +3292,7 @@ public class Input
     }
 
     /**
-     * ontimeupdateプロパティの値を設定します。
+     * Sets the value of the ontimeupdate property.
      * 
      * @param value
      *     allowed object is
@@ -3315,7 +3308,7 @@ public class Input
     }
 
     /**
-     * onvolumechangeプロパティの値を取得します。
+     * Gets the value of the onvolumechange property.
      * 
      * @return
      *     possible object is
@@ -3327,7 +3320,7 @@ public class Input
     }
 
     /**
-     * onvolumechangeプロパティの値を設定します。
+     * Sets the value of the onvolumechange property.
      * 
      * @param value
      *     allowed object is
@@ -3343,7 +3336,7 @@ public class Input
     }
 
     /**
-     * onwaitingプロパティの値を取得します。
+     * Gets the value of the onwaiting property.
      * 
      * @return
      *     possible object is
@@ -3355,7 +3348,7 @@ public class Input
     }
 
     /**
-     * onwaitingプロパティの値を設定します。
+     * Sets the value of the onwaiting property.
      * 
      * @param value
      *     allowed object is

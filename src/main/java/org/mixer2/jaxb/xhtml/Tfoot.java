@@ -1,10 +1,3 @@
-//
-// このファイルは、JavaTM Architecture for XML Binding(JAXB) Reference Implementation、v2.2.6によって生成されました 
-// <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a>を参照してください 
-// ソース・スキーマの再コンパイル時にこのファイルの変更は失われます。 
-// 生成日: 2013.07.04 時間 09:23:41 PM JST 
-//
-
 
 package org.mixer2.jaxb.xhtml;
 
@@ -42,9 +35,9 @@ import org.mixer2.xhtml.AbstractJaxb;
 
 
 /**
- * <p>anonymous complex typeのJavaクラス。
+ * <p>Java class for anonymous complex type.
  * 
- * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -53,8 +46,8 @@ import org.mixer2.xhtml.AbstractJaxb;
  *       &lt;sequence>
  *         &lt;element ref="{http://www.w3.org/1999/xhtml}tr" maxOccurs="unbounded"/>
  *       &lt;/sequence>
- *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellvalign"/>
  *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}attrs"/>
+ *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellvalign"/>
  *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellhalign"/>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -75,9 +68,6 @@ public class Tfoot
 
     @XmlElement(required = true)
     protected List<Tr> tr;
-    @XmlAttribute(name = "valign")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String valign;
     @XmlAttribute(name = "id")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -236,6 +226,9 @@ public class Tfoot
     protected String onvolumechange;
     @XmlAttribute(name = "onwaiting")
     protected String onwaiting;
+    @XmlAttribute(name = "valign")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String valign;
     @XmlAttribute(name = "align")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String align;
@@ -284,35 +277,7 @@ public class Tfoot
     }
 
     /**
-     * valignプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getValign() {
-        return valign;
-    }
-
-    /**
-     * valignプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setValign(String value) {
-        this.valign = value;
-    }
-
-    public boolean isSetValign() {
-        return (this.valign!= null);
-    }
-
-    /**
-     * idプロパティの値を取得します。
+     * Gets the value of the id property.
      * 
      * @return
      *     possible object is
@@ -324,7 +289,7 @@ public class Tfoot
     }
 
     /**
-     * idプロパティの値を設定します。
+     * Sets the value of the id property.
      * 
      * @param value
      *     allowed object is
@@ -377,7 +342,7 @@ public class Tfoot
     }
 
     /**
-     * styleプロパティの値を取得します。
+     * Gets the value of the style property.
      * 
      * @return
      *     possible object is
@@ -389,7 +354,7 @@ public class Tfoot
     }
 
     /**
-     * styleプロパティの値を設定します。
+     * Sets the value of the style property.
      * 
      * @param value
      *     allowed object is
@@ -405,7 +370,7 @@ public class Tfoot
     }
 
     /**
-     * titleプロパティの値を取得します。
+     * Gets the value of the title property.
      * 
      * @return
      *     possible object is
@@ -417,7 +382,7 @@ public class Tfoot
     }
 
     /**
-     * titleプロパティの値を設定します。
+     * Sets the value of the title property.
      * 
      * @param value
      *     allowed object is
@@ -433,7 +398,7 @@ public class Tfoot
     }
 
     /**
-     * accesskeyプロパティの値を取得します。
+     * Gets the value of the accesskey property.
      * 
      * @return
      *     possible object is
@@ -445,7 +410,7 @@ public class Tfoot
     }
 
     /**
-     * accesskeyプロパティの値を設定します。
+     * Sets the value of the accesskey property.
      * 
      * @param value
      *     allowed object is
@@ -461,7 +426,7 @@ public class Tfoot
     }
 
     /**
-     * contenteditableプロパティの値を取得します。
+     * Gets the value of the contenteditable property.
      * 
      * @return
      *     possible object is
@@ -473,7 +438,7 @@ public class Tfoot
     }
 
     /**
-     * contenteditableプロパティの値を設定します。
+     * Sets the value of the contenteditable property.
      * 
      * @param value
      *     allowed object is
@@ -493,7 +458,7 @@ public class Tfoot
     }
 
     /**
-     * contextmenuプロパティの値を取得します。
+     * Gets the value of the contextmenu property.
      * 
      * @return
      *     possible object is
@@ -505,7 +470,7 @@ public class Tfoot
     }
 
     /**
-     * contextmenuプロパティの値を設定します。
+     * Sets the value of the contextmenu property.
      * 
      * @param value
      *     allowed object is
@@ -521,7 +486,7 @@ public class Tfoot
     }
 
     /**
-     * dirプロパティの値を取得します。
+     * Gets the value of the dir property.
      * 
      * @return
      *     possible object is
@@ -537,7 +502,7 @@ public class Tfoot
     }
 
     /**
-     * dirプロパティの値を設定します。
+     * Sets the value of the dir property.
      * 
      * @param value
      *     allowed object is
@@ -553,7 +518,7 @@ public class Tfoot
     }
 
     /**
-     * draggableプロパティの値を取得します。
+     * Gets the value of the draggable property.
      * 
      * @return
      *     possible object is
@@ -569,7 +534,7 @@ public class Tfoot
     }
 
     /**
-     * draggableプロパティの値を設定します。
+     * Sets the value of the draggable property.
      * 
      * @param value
      *     allowed object is
@@ -622,7 +587,7 @@ public class Tfoot
     }
 
     /**
-     * hiddenプロパティの値を取得します。
+     * Gets the value of the hidden property.
      * 
      * @return
      *     possible object is
@@ -634,7 +599,7 @@ public class Tfoot
     }
 
     /**
-     * hiddenプロパティの値を設定します。
+     * Sets the value of the hidden property.
      * 
      * @param value
      *     allowed object is
@@ -650,7 +615,7 @@ public class Tfoot
     }
 
     /**
-     * langCodeプロパティの値を取得します。
+     * Gets the value of the langCode property.
      * 
      * @return
      *     possible object is
@@ -662,7 +627,7 @@ public class Tfoot
     }
 
     /**
-     * langCodeプロパティの値を設定します。
+     * Sets the value of the langCode property.
      * 
      * @param value
      *     allowed object is
@@ -678,7 +643,7 @@ public class Tfoot
     }
 
     /**
-     * roleプロパティの値を取得します。
+     * Gets the value of the role property.
      * 
      * @return
      *     possible object is
@@ -690,7 +655,7 @@ public class Tfoot
     }
 
     /**
-     * roleプロパティの値を設定します。
+     * Sets the value of the role property.
      * 
      * @param value
      *     allowed object is
@@ -706,7 +671,7 @@ public class Tfoot
     }
 
     /**
-     * spellcheckプロパティの値を取得します。
+     * Gets the value of the spellcheck property.
      * 
      * @return
      *     possible object is
@@ -718,7 +683,7 @@ public class Tfoot
     }
 
     /**
-     * spellcheckプロパティの値を設定します。
+     * Sets the value of the spellcheck property.
      * 
      * @param value
      *     allowed object is
@@ -734,7 +699,7 @@ public class Tfoot
     }
 
     /**
-     * tabindexプロパティの値を取得します。
+     * Gets the value of the tabindex property.
      * 
      * @return
      *     possible object is
@@ -746,7 +711,7 @@ public class Tfoot
     }
 
     /**
-     * tabindexプロパティの値を設定します。
+     * Sets the value of the tabindex property.
      * 
      * @param value
      *     allowed object is
@@ -762,7 +727,7 @@ public class Tfoot
     }
 
     /**
-     * langプロパティの値を取得します。
+     * Gets the value of the lang property.
      * 
      * @return
      *     possible object is
@@ -774,7 +739,7 @@ public class Tfoot
     }
 
     /**
-     * langプロパティの値を設定します。
+     * Sets the value of the lang property.
      * 
      * @param value
      *     allowed object is
@@ -790,7 +755,7 @@ public class Tfoot
     }
 
     /**
-     * onclickプロパティの値を取得します。
+     * Gets the value of the onclick property.
      * 
      * @return
      *     possible object is
@@ -802,7 +767,7 @@ public class Tfoot
     }
 
     /**
-     * onclickプロパティの値を設定します。
+     * Sets the value of the onclick property.
      * 
      * @param value
      *     allowed object is
@@ -818,7 +783,7 @@ public class Tfoot
     }
 
     /**
-     * ondblclickプロパティの値を取得します。
+     * Gets the value of the ondblclick property.
      * 
      * @return
      *     possible object is
@@ -830,7 +795,7 @@ public class Tfoot
     }
 
     /**
-     * ondblclickプロパティの値を設定します。
+     * Sets the value of the ondblclick property.
      * 
      * @param value
      *     allowed object is
@@ -846,7 +811,7 @@ public class Tfoot
     }
 
     /**
-     * onmousedownプロパティの値を取得します。
+     * Gets the value of the onmousedown property.
      * 
      * @return
      *     possible object is
@@ -858,7 +823,7 @@ public class Tfoot
     }
 
     /**
-     * onmousedownプロパティの値を設定します。
+     * Sets the value of the onmousedown property.
      * 
      * @param value
      *     allowed object is
@@ -874,7 +839,7 @@ public class Tfoot
     }
 
     /**
-     * onmouseupプロパティの値を取得します。
+     * Gets the value of the onmouseup property.
      * 
      * @return
      *     possible object is
@@ -886,7 +851,7 @@ public class Tfoot
     }
 
     /**
-     * onmouseupプロパティの値を設定します。
+     * Sets the value of the onmouseup property.
      * 
      * @param value
      *     allowed object is
@@ -902,7 +867,7 @@ public class Tfoot
     }
 
     /**
-     * onmouseoverプロパティの値を取得します。
+     * Gets the value of the onmouseover property.
      * 
      * @return
      *     possible object is
@@ -914,7 +879,7 @@ public class Tfoot
     }
 
     /**
-     * onmouseoverプロパティの値を設定します。
+     * Sets the value of the onmouseover property.
      * 
      * @param value
      *     allowed object is
@@ -930,7 +895,7 @@ public class Tfoot
     }
 
     /**
-     * onmousemoveプロパティの値を取得します。
+     * Gets the value of the onmousemove property.
      * 
      * @return
      *     possible object is
@@ -942,7 +907,7 @@ public class Tfoot
     }
 
     /**
-     * onmousemoveプロパティの値を設定します。
+     * Sets the value of the onmousemove property.
      * 
      * @param value
      *     allowed object is
@@ -958,7 +923,7 @@ public class Tfoot
     }
 
     /**
-     * onmouseoutプロパティの値を取得します。
+     * Gets the value of the onmouseout property.
      * 
      * @return
      *     possible object is
@@ -970,7 +935,7 @@ public class Tfoot
     }
 
     /**
-     * onmouseoutプロパティの値を設定します。
+     * Sets the value of the onmouseout property.
      * 
      * @param value
      *     allowed object is
@@ -986,7 +951,7 @@ public class Tfoot
     }
 
     /**
-     * onkeypressプロパティの値を取得します。
+     * Gets the value of the onkeypress property.
      * 
      * @return
      *     possible object is
@@ -998,7 +963,7 @@ public class Tfoot
     }
 
     /**
-     * onkeypressプロパティの値を設定します。
+     * Sets the value of the onkeypress property.
      * 
      * @param value
      *     allowed object is
@@ -1014,7 +979,7 @@ public class Tfoot
     }
 
     /**
-     * onkeydownプロパティの値を取得します。
+     * Gets the value of the onkeydown property.
      * 
      * @return
      *     possible object is
@@ -1026,7 +991,7 @@ public class Tfoot
     }
 
     /**
-     * onkeydownプロパティの値を設定します。
+     * Sets the value of the onkeydown property.
      * 
      * @param value
      *     allowed object is
@@ -1042,7 +1007,7 @@ public class Tfoot
     }
 
     /**
-     * onkeyupプロパティの値を取得します。
+     * Gets the value of the onkeyup property.
      * 
      * @return
      *     possible object is
@@ -1054,7 +1019,7 @@ public class Tfoot
     }
 
     /**
-     * onkeyupプロパティの値を設定します。
+     * Sets the value of the onkeyup property.
      * 
      * @param value
      *     allowed object is
@@ -1070,7 +1035,7 @@ public class Tfoot
     }
 
     /**
-     * onabortプロパティの値を取得します。
+     * Gets the value of the onabort property.
      * 
      * @return
      *     possible object is
@@ -1082,7 +1047,7 @@ public class Tfoot
     }
 
     /**
-     * onabortプロパティの値を設定します。
+     * Sets the value of the onabort property.
      * 
      * @param value
      *     allowed object is
@@ -1098,7 +1063,7 @@ public class Tfoot
     }
 
     /**
-     * onblurプロパティの値を取得します。
+     * Gets the value of the onblur property.
      * 
      * @return
      *     possible object is
@@ -1110,7 +1075,7 @@ public class Tfoot
     }
 
     /**
-     * onblurプロパティの値を設定します。
+     * Sets the value of the onblur property.
      * 
      * @param value
      *     allowed object is
@@ -1126,7 +1091,7 @@ public class Tfoot
     }
 
     /**
-     * oncanplayプロパティの値を取得します。
+     * Gets the value of the oncanplay property.
      * 
      * @return
      *     possible object is
@@ -1138,7 +1103,7 @@ public class Tfoot
     }
 
     /**
-     * oncanplayプロパティの値を設定します。
+     * Sets the value of the oncanplay property.
      * 
      * @param value
      *     allowed object is
@@ -1154,7 +1119,7 @@ public class Tfoot
     }
 
     /**
-     * oncanplaythroughプロパティの値を取得します。
+     * Gets the value of the oncanplaythrough property.
      * 
      * @return
      *     possible object is
@@ -1166,7 +1131,7 @@ public class Tfoot
     }
 
     /**
-     * oncanplaythroughプロパティの値を設定します。
+     * Sets the value of the oncanplaythrough property.
      * 
      * @param value
      *     allowed object is
@@ -1182,7 +1147,7 @@ public class Tfoot
     }
 
     /**
-     * onchangeプロパティの値を取得します。
+     * Gets the value of the onchange property.
      * 
      * @return
      *     possible object is
@@ -1194,7 +1159,7 @@ public class Tfoot
     }
 
     /**
-     * onchangeプロパティの値を設定します。
+     * Sets the value of the onchange property.
      * 
      * @param value
      *     allowed object is
@@ -1210,7 +1175,7 @@ public class Tfoot
     }
 
     /**
-     * oncontextmenuプロパティの値を取得します。
+     * Gets the value of the oncontextmenu property.
      * 
      * @return
      *     possible object is
@@ -1222,7 +1187,7 @@ public class Tfoot
     }
 
     /**
-     * oncontextmenuプロパティの値を設定します。
+     * Sets the value of the oncontextmenu property.
      * 
      * @param value
      *     allowed object is
@@ -1238,7 +1203,7 @@ public class Tfoot
     }
 
     /**
-     * oncuechangeプロパティの値を取得します。
+     * Gets the value of the oncuechange property.
      * 
      * @return
      *     possible object is
@@ -1250,7 +1215,7 @@ public class Tfoot
     }
 
     /**
-     * oncuechangeプロパティの値を設定します。
+     * Sets the value of the oncuechange property.
      * 
      * @param value
      *     allowed object is
@@ -1266,7 +1231,7 @@ public class Tfoot
     }
 
     /**
-     * ondragプロパティの値を取得します。
+     * Gets the value of the ondrag property.
      * 
      * @return
      *     possible object is
@@ -1278,7 +1243,7 @@ public class Tfoot
     }
 
     /**
-     * ondragプロパティの値を設定します。
+     * Sets the value of the ondrag property.
      * 
      * @param value
      *     allowed object is
@@ -1294,7 +1259,7 @@ public class Tfoot
     }
 
     /**
-     * ondragendプロパティの値を取得します。
+     * Gets the value of the ondragend property.
      * 
      * @return
      *     possible object is
@@ -1306,7 +1271,7 @@ public class Tfoot
     }
 
     /**
-     * ondragendプロパティの値を設定します。
+     * Sets the value of the ondragend property.
      * 
      * @param value
      *     allowed object is
@@ -1322,7 +1287,7 @@ public class Tfoot
     }
 
     /**
-     * ondragenterプロパティの値を取得します。
+     * Gets the value of the ondragenter property.
      * 
      * @return
      *     possible object is
@@ -1334,7 +1299,7 @@ public class Tfoot
     }
 
     /**
-     * ondragenterプロパティの値を設定します。
+     * Sets the value of the ondragenter property.
      * 
      * @param value
      *     allowed object is
@@ -1350,7 +1315,7 @@ public class Tfoot
     }
 
     /**
-     * ondragleaveプロパティの値を取得します。
+     * Gets the value of the ondragleave property.
      * 
      * @return
      *     possible object is
@@ -1362,7 +1327,7 @@ public class Tfoot
     }
 
     /**
-     * ondragleaveプロパティの値を設定します。
+     * Sets the value of the ondragleave property.
      * 
      * @param value
      *     allowed object is
@@ -1378,7 +1343,7 @@ public class Tfoot
     }
 
     /**
-     * ondragoverプロパティの値を取得します。
+     * Gets the value of the ondragover property.
      * 
      * @return
      *     possible object is
@@ -1390,7 +1355,7 @@ public class Tfoot
     }
 
     /**
-     * ondragoverプロパティの値を設定します。
+     * Sets the value of the ondragover property.
      * 
      * @param value
      *     allowed object is
@@ -1406,7 +1371,7 @@ public class Tfoot
     }
 
     /**
-     * ondragstartプロパティの値を取得します。
+     * Gets the value of the ondragstart property.
      * 
      * @return
      *     possible object is
@@ -1418,7 +1383,7 @@ public class Tfoot
     }
 
     /**
-     * ondragstartプロパティの値を設定します。
+     * Sets the value of the ondragstart property.
      * 
      * @param value
      *     allowed object is
@@ -1434,7 +1399,7 @@ public class Tfoot
     }
 
     /**
-     * ondropプロパティの値を取得します。
+     * Gets the value of the ondrop property.
      * 
      * @return
      *     possible object is
@@ -1446,7 +1411,7 @@ public class Tfoot
     }
 
     /**
-     * ondropプロパティの値を設定します。
+     * Sets the value of the ondrop property.
      * 
      * @param value
      *     allowed object is
@@ -1462,7 +1427,7 @@ public class Tfoot
     }
 
     /**
-     * ondurationchangeプロパティの値を取得します。
+     * Gets the value of the ondurationchange property.
      * 
      * @return
      *     possible object is
@@ -1474,7 +1439,7 @@ public class Tfoot
     }
 
     /**
-     * ondurationchangeプロパティの値を設定します。
+     * Sets the value of the ondurationchange property.
      * 
      * @param value
      *     allowed object is
@@ -1490,7 +1455,7 @@ public class Tfoot
     }
 
     /**
-     * onemptiedプロパティの値を取得します。
+     * Gets the value of the onemptied property.
      * 
      * @return
      *     possible object is
@@ -1502,7 +1467,7 @@ public class Tfoot
     }
 
     /**
-     * onemptiedプロパティの値を設定します。
+     * Sets the value of the onemptied property.
      * 
      * @param value
      *     allowed object is
@@ -1518,7 +1483,7 @@ public class Tfoot
     }
 
     /**
-     * onendedプロパティの値を取得します。
+     * Gets the value of the onended property.
      * 
      * @return
      *     possible object is
@@ -1530,7 +1495,7 @@ public class Tfoot
     }
 
     /**
-     * onendedプロパティの値を設定します。
+     * Sets the value of the onended property.
      * 
      * @param value
      *     allowed object is
@@ -1546,7 +1511,7 @@ public class Tfoot
     }
 
     /**
-     * onerrorプロパティの値を取得します。
+     * Gets the value of the onerror property.
      * 
      * @return
      *     possible object is
@@ -1558,7 +1523,7 @@ public class Tfoot
     }
 
     /**
-     * onerrorプロパティの値を設定します。
+     * Sets the value of the onerror property.
      * 
      * @param value
      *     allowed object is
@@ -1574,7 +1539,7 @@ public class Tfoot
     }
 
     /**
-     * onfocusプロパティの値を取得します。
+     * Gets the value of the onfocus property.
      * 
      * @return
      *     possible object is
@@ -1586,7 +1551,7 @@ public class Tfoot
     }
 
     /**
-     * onfocusプロパティの値を設定します。
+     * Sets the value of the onfocus property.
      * 
      * @param value
      *     allowed object is
@@ -1602,7 +1567,7 @@ public class Tfoot
     }
 
     /**
-     * onformchangeプロパティの値を取得します。
+     * Gets the value of the onformchange property.
      * 
      * @return
      *     possible object is
@@ -1614,7 +1579,7 @@ public class Tfoot
     }
 
     /**
-     * onformchangeプロパティの値を設定します。
+     * Sets the value of the onformchange property.
      * 
      * @param value
      *     allowed object is
@@ -1630,7 +1595,7 @@ public class Tfoot
     }
 
     /**
-     * onforminputプロパティの値を取得します。
+     * Gets the value of the onforminput property.
      * 
      * @return
      *     possible object is
@@ -1642,7 +1607,7 @@ public class Tfoot
     }
 
     /**
-     * onforminputプロパティの値を設定します。
+     * Sets the value of the onforminput property.
      * 
      * @param value
      *     allowed object is
@@ -1658,7 +1623,7 @@ public class Tfoot
     }
 
     /**
-     * oninputプロパティの値を取得します。
+     * Gets the value of the oninput property.
      * 
      * @return
      *     possible object is
@@ -1670,7 +1635,7 @@ public class Tfoot
     }
 
     /**
-     * oninputプロパティの値を設定します。
+     * Sets the value of the oninput property.
      * 
      * @param value
      *     allowed object is
@@ -1686,7 +1651,7 @@ public class Tfoot
     }
 
     /**
-     * oninvalidプロパティの値を取得します。
+     * Gets the value of the oninvalid property.
      * 
      * @return
      *     possible object is
@@ -1698,7 +1663,7 @@ public class Tfoot
     }
 
     /**
-     * oninvalidプロパティの値を設定します。
+     * Sets the value of the oninvalid property.
      * 
      * @param value
      *     allowed object is
@@ -1714,7 +1679,7 @@ public class Tfoot
     }
 
     /**
-     * onloadプロパティの値を取得します。
+     * Gets the value of the onload property.
      * 
      * @return
      *     possible object is
@@ -1726,7 +1691,7 @@ public class Tfoot
     }
 
     /**
-     * onloadプロパティの値を設定します。
+     * Sets the value of the onload property.
      * 
      * @param value
      *     allowed object is
@@ -1742,7 +1707,7 @@ public class Tfoot
     }
 
     /**
-     * onloadeddataプロパティの値を取得します。
+     * Gets the value of the onloadeddata property.
      * 
      * @return
      *     possible object is
@@ -1754,7 +1719,7 @@ public class Tfoot
     }
 
     /**
-     * onloadeddataプロパティの値を設定します。
+     * Sets the value of the onloadeddata property.
      * 
      * @param value
      *     allowed object is
@@ -1770,7 +1735,7 @@ public class Tfoot
     }
 
     /**
-     * onloadedmetadataプロパティの値を取得します。
+     * Gets the value of the onloadedmetadata property.
      * 
      * @return
      *     possible object is
@@ -1782,7 +1747,7 @@ public class Tfoot
     }
 
     /**
-     * onloadedmetadataプロパティの値を設定します。
+     * Sets the value of the onloadedmetadata property.
      * 
      * @param value
      *     allowed object is
@@ -1798,7 +1763,7 @@ public class Tfoot
     }
 
     /**
-     * onloadstartプロパティの値を取得します。
+     * Gets the value of the onloadstart property.
      * 
      * @return
      *     possible object is
@@ -1810,7 +1775,7 @@ public class Tfoot
     }
 
     /**
-     * onloadstartプロパティの値を設定します。
+     * Sets the value of the onloadstart property.
      * 
      * @param value
      *     allowed object is
@@ -1826,7 +1791,7 @@ public class Tfoot
     }
 
     /**
-     * onmousewheelプロパティの値を取得します。
+     * Gets the value of the onmousewheel property.
      * 
      * @return
      *     possible object is
@@ -1838,7 +1803,7 @@ public class Tfoot
     }
 
     /**
-     * onmousewheelプロパティの値を設定します。
+     * Sets the value of the onmousewheel property.
      * 
      * @param value
      *     allowed object is
@@ -1854,7 +1819,7 @@ public class Tfoot
     }
 
     /**
-     * onpauseプロパティの値を取得します。
+     * Gets the value of the onpause property.
      * 
      * @return
      *     possible object is
@@ -1866,7 +1831,7 @@ public class Tfoot
     }
 
     /**
-     * onpauseプロパティの値を設定します。
+     * Sets the value of the onpause property.
      * 
      * @param value
      *     allowed object is
@@ -1882,7 +1847,7 @@ public class Tfoot
     }
 
     /**
-     * onplayプロパティの値を取得します。
+     * Gets the value of the onplay property.
      * 
      * @return
      *     possible object is
@@ -1894,7 +1859,7 @@ public class Tfoot
     }
 
     /**
-     * onplayプロパティの値を設定します。
+     * Sets the value of the onplay property.
      * 
      * @param value
      *     allowed object is
@@ -1910,7 +1875,7 @@ public class Tfoot
     }
 
     /**
-     * onplayingプロパティの値を取得します。
+     * Gets the value of the onplaying property.
      * 
      * @return
      *     possible object is
@@ -1922,7 +1887,7 @@ public class Tfoot
     }
 
     /**
-     * onplayingプロパティの値を設定します。
+     * Sets the value of the onplaying property.
      * 
      * @param value
      *     allowed object is
@@ -1938,7 +1903,7 @@ public class Tfoot
     }
 
     /**
-     * onprogressプロパティの値を取得します。
+     * Gets the value of the onprogress property.
      * 
      * @return
      *     possible object is
@@ -1950,7 +1915,7 @@ public class Tfoot
     }
 
     /**
-     * onprogressプロパティの値を設定します。
+     * Sets the value of the onprogress property.
      * 
      * @param value
      *     allowed object is
@@ -1966,7 +1931,7 @@ public class Tfoot
     }
 
     /**
-     * onratechangeプロパティの値を取得します。
+     * Gets the value of the onratechange property.
      * 
      * @return
      *     possible object is
@@ -1978,7 +1943,7 @@ public class Tfoot
     }
 
     /**
-     * onratechangeプロパティの値を設定します。
+     * Sets the value of the onratechange property.
      * 
      * @param value
      *     allowed object is
@@ -1994,7 +1959,7 @@ public class Tfoot
     }
 
     /**
-     * onreadystatechangeプロパティの値を取得します。
+     * Gets the value of the onreadystatechange property.
      * 
      * @return
      *     possible object is
@@ -2006,7 +1971,7 @@ public class Tfoot
     }
 
     /**
-     * onreadystatechangeプロパティの値を設定します。
+     * Sets the value of the onreadystatechange property.
      * 
      * @param value
      *     allowed object is
@@ -2022,7 +1987,7 @@ public class Tfoot
     }
 
     /**
-     * onresetプロパティの値を取得します。
+     * Gets the value of the onreset property.
      * 
      * @return
      *     possible object is
@@ -2034,7 +1999,7 @@ public class Tfoot
     }
 
     /**
-     * onresetプロパティの値を設定します。
+     * Sets the value of the onreset property.
      * 
      * @param value
      *     allowed object is
@@ -2050,7 +2015,7 @@ public class Tfoot
     }
 
     /**
-     * onscrollプロパティの値を取得します。
+     * Gets the value of the onscroll property.
      * 
      * @return
      *     possible object is
@@ -2062,7 +2027,7 @@ public class Tfoot
     }
 
     /**
-     * onscrollプロパティの値を設定します。
+     * Sets the value of the onscroll property.
      * 
      * @param value
      *     allowed object is
@@ -2078,7 +2043,7 @@ public class Tfoot
     }
 
     /**
-     * onseekedプロパティの値を取得します。
+     * Gets the value of the onseeked property.
      * 
      * @return
      *     possible object is
@@ -2090,7 +2055,7 @@ public class Tfoot
     }
 
     /**
-     * onseekedプロパティの値を設定します。
+     * Sets the value of the onseeked property.
      * 
      * @param value
      *     allowed object is
@@ -2106,7 +2071,7 @@ public class Tfoot
     }
 
     /**
-     * onseekingプロパティの値を取得します。
+     * Gets the value of the onseeking property.
      * 
      * @return
      *     possible object is
@@ -2118,7 +2083,7 @@ public class Tfoot
     }
 
     /**
-     * onseekingプロパティの値を設定します。
+     * Sets the value of the onseeking property.
      * 
      * @param value
      *     allowed object is
@@ -2134,7 +2099,7 @@ public class Tfoot
     }
 
     /**
-     * onselectプロパティの値を取得します。
+     * Gets the value of the onselect property.
      * 
      * @return
      *     possible object is
@@ -2146,7 +2111,7 @@ public class Tfoot
     }
 
     /**
-     * onselectプロパティの値を設定します。
+     * Sets the value of the onselect property.
      * 
      * @param value
      *     allowed object is
@@ -2162,7 +2127,7 @@ public class Tfoot
     }
 
     /**
-     * onshowプロパティの値を取得します。
+     * Gets the value of the onshow property.
      * 
      * @return
      *     possible object is
@@ -2174,7 +2139,7 @@ public class Tfoot
     }
 
     /**
-     * onshowプロパティの値を設定します。
+     * Sets the value of the onshow property.
      * 
      * @param value
      *     allowed object is
@@ -2190,7 +2155,7 @@ public class Tfoot
     }
 
     /**
-     * onstalledプロパティの値を取得します。
+     * Gets the value of the onstalled property.
      * 
      * @return
      *     possible object is
@@ -2202,7 +2167,7 @@ public class Tfoot
     }
 
     /**
-     * onstalledプロパティの値を設定します。
+     * Sets the value of the onstalled property.
      * 
      * @param value
      *     allowed object is
@@ -2218,7 +2183,7 @@ public class Tfoot
     }
 
     /**
-     * onsubmitプロパティの値を取得します。
+     * Gets the value of the onsubmit property.
      * 
      * @return
      *     possible object is
@@ -2230,7 +2195,7 @@ public class Tfoot
     }
 
     /**
-     * onsubmitプロパティの値を設定します。
+     * Sets the value of the onsubmit property.
      * 
      * @param value
      *     allowed object is
@@ -2246,7 +2211,7 @@ public class Tfoot
     }
 
     /**
-     * onsuspendプロパティの値を取得します。
+     * Gets the value of the onsuspend property.
      * 
      * @return
      *     possible object is
@@ -2258,7 +2223,7 @@ public class Tfoot
     }
 
     /**
-     * onsuspendプロパティの値を設定します。
+     * Sets the value of the onsuspend property.
      * 
      * @param value
      *     allowed object is
@@ -2274,7 +2239,7 @@ public class Tfoot
     }
 
     /**
-     * ontimeupdateプロパティの値を取得します。
+     * Gets the value of the ontimeupdate property.
      * 
      * @return
      *     possible object is
@@ -2286,7 +2251,7 @@ public class Tfoot
     }
 
     /**
-     * ontimeupdateプロパティの値を設定します。
+     * Sets the value of the ontimeupdate property.
      * 
      * @param value
      *     allowed object is
@@ -2302,7 +2267,7 @@ public class Tfoot
     }
 
     /**
-     * onvolumechangeプロパティの値を取得します。
+     * Gets the value of the onvolumechange property.
      * 
      * @return
      *     possible object is
@@ -2314,7 +2279,7 @@ public class Tfoot
     }
 
     /**
-     * onvolumechangeプロパティの値を設定します。
+     * Sets the value of the onvolumechange property.
      * 
      * @param value
      *     allowed object is
@@ -2330,7 +2295,7 @@ public class Tfoot
     }
 
     /**
-     * onwaitingプロパティの値を取得します。
+     * Gets the value of the onwaiting property.
      * 
      * @return
      *     possible object is
@@ -2342,7 +2307,7 @@ public class Tfoot
     }
 
     /**
-     * onwaitingプロパティの値を設定します。
+     * Sets the value of the onwaiting property.
      * 
      * @param value
      *     allowed object is
@@ -2358,7 +2323,35 @@ public class Tfoot
     }
 
     /**
-     * alignプロパティの値を取得します。
+     * Gets the value of the valign property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getValign() {
+        return valign;
+    }
+
+    /**
+     * Sets the value of the valign property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setValign(String value) {
+        this.valign = value;
+    }
+
+    public boolean isSetValign() {
+        return (this.valign!= null);
+    }
+
+    /**
+     * Gets the value of the align property.
      * 
      * @return
      *     possible object is
@@ -2370,7 +2363,7 @@ public class Tfoot
     }
 
     /**
-     * alignプロパティの値を設定します。
+     * Sets the value of the align property.
      * 
      * @param value
      *     allowed object is
@@ -2386,7 +2379,7 @@ public class Tfoot
     }
 
     /**
-     * charプロパティの値を取得します。
+     * Gets the value of the char property.
      * 
      * @return
      *     possible object is
@@ -2398,7 +2391,7 @@ public class Tfoot
     }
 
     /**
-     * charプロパティの値を設定します。
+     * Sets the value of the char property.
      * 
      * @param value
      *     allowed object is
@@ -2414,7 +2407,7 @@ public class Tfoot
     }
 
     /**
-     * charoffプロパティの値を取得します。
+     * Gets the value of the charoff property.
      * 
      * @return
      *     possible object is
@@ -2426,7 +2419,7 @@ public class Tfoot
     }
 
     /**
-     * charoffプロパティの値を設定します。
+     * Sets the value of the charoff property.
      * 
      * @param value
      *     allowed object is
@@ -2478,11 +2471,6 @@ public class Tfoot
             List<Tr> theTr;
             theTr = (this.isSetTr()?this.getTr():null);
             strategy.appendField(locator, this, "tr", buffer, theTr);
-        }
-        {
-            String theValign;
-            theValign = this.getValign();
-            strategy.appendField(locator, this, "valign", buffer, theValign);
         }
         {
             String theId;
@@ -2845,6 +2833,11 @@ public class Tfoot
             strategy.appendField(locator, this, "onwaiting", buffer, theOnwaiting);
         }
         {
+            String theValign;
+            theValign = this.getValign();
+            strategy.appendField(locator, this, "valign", buffer, theValign);
+        }
+        {
             String theAlign;
             theAlign = this.getAlign();
             strategy.appendField(locator, this, "align", buffer, theAlign);
@@ -2876,15 +2869,6 @@ public class Tfoot
             List<Tr> rhsTr;
             rhsTr = (that.isSetTr()?that.getTr():null);
             if (!strategy.equals(LocatorUtils.property(thisLocator, "tr", lhsTr), LocatorUtils.property(thatLocator, "tr", rhsTr), lhsTr, rhsTr)) {
-                return false;
-            }
-        }
-        {
-            String lhsValign;
-            lhsValign = this.getValign();
-            String rhsValign;
-            rhsValign = that.getValign();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "valign", lhsValign), LocatorUtils.property(thatLocator, "valign", rhsValign), lhsValign, rhsValign)) {
                 return false;
             }
         }
@@ -3537,6 +3521,15 @@ public class Tfoot
             }
         }
         {
+            String lhsValign;
+            lhsValign = this.getValign();
+            String rhsValign;
+            rhsValign = that.getValign();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "valign", lhsValign), LocatorUtils.property(thatLocator, "valign", rhsValign), lhsValign, rhsValign)) {
+                return false;
+            }
+        }
+        {
             String lhsAlign;
             lhsAlign = this.getAlign();
             String rhsAlign;
@@ -3577,11 +3570,6 @@ public class Tfoot
             List<Tr> theTr;
             theTr = (this.isSetTr()?this.getTr():null);
             currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "tr", theTr), currentHashCode, theTr);
-        }
-        {
-            String theValign;
-            theValign = this.getValign();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "valign", theValign), currentHashCode, theValign);
         }
         {
             String theId;
@@ -3944,6 +3932,11 @@ public class Tfoot
             currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onwaiting", theOnwaiting), currentHashCode, theOnwaiting);
         }
         {
+            String theValign;
+            theValign = this.getValign();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "valign", theValign), currentHashCode, theValign);
+        }
+        {
             String theAlign;
             theAlign = this.getAlign();
             currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "align", theAlign), currentHashCode, theAlign);
@@ -3991,14 +3984,6 @@ public class Tfoot
                 }
             } else {
                 copy.unsetTr();
-            }
-            if (this.isSetValign()) {
-                String sourceValign;
-                sourceValign = this.getValign();
-                String copyValign = ((String) strategy.copy(LocatorUtils.property(locator, "valign", sourceValign), sourceValign));
-                copy.setValign(copyValign);
-            } else {
-                copy.valign = null;
             }
             if (this.isSetId()) {
                 String sourceId;
@@ -4585,6 +4570,14 @@ public class Tfoot
                 copy.setOnwaiting(copyOnwaiting);
             } else {
                 copy.onwaiting = null;
+            }
+            if (this.isSetValign()) {
+                String sourceValign;
+                sourceValign = this.getValign();
+                String copyValign = ((String) strategy.copy(LocatorUtils.property(locator, "valign", sourceValign), sourceValign));
+                copy.setValign(copyValign);
+            } else {
+                copy.valign = null;
             }
             if (this.isSetAlign()) {
                 String sourceAlign;
