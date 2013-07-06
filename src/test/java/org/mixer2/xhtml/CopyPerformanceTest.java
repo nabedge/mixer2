@@ -45,7 +45,7 @@ public class CopyPerformanceTest {
             tmp = html.copy(Html.class);
         }
         stopWatch.stop();
-        System.out.println("normal Copy: loop= " + loop + ", time(msec)= " + stopWatch.getTime());
+        System.out.println("whale html: loop= " + loop + ", time(msec)= " + stopWatch.getTime());
     }
 
     @Test()
@@ -58,7 +58,7 @@ public class CopyPerformanceTest {
             tmp = tmp.copy(Meta.class);
         }
         stopWatch.stop();
-        System.out.println("normal Copy: loop= " + loop + ", time(msec)= " + stopWatch.getTime());
+        System.out.println("small tag: loop= " + loop + ", time(msec)= " + stopWatch.getTime());
     }
 
 }
