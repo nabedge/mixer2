@@ -297,8 +297,8 @@
                 <executions>
                     <execution>
                         <id>jaxb2-generate</id>
-                        <phase>generate-sources</phase>
-<!--                         <phase>dummy</phase> -->
+                        <!-- <phase>generate-sources</phase> -->
+                        <phase>dummy</phase>
                         <goals>
                             <goal>generate</goal>
                         </goals>
