@@ -1,16 +1,16 @@
 package org.mixer2.xhtml;
 
 import java.io.File;
-import java.io.IOException;
 
+import org.apache.commons.lang.time.StopWatch;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mixer2.Mixer2Engine;
 import org.mixer2.jaxb.xhtml.Html;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 
-public class CachingTest {
+public class PseudoCachingTest {
 
     private String templateFileName = "sample-xhtml1-transitional.html";
     private String templateFilePath;
@@ -30,32 +30,43 @@ public class CachingTest {
         }
     }
 
-    private Html loadHtmlTemplateThroughCache(String templateFilePath) throws IOException {
+    private Html loadHtmlTemplateThroughCache(String templateFilePath) throws Exception {
     	if (cachedHtml == null) {
             cachedHtml = m2e.loadHtmlTemplate(new File(templateFilePath));
     	}
     	Html result = null;
-    	try {
-			result = cachedHtml.copy(Html.class);
-		} catch (TagTypeUnmatchException e) {
-			e.printStackTrace();
-		}
+        result = cachedHtml.copy(Html.class);
     	return result;
+    }
+    
+    @Test
+    public void assertSame() throws Exception{
+        Html html1 = loadHtmlTemplateThroughCache(templateFilePath);
+        Html html2 = m2e.loadHtmlTemplate(new File(templateFilePath));
+    	Assert.assertEquals(m2e.saveToString(html1), m2e.saveToString(html2));
     }
 
     @Test
-    public void loopWithCache() throws IOException {
+    public void loopWithCache() throws Exception {
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
         for (int i=0; i<loop; i++) {
             loadHtmlTemplateThroughCache(templateFilePath);
         }
+        stopWatch.stop();
+        System.out.println("using cache: loop= " + loop + ", time(msec)= " + stopWatch.getTime());
     }
 
     @Test
-    public void loopWithoutCache() throws IOException {
+    public void loopWithoutCache() throws Exception {
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
         File file;
         for (int i=0; i<loop; i++) {
             file = new File(templateFilePath);
             m2e.loadHtmlTemplate(file);
         }
+        stopWatch.stop();
+        System.out.println("   no cache: loop= " + loop + ", time(msec)= " + stopWatch.getTime());
     }
 }
