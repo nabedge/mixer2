@@ -3,6 +3,8 @@ package org.mixer2.xhtml;
 import java.io.File;
 import java.io.IOException;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,6 +15,8 @@ import org.mixer2.jaxb.xhtml.P;
 public class Dummy {
 
     private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
+    
+    private static Log log = LogFactory.getLog(Dummy.class);
 
     @AfterClass
     public static void afterClass() {
@@ -36,15 +40,7 @@ public class Dummy {
         Html html = m2e.loadHtmlTemplate(new File(templateFilePath));
         html.getById("hellomsg", P.class).getContent().clear();
         html.getById("hellomsg", P.class).getContent().add("Hello World !");
-        System.out.println(m2e.saveToString(html));
+        log.info(m2e.saveToString(html));
     }
-
-//    @Test
-//    public void dummy01() throws Exception {
-//        Div div = new Div();
-//        AbstractJaxb aj = (AbstractJaxb) div;
-//        System.out.println("div: " + div.getClass().getSimpleName());
-//        System.out.println("aj: " + aj.getClass().getSimpleName());
-//    }
 
 }

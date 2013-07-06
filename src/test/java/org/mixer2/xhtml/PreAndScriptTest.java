@@ -6,6 +6,8 @@ import static org.junit.Assert.assertThat;
 import java.io.File;
 import java.io.IOException;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.junit.AfterClass;
@@ -19,6 +21,7 @@ import org.mixer2.jaxb.xhtml.Html;
  */
 public class PreAndScriptTest {
 
+    private static Log log = LogFactory.getLog(PreAndScriptTest.class);
     private String templateFileName = "preAndScript.html";
     private String templateFilePath;
     private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
@@ -44,7 +47,7 @@ public class PreAndScriptTest {
     public void test() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         String xmlStr = m2e.saveToString(html);
-        System.out.println(xmlStr);
+        log.info(xmlStr);
         Document doc = Jsoup.parse(xmlStr);
         assertThat(doc.getElementById("fooJs").data(), is(" "));
     }
