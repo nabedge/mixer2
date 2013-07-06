@@ -75,12 +75,6 @@
             <artifactId>jaxb2-basics-runtime</artifactId>
             <version>0.6.4</version>
         </dependency>
-<!--         <dependency> -->
-<!--             <groupId>org.jvnet.jaxb2_commons</groupId> -->
-<!--             <artifactId>jaxb2-basics-testing</artifactId> -->
-<!--             <version>0.6.4</version> -->
-<!--             <scope>test</scope> -->
-<!--         </dependency> -->
         <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
@@ -95,12 +89,6 @@
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>
             <version>1.1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.cache</groupId>
-            <artifactId>cache-api</artifactId>
-            <version>0.5</version>
-            <!-- use 0.5 or later! -->
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -144,6 +132,12 @@
             <artifactId>velocity</artifactId>
             <version>1.6.4</version>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-lang</artifactId>
+                    <groupId>commons-lang</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.jsoup</groupId>

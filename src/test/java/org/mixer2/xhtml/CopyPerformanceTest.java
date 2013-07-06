@@ -17,7 +17,7 @@ public class CopyPerformanceTest {
     private String templateFilePath;
     private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
 
-    private int loop = 200;
+    private int loop = 1000;
 
     @BeforeClass
     public static void beforeClass() {
@@ -61,45 +61,4 @@ public class CopyPerformanceTest {
         System.out.println("normal Copy: loop= " + loop + ", time(msec)= " + stopWatch.getTime());
     }
 
-//    @Test()
-//    public void honestCopy() throws Exception {
-//        Html html = m2e.loadHtmlTemplate(new File(templateFilePath));
-//        StopWatch stopWatch = new StopWatch();
-//        stopWatch.start();
-//        for (int i=0; i<loop; i++) {
-//            Html tmp = new Html();
-//            tmp.setHead(html.getHead().copy(Head.class));
-//            tmp.setBody(html.getBody().copy(Body.class));
-//        }
-//        stopWatch.stop();
-//        System.out.println("honest Copy: loop= " + loop + ", time(msec)= " + stopWatch.getTime());
-//    }
-
-    //    @Test()
-//    public void apacheCommonsClone() throws Exception {
-//        Html html = m2e.loadHtmlTemplate(new File(templateFilePath));
-//        Html tmp = null;
-//        StopWatch stopWatch = new StopWatch();
-//        stopWatch.start();
-//        for (int i=0; i<loop; i++) {
-//            BeanUtilsBean bu = BeanUtilsBean.getInstance();
-//            bu.getConvertUtils().register(false, true, 0);
-//            tmp = (Html) bu.cloneBean(html);
-//        }
-//        stopWatch.stop();
-//        System.out.println("normal Copy: loop= " + loop + ", time(msec)= " + stopWatch.getTime());
-//    }
-//
-//    @Test()
-//    public void apacheCommonsCloneBean() throws Exception {
-//        Html html = m2e.loadHtmlTemplate(new File(templateFilePath));
-//        Html tmp = null;
-//        StopWatch stopWatch = new StopWatch();
-//        stopWatch.start();
-//        for (int i=0; i<loop; i++) {
-//            BeanUtils.cloneBean(html);
-//        }
-//        stopWatch.stop();
-//        System.out.println("cloneBean: loop= " + loop + ", time(msec)= " + stopWatch.getTime());
-//    }
 }

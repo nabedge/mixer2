@@ -13,7 +13,6 @@ import java.nio.charset.Charset;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.cache.Cache;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -61,23 +60,6 @@ public class Mixer2Engine {
 
     public Mixer2Engine() {
         init();
-    }
-
-    /**
-     * <p>
-     * set cache object for loaded(unmashalled) template.
-     * The key of cache is String, sha1 hash value of template string.
-     * You need not to create cache key.
-     * </p>
-     * <p>
-     * unmarshal済みのテンプレートをキャッシュするためのオブジェクトをセットします。
-     * キャッシュのキーはStringで、テンプレート文字列自体のsha1ハッシュ値が自動的に使われます。
-     * </p>
-     * @param cache
-     */
-    @Deprecated
-    public void setCache(Cache<String, Html> cache) {
-        //this.cache = cache;
     }
 
     /**
@@ -172,42 +154,6 @@ public class Mixer2Engine {
             inputStream.close();
         }
         return loadHtmlTemplate(stringBuilder);
-    }
-
-    /**
-     * <p>
-     * load (unmarshal) a template to Html type object.
-     * If there is cache of the template, return it.
-     * Otherwise, unmarshal, save Html object to cache, and reaturn it.
-     * Doctype declaration on template will be deleted.
-     * </p>
-     * <p>
-     * テンプレートをJAXBのHtmlオブジェクト型にロード（unmarshal)します。
-     * ただし、既にcacheがある場合にはそれを返します。
-     * cacheがない場合にはFileをunmarshalした結果をcacheに保存しつつそれを返します。
-     * テンプレート上にDOCTYPE宣言が指定されていてもそれは削除されます。
-     * </p>
-     */
-    @Deprecated
-    public Html loadHtmlTemplateThroughCache(File file) throws IOException {
-        return loadHtmlTemplate(file);
-    }
-
-    @Deprecated
-    public Html loadHtmlTemplateThroughCache(StringBuffer sb) {
-        //return loadHtmlTemplateThroughCache(new StringBuilder(sb));
-        return loadHtmlTemplate(new StringBuilder(sb));
-    }
-
-	@Deprecated
-	public Html loadHtmlTemplateThroughCache(StringBuilder sb) {
-		return loadHtmlTemplate(sb);
-	}
-
-    @Deprecated
-    public Html loadHtmlTemplateThroughCache(String str) {
-        //return loadHtmlTemplateThroughCache(sb);
-        return loadHtmlTemplate(str);
     }
 
     /**
@@ -342,19 +288,6 @@ public class Mixer2Engine {
         return replaceNamedEntity(sb);
     }
 
-    /**
-     * <p>
-     * remove all cache.
-     * if cache is null, do nothing.
-     * </p>
-     */
-	@Deprecated
-	public void removeAllCache() {
-		// if (this.cache != null) {
-		// cache.removeAll();
-		// }
-	}
-    
     private StringBuilder fileToStringBuilder(File file) throws IOException {
         if (file == null) {
             throw new IOException("File is null.");
