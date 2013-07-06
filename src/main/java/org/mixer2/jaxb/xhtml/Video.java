@@ -25,24 +25,21 @@ import org.jvnet.jaxb2_commons.lang.HashCodeStrategy;
 import org.jvnet.jaxb2_commons.lang.JAXBCopyStrategy;
 import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
 import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
-import org.jvnet.jaxb2_commons.lang.JAXBToStringStrategy;
-import org.jvnet.jaxb2_commons.lang.ToString;
-import org.jvnet.jaxb2_commons.lang.ToStringStrategy;
 import org.jvnet.jaxb2_commons.locator.ObjectLocator;
 import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>anonymous complex typeのJavaクラス。
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
  * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;extension base="{http://www.w3.org/1999/xhtml}Flow">
- *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}media"/>
  *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}attrs"/>
+ *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}media"/>
  *       &lt;attribute name="poster" type="{http://www.w3.org/1999/xhtml}URI" />
  *       &lt;attribute name="width" type="{http://www.w3.org/1999/xhtml}Pixels" />
  *       &lt;attribute name="height" type="{http://www.w3.org/1999/xhtml}Pixels" />
@@ -58,7 +55,7 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 @XmlRootElement(name = "video")
 public class Video
     extends Flow
-    implements Cloneable, CopyTo, Equals, HashCode, ToString
+    implements Cloneable, CopyTo, Equals, HashCode
 {
 
     @XmlAttribute(name = "poster")
@@ -69,25 +66,6 @@ public class Video
     @XmlAttribute(name = "height")
     @XmlJavaTypeAdapter(Adapter1 .class)
     protected Integer height;
-    @XmlAttribute(name = "src")
-    protected String src;
-    @XmlAttribute(name = "preload")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String preload;
-    @XmlAttribute(name = "autoplay")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String autoplay;
-    @XmlAttribute(name = "mediagroup")
-    protected String mediagroup;
-    @XmlAttribute(name = "muted")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String muted;
-    @XmlAttribute(name = "loop")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String loop;
-    @XmlAttribute(name = "controls")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String controls;
     @XmlAttribute(name = "id")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -246,11 +224,30 @@ public class Video
     protected String onvolumechange;
     @XmlAttribute(name = "onwaiting")
     protected String onwaiting;
+    @XmlAttribute(name = "src")
+    protected String src;
+    @XmlAttribute(name = "preload")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String preload;
+    @XmlAttribute(name = "autoplay")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String autoplay;
+    @XmlAttribute(name = "mediagroup")
+    protected String mediagroup;
+    @XmlAttribute(name = "muted")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String muted;
+    @XmlAttribute(name = "loop")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String loop;
+    @XmlAttribute(name = "controls")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String controls;
     @XmlAnyAttribute
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
     /**
-     * Gets the value of the poster property.
+     * posterプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -262,7 +259,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the poster property.
+     * posterプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -278,7 +275,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the width property.
+     * widthプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -290,7 +287,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the width property.
+     * widthプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -306,7 +303,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the height property.
+     * heightプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -318,7 +315,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the height property.
+     * heightプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -334,203 +331,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the src property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSrc() {
-        return src;
-    }
-
-    /**
-     * Sets the value of the src property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSrc(String value) {
-        this.src = value;
-    }
-
-    public boolean isSetSrc() {
-        return (this.src!= null);
-    }
-
-    /**
-     * Gets the value of the preload property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPreload() {
-        return preload;
-    }
-
-    /**
-     * Sets the value of the preload property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPreload(String value) {
-        this.preload = value;
-    }
-
-    public boolean isSetPreload() {
-        return (this.preload!= null);
-    }
-
-    /**
-     * Gets the value of the autoplay property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAutoplay() {
-        return autoplay;
-    }
-
-    /**
-     * Sets the value of the autoplay property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAutoplay(String value) {
-        this.autoplay = value;
-    }
-
-    public boolean isSetAutoplay() {
-        return (this.autoplay!= null);
-    }
-
-    /**
-     * Gets the value of the mediagroup property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getMediagroup() {
-        return mediagroup;
-    }
-
-    /**
-     * Sets the value of the mediagroup property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setMediagroup(String value) {
-        this.mediagroup = value;
-    }
-
-    public boolean isSetMediagroup() {
-        return (this.mediagroup!= null);
-    }
-
-    /**
-     * Gets the value of the muted property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getMuted() {
-        return muted;
-    }
-
-    /**
-     * Sets the value of the muted property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setMuted(String value) {
-        this.muted = value;
-    }
-
-    public boolean isSetMuted() {
-        return (this.muted!= null);
-    }
-
-    /**
-     * Gets the value of the loop property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getLoop() {
-        return loop;
-    }
-
-    /**
-     * Sets the value of the loop property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setLoop(String value) {
-        this.loop = value;
-    }
-
-    public boolean isSetLoop() {
-        return (this.loop!= null);
-    }
-
-    /**
-     * Gets the value of the controls property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getControls() {
-        return controls;
-    }
-
-    /**
-     * Sets the value of the controls property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setControls(String value) {
-        this.controls = value;
-    }
-
-    public boolean isSetControls() {
-        return (this.controls!= null);
-    }
-
-    /**
-     * Gets the value of the id property.
+     * idプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -542,7 +343,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the id property.
+     * idプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -595,7 +396,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the style property.
+     * styleプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -607,7 +408,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the style property.
+     * styleプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -623,7 +424,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the title property.
+     * titleプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -635,7 +436,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the title property.
+     * titleプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -651,7 +452,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the accesskey property.
+     * accesskeyプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -663,7 +464,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the accesskey property.
+     * accesskeyプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -679,7 +480,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the contenteditable property.
+     * contenteditableプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -691,7 +492,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the contenteditable property.
+     * contenteditableプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -711,7 +512,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the contextmenu property.
+     * contextmenuプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -723,7 +524,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the contextmenu property.
+     * contextmenuプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -739,7 +540,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the dir property.
+     * dirプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -755,7 +556,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the dir property.
+     * dirプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -771,7 +572,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the draggable property.
+     * draggableプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -787,7 +588,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the draggable property.
+     * draggableプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -840,7 +641,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the hidden property.
+     * hiddenプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -852,7 +653,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the hidden property.
+     * hiddenプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -868,7 +669,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the langCode property.
+     * langCodeプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -880,7 +681,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the langCode property.
+     * langCodeプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -896,7 +697,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the role property.
+     * roleプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -908,7 +709,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the role property.
+     * roleプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -924,7 +725,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the spellcheck property.
+     * spellcheckプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -936,7 +737,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the spellcheck property.
+     * spellcheckプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -952,7 +753,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the tabindex property.
+     * tabindexプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -964,7 +765,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the tabindex property.
+     * tabindexプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -980,7 +781,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the lang property.
+     * langプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -992,7 +793,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the lang property.
+     * langプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1008,7 +809,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onclick property.
+     * onclickプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1020,7 +821,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onclick property.
+     * onclickプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1036,7 +837,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the ondblclick property.
+     * ondblclickプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1048,7 +849,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the ondblclick property.
+     * ondblclickプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1064,7 +865,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onmousedown property.
+     * onmousedownプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1076,7 +877,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onmousedown property.
+     * onmousedownプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1092,7 +893,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onmouseup property.
+     * onmouseupプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1104,7 +905,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onmouseup property.
+     * onmouseupプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1120,7 +921,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onmouseover property.
+     * onmouseoverプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1132,7 +933,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onmouseover property.
+     * onmouseoverプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1148,7 +949,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onmousemove property.
+     * onmousemoveプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1160,7 +961,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onmousemove property.
+     * onmousemoveプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1176,7 +977,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onmouseout property.
+     * onmouseoutプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1188,7 +989,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onmouseout property.
+     * onmouseoutプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1204,7 +1005,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onkeypress property.
+     * onkeypressプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1216,7 +1017,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onkeypress property.
+     * onkeypressプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1232,7 +1033,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onkeydown property.
+     * onkeydownプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1244,7 +1045,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onkeydown property.
+     * onkeydownプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1260,7 +1061,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onkeyup property.
+     * onkeyupプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1272,7 +1073,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onkeyup property.
+     * onkeyupプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1288,7 +1089,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onabort property.
+     * onabortプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1300,7 +1101,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onabort property.
+     * onabortプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1316,7 +1117,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onblur property.
+     * onblurプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1328,7 +1129,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onblur property.
+     * onblurプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1344,7 +1145,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the oncanplay property.
+     * oncanplayプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1356,7 +1157,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the oncanplay property.
+     * oncanplayプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1372,7 +1173,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the oncanplaythrough property.
+     * oncanplaythroughプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1384,7 +1185,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the oncanplaythrough property.
+     * oncanplaythroughプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1400,7 +1201,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onchange property.
+     * onchangeプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1412,7 +1213,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onchange property.
+     * onchangeプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1428,7 +1229,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the oncontextmenu property.
+     * oncontextmenuプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1440,7 +1241,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the oncontextmenu property.
+     * oncontextmenuプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1456,7 +1257,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the oncuechange property.
+     * oncuechangeプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1468,7 +1269,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the oncuechange property.
+     * oncuechangeプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1484,7 +1285,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the ondrag property.
+     * ondragプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1496,7 +1297,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the ondrag property.
+     * ondragプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1512,7 +1313,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the ondragend property.
+     * ondragendプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1524,7 +1325,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the ondragend property.
+     * ondragendプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1540,7 +1341,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the ondragenter property.
+     * ondragenterプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1552,7 +1353,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the ondragenter property.
+     * ondragenterプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1568,7 +1369,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the ondragleave property.
+     * ondragleaveプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1580,7 +1381,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the ondragleave property.
+     * ondragleaveプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1596,7 +1397,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the ondragover property.
+     * ondragoverプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1608,7 +1409,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the ondragover property.
+     * ondragoverプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1624,7 +1425,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the ondragstart property.
+     * ondragstartプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1636,7 +1437,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the ondragstart property.
+     * ondragstartプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1652,7 +1453,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the ondrop property.
+     * ondropプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1664,7 +1465,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the ondrop property.
+     * ondropプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1680,7 +1481,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the ondurationchange property.
+     * ondurationchangeプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1692,7 +1493,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the ondurationchange property.
+     * ondurationchangeプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1708,7 +1509,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onemptied property.
+     * onemptiedプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1720,7 +1521,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onemptied property.
+     * onemptiedプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1736,7 +1537,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onended property.
+     * onendedプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1748,7 +1549,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onended property.
+     * onendedプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1764,7 +1565,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onerror property.
+     * onerrorプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1776,7 +1577,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onerror property.
+     * onerrorプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1792,7 +1593,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onfocus property.
+     * onfocusプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1804,7 +1605,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onfocus property.
+     * onfocusプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1820,7 +1621,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onformchange property.
+     * onformchangeプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1832,7 +1633,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onformchange property.
+     * onformchangeプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1848,7 +1649,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onforminput property.
+     * onforminputプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1860,7 +1661,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onforminput property.
+     * onforminputプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1876,7 +1677,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the oninput property.
+     * oninputプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1888,7 +1689,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the oninput property.
+     * oninputプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1904,7 +1705,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the oninvalid property.
+     * oninvalidプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1916,7 +1717,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the oninvalid property.
+     * oninvalidプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1932,7 +1733,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onload property.
+     * onloadプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1944,7 +1745,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onload property.
+     * onloadプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1960,7 +1761,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onloadeddata property.
+     * onloadeddataプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -1972,7 +1773,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onloadeddata property.
+     * onloadeddataプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -1988,7 +1789,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onloadedmetadata property.
+     * onloadedmetadataプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -2000,7 +1801,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onloadedmetadata property.
+     * onloadedmetadataプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -2016,7 +1817,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onloadstart property.
+     * onloadstartプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -2028,7 +1829,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onloadstart property.
+     * onloadstartプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -2044,7 +1845,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onmousewheel property.
+     * onmousewheelプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -2056,7 +1857,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onmousewheel property.
+     * onmousewheelプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -2072,7 +1873,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onpause property.
+     * onpauseプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -2084,7 +1885,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onpause property.
+     * onpauseプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -2100,7 +1901,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onplay property.
+     * onplayプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -2112,7 +1913,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onplay property.
+     * onplayプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -2128,7 +1929,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onplaying property.
+     * onplayingプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -2140,7 +1941,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onplaying property.
+     * onplayingプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -2156,7 +1957,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onprogress property.
+     * onprogressプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -2168,7 +1969,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onprogress property.
+     * onprogressプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -2184,7 +1985,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onratechange property.
+     * onratechangeプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -2196,7 +1997,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onratechange property.
+     * onratechangeプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -2212,7 +2013,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onreadystatechange property.
+     * onreadystatechangeプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -2224,7 +2025,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onreadystatechange property.
+     * onreadystatechangeプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -2240,7 +2041,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onreset property.
+     * onresetプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -2252,7 +2053,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onreset property.
+     * onresetプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -2268,7 +2069,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onscroll property.
+     * onscrollプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -2280,7 +2081,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onscroll property.
+     * onscrollプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -2296,7 +2097,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onseeked property.
+     * onseekedプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -2308,7 +2109,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onseeked property.
+     * onseekedプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -2324,7 +2125,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onseeking property.
+     * onseekingプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -2336,7 +2137,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onseeking property.
+     * onseekingプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -2352,7 +2153,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onselect property.
+     * onselectプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -2364,7 +2165,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onselect property.
+     * onselectプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -2380,7 +2181,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onshow property.
+     * onshowプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -2392,7 +2193,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onshow property.
+     * onshowプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -2408,7 +2209,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onstalled property.
+     * onstalledプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -2420,7 +2221,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onstalled property.
+     * onstalledプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -2436,7 +2237,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onsubmit property.
+     * onsubmitプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -2448,7 +2249,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onsubmit property.
+     * onsubmitプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -2464,7 +2265,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onsuspend property.
+     * onsuspendプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -2476,7 +2277,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onsuspend property.
+     * onsuspendプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -2492,7 +2293,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the ontimeupdate property.
+     * ontimeupdateプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -2504,7 +2305,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the ontimeupdate property.
+     * ontimeupdateプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -2520,7 +2321,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onvolumechange property.
+     * onvolumechangeプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -2532,7 +2333,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onvolumechange property.
+     * onvolumechangeプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -2548,7 +2349,7 @@ public class Video
     }
 
     /**
-     * Gets the value of the onwaiting property.
+     * onwaitingプロパティの値を取得します。
      * 
      * @return
      *     possible object is
@@ -2560,7 +2361,7 @@ public class Video
     }
 
     /**
-     * Sets the value of the onwaiting property.
+     * onwaitingプロパティの値を設定します。
      * 
      * @param value
      *     allowed object is
@@ -2573,6 +2374,202 @@ public class Video
 
     public boolean isSetOnwaiting() {
         return (this.onwaiting!= null);
+    }
+
+    /**
+     * srcプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getSrc() {
+        return src;
+    }
+
+    /**
+     * srcプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setSrc(String value) {
+        this.src = value;
+    }
+
+    public boolean isSetSrc() {
+        return (this.src!= null);
+    }
+
+    /**
+     * preloadプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPreload() {
+        return preload;
+    }
+
+    /**
+     * preloadプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPreload(String value) {
+        this.preload = value;
+    }
+
+    public boolean isSetPreload() {
+        return (this.preload!= null);
+    }
+
+    /**
+     * autoplayプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAutoplay() {
+        return autoplay;
+    }
+
+    /**
+     * autoplayプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAutoplay(String value) {
+        this.autoplay = value;
+    }
+
+    public boolean isSetAutoplay() {
+        return (this.autoplay!= null);
+    }
+
+    /**
+     * mediagroupプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getMediagroup() {
+        return mediagroup;
+    }
+
+    /**
+     * mediagroupプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setMediagroup(String value) {
+        this.mediagroup = value;
+    }
+
+    public boolean isSetMediagroup() {
+        return (this.mediagroup!= null);
+    }
+
+    /**
+     * mutedプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getMuted() {
+        return muted;
+    }
+
+    /**
+     * mutedプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setMuted(String value) {
+        this.muted = value;
+    }
+
+    public boolean isSetMuted() {
+        return (this.muted!= null);
+    }
+
+    /**
+     * loopプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getLoop() {
+        return loop;
+    }
+
+    /**
+     * loopプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setLoop(String value) {
+        this.loop = value;
+    }
+
+    public boolean isSetLoop() {
+        return (this.loop!= null);
+    }
+
+    /**
+     * controlsプロパティの値を取得します。
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getControls() {
+        return controls;
+    }
+
+    /**
+     * controlsプロパティの値を設定します。
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setControls(String value) {
+        this.controls = value;
+    }
+
+    public boolean isSetControls() {
+        return (this.controls!= null);
     }
 
     /**
@@ -2591,435 +2588,6 @@ public class Video
      */
     public Map<QName, String> getOtherAttributes() {
         return otherAttributes;
-    }
-
-    public String toString() {
-        final ToStringStrategy strategy = JAXBToStringStrategy.INSTANCE;
-        final StringBuilder buffer = new StringBuilder();
-        append(null, buffer, strategy);
-        return buffer.toString();
-    }
-
-    public StringBuilder append(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
-        strategy.appendStart(locator, this, buffer);
-        appendFields(locator, buffer, strategy);
-        strategy.appendEnd(locator, this, buffer);
-        return buffer;
-    }
-
-    public StringBuilder appendFields(ObjectLocator locator, StringBuilder buffer, ToStringStrategy strategy) {
-        super.appendFields(locator, buffer, strategy);
-        {
-            String thePoster;
-            thePoster = this.getPoster();
-            strategy.appendField(locator, this, "poster", buffer, thePoster);
-        }
-        {
-            Integer theWidth;
-            theWidth = this.getWidth();
-            strategy.appendField(locator, this, "width", buffer, theWidth);
-        }
-        {
-            Integer theHeight;
-            theHeight = this.getHeight();
-            strategy.appendField(locator, this, "height", buffer, theHeight);
-        }
-        {
-            String theSrc;
-            theSrc = this.getSrc();
-            strategy.appendField(locator, this, "src", buffer, theSrc);
-        }
-        {
-            String thePreload;
-            thePreload = this.getPreload();
-            strategy.appendField(locator, this, "preload", buffer, thePreload);
-        }
-        {
-            String theAutoplay;
-            theAutoplay = this.getAutoplay();
-            strategy.appendField(locator, this, "autoplay", buffer, theAutoplay);
-        }
-        {
-            String theMediagroup;
-            theMediagroup = this.getMediagroup();
-            strategy.appendField(locator, this, "mediagroup", buffer, theMediagroup);
-        }
-        {
-            String theMuted;
-            theMuted = this.getMuted();
-            strategy.appendField(locator, this, "muted", buffer, theMuted);
-        }
-        {
-            String theLoop;
-            theLoop = this.getLoop();
-            strategy.appendField(locator, this, "loop", buffer, theLoop);
-        }
-        {
-            String theControls;
-            theControls = this.getControls();
-            strategy.appendField(locator, this, "controls", buffer, theControls);
-        }
-        {
-            String theId;
-            theId = this.getId();
-            strategy.appendField(locator, this, "id", buffer, theId);
-        }
-        {
-            List<String> theCssClass;
-            theCssClass = (this.isSetCssClass()?this.getCssClass():null);
-            strategy.appendField(locator, this, "cssClass", buffer, theCssClass);
-        }
-        {
-            String theStyle;
-            theStyle = this.getStyle();
-            strategy.appendField(locator, this, "style", buffer, theStyle);
-        }
-        {
-            String theTitle;
-            theTitle = this.getTitle();
-            strategy.appendField(locator, this, "title", buffer, theTitle);
-        }
-        {
-            String theAccesskey;
-            theAccesskey = this.getAccesskey();
-            strategy.appendField(locator, this, "accesskey", buffer, theAccesskey);
-        }
-        {
-            boolean theContenteditable;
-            theContenteditable = (this.isSetContenteditable()?this.isContenteditable():false);
-            strategy.appendField(locator, this, "contenteditable", buffer, theContenteditable);
-        }
-        {
-            String theContextmenu;
-            theContextmenu = this.getContextmenu();
-            strategy.appendField(locator, this, "contextmenu", buffer, theContextmenu);
-        }
-        {
-            String theDir;
-            theDir = this.getDir();
-            strategy.appendField(locator, this, "dir", buffer, theDir);
-        }
-        {
-            String theDraggable;
-            theDraggable = this.getDraggable();
-            strategy.appendField(locator, this, "draggable", buffer, theDraggable);
-        }
-        {
-            List<String> theDropzone;
-            theDropzone = (this.isSetDropzone()?this.getDropzone():null);
-            strategy.appendField(locator, this, "dropzone", buffer, theDropzone);
-        }
-        {
-            String theHidden;
-            theHidden = this.getHidden();
-            strategy.appendField(locator, this, "hidden", buffer, theHidden);
-        }
-        {
-            String theLangCode;
-            theLangCode = this.getLangCode();
-            strategy.appendField(locator, this, "langCode", buffer, theLangCode);
-        }
-        {
-            String theRole;
-            theRole = this.getRole();
-            strategy.appendField(locator, this, "role", buffer, theRole);
-        }
-        {
-            String theSpellcheck;
-            theSpellcheck = this.getSpellcheck();
-            strategy.appendField(locator, this, "spellcheck", buffer, theSpellcheck);
-        }
-        {
-            Integer theTabindex;
-            theTabindex = this.getTabindex();
-            strategy.appendField(locator, this, "tabindex", buffer, theTabindex);
-        }
-        {
-            String theLang;
-            theLang = this.getLang();
-            strategy.appendField(locator, this, "lang", buffer, theLang);
-        }
-        {
-            String theOnclick;
-            theOnclick = this.getOnclick();
-            strategy.appendField(locator, this, "onclick", buffer, theOnclick);
-        }
-        {
-            String theOndblclick;
-            theOndblclick = this.getOndblclick();
-            strategy.appendField(locator, this, "ondblclick", buffer, theOndblclick);
-        }
-        {
-            String theOnmousedown;
-            theOnmousedown = this.getOnmousedown();
-            strategy.appendField(locator, this, "onmousedown", buffer, theOnmousedown);
-        }
-        {
-            String theOnmouseup;
-            theOnmouseup = this.getOnmouseup();
-            strategy.appendField(locator, this, "onmouseup", buffer, theOnmouseup);
-        }
-        {
-            String theOnmouseover;
-            theOnmouseover = this.getOnmouseover();
-            strategy.appendField(locator, this, "onmouseover", buffer, theOnmouseover);
-        }
-        {
-            String theOnmousemove;
-            theOnmousemove = this.getOnmousemove();
-            strategy.appendField(locator, this, "onmousemove", buffer, theOnmousemove);
-        }
-        {
-            String theOnmouseout;
-            theOnmouseout = this.getOnmouseout();
-            strategy.appendField(locator, this, "onmouseout", buffer, theOnmouseout);
-        }
-        {
-            String theOnkeypress;
-            theOnkeypress = this.getOnkeypress();
-            strategy.appendField(locator, this, "onkeypress", buffer, theOnkeypress);
-        }
-        {
-            String theOnkeydown;
-            theOnkeydown = this.getOnkeydown();
-            strategy.appendField(locator, this, "onkeydown", buffer, theOnkeydown);
-        }
-        {
-            String theOnkeyup;
-            theOnkeyup = this.getOnkeyup();
-            strategy.appendField(locator, this, "onkeyup", buffer, theOnkeyup);
-        }
-        {
-            String theOnabort;
-            theOnabort = this.getOnabort();
-            strategy.appendField(locator, this, "onabort", buffer, theOnabort);
-        }
-        {
-            String theOnblur;
-            theOnblur = this.getOnblur();
-            strategy.appendField(locator, this, "onblur", buffer, theOnblur);
-        }
-        {
-            String theOncanplay;
-            theOncanplay = this.getOncanplay();
-            strategy.appendField(locator, this, "oncanplay", buffer, theOncanplay);
-        }
-        {
-            String theOncanplaythrough;
-            theOncanplaythrough = this.getOncanplaythrough();
-            strategy.appendField(locator, this, "oncanplaythrough", buffer, theOncanplaythrough);
-        }
-        {
-            String theOnchange;
-            theOnchange = this.getOnchange();
-            strategy.appendField(locator, this, "onchange", buffer, theOnchange);
-        }
-        {
-            String theOncontextmenu;
-            theOncontextmenu = this.getOncontextmenu();
-            strategy.appendField(locator, this, "oncontextmenu", buffer, theOncontextmenu);
-        }
-        {
-            String theOncuechange;
-            theOncuechange = this.getOncuechange();
-            strategy.appendField(locator, this, "oncuechange", buffer, theOncuechange);
-        }
-        {
-            String theOndrag;
-            theOndrag = this.getOndrag();
-            strategy.appendField(locator, this, "ondrag", buffer, theOndrag);
-        }
-        {
-            String theOndragend;
-            theOndragend = this.getOndragend();
-            strategy.appendField(locator, this, "ondragend", buffer, theOndragend);
-        }
-        {
-            String theOndragenter;
-            theOndragenter = this.getOndragenter();
-            strategy.appendField(locator, this, "ondragenter", buffer, theOndragenter);
-        }
-        {
-            String theOndragleave;
-            theOndragleave = this.getOndragleave();
-            strategy.appendField(locator, this, "ondragleave", buffer, theOndragleave);
-        }
-        {
-            String theOndragover;
-            theOndragover = this.getOndragover();
-            strategy.appendField(locator, this, "ondragover", buffer, theOndragover);
-        }
-        {
-            String theOndragstart;
-            theOndragstart = this.getOndragstart();
-            strategy.appendField(locator, this, "ondragstart", buffer, theOndragstart);
-        }
-        {
-            String theOndrop;
-            theOndrop = this.getOndrop();
-            strategy.appendField(locator, this, "ondrop", buffer, theOndrop);
-        }
-        {
-            String theOndurationchange;
-            theOndurationchange = this.getOndurationchange();
-            strategy.appendField(locator, this, "ondurationchange", buffer, theOndurationchange);
-        }
-        {
-            String theOnemptied;
-            theOnemptied = this.getOnemptied();
-            strategy.appendField(locator, this, "onemptied", buffer, theOnemptied);
-        }
-        {
-            String theOnended;
-            theOnended = this.getOnended();
-            strategy.appendField(locator, this, "onended", buffer, theOnended);
-        }
-        {
-            String theOnerror;
-            theOnerror = this.getOnerror();
-            strategy.appendField(locator, this, "onerror", buffer, theOnerror);
-        }
-        {
-            String theOnfocus;
-            theOnfocus = this.getOnfocus();
-            strategy.appendField(locator, this, "onfocus", buffer, theOnfocus);
-        }
-        {
-            String theOnformchange;
-            theOnformchange = this.getOnformchange();
-            strategy.appendField(locator, this, "onformchange", buffer, theOnformchange);
-        }
-        {
-            String theOnforminput;
-            theOnforminput = this.getOnforminput();
-            strategy.appendField(locator, this, "onforminput", buffer, theOnforminput);
-        }
-        {
-            String theOninput;
-            theOninput = this.getOninput();
-            strategy.appendField(locator, this, "oninput", buffer, theOninput);
-        }
-        {
-            String theOninvalid;
-            theOninvalid = this.getOninvalid();
-            strategy.appendField(locator, this, "oninvalid", buffer, theOninvalid);
-        }
-        {
-            String theOnload;
-            theOnload = this.getOnload();
-            strategy.appendField(locator, this, "onload", buffer, theOnload);
-        }
-        {
-            String theOnloadeddata;
-            theOnloadeddata = this.getOnloadeddata();
-            strategy.appendField(locator, this, "onloadeddata", buffer, theOnloadeddata);
-        }
-        {
-            String theOnloadedmetadata;
-            theOnloadedmetadata = this.getOnloadedmetadata();
-            strategy.appendField(locator, this, "onloadedmetadata", buffer, theOnloadedmetadata);
-        }
-        {
-            String theOnloadstart;
-            theOnloadstart = this.getOnloadstart();
-            strategy.appendField(locator, this, "onloadstart", buffer, theOnloadstart);
-        }
-        {
-            String theOnmousewheel;
-            theOnmousewheel = this.getOnmousewheel();
-            strategy.appendField(locator, this, "onmousewheel", buffer, theOnmousewheel);
-        }
-        {
-            String theOnpause;
-            theOnpause = this.getOnpause();
-            strategy.appendField(locator, this, "onpause", buffer, theOnpause);
-        }
-        {
-            String theOnplay;
-            theOnplay = this.getOnplay();
-            strategy.appendField(locator, this, "onplay", buffer, theOnplay);
-        }
-        {
-            String theOnplaying;
-            theOnplaying = this.getOnplaying();
-            strategy.appendField(locator, this, "onplaying", buffer, theOnplaying);
-        }
-        {
-            String theOnprogress;
-            theOnprogress = this.getOnprogress();
-            strategy.appendField(locator, this, "onprogress", buffer, theOnprogress);
-        }
-        {
-            String theOnratechange;
-            theOnratechange = this.getOnratechange();
-            strategy.appendField(locator, this, "onratechange", buffer, theOnratechange);
-        }
-        {
-            String theOnreadystatechange;
-            theOnreadystatechange = this.getOnreadystatechange();
-            strategy.appendField(locator, this, "onreadystatechange", buffer, theOnreadystatechange);
-        }
-        {
-            String theOnreset;
-            theOnreset = this.getOnreset();
-            strategy.appendField(locator, this, "onreset", buffer, theOnreset);
-        }
-        {
-            String theOnscroll;
-            theOnscroll = this.getOnscroll();
-            strategy.appendField(locator, this, "onscroll", buffer, theOnscroll);
-        }
-        {
-            String theOnseeked;
-            theOnseeked = this.getOnseeked();
-            strategy.appendField(locator, this, "onseeked", buffer, theOnseeked);
-        }
-        {
-            String theOnseeking;
-            theOnseeking = this.getOnseeking();
-            strategy.appendField(locator, this, "onseeking", buffer, theOnseeking);
-        }
-        {
-            String theOnselect;
-            theOnselect = this.getOnselect();
-            strategy.appendField(locator, this, "onselect", buffer, theOnselect);
-        }
-        {
-            String theOnshow;
-            theOnshow = this.getOnshow();
-            strategy.appendField(locator, this, "onshow", buffer, theOnshow);
-        }
-        {
-            String theOnstalled;
-            theOnstalled = this.getOnstalled();
-            strategy.appendField(locator, this, "onstalled", buffer, theOnstalled);
-        }
-        {
-            String theOnsubmit;
-            theOnsubmit = this.getOnsubmit();
-            strategy.appendField(locator, this, "onsubmit", buffer, theOnsubmit);
-        }
-        {
-            String theOnsuspend;
-            theOnsuspend = this.getOnsuspend();
-            strategy.appendField(locator, this, "onsuspend", buffer, theOnsuspend);
-        }
-        {
-            String theOntimeupdate;
-            theOntimeupdate = this.getOntimeupdate();
-            strategy.appendField(locator, this, "ontimeupdate", buffer, theOntimeupdate);
-        }
-        {
-            String theOnvolumechange;
-            theOnvolumechange = this.getOnvolumechange();
-            strategy.appendField(locator, this, "onvolumechange", buffer, theOnvolumechange);
-        }
-        {
-            String theOnwaiting;
-            theOnwaiting = this.getOnwaiting();
-            strategy.appendField(locator, this, "onwaiting", buffer, theOnwaiting);
-        }
-        return buffer;
     }
 
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, java.lang.Object object, EqualsStrategy strategy) {
@@ -3057,69 +2625,6 @@ public class Video
             Integer rhsHeight;
             rhsHeight = that.getHeight();
             if (!strategy.equals(LocatorUtils.property(thisLocator, "height", lhsHeight), LocatorUtils.property(thatLocator, "height", rhsHeight), lhsHeight, rhsHeight)) {
-                return false;
-            }
-        }
-        {
-            String lhsSrc;
-            lhsSrc = this.getSrc();
-            String rhsSrc;
-            rhsSrc = that.getSrc();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "src", lhsSrc), LocatorUtils.property(thatLocator, "src", rhsSrc), lhsSrc, rhsSrc)) {
-                return false;
-            }
-        }
-        {
-            String lhsPreload;
-            lhsPreload = this.getPreload();
-            String rhsPreload;
-            rhsPreload = that.getPreload();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "preload", lhsPreload), LocatorUtils.property(thatLocator, "preload", rhsPreload), lhsPreload, rhsPreload)) {
-                return false;
-            }
-        }
-        {
-            String lhsAutoplay;
-            lhsAutoplay = this.getAutoplay();
-            String rhsAutoplay;
-            rhsAutoplay = that.getAutoplay();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "autoplay", lhsAutoplay), LocatorUtils.property(thatLocator, "autoplay", rhsAutoplay), lhsAutoplay, rhsAutoplay)) {
-                return false;
-            }
-        }
-        {
-            String lhsMediagroup;
-            lhsMediagroup = this.getMediagroup();
-            String rhsMediagroup;
-            rhsMediagroup = that.getMediagroup();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "mediagroup", lhsMediagroup), LocatorUtils.property(thatLocator, "mediagroup", rhsMediagroup), lhsMediagroup, rhsMediagroup)) {
-                return false;
-            }
-        }
-        {
-            String lhsMuted;
-            lhsMuted = this.getMuted();
-            String rhsMuted;
-            rhsMuted = that.getMuted();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "muted", lhsMuted), LocatorUtils.property(thatLocator, "muted", rhsMuted), lhsMuted, rhsMuted)) {
-                return false;
-            }
-        }
-        {
-            String lhsLoop;
-            lhsLoop = this.getLoop();
-            String rhsLoop;
-            rhsLoop = that.getLoop();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "loop", lhsLoop), LocatorUtils.property(thatLocator, "loop", rhsLoop), lhsLoop, rhsLoop)) {
-                return false;
-            }
-        }
-        {
-            String lhsControls;
-            lhsControls = this.getControls();
-            String rhsControls;
-            rhsControls = that.getControls();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "controls", lhsControls), LocatorUtils.property(thatLocator, "controls", rhsControls), lhsControls, rhsControls)) {
                 return false;
             }
         }
@@ -3771,6 +3276,69 @@ public class Video
                 return false;
             }
         }
+        {
+            String lhsSrc;
+            lhsSrc = this.getSrc();
+            String rhsSrc;
+            rhsSrc = that.getSrc();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "src", lhsSrc), LocatorUtils.property(thatLocator, "src", rhsSrc), lhsSrc, rhsSrc)) {
+                return false;
+            }
+        }
+        {
+            String lhsPreload;
+            lhsPreload = this.getPreload();
+            String rhsPreload;
+            rhsPreload = that.getPreload();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "preload", lhsPreload), LocatorUtils.property(thatLocator, "preload", rhsPreload), lhsPreload, rhsPreload)) {
+                return false;
+            }
+        }
+        {
+            String lhsAutoplay;
+            lhsAutoplay = this.getAutoplay();
+            String rhsAutoplay;
+            rhsAutoplay = that.getAutoplay();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "autoplay", lhsAutoplay), LocatorUtils.property(thatLocator, "autoplay", rhsAutoplay), lhsAutoplay, rhsAutoplay)) {
+                return false;
+            }
+        }
+        {
+            String lhsMediagroup;
+            lhsMediagroup = this.getMediagroup();
+            String rhsMediagroup;
+            rhsMediagroup = that.getMediagroup();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "mediagroup", lhsMediagroup), LocatorUtils.property(thatLocator, "mediagroup", rhsMediagroup), lhsMediagroup, rhsMediagroup)) {
+                return false;
+            }
+        }
+        {
+            String lhsMuted;
+            lhsMuted = this.getMuted();
+            String rhsMuted;
+            rhsMuted = that.getMuted();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "muted", lhsMuted), LocatorUtils.property(thatLocator, "muted", rhsMuted), lhsMuted, rhsMuted)) {
+                return false;
+            }
+        }
+        {
+            String lhsLoop;
+            lhsLoop = this.getLoop();
+            String rhsLoop;
+            rhsLoop = that.getLoop();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "loop", lhsLoop), LocatorUtils.property(thatLocator, "loop", rhsLoop), lhsLoop, rhsLoop)) {
+                return false;
+            }
+        }
+        {
+            String lhsControls;
+            lhsControls = this.getControls();
+            String rhsControls;
+            rhsControls = that.getControls();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "controls", lhsControls), LocatorUtils.property(thatLocator, "controls", rhsControls), lhsControls, rhsControls)) {
+                return false;
+            }
+        }
         return true;
     }
 
@@ -3795,41 +3363,6 @@ public class Video
             Integer theHeight;
             theHeight = this.getHeight();
             currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "height", theHeight), currentHashCode, theHeight);
-        }
-        {
-            String theSrc;
-            theSrc = this.getSrc();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "src", theSrc), currentHashCode, theSrc);
-        }
-        {
-            String thePreload;
-            thePreload = this.getPreload();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "preload", thePreload), currentHashCode, thePreload);
-        }
-        {
-            String theAutoplay;
-            theAutoplay = this.getAutoplay();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "autoplay", theAutoplay), currentHashCode, theAutoplay);
-        }
-        {
-            String theMediagroup;
-            theMediagroup = this.getMediagroup();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "mediagroup", theMediagroup), currentHashCode, theMediagroup);
-        }
-        {
-            String theMuted;
-            theMuted = this.getMuted();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "muted", theMuted), currentHashCode, theMuted);
-        }
-        {
-            String theLoop;
-            theLoop = this.getLoop();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "loop", theLoop), currentHashCode, theLoop);
-        }
-        {
-            String theControls;
-            theControls = this.getControls();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "controls", theControls), currentHashCode, theControls);
         }
         {
             String theId;
@@ -4191,6 +3724,41 @@ public class Video
             theOnwaiting = this.getOnwaiting();
             currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onwaiting", theOnwaiting), currentHashCode, theOnwaiting);
         }
+        {
+            String theSrc;
+            theSrc = this.getSrc();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "src", theSrc), currentHashCode, theSrc);
+        }
+        {
+            String thePreload;
+            thePreload = this.getPreload();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "preload", thePreload), currentHashCode, thePreload);
+        }
+        {
+            String theAutoplay;
+            theAutoplay = this.getAutoplay();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "autoplay", theAutoplay), currentHashCode, theAutoplay);
+        }
+        {
+            String theMediagroup;
+            theMediagroup = this.getMediagroup();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "mediagroup", theMediagroup), currentHashCode, theMediagroup);
+        }
+        {
+            String theMuted;
+            theMuted = this.getMuted();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "muted", theMuted), currentHashCode, theMuted);
+        }
+        {
+            String theLoop;
+            theLoop = this.getLoop();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "loop", theLoop), currentHashCode, theLoop);
+        }
+        {
+            String theControls;
+            theControls = this.getControls();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "controls", theControls), currentHashCode, theControls);
+        }
         return currentHashCode;
     }
 
@@ -4236,62 +3804,6 @@ public class Video
                 copy.setHeight(copyHeight);
             } else {
                 copy.height = null;
-            }
-            if (this.isSetSrc()) {
-                String sourceSrc;
-                sourceSrc = this.getSrc();
-                String copySrc = ((String) strategy.copy(LocatorUtils.property(locator, "src", sourceSrc), sourceSrc));
-                copy.setSrc(copySrc);
-            } else {
-                copy.src = null;
-            }
-            if (this.isSetPreload()) {
-                String sourcePreload;
-                sourcePreload = this.getPreload();
-                String copyPreload = ((String) strategy.copy(LocatorUtils.property(locator, "preload", sourcePreload), sourcePreload));
-                copy.setPreload(copyPreload);
-            } else {
-                copy.preload = null;
-            }
-            if (this.isSetAutoplay()) {
-                String sourceAutoplay;
-                sourceAutoplay = this.getAutoplay();
-                String copyAutoplay = ((String) strategy.copy(LocatorUtils.property(locator, "autoplay", sourceAutoplay), sourceAutoplay));
-                copy.setAutoplay(copyAutoplay);
-            } else {
-                copy.autoplay = null;
-            }
-            if (this.isSetMediagroup()) {
-                String sourceMediagroup;
-                sourceMediagroup = this.getMediagroup();
-                String copyMediagroup = ((String) strategy.copy(LocatorUtils.property(locator, "mediagroup", sourceMediagroup), sourceMediagroup));
-                copy.setMediagroup(copyMediagroup);
-            } else {
-                copy.mediagroup = null;
-            }
-            if (this.isSetMuted()) {
-                String sourceMuted;
-                sourceMuted = this.getMuted();
-                String copyMuted = ((String) strategy.copy(LocatorUtils.property(locator, "muted", sourceMuted), sourceMuted));
-                copy.setMuted(copyMuted);
-            } else {
-                copy.muted = null;
-            }
-            if (this.isSetLoop()) {
-                String sourceLoop;
-                sourceLoop = this.getLoop();
-                String copyLoop = ((String) strategy.copy(LocatorUtils.property(locator, "loop", sourceLoop), sourceLoop));
-                copy.setLoop(copyLoop);
-            } else {
-                copy.loop = null;
-            }
-            if (this.isSetControls()) {
-                String sourceControls;
-                sourceControls = this.getControls();
-                String copyControls = ((String) strategy.copy(LocatorUtils.property(locator, "controls", sourceControls), sourceControls));
-                copy.setControls(copyControls);
-            } else {
-                copy.controls = null;
             }
             if (this.isSetId()) {
                 String sourceId;
@@ -4878,6 +4390,62 @@ public class Video
                 copy.setOnwaiting(copyOnwaiting);
             } else {
                 copy.onwaiting = null;
+            }
+            if (this.isSetSrc()) {
+                String sourceSrc;
+                sourceSrc = this.getSrc();
+                String copySrc = ((String) strategy.copy(LocatorUtils.property(locator, "src", sourceSrc), sourceSrc));
+                copy.setSrc(copySrc);
+            } else {
+                copy.src = null;
+            }
+            if (this.isSetPreload()) {
+                String sourcePreload;
+                sourcePreload = this.getPreload();
+                String copyPreload = ((String) strategy.copy(LocatorUtils.property(locator, "preload", sourcePreload), sourcePreload));
+                copy.setPreload(copyPreload);
+            } else {
+                copy.preload = null;
+            }
+            if (this.isSetAutoplay()) {
+                String sourceAutoplay;
+                sourceAutoplay = this.getAutoplay();
+                String copyAutoplay = ((String) strategy.copy(LocatorUtils.property(locator, "autoplay", sourceAutoplay), sourceAutoplay));
+                copy.setAutoplay(copyAutoplay);
+            } else {
+                copy.autoplay = null;
+            }
+            if (this.isSetMediagroup()) {
+                String sourceMediagroup;
+                sourceMediagroup = this.getMediagroup();
+                String copyMediagroup = ((String) strategy.copy(LocatorUtils.property(locator, "mediagroup", sourceMediagroup), sourceMediagroup));
+                copy.setMediagroup(copyMediagroup);
+            } else {
+                copy.mediagroup = null;
+            }
+            if (this.isSetMuted()) {
+                String sourceMuted;
+                sourceMuted = this.getMuted();
+                String copyMuted = ((String) strategy.copy(LocatorUtils.property(locator, "muted", sourceMuted), sourceMuted));
+                copy.setMuted(copyMuted);
+            } else {
+                copy.muted = null;
+            }
+            if (this.isSetLoop()) {
+                String sourceLoop;
+                sourceLoop = this.getLoop();
+                String copyLoop = ((String) strategy.copy(LocatorUtils.property(locator, "loop", sourceLoop), sourceLoop));
+                copy.setLoop(copyLoop);
+            } else {
+                copy.loop = null;
+            }
+            if (this.isSetControls()) {
+                String sourceControls;
+                sourceControls = this.getControls();
+                String copyControls = ((String) strategy.copy(LocatorUtils.property(locator, "controls", sourceControls), sourceControls));
+                copy.setControls(copyControls);
+            } else {
+                copy.controls = null;
             }
         }
         return draftCopy;

@@ -7,13 +7,11 @@ import java.io.IOException;
 
 import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.mixer2.Mixer2Engine;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
-@Ignore
 public class ToStringTest {
 
     private String templateFileName = "HelloWorld.html";
@@ -40,7 +38,7 @@ public class ToStringTest {
     public void test() throws IOException, TagTypeUnmatchException {
         Html html = m2e.loadHtmlTemplate(new File(templateFilePath));
         assertEquals(-1, html.toString().indexOf("=<null>"));
-        // System.out.println(html.toString());
+        System.out.println(html.toString());
     }
 
 }

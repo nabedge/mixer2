@@ -569,9 +569,6 @@ public abstract class AbstractJaxb implements Serializable {
      * <p>
      * 自分自身のディープコピーを返します。
      * </p>
-     * <p>
-     * MEMO: this method using serialize/unserialize. it's slow. please remake.
-     * </p>
      *
      * <pre>
      * // usage
@@ -594,7 +591,7 @@ public abstract class AbstractJaxb implements Serializable {
         try {
 			result = (T) this.clone();
 		} catch (CloneNotSupportedException e) {
-			log.error("",e);
+			log.error("can not create clone(copy) of this object.", e);
 		}
 		return result;
     }

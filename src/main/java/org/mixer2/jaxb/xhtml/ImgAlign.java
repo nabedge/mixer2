@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for ImgAlign.
+ * <p>ImgAlignのJavaクラス。
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
  * <p>
  * <pre>
  * &lt;simpleType name="ImgAlign">
