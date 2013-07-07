@@ -21,13 +21,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.namespace.QName;
 import org.jvnet.jaxb2_commons.lang.CopyStrategy;
 import org.jvnet.jaxb2_commons.lang.CopyTo;
-import org.jvnet.jaxb2_commons.lang.Equals;
-import org.jvnet.jaxb2_commons.lang.EqualsStrategy;
-import org.jvnet.jaxb2_commons.lang.HashCode;
-import org.jvnet.jaxb2_commons.lang.HashCodeStrategy;
 import org.jvnet.jaxb2_commons.lang.JAXBCopyStrategy;
-import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
-import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
 import org.jvnet.jaxb2_commons.locator.ObjectLocator;
 import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 import org.mixer2.xhtml.AbstractJaxb;
@@ -87,104 +81,104 @@ import org.mixer2.xhtml.AbstractJaxb;
 @XmlRootElement(name = "object")
 public class Object
     extends AbstractJaxb
-    implements Cloneable, CopyTo, Equals, HashCode
+    implements Cloneable, CopyTo
 {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "sup", namespace = "http://www.w3.org/1999/xhtml", type = Sup.class),
-        @XmlElementRef(name = "i", namespace = "http://www.w3.org/1999/xhtml", type = I.class),
-        @XmlElementRef(name = "aside", namespace = "http://www.w3.org/1999/xhtml", type = Aside.class),
-        @XmlElementRef(name = "figure", namespace = "http://www.w3.org/1999/xhtml", type = Figure.class),
-        @XmlElementRef(name = "h6", namespace = "http://www.w3.org/1999/xhtml", type = H6 .class),
-        @XmlElementRef(name = "hgroup", namespace = "http://www.w3.org/1999/xhtml", type = Hgroup.class),
-        @XmlElementRef(name = "address", namespace = "http://www.w3.org/1999/xhtml", type = Address.class),
-        @XmlElementRef(name = "strike", namespace = "http://www.w3.org/1999/xhtml", type = Strike.class),
-        @XmlElementRef(name = "acronym", namespace = "http://www.w3.org/1999/xhtml", type = Acronym.class),
-        @XmlElementRef(name = "dfn", namespace = "http://www.w3.org/1999/xhtml", type = Dfn.class),
-        @XmlElementRef(name = "big", namespace = "http://www.w3.org/1999/xhtml", type = Big.class),
         @XmlElementRef(name = "s", namespace = "http://www.w3.org/1999/xhtml", type = S.class),
-        @XmlElementRef(name = "source", namespace = "http://www.w3.org/1999/xhtml", type = Source.class),
-        @XmlElementRef(name = "param", namespace = "http://www.w3.org/1999/xhtml", type = Param.class),
-        @XmlElementRef(name = "img", namespace = "http://www.w3.org/1999/xhtml", type = Img.class),
-        @XmlElementRef(name = "ruby", namespace = "http://www.w3.org/1999/xhtml", type = Ruby.class),
-        @XmlElementRef(name = "command", namespace = "http://www.w3.org/1999/xhtml", type = Command.class),
-        @XmlElementRef(name = "noframes", namespace = "http://www.w3.org/1999/xhtml", type = Noframes.class),
-        @XmlElementRef(name = "keygen", namespace = "http://www.w3.org/1999/xhtml", type = Keygen.class),
-        @XmlElementRef(name = "ul", namespace = "http://www.w3.org/1999/xhtml", type = Ul.class),
-        @XmlElementRef(name = "h1", namespace = "http://www.w3.org/1999/xhtml", type = H1 .class),
-        @XmlElementRef(name = "font", namespace = "http://www.w3.org/1999/xhtml", type = Font.class),
-        @XmlElementRef(name = "datalist", namespace = "http://www.w3.org/1999/xhtml", type = Datalist.class),
-        @XmlElementRef(name = "basefont", namespace = "http://www.w3.org/1999/xhtml", type = Basefont.class),
-        @XmlElementRef(name = "menu", namespace = "http://www.w3.org/1999/xhtml", type = Menu.class),
-        @XmlElementRef(name = "small", namespace = "http://www.w3.org/1999/xhtml", type = Small.class),
-        @XmlElementRef(name = "track", namespace = "http://www.w3.org/1999/xhtml", type = Track.class),
-        @XmlElementRef(name = "audio", namespace = "http://www.w3.org/1999/xhtml", type = Audio.class),
-        @XmlElementRef(name = "article", namespace = "http://www.w3.org/1999/xhtml", type = Article.class),
-        @XmlElementRef(name = "ol", namespace = "http://www.w3.org/1999/xhtml", type = Ol.class),
-        @XmlElementRef(name = "textarea", namespace = "http://www.w3.org/1999/xhtml", type = Textarea.class),
-        @XmlElementRef(name = "fieldset", namespace = "http://www.w3.org/1999/xhtml", type = Fieldset.class),
-        @XmlElementRef(name = "div", namespace = "http://www.w3.org/1999/xhtml", type = Div.class),
-        @XmlElementRef(name = "span", namespace = "http://www.w3.org/1999/xhtml", type = Span.class),
-        @XmlElementRef(name = "nav", namespace = "http://www.w3.org/1999/xhtml", type = Nav.class),
-        @XmlElementRef(name = "em", namespace = "http://www.w3.org/1999/xhtml", type = Em.class),
-        @XmlElementRef(name = "h3", namespace = "http://www.w3.org/1999/xhtml", type = H3 .class),
-        @XmlElementRef(name = "q", namespace = "http://www.w3.org/1999/xhtml", type = Q.class),
-        @XmlElementRef(name = "rt", namespace = "http://www.w3.org/1999/xhtml", type = Rt.class),
-        @XmlElementRef(name = "progress", namespace = "http://www.w3.org/1999/xhtml", type = Progress.class),
-        @XmlElementRef(name = "dl", namespace = "http://www.w3.org/1999/xhtml", type = Dl.class),
-        @XmlElementRef(name = "code", namespace = "http://www.w3.org/1999/xhtml", type = Code.class),
-        @XmlElementRef(name = "figcaption", namespace = "http://www.w3.org/1999/xhtml", type = Figcaption.class),
-        @XmlElementRef(name = "button", namespace = "http://www.w3.org/1999/xhtml", type = Button.class),
         @XmlElementRef(name = "select", namespace = "http://www.w3.org/1999/xhtml", type = Select.class),
-        @XmlElementRef(name = "video", namespace = "http://www.w3.org/1999/xhtml", type = Video.class),
-        @XmlElementRef(name = "time", namespace = "http://www.w3.org/1999/xhtml", type = Time.class),
-        @XmlElementRef(name = "applet", namespace = "http://www.w3.org/1999/xhtml", type = Applet.class),
-        @XmlElementRef(name = "header", namespace = "http://www.w3.org/1999/xhtml", type = Header.class),
-        @XmlElementRef(name = "samp", namespace = "http://www.w3.org/1999/xhtml", type = Samp.class),
-        @XmlElementRef(name = "label", namespace = "http://www.w3.org/1999/xhtml", type = Label.class),
-        @XmlElementRef(name = "p", namespace = "http://www.w3.org/1999/xhtml", type = P.class),
-        @XmlElementRef(name = "h4", namespace = "http://www.w3.org/1999/xhtml", type = H4 .class),
-        @XmlElementRef(name = "form", namespace = "http://www.w3.org/1999/xhtml", type = Form.class),
-        @XmlElementRef(name = "pre", namespace = "http://www.w3.org/1999/xhtml", type = Pre.class),
-        @XmlElementRef(name = "dir", namespace = "http://www.w3.org/1999/xhtml", type = Dir.class),
-        @XmlElementRef(name = "h2", namespace = "http://www.w3.org/1999/xhtml", type = H2 .class),
-        @XmlElementRef(name = "wbr", namespace = "http://www.w3.org/1999/xhtml", type = Wbr.class),
-        @XmlElementRef(name = "b", namespace = "http://www.w3.org/1999/xhtml", type = B.class),
-        @XmlElementRef(name = "isindex", namespace = "http://www.w3.org/1999/xhtml", type = Isindex.class),
-        @XmlElementRef(name = "bdo", namespace = "http://www.w3.org/1999/xhtml", type = Bdo.class),
-        @XmlElementRef(name = "footer", namespace = "http://www.w3.org/1999/xhtml", type = Footer.class),
-        @XmlElementRef(name = "bdi", namespace = "http://www.w3.org/1999/xhtml", type = Bdi.class),
-        @XmlElementRef(name = "br", namespace = "http://www.w3.org/1999/xhtml", type = Br.class),
-        @XmlElementRef(name = "strong", namespace = "http://www.w3.org/1999/xhtml", type = Strong.class),
-        @XmlElementRef(name = "center", namespace = "http://www.w3.org/1999/xhtml", type = Center.class),
-        @XmlElementRef(name = "section", namespace = "http://www.w3.org/1999/xhtml", type = Section.class),
-        @XmlElementRef(name = "del", namespace = "http://www.w3.org/1999/xhtml", type = Del.class),
-        @XmlElementRef(name = "output", namespace = "http://www.w3.org/1999/xhtml", type = Output.class),
-        @XmlElementRef(name = "script", namespace = "http://www.w3.org/1999/xhtml", type = Script.class),
-        @XmlElementRef(name = "details", namespace = "http://www.w3.org/1999/xhtml", type = Details.class),
-        @XmlElementRef(name = "kbd", namespace = "http://www.w3.org/1999/xhtml", type = Kbd.class),
-        @XmlElementRef(name = "ins", namespace = "http://www.w3.org/1999/xhtml", type = Ins.class),
-        @XmlElementRef(name = "var", namespace = "http://www.w3.org/1999/xhtml", type = Var.class),
-        @XmlElementRef(name = "sub", namespace = "http://www.w3.org/1999/xhtml", type = Sub.class),
-        @XmlElementRef(name = "h5", namespace = "http://www.w3.org/1999/xhtml", type = H5 .class),
-        @XmlElementRef(name = "object", namespace = "http://www.w3.org/1999/xhtml", type = Object.class),
-        @XmlElementRef(name = "blockquote", namespace = "http://www.w3.org/1999/xhtml", type = Blockquote.class),
-        @XmlElementRef(name = "map", namespace = "http://www.w3.org/1999/xhtml", type = org.mixer2.jaxb.xhtml.Map.class),
-        @XmlElementRef(name = "input", namespace = "http://www.w3.org/1999/xhtml", type = Input.class),
-        @XmlElementRef(name = "rp", namespace = "http://www.w3.org/1999/xhtml", type = Rp.class),
-        @XmlElementRef(name = "noscript", namespace = "http://www.w3.org/1999/xhtml", type = Noscript.class),
-        @XmlElementRef(name = "tt", namespace = "http://www.w3.org/1999/xhtml", type = Tt.class),
-        @XmlElementRef(name = "iframe", namespace = "http://www.w3.org/1999/xhtml", type = Iframe.class),
-        @XmlElementRef(name = "table", namespace = "http://www.w3.org/1999/xhtml", type = Table.class),
-        @XmlElementRef(name = "mark", namespace = "http://www.w3.org/1999/xhtml", type = Mark.class),
+        @XmlElementRef(name = "dfn", namespace = "http://www.w3.org/1999/xhtml", type = Dfn.class),
         @XmlElementRef(name = "u", namespace = "http://www.w3.org/1999/xhtml", type = U.class),
-        @XmlElementRef(name = "hr", namespace = "http://www.w3.org/1999/xhtml", type = Hr.class),
+        @XmlElementRef(name = "samp", namespace = "http://www.w3.org/1999/xhtml", type = Samp.class),
+        @XmlElementRef(name = "article", namespace = "http://www.w3.org/1999/xhtml", type = Article.class),
+        @XmlElementRef(name = "textarea", namespace = "http://www.w3.org/1999/xhtml", type = Textarea.class),
+        @XmlElementRef(name = "param", namespace = "http://www.w3.org/1999/xhtml", type = Param.class),
+        @XmlElementRef(name = "big", namespace = "http://www.w3.org/1999/xhtml", type = Big.class),
+        @XmlElementRef(name = "footer", namespace = "http://www.w3.org/1999/xhtml", type = Footer.class),
+        @XmlElementRef(name = "address", namespace = "http://www.w3.org/1999/xhtml", type = Address.class),
+        @XmlElementRef(name = "header", namespace = "http://www.w3.org/1999/xhtml", type = Header.class),
+        @XmlElementRef(name = "h3", namespace = "http://www.w3.org/1999/xhtml", type = H3 .class),
+        @XmlElementRef(name = "object", namespace = "http://www.w3.org/1999/xhtml", type = Object.class),
+        @XmlElementRef(name = "script", namespace = "http://www.w3.org/1999/xhtml", type = Script.class),
+        @XmlElementRef(name = "source", namespace = "http://www.w3.org/1999/xhtml", type = Source.class),
+        @XmlElementRef(name = "wbr", namespace = "http://www.w3.org/1999/xhtml", type = Wbr.class),
+        @XmlElementRef(name = "fieldset", namespace = "http://www.w3.org/1999/xhtml", type = Fieldset.class),
+        @XmlElementRef(name = "applet", namespace = "http://www.w3.org/1999/xhtml", type = Applet.class),
+        @XmlElementRef(name = "em", namespace = "http://www.w3.org/1999/xhtml", type = Em.class),
+        @XmlElementRef(name = "tt", namespace = "http://www.w3.org/1999/xhtml", type = Tt.class),
+        @XmlElementRef(name = "basefont", namespace = "http://www.w3.org/1999/xhtml", type = Basefont.class),
+        @XmlElementRef(name = "audio", namespace = "http://www.w3.org/1999/xhtml", type = Audio.class),
+        @XmlElementRef(name = "b", namespace = "http://www.w3.org/1999/xhtml", type = B.class),
+        @XmlElementRef(name = "h5", namespace = "http://www.w3.org/1999/xhtml", type = H5 .class),
+        @XmlElementRef(name = "dl", namespace = "http://www.w3.org/1999/xhtml", type = Dl.class),
+        @XmlElementRef(name = "sub", namespace = "http://www.w3.org/1999/xhtml", type = Sub.class),
+        @XmlElementRef(name = "output", namespace = "http://www.w3.org/1999/xhtml", type = Output.class),
+        @XmlElementRef(name = "h6", namespace = "http://www.w3.org/1999/xhtml", type = H6 .class),
+        @XmlElementRef(name = "font", namespace = "http://www.w3.org/1999/xhtml", type = Font.class),
+        @XmlElementRef(name = "ul", namespace = "http://www.w3.org/1999/xhtml", type = Ul.class),
+        @XmlElementRef(name = "strike", namespace = "http://www.w3.org/1999/xhtml", type = Strike.class),
+        @XmlElementRef(name = "embed", namespace = "http://www.w3.org/1999/xhtml", type = Embed.class),
+        @XmlElementRef(name = "cite", namespace = "http://www.w3.org/1999/xhtml", type = Cite.class),
+        @XmlElementRef(name = "acronym", namespace = "http://www.w3.org/1999/xhtml", type = Acronym.class),
+        @XmlElementRef(name = "p", namespace = "http://www.w3.org/1999/xhtml", type = P.class),
+        @XmlElementRef(name = "command", namespace = "http://www.w3.org/1999/xhtml", type = Command.class),
+        @XmlElementRef(name = "dir", namespace = "http://www.w3.org/1999/xhtml", type = Dir.class),
+        @XmlElementRef(name = "figure", namespace = "http://www.w3.org/1999/xhtml", type = Figure.class),
+        @XmlElementRef(name = "ins", namespace = "http://www.w3.org/1999/xhtml", type = Ins.class),
+        @XmlElementRef(name = "input", namespace = "http://www.w3.org/1999/xhtml", type = Input.class),
+        @XmlElementRef(name = "noframes", namespace = "http://www.w3.org/1999/xhtml", type = Noframes.class),
         @XmlElementRef(name = "canvas", namespace = "http://www.w3.org/1999/xhtml", type = Canvas.class),
         @XmlElementRef(name = "abbr", namespace = "http://www.w3.org/1999/xhtml", type = Abbr.class),
-        @XmlElementRef(name = "cite", namespace = "http://www.w3.org/1999/xhtml", type = Cite.class),
-        @XmlElementRef(name = "a", namespace = "http://www.w3.org/1999/xhtml", type = A.class),
+        @XmlElementRef(name = "rp", namespace = "http://www.w3.org/1999/xhtml", type = Rp.class),
+        @XmlElementRef(name = "small", namespace = "http://www.w3.org/1999/xhtml", type = Small.class),
+        @XmlElementRef(name = "aside", namespace = "http://www.w3.org/1999/xhtml", type = Aside.class),
+        @XmlElementRef(name = "span", namespace = "http://www.w3.org/1999/xhtml", type = Span.class),
+        @XmlElementRef(name = "mark", namespace = "http://www.w3.org/1999/xhtml", type = Mark.class),
+        @XmlElementRef(name = "noscript", namespace = "http://www.w3.org/1999/xhtml", type = Noscript.class),
+        @XmlElementRef(name = "h2", namespace = "http://www.w3.org/1999/xhtml", type = H2 .class),
+        @XmlElementRef(name = "label", namespace = "http://www.w3.org/1999/xhtml", type = Label.class),
+        @XmlElementRef(name = "datalist", namespace = "http://www.w3.org/1999/xhtml", type = Datalist.class),
         @XmlElementRef(name = "meter", namespace = "http://www.w3.org/1999/xhtml", type = Meter.class),
-        @XmlElementRef(name = "embed", namespace = "http://www.w3.org/1999/xhtml", type = Embed.class)
+        @XmlElementRef(name = "bdo", namespace = "http://www.w3.org/1999/xhtml", type = Bdo.class),
+        @XmlElementRef(name = "a", namespace = "http://www.w3.org/1999/xhtml", type = A.class),
+        @XmlElementRef(name = "track", namespace = "http://www.w3.org/1999/xhtml", type = Track.class),
+        @XmlElementRef(name = "form", namespace = "http://www.w3.org/1999/xhtml", type = Form.class),
+        @XmlElementRef(name = "strong", namespace = "http://www.w3.org/1999/xhtml", type = Strong.class),
+        @XmlElementRef(name = "var", namespace = "http://www.w3.org/1999/xhtml", type = Var.class),
+        @XmlElementRef(name = "bdi", namespace = "http://www.w3.org/1999/xhtml", type = Bdi.class),
+        @XmlElementRef(name = "nav", namespace = "http://www.w3.org/1999/xhtml", type = Nav.class),
+        @XmlElementRef(name = "map", namespace = "http://www.w3.org/1999/xhtml", type = org.mixer2.jaxb.xhtml.Map.class),
+        @XmlElementRef(name = "button", namespace = "http://www.w3.org/1999/xhtml", type = Button.class),
+        @XmlElementRef(name = "i", namespace = "http://www.w3.org/1999/xhtml", type = I.class),
+        @XmlElementRef(name = "iframe", namespace = "http://www.w3.org/1999/xhtml", type = Iframe.class),
+        @XmlElementRef(name = "keygen", namespace = "http://www.w3.org/1999/xhtml", type = Keygen.class),
+        @XmlElementRef(name = "isindex", namespace = "http://www.w3.org/1999/xhtml", type = Isindex.class),
+        @XmlElementRef(name = "menu", namespace = "http://www.w3.org/1999/xhtml", type = Menu.class),
+        @XmlElementRef(name = "kbd", namespace = "http://www.w3.org/1999/xhtml", type = Kbd.class),
+        @XmlElementRef(name = "code", namespace = "http://www.w3.org/1999/xhtml", type = Code.class),
+        @XmlElementRef(name = "rt", namespace = "http://www.w3.org/1999/xhtml", type = Rt.class),
+        @XmlElementRef(name = "img", namespace = "http://www.w3.org/1999/xhtml", type = Img.class),
+        @XmlElementRef(name = "del", namespace = "http://www.w3.org/1999/xhtml", type = Del.class),
+        @XmlElementRef(name = "h4", namespace = "http://www.w3.org/1999/xhtml", type = H4 .class),
+        @XmlElementRef(name = "br", namespace = "http://www.w3.org/1999/xhtml", type = Br.class),
+        @XmlElementRef(name = "table", namespace = "http://www.w3.org/1999/xhtml", type = Table.class),
+        @XmlElementRef(name = "q", namespace = "http://www.w3.org/1999/xhtml", type = Q.class),
+        @XmlElementRef(name = "section", namespace = "http://www.w3.org/1999/xhtml", type = Section.class),
+        @XmlElementRef(name = "sup", namespace = "http://www.w3.org/1999/xhtml", type = Sup.class),
+        @XmlElementRef(name = "video", namespace = "http://www.w3.org/1999/xhtml", type = Video.class),
+        @XmlElementRef(name = "progress", namespace = "http://www.w3.org/1999/xhtml", type = Progress.class),
+        @XmlElementRef(name = "h1", namespace = "http://www.w3.org/1999/xhtml", type = H1 .class),
+        @XmlElementRef(name = "details", namespace = "http://www.w3.org/1999/xhtml", type = Details.class),
+        @XmlElementRef(name = "time", namespace = "http://www.w3.org/1999/xhtml", type = Time.class),
+        @XmlElementRef(name = "center", namespace = "http://www.w3.org/1999/xhtml", type = Center.class),
+        @XmlElementRef(name = "ruby", namespace = "http://www.w3.org/1999/xhtml", type = Ruby.class),
+        @XmlElementRef(name = "hr", namespace = "http://www.w3.org/1999/xhtml", type = Hr.class),
+        @XmlElementRef(name = "hgroup", namespace = "http://www.w3.org/1999/xhtml", type = Hgroup.class),
+        @XmlElementRef(name = "figcaption", namespace = "http://www.w3.org/1999/xhtml", type = Figcaption.class),
+        @XmlElementRef(name = "pre", namespace = "http://www.w3.org/1999/xhtml", type = Pre.class),
+        @XmlElementRef(name = "div", namespace = "http://www.w3.org/1999/xhtml", type = Div.class),
+        @XmlElementRef(name = "ol", namespace = "http://www.w3.org/1999/xhtml", type = Ol.class),
+        @XmlElementRef(name = "blockquote", namespace = "http://www.w3.org/1999/xhtml", type = Blockquote.class)
     })
     @XmlMixed
     protected List<java.lang.Object> content;
@@ -409,101 +403,101 @@ public class Object
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Sup }
-     * {@link I }
-     * {@link Figure }
-     * {@link Aside }
-     * {@link H6 }
-     * {@link Hgroup }
-     * {@link Address }
-     * {@link Strike }
-     * {@link Acronym }
-     * {@link Big }
-     * {@link Dfn }
      * {@link S }
-     * {@link Source }
-     * {@link Img }
-     * {@link Param }
-     * {@link Ruby }
-     * {@link Noframes }
-     * {@link Command }
-     * {@link Ul }
-     * {@link Keygen }
-     * {@link H1 }
-     * {@link Datalist }
-     * {@link Font }
-     * {@link Menu }
-     * {@link Basefont }
-     * {@link Track }
-     * {@link Small }
-     * {@link Article }
-     * {@link Audio }
-     * {@link Ol }
-     * {@link Textarea }
-     * {@link Div }
-     * {@link Fieldset }
-     * {@link Span }
-     * {@link Nav }
-     * {@link Em }
-     * {@link H3 }
-     * {@link Q }
-     * {@link Rt }
-     * {@link Dl }
-     * {@link Progress }
-     * {@link Code }
-     * {@link Figcaption }
      * {@link Select }
-     * {@link Button }
-     * {@link Time }
-     * {@link Video }
-     * {@link Applet }
-     * {@link Header }
-     * {@link Samp }
-     * {@link Label }
-     * {@link P }
-     * {@link H4 }
-     * {@link Form }
-     * {@link Wbr }
-     * {@link H2 }
-     * {@link Dir }
-     * {@link Pre }
-     * {@link Isindex }
-     * {@link B }
-     * {@link String }
-     * {@link Bdo }
-     * {@link Footer }
-     * {@link Bdi }
-     * {@link Br }
-     * {@link Center }
-     * {@link Strong }
-     * {@link Section }
-     * {@link Output }
-     * {@link Del }
-     * {@link Details }
-     * {@link Script }
-     * {@link Kbd }
-     * {@link Ins }
-     * {@link Var }
-     * {@link Sub }
-     * {@link H5 }
-     * {@link Object }
-     * {@link Blockquote }
-     * {@link org.mixer2.jaxb.xhtml.Map }
-     * {@link Input }
-     * {@link Rp }
-     * {@link Iframe }
-     * {@link Tt }
-     * {@link Noscript }
-     * {@link Table }
-     * {@link Hr }
+     * {@link Dfn }
      * {@link U }
-     * {@link Mark }
-     * {@link Canvas }
-     * {@link A }
-     * {@link Cite }
-     * {@link Abbr }
+     * {@link Samp }
+     * {@link Article }
+     * {@link Textarea }
+     * {@link Param }
+     * {@link Footer }
+     * {@link Big }
+     * {@link Header }
+     * {@link Address }
+     * {@link Object }
+     * {@link H3 }
+     * {@link Wbr }
+     * {@link Source }
+     * {@link Script }
+     * {@link Applet }
+     * {@link Fieldset }
+     * {@link Em }
+     * {@link Tt }
+     * {@link Basefont }
+     * {@link Audio }
+     * {@link Dl }
+     * {@link H5 }
+     * {@link B }
+     * {@link Sub }
+     * {@link Output }
+     * {@link H6 }
+     * {@link Ul }
+     * {@link Font }
      * {@link Embed }
+     * {@link Strike }
+     * {@link Cite }
+     * {@link String }
+     * {@link Acronym }
+     * {@link P }
+     * {@link Command }
+     * {@link Figure }
+     * {@link Dir }
+     * {@link Ins }
+     * {@link Input }
+     * {@link Noframes }
+     * {@link Canvas }
+     * {@link Abbr }
+     * {@link Rp }
+     * {@link Small }
+     * {@link Aside }
+     * {@link Span }
+     * {@link Mark }
+     * {@link Noscript }
+     * {@link H2 }
+     * {@link Label }
+     * {@link Datalist }
+     * {@link Bdo }
      * {@link Meter }
+     * {@link Track }
+     * {@link A }
+     * {@link Form }
+     * {@link Strong }
+     * {@link Var }
+     * {@link Bdi }
+     * {@link Nav }
+     * {@link org.mixer2.jaxb.xhtml.Map }
+     * {@link I }
+     * {@link Button }
+     * {@link Iframe }
+     * {@link Menu }
+     * {@link Isindex }
+     * {@link Keygen }
+     * {@link Kbd }
+     * {@link Code }
+     * {@link Img }
+     * {@link Rt }
+     * {@link H4 }
+     * {@link Del }
+     * {@link Br }
+     * {@link Table }
+     * {@link Q }
+     * {@link Section }
+     * {@link H1 }
+     * {@link Progress }
+     * {@link Video }
+     * {@link Sup }
+     * {@link Details }
+     * {@link Center }
+     * {@link Time }
+     * {@link Ruby }
+     * {@link Hgroup }
+     * {@link Hr }
+     * {@link Figcaption }
+     * {@link Div }
+     * {@link Pre }
+     * {@link Ol }
+     * {@link Blockquote }
      * 
      * 
      */
@@ -3060,1292 +3054,6 @@ public class Object
      */
     public java.util.Map<QName, String> getOtherAttributes() {
         return otherAttributes;
-    }
-
-    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, java.lang.Object object, EqualsStrategy strategy) {
-        if (!(object instanceof Object)) {
-            return false;
-        }
-        if (this == object) {
-            return true;
-        }
-        final Object that = ((Object) object);
-        {
-            List<java.lang.Object> lhsContent;
-            lhsContent = (this.isSetContent()?this.getContent():null);
-            List<java.lang.Object> rhsContent;
-            rhsContent = (that.isSetContent()?that.getContent():null);
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "content", lhsContent), LocatorUtils.property(thatLocator, "content", rhsContent), lhsContent, rhsContent)) {
-                return false;
-            }
-        }
-        {
-            String lhsDeclare;
-            lhsDeclare = this.getDeclare();
-            String rhsDeclare;
-            rhsDeclare = that.getDeclare();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "declare", lhsDeclare), LocatorUtils.property(thatLocator, "declare", rhsDeclare), lhsDeclare, rhsDeclare)) {
-                return false;
-            }
-        }
-        {
-            String lhsClassid;
-            lhsClassid = this.getClassid();
-            String rhsClassid;
-            rhsClassid = that.getClassid();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "classid", lhsClassid), LocatorUtils.property(thatLocator, "classid", rhsClassid), lhsClassid, rhsClassid)) {
-                return false;
-            }
-        }
-        {
-            String lhsCodebase;
-            lhsCodebase = this.getCodebase();
-            String rhsCodebase;
-            rhsCodebase = that.getCodebase();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "codebase", lhsCodebase), LocatorUtils.property(thatLocator, "codebase", rhsCodebase), lhsCodebase, rhsCodebase)) {
-                return false;
-            }
-        }
-        {
-            String lhsData;
-            lhsData = this.getData();
-            String rhsData;
-            rhsData = that.getData();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "data", lhsData), LocatorUtils.property(thatLocator, "data", rhsData), lhsData, rhsData)) {
-                return false;
-            }
-        }
-        {
-            String lhsType;
-            lhsType = this.getType();
-            String rhsType;
-            rhsType = that.getType();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "type", lhsType), LocatorUtils.property(thatLocator, "type", rhsType), lhsType, rhsType)) {
-                return false;
-            }
-        }
-        {
-            String lhsCodetype;
-            lhsCodetype = this.getCodetype();
-            String rhsCodetype;
-            rhsCodetype = that.getCodetype();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "codetype", lhsCodetype), LocatorUtils.property(thatLocator, "codetype", rhsCodetype), lhsCodetype, rhsCodetype)) {
-                return false;
-            }
-        }
-        {
-            String lhsArchive;
-            lhsArchive = this.getArchive();
-            String rhsArchive;
-            rhsArchive = that.getArchive();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "archive", lhsArchive), LocatorUtils.property(thatLocator, "archive", rhsArchive), lhsArchive, rhsArchive)) {
-                return false;
-            }
-        }
-        {
-            String lhsStandby;
-            lhsStandby = this.getStandby();
-            String rhsStandby;
-            rhsStandby = that.getStandby();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "standby", lhsStandby), LocatorUtils.property(thatLocator, "standby", rhsStandby), lhsStandby, rhsStandby)) {
-                return false;
-            }
-        }
-        {
-            String lhsHeight;
-            lhsHeight = this.getHeight();
-            String rhsHeight;
-            rhsHeight = that.getHeight();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "height", lhsHeight), LocatorUtils.property(thatLocator, "height", rhsHeight), lhsHeight, rhsHeight)) {
-                return false;
-            }
-        }
-        {
-            String lhsWidth;
-            lhsWidth = this.getWidth();
-            String rhsWidth;
-            rhsWidth = that.getWidth();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "width", lhsWidth), LocatorUtils.property(thatLocator, "width", rhsWidth), lhsWidth, rhsWidth)) {
-                return false;
-            }
-        }
-        {
-            String lhsUsemap;
-            lhsUsemap = this.getUsemap();
-            String rhsUsemap;
-            rhsUsemap = that.getUsemap();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "usemap", lhsUsemap), LocatorUtils.property(thatLocator, "usemap", rhsUsemap), lhsUsemap, rhsUsemap)) {
-                return false;
-            }
-        }
-        {
-            String lhsName;
-            lhsName = this.getName();
-            String rhsName;
-            rhsName = that.getName();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "name", lhsName), LocatorUtils.property(thatLocator, "name", rhsName), lhsName, rhsName)) {
-                return false;
-            }
-        }
-        {
-            ImgAlign lhsAlign;
-            lhsAlign = this.getAlign();
-            ImgAlign rhsAlign;
-            rhsAlign = that.getAlign();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "align", lhsAlign), LocatorUtils.property(thatLocator, "align", rhsAlign), lhsAlign, rhsAlign)) {
-                return false;
-            }
-        }
-        {
-            Integer lhsBorder;
-            lhsBorder = this.getBorder();
-            Integer rhsBorder;
-            rhsBorder = that.getBorder();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "border", lhsBorder), LocatorUtils.property(thatLocator, "border", rhsBorder), lhsBorder, rhsBorder)) {
-                return false;
-            }
-        }
-        {
-            Integer lhsHspace;
-            lhsHspace = this.getHspace();
-            Integer rhsHspace;
-            rhsHspace = that.getHspace();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "hspace", lhsHspace), LocatorUtils.property(thatLocator, "hspace", rhsHspace), lhsHspace, rhsHspace)) {
-                return false;
-            }
-        }
-        {
-            Integer lhsVspace;
-            lhsVspace = this.getVspace();
-            Integer rhsVspace;
-            rhsVspace = that.getVspace();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "vspace", lhsVspace), LocatorUtils.property(thatLocator, "vspace", rhsVspace), lhsVspace, rhsVspace)) {
-                return false;
-            }
-        }
-        {
-            java.lang.Object lhsForm;
-            lhsForm = this.getForm();
-            java.lang.Object rhsForm;
-            rhsForm = that.getForm();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "form", lhsForm), LocatorUtils.property(thatLocator, "form", rhsForm), lhsForm, rhsForm)) {
-                return false;
-            }
-        }
-        {
-            String lhsId;
-            lhsId = this.getId();
-            String rhsId;
-            rhsId = that.getId();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "id", lhsId), LocatorUtils.property(thatLocator, "id", rhsId), lhsId, rhsId)) {
-                return false;
-            }
-        }
-        {
-            List<String> lhsCssClass;
-            lhsCssClass = (this.isSetCssClass()?this.getCssClass():null);
-            List<String> rhsCssClass;
-            rhsCssClass = (that.isSetCssClass()?that.getCssClass():null);
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "cssClass", lhsCssClass), LocatorUtils.property(thatLocator, "cssClass", rhsCssClass), lhsCssClass, rhsCssClass)) {
-                return false;
-            }
-        }
-        {
-            String lhsStyle;
-            lhsStyle = this.getStyle();
-            String rhsStyle;
-            rhsStyle = that.getStyle();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "style", lhsStyle), LocatorUtils.property(thatLocator, "style", rhsStyle), lhsStyle, rhsStyle)) {
-                return false;
-            }
-        }
-        {
-            String lhsTitle;
-            lhsTitle = this.getTitle();
-            String rhsTitle;
-            rhsTitle = that.getTitle();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "title", lhsTitle), LocatorUtils.property(thatLocator, "title", rhsTitle), lhsTitle, rhsTitle)) {
-                return false;
-            }
-        }
-        {
-            String lhsAccesskey;
-            lhsAccesskey = this.getAccesskey();
-            String rhsAccesskey;
-            rhsAccesskey = that.getAccesskey();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "accesskey", lhsAccesskey), LocatorUtils.property(thatLocator, "accesskey", rhsAccesskey), lhsAccesskey, rhsAccesskey)) {
-                return false;
-            }
-        }
-        {
-            boolean lhsContenteditable;
-            lhsContenteditable = (this.isSetContenteditable()?this.isContenteditable():false);
-            boolean rhsContenteditable;
-            rhsContenteditable = (that.isSetContenteditable()?that.isContenteditable():false);
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "contenteditable", lhsContenteditable), LocatorUtils.property(thatLocator, "contenteditable", rhsContenteditable), lhsContenteditable, rhsContenteditable)) {
-                return false;
-            }
-        }
-        {
-            String lhsContextmenu;
-            lhsContextmenu = this.getContextmenu();
-            String rhsContextmenu;
-            rhsContextmenu = that.getContextmenu();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "contextmenu", lhsContextmenu), LocatorUtils.property(thatLocator, "contextmenu", rhsContextmenu), lhsContextmenu, rhsContextmenu)) {
-                return false;
-            }
-        }
-        {
-            String lhsDir;
-            lhsDir = this.getDir();
-            String rhsDir;
-            rhsDir = that.getDir();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "dir", lhsDir), LocatorUtils.property(thatLocator, "dir", rhsDir), lhsDir, rhsDir)) {
-                return false;
-            }
-        }
-        {
-            String lhsDraggable;
-            lhsDraggable = this.getDraggable();
-            String rhsDraggable;
-            rhsDraggable = that.getDraggable();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "draggable", lhsDraggable), LocatorUtils.property(thatLocator, "draggable", rhsDraggable), lhsDraggable, rhsDraggable)) {
-                return false;
-            }
-        }
-        {
-            List<String> lhsDropzone;
-            lhsDropzone = (this.isSetDropzone()?this.getDropzone():null);
-            List<String> rhsDropzone;
-            rhsDropzone = (that.isSetDropzone()?that.getDropzone():null);
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "dropzone", lhsDropzone), LocatorUtils.property(thatLocator, "dropzone", rhsDropzone), lhsDropzone, rhsDropzone)) {
-                return false;
-            }
-        }
-        {
-            String lhsHidden;
-            lhsHidden = this.getHidden();
-            String rhsHidden;
-            rhsHidden = that.getHidden();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "hidden", lhsHidden), LocatorUtils.property(thatLocator, "hidden", rhsHidden), lhsHidden, rhsHidden)) {
-                return false;
-            }
-        }
-        {
-            String lhsLangCode;
-            lhsLangCode = this.getLangCode();
-            String rhsLangCode;
-            rhsLangCode = that.getLangCode();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "langCode", lhsLangCode), LocatorUtils.property(thatLocator, "langCode", rhsLangCode), lhsLangCode, rhsLangCode)) {
-                return false;
-            }
-        }
-        {
-            String lhsRole;
-            lhsRole = this.getRole();
-            String rhsRole;
-            rhsRole = that.getRole();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "role", lhsRole), LocatorUtils.property(thatLocator, "role", rhsRole), lhsRole, rhsRole)) {
-                return false;
-            }
-        }
-        {
-            String lhsSpellcheck;
-            lhsSpellcheck = this.getSpellcheck();
-            String rhsSpellcheck;
-            rhsSpellcheck = that.getSpellcheck();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "spellcheck", lhsSpellcheck), LocatorUtils.property(thatLocator, "spellcheck", rhsSpellcheck), lhsSpellcheck, rhsSpellcheck)) {
-                return false;
-            }
-        }
-        {
-            Integer lhsTabindex;
-            lhsTabindex = this.getTabindex();
-            Integer rhsTabindex;
-            rhsTabindex = that.getTabindex();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "tabindex", lhsTabindex), LocatorUtils.property(thatLocator, "tabindex", rhsTabindex), lhsTabindex, rhsTabindex)) {
-                return false;
-            }
-        }
-        {
-            String lhsLang;
-            lhsLang = this.getLang();
-            String rhsLang;
-            rhsLang = that.getLang();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "lang", lhsLang), LocatorUtils.property(thatLocator, "lang", rhsLang), lhsLang, rhsLang)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnclick;
-            lhsOnclick = this.getOnclick();
-            String rhsOnclick;
-            rhsOnclick = that.getOnclick();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onclick", lhsOnclick), LocatorUtils.property(thatLocator, "onclick", rhsOnclick), lhsOnclick, rhsOnclick)) {
-                return false;
-            }
-        }
-        {
-            String lhsOndblclick;
-            lhsOndblclick = this.getOndblclick();
-            String rhsOndblclick;
-            rhsOndblclick = that.getOndblclick();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "ondblclick", lhsOndblclick), LocatorUtils.property(thatLocator, "ondblclick", rhsOndblclick), lhsOndblclick, rhsOndblclick)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnmousedown;
-            lhsOnmousedown = this.getOnmousedown();
-            String rhsOnmousedown;
-            rhsOnmousedown = that.getOnmousedown();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onmousedown", lhsOnmousedown), LocatorUtils.property(thatLocator, "onmousedown", rhsOnmousedown), lhsOnmousedown, rhsOnmousedown)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnmouseup;
-            lhsOnmouseup = this.getOnmouseup();
-            String rhsOnmouseup;
-            rhsOnmouseup = that.getOnmouseup();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onmouseup", lhsOnmouseup), LocatorUtils.property(thatLocator, "onmouseup", rhsOnmouseup), lhsOnmouseup, rhsOnmouseup)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnmouseover;
-            lhsOnmouseover = this.getOnmouseover();
-            String rhsOnmouseover;
-            rhsOnmouseover = that.getOnmouseover();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onmouseover", lhsOnmouseover), LocatorUtils.property(thatLocator, "onmouseover", rhsOnmouseover), lhsOnmouseover, rhsOnmouseover)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnmousemove;
-            lhsOnmousemove = this.getOnmousemove();
-            String rhsOnmousemove;
-            rhsOnmousemove = that.getOnmousemove();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onmousemove", lhsOnmousemove), LocatorUtils.property(thatLocator, "onmousemove", rhsOnmousemove), lhsOnmousemove, rhsOnmousemove)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnmouseout;
-            lhsOnmouseout = this.getOnmouseout();
-            String rhsOnmouseout;
-            rhsOnmouseout = that.getOnmouseout();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onmouseout", lhsOnmouseout), LocatorUtils.property(thatLocator, "onmouseout", rhsOnmouseout), lhsOnmouseout, rhsOnmouseout)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnkeypress;
-            lhsOnkeypress = this.getOnkeypress();
-            String rhsOnkeypress;
-            rhsOnkeypress = that.getOnkeypress();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onkeypress", lhsOnkeypress), LocatorUtils.property(thatLocator, "onkeypress", rhsOnkeypress), lhsOnkeypress, rhsOnkeypress)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnkeydown;
-            lhsOnkeydown = this.getOnkeydown();
-            String rhsOnkeydown;
-            rhsOnkeydown = that.getOnkeydown();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onkeydown", lhsOnkeydown), LocatorUtils.property(thatLocator, "onkeydown", rhsOnkeydown), lhsOnkeydown, rhsOnkeydown)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnkeyup;
-            lhsOnkeyup = this.getOnkeyup();
-            String rhsOnkeyup;
-            rhsOnkeyup = that.getOnkeyup();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onkeyup", lhsOnkeyup), LocatorUtils.property(thatLocator, "onkeyup", rhsOnkeyup), lhsOnkeyup, rhsOnkeyup)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnabort;
-            lhsOnabort = this.getOnabort();
-            String rhsOnabort;
-            rhsOnabort = that.getOnabort();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onabort", lhsOnabort), LocatorUtils.property(thatLocator, "onabort", rhsOnabort), lhsOnabort, rhsOnabort)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnblur;
-            lhsOnblur = this.getOnblur();
-            String rhsOnblur;
-            rhsOnblur = that.getOnblur();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onblur", lhsOnblur), LocatorUtils.property(thatLocator, "onblur", rhsOnblur), lhsOnblur, rhsOnblur)) {
-                return false;
-            }
-        }
-        {
-            String lhsOncanplay;
-            lhsOncanplay = this.getOncanplay();
-            String rhsOncanplay;
-            rhsOncanplay = that.getOncanplay();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "oncanplay", lhsOncanplay), LocatorUtils.property(thatLocator, "oncanplay", rhsOncanplay), lhsOncanplay, rhsOncanplay)) {
-                return false;
-            }
-        }
-        {
-            String lhsOncanplaythrough;
-            lhsOncanplaythrough = this.getOncanplaythrough();
-            String rhsOncanplaythrough;
-            rhsOncanplaythrough = that.getOncanplaythrough();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "oncanplaythrough", lhsOncanplaythrough), LocatorUtils.property(thatLocator, "oncanplaythrough", rhsOncanplaythrough), lhsOncanplaythrough, rhsOncanplaythrough)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnchange;
-            lhsOnchange = this.getOnchange();
-            String rhsOnchange;
-            rhsOnchange = that.getOnchange();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onchange", lhsOnchange), LocatorUtils.property(thatLocator, "onchange", rhsOnchange), lhsOnchange, rhsOnchange)) {
-                return false;
-            }
-        }
-        {
-            String lhsOncontextmenu;
-            lhsOncontextmenu = this.getOncontextmenu();
-            String rhsOncontextmenu;
-            rhsOncontextmenu = that.getOncontextmenu();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "oncontextmenu", lhsOncontextmenu), LocatorUtils.property(thatLocator, "oncontextmenu", rhsOncontextmenu), lhsOncontextmenu, rhsOncontextmenu)) {
-                return false;
-            }
-        }
-        {
-            String lhsOncuechange;
-            lhsOncuechange = this.getOncuechange();
-            String rhsOncuechange;
-            rhsOncuechange = that.getOncuechange();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "oncuechange", lhsOncuechange), LocatorUtils.property(thatLocator, "oncuechange", rhsOncuechange), lhsOncuechange, rhsOncuechange)) {
-                return false;
-            }
-        }
-        {
-            String lhsOndrag;
-            lhsOndrag = this.getOndrag();
-            String rhsOndrag;
-            rhsOndrag = that.getOndrag();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "ondrag", lhsOndrag), LocatorUtils.property(thatLocator, "ondrag", rhsOndrag), lhsOndrag, rhsOndrag)) {
-                return false;
-            }
-        }
-        {
-            String lhsOndragend;
-            lhsOndragend = this.getOndragend();
-            String rhsOndragend;
-            rhsOndragend = that.getOndragend();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "ondragend", lhsOndragend), LocatorUtils.property(thatLocator, "ondragend", rhsOndragend), lhsOndragend, rhsOndragend)) {
-                return false;
-            }
-        }
-        {
-            String lhsOndragenter;
-            lhsOndragenter = this.getOndragenter();
-            String rhsOndragenter;
-            rhsOndragenter = that.getOndragenter();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "ondragenter", lhsOndragenter), LocatorUtils.property(thatLocator, "ondragenter", rhsOndragenter), lhsOndragenter, rhsOndragenter)) {
-                return false;
-            }
-        }
-        {
-            String lhsOndragleave;
-            lhsOndragleave = this.getOndragleave();
-            String rhsOndragleave;
-            rhsOndragleave = that.getOndragleave();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "ondragleave", lhsOndragleave), LocatorUtils.property(thatLocator, "ondragleave", rhsOndragleave), lhsOndragleave, rhsOndragleave)) {
-                return false;
-            }
-        }
-        {
-            String lhsOndragover;
-            lhsOndragover = this.getOndragover();
-            String rhsOndragover;
-            rhsOndragover = that.getOndragover();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "ondragover", lhsOndragover), LocatorUtils.property(thatLocator, "ondragover", rhsOndragover), lhsOndragover, rhsOndragover)) {
-                return false;
-            }
-        }
-        {
-            String lhsOndragstart;
-            lhsOndragstart = this.getOndragstart();
-            String rhsOndragstart;
-            rhsOndragstart = that.getOndragstart();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "ondragstart", lhsOndragstart), LocatorUtils.property(thatLocator, "ondragstart", rhsOndragstart), lhsOndragstart, rhsOndragstart)) {
-                return false;
-            }
-        }
-        {
-            String lhsOndrop;
-            lhsOndrop = this.getOndrop();
-            String rhsOndrop;
-            rhsOndrop = that.getOndrop();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "ondrop", lhsOndrop), LocatorUtils.property(thatLocator, "ondrop", rhsOndrop), lhsOndrop, rhsOndrop)) {
-                return false;
-            }
-        }
-        {
-            String lhsOndurationchange;
-            lhsOndurationchange = this.getOndurationchange();
-            String rhsOndurationchange;
-            rhsOndurationchange = that.getOndurationchange();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "ondurationchange", lhsOndurationchange), LocatorUtils.property(thatLocator, "ondurationchange", rhsOndurationchange), lhsOndurationchange, rhsOndurationchange)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnemptied;
-            lhsOnemptied = this.getOnemptied();
-            String rhsOnemptied;
-            rhsOnemptied = that.getOnemptied();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onemptied", lhsOnemptied), LocatorUtils.property(thatLocator, "onemptied", rhsOnemptied), lhsOnemptied, rhsOnemptied)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnended;
-            lhsOnended = this.getOnended();
-            String rhsOnended;
-            rhsOnended = that.getOnended();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onended", lhsOnended), LocatorUtils.property(thatLocator, "onended", rhsOnended), lhsOnended, rhsOnended)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnerror;
-            lhsOnerror = this.getOnerror();
-            String rhsOnerror;
-            rhsOnerror = that.getOnerror();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onerror", lhsOnerror), LocatorUtils.property(thatLocator, "onerror", rhsOnerror), lhsOnerror, rhsOnerror)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnfocus;
-            lhsOnfocus = this.getOnfocus();
-            String rhsOnfocus;
-            rhsOnfocus = that.getOnfocus();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onfocus", lhsOnfocus), LocatorUtils.property(thatLocator, "onfocus", rhsOnfocus), lhsOnfocus, rhsOnfocus)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnformchange;
-            lhsOnformchange = this.getOnformchange();
-            String rhsOnformchange;
-            rhsOnformchange = that.getOnformchange();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onformchange", lhsOnformchange), LocatorUtils.property(thatLocator, "onformchange", rhsOnformchange), lhsOnformchange, rhsOnformchange)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnforminput;
-            lhsOnforminput = this.getOnforminput();
-            String rhsOnforminput;
-            rhsOnforminput = that.getOnforminput();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onforminput", lhsOnforminput), LocatorUtils.property(thatLocator, "onforminput", rhsOnforminput), lhsOnforminput, rhsOnforminput)) {
-                return false;
-            }
-        }
-        {
-            String lhsOninput;
-            lhsOninput = this.getOninput();
-            String rhsOninput;
-            rhsOninput = that.getOninput();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "oninput", lhsOninput), LocatorUtils.property(thatLocator, "oninput", rhsOninput), lhsOninput, rhsOninput)) {
-                return false;
-            }
-        }
-        {
-            String lhsOninvalid;
-            lhsOninvalid = this.getOninvalid();
-            String rhsOninvalid;
-            rhsOninvalid = that.getOninvalid();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "oninvalid", lhsOninvalid), LocatorUtils.property(thatLocator, "oninvalid", rhsOninvalid), lhsOninvalid, rhsOninvalid)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnload;
-            lhsOnload = this.getOnload();
-            String rhsOnload;
-            rhsOnload = that.getOnload();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onload", lhsOnload), LocatorUtils.property(thatLocator, "onload", rhsOnload), lhsOnload, rhsOnload)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnloadeddata;
-            lhsOnloadeddata = this.getOnloadeddata();
-            String rhsOnloadeddata;
-            rhsOnloadeddata = that.getOnloadeddata();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onloadeddata", lhsOnloadeddata), LocatorUtils.property(thatLocator, "onloadeddata", rhsOnloadeddata), lhsOnloadeddata, rhsOnloadeddata)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnloadedmetadata;
-            lhsOnloadedmetadata = this.getOnloadedmetadata();
-            String rhsOnloadedmetadata;
-            rhsOnloadedmetadata = that.getOnloadedmetadata();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onloadedmetadata", lhsOnloadedmetadata), LocatorUtils.property(thatLocator, "onloadedmetadata", rhsOnloadedmetadata), lhsOnloadedmetadata, rhsOnloadedmetadata)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnloadstart;
-            lhsOnloadstart = this.getOnloadstart();
-            String rhsOnloadstart;
-            rhsOnloadstart = that.getOnloadstart();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onloadstart", lhsOnloadstart), LocatorUtils.property(thatLocator, "onloadstart", rhsOnloadstart), lhsOnloadstart, rhsOnloadstart)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnmousewheel;
-            lhsOnmousewheel = this.getOnmousewheel();
-            String rhsOnmousewheel;
-            rhsOnmousewheel = that.getOnmousewheel();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onmousewheel", lhsOnmousewheel), LocatorUtils.property(thatLocator, "onmousewheel", rhsOnmousewheel), lhsOnmousewheel, rhsOnmousewheel)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnpause;
-            lhsOnpause = this.getOnpause();
-            String rhsOnpause;
-            rhsOnpause = that.getOnpause();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onpause", lhsOnpause), LocatorUtils.property(thatLocator, "onpause", rhsOnpause), lhsOnpause, rhsOnpause)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnplay;
-            lhsOnplay = this.getOnplay();
-            String rhsOnplay;
-            rhsOnplay = that.getOnplay();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onplay", lhsOnplay), LocatorUtils.property(thatLocator, "onplay", rhsOnplay), lhsOnplay, rhsOnplay)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnplaying;
-            lhsOnplaying = this.getOnplaying();
-            String rhsOnplaying;
-            rhsOnplaying = that.getOnplaying();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onplaying", lhsOnplaying), LocatorUtils.property(thatLocator, "onplaying", rhsOnplaying), lhsOnplaying, rhsOnplaying)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnprogress;
-            lhsOnprogress = this.getOnprogress();
-            String rhsOnprogress;
-            rhsOnprogress = that.getOnprogress();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onprogress", lhsOnprogress), LocatorUtils.property(thatLocator, "onprogress", rhsOnprogress), lhsOnprogress, rhsOnprogress)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnratechange;
-            lhsOnratechange = this.getOnratechange();
-            String rhsOnratechange;
-            rhsOnratechange = that.getOnratechange();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onratechange", lhsOnratechange), LocatorUtils.property(thatLocator, "onratechange", rhsOnratechange), lhsOnratechange, rhsOnratechange)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnreadystatechange;
-            lhsOnreadystatechange = this.getOnreadystatechange();
-            String rhsOnreadystatechange;
-            rhsOnreadystatechange = that.getOnreadystatechange();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onreadystatechange", lhsOnreadystatechange), LocatorUtils.property(thatLocator, "onreadystatechange", rhsOnreadystatechange), lhsOnreadystatechange, rhsOnreadystatechange)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnreset;
-            lhsOnreset = this.getOnreset();
-            String rhsOnreset;
-            rhsOnreset = that.getOnreset();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onreset", lhsOnreset), LocatorUtils.property(thatLocator, "onreset", rhsOnreset), lhsOnreset, rhsOnreset)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnscroll;
-            lhsOnscroll = this.getOnscroll();
-            String rhsOnscroll;
-            rhsOnscroll = that.getOnscroll();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onscroll", lhsOnscroll), LocatorUtils.property(thatLocator, "onscroll", rhsOnscroll), lhsOnscroll, rhsOnscroll)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnseeked;
-            lhsOnseeked = this.getOnseeked();
-            String rhsOnseeked;
-            rhsOnseeked = that.getOnseeked();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onseeked", lhsOnseeked), LocatorUtils.property(thatLocator, "onseeked", rhsOnseeked), lhsOnseeked, rhsOnseeked)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnseeking;
-            lhsOnseeking = this.getOnseeking();
-            String rhsOnseeking;
-            rhsOnseeking = that.getOnseeking();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onseeking", lhsOnseeking), LocatorUtils.property(thatLocator, "onseeking", rhsOnseeking), lhsOnseeking, rhsOnseeking)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnselect;
-            lhsOnselect = this.getOnselect();
-            String rhsOnselect;
-            rhsOnselect = that.getOnselect();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onselect", lhsOnselect), LocatorUtils.property(thatLocator, "onselect", rhsOnselect), lhsOnselect, rhsOnselect)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnshow;
-            lhsOnshow = this.getOnshow();
-            String rhsOnshow;
-            rhsOnshow = that.getOnshow();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onshow", lhsOnshow), LocatorUtils.property(thatLocator, "onshow", rhsOnshow), lhsOnshow, rhsOnshow)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnstalled;
-            lhsOnstalled = this.getOnstalled();
-            String rhsOnstalled;
-            rhsOnstalled = that.getOnstalled();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onstalled", lhsOnstalled), LocatorUtils.property(thatLocator, "onstalled", rhsOnstalled), lhsOnstalled, rhsOnstalled)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnsubmit;
-            lhsOnsubmit = this.getOnsubmit();
-            String rhsOnsubmit;
-            rhsOnsubmit = that.getOnsubmit();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onsubmit", lhsOnsubmit), LocatorUtils.property(thatLocator, "onsubmit", rhsOnsubmit), lhsOnsubmit, rhsOnsubmit)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnsuspend;
-            lhsOnsuspend = this.getOnsuspend();
-            String rhsOnsuspend;
-            rhsOnsuspend = that.getOnsuspend();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onsuspend", lhsOnsuspend), LocatorUtils.property(thatLocator, "onsuspend", rhsOnsuspend), lhsOnsuspend, rhsOnsuspend)) {
-                return false;
-            }
-        }
-        {
-            String lhsOntimeupdate;
-            lhsOntimeupdate = this.getOntimeupdate();
-            String rhsOntimeupdate;
-            rhsOntimeupdate = that.getOntimeupdate();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "ontimeupdate", lhsOntimeupdate), LocatorUtils.property(thatLocator, "ontimeupdate", rhsOntimeupdate), lhsOntimeupdate, rhsOntimeupdate)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnvolumechange;
-            lhsOnvolumechange = this.getOnvolumechange();
-            String rhsOnvolumechange;
-            rhsOnvolumechange = that.getOnvolumechange();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onvolumechange", lhsOnvolumechange), LocatorUtils.property(thatLocator, "onvolumechange", rhsOnvolumechange), lhsOnvolumechange, rhsOnvolumechange)) {
-                return false;
-            }
-        }
-        {
-            String lhsOnwaiting;
-            lhsOnwaiting = this.getOnwaiting();
-            String rhsOnwaiting;
-            rhsOnwaiting = that.getOnwaiting();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "onwaiting", lhsOnwaiting), LocatorUtils.property(thatLocator, "onwaiting", rhsOnwaiting), lhsOnwaiting, rhsOnwaiting)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public boolean equals(java.lang.Object object) {
-        final EqualsStrategy strategy = JAXBEqualsStrategy.INSTANCE;
-        return equals(null, null, object, strategy);
-    }
-
-    public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
-        int currentHashCode = 1;
-        {
-            List<java.lang.Object> theContent;
-            theContent = (this.isSetContent()?this.getContent():null);
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "content", theContent), currentHashCode, theContent);
-        }
-        {
-            String theDeclare;
-            theDeclare = this.getDeclare();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "declare", theDeclare), currentHashCode, theDeclare);
-        }
-        {
-            String theClassid;
-            theClassid = this.getClassid();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "classid", theClassid), currentHashCode, theClassid);
-        }
-        {
-            String theCodebase;
-            theCodebase = this.getCodebase();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "codebase", theCodebase), currentHashCode, theCodebase);
-        }
-        {
-            String theData;
-            theData = this.getData();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "data", theData), currentHashCode, theData);
-        }
-        {
-            String theType;
-            theType = this.getType();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "type", theType), currentHashCode, theType);
-        }
-        {
-            String theCodetype;
-            theCodetype = this.getCodetype();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "codetype", theCodetype), currentHashCode, theCodetype);
-        }
-        {
-            String theArchive;
-            theArchive = this.getArchive();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "archive", theArchive), currentHashCode, theArchive);
-        }
-        {
-            String theStandby;
-            theStandby = this.getStandby();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "standby", theStandby), currentHashCode, theStandby);
-        }
-        {
-            String theHeight;
-            theHeight = this.getHeight();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "height", theHeight), currentHashCode, theHeight);
-        }
-        {
-            String theWidth;
-            theWidth = this.getWidth();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "width", theWidth), currentHashCode, theWidth);
-        }
-        {
-            String theUsemap;
-            theUsemap = this.getUsemap();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "usemap", theUsemap), currentHashCode, theUsemap);
-        }
-        {
-            String theName;
-            theName = this.getName();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "name", theName), currentHashCode, theName);
-        }
-        {
-            ImgAlign theAlign;
-            theAlign = this.getAlign();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "align", theAlign), currentHashCode, theAlign);
-        }
-        {
-            Integer theBorder;
-            theBorder = this.getBorder();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "border", theBorder), currentHashCode, theBorder);
-        }
-        {
-            Integer theHspace;
-            theHspace = this.getHspace();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "hspace", theHspace), currentHashCode, theHspace);
-        }
-        {
-            Integer theVspace;
-            theVspace = this.getVspace();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "vspace", theVspace), currentHashCode, theVspace);
-        }
-        {
-            java.lang.Object theForm;
-            theForm = this.getForm();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "form", theForm), currentHashCode, theForm);
-        }
-        {
-            String theId;
-            theId = this.getId();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "id", theId), currentHashCode, theId);
-        }
-        {
-            List<String> theCssClass;
-            theCssClass = (this.isSetCssClass()?this.getCssClass():null);
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "cssClass", theCssClass), currentHashCode, theCssClass);
-        }
-        {
-            String theStyle;
-            theStyle = this.getStyle();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "style", theStyle), currentHashCode, theStyle);
-        }
-        {
-            String theTitle;
-            theTitle = this.getTitle();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "title", theTitle), currentHashCode, theTitle);
-        }
-        {
-            String theAccesskey;
-            theAccesskey = this.getAccesskey();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "accesskey", theAccesskey), currentHashCode, theAccesskey);
-        }
-        {
-            boolean theContenteditable;
-            theContenteditable = (this.isSetContenteditable()?this.isContenteditable():false);
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "contenteditable", theContenteditable), currentHashCode, theContenteditable);
-        }
-        {
-            String theContextmenu;
-            theContextmenu = this.getContextmenu();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "contextmenu", theContextmenu), currentHashCode, theContextmenu);
-        }
-        {
-            String theDir;
-            theDir = this.getDir();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "dir", theDir), currentHashCode, theDir);
-        }
-        {
-            String theDraggable;
-            theDraggable = this.getDraggable();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "draggable", theDraggable), currentHashCode, theDraggable);
-        }
-        {
-            List<String> theDropzone;
-            theDropzone = (this.isSetDropzone()?this.getDropzone():null);
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "dropzone", theDropzone), currentHashCode, theDropzone);
-        }
-        {
-            String theHidden;
-            theHidden = this.getHidden();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "hidden", theHidden), currentHashCode, theHidden);
-        }
-        {
-            String theLangCode;
-            theLangCode = this.getLangCode();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "langCode", theLangCode), currentHashCode, theLangCode);
-        }
-        {
-            String theRole;
-            theRole = this.getRole();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "role", theRole), currentHashCode, theRole);
-        }
-        {
-            String theSpellcheck;
-            theSpellcheck = this.getSpellcheck();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "spellcheck", theSpellcheck), currentHashCode, theSpellcheck);
-        }
-        {
-            Integer theTabindex;
-            theTabindex = this.getTabindex();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "tabindex", theTabindex), currentHashCode, theTabindex);
-        }
-        {
-            String theLang;
-            theLang = this.getLang();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "lang", theLang), currentHashCode, theLang);
-        }
-        {
-            String theOnclick;
-            theOnclick = this.getOnclick();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onclick", theOnclick), currentHashCode, theOnclick);
-        }
-        {
-            String theOndblclick;
-            theOndblclick = this.getOndblclick();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "ondblclick", theOndblclick), currentHashCode, theOndblclick);
-        }
-        {
-            String theOnmousedown;
-            theOnmousedown = this.getOnmousedown();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onmousedown", theOnmousedown), currentHashCode, theOnmousedown);
-        }
-        {
-            String theOnmouseup;
-            theOnmouseup = this.getOnmouseup();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onmouseup", theOnmouseup), currentHashCode, theOnmouseup);
-        }
-        {
-            String theOnmouseover;
-            theOnmouseover = this.getOnmouseover();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onmouseover", theOnmouseover), currentHashCode, theOnmouseover);
-        }
-        {
-            String theOnmousemove;
-            theOnmousemove = this.getOnmousemove();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onmousemove", theOnmousemove), currentHashCode, theOnmousemove);
-        }
-        {
-            String theOnmouseout;
-            theOnmouseout = this.getOnmouseout();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onmouseout", theOnmouseout), currentHashCode, theOnmouseout);
-        }
-        {
-            String theOnkeypress;
-            theOnkeypress = this.getOnkeypress();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onkeypress", theOnkeypress), currentHashCode, theOnkeypress);
-        }
-        {
-            String theOnkeydown;
-            theOnkeydown = this.getOnkeydown();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onkeydown", theOnkeydown), currentHashCode, theOnkeydown);
-        }
-        {
-            String theOnkeyup;
-            theOnkeyup = this.getOnkeyup();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onkeyup", theOnkeyup), currentHashCode, theOnkeyup);
-        }
-        {
-            String theOnabort;
-            theOnabort = this.getOnabort();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onabort", theOnabort), currentHashCode, theOnabort);
-        }
-        {
-            String theOnblur;
-            theOnblur = this.getOnblur();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onblur", theOnblur), currentHashCode, theOnblur);
-        }
-        {
-            String theOncanplay;
-            theOncanplay = this.getOncanplay();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "oncanplay", theOncanplay), currentHashCode, theOncanplay);
-        }
-        {
-            String theOncanplaythrough;
-            theOncanplaythrough = this.getOncanplaythrough();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "oncanplaythrough", theOncanplaythrough), currentHashCode, theOncanplaythrough);
-        }
-        {
-            String theOnchange;
-            theOnchange = this.getOnchange();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onchange", theOnchange), currentHashCode, theOnchange);
-        }
-        {
-            String theOncontextmenu;
-            theOncontextmenu = this.getOncontextmenu();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "oncontextmenu", theOncontextmenu), currentHashCode, theOncontextmenu);
-        }
-        {
-            String theOncuechange;
-            theOncuechange = this.getOncuechange();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "oncuechange", theOncuechange), currentHashCode, theOncuechange);
-        }
-        {
-            String theOndrag;
-            theOndrag = this.getOndrag();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "ondrag", theOndrag), currentHashCode, theOndrag);
-        }
-        {
-            String theOndragend;
-            theOndragend = this.getOndragend();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "ondragend", theOndragend), currentHashCode, theOndragend);
-        }
-        {
-            String theOndragenter;
-            theOndragenter = this.getOndragenter();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "ondragenter", theOndragenter), currentHashCode, theOndragenter);
-        }
-        {
-            String theOndragleave;
-            theOndragleave = this.getOndragleave();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "ondragleave", theOndragleave), currentHashCode, theOndragleave);
-        }
-        {
-            String theOndragover;
-            theOndragover = this.getOndragover();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "ondragover", theOndragover), currentHashCode, theOndragover);
-        }
-        {
-            String theOndragstart;
-            theOndragstart = this.getOndragstart();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "ondragstart", theOndragstart), currentHashCode, theOndragstart);
-        }
-        {
-            String theOndrop;
-            theOndrop = this.getOndrop();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "ondrop", theOndrop), currentHashCode, theOndrop);
-        }
-        {
-            String theOndurationchange;
-            theOndurationchange = this.getOndurationchange();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "ondurationchange", theOndurationchange), currentHashCode, theOndurationchange);
-        }
-        {
-            String theOnemptied;
-            theOnemptied = this.getOnemptied();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onemptied", theOnemptied), currentHashCode, theOnemptied);
-        }
-        {
-            String theOnended;
-            theOnended = this.getOnended();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onended", theOnended), currentHashCode, theOnended);
-        }
-        {
-            String theOnerror;
-            theOnerror = this.getOnerror();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onerror", theOnerror), currentHashCode, theOnerror);
-        }
-        {
-            String theOnfocus;
-            theOnfocus = this.getOnfocus();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onfocus", theOnfocus), currentHashCode, theOnfocus);
-        }
-        {
-            String theOnformchange;
-            theOnformchange = this.getOnformchange();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onformchange", theOnformchange), currentHashCode, theOnformchange);
-        }
-        {
-            String theOnforminput;
-            theOnforminput = this.getOnforminput();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onforminput", theOnforminput), currentHashCode, theOnforminput);
-        }
-        {
-            String theOninput;
-            theOninput = this.getOninput();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "oninput", theOninput), currentHashCode, theOninput);
-        }
-        {
-            String theOninvalid;
-            theOninvalid = this.getOninvalid();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "oninvalid", theOninvalid), currentHashCode, theOninvalid);
-        }
-        {
-            String theOnload;
-            theOnload = this.getOnload();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onload", theOnload), currentHashCode, theOnload);
-        }
-        {
-            String theOnloadeddata;
-            theOnloadeddata = this.getOnloadeddata();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onloadeddata", theOnloadeddata), currentHashCode, theOnloadeddata);
-        }
-        {
-            String theOnloadedmetadata;
-            theOnloadedmetadata = this.getOnloadedmetadata();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onloadedmetadata", theOnloadedmetadata), currentHashCode, theOnloadedmetadata);
-        }
-        {
-            String theOnloadstart;
-            theOnloadstart = this.getOnloadstart();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onloadstart", theOnloadstart), currentHashCode, theOnloadstart);
-        }
-        {
-            String theOnmousewheel;
-            theOnmousewheel = this.getOnmousewheel();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onmousewheel", theOnmousewheel), currentHashCode, theOnmousewheel);
-        }
-        {
-            String theOnpause;
-            theOnpause = this.getOnpause();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onpause", theOnpause), currentHashCode, theOnpause);
-        }
-        {
-            String theOnplay;
-            theOnplay = this.getOnplay();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onplay", theOnplay), currentHashCode, theOnplay);
-        }
-        {
-            String theOnplaying;
-            theOnplaying = this.getOnplaying();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onplaying", theOnplaying), currentHashCode, theOnplaying);
-        }
-        {
-            String theOnprogress;
-            theOnprogress = this.getOnprogress();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onprogress", theOnprogress), currentHashCode, theOnprogress);
-        }
-        {
-            String theOnratechange;
-            theOnratechange = this.getOnratechange();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onratechange", theOnratechange), currentHashCode, theOnratechange);
-        }
-        {
-            String theOnreadystatechange;
-            theOnreadystatechange = this.getOnreadystatechange();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onreadystatechange", theOnreadystatechange), currentHashCode, theOnreadystatechange);
-        }
-        {
-            String theOnreset;
-            theOnreset = this.getOnreset();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onreset", theOnreset), currentHashCode, theOnreset);
-        }
-        {
-            String theOnscroll;
-            theOnscroll = this.getOnscroll();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onscroll", theOnscroll), currentHashCode, theOnscroll);
-        }
-        {
-            String theOnseeked;
-            theOnseeked = this.getOnseeked();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onseeked", theOnseeked), currentHashCode, theOnseeked);
-        }
-        {
-            String theOnseeking;
-            theOnseeking = this.getOnseeking();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onseeking", theOnseeking), currentHashCode, theOnseeking);
-        }
-        {
-            String theOnselect;
-            theOnselect = this.getOnselect();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onselect", theOnselect), currentHashCode, theOnselect);
-        }
-        {
-            String theOnshow;
-            theOnshow = this.getOnshow();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onshow", theOnshow), currentHashCode, theOnshow);
-        }
-        {
-            String theOnstalled;
-            theOnstalled = this.getOnstalled();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onstalled", theOnstalled), currentHashCode, theOnstalled);
-        }
-        {
-            String theOnsubmit;
-            theOnsubmit = this.getOnsubmit();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onsubmit", theOnsubmit), currentHashCode, theOnsubmit);
-        }
-        {
-            String theOnsuspend;
-            theOnsuspend = this.getOnsuspend();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onsuspend", theOnsuspend), currentHashCode, theOnsuspend);
-        }
-        {
-            String theOntimeupdate;
-            theOntimeupdate = this.getOntimeupdate();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "ontimeupdate", theOntimeupdate), currentHashCode, theOntimeupdate);
-        }
-        {
-            String theOnvolumechange;
-            theOnvolumechange = this.getOnvolumechange();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onvolumechange", theOnvolumechange), currentHashCode, theOnvolumechange);
-        }
-        {
-            String theOnwaiting;
-            theOnwaiting = this.getOnwaiting();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onwaiting", theOnwaiting), currentHashCode, theOnwaiting);
-        }
-        return currentHashCode;
-    }
-
-    public int hashCode() {
-        final HashCodeStrategy strategy = JAXBHashCodeStrategy.INSTANCE;
-        return this.hashCode(null, strategy);
     }
 
     public java.lang.Object clone() {

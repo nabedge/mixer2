@@ -38,9 +38,18 @@ public class Dummy {
             templateFilePath = templateFilePath.replaceFirst("file:", "");
         }
         Html html = m2e.loadHtmlTemplate(new File(templateFilePath));
-        html.getById("hellomsg", P.class).getContent().clear();
-        html.getById("hellomsg", P.class).getContent().add("Hello World !");
+        P p = html.getById("hellomsg", P.class);
+        p.unsetContent();
+        p.getContent().add("Hello World !");
         log.info(m2e.saveToString(html));
+        p.setData("foodata", "bardata");
+        p.setAria("fooaria", "bararia");
+        p.setId("fooId");
+        html.setData("xxx","yyy");
+        p.setOnclick("fooOnClick");
+        log.info(m2e.saveToString(html));
+        log.info(m2e.saveToString(html.copy(Html.class)));
+        
     }
 
 }
