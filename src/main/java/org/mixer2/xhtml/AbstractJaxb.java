@@ -22,6 +22,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.mixer2.util.CastUtil;
 import org.mixer2.xhtml.exception.TagTypeUnmatchException;
+import org.mixer2.xhtml.util.CopyUtil;
 import org.mixer2.xhtml.util.GetByIdUtil;
 import org.mixer2.xhtml.util.GetDescendantsUtil;
 import org.mixer2.xhtml.util.InsertByIdUtil;
@@ -583,17 +584,18 @@ public abstract class AbstractJaxb implements Serializable {
     @SuppressWarnings("unchecked")
     public <T extends AbstractJaxb> T copy(Class<T> tagType)
             throws TagTypeUnmatchException {
-    	T result = null;
+    	T copy = null;
         if (!tagType.equals(this.getClass())) {
             log.warn("to use copy() method, tagType must be same type of the original object.");
             throw new TagTypeUnmatchException(getClass(), tagType);
         }
         try {
-			result = (T) this.clone();
+			copy = (T) this.clone();
 		} catch (CloneNotSupportedException e) {
 			log.error("can not create clone(copy) of this object.", e);
 		}
-		return result;
+        CopyUtil.copyOtherAttr(this, copy);
+        return copy;
     }
 
     /**
