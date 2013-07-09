@@ -9,7 +9,12 @@ import org.mixer2.jaxb.xhtml.Object;
 import org.mixer2.xhtml.AbstractJaxb;
 import org.mixer2.xhtml.TagEnum;
 
-// TODO
+/**
+ * 
+ * @see org.mixer2.xhtml.AbstractJaxb#copy(Class)
+ * 
+ * @author watanabe
+ */
 public class CopyUtil {
 
     private static Log log = LogFactory.getLog(CopyUtil.class);
@@ -20,6 +25,13 @@ public class CopyUtil {
             return;
         }
         execute(original, copy);
+    }
+
+    private static <T> void executeForObjectList(List<T> original, List<T> copy) {
+        int listSize = original.size();
+        for (int i = 0; i < listSize; i++) {
+            execute(original.get(i), copy.get(i));
+        }
     }
 
     private static void execute(java.lang.Object original, java.lang.Object copy) {
@@ -583,106 +595,311 @@ public class CopyUtil {
                     object_copy.getContent());
             break;
         case OL:
-            Ol ol_orig = (Ol)original;
-            Ol ol_copy = (Ol)copy;
+            Ol ol_orig = (Ol) original;
+            Ol ol_copy = (Ol) copy;
             ol_copy.getOtherAttributes().putAll(ol_orig.getOtherAttributes());
             executeForObjectList(ol_orig.getLi(), ol_copy.getLi());
             break;
         case OPTGROUP:
+            Optgroup optgroup_orig = (Optgroup) original;
+            Optgroup optgroup_copy = (Optgroup) copy;
+            optgroup_copy.getOtherAttributes().putAll(
+                    optgroup_orig.getOtherAttributes());
+            executeForObjectList(optgroup_orig.getOption(),
+                    optgroup_copy.getOption());
             break;
         case OPTION:
+            Option option_orig = (Option) original;
+            Option option_copy = (Option) copy;
+            option_copy.getOtherAttributes().putAll(
+                    option_orig.getOtherAttributes());
+            // empty element
             break;
         case OUTPUT:
+            Output output_orig = (Output) original;
+            Output output_copy = (Output) copy;
+            output_copy.getOtherAttributes().putAll(
+                    output_orig.getOtherAttributes());
+            executeForObjectList(output_orig.getContent(),
+                    output_copy.getContent());
             break;
         case P:
+            P p_orig = (P) original;
+            P p_copy = (P) copy;
+            p_copy.getOtherAttributes().putAll(p_orig.getOtherAttributes());
+            executeForObjectList(p_orig.getContent(), p_copy.getContent());
             break;
         case PARAM:
+            Param param_orig = (Param) original;
+            Param param_copy = (Param) copy;
+            param_copy.getOtherAttributes().putAll(
+                    param_orig.getOtherAttributes());
+            // empty element
             break;
         case PRE:
+            Pre pre_orig = (Pre) original;
+            Pre pre_copy = (Pre) copy;
+            pre_copy.getOtherAttributes().putAll(pre_orig.getOtherAttributes());
+            executeForObjectList(pre_orig.getContent(), pre_copy.getContent());
             break;
         case PROGRESS:
+            Progress progress_orig = (Progress) original;
+            Progress progress_copy = (Progress) copy;
+            progress_copy.getOtherAttributes().putAll(
+                    progress_orig.getOtherAttributes());
+            executeForObjectList(progress_orig.getContent(),
+                    progress_copy.getContent());
             break;
         case Q:
+            Q q_orig = (Q) original;
+            Q q_copy = (Q) copy;
+            q_copy.getOtherAttributes().putAll(q_orig.getOtherAttributes());
+            executeForObjectList(q_orig.getContent(), q_copy.getContent());
             break;
         case RP:
+            Rp rp_orig = (Rp) original;
+            Rp rp_copy = (Rp) copy;
+            rp_copy.getOtherAttributes().putAll(rp_orig.getOtherAttributes());
             break;
         case RT:
+            Rt rt_orig = (Rt) original;
+            Rt rt_copy = (Rt) copy;
+            rt_copy.getOtherAttributes().putAll(rt_orig.getOtherAttributes());
+            executeForObjectList(rt_orig.getContent(), rt_copy.getContent());
             break;
         case RUBY:
+            Ruby ruby_orig = (Ruby) original;
+            Ruby ruby_copy = (Ruby) copy;
+            ruby_copy.getOtherAttributes().putAll(
+                    ruby_orig.getOtherAttributes());
+            executeForObjectList(ruby_orig.getContent(), ruby_copy.getContent());
             break;
         case S:
+            S s_orig = (S) original;
+            S s_copy = (S) copy;
+            s_copy.getOtherAttributes().putAll(s_orig.getOtherAttributes());
+            executeForObjectList(s_orig.getContent(), s_copy.getContent());
             break;
         case SAMP:
+            Samp samp_orig = (Samp) original;
+            Samp samp_copy = (Samp) copy;
+            samp_copy.getOtherAttributes().putAll(
+                    samp_orig.getOtherAttributes());
+            executeForObjectList(samp_orig.getContent(), samp_copy.getContent());
             break;
         case SCRIPT:
+            Script script_orig = (Script) original;
+            Script script_copy = (Script) copy;
+            script_copy.getOtherAttributes().putAll(
+                    script_orig.getOtherAttributes());
+            // includes no other element.
             break;
         case SECTION:
+            Section section_orig = (Section) original;
+            Section section_copy = (Section) copy;
+            section_copy.getOtherAttributes().putAll(
+                    section_orig.getOtherAttributes());
+            executeForObjectList(section_orig.getContent(),
+                    section_copy.getContent());
             break;
         case SELECT:
+            Select select_orig = (Select) original;
+            Select select_copy = (Select) copy;
+            select_copy.getOtherAttributes().putAll(
+                    select_orig.getOtherAttributes());
+            executeForObjectList(select_orig.getOptgroupOrOption(),
+                    select_copy.getOptgroupOrOption());
             break;
         case SMALL:
+            Small small_orig = (Small) original;
+            Small small_copy = (Small) copy;
+            small_copy.getOtherAttributes().putAll(
+                    small_orig.getOtherAttributes());
+            executeForObjectList(small_orig.getContent(),
+                    small_copy.getContent());
             break;
         case SOURCE:
+            Source source_orig = (Source) original;
+            Source source_copy = (Source) copy;
+            source_copy.getOtherAttributes().putAll(
+                    source_orig.getOtherAttributes());
+            // empty element
             break;
         case SPAN:
+            Span span_orig = (Span) original;
+            Span span_copy = (Span) copy;
+            span_copy.getOtherAttributes().putAll(
+                    span_orig.getOtherAttributes());
+            executeForObjectList(span_orig.getContent(), span_copy.getContent());
             break;
         case STRIKE:
+            Strike strike_orig = (Strike) original;
+            Strike strike_copy = (Strike) copy;
+            strike_copy.getOtherAttributes().putAll(
+                    strike_orig.getOtherAttributes());
+            executeForObjectList(strike_orig.getContent(),
+                    strike_copy.getContent());
             break;
         case STRONG:
+            Strong strong_orig = (Strong) original;
+            Strong strong_copy = (Strong) copy;
+            strong_copy.getOtherAttributes().putAll(
+                    strong_orig.getOtherAttributes());
+            executeForObjectList(strong_orig.getContent(),
+                    strong_copy.getContent());
             break;
         case STYLE:
+            Style style_orig = (Style) original;
+            Style style_copy = (Style) copy;
+            style_copy.getOtherAttributes().putAll(
+                    style_orig.getOtherAttributes());
+            // includes no other element.
             break;
         case SUB:
+            Sub sub_orig = (Sub) original;
+            Sub sub_copy = (Sub) copy;
+            sub_copy.getOtherAttributes().putAll(sub_orig.getOtherAttributes());
+            executeForObjectList(sub_orig.getContent(), sub_copy.getContent());
             break;
         case SUMMARY:
+            Summary summary_orig = (Summary) original;
+            Summary summary_copy = (Summary) copy;
+            summary_copy.getOtherAttributes().putAll(
+                    summary_orig.getOtherAttributes());
+            executeForObjectList(summary_orig.getContent(),
+                    summary_copy.getContent());
             break;
         case SUP:
+            Sup sup_orig = (Sup) original;
+            Sup sup_copy = (Sup) copy;
+            sup_copy.getOtherAttributes().putAll(sup_orig.getOtherAttributes());
+            executeForObjectList(sup_orig.getContent(), sup_copy.getContent());
             break;
         case TABLE:
+            Table table_orig = (Table) original;
+            Table table_copy = (Table) copy;
+            table_copy.getOtherAttributes().putAll(
+                    table_orig.getOtherAttributes());
+            if (table_orig.isSetThead()) {
+                execute(table_orig.getThead(), table_copy.getThead());
+            }
+            if (table_orig.isSetTfoot()) {
+                execute(table_orig.getTfoot(), table_copy.getTfoot());
+            }
+            if (table_orig.isSetCaption()) {
+                execute(table_orig.getCaption(), table_copy.getCaption());
+            }
+            executeForObjectList(table_orig.getTr(), table_copy.getTr());
+            executeForObjectList(table_orig.getTbody(), table_copy.getTbody());
+            executeForObjectList(table_orig.getCol(), table_copy.getCol());
+            executeForObjectList(table_orig.getColgroup(),
+                    table_copy.getColgroup());
             break;
         case TBODY:
+            Tbody tbody_orig = (Tbody) original;
+            Tbody tbody_copy = (Tbody) copy;
+            tbody_copy.getOtherAttributes().putAll(
+                    tbody_orig.getOtherAttributes());
+            executeForObjectList(tbody_orig.getTr(), tbody_copy.getTr());
             break;
         case TD:
+            Td td_orig = (Td) original;
+            Td td_copy = (Td) copy;
+            td_copy.getOtherAttributes().putAll(td_orig.getOtherAttributes());
+            executeForObjectList(td_orig.getContent(), td_copy.getContent());
             break;
         case TEXTAREA:
+            Textarea textarea_orig = (Textarea) original;
+            Textarea textarea_copy = (Textarea) copy;
+            textarea_copy.getOtherAttributes().putAll(
+                    textarea_orig.getOtherAttributes());
+            // icludes no other element.
             break;
         case TFOOT:
+            Tfoot tfoot_orig = (Tfoot) original;
+            Tfoot tfoot_copy = (Tfoot) copy;
+            tfoot_copy.getOtherAttributes().putAll(
+                    tfoot_orig.getOtherAttributes());
+            executeForObjectList(tfoot_orig.getTr(), tfoot_copy.getTr());
             break;
         case TH:
+            Th th_orig = (Th) original;
+            Th th_copy = (Th) copy;
+            th_copy.getOtherAttributes().putAll(th_orig.getOtherAttributes());
+            executeForObjectList(th_orig.getContent(), th_copy.getContent());
             break;
         case THEAD:
+            Thead thead_orig = (Thead) original;
+            Thead thead_copy = (Thead) copy;
+            thead_copy.getOtherAttributes().putAll(
+                    thead_orig.getOtherAttributes());
+            executeForObjectList(thead_orig.getTr(), thead_copy.getTr());
             break;
         case TIME:
+            Time time_orig = (Time) original;
+            Time time_copy = (Time) copy;
+            time_copy.getOtherAttributes().putAll(
+                    time_orig.getOtherAttributes());
+            executeForObjectList(time_orig.getContent(), time_copy.getContent());
             break;
         case TITLE:
+            Title title_orig = (Title) original;
+            Title title_copy = (Title) copy;
+            title_copy.getOtherAttributes().putAll(
+                    title_orig.getOtherAttributes());
+            // includes no other element.
             break;
         case TR:
+            Tr tr_orig = (Tr) original;
+            Tr tr_copy = (Tr) copy;
+            tr_copy.getOtherAttributes().putAll(tr_orig.getOtherAttributes());
+            executeForObjectList(tr_orig.getThOrTd(), tr_copy.getThOrTd());
             break;
         case TRACK:
+            Track track_orig = (Track) original;
+            Track track_copy = (Track) copy;
+            track_copy.getOtherAttributes().putAll(
+                    track_orig.getOtherAttributes());
+            // empty element
             break;
         case TT:
+            Tt tt_orig = (Tt) original;
+            Tt tt_copy = (Tt) copy;
+            tt_copy.getOtherAttributes().putAll(tt_orig.getOtherAttributes());
+            executeForObjectList(tt_orig.getContent(), tt_copy.getContent());
             break;
         case U:
+            U u_orig = (U) original;
+            U u_copy = (U) copy;
+            u_copy.getOtherAttributes().putAll(u_orig.getOtherAttributes());
+            executeForObjectList(u_orig.getContent(), u_copy.getContent());
             break;
         case UL:
+            Ul ul_orig = (Ul) original;
+            Ul ul_copy = (Ul) copy;
+            ul_copy.getOtherAttributes().putAll(ul_orig.getOtherAttributes());
+            executeForObjectList(ul_orig.getLi(), ul_copy.getLi());
             break;
         case VAR:
+            Var var_orig = (Var) original;
+            Var var_copy = (Var) copy;
+            var_copy.getOtherAttributes().putAll(var_orig.getOtherAttributes());
+            executeForObjectList(var_orig.getContent(), var_copy.getContent());
             break;
         case VIDEO:
+            Video video_orig = (Video)original;
+            Video video_copy = (Video)copy;
+            video_copy.getOtherAttributes().putAll(video_orig.getOtherAttributes());
+            executeForObjectList(video_orig.getContent(), video_copy.getContent());
             break;
         case WBR:
+            Wbr wbr_orig = (Wbr)original;
+            Wbr wbr_copy = (Wbr)copy;
+            wbr_copy.getOtherAttributes().putAll(wbr_orig.getOtherAttributes());
+            // empty element
             break;
         default:
             break;
         }
     }
-
-    private static <T> void executeForObjectList(List<T> original, List<T> copy) {
-        int listSize = original.size();
-        for (int i = 0; i < listSize; i++) {
-            execute(original.get(i), copy.get(i));
-        }
-
-    }
-
 }

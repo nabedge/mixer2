@@ -451,6 +451,7 @@ public abstract class AbstractJaxb implements Serializable {
      * insert element after the element having specified id property. This
      * method use deep copy of "insObject"
      * </p>
+     * 
      * <p>
      * 指定したid属性を持つタグの直後（内部ではない）に挿入します。 なお、挿入されるのはreplaceのディープコピーです。
      * </p>
@@ -568,7 +569,16 @@ public abstract class AbstractJaxb implements Serializable {
      * return deep copy of myself
      * </p>
      * <p>
+     * <strong>NOTICE: DO NOT USE clone() and copyTo() method !</strong>
+     * They has bug. Use this copy() method instead of them.
+     * </p>
+     * <p>
      * 自分自身のディープコピーを返します。
+     * </p>
+     * <p>
+     * <strong>注意: clone()とcopyTo()メソッドは使わないでください。</strong>
+     * html5のaria-*属性やdata-*属性を持つタグをうまくコピーできないというバグがあります。
+     * かわりにこのcopy()メソッドを使ってください。
      * </p>
      *
      * <pre>

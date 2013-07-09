@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.mixer2.Mixer2Engine;
 import org.mixer2.jaxb.xhtml.Div;
 import org.mixer2.jaxb.xhtml.Html;
+import org.mixer2.jaxb.xhtml.Li;
 
 public class CopyTest {
 
@@ -38,6 +39,7 @@ public class CopyTest {
         Html original = m2e.loadHtmlTemplate(new File(templateFilePath));
         Html copy = original.copy(Html.class);
         assertEquals(m2e.saveToString(original), m2e.saveToString(copy));
+        assertEquals("bar", copy.getById("li_sample01",Li.class).getData("foo"));
     }
 
     @Test

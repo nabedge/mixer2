@@ -1,6 +1,7 @@
 package org.mixer2.xhtml;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.FileInputStream;
@@ -32,7 +33,7 @@ public class SampleHtml5 {
     public void init() throws IOException {
         templateFilePath = getClass().getResource(templateFileName).toString();
         String osname = System.getProperty("os.name");
-        if(osname.indexOf("Windows")>=0){
+        if (osname.indexOf("Windows") >= 0) {
             templateFilePath = templateFilePath.replaceFirst("file:/", "");
         } else {
             templateFilePath = templateFilePath.replaceFirst("file:", "");
@@ -40,12 +41,17 @@ public class SampleHtml5 {
     }
 
     @Test
-    public void test() throws IOException, TagTypeUnmatchException,
-            JAXBException {
+    public void copyTest() throws Exception {
         InputStream in = new FileInputStream(templateFilePath);
         Html html = m2e.loadHtmlTemplate(in);
-//        System.out.println(m2e.saveToString(html));
+        Html html2 = html.copy(Html.class);
+        assertEquals(m2e.saveToString(html), m2e.saveToString(html2));
+    }
 
+    @Test
+    public void test() throws Exception {
+        InputStream in = new FileInputStream(templateFilePath);
+        Html html = m2e.loadHtmlTemplate(in);
         assertNotNull(html.getById("summary1"));
         assertNotNull(html.getById("output1"));
         assertNotNull(html.getById("canvas1"));
@@ -59,7 +65,7 @@ public class SampleHtml5 {
         assertNotNull(html.getById("rt2"));
 
         // open graph meta tag
-        Meta meta = html.getHead().getById("metaWithProperty",Meta.class);
+        Meta meta = html.getHead().getById("metaWithProperty", Meta.class);
         Assert.assertThat(meta.getProperty(), is("og:title"));
         Assert.assertThat(meta.getContent(), is("sample page"));
 
