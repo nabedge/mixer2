@@ -5,7 +5,6 @@ import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.mixer2.jaxb.xhtml.Form;
@@ -13,6 +12,7 @@ import org.mixer2.jaxb.xhtml.Input;
 import org.mixer2.jaxb.xhtml.Option;
 import org.mixer2.jaxb.xhtml.Select;
 import org.mixer2.jaxb.xhtml.Textarea;
+import org.mixer2.util.M2StringUtils;
 
 /**
  * <p>
@@ -94,7 +94,7 @@ public class FormUtil {
         try {
             for (Input input : form.getDescendants(Input.class)) {
                 // name属性が指定されていない場合はスルーする。
-                if (StringUtils.isBlank(input.getName())) {
+                if (M2StringUtils.isBlank(input.getName())) {
                     continue;
                 }
 
@@ -141,7 +141,7 @@ public class FormUtil {
         try {
             for (Textarea textarea : form.getDescendants(Textarea.class)) {
                 // name属性が指定されていない場合はスルーする。
-                if (StringUtils.isBlank(textarea.getName())) {
+                if (M2StringUtils.isBlank(textarea.getName())) {
                     continue;
                 } else {
                     textarea.setContent(BeanUtils.getProperty(bean,
@@ -156,7 +156,7 @@ public class FormUtil {
         try {
             for (Select select : form.getDescendants(Select.class)) {
                 // name属性が指定されていない場合はスルーする。
-                if (StringUtils.isBlank(select.getName())) {
+                if (M2StringUtils.isBlank(select.getName())) {
                     continue;
                 } else {
                     for (Option option : select.getDescendants(Option.class)) {

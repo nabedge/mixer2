@@ -9,18 +9,18 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.UUID;
 import java.util.regex.Pattern;
 
 import javax.xml.namespace.QName;
 
-import org.apache.commons.lang.RandomStringUtils;
-import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.mixer2.util.CastUtil;
+import org.mixer2.util.M2StringUtils;
 import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 import org.mixer2.xhtml.util.CopyUtil;
 import org.mixer2.xhtml.util.GetByIdUtil;
@@ -158,7 +158,7 @@ public abstract class AbstractJaxb implements Serializable {
         String id = target.getId();
         if (id == null) {
             for (int i = 0; i < 256; i++) {
-                id = RandomStringUtils.randomAlphabetic(8);
+                id = UUID.randomUUID().toString();
                 if (this.getById(id) == null && replacement.getById(id) == null) {
                     target.setId(id);
                     break;
@@ -552,7 +552,7 @@ public abstract class AbstractJaxb implements Serializable {
      */
     public TreeMap<String, String> getStyleAsTreeMap() {
         TreeMap<String, String> resultMap = new TreeMap<String, String>();
-        if (StringUtils.isBlank(this.getStyle())) {
+        if (M2StringUtils.isBlank(this.getStyle())) {
             return resultMap;
         }
         String st[] = this.getStyle().trim().split(";");
