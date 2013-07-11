@@ -39,10 +39,9 @@ public class M2StringUtils {
     }
 
     private static List<Field> getAllFields(List<Field> fields, Class<?> type) {
-        List<String> list = Arrays.asList("log", "serialVersionUID");
+        List<String> ignoreList = Arrays.asList("log", "serialVersionUID");
         for (Field field : type.getDeclaredFields()) {
-            String name = field.getName();
-            if (!list.contains(name)) {
+            if (!ignoreList.contains(field.getName())) {
                 fields.add(field);
             }
         }
@@ -79,7 +78,8 @@ public class M2StringUtils {
                 sb.append(" ");
             }
         }
-        sb.append("]\n");
+        sb.append("]");
+        sb.append(System.getProperty("line.separator"));
         return sb.toString();
     }
 

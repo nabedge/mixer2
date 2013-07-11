@@ -8,6 +8,13 @@ FAQ
 
  Java6以上が必要です。
 
+* {servlet-apiに依存していますか？}
+
+ いいえ。servlet-apiには依存していません。{{{dependencies.html}依存関係のページ}}には
+ servlet-apiがprovided（実行時に必要なもの）として表示されていますが、
+ これはoptionalであるという表示に注目してください。
+ SpringMVC用のViewクラスを使う場合にのみservlet-apiが必要になります。
+
 * {対応しているxhtmlバージョン、タグ、属性}
 
  xhtml1.0-transitional(strictも可）およびXML構文で書かれたhtml5に対応しています。

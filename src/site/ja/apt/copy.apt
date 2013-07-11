@@ -1,0 +1,15 @@
+ ------
+ copy(), clone(), copyTo()
+ ------
+
+Use copy()
+
+ タグ型オブジェクトのインスタンスのディープコピーが必要な場合、
+ {{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html#copy%28java.lang.Class%29}copy()}}
+ を使ってください。そのタグが持つすべての属性とコンテンツをコピーできます。
+
+Do NOT use clone() and copyTo()
+
+ すべてのタグ型オブジェクトは、copy()と同様にclone()やcopyTo()というメソッドを持っていますが。
+ それらは使わないでください。html5で規定されているaria-*属性やdata-*属性を
+ うまくコピーできないというバグがあります。

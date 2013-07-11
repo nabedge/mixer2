@@ -1,0 +1,15 @@
+ ------
+ copy(), clone(), copyTo()
+ ------
+
+Use copy()
+
+ If you need deep copy of tag instance, use
+ {{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html#copy%28java.lang.Class%29}copy()}} .
+ You can get complete copy of all the attribute and content.
+
+Do NOT use clone() and copyTo()
+
+ All tag class has also clone() and copyTo() methods but NEVER use it.
+ These method can not copy the aria-* and data-* attribute of html5.
+

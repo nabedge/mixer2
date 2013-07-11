@@ -6,7 +6,14 @@ FAQ
 
 * {Requirement}
 
- Java6 or 7
+ Java6 or higher
+
+* {Does mixer2 depends on servlet-api ?}
+
+ NO. {{{dependencies.html}Dependencies page}} shows the dependency to
+ servlet-api but please take notice of "optional" flag.
+ You need servlet-api if you use Mixer2XhtmlView class 
+ with SpringMVC framework.
 
 * {xhtml version, tag and property}
 
