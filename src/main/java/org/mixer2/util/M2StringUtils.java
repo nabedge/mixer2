@@ -42,7 +42,7 @@ public class M2StringUtils {
         List<String> list = Arrays.asList("log", "serialVersionUID");
         for (Field field : type.getDeclaredFields()) {
             String name = field.getName();
-            if (! list.contains(name)) {
+            if (!list.contains(name)) {
                 fields.add(field);
             }
         }
@@ -68,14 +68,15 @@ public class M2StringUtils {
             } catch (IllegalAccessException e) {
                 log.warn("IllegalAccessException", e);
             }
-            if ("otherAttributes".equals(name) && ((HashMap<?, ?>) value).isEmpty()) {
+            if ("otherAttributes".equals(name)
+                    && ((HashMap<?, ?>) value).isEmpty()) {
                 value = null;
             }
             if (value != null) {
                 sb.append(name);
                 sb.append("=");
                 sb.append(value);
-                sb.append("");
+                sb.append(" ");
             }
         }
         sb.append("]\n");
