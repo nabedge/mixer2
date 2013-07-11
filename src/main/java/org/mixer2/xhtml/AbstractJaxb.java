@@ -14,9 +14,6 @@ import java.util.regex.Pattern;
 
 import javax.xml.namespace.QName;
 
-import org.apache.commons.lang.builder.ReflectionToStringBuilder;
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.mixer2.util.CastUtil;
@@ -944,28 +941,29 @@ public abstract class AbstractJaxb implements Serializable {
      * </p>
      */
     public String toString() {
-        return (new ReflectionToStringBuilder(
-            this,
-            ToStringStyle.MULTI_LINE_STYLE) {
-            public ToStringBuilder append(String fieldName, Object obj) {
-                if (obj != null) {
-                    if (obj instanceof List<?>) {
-                        List<?> list = CastUtil.cast(obj);
-                        if (0 < list.size()) {
-                            super.append(fieldName, obj);
-                        }
-                    } else if (obj instanceof Map<?, ?>) {
-                        Map<?, ?> map = CastUtil.cast(obj);
-                        if (0 < map.size()) {
-                            super.append(fieldName, obj);
-                        }
-                    } else {
-                        super.append(fieldName, obj);
-                    }
-                }
-                return this;
-            }
-        }).toString();
+        return M2StringUtils.stringifier(this);
+//        return (new ReflectionToStringBuilder(
+//            this,
+//            ToStringStyle.MULTI_LINE_STYLE) {
+//            public ToStringBuilder append(String fieldName, Object obj) {
+//                if (obj != null) {
+//                    if (obj instanceof List<?>) {
+//                        List<?> list = CastUtil.cast(obj);
+//                        if (0 < list.size()) {
+//                            super.append(fieldName, obj);
+//                        }
+//                    } else if (obj instanceof Map<?, ?>) {
+//                        Map<?, ?> map = CastUtil.cast(obj);
+//                        if (0 < map.size()) {
+//                            super.append(fieldName, obj);
+//                        }
+//                    } else {
+//                        super.append(fieldName, obj);
+//                    }
+//                }
+//                return this;
+//            }
+//        }).toString();
     }
 
 }

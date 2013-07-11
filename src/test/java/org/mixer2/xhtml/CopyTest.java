@@ -50,7 +50,6 @@ public class CopyTest {
         Html html = m2e.loadHtmlTemplate(new File(templateFilePath));
         Div helloWorldDiv = html.getById("hellomsg",Div.class);
         Div newDiv = helloWorldDiv.copy(Div.class);
-        System.out.println(newDiv.toString());
         newDiv.setId("bar");
         newDiv.unsetContent();
         newDiv.getContent().add("Life is beautiful.");
