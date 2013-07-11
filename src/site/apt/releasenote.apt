@@ -4,6 +4,8 @@
 
 Release Note
 
+ * 1.2.7 bug fix of 1.2.6 copy() method. see  {{{copy.html}copy(), clone(), copyTo()}} page. reduce some dependency (commons-lang).
+
  * 1.2.6 add hashCode(), clone(), equals() methods for all tag class. performance improvement of tag object copy() method. remove javax.cache interface.
 
  * 1.2.5 pom.xml fix and {{{https://github.com/nabedge/mixer2/pull/3}improve replace function by jfut}}
