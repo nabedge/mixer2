@@ -51,6 +51,19 @@ public class M2StringUtils {
         return fields;
     }
 
+    /**
+     * <p>
+     * FOR DEBUG. This method does not include the field of a null object in the
+     * returned string.
+     * see {@link org.mixer2.xhtml.AbstractJaxb#toString()}
+     * </p>
+     * <p>
+     * デバッグ用です。このメソッドは文字列表現に null オブジェクトを持つフィールドを加えません。
+     * </p>
+     * 
+     * @param bean org.mixer2.jaxb.xhml.* class instance.
+     * @return
+     */
     public static String stringifier(Object bean) {
         StringBuilder sb = new StringBuilder();
         List<Field> fields = getAllFields(new LinkedList<Field>(),
