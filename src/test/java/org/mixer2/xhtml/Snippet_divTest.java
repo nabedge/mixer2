@@ -42,6 +42,7 @@ public class Snippet_divTest {
         Span span = new Span();
         span.getContent().add("def");
         div.getContent().add(span);
+        div.getContent().add("<script>alert(1);</script>");
         StringWriter sw = new StringWriter();
         m2e.saveToStringWriter(div, sw);
         System.out.println(sw.toString());

@@ -1,6 +1,7 @@
 package org.mixer2.xhtml;
 
 import java.io.File;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.commons.lang.time.StopWatch;
 import org.junit.Assert;
@@ -17,7 +18,7 @@ public class PseudoCachingTest {
     private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
 
     private int loop = 1000;
-    private Html cachedHtml = null;
+    private ConcurrentHashMap<String, Html> cacheMap = new ConcurrentHashMap<String,Html>();
     
     @Before
     public void before() {
@@ -31,12 +32,12 @@ public class PseudoCachingTest {
     }
 
     private Html loadHtmlTemplateThroughCache(String templateFilePath) throws Exception {
-    	if (cachedHtml == null) {
-            cachedHtml = m2e.loadHtmlTemplate(new File(templateFilePath));
-    	}
-    	Html result = null;
-        result = cachedHtml.copy(Html.class);
-    	return result;
+        Html html = cacheMap.get(templateFilePath);
+        if (html == null) {
+            html = m2e.loadHtmlTemplate(new File(templateFilePath));
+            cacheMap.putIfAbsent(templateFilePath, html);
+        }
+    	return html.copy(Html.class);
     }
     
     @Test
