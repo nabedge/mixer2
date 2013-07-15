@@ -5,6 +5,10 @@
   <publishDate position="left"/>
   <version position="none"/>
 
+  <bannerLeft>
+    <name>Mixer2</name>
+  </bannerLeft>
+
   <body>
 
     <head>

@@ -5,7 +5,7 @@
     <artifactId>mixer2</artifactId>
     <version>1.2-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>mixer2</name>
+    <name>Mixer2</name>
     <description>Mixer2 is template engine for java. </description>
     <url>http://mixer2.org/</url>
 
