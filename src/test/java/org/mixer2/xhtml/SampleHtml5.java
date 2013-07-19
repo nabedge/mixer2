@@ -1,14 +1,12 @@
 package org.mixer2.xhtml;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-
-import javax.xml.bind.JAXBException;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -17,7 +15,6 @@ import org.junit.Test;
 import org.mixer2.Mixer2Engine;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.Meta;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 public class SampleHtml5 {
     private String templateFileName = "sample-html5.html";

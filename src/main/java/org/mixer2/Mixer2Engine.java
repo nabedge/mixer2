@@ -35,22 +35,20 @@ import org.mixer2.jaxb.xhtml.Script;
 import org.mixer2.xhtml.AbstractJaxb;
 import org.mixer2.xhtml.NamedEntityEnum;
 import org.mixer2.xhtml.TagCustomizeWriter;
+import org.mixer2.xhtml.exception.Mixer2JAXBException;
 
 /**
  * <p>
- * mixer2 engine.
- * The instance of this class should be a singleton
- * because of high cost to initialize.
+ * mixer2 engine. The instance of this class should be a singleton because of
+ * high cost to initialize.
  * </p>
  * <p>
- * mixer2のエンジンです。現在はxhtml1.0またはhtml5の
- * XML構文で書かれたテンプレートだけを取り扱います
- * このクラスのインスタンスは、APサーバもしくはDIコンテナ内において、
- * singletonとして使いまわすことをお勧めします。
+ * mixer2のエンジンです。現在はxhtml1.0またはhtml5の XML構文で書かれたテンプレートだけを取り扱います
+ * このクラスのインスタンスは、APサーバもしくはDIコンテナ内において、 singletonとして使いまわすことをお勧めします。
  * </p>
- *
+ * 
  * @author watanabe
- *
+ * 
  */
 public class Mixer2Engine {
 
@@ -81,38 +79,99 @@ public class Mixer2Engine {
 
     /**
      * <p>
-     * load (unmarshal) a template to Html type object.
-     * Doctype declaration on template will be deleted.
+     * load (unmarshal) a xhtml template to Html type object. Doctype
+     * declaration on template will be deleted.
      * </p>
      * <p>
-     * テンプレートをJAXBのHtmlオブジェクト型にロード（unmarshal)します。
+     * If error to parse xhtml string, returns null.
+     * </p>
+     * <p>
+     * xhtmlテンプレートをJAXBのHtmlオブジェクト型にロード（unmarshal)します。
      * テンプレート上にDOCTYPE宣言が指定されていてもそれは削除されます。
      * </p>
+     * <p>
+     * xhtml文字列のパースに失敗した場合はnullを返します。
+     * </p>
+     * 
      * @param file
-     * @return
+     * @return html tag object. If parse error, returns null.
      * @throws IOException
      */
     public Html loadHtmlTemplate(File file) throws IOException {
         return loadHtmlTemplate(fileToStringBuilder(file));
     }
 
+    /**
+     * <p>
+     * This is the same as
+     * {@link #loadHtmlTemplate(File)} but if fail to
+     * parse xhtml, throws Mixer2JAXBException.
+     * </p>
+     * <p>
+     * {@link #loadHtmlTemplate(File)}と同じですが
+     * xhtmlのパースに失敗するとMixer2JAXBExceptionをスローします。
+     * </p>
+     * 
+     * @see #loadHtmlTemplate(File)
+     * @param file
+     * @return
+     * @throws IOException
+     * @throws Mixer2JAXBException
+     *             if xhtml parse error.
+     */
+    public Html checkAndLoadHtmlTemplate(File file) throws IOException,
+            Mixer2JAXBException {
+        return checkAndLoadHtmlTemplate(fileToStringBuilder(file));
+    }
+
+    /**
+     * 
+     * @see #loadHtmlTemplate(File)
+     * @param str
+     * @return html tag object. If parse error, returns null.
+     */
     public Html loadHtmlTemplate(String str) {
         StringBuilder sb = new StringBuilder(str);
         return loadHtmlTemplate(sb);
     }
 
+    /**
+     * @see #checkAndLoadHtmlTemplate(File)
+     * @param str
+     * @return
+     * @throws Mixer2JAXBException
+     */
+    public Html checkAndLoadHtmlTemplate(String str) throws Mixer2JAXBException {
+        StringBuilder sb = new StringBuilder(str);
+        return checkAndLoadHtmlTemplate(sb);
+    }
+
+    /**
+     * 
+     * @see #loadHtmlTemplate(File)
+     * @param sb
+     * @return html tag object. If parse error, returns null.
+     */
     public Html loadHtmlTemplate(StringBuffer sb) {
         return loadHtmlTemplate(new StringBuilder(sb));
     }
 
+    public Html checkAndLoadHtmlTemplate(StringBuffer sb)
+            throws Mixer2JAXBException {
+        return checkAndLoadHtmlTemplate(new StringBuilder(sb));
+    }
+
+    /**
+     * 
+     * @see #loadHtmlTemplate(File)
+     * @param sb
+     *            xhtml template string.
+     * @return html tag object. If parse error, returns null.
+     */
     public Html loadHtmlTemplate(StringBuilder sb) {
         Html html = null;
-        sb = removeDoctypeDeclaration(sb);
-        sb = replaceNamedEntity(sb);
-        StringReader stringReader = new StringReader(sb.toString());
         try {
-            html = (Html) jaxbContext.createUnmarshaller().unmarshal(
-                    stringReader);
+            html = unmarshal(sb);
         } catch (JAXBException e) {
             log.warn("unmarshal failed.", e);
         }
@@ -120,40 +179,55 @@ public class Mixer2Engine {
     }
 
     /**
-     * <p>
-     * load html template from input stream.
-     * inputStream will be closed at the end of this method.
-     * </p>
-     *
-     * @param inputStream
+     * @see #checkAndLoadHtmlTemplate(File)
+     * @param sb
+     *            xhtml template string.
      * @return
-     * @throws IOException
+     * @throws Mixer2JAXBException
      */
-    public Html loadHtmlTemplate(InputStream inputStream) throws IOException  {
-        if (inputStream == null) {
-            throw new IOException("InputStream is null.");
-        }
-
-        InputStreamReader inputStreamReader = null;
-        BufferedReader bufferedReader = null;
-        StringBuilder stringBuilder = new StringBuilder();
+    public Html checkAndLoadHtmlTemplate(StringBuilder sb)
+            throws Mixer2JAXBException {
+        Html html = null;
         try {
-            inputStreamReader = new InputStreamReader(inputStream);
-            bufferedReader = new BufferedReader(inputStreamReader);
-            int c;
-            while ((c = bufferedReader.read()) != -1) {
-                stringBuilder.append((char) c);
-            }
-        } finally {
-            if (bufferedReader != null) {
-                bufferedReader.close();
-            }
-            if (inputStreamReader != null) {
-                inputStreamReader.close();
-            }
-            inputStream.close();
+            html = unmarshal(sb);
+        } catch (JAXBException e) {
+            throw new Mixer2JAXBException(e);
         }
-        return loadHtmlTemplate(stringBuilder);
+        return html;
+    }
+
+    /**
+     * <p>
+     * load html template from input stream. inputStream will be closed at the
+     * end of this method. Doctype declaration on template will be deleted. If
+     * failed to parse error, returns null.
+     * </p>
+     * 
+     * @param inputStream
+     * @return html tag object. If parse error, returns null.
+     * @throws IOException
+     *             if inputStream is null.
+     */
+    public Html loadHtmlTemplate(InputStream inputStream) throws IOException {
+        StringBuilder sb = inputStreamToStringBuilder(inputStream);
+        return loadHtmlTemplate(sb);
+    }
+
+    /**
+     * This is the same as
+     * {@link #loadHtmlTemplate(InputStream)} but if fail to
+     * parse xhtml, throws Mixer2JAXBException.
+     * 
+     * @see #loadHtmlTemplate(InputStream)
+     * @param inputStream
+     * @return html tag object.
+     * @throws IOException
+     * @throws Mixer2JAXBException
+     */
+    public Html checkAndLoadHtmlTemplate(InputStream inputStream)
+            throws IOException, Mixer2JAXBException {
+        StringBuilder sb = inputStreamToStringBuilder(inputStream);
+        return checkAndLoadHtmlTemplate(sb);
     }
 
     /**
@@ -181,7 +255,7 @@ public class Mixer2Engine {
     public <T extends AbstractJaxb> void saveToStringWriter(T tag,
             StringWriter writer) {
 
-        // add one white space into script tag 
+        // add one white space into script tag
         // having empty content and type="text/javascript"
         for (Script script : tag.getDescendants(Script.class)) {
             if (script.getContent().length() < 1) {
@@ -206,7 +280,9 @@ public class Mixer2Engine {
         } catch (XMLStreamException e) {
             log.warn("XMLStreamException happend. while saveToWriter().", e);
         } catch (FactoryConfigurationError e) {
-            log.warn("FactoryConfigurationError happend. while saveToWriter().", e);
+            log.warn(
+                    "FactoryConfigurationError happend. while saveToWriter().",
+                    e);
         }
 
         // transform xhtml strings
@@ -228,7 +304,9 @@ public class Mixer2Engine {
             transformer.transform(new StreamSource(xml), new StreamResult(
                     writer));
         } catch (TransformerConfigurationException e) {
-            log.warn("TransformerConfigurationException happend. while saveToWriter().", e);
+            log.warn(
+                    "TransformerConfigurationException happend. while saveToWriter().",
+                    e);
         } catch (TransformerException e) {
             log.warn("TransformerException happend. while saveToWriter().", e);
         }
@@ -257,21 +335,27 @@ public class Mixer2Engine {
         }
     }
 
+    /**
+     * @see #removeDoctypeDeclaration(StringBuilder)
+     * @param sb
+     * @return
+     */
     public StringBuffer removeDoctypeDeclaration(StringBuffer sb) {
         return removeDoctypeDeclaration(sb);
     }
 
     /**
      * <p>
-     * replace the reference of character entity reference to numeric character reference.
+     * replace the reference of character entity reference to numeric character
+     * reference.
      * </p>
      * <p>
-     * 文字列内の&amp;copy; や &amp;trade; のようなHTMLの特殊文字の参照を、
-     * 数値実体参照に置換します。
+     * 文字列内の&amp;copy; や &amp;trade; のようなHTMLの特殊文字の参照を、 数値実体参照に置換します。
      * 主にxhtmlテンプレートをHtmlオブジェクトにunmarshalする直前に使用します。
      * </p>
-     *
-     * @param sb xhtml template
+     * 
+     * @param sb
+     *            xhtml template
      * @return replaced xhtml template
      */
     public StringBuilder replaceNamedEntity(StringBuilder sb) {
@@ -284,6 +368,11 @@ public class Mixer2Engine {
         return sb;
     }
 
+    /**
+     * @see #replaceNamedEntity(StringBuilder)
+     * @param sb
+     * @return replaced xhtml template
+     */
     public StringBuffer replaceNamedEntity(StringBuffer sb) {
         return replaceNamedEntity(sb);
     }
@@ -311,6 +400,43 @@ public class Mixer2Engine {
             }
         }
         return stringBuilder;
+    }
+
+    private StringBuilder inputStreamToStringBuilder(InputStream inputStream)
+            throws IOException {
+        if (inputStream == null) {
+            throw new IOException("InputStream is null.");
+        }
+
+        InputStreamReader inputStreamReader = null;
+        BufferedReader bufferedReader = null;
+        StringBuilder stringBuilder = new StringBuilder();
+        try {
+            inputStreamReader = new InputStreamReader(inputStream);
+            bufferedReader = new BufferedReader(inputStreamReader);
+            int c;
+            while ((c = bufferedReader.read()) != -1) {
+                stringBuilder.append((char) c);
+            }
+        } finally {
+            if (bufferedReader != null) {
+                bufferedReader.close();
+            }
+            if (inputStreamReader != null) {
+                inputStreamReader.close();
+            }
+            inputStream.close();
+        }
+        return stringBuilder;
+    }
+
+    private Html unmarshal(StringBuilder sb) throws JAXBException {
+        Html html = null;
+        sb = removeDoctypeDeclaration(sb);
+        sb = replaceNamedEntity(sb);
+        StringReader stringReader = new StringReader(sb.toString());
+        html = (Html) jaxbContext.createUnmarshaller().unmarshal(stringReader);
+        return html;
     }
 
 }

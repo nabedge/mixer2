@@ -1,9 +1,11 @@
 package org.mixer2.xhtml;
 
+import static org.junit.Assert.*;
+
 import java.io.File;
-import java.io.IOException;
 import java.io.StringWriter;
 
+import org.apache.commons.lang.SystemUtils;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +13,6 @@ import org.mixer2.Mixer2Engine;
 import org.mixer2.jaxb.xhtml.Div;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.Span;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 public class Snippet_divTest {
     private String templateFileName = "snippet_div.html";
@@ -25,10 +26,9 @@ public class Snippet_divTest {
     }
 
     @Before
-    public void init() throws IOException {
+    public void init() throws Exception {
         templateFilePath = getClass().getResource(templateFileName).toString();
-        String osname = System.getProperty("os.name");
-        if (osname.indexOf("Windows") >= 0) {
+        if (SystemUtils.IS_OS_WINDOWS) {
             templateFilePath = templateFilePath.replaceFirst("file:/", "");
         } else {
             templateFilePath = templateFilePath.replaceFirst("file:", "");
@@ -36,7 +36,7 @@ public class Snippet_divTest {
     }
 
     @Test
-    public void test() throws IOException, TagTypeUnmatchException {
+    public void test() throws Exception {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         Div div = html.getById("foo", Div.class);
         Span span = new Span();
@@ -45,6 +45,11 @@ public class Snippet_divTest {
         div.getContent().add("<script>alert(1);</script>");
         StringWriter sw = new StringWriter();
         m2e.saveToStringWriter(div, sw);
-        System.out.println(sw.toString());
+        String result = sw.toString();
+        System.out.println(result);
+        assertTrue(result.contains("&lt;script&gt;alert(1);&lt;/script&gt;"));
+        assertTrue(result.trim().startsWith("<div "));
+        assertTrue(result.trim().endsWith("</div>"));
+        assertFalse(result.contains("</html>"));
     }
 }
