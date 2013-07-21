@@ -4,7 +4,25 @@
 
 TIPS
 
-* {commonly-used method}
+* loadHtmlTempate() or checkAndLoadHtmlTemplate()
+
+ There seems to be two method to load xhtml template.
+ You may choice them to the requirements.
+
+** loadHtmlTemplate()
+
+ {{{./apidocs/org/mixer2/Mixer2Engine.html#loadHtmlTemplate%28java.io.File%29}loadHtmlTemplate()}}
+ loads xhtml template and returns instance of org.mixer2.jaxb.xhtml.Html .
+ If fail to parse xhtml, return null.
+
+** checkAndLoadHtmlTemplate()
+
+ {{{./apidocs/org/mixer2/Mixer2Engine.html#checkAndLoadHtmlTemplate%28java.io.File%29}checkAndLoadHtmlTemplate()}}
+ loads xhtml template and returns instance of org.mixer2.jaxb.xhtml.Html .
+ If fail to parse xhtml, throws exception.
+ You can use checkAndLoadHtmlTempate() on version 1.2.8 or later.
+
+* commonly-used method
 
  When you code view by mixer2, you use commonly methods
  that is implemented on all the html tags.
@@ -12,7 +30,7 @@ TIPS
  All common method is implemented on org.mixer.xhtml.AbstractJaxb class.
  See {{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html}javaDoc}} for details.
 
-** {attribute manipulation method}
+** attribute manipulation method
 
  get*, set* and isSet* methods.
 
@@ -38,7 +56,7 @@ div.getContent().add("hello");
 // you get <div>hello</div>
 ----
 
-* {get tag}
+* get tag
 
  Example belows is not enough.
  See {{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html}javadoc}} for details.
@@ -94,7 +112,7 @@ for (Span span : spanList) {
 
 ~~ TODO あとで追加 * {指定したタグ型へキャスト済みの状態で取得する}
 
-* {delete tag}
+* delete tag
 
  see {{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html}javadoc}} for details
 
@@ -113,7 +131,7 @@ html.getById("foo", Div.class).removeDescendants("bar");
 html.getById("foo", Div.class).removeDescendants("bar", Span.class);
 ----
 
-* {create tag newly}
+* create tag newly
 
 ----
 // create anchor link likes <a id="foo" href="example.html">example</a>
@@ -142,7 +160,7 @@ Div div = divWithId("foo");
 // Div div = new Div(); div.setId("foo");
 ----
 
-* {copy tag}
+* copy tag
 
  copy() method create deep copy of the tag instance.
 
@@ -186,7 +204,7 @@ System.out.println(html.saveToString());
 </html>
 ----
 
-* {replace}
+* replace
 
  see {{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html}javadoc}} for details
 
@@ -207,7 +225,7 @@ span.getContent.add("abc");
 boolean result = html.replaceById("foo", span);
 ----
 
-* {insert}
+* insert
 
  template:
 
@@ -243,7 +261,7 @@ html.insertAfterId("div_a");
 </div>
 ----
 
-* {type cast}
+* type cast
 
  According to tag variation, you need cast.
  For example, tr tag can have th or td.
@@ -265,7 +283,7 @@ Td td = table.getTr().get(0).getThOrTd().get(0).cast(Td.class);
 Td td = (Td) table.getTr().get(0).getThOrTd().get(0);
 ----
 
-* {loop}
+* loop
 
  You can use loop syntax of java.
 
@@ -313,7 +331,7 @@ for (String name : nameArray) {
 ----
 
 
-* {partially marshal}
+* partially marshal
 
  You can get specified tag but template must have
  from \<html\> to \</html\> .
@@ -352,7 +370,7 @@ abc
 </div>
 ----
 
-* {path ajuster}
+* path ajuster
 
  The static file path may change if you open template directly in browser
  and the run-time on server.

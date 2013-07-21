@@ -4,14 +4,30 @@
 
 TIPS
 
-* {よく使うメソッド}
+* loadHtmlTempate() or checkAndLoadHtmlTemplate()
+
+ xhtmlテンプレートをロードするメソッドには大きく分けて2種類あります。
+ 要求に合わせてどちらかを使用してください。
+
+** loadHtmlTemplate()
+
+ {{{../apidocs/org/mixer2/Mixer2Engine.html#loadHtmlTemplate%28java.io.File%29}loadHtmlTemplate()}}は
+ xhtmlテンプレートをロードしてHtml型インスタンスを返します。パースに失敗した場合はnullを返します。
+
+** checkAndLoadHtmlTemplate()
+
+ {{{../apidocs/org/mixer2/Mixer2Engine.html#checkAndLoadHtmlTemplate%28java.io.File%29}checkAndLoadHtmlTemplate()}}は
+ xhtmlテンプレートをロードしてHtml型インスタンスを返します。パースに失敗した場合は例外を発生します。
+ checkAndLoadHtmlTempate()はversion 1.2.8以降で使用可能です。
+
+* よく使うメソッド
 
  mixer2でのViewプログラミングは、HTMLの各種タグに直接ひもづくクラスに共通に実装されたメソッドが中心となります。
 
  共通のメソッドはorg.mixer.xhtml.AbstractJaxbクラスに実装されていますので、
  まずは{{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html}そのJavaDoc}}をご覧ください。
 
-** {attribute manipulation method}
+** attribute manipulation method
 
  get*, set* and isSet* methods.
 
@@ -37,7 +53,7 @@ div.getContent().add("hello");
 // you get <div>hello</div>
 ----
 
-* {取得する}
+* 取得する
 
  ※ここで紹介している例がすべてではありません。
  詳しくは{{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html}javadoc}}を参照。
@@ -90,7 +106,7 @@ for (Span span : spanList) {
 ~~ TODO あとで追加 * {指定したタグ型へキャスト済みの状態で取得する}
 
 
-* {削除する}
+* 削除する
 
  ※ここで紹介している例がすべてではありません。
  詳しくは{{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html}javadoc}}を参照。
@@ -109,7 +125,7 @@ html.getById("foo", Div.class).removeDescendants("bar");
 html.getById("foo", Div.class).removeDescendants("bar", Span.class);
 ----
 
-* {新規にタグを生成する}
+* 新規にタグを生成する
 
 ----
 // <a id="foo" href="example.html">example</a>というアンカーリンクを作る
@@ -136,7 +152,7 @@ Div div = divWithId("foo");
 // 上は Div div = new Div(); div.setId("foo"); と全く同じです
 ----
 
-* {タグをコピーする}
+* タグをコピーする
 
  copy()メソッドはそのタグのインスタンスのディープコピーをとります。
  複雑なコンテンツ、class属性、style属性を持つタグを
@@ -184,7 +200,7 @@ System.out.println(html.saveToString());
 </html>
 ----
 
-* {置換する}
+* 置換する
 
  ※ここで紹介している例がすべてではありません。
  詳しくは{{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html}javadoc}}を参照。
@@ -207,7 +223,7 @@ span.getContent.add("abc");
 boolean result = html.replaceById("foo", span);
 ----
 
-* {挿入する}
+* 挿入する
 
  ※ここで紹介している例がすべてではありません。
  詳しくは{{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html}javadoc}}を参照。
@@ -248,7 +264,7 @@ html.insertAfterId("div_a");
 
  \<div id="div_a"\>タグの「中」に挿入するのではなく、「次」に挿入されることに注意してください。
 
-* {型キャストする}
+* 型キャストする
 
  タグの種類によっては、キャストが必要になります。たとえばtrタグに含まれるのは
  thタグかtdタグのどちらかなので、たとえば table.getTr().get(0).getThOrTd().get(0) のような形になります。
@@ -268,7 +284,7 @@ Td td = (Td) table.getTr().get(0).getThOrTd().get(0);
 
  括弧記号でのキャストよりもわかりやすく、またメソッドチェインを続けて書きやすくなります。
 
-* {繰り返し（ループ）}
+* 繰り返し（ループ）
 
  JSPのカスタムタグではループ処理のための専用のカスタムタグを使うことがあります。
  \<c:foreach\>などです。しかしmixer2では単なるJavaコードで書けるので、
@@ -325,7 +341,7 @@ for (String name : nameArray) {
  ここではやや長いコードになってしまいましたが、
  実際にはメソッド分割などによってよりスッキリとしたコードになるでしょう。
 
-* {部分マーシャル}
+* 部分マーシャル
 
  version1.0.4以降、部分マーシャルが可能になりました。
  従来はHtmlオブジェクトのみを文字列化（マーシャル）可能でした。
@@ -368,7 +384,7 @@ abc
 </div>
 ----
 
-* {path ajuster}
+* path ajuster
 
  テンプレートファイルをブラウザで直接見る場合と
  Webアプリケーションとしてサーバ上で実行してみる場合とで
