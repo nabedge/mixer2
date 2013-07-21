@@ -30,12 +30,12 @@ import javax.xml.transform.stream.StreamSource;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.mixer2.jaxb.exception.Mixer2JAXBException;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.Script;
 import org.mixer2.xhtml.AbstractJaxb;
 import org.mixer2.xhtml.NamedEntityEnum;
 import org.mixer2.xhtml.TagCustomizeWriter;
-import org.mixer2.xhtml.exception.Mixer2JAXBException;
 
 /**
  * <p>
