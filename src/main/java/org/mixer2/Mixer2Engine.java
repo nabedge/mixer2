@@ -430,13 +430,17 @@ public class Mixer2Engine {
         return stringBuilder;
     }
 
-    private Html unmarshal(StringBuilder sb) throws JAXBException {
+    protected Html unmarshal(StringBuilder sb) throws JAXBException {
         Html html = null;
         sb = removeDoctypeDeclaration(sb);
         sb = replaceNamedEntity(sb);
         StringReader stringReader = new StringReader(sb.toString());
-        html = (Html) jaxbContext.createUnmarshaller().unmarshal(stringReader);
+        html = (Html) getJAXBContext().createUnmarshaller().unmarshal(stringReader);
         return html;
+    }
+    
+    protected JAXBContext getJAXBContext() {
+        return this.jaxbContext;
     }
 
 }
