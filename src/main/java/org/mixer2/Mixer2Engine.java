@@ -435,12 +435,8 @@ public class Mixer2Engine {
         sb = removeDoctypeDeclaration(sb);
         sb = replaceNamedEntity(sb);
         StringReader stringReader = new StringReader(sb.toString());
-        html = (Html) getJAXBContext().createUnmarshaller().unmarshal(stringReader);
+        html = (Html) jaxbContext.createUnmarshaller().unmarshal(stringReader);
         return html;
     }
     
-    protected JAXBContext getJAXBContext() {
-        return this.jaxbContext;
-    }
-
 }
