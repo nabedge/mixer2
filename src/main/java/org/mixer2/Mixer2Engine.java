@@ -430,6 +430,15 @@ public class Mixer2Engine {
         return stringBuilder;
     }
 
+    /**
+     * <p>
+     * unmarshal from html string to html object.
+     * </p>
+     * 
+     * @param sb
+     * @return
+     * @throws JAXBException
+     */
     protected Html unmarshal(StringBuilder sb) throws JAXBException {
         Html html = null;
         sb = removeDoctypeDeclaration(sb);
