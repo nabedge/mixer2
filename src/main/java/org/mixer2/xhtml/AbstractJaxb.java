@@ -604,6 +604,28 @@ public abstract class AbstractJaxb implements Serializable {
         CopyUtil.copyOtherAttr(this, copy);
         return copy;
     }
+    
+    /**
+     * <p>
+     * same as {@link #copy} but never throw exception.
+     * return null if failed to copy.
+     * </p>
+     * <p>
+     * {@link #copy}と同じですが、失敗しても例外を発生させずにnullを返します
+     * </p>
+     * 
+     * @param tagType
+     * @return
+     */
+    public <T extends AbstractJaxb> T copyNoException(Class<T> tagType) {
+        T copy = null;
+        try {
+            copy = (T) this.copy(tagType);
+        } catch (final TagTypeUnmatchException e) {
+            return null;
+        }
+        return copy;
+    }
 
     /**
      * <p>
