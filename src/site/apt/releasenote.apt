@@ -4,6 +4,8 @@
 
 Release Note
 
+ * 1.2.9 ViewResolver and Abstract view class for SpringMVC, copyNoException() method, and some refactoring.
+
  * 1.2.8 checkAndLoadHtmlTemplate() method
 
  * 1.2.7 bug fix of 1.2.6 copy() method. see  {{{copy.html}copy(), clone(), copyTo()}} page. reduce some dependency (commons-lang).
