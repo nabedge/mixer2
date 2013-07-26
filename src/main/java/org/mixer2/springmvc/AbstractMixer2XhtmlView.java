@@ -44,7 +44,7 @@ import org.springframework.web.servlet.view.AbstractView;
  *              
  *      Div div = html.getById("message", Div.class);
  *      div.unsetContent();
- *      div.getContent().add("Hello World !");
+ *      div.getContent().add(model.get("helloMessage"));
  *      
  *      return html;
  *   }

@@ -38,9 +38,29 @@ import org.springframework.web.servlet.ViewResolver;
  * }</pre>
  * 
  * <p>
- * Your controller method shuld returns view class name as String.
+ * Using this ViewResolver, 
+ * Your controller method can returns 
+ * <strong>view class name as String</strong>.<br>
+ * See also {@link AbstractMixer2XhtmlView}.
  * </p>
  * 
+ * <pre><code>
+ * {@literal @}Controller
+ * public class HelloWorldController {
+ *
+ *  {@literal @}Autowired
+ *  protected helloMessageService helloMessageService;
+ *
+ *  {@literal @}RequestMapping(value = "/hello", method = RequestMethod.GET)
+ *  public String showHello({@literal @}PathVariable long itemId, Model model) {
+ *      String helloMessage = helloMessageService.getMessage();
+ *      model.addAttribute("helloMessage", helloMessage);
+ *      return "helloWorldView"; // attach "HelloWorldView" class.
+ *  }
+ * }
+ * </code></pre>
+ * 
+ * @see AbstractMixer2XhtmlView
  * @author nabedge
  *
  */
