@@ -607,11 +607,11 @@ public abstract class AbstractJaxb implements Serializable {
     
     /**
      * <p>
-     * same as {@link #copy} but never throw exception.
+     * same as {@link #copy(Class)} but never throw exception.
      * return null if failed to copy.
      * </p>
      * <p>
-     * {@link #copy}と同じですが、失敗しても例外を発生させずにnullを返します
+     * {@link #copy(Class)}と同じですが、失敗しても例外を発生させずにnullを返します
      * </p>
      * 
      * @param tagType
