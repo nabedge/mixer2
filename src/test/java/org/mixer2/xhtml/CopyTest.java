@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.File;
 
+import org.apache.commons.lang.SystemUtils;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,29 +28,29 @@ public class CopyTest {
     @Before
     public void init() throws Exception {
         templateFilePath = getClass().getResource(templateFileName).toString();
-        String osname = System.getProperty("os.name");
-        if(osname.indexOf("Windows")>=0){
+        if (SystemUtils.IS_OS_WINDOWS) {
             templateFilePath = templateFilePath.replaceFirst("file:/", "");
         } else {
             templateFilePath = templateFilePath.replaceFirst("file:", "");
         }
     }
-    
-    @Test 
+
+    @Test
     public void testHtml() throws Exception {
         Html original = m2e.loadHtmlTemplate(new File(templateFilePath));
         Html copy = original.copy(Html.class);
-        assertEquals("bar", copy.getById("li_sample01",Li.class).getData("foo"));
-        assertEquals("111", copy.getById("test_h1",H1.class).getData("xxx"));
-        assertEquals("222", copy.getById("test_h1",H1.class).getData("yyy"));
+        assertEquals("bar", copy.getById("li_sample01", Li.class)
+                .getData("foo"));
+        assertEquals("111", copy.getById("test_h1", H1.class).getData("xxx"));
+        assertEquals("222", copy.getById("test_h1", H1.class).getData("yyy"));
         assertEquals(m2e.saveToString(original), m2e.saveToString(copy));
     }
 
     @Test
     public void testDiv() throws Exception {
         Html html = m2e.loadHtmlTemplate(new File(templateFilePath));
-        Div helloWorldDiv = html.getById("hellomsg",Div.class);
-        Div newDiv = helloWorldDiv.copy(Div.class);
+        Div helloWorldDiv = html.getById("hellomsg", Div.class);
+        Div newDiv = helloWorldDiv.copyNoException(Div.class);
         newDiv.setId("bar");
         newDiv.unsetContent();
         newDiv.getContent().add("Life is beautiful.");

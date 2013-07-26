@@ -12,6 +12,48 @@ import org.mixer2.jaxb.xhtml.Html;
 import org.springframework.util.Assert;
 import org.springframework.web.servlet.view.AbstractView;
 
+/**
+ * Abstract class to create view class for Spring MVC.
+ * <p>
+ * <strong>NOTICE: view component scope shuld be "prototype"</strong>
+ * </p>
+ * 
+ * <h4>implementation sample</h4>
+ * 
+ * <pre><code>
+ * {@literal @}Component
+ * {@literal @}Scope("prototype")
+ * public class HelloWorldView extends AbstractMixer2XhtmlView {
+ * 
+ *   {@literal @}Autowired
+ *   protected Mixer2Engine mixer2Engine;
+ * 
+ *   {@literal @}Autowired
+ *   protected ResourceLoader resourceLoader;
+ * 
+ *   private String mainTemplate = "classpath:helloWorldTemplate.html";
+ * 
+ *   {@literal @}Override
+ *   protected Html createHtml(Map<String, Object> model,
+ *           HttpServletRequest request, HttpServletResponse response)
+ *           throws IOException, TagTypeUnmatchException {
+ * 
+ *      // load html template
+ *      Html html = mixer2Engine.loadHtmlTemplate(resourceLoader.getResource(
+ *              mainTemplate).getInputStream());
+ *              
+ *      Div div = html.getById("message", Div.class);
+ *      div.unsetContent();
+ *      div.getContent().add("Hello World !");
+ *      
+ *      return html;
+ *   }
+ * </code></pre>
+ * 
+ * @see Mixer2XhtmlViewResolver
+ * @author nabedge
+ * 
+ */
 public abstract class AbstractMixer2XhtmlView extends AbstractView {
 
     private String contentType = "text/html; charset=UTF-8";
@@ -21,7 +63,7 @@ public abstract class AbstractMixer2XhtmlView extends AbstractView {
     private Html html;
 
     private Mixer2Engine mixer2Engine;
-    
+
     private Locale locale;
 
     abstract protected Html createHtml(Map<String, Object> model,

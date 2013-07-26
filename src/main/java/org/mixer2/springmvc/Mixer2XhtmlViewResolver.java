@@ -12,6 +12,38 @@ import org.springframework.web.context.support.WebApplicationObjectSupport;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.ViewResolver;
 
+/**
+ * View Resolver for SpringMVC .
+ * <h4>your should add dependency for your application:</h4>
+ *
+ * <pre>{@code
+ * <dependency>
+ *     <groupId>org.springframework</groupId>
+ *     <artifactId>spring-webmvc</artifactId>
+ *     <version>3.1.2.RELEASE (or higher)</version>
+ * </dependency>
+ * }</pre>
+ *
+ * <h4>Spring MVC configuration Sample</h4>
+ *
+ * <pre>{@code
+ * <bean id="mixer2Engine" class="org.mixer2.Mixer2Engine" />
+ * <bean class="org.mixer2.springmvc.Mixer2XhtmlViewResolver">
+ *     <property name="mixer2Engine" ref="mixer2Engine" />
+ *     <property name="order" value="1" />
+ * </bean>
+ * <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+ *      <property name="order" value="2" />
+ * </bean>
+ * }</pre>
+ * 
+ * <p>
+ * Your controller method shuld returns view class name as String.
+ * </p>
+ * 
+ * @author nabedge
+ *
+ */
 public class Mixer2XhtmlViewResolver extends WebApplicationObjectSupport
         implements ViewResolver, Ordered {
 
