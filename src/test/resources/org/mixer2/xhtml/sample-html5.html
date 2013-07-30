@@ -9,6 +9,14 @@
     <link rel="shortcut icon" href="foo.ico" />
     <link rel="stylesheet" href="bar.css" />
     <script src="foo.js"> </script>
+<script type="text/javascript">
+//<![CDATA[
+var foo = 1;
+var bar = 2;
+if (foo > bar || foo < bar) {
+    var bar = 3;
+}
+//]]></script>
 </head>
 <body>
 
@@ -115,6 +123,12 @@ The <abbr id="abbr1" title="Web Hypertext Application Technology Working Group">
 <ruby id="ruby1"> 漢 <rt id="rt1"> かん </rt> 字 <rt id="rt2"> じ </rt></ruby>
 <kbd>shift</kbd>
 </p>
+
+<table>
+  <caption>table caption</caption>
+  <tr><td>foo</td><td>bar</td></tr>
+  <tr><td>111</td><td>222</td></tr>
+</table>
 
         </section>
     </article>

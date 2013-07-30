@@ -298,7 +298,7 @@ public class Mixer2Engine {
         Transformer transformer;
         try {
             transformer = transFactory.newTransformer();
-            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty(OutputKeys.INDENT, "no");
             transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION,
                     "yes");
             transformer.transform(new StreamSource(xml), new StreamResult(

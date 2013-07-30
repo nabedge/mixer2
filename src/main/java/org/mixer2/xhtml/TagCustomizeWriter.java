@@ -5,6 +5,7 @@ import javax.xml.stream.XMLEventFactory;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLEventWriter;
 import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.events.EndElement;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 
@@ -61,19 +62,33 @@ public class TagCustomizeWriter implements XMLEventWriter {
 
     private XMLEventFactory xmlEventFactory;
 
+    private XMLEvent lineBreakEvent;
+    
+    private String LINE_SEPARATOR = System.getProperty("line.separator");
+    
+    private boolean scriptElementFlag = false;
+    
+    private boolean scriptAttributeFlag = false;
+
     public TagCustomizeWriter(XMLEventWriter writer) {
         this.writer = writer;
         xmlEventFactory = XMLEventFactory.newInstance();
+        lineBreakEvent = xmlEventFactory.createCharacters(LINE_SEPARATOR);
     }
-
-    private boolean scriptElementFlag = false;
-    private boolean scriptAttributeFlag = false;
 
     @Override
     public void add(XMLEvent event) throws XMLStreamException {
+        
+        TagEnum tagEnum;
+
         if (event.isEndElement()) {
             scriptElementFlag = false;
             scriptAttributeFlag = false;
+            EndElement ee = event.asEndElement();
+            String tagName = ee.getName().getLocalPart().toUpperCase();
+            if ("HEAD".equals(tagName) || "HTML".equals(tagName)) {
+                writer.add(lineBreakEvent);
+            }
         }
 
         if (event.isStartElement()) {
@@ -81,6 +96,10 @@ public class TagCustomizeWriter implements XMLEventWriter {
             String tagName = se.getName().getLocalPart().toUpperCase();
             if (tagName.equals(targetTagName.toUpperCase())) {
                 scriptElementFlag = true;
+            }
+            tagEnum = TagEnum.valueOf(tagName);
+            if (tagEnum.getAddLineBreak()) {
+                writer.add(lineBreakEvent);
             }
         }
         
