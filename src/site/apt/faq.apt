@@ -134,7 +134,7 @@ FAQ
  template:
 
 ----
-<script>
+<script type="text/javascript">
 //<![CDATA[
 var foo = 1;
 var bar = 2;

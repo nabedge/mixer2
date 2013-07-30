@@ -142,7 +142,7 @@ FAQ
  CDATAと//（コメントアウト）を組み合わせてテンプレートを書いてください。
 
 ----
-<script>
+<script type="text/javascript">
 //<![CDATA[
 var foo = 1;
 var bar = 2;
