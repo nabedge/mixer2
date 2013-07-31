@@ -3,14 +3,12 @@ package org.mixer2.xhtml;
 import static org.junit.Assert.assertEquals;
 
 import java.io.File;
-import java.io.IOException;
 
 import org.apache.commons.lang.SystemUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.mixer2.Mixer2Engine;
 import org.mixer2.jaxb.xhtml.Html;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 public class ToStringTest {
 
@@ -19,7 +17,7 @@ public class ToStringTest {
     private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
 
     @Before
-    public void init() throws IOException {
+    public void init() throws Exception {
         templateFilePath = getClass().getResource(templateFileName).toString();
         if (SystemUtils.IS_OS_WINDOWS) {
             templateFilePath = templateFilePath.replaceFirst("file:/", "");
@@ -29,7 +27,7 @@ public class ToStringTest {
     }
 
     @Test
-    public void test() throws IOException, TagTypeUnmatchException {
+    public void test() throws Exception {
         Html html = m2e.loadHtmlTemplate(new File(templateFilePath));
         assertEquals(-1, html.toString().indexOf("=<null>"));
         // System.out.println(html.toString());

@@ -3,7 +3,6 @@ package org.mixer2.xhtml;
 import java.io.File;
 import java.io.IOException;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.SystemUtils;
 import org.junit.Assert;
 import org.junit.Before;
@@ -33,13 +32,13 @@ public class HelloWorldTest {
     @Test
     public void test() throws Exception {
         File file = new File(templateFilePath);
-        System.out.println(FileUtils.readFileToString(file));
+        //System.out.println(FileUtils.readFileToString(file));
         Html html = m2e.loadHtmlTemplate(file);
         P p = html.getById("hellomsg", P.class);
         p.unsetContent();
         p.getContent().add("Hello World!");
         String result = m2e.saveToString(html);
-        System.out.println(result);
+        //System.out.println(result);
         Assert.assertTrue(result
                 .contains("<p id=\"hellomsg\">Hello World!</p>"));
     }

@@ -3,12 +3,12 @@ package org.mixer2.xhtml;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 
-import org.junit.AfterClass;
+import org.apache.commons.lang.SystemUtils;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,16 +21,10 @@ public class SampleHtml5 {
     private String templateFilePath;
     private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
 
-    @AfterClass
-    public static void afterClass() {
-        m2e = null;
-    }
-
     @Before
-    public void init() throws IOException {
+    public void init() throws Exception {
         templateFilePath = getClass().getResource(templateFileName).toString();
-        String osname = System.getProperty("os.name");
-        if (osname.indexOf("Windows") >= 0) {
+        if (SystemUtils.IS_OS_WINDOWS) {
             templateFilePath = templateFilePath.replaceFirst("file:/", "");
         } else {
             templateFilePath = templateFilePath.replaceFirst("file:", "");
@@ -65,7 +59,15 @@ public class SampleHtml5 {
         Meta meta = html.getHead().getById("metaWithProperty", Meta.class);
         Assert.assertThat(meta.getProperty(), is("og:title"));
         Assert.assertThat(meta.getContent(), is("sample page"));
-
     }
 
+    @Test
+    public void emptyTagTest() throws Exception {
+        InputStream in = new FileInputStream(templateFilePath);
+        Html html = m2e.loadHtmlTemplate(in);
+        String str = m2e.saveToString(html);
+        //System.out.println(str);
+        assertTrue(str.contains("<meta charset=\"utf-8\"/>"));
+        assertTrue(str.contains("<br id=\"dummy_br\"/>"));
+    }
 }
