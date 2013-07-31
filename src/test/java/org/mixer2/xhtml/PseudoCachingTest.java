@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.apache.commons.lang.time.StopWatch;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,6 +15,7 @@ import org.mixer2.jaxb.xhtml.Html;
 
 public class PseudoCachingTest {
 
+    private static Log log = LogFactory.getLog(PseudoCachingTest.class);
     private String templateFileName = "sample-xhtml1-transitional.html";
     private String templateFilePath;
     private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
@@ -35,7 +38,7 @@ public class PseudoCachingTest {
         Html html = cacheMap.get(templateFilePath);
         if (html == null) {
             html = m2e.loadHtmlTemplate(new File(templateFilePath));
-            cacheMap.putIfAbsent(templateFilePath, html);
+            cacheMap.putIfAbsent(templateFilePath, html.copy(Html.class));
         }
     	return html.copy(Html.class);
     }
@@ -55,7 +58,7 @@ public class PseudoCachingTest {
             loadHtmlTemplateThroughCache(templateFilePath);
         }
         stopWatch.stop();
-        System.out.println("using cache: loop= " + loop + ", time(msec)= " + stopWatch.getTime());
+        log.info("using cache: loop= " + loop + ", time(msec)= " + stopWatch.getTime());
     }
 
     @Test
@@ -68,6 +71,6 @@ public class PseudoCachingTest {
             m2e.loadHtmlTemplate(file);
         }
         stopWatch.stop();
-        System.out.println("   no cache: loop= " + loop + ", time(msec)= " + stopWatch.getTime());
+        log.info("   no cache: loop= " + loop + ", time(msec)= " + stopWatch.getTime());
     }
 }

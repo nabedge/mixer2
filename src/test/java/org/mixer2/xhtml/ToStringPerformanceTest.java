@@ -8,6 +8,8 @@ import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 import org.apache.commons.lang.time.StopWatch;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -17,6 +19,7 @@ import org.mixer2.util.CastUtil;
 
 public class ToStringPerformanceTest {
 
+    private static Log log = LogFactory.getLog(ToStringPerformanceTest.class);
     private String templateFileName = "sample-xhtml1-transitional.html";
     private String templateFilePath;
     private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
@@ -47,7 +50,7 @@ public class ToStringPerformanceTest {
             html.toString();
         }
         stopWatch.stop();
-        System.out.println("   normal toString(): loop= " + loop + ", time(msec)= " + stopWatch.getTime());
+        log.info("   normal toString(): loop= " + loop + ", time(msec)= " + stopWatch.getTime());
     }
 
     @Test
@@ -59,7 +62,7 @@ public class ToStringPerformanceTest {
             toStringByReflectionToStringBuilder(html);
         }
         stopWatch.stop();
-        System.out.println("ReflectionToString(): loop= " + loop + ", time(msec)= " + stopWatch.getTime());
+        log.info("ReflectionToString(): loop= " + loop + ", time(msec)= " + stopWatch.getTime());
     }
 
     private String toStringByReflectionToStringBuilder(Object bean) {

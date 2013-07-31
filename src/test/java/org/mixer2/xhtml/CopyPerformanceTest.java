@@ -3,6 +3,8 @@ package org.mixer2.xhtml;
 import java.io.File;
 
 import org.apache.commons.lang.time.StopWatch;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -13,6 +15,7 @@ import org.mixer2.jaxb.xhtml.Meta;
 
 public class CopyPerformanceTest {
 
+    private static Log log = LogFactory.getLog(CopyPerformanceTest.class);
     private String templateFileName = "sample-xhtml1-transitional.html";
     private String templateFilePath;
     private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
@@ -45,7 +48,7 @@ public class CopyPerformanceTest {
             tmp = html.copy(Html.class);
         }
         stopWatch.stop();
-        System.out.println("whale html: loop= " + loop + ", time(msec)= " + stopWatch.getTime());
+        log.info("whale html: loop= " + loop + ", time(msec)= " + stopWatch.getTime());
     }
 
     @Test()
@@ -58,7 +61,7 @@ public class CopyPerformanceTest {
             tmp = tmp.copy(Meta.class);
         }
         stopWatch.stop();
-        System.out.println("small tag: loop= " + loop + ", time(msec)= " + stopWatch.getTime());
+        log.info(" small tag: loop= " + loop + ", time(msec)= " + stopWatch.getTime());
     }
 
 }
