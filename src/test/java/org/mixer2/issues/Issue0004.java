@@ -18,6 +18,12 @@ import org.mixer2.jaxb.xhtml.P;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
 import org.mixer2.xhtml.TagCreator;
 
+/**
+ * see https://github.com/nabedge/mixer2/issues/4
+ * 
+ * @author nabedge
+ *
+ */
 public class Issue0004 {
 
     private String templateFileName = "issue0004.html";
@@ -39,8 +45,8 @@ public class Issue0004 {
         InputStream in = new FileInputStream(templateFilePath);
         Html html = m2e.loadHtmlTemplate(in);
         String str = "<p><a href=\"link1\">link1</a><a href=\"link2\">link2</a></p>";
-        assertTrue(m2e.saveToString(html).contains(str));
         //System.out.println(m2e.saveToString(html));
+        assertTrue(m2e.saveToString(html).contains(str));
     }
 
     @Test
@@ -55,6 +61,7 @@ public class Issue0004 {
         P p = TagCreator.p();
         p.getContent().addAll(aList);
         String str = "<p><a href=\"link1\">link1</a><a href=\"link2\">link2</a></p>";
+        //System.out.println(m2e.saveToString(p));
         assertTrue(m2e.saveToString(p).contains(str));
     }
 

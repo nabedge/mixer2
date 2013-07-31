@@ -270,7 +270,7 @@ public class Mixer2Engine {
             m = jaxbContext.createMarshaller();
             m.setProperty(Marshaller.JAXB_ENCODING, Charset.defaultCharset()
                     .name());
-            m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, false);
             m.setProperty(Marshaller.JAXB_FRAGMENT, true);
             XMLEventWriter xmlEventWriter = XMLOutputFactory.newInstance()
                     .createXMLEventWriter(tmpWriter);
