@@ -195,15 +195,13 @@ if (foo > bar || foo < bar) {
 
 * {Caching}
 
- version1.2.3以降でMixer2のテンプレートキャッシュ機構関連のメソッドは
- すべてDeprecated（廃止予定）となり、コールしてもキャッシュを使わない
- 通常のメソッドを呼び出したのと同じ効果しかありません。
- キャッシュが必要な場合は各自での実装をお願いします。
-
  なお、全てのhtmlタグのクラスは implements Serializable であり、
- また自分自身をバイト列化する toByteArray() メソッドも備えています。
+ copy()メソッドそ備えています。
  Java向けの汎用キャッシングフレームワークを組み合わて
  キャッシュ機能を実装することは可能でしょう。
+ 
+ See also {{{https://github.com/nabedge/mixer2-cacheable}Mixer2-Cacheable}}
+ project.
 
 * {Use Maven through proxy}
 

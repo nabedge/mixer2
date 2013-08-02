@@ -179,15 +179,13 @@ if (foo > bar || foo < bar) {
 
 * {chaching}
 
- From version1.2.3 or higher, the methods of mixer2 using caching
- are deprecated. 
- You must implement caching mechanism originally if you need.
-
  All the tag class of mixer2 implements java.io.Seralizable
- and has toByteArray() method to convert tag itself to byte[].
+ and have copy() method.
  You can implements original caching function 
  by combination of general caching framework.
-
+ 
+ See also {{{https://github.com/nabedge/mixer2-cacheable}Mixer2-Cacheable}}
+ project.
 
 * {Use Maven through proxy}
 
