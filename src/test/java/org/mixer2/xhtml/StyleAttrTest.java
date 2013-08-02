@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.TreeMap;
 
-import org.junit.AfterClass;
+import org.apache.commons.lang.SystemUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.mixer2.Mixer2Engine;
@@ -23,16 +23,10 @@ public class StyleAttrTest {
     private String templateFilePath;
     private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
 
-    @AfterClass
-    public static void afterClass() {
-        m2e = null;
-    }
-
     @Before
     public void init() throws IOException {
         templateFilePath = getClass().getResource(templateFileName).toString();
-        String osname = System.getProperty("os.name");
-        if(osname.indexOf("Windows")>=0){
+        if(SystemUtils.IS_OS_WINDOWS){
             templateFilePath = templateFilePath.replaceFirst("file:/", "");
         } else {
             templateFilePath = templateFilePath.replaceFirst("file:", "");
@@ -51,10 +45,14 @@ public class StyleAttrTest {
     @Test
     public void setStyle() throws IOException, TagTypeUnmatchException {
         Html html = m2e.loadHtmlTemplate(new File(templateFilePath));
-        TreeMap<String,String> styleMap = html.getById("div1",Div.class).getStyleAsTreeMap();
+        TreeMap<String,String> styleMap;
+        styleMap = html.getById("div1",Div.class).getStyleAsTreeMap();
         assertEquals("solid", styleMap.get("border-style"));
+
         styleMap.put("font-weight", "bold");
+        html.getById("div1",Div.class).setStyleByTreeMap(styleMap);
         html = m2e.loadHtmlTemplate(m2e.saveToString(html));
+        styleMap = html.getById("div1",Div.class).getStyleAsTreeMap();
         assertEquals("solid", styleMap.get("border-style"));
         assertEquals("bold", styleMap.get("font-weight"));
 
