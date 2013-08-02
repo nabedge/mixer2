@@ -377,7 +377,7 @@ public class Mixer2Engine {
         return replaceNamedEntity(sb);
     }
 
-    private StringBuilder fileToStringBuilder(File file) throws IOException {
+    protected StringBuilder fileToStringBuilder(File file) throws IOException {
         if (file == null) {
             throw new IOException("File is null.");
         }
@@ -402,7 +402,7 @@ public class Mixer2Engine {
         return stringBuilder;
     }
 
-    private StringBuilder inputStreamToStringBuilder(InputStream inputStream)
+    protected StringBuilder inputStreamToStringBuilder(InputStream inputStream)
             throws IOException {
         if (inputStream == null) {
             throw new IOException("InputStream is null.");
