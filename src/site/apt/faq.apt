@@ -147,7 +147,7 @@ if (foo > bar || foo < bar) {
  output by mixer2：
 
 ----
-<script>
+<script type="text/javascript">
 //<![CDATA[
 
 var foo = 1;
