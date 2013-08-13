@@ -316,6 +316,7 @@
                     <generatePackage>org.mixer2.jaxb.xhtml</generatePackage>
                     <generateDirectory>src/main/java</generateDirectory>
                     <creanPackageDirectories>false</creanPackageDirectories>
+<!--                     <forceRegenerate>true</forceRegenerate> -->
                     <plugins>
                         <plugin>
                             <groupId>org.jvnet.jaxb2_commons</groupId>
