@@ -86,7 +86,8 @@ if (foo > bar || foo < bar) {
 
 <form action="processkey.cgi" method="post" enctype="multipart/form-data">
     <keygen name="key" />
-    <label id="label1">keywords:<input type="search" name="q" autocomplete="on" list="keywords" /></label>
+    <label id="label1" for="hogehoge">keywords:</label>
+    <input id="hogehoge" type="search" name="q" autocomplete="on" list="keywords" />
     <datalist id="datalist_keywords">
         <option value="wikipedia" >wikipedia</option>
         <option value="antivirus" >anti-virus</option>
