@@ -4,6 +4,8 @@
 
 Release Note
 
+ * 1.2.12 javadoc fix only.
+
  * 1.2.11 {{{https://github.com/nabedge/mixer2/issues/4}bug}} fixed. some method changed from private to protected.
 
  * 1.2.10 ViewResolver and Abstract view class for SpringMVC, copyNoException() method, and some refactoring.
