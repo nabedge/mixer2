@@ -1,9 +1,14 @@
 package org.mixer2.xhtml;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.io.FileInputStream;
 import java.io.InputStream;
 
 import org.apache.commons.lang.SystemUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,6 +19,8 @@ import org.mixer2.jaxb.xhtml.Input;
 import org.mixer2.jaxb.xhtml.Label;
 
 public class IdrefTest {
+    @SuppressWarnings("unused")
+    private static Log log = LogFactory.getLog(IdrefTest.class);
     private String templateFileName = "IdrefTest.html";
     private String templateFilePath;
     private static Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
@@ -50,4 +57,14 @@ public class IdrefTest {
         Assert.assertTrue(str.contains("<label for=\"lastName\">last name:</label>"));
     }
 
+    @Test
+    public void getForPropOfLabelTag() throws Exception {
+        InputStream in = new FileInputStream(templateFilePath);
+        Html html = m2e.loadHtmlTemplate(in);
+        
+        Form barForm = html.getById("barForm", Form.class);
+        Label label = barForm.getById("barInputLabel", Label.class);
+        assertTrue(label.getFor().getClass().equals(Input.class));
+        assertEquals("barInput", ((Input)label.getFor()).getId());
+    }
 }

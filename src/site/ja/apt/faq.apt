@@ -4,18 +4,18 @@
 
 FAQ
 
-* {Requirement}
+* Requirement
 
  Java6以上が必要です。
 
-* {servlet-apiに依存していますか？}
+* servlet-apiに依存していますか？
 
  いいえ。servlet-apiには依存していません。{{{dependencies.html}依存関係のページ}}には
  servlet-apiがprovided（実行時に必要なもの）として表示されていますが、
  これはoptionalであるという表示に注目してください。
  SpringMVC用のViewクラスを使う場合にのみservlet-apiが必要になります。
 
-* {対応しているxhtmlバージョン、タグ、属性}
+* 対応しているxhtmlバージョン、タグ、属性
 
  xhtml1.0-transitional(strictも可）およびXML構文で書かれたhtml5に対応しています。
  html5の仕様は2011年5月現在の仕様に準拠します。
@@ -30,14 +30,14 @@ FAQ
  任意のオリジナルタグ、例えば \<foo\>bar\</foo\>のようなタグを
  テンプレートに書いてもmixer2はそれを削除します。
 
-** {frame, frameset文書には対応していません}
+** frame, frameset文書には対応していません
 
  xhtml1-transitional と xhtml1-frameset は明確に異なる文書型です。
  mixer2はframeタグやframesetタグに対応していませんので、
  テンプレートにあってもそれを削除します。
  \<iframe\>タグには対応しています。
 
-* {正しいxhtmlを書いてください}
+* 正しいxhtmlを書いてください
 
  mixer2は、テンプレートhtml文字列の読み込み(load≒unmarshal)時、
  およびHtmlオブジェクトの文字出力(save≒marshal)時のそれぞれのフェーズで、
@@ -86,7 +86,7 @@ FAQ
  ある程度の妥当性検証を行っておくことをおすすめします。>>
 
 
-* {DOCTYPE宣言は削除されます}
+* DOCTYPE宣言は削除されます
 
  テンプレートの冒頭にどのようなDOCTYPE宣言があっても、mixer2はそれを無かったことにします。
  JAXB-APIがテンプレートの解析するときにDOCTYPE宣言を発見すると、そのURIにhttpアクセスする
@@ -95,7 +95,7 @@ FAQ
  アプリケーションの最終的な出力にDOCTYPE宣言が必須であれば、mixer2による出力結果に対して
  手動でDOCTYPE宣言の文字列を追加してください。
 
-* {コメントは削除されます}
+* コメントは削除されます
 
 ----
 <!-- コメント... -->
@@ -112,7 +112,7 @@ FAQ
  ということは、 {{http://msdn.microsoft.com/en-us/library/ms537512}} で
  解説されているコンディショナルコメント（分岐条件コメント）も削除されてしまいます。
 
-* {JavaScript}
+* JavaScript
 
  JavaScriptは、できるだけ外部ファイル化することをおすすめします。
 
@@ -136,7 +136,7 @@ FAQ
  空要素にしてしまうのを防ぐためです。
  （FireFox等では空要素のscriptタグは正常に作動しないことがあります）
 
-* {JavaScript (Inline)}
+* JavaScript (Inline)
 
  どうしてもxhtml内部にインラインでJavaScriptを書きたい場合には、
  CDATAと//（コメントアウト）を組み合わせてテンプレートを書いてください。
@@ -168,42 +168,70 @@ if (foo > bar || foo < bar) {
 </script>
 ----
 
-* {Thread safe}
+* IDREF(S) 属性 (例： labelタグのfor属性)
+
+ IDリファレンス(IDREF)型の属性へのアクセスは注意が必要です。
+ 典型的なのが\<label for="foo"\>のようなlabelタグです。 
+ たとえば下記のようなテンプレートをロードしたとします。
+
+----
+<label id="barInputLabel" for="barInput">input bar:</label>
+<input id="barInput" type="text" name="barInput" />
+----
+
+ このとき、  html.getById("barInputLabel", Label.class).getFor() で得られるオブジェクトは、
+ "barInput"というStringではありません。
+ そのfor属性が示す文字列をid属性として持っているInputクラスのインスタンスです。
+ つまりid=barInputであるinputタグのオブジェクトです。
+ 
+ 同様に、labelタグオブジェクトに新たにfor属性をセットする場合、
+ label.setFor("barInput") のようにStringを直接渡しても例外を発生してしまいます。
+ 上のテンプレートの例で言えば、
+
+----
+Input barInput = html.getById("barInput", Input.class);
+html.getById("barInputLabel", Label.class).setFor(barInput);
+----
+
+ のように、そのlabelタグのfor属性が指し示すタグのオブジェクトそのものを
+ setFor()メソッドの引数に渡す必要があります。
+
+* Thread safe
 
  mixer2が提供するほとんどのクラスはスレッドセーフです。
  スレッドセーフではないことが明白なクラスについては
  JavaDocに「スレッドセーフではありません」と書いてあります。
 
-* {Mixer2Engineはシングルトンで}
+* Mixer2Engineはシングルトンで
 
  Mixer2Engine自体のインスタンス生成はかなりのオーバーヘッドがかかります。
  アプリケーションの起動時にDIコンテナ等でsingletonとして
  コンポーネント登録してしまうことをお勧めします。
 
-* {Security}
+* Security
 
  Mixer2はセキュリティ面でも優れています。
  例えば、\<script\>タグを作るには、テンプレート上にもともとそれが存在するか、
  あるいはJavaコード上で明示的に Script script = new Script(); 等と書くしかありません。
  <<想定外のタグが出力されること>>に起因するXSS等の脆弱性が発生する余地はほとんどありません。
 
-* {XML-API}
+* XML-API
 
  mixer2はXHTMLをXMLとして扱います。JavaでXMLを操作するAPIは
  様々なものがありますが、主にJAXBを使用しています。
  DOMはメモリを消費しすぎるため使用していません。
 
-* {Caching}
+* Caching
 
  なお、全てのhtmlタグのクラスは implements Serializable であり、
- copy()メソッドそ備えています。
+ copy()メソッドを備えています。
  Java向けの汎用キャッシングフレームワークを組み合わて
  キャッシュ機能を実装することは可能でしょう。
  
  See also {{{https://github.com/nabedge/mixer2-cacheable}Mixer2-Cacheable}}
  project.
 
-* {Use Maven through proxy}
+* Use Maven through web proxy
 
  Mixer2のサンプルアプリケーションはmavenを使用しています。
  mavenは必要なライブラリをインターネット上のセントラルリポジトリからhttp(s)で自動的にダウンロードします。 

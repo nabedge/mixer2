@@ -4,18 +4,18 @@
 
 FAQ
 
-* {Requirement}
+* Requirement
 
  Java6 or higher
 
-* {Does mixer2 depends on servlet-api ?}
+* Does mixer2 depends on servlet-api ?
 
  NO. {{{dependencies.html}Dependencies page}} shows the dependency to
  servlet-api but please take notice of "optional" flag.
  You need servlet-api if you use Mixer2XhtmlView class 
  with SpringMVC framework.
 
-* {xhtml version, tag and property}
+* xhtml version, tag and property
 
  xhtml1.0-transitional, xhtml1.0-strict, html5 with xml syntax.
  The spec of html5 is May 2011 version.
@@ -24,13 +24,13 @@ FAQ
  Mixer2 can't understand orignal tag like \<foo\>bar\</foo\> .
  If you use original tag on template, mixer2 will delete it.
 
-** {no support for frameset document type}
+** no support for frameset document type
 
  The xhtml1-transitional doctype and xhtml1-frameset doctype are different.
  Mixer2 does not support xhtml1-frameset.
  So, mixer2 ignore \<frame\> and \<frameset\> tag but support \<iframe\> tag.
 
-* {write correct xhtml}
+* write correct xhtml
 
  Mixer2 does NOT validate html when load(unmarshal) template html
  and save(marshal) to html.
@@ -76,7 +76,7 @@ FAQ
  You should use syntax check function of web authoring tool (ex. Dreamweaver)
  or htmllint when you write html template.
 
-* {DOCTYPE declaration will be deleted}
+* DOCTYPE declaration will be deleted
 
  Mixer2 forget any DOCTYPE declareation at the front of template.
  If JAXB-API detect DOCTYPE declaration on the way of analyzing template,
@@ -85,7 +85,7 @@ FAQ
  If the output of your application needs DOCTYPE declaration,
  you should add it manually on your code.
 
-* {html comment wil be deleted}
+* html comment wil be deleted
 
 ----
 <!-- comment... -->
@@ -103,7 +103,7 @@ FAQ
  - {{http://msdn.microsoft.com/en-us/library/ms537512}} -
  will be deleted also.
 
-* {JavaScript}
+* JavaScript
 
  JavaScript shuold be external file.
 
@@ -126,7 +126,7 @@ FAQ
  to like this \<script type="text/javascript" src="foo.js" /\> .
  For example Firefox can't run script tag like this.
 
-* {JavaScript (Inline)}
+* JavaScript (Inline)
 
  If you feel a strong need to write inline javascript on xhtml,
  use CDATA and // (comment out) on template.
@@ -160,24 +160,53 @@ if (foo > bar || foo < bar) {
 </script>
 ----
 
-* {Thread safe}
+* IDREF(S) property (ex. "for" property of label tag)
+
+ You should handle "IDREF(S)" property with care.
+ Typical case is label tag like \<label for="foo"\> .
+ 
+ For example, loading template like below.
+
+----
+<label id="barInputLabel" for="barInput">input bar:</label>
+<input id="barInput" type="text" name="barInput" />
+----
+
+ Object obj = html.getById("barInputLabel", Label.class).getFor()
+ 
+ "obj" is not "barInput" String.
+ It is instance of Input class having id="barInput" .
+
+ If you set "for" property to label tag object
+ with the code like label.setFor("barInput") ,
+ you get exception.
+ 
+----
+Input barInput = html.getById("barInput", Input.class);
+html.getById("barInputLabel", Label.class).setFor(barInput);
+----
+ 
+ So, you need to pass the object having the id property
+ to the setFor() method.
+
+* Thread safe
 
  Most class of mixer2 is thread save.
  If the class is not thread safe, the javadoc is written like this
  "this class is not thread safe".
 
-* {Initialize Mixer2Engine as singleton}
+* Initialize Mixer2Engine as singleton
 
  To instantiate Mixer2Engine is high cost.
  You shuold instantiate mixer2engine as singleton and inject it to DI container.
 
-* {Security}
+* Security
 
  Mixer2 has an advantage for security.
  For example, to make \<script\> tag, It must be exists on template or
  you must write code "Script script = new Script();" explicitly.
 
-* {chaching}
+* chaching
 
  All the tag class of mixer2 implements java.io.Seralizable
  and have copy() method.
@@ -187,7 +216,7 @@ if (foo > bar || foo < bar) {
  See also {{{https://github.com/nabedge/mixer2-cacheable}Mixer2-Cacheable}}
  project.
 
-* {Use Maven through proxy}
+* Use Maven through proxy
 
  Sample application or maven archetype of mixer2 uses maven.
  Maven will download java libraries with http(s)
