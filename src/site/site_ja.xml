@@ -47,6 +47,7 @@
       <item name="TableBuilder" href="tablebuilder.html" />
       <item name="Zero Template" href="zerotemplate.html" />
       <item name="TODO" href="todo.html" />
+      <item name="Release Note" href="releasenote.html"/>
     </menu>
 
     <menu ref="reports" />
