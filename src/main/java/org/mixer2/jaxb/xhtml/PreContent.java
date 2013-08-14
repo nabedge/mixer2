@@ -24,9 +24,9 @@ import org.mixer2.xhtml.AbstractJaxb;
  *       font, or basefont
  *       
  * 
- * <p>pre.content complex typeのJavaクラス。
+ * <p>Java class for pre.content complex type.
  * 
- * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="pre.content">
@@ -60,44 +60,44 @@ public class PreContent
 {
 
     @XmlElementRefs({
-        @XmlElementRef(name = "s", namespace = "http://www.w3.org/1999/xhtml", type = S.class),
-        @XmlElementRef(name = "select", namespace = "http://www.w3.org/1999/xhtml", type = Select.class),
-        @XmlElementRef(name = "span", namespace = "http://www.w3.org/1999/xhtml", type = Span.class),
-        @XmlElementRef(name = "mark", namespace = "http://www.w3.org/1999/xhtml", type = Mark.class),
-        @XmlElementRef(name = "dfn", namespace = "http://www.w3.org/1999/xhtml", type = Dfn.class),
-        @XmlElementRef(name = "u", namespace = "http://www.w3.org/1999/xhtml", type = U.class),
-        @XmlElementRef(name = "label", namespace = "http://www.w3.org/1999/xhtml", type = Label.class),
-        @XmlElementRef(name = "samp", namespace = "http://www.w3.org/1999/xhtml", type = Samp.class),
-        @XmlElementRef(name = "textarea", namespace = "http://www.w3.org/1999/xhtml", type = Textarea.class),
-        @XmlElementRef(name = "bdo", namespace = "http://www.w3.org/1999/xhtml", type = Bdo.class),
-        @XmlElementRef(name = "meter", namespace = "http://www.w3.org/1999/xhtml", type = Meter.class),
-        @XmlElementRef(name = "a", namespace = "http://www.w3.org/1999/xhtml", type = A.class),
-        @XmlElementRef(name = "script", namespace = "http://www.w3.org/1999/xhtml", type = Script.class),
-        @XmlElementRef(name = "strong", namespace = "http://www.w3.org/1999/xhtml", type = Strong.class),
-        @XmlElementRef(name = "em", namespace = "http://www.w3.org/1999/xhtml", type = Em.class),
-        @XmlElementRef(name = "var", namespace = "http://www.w3.org/1999/xhtml", type = Var.class),
-        @XmlElementRef(name = "tt", namespace = "http://www.w3.org/1999/xhtml", type = Tt.class),
-        @XmlElementRef(name = "audio", namespace = "http://www.w3.org/1999/xhtml", type = Audio.class),
-        @XmlElementRef(name = "button", namespace = "http://www.w3.org/1999/xhtml", type = Button.class),
-        @XmlElementRef(name = "b", namespace = "http://www.w3.org/1999/xhtml", type = B.class),
-        @XmlElementRef(name = "i", namespace = "http://www.w3.org/1999/xhtml", type = I.class),
-        @XmlElementRef(name = "keygen", namespace = "http://www.w3.org/1999/xhtml", type = Keygen.class),
-        @XmlElementRef(name = "kbd", namespace = "http://www.w3.org/1999/xhtml", type = Kbd.class),
-        @XmlElementRef(name = "output", namespace = "http://www.w3.org/1999/xhtml", type = Output.class),
-        @XmlElementRef(name = "code", namespace = "http://www.w3.org/1999/xhtml", type = Code.class),
         @XmlElementRef(name = "del", namespace = "http://www.w3.org/1999/xhtml", type = Del.class),
-        @XmlElementRef(name = "br", namespace = "http://www.w3.org/1999/xhtml", type = Br.class),
-        @XmlElementRef(name = "strike", namespace = "http://www.w3.org/1999/xhtml", type = Strike.class),
-        @XmlElementRef(name = "q", namespace = "http://www.w3.org/1999/xhtml", type = Q.class),
-        @XmlElementRef(name = "cite", namespace = "http://www.w3.org/1999/xhtml", type = Cite.class),
-        @XmlElementRef(name = "acronym", namespace = "http://www.w3.org/1999/xhtml", type = Acronym.class),
-        @XmlElementRef(name = "video", namespace = "http://www.w3.org/1999/xhtml", type = Video.class),
-        @XmlElementRef(name = "progress", namespace = "http://www.w3.org/1999/xhtml", type = Progress.class),
+        @XmlElementRef(name = "meter", namespace = "http://www.w3.org/1999/xhtml", type = Meter.class),
+        @XmlElementRef(name = "strong", namespace = "http://www.w3.org/1999/xhtml", type = Strong.class),
         @XmlElementRef(name = "command", namespace = "http://www.w3.org/1999/xhtml", type = Command.class),
-        @XmlElementRef(name = "time", namespace = "http://www.w3.org/1999/xhtml", type = Time.class),
-        @XmlElementRef(name = "ins", namespace = "http://www.w3.org/1999/xhtml", type = Ins.class),
+        @XmlElementRef(name = "s", namespace = "http://www.w3.org/1999/xhtml", type = S.class),
         @XmlElementRef(name = "input", namespace = "http://www.w3.org/1999/xhtml", type = Input.class),
-        @XmlElementRef(name = "abbr", namespace = "http://www.w3.org/1999/xhtml", type = Abbr.class)
+        @XmlElementRef(name = "var", namespace = "http://www.w3.org/1999/xhtml", type = Var.class),
+        @XmlElementRef(name = "code", namespace = "http://www.w3.org/1999/xhtml", type = Code.class),
+        @XmlElementRef(name = "strike", namespace = "http://www.w3.org/1999/xhtml", type = Strike.class),
+        @XmlElementRef(name = "span", namespace = "http://www.w3.org/1999/xhtml", type = Span.class),
+        @XmlElementRef(name = "output", namespace = "http://www.w3.org/1999/xhtml", type = Output.class),
+        @XmlElementRef(name = "tt", namespace = "http://www.w3.org/1999/xhtml", type = Tt.class),
+        @XmlElementRef(name = "i", namespace = "http://www.w3.org/1999/xhtml", type = I.class),
+        @XmlElementRef(name = "script", namespace = "http://www.w3.org/1999/xhtml", type = Script.class),
+        @XmlElementRef(name = "kbd", namespace = "http://www.w3.org/1999/xhtml", type = Kbd.class),
+        @XmlElementRef(name = "ins", namespace = "http://www.w3.org/1999/xhtml", type = Ins.class),
+        @XmlElementRef(name = "q", namespace = "http://www.w3.org/1999/xhtml", type = Q.class),
+        @XmlElementRef(name = "dfn", namespace = "http://www.w3.org/1999/xhtml", type = Dfn.class),
+        @XmlElementRef(name = "textarea", namespace = "http://www.w3.org/1999/xhtml", type = Textarea.class),
+        @XmlElementRef(name = "u", namespace = "http://www.w3.org/1999/xhtml", type = U.class),
+        @XmlElementRef(name = "b", namespace = "http://www.w3.org/1999/xhtml", type = B.class),
+        @XmlElementRef(name = "mark", namespace = "http://www.w3.org/1999/xhtml", type = Mark.class),
+        @XmlElementRef(name = "keygen", namespace = "http://www.w3.org/1999/xhtml", type = Keygen.class),
+        @XmlElementRef(name = "br", namespace = "http://www.w3.org/1999/xhtml", type = Br.class),
+        @XmlElementRef(name = "button", namespace = "http://www.w3.org/1999/xhtml", type = Button.class),
+        @XmlElementRef(name = "samp", namespace = "http://www.w3.org/1999/xhtml", type = Samp.class),
+        @XmlElementRef(name = "em", namespace = "http://www.w3.org/1999/xhtml", type = Em.class),
+        @XmlElementRef(name = "audio", namespace = "http://www.w3.org/1999/xhtml", type = Audio.class),
+        @XmlElementRef(name = "progress", namespace = "http://www.w3.org/1999/xhtml", type = Progress.class),
+        @XmlElementRef(name = "acronym", namespace = "http://www.w3.org/1999/xhtml", type = Acronym.class),
+        @XmlElementRef(name = "time", namespace = "http://www.w3.org/1999/xhtml", type = Time.class),
+        @XmlElementRef(name = "bdo", namespace = "http://www.w3.org/1999/xhtml", type = Bdo.class),
+        @XmlElementRef(name = "cite", namespace = "http://www.w3.org/1999/xhtml", type = Cite.class),
+        @XmlElementRef(name = "label", namespace = "http://www.w3.org/1999/xhtml", type = Label.class),
+        @XmlElementRef(name = "video", namespace = "http://www.w3.org/1999/xhtml", type = Video.class),
+        @XmlElementRef(name = "select", namespace = "http://www.w3.org/1999/xhtml", type = Select.class),
+        @XmlElementRef(name = "abbr", namespace = "http://www.w3.org/1999/xhtml", type = Abbr.class),
+        @XmlElementRef(name = "a", namespace = "http://www.w3.org/1999/xhtml", type = A.class)
     })
     @XmlMixed
     protected List<java.lang.Object> content;
@@ -123,45 +123,45 @@ public class PreContent
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link S }
-     * {@link Select }
-     * {@link Span }
-     * {@link Mark }
-     * {@link Dfn }
-     * {@link U }
-     * {@link Label }
-     * {@link Samp }
-     * {@link Textarea }
-     * {@link Meter }
-     * {@link Bdo }
-     * {@link A }
-     * {@link Script }
-     * {@link Strong }
-     * {@link Var }
-     * {@link Em }
-     * {@link Tt }
-     * {@link Audio }
-     * {@link I }
-     * {@link B }
-     * {@link Button }
-     * {@link Keygen }
-     * {@link Kbd }
-     * {@link Code }
-     * {@link Output }
      * {@link Del }
-     * {@link Br }
-     * {@link Strike }
-     * {@link Q }
-     * {@link Cite }
-     * {@link String }
-     * {@link Acronym }
-     * {@link Progress }
-     * {@link Video }
-     * {@link Time }
+     * {@link Meter }
+     * {@link Strong }
      * {@link Command }
-     * {@link Ins }
+     * {@link S }
+     * {@link Var }
      * {@link Input }
+     * {@link Code }
+     * {@link Span }
+     * {@link Strike }
+     * {@link Tt }
+     * {@link Output }
+     * {@link I }
+     * {@link String }
+     * {@link Script }
+     * {@link Kbd }
+     * {@link Q }
+     * {@link Ins }
+     * {@link Dfn }
+     * {@link Textarea }
+     * {@link U }
+     * {@link Mark }
+     * {@link B }
+     * {@link Keygen }
+     * {@link Br }
+     * {@link Button }
+     * {@link Samp }
+     * {@link Em }
+     * {@link Audio }
+     * {@link Progress }
+     * {@link Acronym }
+     * {@link Time }
+     * {@link Cite }
+     * {@link Bdo }
+     * {@link Label }
+     * {@link Video }
+     * {@link Select }
      * {@link Abbr }
+     * {@link A }
      * 
      * 
      */

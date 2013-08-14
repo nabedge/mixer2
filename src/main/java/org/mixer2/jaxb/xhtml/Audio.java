@@ -24,16 +24,16 @@ import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 
 
 /**
- * <p>anonymous complex typeのJavaクラス。
+ * <p>Java class for anonymous complex type.
  * 
- * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;extension base="{http://www.w3.org/1999/xhtml}Flow">
- *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}media"/>
  *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}attrs"/>
+ *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}media"/>
  *     &lt;/extension>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -49,25 +49,6 @@ public class Audio
     implements Cloneable, CopyTo
 {
 
-    @XmlAttribute(name = "src")
-    protected String src;
-    @XmlAttribute(name = "preload")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String preload;
-    @XmlAttribute(name = "autoplay")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String autoplay;
-    @XmlAttribute(name = "mediagroup")
-    protected String mediagroup;
-    @XmlAttribute(name = "muted")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String muted;
-    @XmlAttribute(name = "loop")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String loop;
-    @XmlAttribute(name = "controls")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String controls;
     @XmlAttribute(name = "id")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -226,207 +207,30 @@ public class Audio
     protected String onvolumechange;
     @XmlAttribute(name = "onwaiting")
     protected String onwaiting;
+    @XmlAttribute(name = "src")
+    protected String src;
+    @XmlAttribute(name = "preload")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String preload;
+    @XmlAttribute(name = "autoplay")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String autoplay;
+    @XmlAttribute(name = "mediagroup")
+    protected String mediagroup;
+    @XmlAttribute(name = "muted")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String muted;
+    @XmlAttribute(name = "loop")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String loop;
+    @XmlAttribute(name = "controls")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String controls;
     @XmlAnyAttribute
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
     /**
-     * srcプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSrc() {
-        return src;
-    }
-
-    /**
-     * srcプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSrc(String value) {
-        this.src = value;
-    }
-
-    public boolean isSetSrc() {
-        return (this.src!= null);
-    }
-
-    /**
-     * preloadプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPreload() {
-        return preload;
-    }
-
-    /**
-     * preloadプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPreload(String value) {
-        this.preload = value;
-    }
-
-    public boolean isSetPreload() {
-        return (this.preload!= null);
-    }
-
-    /**
-     * autoplayプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAutoplay() {
-        return autoplay;
-    }
-
-    /**
-     * autoplayプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAutoplay(String value) {
-        this.autoplay = value;
-    }
-
-    public boolean isSetAutoplay() {
-        return (this.autoplay!= null);
-    }
-
-    /**
-     * mediagroupプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getMediagroup() {
-        return mediagroup;
-    }
-
-    /**
-     * mediagroupプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setMediagroup(String value) {
-        this.mediagroup = value;
-    }
-
-    public boolean isSetMediagroup() {
-        return (this.mediagroup!= null);
-    }
-
-    /**
-     * mutedプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getMuted() {
-        return muted;
-    }
-
-    /**
-     * mutedプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setMuted(String value) {
-        this.muted = value;
-    }
-
-    public boolean isSetMuted() {
-        return (this.muted!= null);
-    }
-
-    /**
-     * loopプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getLoop() {
-        return loop;
-    }
-
-    /**
-     * loopプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setLoop(String value) {
-        this.loop = value;
-    }
-
-    public boolean isSetLoop() {
-        return (this.loop!= null);
-    }
-
-    /**
-     * controlsプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getControls() {
-        return controls;
-    }
-
-    /**
-     * controlsプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setControls(String value) {
-        this.controls = value;
-    }
-
-    public boolean isSetControls() {
-        return (this.controls!= null);
-    }
-
-    /**
-     * idプロパティの値を取得します。
+     * Gets the value of the id property.
      * 
      * @return
      *     possible object is
@@ -438,7 +242,7 @@ public class Audio
     }
 
     /**
-     * idプロパティの値を設定します。
+     * Sets the value of the id property.
      * 
      * @param value
      *     allowed object is
@@ -491,7 +295,7 @@ public class Audio
     }
 
     /**
-     * styleプロパティの値を取得します。
+     * Gets the value of the style property.
      * 
      * @return
      *     possible object is
@@ -503,7 +307,7 @@ public class Audio
     }
 
     /**
-     * styleプロパティの値を設定します。
+     * Sets the value of the style property.
      * 
      * @param value
      *     allowed object is
@@ -519,7 +323,7 @@ public class Audio
     }
 
     /**
-     * titleプロパティの値を取得します。
+     * Gets the value of the title property.
      * 
      * @return
      *     possible object is
@@ -531,7 +335,7 @@ public class Audio
     }
 
     /**
-     * titleプロパティの値を設定します。
+     * Sets the value of the title property.
      * 
      * @param value
      *     allowed object is
@@ -547,7 +351,7 @@ public class Audio
     }
 
     /**
-     * accesskeyプロパティの値を取得します。
+     * Gets the value of the accesskey property.
      * 
      * @return
      *     possible object is
@@ -559,7 +363,7 @@ public class Audio
     }
 
     /**
-     * accesskeyプロパティの値を設定します。
+     * Sets the value of the accesskey property.
      * 
      * @param value
      *     allowed object is
@@ -575,7 +379,7 @@ public class Audio
     }
 
     /**
-     * contenteditableプロパティの値を取得します。
+     * Gets the value of the contenteditable property.
      * 
      * @return
      *     possible object is
@@ -587,7 +391,7 @@ public class Audio
     }
 
     /**
-     * contenteditableプロパティの値を設定します。
+     * Sets the value of the contenteditable property.
      * 
      * @param value
      *     allowed object is
@@ -607,7 +411,7 @@ public class Audio
     }
 
     /**
-     * contextmenuプロパティの値を取得します。
+     * Gets the value of the contextmenu property.
      * 
      * @return
      *     possible object is
@@ -619,7 +423,7 @@ public class Audio
     }
 
     /**
-     * contextmenuプロパティの値を設定します。
+     * Sets the value of the contextmenu property.
      * 
      * @param value
      *     allowed object is
@@ -635,7 +439,7 @@ public class Audio
     }
 
     /**
-     * dirプロパティの値を取得します。
+     * Gets the value of the dir property.
      * 
      * @return
      *     possible object is
@@ -651,7 +455,7 @@ public class Audio
     }
 
     /**
-     * dirプロパティの値を設定します。
+     * Sets the value of the dir property.
      * 
      * @param value
      *     allowed object is
@@ -667,7 +471,7 @@ public class Audio
     }
 
     /**
-     * draggableプロパティの値を取得します。
+     * Gets the value of the draggable property.
      * 
      * @return
      *     possible object is
@@ -683,7 +487,7 @@ public class Audio
     }
 
     /**
-     * draggableプロパティの値を設定します。
+     * Sets the value of the draggable property.
      * 
      * @param value
      *     allowed object is
@@ -736,7 +540,7 @@ public class Audio
     }
 
     /**
-     * hiddenプロパティの値を取得します。
+     * Gets the value of the hidden property.
      * 
      * @return
      *     possible object is
@@ -748,7 +552,7 @@ public class Audio
     }
 
     /**
-     * hiddenプロパティの値を設定します。
+     * Sets the value of the hidden property.
      * 
      * @param value
      *     allowed object is
@@ -764,7 +568,7 @@ public class Audio
     }
 
     /**
-     * langCodeプロパティの値を取得します。
+     * Gets the value of the langCode property.
      * 
      * @return
      *     possible object is
@@ -776,7 +580,7 @@ public class Audio
     }
 
     /**
-     * langCodeプロパティの値を設定します。
+     * Sets the value of the langCode property.
      * 
      * @param value
      *     allowed object is
@@ -792,7 +596,7 @@ public class Audio
     }
 
     /**
-     * roleプロパティの値を取得します。
+     * Gets the value of the role property.
      * 
      * @return
      *     possible object is
@@ -804,7 +608,7 @@ public class Audio
     }
 
     /**
-     * roleプロパティの値を設定します。
+     * Sets the value of the role property.
      * 
      * @param value
      *     allowed object is
@@ -820,7 +624,7 @@ public class Audio
     }
 
     /**
-     * spellcheckプロパティの値を取得します。
+     * Gets the value of the spellcheck property.
      * 
      * @return
      *     possible object is
@@ -832,7 +636,7 @@ public class Audio
     }
 
     /**
-     * spellcheckプロパティの値を設定します。
+     * Sets the value of the spellcheck property.
      * 
      * @param value
      *     allowed object is
@@ -848,7 +652,7 @@ public class Audio
     }
 
     /**
-     * tabindexプロパティの値を取得します。
+     * Gets the value of the tabindex property.
      * 
      * @return
      *     possible object is
@@ -860,7 +664,7 @@ public class Audio
     }
 
     /**
-     * tabindexプロパティの値を設定します。
+     * Sets the value of the tabindex property.
      * 
      * @param value
      *     allowed object is
@@ -876,7 +680,7 @@ public class Audio
     }
 
     /**
-     * langプロパティの値を取得します。
+     * Gets the value of the lang property.
      * 
      * @return
      *     possible object is
@@ -888,7 +692,7 @@ public class Audio
     }
 
     /**
-     * langプロパティの値を設定します。
+     * Sets the value of the lang property.
      * 
      * @param value
      *     allowed object is
@@ -904,7 +708,7 @@ public class Audio
     }
 
     /**
-     * onclickプロパティの値を取得します。
+     * Gets the value of the onclick property.
      * 
      * @return
      *     possible object is
@@ -916,7 +720,7 @@ public class Audio
     }
 
     /**
-     * onclickプロパティの値を設定します。
+     * Sets the value of the onclick property.
      * 
      * @param value
      *     allowed object is
@@ -932,7 +736,7 @@ public class Audio
     }
 
     /**
-     * ondblclickプロパティの値を取得します。
+     * Gets the value of the ondblclick property.
      * 
      * @return
      *     possible object is
@@ -944,7 +748,7 @@ public class Audio
     }
 
     /**
-     * ondblclickプロパティの値を設定します。
+     * Sets the value of the ondblclick property.
      * 
      * @param value
      *     allowed object is
@@ -960,7 +764,7 @@ public class Audio
     }
 
     /**
-     * onmousedownプロパティの値を取得します。
+     * Gets the value of the onmousedown property.
      * 
      * @return
      *     possible object is
@@ -972,7 +776,7 @@ public class Audio
     }
 
     /**
-     * onmousedownプロパティの値を設定します。
+     * Sets the value of the onmousedown property.
      * 
      * @param value
      *     allowed object is
@@ -988,7 +792,7 @@ public class Audio
     }
 
     /**
-     * onmouseupプロパティの値を取得します。
+     * Gets the value of the onmouseup property.
      * 
      * @return
      *     possible object is
@@ -1000,7 +804,7 @@ public class Audio
     }
 
     /**
-     * onmouseupプロパティの値を設定します。
+     * Sets the value of the onmouseup property.
      * 
      * @param value
      *     allowed object is
@@ -1016,7 +820,7 @@ public class Audio
     }
 
     /**
-     * onmouseoverプロパティの値を取得します。
+     * Gets the value of the onmouseover property.
      * 
      * @return
      *     possible object is
@@ -1028,7 +832,7 @@ public class Audio
     }
 
     /**
-     * onmouseoverプロパティの値を設定します。
+     * Sets the value of the onmouseover property.
      * 
      * @param value
      *     allowed object is
@@ -1044,7 +848,7 @@ public class Audio
     }
 
     /**
-     * onmousemoveプロパティの値を取得します。
+     * Gets the value of the onmousemove property.
      * 
      * @return
      *     possible object is
@@ -1056,7 +860,7 @@ public class Audio
     }
 
     /**
-     * onmousemoveプロパティの値を設定します。
+     * Sets the value of the onmousemove property.
      * 
      * @param value
      *     allowed object is
@@ -1072,7 +876,7 @@ public class Audio
     }
 
     /**
-     * onmouseoutプロパティの値を取得します。
+     * Gets the value of the onmouseout property.
      * 
      * @return
      *     possible object is
@@ -1084,7 +888,7 @@ public class Audio
     }
 
     /**
-     * onmouseoutプロパティの値を設定します。
+     * Sets the value of the onmouseout property.
      * 
      * @param value
      *     allowed object is
@@ -1100,7 +904,7 @@ public class Audio
     }
 
     /**
-     * onkeypressプロパティの値を取得します。
+     * Gets the value of the onkeypress property.
      * 
      * @return
      *     possible object is
@@ -1112,7 +916,7 @@ public class Audio
     }
 
     /**
-     * onkeypressプロパティの値を設定します。
+     * Sets the value of the onkeypress property.
      * 
      * @param value
      *     allowed object is
@@ -1128,7 +932,7 @@ public class Audio
     }
 
     /**
-     * onkeydownプロパティの値を取得します。
+     * Gets the value of the onkeydown property.
      * 
      * @return
      *     possible object is
@@ -1140,7 +944,7 @@ public class Audio
     }
 
     /**
-     * onkeydownプロパティの値を設定します。
+     * Sets the value of the onkeydown property.
      * 
      * @param value
      *     allowed object is
@@ -1156,7 +960,7 @@ public class Audio
     }
 
     /**
-     * onkeyupプロパティの値を取得します。
+     * Gets the value of the onkeyup property.
      * 
      * @return
      *     possible object is
@@ -1168,7 +972,7 @@ public class Audio
     }
 
     /**
-     * onkeyupプロパティの値を設定します。
+     * Sets the value of the onkeyup property.
      * 
      * @param value
      *     allowed object is
@@ -1184,7 +988,7 @@ public class Audio
     }
 
     /**
-     * onabortプロパティの値を取得します。
+     * Gets the value of the onabort property.
      * 
      * @return
      *     possible object is
@@ -1196,7 +1000,7 @@ public class Audio
     }
 
     /**
-     * onabortプロパティの値を設定します。
+     * Sets the value of the onabort property.
      * 
      * @param value
      *     allowed object is
@@ -1212,7 +1016,7 @@ public class Audio
     }
 
     /**
-     * onblurプロパティの値を取得します。
+     * Gets the value of the onblur property.
      * 
      * @return
      *     possible object is
@@ -1224,7 +1028,7 @@ public class Audio
     }
 
     /**
-     * onblurプロパティの値を設定します。
+     * Sets the value of the onblur property.
      * 
      * @param value
      *     allowed object is
@@ -1240,7 +1044,7 @@ public class Audio
     }
 
     /**
-     * oncanplayプロパティの値を取得します。
+     * Gets the value of the oncanplay property.
      * 
      * @return
      *     possible object is
@@ -1252,7 +1056,7 @@ public class Audio
     }
 
     /**
-     * oncanplayプロパティの値を設定します。
+     * Sets the value of the oncanplay property.
      * 
      * @param value
      *     allowed object is
@@ -1268,7 +1072,7 @@ public class Audio
     }
 
     /**
-     * oncanplaythroughプロパティの値を取得します。
+     * Gets the value of the oncanplaythrough property.
      * 
      * @return
      *     possible object is
@@ -1280,7 +1084,7 @@ public class Audio
     }
 
     /**
-     * oncanplaythroughプロパティの値を設定します。
+     * Sets the value of the oncanplaythrough property.
      * 
      * @param value
      *     allowed object is
@@ -1296,7 +1100,7 @@ public class Audio
     }
 
     /**
-     * onchangeプロパティの値を取得します。
+     * Gets the value of the onchange property.
      * 
      * @return
      *     possible object is
@@ -1308,7 +1112,7 @@ public class Audio
     }
 
     /**
-     * onchangeプロパティの値を設定します。
+     * Sets the value of the onchange property.
      * 
      * @param value
      *     allowed object is
@@ -1324,7 +1128,7 @@ public class Audio
     }
 
     /**
-     * oncontextmenuプロパティの値を取得します。
+     * Gets the value of the oncontextmenu property.
      * 
      * @return
      *     possible object is
@@ -1336,7 +1140,7 @@ public class Audio
     }
 
     /**
-     * oncontextmenuプロパティの値を設定します。
+     * Sets the value of the oncontextmenu property.
      * 
      * @param value
      *     allowed object is
@@ -1352,7 +1156,7 @@ public class Audio
     }
 
     /**
-     * oncuechangeプロパティの値を取得します。
+     * Gets the value of the oncuechange property.
      * 
      * @return
      *     possible object is
@@ -1364,7 +1168,7 @@ public class Audio
     }
 
     /**
-     * oncuechangeプロパティの値を設定します。
+     * Sets the value of the oncuechange property.
      * 
      * @param value
      *     allowed object is
@@ -1380,7 +1184,7 @@ public class Audio
     }
 
     /**
-     * ondragプロパティの値を取得します。
+     * Gets the value of the ondrag property.
      * 
      * @return
      *     possible object is
@@ -1392,7 +1196,7 @@ public class Audio
     }
 
     /**
-     * ondragプロパティの値を設定します。
+     * Sets the value of the ondrag property.
      * 
      * @param value
      *     allowed object is
@@ -1408,7 +1212,7 @@ public class Audio
     }
 
     /**
-     * ondragendプロパティの値を取得します。
+     * Gets the value of the ondragend property.
      * 
      * @return
      *     possible object is
@@ -1420,7 +1224,7 @@ public class Audio
     }
 
     /**
-     * ondragendプロパティの値を設定します。
+     * Sets the value of the ondragend property.
      * 
      * @param value
      *     allowed object is
@@ -1436,7 +1240,7 @@ public class Audio
     }
 
     /**
-     * ondragenterプロパティの値を取得します。
+     * Gets the value of the ondragenter property.
      * 
      * @return
      *     possible object is
@@ -1448,7 +1252,7 @@ public class Audio
     }
 
     /**
-     * ondragenterプロパティの値を設定します。
+     * Sets the value of the ondragenter property.
      * 
      * @param value
      *     allowed object is
@@ -1464,7 +1268,7 @@ public class Audio
     }
 
     /**
-     * ondragleaveプロパティの値を取得します。
+     * Gets the value of the ondragleave property.
      * 
      * @return
      *     possible object is
@@ -1476,7 +1280,7 @@ public class Audio
     }
 
     /**
-     * ondragleaveプロパティの値を設定します。
+     * Sets the value of the ondragleave property.
      * 
      * @param value
      *     allowed object is
@@ -1492,7 +1296,7 @@ public class Audio
     }
 
     /**
-     * ondragoverプロパティの値を取得します。
+     * Gets the value of the ondragover property.
      * 
      * @return
      *     possible object is
@@ -1504,7 +1308,7 @@ public class Audio
     }
 
     /**
-     * ondragoverプロパティの値を設定します。
+     * Sets the value of the ondragover property.
      * 
      * @param value
      *     allowed object is
@@ -1520,7 +1324,7 @@ public class Audio
     }
 
     /**
-     * ondragstartプロパティの値を取得します。
+     * Gets the value of the ondragstart property.
      * 
      * @return
      *     possible object is
@@ -1532,7 +1336,7 @@ public class Audio
     }
 
     /**
-     * ondragstartプロパティの値を設定します。
+     * Sets the value of the ondragstart property.
      * 
      * @param value
      *     allowed object is
@@ -1548,7 +1352,7 @@ public class Audio
     }
 
     /**
-     * ondropプロパティの値を取得します。
+     * Gets the value of the ondrop property.
      * 
      * @return
      *     possible object is
@@ -1560,7 +1364,7 @@ public class Audio
     }
 
     /**
-     * ondropプロパティの値を設定します。
+     * Sets the value of the ondrop property.
      * 
      * @param value
      *     allowed object is
@@ -1576,7 +1380,7 @@ public class Audio
     }
 
     /**
-     * ondurationchangeプロパティの値を取得します。
+     * Gets the value of the ondurationchange property.
      * 
      * @return
      *     possible object is
@@ -1588,7 +1392,7 @@ public class Audio
     }
 
     /**
-     * ondurationchangeプロパティの値を設定します。
+     * Sets the value of the ondurationchange property.
      * 
      * @param value
      *     allowed object is
@@ -1604,7 +1408,7 @@ public class Audio
     }
 
     /**
-     * onemptiedプロパティの値を取得します。
+     * Gets the value of the onemptied property.
      * 
      * @return
      *     possible object is
@@ -1616,7 +1420,7 @@ public class Audio
     }
 
     /**
-     * onemptiedプロパティの値を設定します。
+     * Sets the value of the onemptied property.
      * 
      * @param value
      *     allowed object is
@@ -1632,7 +1436,7 @@ public class Audio
     }
 
     /**
-     * onendedプロパティの値を取得します。
+     * Gets the value of the onended property.
      * 
      * @return
      *     possible object is
@@ -1644,7 +1448,7 @@ public class Audio
     }
 
     /**
-     * onendedプロパティの値を設定します。
+     * Sets the value of the onended property.
      * 
      * @param value
      *     allowed object is
@@ -1660,7 +1464,7 @@ public class Audio
     }
 
     /**
-     * onerrorプロパティの値を取得します。
+     * Gets the value of the onerror property.
      * 
      * @return
      *     possible object is
@@ -1672,7 +1476,7 @@ public class Audio
     }
 
     /**
-     * onerrorプロパティの値を設定します。
+     * Sets the value of the onerror property.
      * 
      * @param value
      *     allowed object is
@@ -1688,7 +1492,7 @@ public class Audio
     }
 
     /**
-     * onfocusプロパティの値を取得します。
+     * Gets the value of the onfocus property.
      * 
      * @return
      *     possible object is
@@ -1700,7 +1504,7 @@ public class Audio
     }
 
     /**
-     * onfocusプロパティの値を設定します。
+     * Sets the value of the onfocus property.
      * 
      * @param value
      *     allowed object is
@@ -1716,7 +1520,7 @@ public class Audio
     }
 
     /**
-     * onformchangeプロパティの値を取得します。
+     * Gets the value of the onformchange property.
      * 
      * @return
      *     possible object is
@@ -1728,7 +1532,7 @@ public class Audio
     }
 
     /**
-     * onformchangeプロパティの値を設定します。
+     * Sets the value of the onformchange property.
      * 
      * @param value
      *     allowed object is
@@ -1744,7 +1548,7 @@ public class Audio
     }
 
     /**
-     * onforminputプロパティの値を取得します。
+     * Gets the value of the onforminput property.
      * 
      * @return
      *     possible object is
@@ -1756,7 +1560,7 @@ public class Audio
     }
 
     /**
-     * onforminputプロパティの値を設定します。
+     * Sets the value of the onforminput property.
      * 
      * @param value
      *     allowed object is
@@ -1772,7 +1576,7 @@ public class Audio
     }
 
     /**
-     * oninputプロパティの値を取得します。
+     * Gets the value of the oninput property.
      * 
      * @return
      *     possible object is
@@ -1784,7 +1588,7 @@ public class Audio
     }
 
     /**
-     * oninputプロパティの値を設定します。
+     * Sets the value of the oninput property.
      * 
      * @param value
      *     allowed object is
@@ -1800,7 +1604,7 @@ public class Audio
     }
 
     /**
-     * oninvalidプロパティの値を取得します。
+     * Gets the value of the oninvalid property.
      * 
      * @return
      *     possible object is
@@ -1812,7 +1616,7 @@ public class Audio
     }
 
     /**
-     * oninvalidプロパティの値を設定します。
+     * Sets the value of the oninvalid property.
      * 
      * @param value
      *     allowed object is
@@ -1828,7 +1632,7 @@ public class Audio
     }
 
     /**
-     * onloadプロパティの値を取得します。
+     * Gets the value of the onload property.
      * 
      * @return
      *     possible object is
@@ -1840,7 +1644,7 @@ public class Audio
     }
 
     /**
-     * onloadプロパティの値を設定します。
+     * Sets the value of the onload property.
      * 
      * @param value
      *     allowed object is
@@ -1856,7 +1660,7 @@ public class Audio
     }
 
     /**
-     * onloadeddataプロパティの値を取得します。
+     * Gets the value of the onloadeddata property.
      * 
      * @return
      *     possible object is
@@ -1868,7 +1672,7 @@ public class Audio
     }
 
     /**
-     * onloadeddataプロパティの値を設定します。
+     * Sets the value of the onloadeddata property.
      * 
      * @param value
      *     allowed object is
@@ -1884,7 +1688,7 @@ public class Audio
     }
 
     /**
-     * onloadedmetadataプロパティの値を取得します。
+     * Gets the value of the onloadedmetadata property.
      * 
      * @return
      *     possible object is
@@ -1896,7 +1700,7 @@ public class Audio
     }
 
     /**
-     * onloadedmetadataプロパティの値を設定します。
+     * Sets the value of the onloadedmetadata property.
      * 
      * @param value
      *     allowed object is
@@ -1912,7 +1716,7 @@ public class Audio
     }
 
     /**
-     * onloadstartプロパティの値を取得します。
+     * Gets the value of the onloadstart property.
      * 
      * @return
      *     possible object is
@@ -1924,7 +1728,7 @@ public class Audio
     }
 
     /**
-     * onloadstartプロパティの値を設定します。
+     * Sets the value of the onloadstart property.
      * 
      * @param value
      *     allowed object is
@@ -1940,7 +1744,7 @@ public class Audio
     }
 
     /**
-     * onmousewheelプロパティの値を取得します。
+     * Gets the value of the onmousewheel property.
      * 
      * @return
      *     possible object is
@@ -1952,7 +1756,7 @@ public class Audio
     }
 
     /**
-     * onmousewheelプロパティの値を設定します。
+     * Sets the value of the onmousewheel property.
      * 
      * @param value
      *     allowed object is
@@ -1968,7 +1772,7 @@ public class Audio
     }
 
     /**
-     * onpauseプロパティの値を取得します。
+     * Gets the value of the onpause property.
      * 
      * @return
      *     possible object is
@@ -1980,7 +1784,7 @@ public class Audio
     }
 
     /**
-     * onpauseプロパティの値を設定します。
+     * Sets the value of the onpause property.
      * 
      * @param value
      *     allowed object is
@@ -1996,7 +1800,7 @@ public class Audio
     }
 
     /**
-     * onplayプロパティの値を取得します。
+     * Gets the value of the onplay property.
      * 
      * @return
      *     possible object is
@@ -2008,7 +1812,7 @@ public class Audio
     }
 
     /**
-     * onplayプロパティの値を設定します。
+     * Sets the value of the onplay property.
      * 
      * @param value
      *     allowed object is
@@ -2024,7 +1828,7 @@ public class Audio
     }
 
     /**
-     * onplayingプロパティの値を取得します。
+     * Gets the value of the onplaying property.
      * 
      * @return
      *     possible object is
@@ -2036,7 +1840,7 @@ public class Audio
     }
 
     /**
-     * onplayingプロパティの値を設定します。
+     * Sets the value of the onplaying property.
      * 
      * @param value
      *     allowed object is
@@ -2052,7 +1856,7 @@ public class Audio
     }
 
     /**
-     * onprogressプロパティの値を取得します。
+     * Gets the value of the onprogress property.
      * 
      * @return
      *     possible object is
@@ -2064,7 +1868,7 @@ public class Audio
     }
 
     /**
-     * onprogressプロパティの値を設定します。
+     * Sets the value of the onprogress property.
      * 
      * @param value
      *     allowed object is
@@ -2080,7 +1884,7 @@ public class Audio
     }
 
     /**
-     * onratechangeプロパティの値を取得します。
+     * Gets the value of the onratechange property.
      * 
      * @return
      *     possible object is
@@ -2092,7 +1896,7 @@ public class Audio
     }
 
     /**
-     * onratechangeプロパティの値を設定します。
+     * Sets the value of the onratechange property.
      * 
      * @param value
      *     allowed object is
@@ -2108,7 +1912,7 @@ public class Audio
     }
 
     /**
-     * onreadystatechangeプロパティの値を取得します。
+     * Gets the value of the onreadystatechange property.
      * 
      * @return
      *     possible object is
@@ -2120,7 +1924,7 @@ public class Audio
     }
 
     /**
-     * onreadystatechangeプロパティの値を設定します。
+     * Sets the value of the onreadystatechange property.
      * 
      * @param value
      *     allowed object is
@@ -2136,7 +1940,7 @@ public class Audio
     }
 
     /**
-     * onresetプロパティの値を取得します。
+     * Gets the value of the onreset property.
      * 
      * @return
      *     possible object is
@@ -2148,7 +1952,7 @@ public class Audio
     }
 
     /**
-     * onresetプロパティの値を設定します。
+     * Sets the value of the onreset property.
      * 
      * @param value
      *     allowed object is
@@ -2164,7 +1968,7 @@ public class Audio
     }
 
     /**
-     * onscrollプロパティの値を取得します。
+     * Gets the value of the onscroll property.
      * 
      * @return
      *     possible object is
@@ -2176,7 +1980,7 @@ public class Audio
     }
 
     /**
-     * onscrollプロパティの値を設定します。
+     * Sets the value of the onscroll property.
      * 
      * @param value
      *     allowed object is
@@ -2192,7 +1996,7 @@ public class Audio
     }
 
     /**
-     * onseekedプロパティの値を取得します。
+     * Gets the value of the onseeked property.
      * 
      * @return
      *     possible object is
@@ -2204,7 +2008,7 @@ public class Audio
     }
 
     /**
-     * onseekedプロパティの値を設定します。
+     * Sets the value of the onseeked property.
      * 
      * @param value
      *     allowed object is
@@ -2220,7 +2024,7 @@ public class Audio
     }
 
     /**
-     * onseekingプロパティの値を取得します。
+     * Gets the value of the onseeking property.
      * 
      * @return
      *     possible object is
@@ -2232,7 +2036,7 @@ public class Audio
     }
 
     /**
-     * onseekingプロパティの値を設定します。
+     * Sets the value of the onseeking property.
      * 
      * @param value
      *     allowed object is
@@ -2248,7 +2052,7 @@ public class Audio
     }
 
     /**
-     * onselectプロパティの値を取得します。
+     * Gets the value of the onselect property.
      * 
      * @return
      *     possible object is
@@ -2260,7 +2064,7 @@ public class Audio
     }
 
     /**
-     * onselectプロパティの値を設定します。
+     * Sets the value of the onselect property.
      * 
      * @param value
      *     allowed object is
@@ -2276,7 +2080,7 @@ public class Audio
     }
 
     /**
-     * onshowプロパティの値を取得します。
+     * Gets the value of the onshow property.
      * 
      * @return
      *     possible object is
@@ -2288,7 +2092,7 @@ public class Audio
     }
 
     /**
-     * onshowプロパティの値を設定します。
+     * Sets the value of the onshow property.
      * 
      * @param value
      *     allowed object is
@@ -2304,7 +2108,7 @@ public class Audio
     }
 
     /**
-     * onstalledプロパティの値を取得します。
+     * Gets the value of the onstalled property.
      * 
      * @return
      *     possible object is
@@ -2316,7 +2120,7 @@ public class Audio
     }
 
     /**
-     * onstalledプロパティの値を設定します。
+     * Sets the value of the onstalled property.
      * 
      * @param value
      *     allowed object is
@@ -2332,7 +2136,7 @@ public class Audio
     }
 
     /**
-     * onsubmitプロパティの値を取得します。
+     * Gets the value of the onsubmit property.
      * 
      * @return
      *     possible object is
@@ -2344,7 +2148,7 @@ public class Audio
     }
 
     /**
-     * onsubmitプロパティの値を設定します。
+     * Sets the value of the onsubmit property.
      * 
      * @param value
      *     allowed object is
@@ -2360,7 +2164,7 @@ public class Audio
     }
 
     /**
-     * onsuspendプロパティの値を取得します。
+     * Gets the value of the onsuspend property.
      * 
      * @return
      *     possible object is
@@ -2372,7 +2176,7 @@ public class Audio
     }
 
     /**
-     * onsuspendプロパティの値を設定します。
+     * Sets the value of the onsuspend property.
      * 
      * @param value
      *     allowed object is
@@ -2388,7 +2192,7 @@ public class Audio
     }
 
     /**
-     * ontimeupdateプロパティの値を取得します。
+     * Gets the value of the ontimeupdate property.
      * 
      * @return
      *     possible object is
@@ -2400,7 +2204,7 @@ public class Audio
     }
 
     /**
-     * ontimeupdateプロパティの値を設定します。
+     * Sets the value of the ontimeupdate property.
      * 
      * @param value
      *     allowed object is
@@ -2416,7 +2220,7 @@ public class Audio
     }
 
     /**
-     * onvolumechangeプロパティの値を取得します。
+     * Gets the value of the onvolumechange property.
      * 
      * @return
      *     possible object is
@@ -2428,7 +2232,7 @@ public class Audio
     }
 
     /**
-     * onvolumechangeプロパティの値を設定します。
+     * Sets the value of the onvolumechange property.
      * 
      * @param value
      *     allowed object is
@@ -2444,7 +2248,7 @@ public class Audio
     }
 
     /**
-     * onwaitingプロパティの値を取得します。
+     * Gets the value of the onwaiting property.
      * 
      * @return
      *     possible object is
@@ -2456,7 +2260,7 @@ public class Audio
     }
 
     /**
-     * onwaitingプロパティの値を設定します。
+     * Sets the value of the onwaiting property.
      * 
      * @param value
      *     allowed object is
@@ -2469,6 +2273,202 @@ public class Audio
 
     public boolean isSetOnwaiting() {
         return (this.onwaiting!= null);
+    }
+
+    /**
+     * Gets the value of the src property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getSrc() {
+        return src;
+    }
+
+    /**
+     * Sets the value of the src property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setSrc(String value) {
+        this.src = value;
+    }
+
+    public boolean isSetSrc() {
+        return (this.src!= null);
+    }
+
+    /**
+     * Gets the value of the preload property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPreload() {
+        return preload;
+    }
+
+    /**
+     * Sets the value of the preload property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPreload(String value) {
+        this.preload = value;
+    }
+
+    public boolean isSetPreload() {
+        return (this.preload!= null);
+    }
+
+    /**
+     * Gets the value of the autoplay property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAutoplay() {
+        return autoplay;
+    }
+
+    /**
+     * Sets the value of the autoplay property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAutoplay(String value) {
+        this.autoplay = value;
+    }
+
+    public boolean isSetAutoplay() {
+        return (this.autoplay!= null);
+    }
+
+    /**
+     * Gets the value of the mediagroup property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getMediagroup() {
+        return mediagroup;
+    }
+
+    /**
+     * Sets the value of the mediagroup property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setMediagroup(String value) {
+        this.mediagroup = value;
+    }
+
+    public boolean isSetMediagroup() {
+        return (this.mediagroup!= null);
+    }
+
+    /**
+     * Gets the value of the muted property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getMuted() {
+        return muted;
+    }
+
+    /**
+     * Sets the value of the muted property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setMuted(String value) {
+        this.muted = value;
+    }
+
+    public boolean isSetMuted() {
+        return (this.muted!= null);
+    }
+
+    /**
+     * Gets the value of the loop property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getLoop() {
+        return loop;
+    }
+
+    /**
+     * Sets the value of the loop property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setLoop(String value) {
+        this.loop = value;
+    }
+
+    public boolean isSetLoop() {
+        return (this.loop!= null);
+    }
+
+    /**
+     * Gets the value of the controls property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getControls() {
+        return controls;
+    }
+
+    /**
+     * Sets the value of the controls property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setControls(String value) {
+        this.controls = value;
+    }
+
+    public boolean isSetControls() {
+        return (this.controls!= null);
     }
 
     /**
@@ -2503,62 +2503,6 @@ public class Audio
         super.copyTo(locator, draftCopy, strategy);
         if (draftCopy instanceof Audio) {
             final Audio copy = ((Audio) draftCopy);
-            if (this.isSetSrc()) {
-                String sourceSrc;
-                sourceSrc = this.getSrc();
-                String copySrc = ((String) strategy.copy(LocatorUtils.property(locator, "src", sourceSrc), sourceSrc));
-                copy.setSrc(copySrc);
-            } else {
-                copy.src = null;
-            }
-            if (this.isSetPreload()) {
-                String sourcePreload;
-                sourcePreload = this.getPreload();
-                String copyPreload = ((String) strategy.copy(LocatorUtils.property(locator, "preload", sourcePreload), sourcePreload));
-                copy.setPreload(copyPreload);
-            } else {
-                copy.preload = null;
-            }
-            if (this.isSetAutoplay()) {
-                String sourceAutoplay;
-                sourceAutoplay = this.getAutoplay();
-                String copyAutoplay = ((String) strategy.copy(LocatorUtils.property(locator, "autoplay", sourceAutoplay), sourceAutoplay));
-                copy.setAutoplay(copyAutoplay);
-            } else {
-                copy.autoplay = null;
-            }
-            if (this.isSetMediagroup()) {
-                String sourceMediagroup;
-                sourceMediagroup = this.getMediagroup();
-                String copyMediagroup = ((String) strategy.copy(LocatorUtils.property(locator, "mediagroup", sourceMediagroup), sourceMediagroup));
-                copy.setMediagroup(copyMediagroup);
-            } else {
-                copy.mediagroup = null;
-            }
-            if (this.isSetMuted()) {
-                String sourceMuted;
-                sourceMuted = this.getMuted();
-                String copyMuted = ((String) strategy.copy(LocatorUtils.property(locator, "muted", sourceMuted), sourceMuted));
-                copy.setMuted(copyMuted);
-            } else {
-                copy.muted = null;
-            }
-            if (this.isSetLoop()) {
-                String sourceLoop;
-                sourceLoop = this.getLoop();
-                String copyLoop = ((String) strategy.copy(LocatorUtils.property(locator, "loop", sourceLoop), sourceLoop));
-                copy.setLoop(copyLoop);
-            } else {
-                copy.loop = null;
-            }
-            if (this.isSetControls()) {
-                String sourceControls;
-                sourceControls = this.getControls();
-                String copyControls = ((String) strategy.copy(LocatorUtils.property(locator, "controls", sourceControls), sourceControls));
-                copy.setControls(copyControls);
-            } else {
-                copy.controls = null;
-            }
             if (this.isSetId()) {
                 String sourceId;
                 sourceId = this.getId();
@@ -3144,6 +3088,62 @@ public class Audio
                 copy.setOnwaiting(copyOnwaiting);
             } else {
                 copy.onwaiting = null;
+            }
+            if (this.isSetSrc()) {
+                String sourceSrc;
+                sourceSrc = this.getSrc();
+                String copySrc = ((String) strategy.copy(LocatorUtils.property(locator, "src", sourceSrc), sourceSrc));
+                copy.setSrc(copySrc);
+            } else {
+                copy.src = null;
+            }
+            if (this.isSetPreload()) {
+                String sourcePreload;
+                sourcePreload = this.getPreload();
+                String copyPreload = ((String) strategy.copy(LocatorUtils.property(locator, "preload", sourcePreload), sourcePreload));
+                copy.setPreload(copyPreload);
+            } else {
+                copy.preload = null;
+            }
+            if (this.isSetAutoplay()) {
+                String sourceAutoplay;
+                sourceAutoplay = this.getAutoplay();
+                String copyAutoplay = ((String) strategy.copy(LocatorUtils.property(locator, "autoplay", sourceAutoplay), sourceAutoplay));
+                copy.setAutoplay(copyAutoplay);
+            } else {
+                copy.autoplay = null;
+            }
+            if (this.isSetMediagroup()) {
+                String sourceMediagroup;
+                sourceMediagroup = this.getMediagroup();
+                String copyMediagroup = ((String) strategy.copy(LocatorUtils.property(locator, "mediagroup", sourceMediagroup), sourceMediagroup));
+                copy.setMediagroup(copyMediagroup);
+            } else {
+                copy.mediagroup = null;
+            }
+            if (this.isSetMuted()) {
+                String sourceMuted;
+                sourceMuted = this.getMuted();
+                String copyMuted = ((String) strategy.copy(LocatorUtils.property(locator, "muted", sourceMuted), sourceMuted));
+                copy.setMuted(copyMuted);
+            } else {
+                copy.muted = null;
+            }
+            if (this.isSetLoop()) {
+                String sourceLoop;
+                sourceLoop = this.getLoop();
+                String copyLoop = ((String) strategy.copy(LocatorUtils.property(locator, "loop", sourceLoop), sourceLoop));
+                copy.setLoop(copyLoop);
+            } else {
+                copy.loop = null;
+            }
+            if (this.isSetControls()) {
+                String sourceControls;
+                sourceControls = this.getControls();
+                String copyControls = ((String) strategy.copy(LocatorUtils.property(locator, "controls", sourceControls), sourceControls));
+                copy.setControls(copyControls);
+            } else {
+                copy.controls = null;
             }
         }
         return draftCopy;

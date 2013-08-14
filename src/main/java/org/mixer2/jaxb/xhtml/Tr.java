@@ -27,9 +27,9 @@ import org.mixer2.xhtml.AbstractJaxb;
 
 
 /**
- * <p>anonymous complex typeのJavaクラス。
+ * <p>Java class for anonymous complex type.
  * 
- * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType>
@@ -40,8 +40,8 @@ import org.mixer2.xhtml.AbstractJaxb;
  *         &lt;element ref="{http://www.w3.org/1999/xhtml}td"/>
  *       &lt;/choice>
  *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellvalign"/>
- *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellhalign"/>
  *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}attrs"/>
+ *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellhalign"/>
  *       &lt;attribute name="bgcolor" type="{http://www.w3.org/1999/xhtml}Color" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -70,13 +70,6 @@ public class Tr
     @XmlAttribute(name = "valign")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String valign;
-    @XmlAttribute(name = "align")
-    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
-    protected String align;
-    @XmlAttribute(name = "char")
-    protected String _char;
-    @XmlAttribute(name = "charoff")
-    protected String charoff;
     @XmlAttribute(name = "id")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -235,6 +228,13 @@ public class Tr
     protected String onvolumechange;
     @XmlAttribute(name = "onwaiting")
     protected String onwaiting;
+    @XmlAttribute(name = "align")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String align;
+    @XmlAttribute(name = "char")
+    protected String _char;
+    @XmlAttribute(name = "charoff")
+    protected String charoff;
     @XmlAnyAttribute
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
@@ -277,7 +277,7 @@ public class Tr
     }
 
     /**
-     * bgcolorプロパティの値を取得します。
+     * Gets the value of the bgcolor property.
      * 
      * @return
      *     possible object is
@@ -289,7 +289,7 @@ public class Tr
     }
 
     /**
-     * bgcolorプロパティの値を設定します。
+     * Sets the value of the bgcolor property.
      * 
      * @param value
      *     allowed object is
@@ -305,7 +305,7 @@ public class Tr
     }
 
     /**
-     * valignプロパティの値を取得します。
+     * Gets the value of the valign property.
      * 
      * @return
      *     possible object is
@@ -317,7 +317,7 @@ public class Tr
     }
 
     /**
-     * valignプロパティの値を設定します。
+     * Sets the value of the valign property.
      * 
      * @param value
      *     allowed object is
@@ -333,91 +333,7 @@ public class Tr
     }
 
     /**
-     * alignプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAlign() {
-        return align;
-    }
-
-    /**
-     * alignプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAlign(String value) {
-        this.align = value;
-    }
-
-    public boolean isSetAlign() {
-        return (this.align!= null);
-    }
-
-    /**
-     * charプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getChar() {
-        return _char;
-    }
-
-    /**
-     * charプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setChar(String value) {
-        this._char = value;
-    }
-
-    public boolean isSetChar() {
-        return (this._char!= null);
-    }
-
-    /**
-     * charoffプロパティの値を取得します。
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCharoff() {
-        return charoff;
-    }
-
-    /**
-     * charoffプロパティの値を設定します。
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCharoff(String value) {
-        this.charoff = value;
-    }
-
-    public boolean isSetCharoff() {
-        return (this.charoff!= null);
-    }
-
-    /**
-     * idプロパティの値を取得します。
+     * Gets the value of the id property.
      * 
      * @return
      *     possible object is
@@ -429,7 +345,7 @@ public class Tr
     }
 
     /**
-     * idプロパティの値を設定します。
+     * Sets the value of the id property.
      * 
      * @param value
      *     allowed object is
@@ -482,7 +398,7 @@ public class Tr
     }
 
     /**
-     * styleプロパティの値を取得します。
+     * Gets the value of the style property.
      * 
      * @return
      *     possible object is
@@ -494,7 +410,7 @@ public class Tr
     }
 
     /**
-     * styleプロパティの値を設定します。
+     * Sets the value of the style property.
      * 
      * @param value
      *     allowed object is
@@ -510,7 +426,7 @@ public class Tr
     }
 
     /**
-     * titleプロパティの値を取得します。
+     * Gets the value of the title property.
      * 
      * @return
      *     possible object is
@@ -522,7 +438,7 @@ public class Tr
     }
 
     /**
-     * titleプロパティの値を設定します。
+     * Sets the value of the title property.
      * 
      * @param value
      *     allowed object is
@@ -538,7 +454,7 @@ public class Tr
     }
 
     /**
-     * accesskeyプロパティの値を取得します。
+     * Gets the value of the accesskey property.
      * 
      * @return
      *     possible object is
@@ -550,7 +466,7 @@ public class Tr
     }
 
     /**
-     * accesskeyプロパティの値を設定します。
+     * Sets the value of the accesskey property.
      * 
      * @param value
      *     allowed object is
@@ -566,7 +482,7 @@ public class Tr
     }
 
     /**
-     * contenteditableプロパティの値を取得します。
+     * Gets the value of the contenteditable property.
      * 
      * @return
      *     possible object is
@@ -578,7 +494,7 @@ public class Tr
     }
 
     /**
-     * contenteditableプロパティの値を設定します。
+     * Sets the value of the contenteditable property.
      * 
      * @param value
      *     allowed object is
@@ -598,7 +514,7 @@ public class Tr
     }
 
     /**
-     * contextmenuプロパティの値を取得します。
+     * Gets the value of the contextmenu property.
      * 
      * @return
      *     possible object is
@@ -610,7 +526,7 @@ public class Tr
     }
 
     /**
-     * contextmenuプロパティの値を設定します。
+     * Sets the value of the contextmenu property.
      * 
      * @param value
      *     allowed object is
@@ -626,7 +542,7 @@ public class Tr
     }
 
     /**
-     * dirプロパティの値を取得します。
+     * Gets the value of the dir property.
      * 
      * @return
      *     possible object is
@@ -642,7 +558,7 @@ public class Tr
     }
 
     /**
-     * dirプロパティの値を設定します。
+     * Sets the value of the dir property.
      * 
      * @param value
      *     allowed object is
@@ -658,7 +574,7 @@ public class Tr
     }
 
     /**
-     * draggableプロパティの値を取得します。
+     * Gets the value of the draggable property.
      * 
      * @return
      *     possible object is
@@ -674,7 +590,7 @@ public class Tr
     }
 
     /**
-     * draggableプロパティの値を設定します。
+     * Sets the value of the draggable property.
      * 
      * @param value
      *     allowed object is
@@ -727,7 +643,7 @@ public class Tr
     }
 
     /**
-     * hiddenプロパティの値を取得します。
+     * Gets the value of the hidden property.
      * 
      * @return
      *     possible object is
@@ -739,7 +655,7 @@ public class Tr
     }
 
     /**
-     * hiddenプロパティの値を設定します。
+     * Sets the value of the hidden property.
      * 
      * @param value
      *     allowed object is
@@ -755,7 +671,7 @@ public class Tr
     }
 
     /**
-     * langCodeプロパティの値を取得します。
+     * Gets the value of the langCode property.
      * 
      * @return
      *     possible object is
@@ -767,7 +683,7 @@ public class Tr
     }
 
     /**
-     * langCodeプロパティの値を設定します。
+     * Sets the value of the langCode property.
      * 
      * @param value
      *     allowed object is
@@ -783,7 +699,7 @@ public class Tr
     }
 
     /**
-     * roleプロパティの値を取得します。
+     * Gets the value of the role property.
      * 
      * @return
      *     possible object is
@@ -795,7 +711,7 @@ public class Tr
     }
 
     /**
-     * roleプロパティの値を設定します。
+     * Sets the value of the role property.
      * 
      * @param value
      *     allowed object is
@@ -811,7 +727,7 @@ public class Tr
     }
 
     /**
-     * spellcheckプロパティの値を取得します。
+     * Gets the value of the spellcheck property.
      * 
      * @return
      *     possible object is
@@ -823,7 +739,7 @@ public class Tr
     }
 
     /**
-     * spellcheckプロパティの値を設定します。
+     * Sets the value of the spellcheck property.
      * 
      * @param value
      *     allowed object is
@@ -839,7 +755,7 @@ public class Tr
     }
 
     /**
-     * tabindexプロパティの値を取得します。
+     * Gets the value of the tabindex property.
      * 
      * @return
      *     possible object is
@@ -851,7 +767,7 @@ public class Tr
     }
 
     /**
-     * tabindexプロパティの値を設定します。
+     * Sets the value of the tabindex property.
      * 
      * @param value
      *     allowed object is
@@ -867,7 +783,7 @@ public class Tr
     }
 
     /**
-     * langプロパティの値を取得します。
+     * Gets the value of the lang property.
      * 
      * @return
      *     possible object is
@@ -879,7 +795,7 @@ public class Tr
     }
 
     /**
-     * langプロパティの値を設定します。
+     * Sets the value of the lang property.
      * 
      * @param value
      *     allowed object is
@@ -895,7 +811,7 @@ public class Tr
     }
 
     /**
-     * onclickプロパティの値を取得します。
+     * Gets the value of the onclick property.
      * 
      * @return
      *     possible object is
@@ -907,7 +823,7 @@ public class Tr
     }
 
     /**
-     * onclickプロパティの値を設定します。
+     * Sets the value of the onclick property.
      * 
      * @param value
      *     allowed object is
@@ -923,7 +839,7 @@ public class Tr
     }
 
     /**
-     * ondblclickプロパティの値を取得します。
+     * Gets the value of the ondblclick property.
      * 
      * @return
      *     possible object is
@@ -935,7 +851,7 @@ public class Tr
     }
 
     /**
-     * ondblclickプロパティの値を設定します。
+     * Sets the value of the ondblclick property.
      * 
      * @param value
      *     allowed object is
@@ -951,7 +867,7 @@ public class Tr
     }
 
     /**
-     * onmousedownプロパティの値を取得します。
+     * Gets the value of the onmousedown property.
      * 
      * @return
      *     possible object is
@@ -963,7 +879,7 @@ public class Tr
     }
 
     /**
-     * onmousedownプロパティの値を設定します。
+     * Sets the value of the onmousedown property.
      * 
      * @param value
      *     allowed object is
@@ -979,7 +895,7 @@ public class Tr
     }
 
     /**
-     * onmouseupプロパティの値を取得します。
+     * Gets the value of the onmouseup property.
      * 
      * @return
      *     possible object is
@@ -991,7 +907,7 @@ public class Tr
     }
 
     /**
-     * onmouseupプロパティの値を設定します。
+     * Sets the value of the onmouseup property.
      * 
      * @param value
      *     allowed object is
@@ -1007,7 +923,7 @@ public class Tr
     }
 
     /**
-     * onmouseoverプロパティの値を取得します。
+     * Gets the value of the onmouseover property.
      * 
      * @return
      *     possible object is
@@ -1019,7 +935,7 @@ public class Tr
     }
 
     /**
-     * onmouseoverプロパティの値を設定します。
+     * Sets the value of the onmouseover property.
      * 
      * @param value
      *     allowed object is
@@ -1035,7 +951,7 @@ public class Tr
     }
 
     /**
-     * onmousemoveプロパティの値を取得します。
+     * Gets the value of the onmousemove property.
      * 
      * @return
      *     possible object is
@@ -1047,7 +963,7 @@ public class Tr
     }
 
     /**
-     * onmousemoveプロパティの値を設定します。
+     * Sets the value of the onmousemove property.
      * 
      * @param value
      *     allowed object is
@@ -1063,7 +979,7 @@ public class Tr
     }
 
     /**
-     * onmouseoutプロパティの値を取得します。
+     * Gets the value of the onmouseout property.
      * 
      * @return
      *     possible object is
@@ -1075,7 +991,7 @@ public class Tr
     }
 
     /**
-     * onmouseoutプロパティの値を設定します。
+     * Sets the value of the onmouseout property.
      * 
      * @param value
      *     allowed object is
@@ -1091,7 +1007,7 @@ public class Tr
     }
 
     /**
-     * onkeypressプロパティの値を取得します。
+     * Gets the value of the onkeypress property.
      * 
      * @return
      *     possible object is
@@ -1103,7 +1019,7 @@ public class Tr
     }
 
     /**
-     * onkeypressプロパティの値を設定します。
+     * Sets the value of the onkeypress property.
      * 
      * @param value
      *     allowed object is
@@ -1119,7 +1035,7 @@ public class Tr
     }
 
     /**
-     * onkeydownプロパティの値を取得します。
+     * Gets the value of the onkeydown property.
      * 
      * @return
      *     possible object is
@@ -1131,7 +1047,7 @@ public class Tr
     }
 
     /**
-     * onkeydownプロパティの値を設定します。
+     * Sets the value of the onkeydown property.
      * 
      * @param value
      *     allowed object is
@@ -1147,7 +1063,7 @@ public class Tr
     }
 
     /**
-     * onkeyupプロパティの値を取得します。
+     * Gets the value of the onkeyup property.
      * 
      * @return
      *     possible object is
@@ -1159,7 +1075,7 @@ public class Tr
     }
 
     /**
-     * onkeyupプロパティの値を設定します。
+     * Sets the value of the onkeyup property.
      * 
      * @param value
      *     allowed object is
@@ -1175,7 +1091,7 @@ public class Tr
     }
 
     /**
-     * onabortプロパティの値を取得します。
+     * Gets the value of the onabort property.
      * 
      * @return
      *     possible object is
@@ -1187,7 +1103,7 @@ public class Tr
     }
 
     /**
-     * onabortプロパティの値を設定します。
+     * Sets the value of the onabort property.
      * 
      * @param value
      *     allowed object is
@@ -1203,7 +1119,7 @@ public class Tr
     }
 
     /**
-     * onblurプロパティの値を取得します。
+     * Gets the value of the onblur property.
      * 
      * @return
      *     possible object is
@@ -1215,7 +1131,7 @@ public class Tr
     }
 
     /**
-     * onblurプロパティの値を設定します。
+     * Sets the value of the onblur property.
      * 
      * @param value
      *     allowed object is
@@ -1231,7 +1147,7 @@ public class Tr
     }
 
     /**
-     * oncanplayプロパティの値を取得します。
+     * Gets the value of the oncanplay property.
      * 
      * @return
      *     possible object is
@@ -1243,7 +1159,7 @@ public class Tr
     }
 
     /**
-     * oncanplayプロパティの値を設定します。
+     * Sets the value of the oncanplay property.
      * 
      * @param value
      *     allowed object is
@@ -1259,7 +1175,7 @@ public class Tr
     }
 
     /**
-     * oncanplaythroughプロパティの値を取得します。
+     * Gets the value of the oncanplaythrough property.
      * 
      * @return
      *     possible object is
@@ -1271,7 +1187,7 @@ public class Tr
     }
 
     /**
-     * oncanplaythroughプロパティの値を設定します。
+     * Sets the value of the oncanplaythrough property.
      * 
      * @param value
      *     allowed object is
@@ -1287,7 +1203,7 @@ public class Tr
     }
 
     /**
-     * onchangeプロパティの値を取得します。
+     * Gets the value of the onchange property.
      * 
      * @return
      *     possible object is
@@ -1299,7 +1215,7 @@ public class Tr
     }
 
     /**
-     * onchangeプロパティの値を設定します。
+     * Sets the value of the onchange property.
      * 
      * @param value
      *     allowed object is
@@ -1315,7 +1231,7 @@ public class Tr
     }
 
     /**
-     * oncontextmenuプロパティの値を取得します。
+     * Gets the value of the oncontextmenu property.
      * 
      * @return
      *     possible object is
@@ -1327,7 +1243,7 @@ public class Tr
     }
 
     /**
-     * oncontextmenuプロパティの値を設定します。
+     * Sets the value of the oncontextmenu property.
      * 
      * @param value
      *     allowed object is
@@ -1343,7 +1259,7 @@ public class Tr
     }
 
     /**
-     * oncuechangeプロパティの値を取得します。
+     * Gets the value of the oncuechange property.
      * 
      * @return
      *     possible object is
@@ -1355,7 +1271,7 @@ public class Tr
     }
 
     /**
-     * oncuechangeプロパティの値を設定します。
+     * Sets the value of the oncuechange property.
      * 
      * @param value
      *     allowed object is
@@ -1371,7 +1287,7 @@ public class Tr
     }
 
     /**
-     * ondragプロパティの値を取得します。
+     * Gets the value of the ondrag property.
      * 
      * @return
      *     possible object is
@@ -1383,7 +1299,7 @@ public class Tr
     }
 
     /**
-     * ondragプロパティの値を設定します。
+     * Sets the value of the ondrag property.
      * 
      * @param value
      *     allowed object is
@@ -1399,7 +1315,7 @@ public class Tr
     }
 
     /**
-     * ondragendプロパティの値を取得します。
+     * Gets the value of the ondragend property.
      * 
      * @return
      *     possible object is
@@ -1411,7 +1327,7 @@ public class Tr
     }
 
     /**
-     * ondragendプロパティの値を設定します。
+     * Sets the value of the ondragend property.
      * 
      * @param value
      *     allowed object is
@@ -1427,7 +1343,7 @@ public class Tr
     }
 
     /**
-     * ondragenterプロパティの値を取得します。
+     * Gets the value of the ondragenter property.
      * 
      * @return
      *     possible object is
@@ -1439,7 +1355,7 @@ public class Tr
     }
 
     /**
-     * ondragenterプロパティの値を設定します。
+     * Sets the value of the ondragenter property.
      * 
      * @param value
      *     allowed object is
@@ -1455,7 +1371,7 @@ public class Tr
     }
 
     /**
-     * ondragleaveプロパティの値を取得します。
+     * Gets the value of the ondragleave property.
      * 
      * @return
      *     possible object is
@@ -1467,7 +1383,7 @@ public class Tr
     }
 
     /**
-     * ondragleaveプロパティの値を設定します。
+     * Sets the value of the ondragleave property.
      * 
      * @param value
      *     allowed object is
@@ -1483,7 +1399,7 @@ public class Tr
     }
 
     /**
-     * ondragoverプロパティの値を取得します。
+     * Gets the value of the ondragover property.
      * 
      * @return
      *     possible object is
@@ -1495,7 +1411,7 @@ public class Tr
     }
 
     /**
-     * ondragoverプロパティの値を設定します。
+     * Sets the value of the ondragover property.
      * 
      * @param value
      *     allowed object is
@@ -1511,7 +1427,7 @@ public class Tr
     }
 
     /**
-     * ondragstartプロパティの値を取得します。
+     * Gets the value of the ondragstart property.
      * 
      * @return
      *     possible object is
@@ -1523,7 +1439,7 @@ public class Tr
     }
 
     /**
-     * ondragstartプロパティの値を設定します。
+     * Sets the value of the ondragstart property.
      * 
      * @param value
      *     allowed object is
@@ -1539,7 +1455,7 @@ public class Tr
     }
 
     /**
-     * ondropプロパティの値を取得します。
+     * Gets the value of the ondrop property.
      * 
      * @return
      *     possible object is
@@ -1551,7 +1467,7 @@ public class Tr
     }
 
     /**
-     * ondropプロパティの値を設定します。
+     * Sets the value of the ondrop property.
      * 
      * @param value
      *     allowed object is
@@ -1567,7 +1483,7 @@ public class Tr
     }
 
     /**
-     * ondurationchangeプロパティの値を取得します。
+     * Gets the value of the ondurationchange property.
      * 
      * @return
      *     possible object is
@@ -1579,7 +1495,7 @@ public class Tr
     }
 
     /**
-     * ondurationchangeプロパティの値を設定します。
+     * Sets the value of the ondurationchange property.
      * 
      * @param value
      *     allowed object is
@@ -1595,7 +1511,7 @@ public class Tr
     }
 
     /**
-     * onemptiedプロパティの値を取得します。
+     * Gets the value of the onemptied property.
      * 
      * @return
      *     possible object is
@@ -1607,7 +1523,7 @@ public class Tr
     }
 
     /**
-     * onemptiedプロパティの値を設定します。
+     * Sets the value of the onemptied property.
      * 
      * @param value
      *     allowed object is
@@ -1623,7 +1539,7 @@ public class Tr
     }
 
     /**
-     * onendedプロパティの値を取得します。
+     * Gets the value of the onended property.
      * 
      * @return
      *     possible object is
@@ -1635,7 +1551,7 @@ public class Tr
     }
 
     /**
-     * onendedプロパティの値を設定します。
+     * Sets the value of the onended property.
      * 
      * @param value
      *     allowed object is
@@ -1651,7 +1567,7 @@ public class Tr
     }
 
     /**
-     * onerrorプロパティの値を取得します。
+     * Gets the value of the onerror property.
      * 
      * @return
      *     possible object is
@@ -1663,7 +1579,7 @@ public class Tr
     }
 
     /**
-     * onerrorプロパティの値を設定します。
+     * Sets the value of the onerror property.
      * 
      * @param value
      *     allowed object is
@@ -1679,7 +1595,7 @@ public class Tr
     }
 
     /**
-     * onfocusプロパティの値を取得します。
+     * Gets the value of the onfocus property.
      * 
      * @return
      *     possible object is
@@ -1691,7 +1607,7 @@ public class Tr
     }
 
     /**
-     * onfocusプロパティの値を設定します。
+     * Sets the value of the onfocus property.
      * 
      * @param value
      *     allowed object is
@@ -1707,7 +1623,7 @@ public class Tr
     }
 
     /**
-     * onformchangeプロパティの値を取得します。
+     * Gets the value of the onformchange property.
      * 
      * @return
      *     possible object is
@@ -1719,7 +1635,7 @@ public class Tr
     }
 
     /**
-     * onformchangeプロパティの値を設定します。
+     * Sets the value of the onformchange property.
      * 
      * @param value
      *     allowed object is
@@ -1735,7 +1651,7 @@ public class Tr
     }
 
     /**
-     * onforminputプロパティの値を取得します。
+     * Gets the value of the onforminput property.
      * 
      * @return
      *     possible object is
@@ -1747,7 +1663,7 @@ public class Tr
     }
 
     /**
-     * onforminputプロパティの値を設定します。
+     * Sets the value of the onforminput property.
      * 
      * @param value
      *     allowed object is
@@ -1763,7 +1679,7 @@ public class Tr
     }
 
     /**
-     * oninputプロパティの値を取得します。
+     * Gets the value of the oninput property.
      * 
      * @return
      *     possible object is
@@ -1775,7 +1691,7 @@ public class Tr
     }
 
     /**
-     * oninputプロパティの値を設定します。
+     * Sets the value of the oninput property.
      * 
      * @param value
      *     allowed object is
@@ -1791,7 +1707,7 @@ public class Tr
     }
 
     /**
-     * oninvalidプロパティの値を取得します。
+     * Gets the value of the oninvalid property.
      * 
      * @return
      *     possible object is
@@ -1803,7 +1719,7 @@ public class Tr
     }
 
     /**
-     * oninvalidプロパティの値を設定します。
+     * Sets the value of the oninvalid property.
      * 
      * @param value
      *     allowed object is
@@ -1819,7 +1735,7 @@ public class Tr
     }
 
     /**
-     * onloadプロパティの値を取得します。
+     * Gets the value of the onload property.
      * 
      * @return
      *     possible object is
@@ -1831,7 +1747,7 @@ public class Tr
     }
 
     /**
-     * onloadプロパティの値を設定します。
+     * Sets the value of the onload property.
      * 
      * @param value
      *     allowed object is
@@ -1847,7 +1763,7 @@ public class Tr
     }
 
     /**
-     * onloadeddataプロパティの値を取得します。
+     * Gets the value of the onloadeddata property.
      * 
      * @return
      *     possible object is
@@ -1859,7 +1775,7 @@ public class Tr
     }
 
     /**
-     * onloadeddataプロパティの値を設定します。
+     * Sets the value of the onloadeddata property.
      * 
      * @param value
      *     allowed object is
@@ -1875,7 +1791,7 @@ public class Tr
     }
 
     /**
-     * onloadedmetadataプロパティの値を取得します。
+     * Gets the value of the onloadedmetadata property.
      * 
      * @return
      *     possible object is
@@ -1887,7 +1803,7 @@ public class Tr
     }
 
     /**
-     * onloadedmetadataプロパティの値を設定します。
+     * Sets the value of the onloadedmetadata property.
      * 
      * @param value
      *     allowed object is
@@ -1903,7 +1819,7 @@ public class Tr
     }
 
     /**
-     * onloadstartプロパティの値を取得します。
+     * Gets the value of the onloadstart property.
      * 
      * @return
      *     possible object is
@@ -1915,7 +1831,7 @@ public class Tr
     }
 
     /**
-     * onloadstartプロパティの値を設定します。
+     * Sets the value of the onloadstart property.
      * 
      * @param value
      *     allowed object is
@@ -1931,7 +1847,7 @@ public class Tr
     }
 
     /**
-     * onmousewheelプロパティの値を取得します。
+     * Gets the value of the onmousewheel property.
      * 
      * @return
      *     possible object is
@@ -1943,7 +1859,7 @@ public class Tr
     }
 
     /**
-     * onmousewheelプロパティの値を設定します。
+     * Sets the value of the onmousewheel property.
      * 
      * @param value
      *     allowed object is
@@ -1959,7 +1875,7 @@ public class Tr
     }
 
     /**
-     * onpauseプロパティの値を取得します。
+     * Gets the value of the onpause property.
      * 
      * @return
      *     possible object is
@@ -1971,7 +1887,7 @@ public class Tr
     }
 
     /**
-     * onpauseプロパティの値を設定します。
+     * Sets the value of the onpause property.
      * 
      * @param value
      *     allowed object is
@@ -1987,7 +1903,7 @@ public class Tr
     }
 
     /**
-     * onplayプロパティの値を取得します。
+     * Gets the value of the onplay property.
      * 
      * @return
      *     possible object is
@@ -1999,7 +1915,7 @@ public class Tr
     }
 
     /**
-     * onplayプロパティの値を設定します。
+     * Sets the value of the onplay property.
      * 
      * @param value
      *     allowed object is
@@ -2015,7 +1931,7 @@ public class Tr
     }
 
     /**
-     * onplayingプロパティの値を取得します。
+     * Gets the value of the onplaying property.
      * 
      * @return
      *     possible object is
@@ -2027,7 +1943,7 @@ public class Tr
     }
 
     /**
-     * onplayingプロパティの値を設定します。
+     * Sets the value of the onplaying property.
      * 
      * @param value
      *     allowed object is
@@ -2043,7 +1959,7 @@ public class Tr
     }
 
     /**
-     * onprogressプロパティの値を取得します。
+     * Gets the value of the onprogress property.
      * 
      * @return
      *     possible object is
@@ -2055,7 +1971,7 @@ public class Tr
     }
 
     /**
-     * onprogressプロパティの値を設定します。
+     * Sets the value of the onprogress property.
      * 
      * @param value
      *     allowed object is
@@ -2071,7 +1987,7 @@ public class Tr
     }
 
     /**
-     * onratechangeプロパティの値を取得します。
+     * Gets the value of the onratechange property.
      * 
      * @return
      *     possible object is
@@ -2083,7 +1999,7 @@ public class Tr
     }
 
     /**
-     * onratechangeプロパティの値を設定します。
+     * Sets the value of the onratechange property.
      * 
      * @param value
      *     allowed object is
@@ -2099,7 +2015,7 @@ public class Tr
     }
 
     /**
-     * onreadystatechangeプロパティの値を取得します。
+     * Gets the value of the onreadystatechange property.
      * 
      * @return
      *     possible object is
@@ -2111,7 +2027,7 @@ public class Tr
     }
 
     /**
-     * onreadystatechangeプロパティの値を設定します。
+     * Sets the value of the onreadystatechange property.
      * 
      * @param value
      *     allowed object is
@@ -2127,7 +2043,7 @@ public class Tr
     }
 
     /**
-     * onresetプロパティの値を取得します。
+     * Gets the value of the onreset property.
      * 
      * @return
      *     possible object is
@@ -2139,7 +2055,7 @@ public class Tr
     }
 
     /**
-     * onresetプロパティの値を設定します。
+     * Sets the value of the onreset property.
      * 
      * @param value
      *     allowed object is
@@ -2155,7 +2071,7 @@ public class Tr
     }
 
     /**
-     * onscrollプロパティの値を取得します。
+     * Gets the value of the onscroll property.
      * 
      * @return
      *     possible object is
@@ -2167,7 +2083,7 @@ public class Tr
     }
 
     /**
-     * onscrollプロパティの値を設定します。
+     * Sets the value of the onscroll property.
      * 
      * @param value
      *     allowed object is
@@ -2183,7 +2099,7 @@ public class Tr
     }
 
     /**
-     * onseekedプロパティの値を取得します。
+     * Gets the value of the onseeked property.
      * 
      * @return
      *     possible object is
@@ -2195,7 +2111,7 @@ public class Tr
     }
 
     /**
-     * onseekedプロパティの値を設定します。
+     * Sets the value of the onseeked property.
      * 
      * @param value
      *     allowed object is
@@ -2211,7 +2127,7 @@ public class Tr
     }
 
     /**
-     * onseekingプロパティの値を取得します。
+     * Gets the value of the onseeking property.
      * 
      * @return
      *     possible object is
@@ -2223,7 +2139,7 @@ public class Tr
     }
 
     /**
-     * onseekingプロパティの値を設定します。
+     * Sets the value of the onseeking property.
      * 
      * @param value
      *     allowed object is
@@ -2239,7 +2155,7 @@ public class Tr
     }
 
     /**
-     * onselectプロパティの値を取得します。
+     * Gets the value of the onselect property.
      * 
      * @return
      *     possible object is
@@ -2251,7 +2167,7 @@ public class Tr
     }
 
     /**
-     * onselectプロパティの値を設定します。
+     * Sets the value of the onselect property.
      * 
      * @param value
      *     allowed object is
@@ -2267,7 +2183,7 @@ public class Tr
     }
 
     /**
-     * onshowプロパティの値を取得します。
+     * Gets the value of the onshow property.
      * 
      * @return
      *     possible object is
@@ -2279,7 +2195,7 @@ public class Tr
     }
 
     /**
-     * onshowプロパティの値を設定します。
+     * Sets the value of the onshow property.
      * 
      * @param value
      *     allowed object is
@@ -2295,7 +2211,7 @@ public class Tr
     }
 
     /**
-     * onstalledプロパティの値を取得します。
+     * Gets the value of the onstalled property.
      * 
      * @return
      *     possible object is
@@ -2307,7 +2223,7 @@ public class Tr
     }
 
     /**
-     * onstalledプロパティの値を設定します。
+     * Sets the value of the onstalled property.
      * 
      * @param value
      *     allowed object is
@@ -2323,7 +2239,7 @@ public class Tr
     }
 
     /**
-     * onsubmitプロパティの値を取得します。
+     * Gets the value of the onsubmit property.
      * 
      * @return
      *     possible object is
@@ -2335,7 +2251,7 @@ public class Tr
     }
 
     /**
-     * onsubmitプロパティの値を設定します。
+     * Sets the value of the onsubmit property.
      * 
      * @param value
      *     allowed object is
@@ -2351,7 +2267,7 @@ public class Tr
     }
 
     /**
-     * onsuspendプロパティの値を取得します。
+     * Gets the value of the onsuspend property.
      * 
      * @return
      *     possible object is
@@ -2363,7 +2279,7 @@ public class Tr
     }
 
     /**
-     * onsuspendプロパティの値を設定します。
+     * Sets the value of the onsuspend property.
      * 
      * @param value
      *     allowed object is
@@ -2379,7 +2295,7 @@ public class Tr
     }
 
     /**
-     * ontimeupdateプロパティの値を取得します。
+     * Gets the value of the ontimeupdate property.
      * 
      * @return
      *     possible object is
@@ -2391,7 +2307,7 @@ public class Tr
     }
 
     /**
-     * ontimeupdateプロパティの値を設定します。
+     * Sets the value of the ontimeupdate property.
      * 
      * @param value
      *     allowed object is
@@ -2407,7 +2323,7 @@ public class Tr
     }
 
     /**
-     * onvolumechangeプロパティの値を取得します。
+     * Gets the value of the onvolumechange property.
      * 
      * @return
      *     possible object is
@@ -2419,7 +2335,7 @@ public class Tr
     }
 
     /**
-     * onvolumechangeプロパティの値を設定します。
+     * Sets the value of the onvolumechange property.
      * 
      * @param value
      *     allowed object is
@@ -2435,7 +2351,7 @@ public class Tr
     }
 
     /**
-     * onwaitingプロパティの値を取得します。
+     * Gets the value of the onwaiting property.
      * 
      * @return
      *     possible object is
@@ -2447,7 +2363,7 @@ public class Tr
     }
 
     /**
-     * onwaitingプロパティの値を設定します。
+     * Sets the value of the onwaiting property.
      * 
      * @param value
      *     allowed object is
@@ -2460,6 +2376,90 @@ public class Tr
 
     public boolean isSetOnwaiting() {
         return (this.onwaiting!= null);
+    }
+
+    /**
+     * Gets the value of the align property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAlign() {
+        return align;
+    }
+
+    /**
+     * Sets the value of the align property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAlign(String value) {
+        this.align = value;
+    }
+
+    public boolean isSetAlign() {
+        return (this.align!= null);
+    }
+
+    /**
+     * Gets the value of the char property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getChar() {
+        return _char;
+    }
+
+    /**
+     * Sets the value of the char property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setChar(String value) {
+        this._char = value;
+    }
+
+    public boolean isSetChar() {
+        return (this._char!= null);
+    }
+
+    /**
+     * Gets the value of the charoff property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCharoff() {
+        return charoff;
+    }
+
+    /**
+     * Sets the value of the charoff property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCharoff(String value) {
+        this.charoff = value;
+    }
+
+    public boolean isSetCharoff() {
+        return (this.charoff!= null);
     }
 
     /**
@@ -2521,30 +2521,6 @@ public class Tr
                 copy.setValign(copyValign);
             } else {
                 copy.valign = null;
-            }
-            if (this.isSetAlign()) {
-                String sourceAlign;
-                sourceAlign = this.getAlign();
-                String copyAlign = ((String) strategy.copy(LocatorUtils.property(locator, "align", sourceAlign), sourceAlign));
-                copy.setAlign(copyAlign);
-            } else {
-                copy.align = null;
-            }
-            if (this.isSetChar()) {
-                String sourceChar;
-                sourceChar = this.getChar();
-                String copyChar = ((String) strategy.copy(LocatorUtils.property(locator, "_char", sourceChar), sourceChar));
-                copy.setChar(copyChar);
-            } else {
-                copy._char = null;
-            }
-            if (this.isSetCharoff()) {
-                String sourceCharoff;
-                sourceCharoff = this.getCharoff();
-                String copyCharoff = ((String) strategy.copy(LocatorUtils.property(locator, "charoff", sourceCharoff), sourceCharoff));
-                copy.setCharoff(copyCharoff);
-            } else {
-                copy.charoff = null;
             }
             if (this.isSetId()) {
                 String sourceId;
@@ -3131,6 +3107,30 @@ public class Tr
                 copy.setOnwaiting(copyOnwaiting);
             } else {
                 copy.onwaiting = null;
+            }
+            if (this.isSetAlign()) {
+                String sourceAlign;
+                sourceAlign = this.getAlign();
+                String copyAlign = ((String) strategy.copy(LocatorUtils.property(locator, "align", sourceAlign), sourceAlign));
+                copy.setAlign(copyAlign);
+            } else {
+                copy.align = null;
+            }
+            if (this.isSetChar()) {
+                String sourceChar;
+                sourceChar = this.getChar();
+                String copyChar = ((String) strategy.copy(LocatorUtils.property(locator, "_char", sourceChar), sourceChar));
+                copy.setChar(copyChar);
+            } else {
+                copy._char = null;
+            }
+            if (this.isSetCharoff()) {
+                String sourceCharoff;
+                sourceCharoff = this.getCharoff();
+                String copyCharoff = ((String) strategy.copy(LocatorUtils.property(locator, "charoff", sourceCharoff), sourceCharoff));
+                copy.setCharoff(copyCharoff);
+            } else {
+                copy.charoff = null;
             }
         }
         return draftCopy;
