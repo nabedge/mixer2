@@ -258,7 +258,7 @@ public class Mixer2Engine {
         // add one white space into script tag
         // having empty content and type="text/javascript"
         for (Script script : tag.getDescendants(Script.class)) {
-            if (script.getContent().length() < 1) {
+            if (script.getContent() == null || script.getContent().length() < 1) {
                 script.setContent(" ");
             }
         }

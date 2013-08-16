@@ -16,10 +16,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mixer2.Mixer2Engine;
 import org.mixer2.jaxb.xhtml.Html;
+import org.mixer2.jaxb.xhtml.Script;
 
 public class PreAndScriptTest {
 
-    @SuppressWarnings("unused")
     private static Log log = LogFactory.getLog(PreAndScriptTest.class);
     private String templateFileName = "preAndScript.html";
     private String templateFilePath;
@@ -35,6 +35,18 @@ public class PreAndScriptTest {
             templateFilePath = templateFilePath.replaceFirst("file:", "");
         }
     }
+    
+    @Test
+    public void createNewScript() throws Exception {
+        Script script = TagCreator.script();
+        script.setType("text/javascript");
+        script.setSrc("foo.js");
+        //script.setContent("");
+        String str = m2e.saveToString(script);
+        // if error, NullPointerException !
+        log.info(str);
+    }
+    
 
     @Test
     public void test() throws Exception {
