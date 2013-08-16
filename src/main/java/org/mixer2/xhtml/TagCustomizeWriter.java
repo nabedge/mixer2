@@ -107,8 +107,6 @@ public class TagCustomizeWriter implements XMLEventWriter {
             String str = event.toString().toLowerCase();
             if (str.startsWith("type") && str.contains("javascript")) {
                 scriptAttributeFlag = true;
-            } else {
-                scriptAttributeFlag = false;
             }
         }
         

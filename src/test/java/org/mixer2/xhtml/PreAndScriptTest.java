@@ -2,6 +2,7 @@ package org.mixer2.xhtml;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,4 +45,13 @@ public class PreAndScriptTest {
         assertThat(doc.getElementById("fooJs").data(), is(" "));
     }
 
+    @Test
+    public void test2() throws Exception {
+        html = m2e.loadHtmlTemplate(new File(templateFilePath));
+        String xmlStr = m2e.saveToString(html);
+        assertTrue(xmlStr.contains("//<![CDATA["));
+        assertTrue(xmlStr.contains("if (foo > 0 || bar < 100) {"));
+        assertTrue(xmlStr.contains("//]]>"));
+    }
+    
 }
