@@ -33,6 +33,7 @@ import org.apache.commons.logging.LogFactory;
 import org.mixer2.jaxb.exception.Mixer2JAXBException;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.Script;
+import org.mixer2.jaxb.xhtml.Textarea;
 import org.mixer2.xhtml.AbstractJaxb;
 import org.mixer2.xhtml.NamedEntityEnum;
 import org.mixer2.xhtml.TagCustomizeWriter;
@@ -256,10 +257,18 @@ public class Mixer2Engine {
             StringWriter writer) {
 
         // add one white space into script tag
-        // having empty content and type="text/javascript"
+        // having empty content.
         for (Script script : tag.getDescendants(Script.class)) {
             if (script.getContent() == null || script.getContent().length() < 1) {
                 script.setContent(" ");
+            }
+        }
+        
+        // add one line break into textarea tag
+        // having empty content.
+        for (Textarea textarea : tag.getDescendants(Textarea.class)) {
+            if (textarea.getContent() == null || textarea.getContent().length() < 1) {
+                textarea.setContent(System.getProperty("line.separator"));
             }
         }
 
