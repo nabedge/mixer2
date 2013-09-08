@@ -2,6 +2,7 @@ package org.mixer2.xhtml;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang.SystemUtils;
 import org.apache.commons.logging.Log;
@@ -39,7 +40,6 @@ public class EmptyTextAreaTest {
         html.getById("fooTextarea", Textarea.class).setContent("");
         String str = m2e.saveToString(html);
         log.info(str);
-        Assert.assertTrue(str.contains("<textarea id=\"fooTextarea\">"
-                + SystemUtils.LINE_SEPARATOR + "</textarea>"));
+        Assert.assertTrue(str.contains(">" + SystemUtils.LINE_SEPARATOR + "</textarea>"));
     }
 }
