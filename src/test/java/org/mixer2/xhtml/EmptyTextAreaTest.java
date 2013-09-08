@@ -38,7 +38,7 @@ public class EmptyTextAreaTest {
         Html html = m2e.loadHtmlTemplate(file);
         html.getById("fooTextarea", Textarea.class).setContent("");
         String str = m2e.saveToString(html);
-        //log.info(str);
+        log.info(str);
         Assert.assertTrue(str.contains("<textarea id=\"fooTextarea\">"
                 + SystemUtils.LINE_SEPARATOR + "</textarea>"));
     }
