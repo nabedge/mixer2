@@ -6,6 +6,8 @@ Use copy()
 
  If you need deep copy of tag instance, use
  {{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html#copy%28java.lang.Class%29}copy()}} .
+or
+ {{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html#copyNoException%28java.lang.Class%29}copyNoException()}}
  You can get complete copy of all the attribute and content.
 
 Do NOT use clone() and copyTo()

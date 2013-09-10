@@ -6,6 +6,8 @@ Use copy()
 
  タグ型オブジェクトのインスタンスのディープコピーが必要な場合、
  {{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html#copy%28java.lang.Class%29}copy()}}
+ または
+ {{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html#copyNoException%28java.lang.Class%29}copyNoException()}}
  を使ってください。そのタグが持つすべての属性とコンテンツをコピーできます。
 
 Do NOT use clone() and copyTo()
