@@ -377,15 +377,6 @@ public class Mixer2Engine {
         return sb;
     }
 
-    /**
-     * @see #replaceNamedEntity(StringBuilder)
-     * @param sb
-     * @return replaced xhtml template
-     */
-    public StringBuffer replaceNamedEntity(StringBuffer sb) {
-        return replaceNamedEntity(sb);
-    }
-
     protected StringBuilder fileToStringBuilder(File file) throws IOException {
         if (file == null) {
             throw new IOException("File is null.");
