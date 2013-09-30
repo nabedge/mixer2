@@ -50,7 +50,7 @@ public class ReplaceByIdUtil {
 
         for (int i = 0; i < list.size(); i++) {
             java.lang.Object obj = list.get(i);
-            if (obj instanceof java.lang.String) {
+            if (obj == null || obj instanceof java.lang.String) {
                 continue;
             }
             if (id.equals(((AbstractJaxb)obj).getId())) {
