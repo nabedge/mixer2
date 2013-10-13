@@ -50,6 +50,7 @@ public class Mixer2XhtmlViewResolver extends UrlBasedViewResolver {
         try {
             Class<?> viewClass = ClassUtils.forName(fqcnOfView, ClassUtils.getDefaultClassLoader());
             view = BeanUtils.instantiateClass(viewClass, AbstractMixer2XhtmlView.class);
+            getApplicationContext().getAutowireCapableBeanFactory().autowireBean(view);
         } catch (ClassNotFoundException e) {
             view = createDefaultView();
             log.debug("Applied default view. viewName is '" + viewName + "'. fqcnOfView is '" + fqcnOfView + "'.");
