@@ -1,5 +1,8 @@
 package org.mixer2.spring.webmvc;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.mixer2.Mixer2Engine;
@@ -10,6 +13,12 @@ import org.springframework.web.servlet.view.AbstractUrlBasedView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 public class Mixer2XhtmlViewResolver extends UrlBasedViewResolver {
+
+    private static final String PATH_SEPARATOR = "/";
+
+    private static final String PACKAGE_SEPARATOR = ".";
+
+    private static final Pattern PATH_SEPARATOR_PATTERN = Pattern.compile(PATH_SEPARATOR);
 
     private static Log log = LogFactory.getLog(Mixer2XhtmlViewResolver.class);
 
@@ -45,7 +54,7 @@ public class Mixer2XhtmlViewResolver extends UrlBasedViewResolver {
 
         // create view object.
         AbstractMixer2XhtmlView view = null;
-        String fqcnOfView = (StringUtils.hasLength(basePackage) ? basePackage + "." : "")
+        String fqcnOfView = (StringUtils.hasLength(basePackage) ? basePackage + PACKAGE_SEPARATOR : "")
                 + toViewClassNamePrefix(viewName) + (StringUtils.hasLength(classNameSuffix) ? classNameSuffix : "");
         try {
             Class<?> viewClass = ClassUtils.forName(fqcnOfView, ClassUtils.getDefaultClassLoader());
@@ -75,11 +84,13 @@ public class Mixer2XhtmlViewResolver extends UrlBasedViewResolver {
     }
 
     protected String toViewClassNamePrefix(String viewName) {
-        if (viewName.contains("/")) {
-            String lastElement = viewName.substring(viewName.lastIndexOf("/") + 1);
-            String classNamePrefix = StringUtils.capitalize(lastElement);
-            String packageName = viewName.substring(0, viewName.lastIndexOf("/")).replace("/", ".");
-            return packageName + "." + classNamePrefix;
+        if (viewName.contains(PATH_SEPARATOR)) {
+            int lastIndexOfPathSeparator = viewName.lastIndexOf(PATH_SEPARATOR);
+            Matcher pathSeparatorMatcher = PATH_SEPARATOR_PATTERN.matcher(viewName.substring(0,
+                    lastIndexOfPathSeparator));
+            String packageName = pathSeparatorMatcher.replaceAll(PACKAGE_SEPARATOR);
+            String lastElement = viewName.substring(lastIndexOfPathSeparator + 1);
+            return packageName + PACKAGE_SEPARATOR + StringUtils.capitalize(lastElement);
         } else {
             return StringUtils.capitalize(viewName);
         }
