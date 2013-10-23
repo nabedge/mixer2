@@ -726,14 +726,22 @@ public class TableBuilder {
                 } else {
                     log.warn("illegal class property specified on TableBuilder#_setAttribute");
                 }
-            } else {
-                try {
-                    BeanUtils.setProperty(obj, key, map.get(key));
-                } catch (IllegalAccessException e) {
-                    log.error("IllegalAccessException occured", e);
-                } catch (InvocationTargetException e) {
-                    log.error("InvocationTargetException occured", e);
-                }
+                continue;
+            }
+            if (obj instanceof Td && "rowspan".equals(key)) {
+                obj.cast(Td.class).setRowspan((Integer)map.get(key));
+                continue;
+            }
+            if (obj instanceof Td && "colspan".equals(key)) {
+                obj.cast(Td.class).setColspan((Integer) map.get(key));
+                continue;
+            }
+            try {
+                BeanUtils.setProperty(obj, key, map.get(key));
+            } catch (IllegalAccessException e) {
+                log.error("IllegalAccessException occured", e);
+            } catch (InvocationTargetException e) {
+                log.error("InvocationTargetException occured", e);
             }
         }
     }

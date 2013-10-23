@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.AfterClass;
 import org.junit.Test;
@@ -17,7 +18,6 @@ import org.mixer2.jaxb.xhtml.Table;
 import org.mixer2.jaxb.xhtml.Td;
 import org.mixer2.jaxb.xhtml.Tr;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 public class TableBuilderTest {
 
@@ -28,8 +28,21 @@ public class TableBuilderTest {
     public static void afterClass() {
         m2e = null;
     }
+    
     @Test
-    public void methodChainTest1() throws TagTypeUnmatchException {
+    public void colSpanTest () throws Exception {
+        Map<String, Object> attrMap = new HashMap<String,Object>();
+        attrMap.put("id", "fooId");
+        attrMap.put("colspan", new Integer(2));
+        TableBuilder tb = new TableBuilder();
+        tb.addTr().addTd("a").addTd("b");
+        tb.addTr().addTd("c", attrMap);
+        Table table = tb.build();
+        assertEquals(2, table.getById("fooId", Td.class).getColspan());
+    }
+    
+    @Test
+    public void methodChainTest1() throws Exception {
         TableBuilder tBuilder = new TableBuilder();
         tBuilder.tr(0).addTd("foo").addTd("bar");
         Table table = tBuilder.build();
@@ -41,7 +54,7 @@ public class TableBuilderTest {
     }
 
     @Test
-    public void methodChainTest2() throws TagTypeUnmatchException {
+    public void methodChainTest2() throws Exception {
         ArrayList<Object> tdList0 = new ArrayList<Object>();
         tdList0.add("td00");
         tdList0.add("td01");
@@ -63,7 +76,7 @@ public class TableBuilderTest {
     }
 
     @Test
-    public void methodChainTest3() {
+    public void methodChainTest3() throws Exception {
         TableBuilder tBuilder = new TableBuilder();
         tBuilder.tr(0).addTd("tr0_td0").addTd("tr0_td1");
         tBuilder.addTr().addTd("tr1_td0").addTd("tr1_td1");
@@ -83,7 +96,7 @@ public class TableBuilderTest {
     }
 
     @Test
-    public void makeCellTest() throws TagTypeUnmatchException {
+    public void makeCellTest() throws Exception {
 
         Span span1 = new Span();
         span1.getContent().add("span1");
@@ -148,7 +161,7 @@ public class TableBuilderTest {
     }
 
     @Test
-    public void addCellTest() throws TagTypeUnmatchException {
+    public void addCellTest() throws Exception {
         TableBuilder tBuilder = new TableBuilder();
 
         // col0 row0
@@ -198,7 +211,7 @@ public class TableBuilderTest {
     }
 
     @Test
-    public void addRowTest() throws TagTypeUnmatchException {
+    public void addRowTest() throws Exception {
         TableBuilder tBuilder = new TableBuilder();
         ArrayList<Object> tdList0 = new ArrayList<Object>();
         //
@@ -234,7 +247,7 @@ public class TableBuilderTest {
     }
 
     @Test
-    public void tbodyTest() throws TagTypeUnmatchException {
+    public void tbodyTest() throws Exception {
         ArrayList<Object> tdList0 = new ArrayList<Object>();
         tdList0.add("aaa");
         tdList0.add("bbb");
@@ -271,7 +284,7 @@ public class TableBuilderTest {
     }
 
     @Test
-    public void theadTest() throws TagTypeUnmatchException {
+    public void theadTest() throws Exception {
         TableBuilder tBuilder = new TableBuilder();
         ArrayList<Object> tdList0 = new ArrayList<Object>();
         tdList0.add("aaa");
@@ -288,7 +301,7 @@ public class TableBuilderTest {
     }
 
     @Test
-    public void tfootTest() throws TagTypeUnmatchException {
+    public void tfootTest() throws Exception {
         TableBuilder tBuilder = new TableBuilder();
         ArrayList<Object> tdList0 = new ArrayList<Object>();
         tdList0.add("aaa");
@@ -307,7 +320,7 @@ public class TableBuilderTest {
     }
 
     @Test
-    public void cssClassTest() {
+    public void cssClassTest() throws Exception {
         TableBuilder tBuilder = new TableBuilder();
         tBuilder.tr(0).setAttr("class", "class_a1 class_a2    ");
         tBuilder.tr(0).td(0).add("a");
