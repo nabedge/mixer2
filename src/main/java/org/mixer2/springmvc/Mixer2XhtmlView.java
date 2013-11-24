@@ -68,7 +68,10 @@ import org.springframework.util.Assert;
  * Also, You can implement the original view class  
  * using {@link AbstractMixer2XhtmlView}
  * </p>
+ * 
+ * @deprecated use {@link org.mixer2.spring.webmvc.AbstractMixer2XhtmlView}
  */
+@Deprecated
 public class Mixer2XhtmlView extends AbstractMixer2XhtmlView {
 
     public Mixer2XhtmlView(Mixer2Engine mixer2Engine, Html html) {

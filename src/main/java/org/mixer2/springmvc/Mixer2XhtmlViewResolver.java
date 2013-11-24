@@ -60,10 +60,12 @@ import org.springframework.web.servlet.ViewResolver;
  * }
  * </code></pre>
  * 
+ * @deprecated use {@link org.mixer2.spring.webmvc.Mixer2XhtmlViewResolver}
  * @see AbstractMixer2XhtmlView
  * @author nabedge
  *
  */
+@Deprecated
 public class Mixer2XhtmlViewResolver extends WebApplicationObjectSupport
         implements ViewResolver, Ordered {
 

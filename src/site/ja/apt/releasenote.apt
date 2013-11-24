@@ -4,6 +4,8 @@
 
 Release Note
 
+ * 1.2.14 {{{https://github.com/nabedge/mixer2/pull/7}pull request}} marged. Old spring mvc view resolver is deprected.
+
  * 1.2.13 {{{https://github.com/nabedge/mixer2/issues/5}bug}} fixed.
 
  * 1.2.12 javadoc fix only.

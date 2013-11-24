@@ -13,6 +13,41 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.util.Assert;
 import org.springframework.web.servlet.view.AbstractUrlBasedView;
 
+/**
+ * Abstract class to create view class for Spring MVC.
+ * <p>
+ * use this class with {@link Mixer2XhtmlViewResolver}
+ * </p>
+ * 
+ * <h4>implementation sample</h4>
+ * 
+ * <pre><code>
+ * {@literal @}Component
+ * {@literal @}Scope("prototype") // NOTICE: If you implement this class un-threadsafely, 
+ * // you should set this class as prototype. Otherwise, use default scope (singleton).
+ * public class HelloWorldView extends AbstractMixer2XhtmlView {
+ * 
+ *    {@literal @}Override
+ *    protected Html renderHtml(Html html, Map<String, Object> model, HttpServletRequest request,
+ *          HttpServletResponse response) throws TagTypeUnmatchException {
+ *        
+ *        {@literal @}SuppressWarnings("unchecked")
+ *        String message = (String) model.get("helloMessage");
+ *        Div div = html.getById("message", Div.class);
+ *        div.unsetContent();
+ *        div.getContent().add(message);
+ *      
+ *        return html;
+ * }
+ * </code></pre>
+ * 
+ * @see {@link http://mixer2.org/site/helloworld.html}
+ * @see {@link http://mixer2.org/site/springmvcsample.html}
+ * @see {@link https://github.com/nabedge/mixer2-sample/tree/master/mixer2-fruitshop-springmvc}
+ * @author kazuki43zoo
+ * @author nabedge
+ * 
+ */
 public abstract class AbstractMixer2XhtmlView extends AbstractUrlBasedView {
 
     private static String lineBreakChar = System.getProperty("line.separator");
@@ -26,7 +61,8 @@ public abstract class AbstractMixer2XhtmlView extends AbstractUrlBasedView {
     public static final AbstractMixer2XhtmlView createDefaultView() {
         return new AbstractMixer2XhtmlView() {
             @Override
-            protected Html renderHtml(Html templateHtml, Map<String, Object> model, HttpServletRequest request,
+            protected Html renderHtml(Html templateHtml,
+                    Map<String, Object> model, HttpServletRequest request,
                     HttpServletResponse response) {
                 return templateHtml;
             };
@@ -61,21 +97,19 @@ public abstract class AbstractMixer2XhtmlView extends AbstractUrlBasedView {
     }
 
     @Override
-    protected final void renderMergedOutputModel(Map<String, Object> model, HttpServletRequest request,
-            HttpServletResponse response) throws Exception {
-
+    protected final void renderMergedOutputModel(Map<String, Object> model,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
         Html templateHtml = mixer2Engine
-                .checkAndLoadHtmlTemplate(resourceLoader.getResource(getUrl()).getInputStream());
-
+                .checkAndLoadHtmlTemplate(resourceLoader.getResource(getUrl())
+                        .getInputStream());
         Html renderedHtml = renderHtml(templateHtml, model, request, response);
-
         response.setContentType(getContentType());
-
         responseHtml(renderedHtml, response);
-
     }
 
-    protected void responseHtml(Html renderedHtml, HttpServletResponse response) throws IOException {
+    protected void responseHtml(Html renderedHtml, HttpServletResponse response)
+            throws IOException {
         PrintWriter writer = response.getWriter();
         StringBuilder sb = new StringBuilder();
         if (docType != null && !docType.trim().isEmpty()) {
@@ -86,7 +120,21 @@ public abstract class AbstractMixer2XhtmlView extends AbstractUrlBasedView {
         writer.write(sb.toString());
     }
 
-    protected abstract Html renderHtml(Html html, Map<String, Object> model, HttpServletRequest request,
-            HttpServletResponse response) throws Exception;
+    /**
+     * Need implementation.
+     * 
+     * @param html
+     *            {@link org.mixer2.jaxb.xhtml.Html Html} instance of xhtml
+     *            template that is loaded by {@link Mixer2XhtmlViewResolver}.
+     * @param model
+     * @param request
+     * @param response
+     * @return
+     * @throws Exception
+     * @see {@link Mixer2XhtmlViewResolver}
+     */
+    protected abstract Html renderHtml(Html html, Map<String, Object> model,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception;
 
 }

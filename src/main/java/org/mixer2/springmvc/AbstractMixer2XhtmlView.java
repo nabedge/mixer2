@@ -50,10 +50,12 @@ import org.springframework.web.servlet.view.AbstractView;
  *   }
  * </code></pre>
  * 
+ * @deprecated use {@link org.mixer2.spring.webmvc.AbstractMixer2XhtmlView}
  * @see Mixer2XhtmlViewResolver
  * @author nabedge
  * 
  */
+@Deprecated
 public abstract class AbstractMixer2XhtmlView extends AbstractView {
 
     private String contentType = "text/html; charset=UTF-8";
