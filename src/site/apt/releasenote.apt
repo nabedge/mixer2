@@ -4,7 +4,7 @@
 
 Release Note
 
- * 1.2.15 only fix incorrect javadoc. (AbstractMixer2XhtmlView)
+ * 1.2.16 only fix incorrect javadoc. (AbstractMixer2XhtmlView)
 
  * 1.2.14 {{{https://github.com/nabedge/mixer2/pull/7}pull request}} marged. Old spring mvc view resolver is deprected.
 
