@@ -22,10 +22,10 @@ import org.springframework.web.servlet.view.AbstractUrlBasedView;
  * <h4>implementation sample</h4>
  * 
  * <pre><code>
- * {@literal @}Component
- * {@literal @}Scope("prototype") // NOTICE: If you implement this class un-threadsafely, 
- * // you should set this class as prototype. Otherwise, use default scope (singleton).
  * public class HelloWorldView extends AbstractMixer2XhtmlView {
+ * 
+ *    {@literal @}Autowired
+ *    private FooBar fooBar;
  * 
  *    {@literal @}Override
  *    protected Html renderHtml(Html html, Map<String, Object> model, HttpServletRequest request,
@@ -40,6 +40,12 @@ import org.springframework.web.servlet.view.AbstractUrlBasedView;
  *        return html;
  * }
  * </code></pre>
+ * 
+ * <p>
+ * You NEED NOT to add "@Component" annotation because 
+ * {@link Mixer2XhtmlViewResolver} instantiate the view class
+ * through AutowireCapableBeanFactory.
+ * </p>
  * 
  * @see {@link http://mixer2.org/site/helloworld.html}
  * @see {@link http://mixer2.org/site/springmvcsample.html}
