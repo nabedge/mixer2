@@ -12,6 +12,7 @@ import org.junit.Test;
 import org.mixer2.Mixer2Engine;
 import org.mixer2.jaxb.xhtml.A;
 import org.mixer2.jaxb.xhtml.Html;
+import org.mixer2.jaxb.xhtml.Script;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
 import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
@@ -36,6 +37,18 @@ public class RemoveDescendantsTest {
         } else {
             templateFilePath = templateFilePath.replaceFirst("file:", "");
         }
+    }
+    
+    @Test
+    public void removeScripts() throws Exception {
+        html = m2e.loadHtmlTemplate(new File(templateFilePath));
+        assertNotNull(html.getById("fooscript1", Script.class));
+        assertNotNull(html.getById("fooscript2", Script.class));
+        assertNotNull(html.getById("fooscript3", Script.class));
+        html.removeDescendants("fooscript", Script.class);
+        assertNull(html.getById("fooscript1", Script.class));
+        assertNotNull(html.getById("fooscript2", Script.class));
+        assertNull(html.getById("fooscript3", Script.class));
     }
 
     @Test
