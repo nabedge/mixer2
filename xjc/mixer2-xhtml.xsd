@@ -860,6 +860,7 @@
       <xs:group ref="phrase"/>
       <xs:group ref="inline.forms"/>
       <xs:group ref="misc.inline"/>
+      <xs:group ref="block"/><!-- for html5 -->
     </xs:choice>
   </xs:complexType>
 
