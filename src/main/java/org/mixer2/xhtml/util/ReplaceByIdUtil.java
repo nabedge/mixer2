@@ -367,15 +367,9 @@ public class ReplaceByIdUtil {
             break;
         case HEAD:
             Head head = (Head) target;
-            for (int j = 0; j < head.getContent().size(); j++) {
-                AbstractJaxb obj = head.getContent().get(j);
-                if (obj.isSetId() && obj.getId().equals(id)) {
-                    head.getContent().set(j, (AbstractJaxb) replace);
+            for (AbstractJaxb obj : head.getContent()) {
+                if (execute(id, obj, replace)) {
                     return true;
-                } else {
-                    if (execute(id, obj, replace)) {
-                        return true;
-                    }
                 }
             }
             break;

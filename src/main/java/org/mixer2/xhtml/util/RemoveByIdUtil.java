@@ -398,15 +398,9 @@ public class RemoveByIdUtil {
             break;
         case HEAD:
             Head head = (Head) target;
-            for (int j =0; j<head.getContent().size(); j++) {
-                AbstractJaxb obj = head.getContent().get(j);
-                if (id.equals(obj.getId())) {
-                    head.getContent().remove(j);
+            for (AbstractJaxb obj : head.getContent()) {
+                if (removeById(id, obj)) {
                     return true;
-                } else {
-                    if (removeById(id, obj)) {
-                        return true;
-                    }
                 }
             }
             break;

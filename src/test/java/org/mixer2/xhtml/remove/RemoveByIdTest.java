@@ -17,17 +17,18 @@ import org.mixer2.jaxb.xhtml.Dt;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.Li;
 import org.mixer2.jaxb.xhtml.Menu;
-import org.mixer2.jaxb.xhtml.Script;
 import org.mixer2.jaxb.xhtml.Small;
 import org.mixer2.jaxb.xhtml.Span;
 import org.mixer2.jaxb.xhtml.Strong;
-import org.mixer2.jaxb.xhtml.Style;
-import org.mixer2.jaxb.xhtml.Table;
-import org.mixer2.jaxb.xhtml.Th;
 import org.mixer2.jaxb.xhtml.Ul;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
 import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
+/**
+ *
+ * @author watanabe
+ *
+ */
 public class RemoveByIdTest {
 
     private String templateFileName = "RemoveByIdTest.html";
@@ -44,27 +45,11 @@ public class RemoveByIdTest {
     public void init() throws IOException {
         templateFilePath = getClass().getResource(templateFileName).toString();
         String osname = System.getProperty("os.name");
-        if (osname.indexOf("Windows") >= 0) {
+        if(osname.indexOf("Windows")>=0){
             templateFilePath = templateFilePath.replaceFirst("file:/", "");
         } else {
             templateFilePath = templateFilePath.replaceFirst("file:", "");
         }
-    }
-
-    @Test
-    public void removeStyleTest() throws Exception {
-        html = m2e.loadHtmlTemplate(new File(templateFilePath));
-        assertTrue(html.getHead().getById("style1", Style.class) != null);
-        html.getHead().removeById("style1");
-        assertTrue(html.getHead().getById("style1", Style.class) == null);
-    }
-
-    @Test
-    public void removeScriptTest() throws Exception {
-        html = m2e.loadHtmlTemplate(new File(templateFilePath));
-        assertTrue(html.getHead().getById("script1", Script.class) != null);
-        html.getHead().removeById("script1");
-        assertTrue(html.getHead().getById("script1", Script.class) == null);
     }
 
     @Test
@@ -120,21 +105,6 @@ public class RemoveByIdTest {
         html.removeById("menu02_li");
         assertNull(html.getById("menu02_li", Li.class));
         assertNotNull(html.getById("menu02_button", Button.class));
-    }
 
-    @Test
-    public void tableTest() throws Exception {
-        html = m2e.loadHtmlTemplate(new File(templateFilePath));
-        Table table = html.getById("tbl", Table.class);
-        assertNotNull(table.getById("th00", Th.class));
-        table.removeById("th00");
-        assertNull(table.getById("th00", Th.class));
-    }
-
-    public void span2test() throws Exception {
-        html = m2e.loadHtmlTemplate(new File(templateFilePath));
-        assertNotNull(html.getById("span2", Span.class));
-        html.removeById("span2");
-        assertNull(html.getById("span2", Span.class));
     }
 }

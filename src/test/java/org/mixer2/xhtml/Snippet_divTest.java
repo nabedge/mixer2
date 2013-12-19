@@ -46,7 +46,7 @@ public class Snippet_divTest {
         StringWriter sw = new StringWriter();
         m2e.saveToStringWriter(div, sw);
         String result = sw.toString();
-        //System.out.println(result);
+        System.out.println(result);
         assertTrue(result.contains("&lt;script&gt;alert(1);&lt;/script&gt;"));
         assertTrue(result.trim().startsWith("<div "));
         assertTrue(result.trim().endsWith("</div>"));
