@@ -4,13 +4,10 @@
 
 Release Note
 
-<<<<<<< HEAD
  * 1.2.20 {{{https://github.com/nabedge/mixer2/issues/8}bug}} fix.
 
  * 1.2.19 bug fix on replaceById() and removeById()
 
-=======
->>>>>>> parent of 98f16cb... bug fix on removeById() and replaceById()
  * 1.2.17 only fix incorrect javadoc. (AbstractMixer2XhtmlView)
 
  * 1.2.14 {{{https://github.com/nabedge/mixer2/pull/7}pull request}} marged. Old spring mvc view resolver is deprected.
