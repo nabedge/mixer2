@@ -1,5 +1,6 @@
 package org.mixer2.spring.webmvc;
 
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -7,26 +8,31 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.mixer2.Mixer2Engine;
 import org.springframework.beans.BeanUtils;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.view.AbstractUrlBasedView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 /**
- * View Resolver for SpringMVC . 
- * <h4>your should add dependency for your application:</h4>
+ * View Resolver for SpringMVC . <h4>your should add dependency for your
+ * application:</h4>
  * 
- * <pre>{@code
+ * <pre>
+ * {@code
  * <dependency>
  *     <groupId>org.springframework</groupId>
  *     <artifactId>spring-webmvc</artifactId>
  *     <version>3.1.2.RELEASE (or higher)</version>
  * </dependency>
- * }</pre>
+ * }
+ * </pre>
  * 
  * <h4>Spring MVC configuration Sample</h4>
  * 
- * <pre>{@code
+ * <pre>
+ * {@code
  * <bean id="mixer2Engine" class="org.mixer2.Mixer2Engine" scope="singleton" />
  * <bean class="org.mixer2.spring.webmvc.Mixer2XhtmlViewResolver">
  *     <property name="order" value="1" />
@@ -35,8 +41,16 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
  *     <property name="suffix" value=".html" />
  *     <property name="basePackage" value="com.example.yourproject.web.view" />
  *     <property name="mixer2Engine" ref="mixer2Engine" />
+ *     
+ *     <!-- "returnNullIfTemplateFileNotFound" (since 1.2.21) -->
+ *     <!-- Default value is true that means this resolver returns null -->
+ *     <!-- if template file not found and continue to resolve view name -->
+ *     <!-- by another subsequent view resolver. -->
+ *     <!-- Set "false" if you expect FileNotFoundException for unknown view name -->
+ *     <property name="returnNullIfTemplateFileNotFound" ref="true" />
  * </bean>
- * }</pre>
+ * }
+ * </pre>
  * 
  * <p>
  * Using this ViewResolver, Your controller method can returns <strong>template
@@ -62,23 +76,28 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
  * </code>
  * </pre>
  * 
- * <p>In this case, "foo/bar/helloWorld" will be attached to
- * "com.example.yourproject.web.view.foo.bar.HelloWorldView" class .</p>
- * 
- * <p>AbstractMixer2XhtmlView which is the base class of HelloWorldView loads 
- * the file "m2mockup/m2template/foo/bar/helloWorld.html" as a html template 
- * and convert it to the instance of org.mixer2.jaxb.xhtml.Html .
- * You can change the html object in HelloWorldView class.
+ * <p>
+ * In this case, "foo/bar/helloWorld" will be attached to
+ * "com.example.yourproject.web.view.foo.bar.HelloWorldView" class .
  * </p>
  * 
- * <p>The template file is "prefix" + viewName + "suffix" .
- * See "prefix" and "suffix" property of Mixer2XhtmlViewResolver bean 
- * configuration sample above.</p>
-
- * <p>If there were no "com.example.yourproject.web.view.foo.bar.HelloWorldView" 
- * class in classpath,default view will be created automatically 
- * that load the template file. You can not change the the html object.
- * That means the view resolver returns html on template file as is.
+ * <p>
+ * AbstractMixer2XhtmlView which is the base class of HelloWorldView loads the
+ * file "m2mockup/m2template/foo/bar/helloWorld.html" as a html template and
+ * convert it to the instance of org.mixer2.jaxb.xhtml.Html . You can change the
+ * html object in HelloWorldView class.
+ * </p>
+ * 
+ * <p>
+ * The template file is "prefix" + viewName + "suffix" . See "prefix" and
+ * "suffix" property of Mixer2XhtmlViewResolver bean configuration sample above.
+ * </p>
+ * 
+ * <p>
+ * If there were no "com.example.yourproject.web.view.foo.bar.HelloWorldView"
+ * class in classpath,default view will be created automatically that load the
+ * template file. You can not change the the html object. That means the view
+ * resolver returns html on template file as is.
  * </p>
  * 
  * @see {@link http://mixer2.org/site/springmvcsample.html}
@@ -105,6 +124,8 @@ public class Mixer2XhtmlViewResolver extends UrlBasedViewResolver {
 
     private String docType;
 
+    private boolean returnNullIfTemplateFileNotFound = true;
+
     public Mixer2XhtmlViewResolver() {
         setViewClass(AbstractMixer2XhtmlView.class);
     }
@@ -123,6 +144,32 @@ public class Mixer2XhtmlViewResolver extends UrlBasedViewResolver {
 
     public void setDocType(String docType) {
         this.docType = docType;
+    }
+
+    /**
+     * @since 1.2.21
+     * @return
+     */
+    public boolean isReturnNullIfTemplateFileNotFound() {
+        return returnNullIfTemplateFileNotFound;
+    }
+
+    /*
+     * @since 1.2.21
+     */
+    public void setReturnNullIfTemplateFileNotFound(
+            boolean returnNullIfTemplateFileNotFound) {
+        this.returnNullIfTemplateFileNotFound = returnNullIfTemplateFileNotFound;
+    }
+
+    @Override
+    protected boolean canHandle(String viewName, Locale locale) {
+        String url = createUrl(viewName);
+        if (log.isDebugEnabled()) {
+            log.debug("template url: " + url);
+        }
+        Resource resource = getApplicationContext().getResource(url);
+        return resource.exists();
     }
 
     protected AbstractUrlBasedView buildView(String viewName) throws Exception {
@@ -153,9 +200,8 @@ public class Mixer2XhtmlViewResolver extends UrlBasedViewResolver {
         if (docType != null) {
             view.setDocType(docType);
         }
-
         // inject properties of parent class.
-        view.setUrl(getPrefix() + viewName + getSuffix());
+        view.setUrl(createUrl(viewName));
         String contentType = getContentType();
         if (contentType != null) {
             view.setContentType(contentType);
@@ -163,6 +209,10 @@ public class Mixer2XhtmlViewResolver extends UrlBasedViewResolver {
         view.setRequestContextAttribute(getRequestContextAttribute());
         view.setAttributesMap(getAttributesMap());
         return view;
+    }
+
+    protected String createUrl(String viewName) {
+        return getPrefix() + viewName + getSuffix();
     }
 
     protected String toViewClassNamePrefix(String viewName) {
