@@ -4,6 +4,8 @@
 
 Release Note
 
+ * 1.2.21 {{{https://github.com/nabedge/mixer2/issues/9}SpringMVC enhance}}.
+
  * 1.2.20 {{{https://github.com/nabedge/mixer2/issues/8}bug}} fix.
 
  * 1.2.19 bug fix on replaceById() and removeById()
