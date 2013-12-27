@@ -22,7 +22,7 @@ import org.mixer2.jaxb.xhtml.Link;
 import org.mixer2.jaxb.xhtml.Script;
 import org.mixer2.jaxb.xhtml.Track;
 
-public class PathAjusterTest extends PathAjuster {
+public class PathAjusterTest {
 
     private String templateFileName = "PathAjusterTest.html";
     private String templateFilePath;
@@ -48,7 +48,7 @@ public class PathAjusterTest extends PathAjuster {
     @Test
     public void testReplacePath() throws Exception {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
-        PathAjuster.replacePath(html, Pattern.compile("^.*/foo/bar/"), "/ctx/foobar/");
+        PathAdjuster.replacePath(html, Pattern.compile("^.*/foo/bar/"), "/ctx/foobar/");
         assertThat(html.getById("link01", Link.class).getHref(), is("/ctx/foobar/foo.css"));
         assertThat(html.getById("script01", Script.class).getSrc(), is("/ctx/foobar/foo.js"));
     }
@@ -58,7 +58,7 @@ public class PathAjusterTest extends PathAjuster {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         List<String> clazz = new ArrayList<String>();
         clazz.add("foo");
-        PathAjuster.replacePathIncludeClass(html, Pattern.compile("^.*$"), "zzz", clazz);
+        PathAdjuster.replacePathIncludeClass(html, Pattern.compile("^.*$"), "zzz", clazz);
         assertThat(html.getById("track1",Track.class).getSrc(), is("zzz"));
         assertThat(html.getById("track2",Track.class).getSrc(), not("zzz"));
     }
@@ -69,7 +69,7 @@ public class PathAjusterTest extends PathAjuster {
         List<Class<?>> tagTypes = new ArrayList<Class<?>>();
         tagTypes.add(A.class);
         tagTypes.add(Form.class);
-        PathAjuster.replacePathIncludeTag(html, Pattern.compile(".*"), "zzz", tagTypes);
+        PathAdjuster.replacePathIncludeTag(html, Pattern.compile(".*"), "zzz", tagTypes);
         assertThat(html.getById("track1", Track.class).getSrc(), not("zzz"));
         assertThat(html.getById("a_001", A.class).getHref(), is("zzz"));
         assertThat(html.getById("form01", Form.class).getAction(), is("zzz"));
@@ -83,7 +83,7 @@ public class PathAjusterTest extends PathAjuster {
         List<Class<?>> tagTypes = new ArrayList<Class<?>>();
         tagTypes.add(Img.class);
         tagTypes.add(Iframe.class);
-        PathAjuster.replacePathInclude(html, Pattern.compile(".*"), "zzz", clazz, tagTypes);
+        PathAdjuster.replacePathInclude(html, Pattern.compile(".*"), "zzz", clazz, tagTypes);
 
         assertThat(html.getById("img_01", Img.class).getSrc(), is("xyz"));
         assertThat(html.getById("img_02", Img.class).getSrc(), is("zzz"));
@@ -96,7 +96,7 @@ public class PathAjusterTest extends PathAjuster {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         List<String> clazz = new ArrayList<String>();
         clazz.add("foo");
-        PathAjuster.replacePathExcludeClass(html, Pattern.compile("^.*$"), "zzz", clazz);
+        PathAdjuster.replacePathExcludeClass(html, Pattern.compile("^.*$"), "zzz", clazz);
         assertThat(html.getById("track1",Track.class).getSrc(), not("zzz"));
         assertThat(html.getById("track2",Track.class).getSrc(), is("zzz"));
     }
@@ -107,7 +107,7 @@ public class PathAjusterTest extends PathAjuster {
         List<Class<?>> tagTypes = new ArrayList<Class<?>>();
         tagTypes.add(Iframe.class);
         tagTypes.add(Form.class);
-        PathAjuster.replacePathExcludeTag(html, Pattern.compile(".*"), "zzz", tagTypes);
+        PathAdjuster.replacePathExcludeTag(html, Pattern.compile(".*"), "zzz", tagTypes);
         assertThat(html.getById("track1", Track.class).getSrc(), is("zzz"));
         assertThat(html.getById("a_001", A.class).getHref(), is("zzz"));
         assertThat(html.getById("form01", Form.class).getAction(), not("zzz"));
@@ -122,7 +122,7 @@ public class PathAjusterTest extends PathAjuster {
         List<Class<?>> tagTypes = new ArrayList<Class<?>>();
         tagTypes.add(Img.class);
         tagTypes.add(Iframe.class);
-        PathAjuster.replacePathExclude(html, Pattern.compile(".*"), "zzz", clazz, tagTypes);
+        PathAdjuster.replacePathExclude(html, Pattern.compile(".*"), "zzz", clazz, tagTypes);
 
         assertThat(html.getById("form01", Form.class).getAction(), is("zzz"));
         assertThat(html.getById("img_01", Img.class).getSrc(), is("zzz"));
