@@ -163,6 +163,9 @@ public class Mixer2XhtmlViewResolver extends UrlBasedViewResolver {
 
     @Override
     protected boolean canHandle(String viewName, Locale locale) {
+        if (! returnNullIfTemplateFileNotFound) {
+            return true;
+        }
         String url = createUrl(viewName);
         if (log.isDebugEnabled()) {
             log.debug("template url: " + url);
