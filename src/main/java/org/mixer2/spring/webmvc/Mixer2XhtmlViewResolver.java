@@ -9,7 +9,6 @@ import org.apache.commons.logging.LogFactory;
 import org.mixer2.Mixer2Engine;
 import org.springframework.beans.BeanUtils;
 import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.view.AbstractUrlBasedView;
