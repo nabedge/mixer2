@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/jee
+    http://www.springframework.org/schema/jee/spring-jee.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:component-scan base-package="org.mixer2.spring.webmvc.resolverchaintest" />
+
+    <mvc:annotation-driven />
+
+    <bean id="mixer2Engine" class="org.mixer2.Mixer2Engine" scope="singleton" />
+
+    <bean class="org.mixer2.spring.webmvc.Mixer2XhtmlViewResolver">
+        <property name="order" value="1" />
+        <property name="prefix" value="classpath:org/mixer2/spring/webmvc/resolverchaintest/" />
+        <property name="suffix" value=".html" />
+        <property name="basePackage" value="org.mixer2.spring.webmvc.resolverchaintest" />
+        <property name="mixer2Engine" ref="mixer2Engine" />
+    </bean>
+
+    <bean
+        class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="order" value="2" />
+        <property name="prefix" value="classpath:org/mixer2/spring/webmvc/resolverchaintest/" />
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+</beans>

@@ -31,6 +31,7 @@
         <jdk.version>1.6</jdk.version>
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+        <spring.version>3.2.6.RELEASE</spring.version>
     </properties>
 
     <organization>
@@ -92,7 +93,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>3.1.3.RELEASE</version>
+            <version>${spring.version}</version>
             <optional>true</optional>
         </dependency>
         <dependency>
@@ -105,7 +106,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.8.2</version>
+            <version>4.11</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -129,7 +130,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>3.1.3.RELEASE</version>
+            <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -208,7 +209,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.9</version>
+                <version>2.9.1</version>
                 <configuration>
                     <nohelp>true</nohelp>
                     <charset>${encoding}</charset>
@@ -236,7 +237,7 @@
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
-                        <phase>verify</phase>
+                        <phase>deploy</phase>
                         <goals>
                             <goal>sign</goal>
                         </goals>
@@ -265,26 +266,13 @@
                 </dependencies>
             </plugin>
             <plugin>
-                <groupId>net.ju-n.maven.plugins</groupId>
-                <artifactId>maven-checksum-plugin</artifactId>
-                <version>1.0</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>artifacts</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.5.1</version>
                 <configuration>
-                    <algorithms>
-                        <algorithm>MD5</algorithm>
-                        <algorithm>SHA-1</algorithm>
-                    </algorithms>
-                    <!-- put your configurations here -->
+                    <createChecksum>true</createChecksum>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -340,7 +328,6 @@
         </plugins>
     </build>
 
-
     <reporting>
         <plugins>
             <plugin>
@@ -356,7 +343,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.8</version>
+                <version>2.9.1</version>
                 <configuration>
                     <encoding>${encoding}</encoding>
                     <docencoding>${encoding}</docencoding>
