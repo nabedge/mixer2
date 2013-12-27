@@ -163,15 +163,16 @@ public class Mixer2XhtmlViewResolver extends UrlBasedViewResolver {
 
     @Override
     protected boolean canHandle(String viewName, Locale locale) {
-        if (! returnNullIfTemplateFileNotFound) {
+        if (isReturnNullIfTemplateFileNotFound()) {
+            String url = createUrl(viewName);
+            if (log.isDebugEnabled()) {
+                log.debug("template url: " + url);
+            }
+            Resource resource = getApplicationContext().getResource(url);
+            return resource.exists();
+        } else {
             return true;
         }
-        String url = createUrl(viewName);
-        if (log.isDebugEnabled()) {
-            log.debug("template url: " + url);
-        }
-        Resource resource = getApplicationContext().getResource(url);
-        return resource.exists();
     }
 
     protected AbstractUrlBasedView buildView(String viewName) throws Exception {
