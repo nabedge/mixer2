@@ -4,10 +4,6 @@
 
 Fruit shop sample web application on SpringMVC
 
- {{{http://www.google.com/search?q=springmvc}SpringMVC}} is
- web application framework. 
- It is a sub-project of {{{http://www.springsource.org/spring-framework}springframework}}.
-
  This document explains how to expand and use 
  fruit shop sample application that uses
  mixer2 as view technology of SpringMVC

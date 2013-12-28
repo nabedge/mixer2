@@ -1,0 +1,146 @@
+ ------
+ Spring MVC and Mixer2
+ ------
+
+Use Mixer2 with Spring MVC
+
+ {{{http://www.google.com/search?q=springmvc}SpringMVC}}は、
+ DIコンテナとして有名なSpringのサブプロジェクトとして提供されているWebアプリケーションフレームワークです。
+ 
+ Mixer2には、Spring MVC におけるViewResolverおよび抽象Viewクラスも同梱されています。
+ ViewのテンプレートとしてJSPを使用する通常のControllerクラスの書き方とほとんど同じ形で
+ 普通のhtmlテンプレートをViewとして使用することができます。
+
+* Configuration
+
+ ビューエンジンとして、Mixer2と通常のJSPの両方を使えるようにする場合、
+ SpringMVCのDispatcherServlet用のDI定義は次のようになります。
+
+----
+    <!-- other configuration... -->
+    <context:component-scan base-package="com.example.yourproject.web" />
+    <mvc:annotation-driven />
+    <mvc:resources mapping="/m2static/**" location="classpath:/m2mockup/m2static/" />
+    <bean id="mixer2Engine" class="org.mixer2.Mixer2Engine" />
+    <bean class="org.mixer2.spring.webmvc.Mixer2XhtmlViewResolver">
+        <property name="order" value="1" />
+        <property name="prefix" value="classpath:m2mockup/m2template/" />
+        <property name="suffix" value=".html" />
+        <property name="basePackage" value="com.example.yourproject.web.view" />
+        <property name="mixer2Engine" ref="mixer2Engine" />
+    </bean>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="order" value="2" />
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    <!-- other configuration... -->
+----
+
+ 上記の設定は、下記のようなソースコードツリー構造を想定しています。
+ 下記はmaven標準ディレクトリ構造に習っていますが、
+ classpathやドキュメントルートからの階層が合っていれば、他の構造でも問題はありません。
+
+----
+src/
+└── main/
+    ├── java/
+    │   └── com/
+    │       └── example/
+    │           └── yourproject/
+    │               ├── service/
+    │               └── web/
+    │                   ├── controller/
+    │                   │   ├── FooController.java
+    │                   └── view/
+    │                       ├── FooView.java
+    │                       
+    ├── resources/
+    │   ├── mvc-dispatcher-servlet.xml
+    │   └── m2mockup/
+    │       ├── m2static/
+    │       │   ├── css/
+    │       │   │   └── main.css
+    │       │   └── img/
+    │       │       └── sample.png
+    │       └── m2template/
+    │           └── foo.html
+    └── webapp/
+        └── WEB-INF/
+            └── jsp/
+                └── bar.jsp
+----
+
+* Controller code
+
+ FooControllerクラスで、"/foo"というURIへのアクセスをMixer2で処理し、
+ "/bar"というURIへのアクセスをJSPで処理する場合、
+ Controllerのコードは下記のようになります。
+
+----
+@Controller
+public class IndexController {
+    @RequestMapping(value = "/foo", method = RequestMethod.GET)
+    public String foo() {
+        // attach to FooView class with foo.html template
+        // by Mixer2ViewResolver .
+        return "foo"; 
+    }
+
+    @RequestMapping(value = "/bar", method = RequestMethod.GET)
+    public String bar() {
+        // attach to bar.jsp by InternalResourceViewResolver .
+        return "bar";
+    }
+}
+----
+
+* View code
+
+ "/foo"へのアクセスに対するViewクラスとしてFooViewを作る必要があります。
+ 下記のようなコードになります。
+
+ Viewクラスに対して@Componentなどを指定する必要はありません。
+ 前述のDI定義でbasePackageとしてcom.example.yourproject.web.viewを指定したため、
+ Mixer2ViewResolverはその配下のViewクラスのコンポーネント化とDIを自動的に行います。
+
+----
+...
+import org.mixer2.spring.webmvc.AbstractMixer2XhtmlView;
+...
+
+public class FooView extends AbstractMixer2XhtmlView {
+
+    // You can use any bean in DI container.
+    @Autowired
+    private SomeBean someBean;
+
+    @Override
+    protected Html renderHtml(Html html, Map<String, Object> model, HttpServletRequest request,
+            HttpServletResponse response) throws TagTypeUnmatchException {
+
+        // Mixer2ViewResolver has load "foo.html" template 
+        // into "html" variable automatically.
+        // So, You can modify it.
+        Div div = html.getById("hellomsg", Div.class);
+        div.unsetContent();
+        div.getContent().add(someBean.getHelloWorldMessageString());
+
+        // replace static file path.
+        // For example: <img src="../m2static/img/sample.png" />
+        // will be changed to <img src="[contextPath]/m2static/img/sample.png" />
+        Pattern pattern = Pattern.compile("^\\.+/.*m2static/(.*)$");
+        String ctx = request.getContextPath();
+        PathAjuster.replacePath(html, pattern, ctx + "/m2static/$1");
+
+        return html;
+    }
+}
+----
+
+* Fruit shop sample application
+
+ ECサイトを想定した簡単なサンプルアプリケーションもあります。
+ {{{springmvcsample.html}Fruit shop sample application for SpringMVC}}
+ をご覧ください。
+

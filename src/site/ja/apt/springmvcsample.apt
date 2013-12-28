@@ -4,9 +4,6 @@
 
 Fruit shop sample web application on SpringMVC
 
- {{{http://www.google.com/search?q=springmvc}SpringMVC}}は、
- DIコンテナとして有名なSpringのサブプロジェクトとして提供されているWebアプリケーションフレームワークです。
-
  ここではSpringMVCのViewとしてmixer2を利用した、フルーツショップサンプルアプリケーションを
  あなたの開発環境に展開する方法を解説します。
 
