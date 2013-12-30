@@ -137,6 +137,12 @@ public class FooView extends AbstractMixer2XhtmlView {
 }
 ----
 
+* TIPS
+
+ * Html template file is required. If nothing, Mixer2ViewResolver chains to next view resolver.
+
+ * View class is not required. If nothing, Mixer2ViewResolver create default view class which responses html template as is.
+
 * Fruit shop sample application
 
  There are full sample web application.

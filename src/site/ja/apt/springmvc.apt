@@ -138,6 +138,12 @@ public class FooView extends AbstractMixer2XhtmlView {
 }
 ----
 
+* TIPS
+
+ * html テンプレートファイルは必須です。Controllerクラスのメソッドが返すViewNameに該当するhtmlテンプレートファイルが見つからない場合、次のビューリゾルバーに処理を移譲します。
+
+ * Viewクラスの作成は任意です。もしもControllerクラスのメソッドが返すViewNameに該当するViewクラスが見つからない場合、Mixer2ViewResolverはデフォルトのビュークラスを生成し、テンプレートファイルの内容をそのまま返します。
+
 * Fruit shop sample application
 
  ECサイトを想定した簡単なサンプルアプリケーションもあります。
