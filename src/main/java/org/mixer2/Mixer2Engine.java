@@ -57,6 +57,18 @@ public class Mixer2Engine {
 
     private static Log log = LogFactory.getLog(Mixer2Engine.class);
 
+    private static final String XMLOutputFactoryPropertyKey = "javax.xml.stream.XMLOutputFactory";
+
+    private String XMLOutputFactoryImplFqcn = "com.sun.xml.internal.stream.XMLOutputFactoryImpl";
+
+    public String getXMLOutputFactoryImplFqcn() {
+        return XMLOutputFactoryImplFqcn;
+    }
+
+    public void setXMLOutputFactoryImplFqcn(String xMLOutputFactoryImplFqcn) {
+        XMLOutputFactoryImplFqcn = xMLOutputFactoryImplFqcn;
+    }
+
     public Mixer2Engine() {
         init();
     }
@@ -281,7 +293,9 @@ public class Mixer2Engine {
                     .name());
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, false);
             m.setProperty(Marshaller.JAXB_FRAGMENT, true);
-            XMLEventWriter xmlEventWriter = XMLOutputFactory.newInstance()
+            System.setProperty(XMLOutputFactoryPropertyKey, getXMLOutputFactoryImplFqcn());
+            XMLOutputFactory xmlOutputFactory = XMLOutputFactory.newFactory();
+            XMLEventWriter xmlEventWriter = xmlOutputFactory
                     .createXMLEventWriter(tmpWriter);
             m.marshal(tag, new TagCustomizeWriter(xmlEventWriter));
         } catch (JAXBException e) {
@@ -303,6 +317,7 @@ public class Mixer2Engine {
                     .replaceFirst("xmlns=\"[^\"]+\"", "");
         }
         Reader xml = new StringReader(xmlStr);
+        log.debug("creating instance of TransformerFactory");
         TransformerFactory transFactory = TransformerFactory.newInstance();
         Transformer transformer;
         try {
