@@ -72,7 +72,12 @@ public class TagCustomizeWriter implements XMLEventWriter {
 
     public TagCustomizeWriter(XMLEventWriter writer) {
         this.writer = writer;
-        xmlEventFactory = XMLEventFactory.newInstance();
+        System.setProperty("javax.xml.stream.XMLEventFactory", 
+                "com.sun.xml.internal.stream.events.XMLEventFactoryImpl");
+        xmlEventFactory = XMLEventFactory.newFactory();
+//        System.setProperty("foobar", 
+//                "com.sun.xml.internal.stream.events.XMLEventFactoryImpl");
+//        xmlEventFactory = XMLEventFactory.newFactory("foobar",null);
         lineBreakEvent = xmlEventFactory.createCharacters(LINE_SEPARATOR);
     }
 
