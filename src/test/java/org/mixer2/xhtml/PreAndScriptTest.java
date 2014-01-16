@@ -28,6 +28,8 @@ public class PreAndScriptTest {
 
     @Before
     public void init() throws IOException {
+        System.setProperty("jaxp.debug", "true");
+        log.info("JAVA_VERSION = " + SystemUtils.JAVA_VERSION);
         templateFilePath = getClass().getResource(templateFileName).toString();
         if(SystemUtils.IS_OS_WINDOWS){
             templateFilePath = templateFilePath.replaceFirst("file:/", "");
@@ -61,6 +63,7 @@ public class PreAndScriptTest {
     public void test2() throws Exception {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         String xmlStr = m2e.saveToString(html);
+        log.debug(xmlStr);
         assertTrue(xmlStr.contains("//<![CDATA["));
         assertTrue(xmlStr.contains("if (foo > 0 || bar < 100) {"));
         assertTrue(xmlStr.contains("//]]>"));

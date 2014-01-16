@@ -37,6 +37,7 @@ import org.mixer2.jaxb.xhtml.Textarea;
 import org.mixer2.xhtml.AbstractJaxb;
 import org.mixer2.xhtml.NamedEntityEnum;
 import org.mixer2.xhtml.TagCustomizeWriter;
+import org.mixer2.xhtml.XMLFactoryUtil;
 
 /**
  * <p>
@@ -56,18 +57,6 @@ public class Mixer2Engine {
     private JAXBContext jaxbContext = null;
 
     private static Log log = LogFactory.getLog(Mixer2Engine.class);
-
-    private static final String XMLOutputFactoryPropertyKey = "javax.xml.stream.XMLOutputFactory";
-
-    private String XMLOutputFactoryImplFqcn = "com.sun.xml.internal.stream.XMLOutputFactoryImpl";
-
-    public String getXMLOutputFactoryImplFqcn() {
-        return XMLOutputFactoryImplFqcn;
-    }
-
-    public void setXMLOutputFactoryImplFqcn(String xMLOutputFactoryImplFqcn) {
-        XMLOutputFactoryImplFqcn = xMLOutputFactoryImplFqcn;
-    }
 
     public Mixer2Engine() {
         init();
@@ -293,18 +282,26 @@ public class Mixer2Engine {
                     .name());
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, false);
             m.setProperty(Marshaller.JAXB_FRAGMENT, true);
-            System.setProperty(XMLOutputFactoryPropertyKey, getXMLOutputFactoryImplFqcn());
-            XMLOutputFactory xmlOutputFactory = XMLOutputFactory.newFactory();
+            XMLOutputFactory xmlOutputFactory = XMLFactoryUtil
+                    .newXMLOutputFactory();
             XMLEventWriter xmlEventWriter = xmlOutputFactory
                     .createXMLEventWriter(tmpWriter);
-            m.marshal(tag, new TagCustomizeWriter(xmlEventWriter));
+            TagCustomizeWriter tagCustomizeWriter = new TagCustomizeWriter(
+                    xmlEventWriter);
+            log.debug("marshal start");
+// marshal()の中でXMLEventFactoryインスタンスの新規取得が発生してしまっているらしい。
+// marshal()の作り直しという大規模工事が必要。したがって、システムプロパティを使わざるをえない。
+//            System.setProperty("javax.xml.stream.XMLEventFactory",
+//                    "com.sun.xml.internal.stream.events.XMLEventFactoryImpl");
+            m.marshal(tag, tagCustomizeWriter);
+            log.debug("marshal end");
         } catch (JAXBException e) {
             log.warn("marshal failed.", e);
         } catch (XMLStreamException e) {
-            log.warn("XMLStreamException happend. while saveToWriter().", e);
+            log.warn("XMLStreamException happend. while saveToStringWriter().", e);
         } catch (FactoryConfigurationError e) {
             log.warn(
-                    "FactoryConfigurationError happend. while saveToWriter().",
+                    "FactoryConfigurationError happend. while saveToStringWriter().",
                     e);
         }
 
@@ -318,7 +315,10 @@ public class Mixer2Engine {
         }
         Reader xml = new StringReader(xmlStr);
         log.debug("creating instance of TransformerFactory");
-        TransformerFactory transFactory = TransformerFactory.newInstance();
+        
+        TransformerFactory transFactory = XMLFactoryUtil.newTransformerFactory();
+        //TransformerFactory transFactory = TransformerFactory.newInstance();
+        
         Transformer transformer;
         try {
             transformer = transFactory.newTransformer();
@@ -329,10 +329,10 @@ public class Mixer2Engine {
                     writer));
         } catch (TransformerConfigurationException e) {
             log.warn(
-                    "TransformerConfigurationException happend. while saveToWriter().",
+                    "TransformerConfigurationException happend. while saveToStringWriter().",
                     e);
         } catch (TransformerException e) {
-            log.warn("TransformerException happend. while saveToWriter().", e);
+            log.warn("TransformerException happend. while saveToStringWriter().", e);
         }
     }
 
