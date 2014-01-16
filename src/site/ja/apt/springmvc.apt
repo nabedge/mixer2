@@ -81,7 +81,8 @@ src/
 @Controller
 public class IndexController {
     @RequestMapping(value = "/foo", method = RequestMethod.GET)
-    public String foo() {
+    public String foo(Model model) {
+        model.addAttribute("someMessage", "Life is beautiful");
         // attach to FooView class with foo.html template
         // by Mixer2ViewResolver .
         return "foo"; 
@@ -113,7 +114,7 @@ public class FooView extends AbstractMixer2XhtmlView {
 
     // You can use any bean in DI container.
     @Autowired
-    private SomeBean someBean;
+    private HelloWorldBean helloWorldBean;
 
     @Override
     protected Html renderHtml(Html html, Map<String, Object> model, HttpServletRequest request,
@@ -124,7 +125,11 @@ public class FooView extends AbstractMixer2XhtmlView {
         // So, You can modify it.
         Div div = html.getById("hellomsg", Div.class);
         div.unsetContent();
-        div.getContent().add(someBean.getHelloWorldMessageString());
+        div.getContent().add(helloWorldBean.getHelloWorldMessageString());
+
+        // Of course, you can use model that is delivered from controller.
+        String someMessage = (String) model.get("someMessage");
+        div.getContent().add(someMessage);
 
         // replace static file path.
         // For example: <img src="../m2static/img/sample.png" />
