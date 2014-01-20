@@ -12,7 +12,7 @@ import org.mixer2.Mixer2Engine;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.P;
 
-@Ignore("for sample")
+//@Ignore("for sample")
 public class HelloWorldTest {
 
     private String templateFileName = "HelloWorld_html5.html";
@@ -38,7 +38,7 @@ public class HelloWorldTest {
         p.unsetContent();
         p.getContent().add("Hello World!");
         String result = m2e.saveToString(html);
-        //System.out.println(result);
+        System.out.println(result);
         Assert.assertTrue(result
                 .contains("<p id=\"hellomsg\">Hello World!</p>"));
     }
