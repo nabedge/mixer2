@@ -231,3 +231,7 @@ html.getById("barInputLabel", Label.class).setFor(barInput);
  
  []
  
+* How to contact you
+
+ See {{{team-list.html}team page}} or {{{mail-lists.html}mailing list page}}
+ 
