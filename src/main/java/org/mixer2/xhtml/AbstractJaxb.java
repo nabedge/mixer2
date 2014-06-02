@@ -120,6 +120,33 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
+     * delete element that has specified property within descendant element
+     * of oneself. you can't delete oneself.
+     * </p>
+     * <p>
+     * 自分自身の子孫要素のうち、指定した要素を削除します。 自分自身を削除することはできません。
+     * </p>
+     *
+     * @param target
+     * @return if success to delete, return true. if no hit, return false.
+     */
+    public <T extends AbstractJaxb> boolean remove(T target)
+            throws TagTypeUnmatchException {
+        String id = target.getId();
+        if (id == null) {
+            for (int i = 0; i < 256; i++) {
+                id = UUID.randomUUID().toString();
+                if (this.getById(id) == null) {
+                    target.setId(id);
+                    break;
+                }
+            }
+        }
+        return RemoveByIdUtil.removeById(id, this);
+    }
+
+    /**
+     * <p>
      * delete element that has specified id property within descendant element
      * of oneself. you can't delete oneself.
      * </p>
