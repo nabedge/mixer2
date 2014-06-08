@@ -130,8 +130,7 @@ public abstract class AbstractJaxb implements Serializable {
      * @param target
      * @return if success to delete, return true. if no hit, return false.
      */
-    public <T extends AbstractJaxb> boolean remove(T target)
-            throws TagTypeUnmatchException {
+    public <T extends AbstractJaxb> boolean remove(T target) {
         String id = target.getId();
         if (id == null) {
             for (int i = 0; i < 256; i++) {
