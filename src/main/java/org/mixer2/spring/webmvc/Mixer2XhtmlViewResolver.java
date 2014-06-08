@@ -41,12 +41,17 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
  *     <property name="basePackage" value="com.example.yourproject.web.view" />
  *     <property name="mixer2Engine" ref="mixer2Engine" />
  *     
- *     <!-- "returnNullIfTemplateFileNotFound" (since 1.2.21) -->
  *     <!-- Default value is true that means this resolver returns null -->
  *     <!-- if template file not found and continue to resolve view name -->
  *     <!-- by another subsequent view resolver. -->
  *     <!-- Set "false" if you expect FileNotFoundException for unknown view name -->
- *     <property name="returnNullIfTemplateFileNotFound" ref="true" />
+ *     <property name="returnNullIfTemplateFileNotFound" value="true" />
+ *     
+ *     <!-- If this resolver can not find the view class, -->
+ *     <!-- returns html template "as is" with defaultView. -->
+ *     <!-- If set true, raise ViewClassNotFoundException .  -->
+ *     <!-- Default value is false. -->
+ *     <property name="raiseErrorIfViewClassNotFound" value="true" />
  * </bean>
  * }
  * </pre>
@@ -100,7 +105,9 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
  * </p>
  * 
  * @see {@link http://mixer2.org/site/springmvcsample.html}
- * @see {@link https://github.com/nabedge/mixer2-sample/tree/master/mixer2-fruitshop-springmvc}
+ * @see {@link https
+ *      ://github.com/nabedge/mixer2-sample/tree/master/mixer2-fruitshop
+ *      -springmvc}
  * @author kazuki43zoo
  * @author nabedge
  */
@@ -125,6 +132,8 @@ public class Mixer2XhtmlViewResolver extends UrlBasedViewResolver {
 
     private boolean returnNullIfTemplateFileNotFound = true;
 
+    private boolean raiseErrorIfViewClassNotFound = false;
+
     public Mixer2XhtmlViewResolver() {
         setViewClass(AbstractMixer2XhtmlView.class);
     }
@@ -145,20 +154,22 @@ public class Mixer2XhtmlViewResolver extends UrlBasedViewResolver {
         this.docType = docType;
     }
 
-    /**
-     * @since 1.2.21
-     * @return
-     */
     public boolean isReturnNullIfTemplateFileNotFound() {
         return returnNullIfTemplateFileNotFound;
     }
 
-    /*
-     * @since 1.2.21
-     */
     public void setReturnNullIfTemplateFileNotFound(
             boolean returnNullIfTemplateFileNotFound) {
         this.returnNullIfTemplateFileNotFound = returnNullIfTemplateFileNotFound;
+    }
+
+    public boolean isRaiseErrorIfViewClassNotFound() {
+        return raiseErrorIfViewClassNotFound;
+    }
+
+    public void setRaiseErrorIfViewClassNotFound(
+            boolean raiseErrorIfViewClassNotFound) {
+        this.raiseErrorIfViewClassNotFound = raiseErrorIfViewClassNotFound;
     }
 
     @Override
@@ -192,9 +203,13 @@ public class Mixer2XhtmlViewResolver extends UrlBasedViewResolver {
             getApplicationContext().getAutowireCapableBeanFactory()
                     .autowireBean(view);
         } catch (ClassNotFoundException e) {
-            view = createDefaultView();
-            log.debug("Applied default view. viewName is '" + viewName
-                    + "'. fqcnOfView is '" + fqcnOfView + "'.");
+            if (isRaiseErrorIfViewClassNotFound()) {
+                throw e;
+            } else {
+                view = createDefaultView();
+                log.debug("Applied default view. viewName is '" + viewName
+                        + "'. fqcnOfView is '" + fqcnOfView + "'.");
+            }
         }
 
         // inject properties of AbstractMixer2XhtmlView.
