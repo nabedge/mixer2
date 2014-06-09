@@ -1,11 +1,15 @@
 package org.mixer2.spring.webmvc;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mixer2.Mixer2Engine;
@@ -24,8 +28,11 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import org.springframework.web.servlet.view.AbstractUrlBasedView;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(loader=AnnotationConfigContextLoader.class)
+@ContextConfiguration(loader = AnnotationConfigContextLoader.class)
 public class Mixer2XhtmlViewResolverTest {
+
+    private static Log log = LogFactory
+            .getLog(Mixer2XhtmlViewResolverTest.class);
 
     @Configuration
     static class ContextConfiguration {
@@ -33,6 +40,7 @@ public class Mixer2XhtmlViewResolverTest {
         public Mixer2Engine mixer2Engine() {
             return new Mixer2Engine();
         }
+
         @Bean
         public Mixer2XhtmlViewResolver mixer2XhtmlViewResolver() {
             Mixer2XhtmlViewResolver resolver = new Mixer2XhtmlViewResolver();
@@ -44,42 +52,45 @@ public class Mixer2XhtmlViewResolverTest {
             return resolver;
         }
     }
-    
+
     @Autowired
     private Mixer2Engine mixer2Engine;
-    
+
     @Autowired
     private Mixer2XhtmlViewResolver resolver;
-    
+
     @Test
     public final void useAbstractMixer2XhtmlViewAsDefault() throws Exception {
         AbstractUrlBasedView view = resolver.buildView("HelloWorld");
         assertTrue(view instanceof AbstractMixer2XhtmlView);
-        
+
         AbstractMixer2XhtmlView m2View = (AbstractMixer2XhtmlView) view;
-        Map<String,Object> model = new HashMap<String,Object>();
+        Map<String, Object> model = new HashMap<String, Object>();
         MockHttpServletRequest request = new MockHttpServletRequest();
         MockHttpServletResponse response = new MockHttpServletResponse();
         m2View.renderMergedOutputModel(model, request, response);
-        
-        Html html = mixer2Engine.loadHtmlTemplate(response.getContentAsString());
-        Div div = html.getBody().getById("hellomsg",Div.class);
+
+        Html html = mixer2Engine
+                .loadHtmlTemplate(response.getContentAsString());
+        Div div = html.getBody().getById("hellomsg", Div.class);
         String msg = div.getContent().get(0).toString().trim();
         assertThat(msg, is("Hello World !"));
     }
 
     @Test
     public final void useImplementedView() throws Exception {
-        AbstractUrlBasedView view = resolver.buildView("Mixer2XhtmlViewResolverTest");
+        AbstractUrlBasedView view = resolver
+                .buildView("Mixer2XhtmlViewResolverTest");
         assertTrue(view instanceof Mixer2XhtmlViewResolverTestView);
 
         Mixer2XhtmlViewResolverTestView m2View = (Mixer2XhtmlViewResolverTestView) view;
-        Map<String,Object> model = new HashMap<String,Object>();
+        Map<String, Object> model = new HashMap<String, Object>();
         MockHttpServletRequest request = new MockHttpServletRequest();
         MockHttpServletResponse response = new MockHttpServletResponse();
         m2View.renderMergedOutputModel(model, request, response);
-        
-        Html html = mixer2Engine.loadHtmlTemplate(response.getContentAsString());
+
+        Html html = mixer2Engine
+                .loadHtmlTemplate(response.getContentAsString());
         Span span = html.getBody().getById("newSpan", Span.class);
         assertThat(span.getContent().get(0).toString(), is("new span"));
     }
@@ -90,14 +101,34 @@ public class Mixer2XhtmlViewResolverTest {
         assertTrue(view instanceof BarView);
 
         BarView barView = (BarView) view;
-        Map<String,Object> model = new HashMap<String,Object>();
+        Map<String, Object> model = new HashMap<String, Object>();
         model.put("barMessage", "Hello Bar !");
         MockHttpServletRequest request = new MockHttpServletRequest();
         MockHttpServletResponse response = new MockHttpServletResponse();
         barView.renderMergedOutputModel(model, request, response);
 
-        Html html = mixer2Engine.loadHtmlTemplate(response.getContentAsString());
+        Html html = mixer2Engine
+                .loadHtmlTemplate(response.getContentAsString());
         Span span = html.getBody().getById("barSpan", Span.class);
         assertThat(span.getContent().get(0).toString(), is("Hello Bar !"));
+    }
+
+    @Test(expected = ClassNotFoundException.class)
+    public final void viewClassNotFoundTest() throws Exception {
+        resolver.setRaiseErrorIfViewClassNotFound(true);
+        AbstractUrlBasedView existsView = resolver.buildView("foo/bar");
+        Assert.assertNotNull(existsView);
+        resolver.buildView("nonExistsViewClazzzzzzz"); // raise exception.
+    }
+
+    @Test
+    public final void viewClassNotFoundTest2() throws Exception {
+        resolver.setRaiseErrorIfViewClassNotFound(false);
+        AbstractUrlBasedView existsView = resolver.buildView("foo/bar");
+        Assert.assertNotNull(existsView);
+        AbstractUrlBasedView defaultView = resolver
+                .buildView("nonExistsViewClazzzzzzz");
+        Assert.assertNotNull(defaultView);
+        log.trace("");
     }
 }
