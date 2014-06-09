@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.Span;
 import org.mixer2.xhtml.TagCreator;
-import org.springframework.stereotype.Component;
 
 public class Mixer2XhtmlViewResolverTestView extends AbstractMixer2XhtmlView {
 

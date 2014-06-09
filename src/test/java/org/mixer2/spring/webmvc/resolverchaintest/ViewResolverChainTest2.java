@@ -55,7 +55,7 @@ public class ViewResolverChainTest2 {
      */
     @Test(expected = FileNotFoundException.class)
     public void getBar() throws Exception {
-        MvcResult mvcResult = mockMvc.perform(get("/bar")).andReturn();
+        mockMvc.perform(get("/bar")).andReturn();
     }
 
 }
