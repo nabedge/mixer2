@@ -49,7 +49,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
  *     
  *     <!-- If this resolver can not find the view class, -->
  *     <!-- returns html template "as is" with defaultView. -->
- *     <!-- If set true, raise ViewClassNotFoundException .  -->
+ *     <!-- But if use this property, raise ClassNotFoundException .  -->
  *     <!-- Default value is false. -->
  *     <property name="raiseErrorIfViewClassNotFound" value="true" />
  * </bean>
