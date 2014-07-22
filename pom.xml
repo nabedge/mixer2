@@ -372,7 +372,7 @@
             <plugin>
                 <groupId>org.sonatype.maven.plugin</groupId>
                 <artifactId>emma-maven-plugin</artifactId>
-                <version>1.1</version>
+                <version>1.2</version>
                 <configuration>
                     <filters>
                         <filter>-org.mixer2.jaxb.xhtml.*</filter>
