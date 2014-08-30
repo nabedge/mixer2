@@ -136,7 +136,7 @@ public class FooView extends AbstractMixer2XhtmlView {
         // will be changed to <img src="[contextPath]/m2static/img/sample.png" />
         Pattern pattern = Pattern.compile("^\\.+/.*m2static/(.*)$");
         String ctx = request.getContextPath();
-        PathAjuster.replacePath(html, pattern, ctx + "/m2static/$1");
+        PathAdjuster.replacePath(html, pattern, ctx + "/m2static/$1");
 
         return html;
     }
