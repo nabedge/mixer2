@@ -103,7 +103,7 @@ public abstract class AbstractMixer2XhtmlView extends AbstractUrlBasedView {
     }
 
     @Override
-    protected final void renderMergedOutputModel(Map<String, Object> model,
+    protected void renderMergedOutputModel(Map<String, Object> model,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         Html templateHtml = mixer2Engine
