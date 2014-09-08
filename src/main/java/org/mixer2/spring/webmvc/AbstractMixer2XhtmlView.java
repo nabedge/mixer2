@@ -58,11 +58,11 @@ public abstract class AbstractMixer2XhtmlView extends AbstractUrlBasedView {
 
     private static String lineBreakChar = System.getProperty("line.separator");
 
-    private ResourceLoader resourceLoader;
+    protected ResourceLoader resourceLoader;
 
-    private String docType = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
+    protected String docType = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
 
-    private Mixer2Engine mixer2Engine;
+    protected Mixer2Engine mixer2Engine;
 
     public static final AbstractMixer2XhtmlView createDefaultView() {
         return new AbstractMixer2XhtmlView() {
@@ -83,16 +83,24 @@ public abstract class AbstractMixer2XhtmlView extends AbstractUrlBasedView {
         this.docType = docType;
     }
 
+    public String getDocType() {
+    	return docType;
+    }
+    
     public void setMixer2Engine(Mixer2Engine mixer2Engine) {
         this.mixer2Engine = mixer2Engine;
     }
 
-    protected Mixer2Engine getMixer2Engine() {
+    public Mixer2Engine getMixer2Engine() {
         return mixer2Engine;
     }
 
     public void setResourceLoader(ResourceLoader resourceLoader) {
         this.resourceLoader = resourceLoader;
+    }
+
+    public ResourceLoader setResourceLoader() {
+        return resourceLoader;
     }
 
     @Override
