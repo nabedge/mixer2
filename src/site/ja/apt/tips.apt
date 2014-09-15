@@ -395,7 +395,7 @@ abc
  {{{./apidocs/org/mixer2/xhtml/PathAdjuster.html} javadoc}}
  をご覧ください。
 
- * XMLStringUtil
+* XMLStringUtil
  
  XML(XHTML)で使用可能な文字は、 {{{http://www.w3.org/TR/REC-xml/#charsets} w3c}}
  において厳格に規定されています。XMLStringUtilは、使用可能な文字かどうかの検証、

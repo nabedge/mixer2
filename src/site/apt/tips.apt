@@ -379,7 +379,7 @@ abc
  {{{./apidocs/org/mixer2/xhtml/PathAdjuster.html} javadoc}}
  for detail.
 
- * XMLStringUtil
+* XMLStringUtil
 
  The characters for XML(XHTML) is strictly determined by {{{http://www.w3.org/TR/REC-xml/#charsets} w3c}}.
  XMLStringUtil class provide some function. 
