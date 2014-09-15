@@ -394,3 +394,13 @@ abc
  詳しくは
  {{{./apidocs/org/mixer2/xhtml/PathAdjuster.html} javadoc}}
  をご覧ください。
+
+ * XMLStringUtil
+ 
+ XML(XHTML)で使用可能な文字は、 {{{http://www.w3.org/TR/REC-xml/#charsets} w3c}}
+ において厳格に規定されています。XMLStringUtilは、使用可能な文字かどうかの検証、
+ 使用不可文字の一括置換などの機能を提供しています。詳しくは
+ {{{./apidocs/org/mixer2/util/XMLStringUtil.html} javadoc}}
+ をご覧ください。
+  
+  

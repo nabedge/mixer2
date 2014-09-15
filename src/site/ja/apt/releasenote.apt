@@ -4,6 +4,10 @@
 
 Release Note
 
+ * 1.2.34 add XMLStringUtil see javadoc.
+
+ * 1.2.33 replace some methods signature (private -> protected)
+
  * 1.2.32 remove function. "raiseErrorIfViewClassNotFound" option for SpringMVC ViewResolver.
 
  * 1.2.22 fix misspelled class name "PathAjuster" -> "PathAdjuster" . fix bug on {{{https://github.com/nabedge/mixer2/issues/9}SpringMVC ViewResolver}}. jack up pom.xml .

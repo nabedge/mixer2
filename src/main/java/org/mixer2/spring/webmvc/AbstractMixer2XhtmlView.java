@@ -131,7 +131,17 @@ public abstract class AbstractMixer2XhtmlView extends AbstractUrlBasedView {
             sb.append(lineBreakChar);
         }
         sb.append(getMixer2Engine().saveToString(renderedHtml).trim());
-        writer.write(sb.toString());
+        writer.write(modifyHtmlStringHook(sb.toString()));
+    }
+
+    /**
+     * Override this method if you modify html as string right before http response.
+     * 
+     * @param htmlString String object that is saveToString()ed by mixer2Engine.
+     * @return
+     */
+    protected String modifyHtmlStringHook(String htmlString) {
+        return htmlString;
     }
 
     /**

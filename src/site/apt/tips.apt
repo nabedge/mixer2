@@ -378,3 +378,10 @@ abc
  You can use PathAdjuster class. See
  {{{./apidocs/org/mixer2/xhtml/PathAdjuster.html} javadoc}}
  for detail.
+
+ * XMLStringUtil
+
+ The characters for XML(XHTML) is strictly determined by {{{http://www.w3.org/TR/REC-xml/#charsets} w3c}}.
+ XMLStringUtil class provide some function. 
+ {{{./apidocs/org/mixer2/util/XMLStringUtil.html} javadoc}} for detail.
+  
