@@ -4,6 +4,7 @@
 $script = <<SCRIPT
   echo "#{ENV['AWS_ACCESS_KEY_ID']}:#{ENV['AWS_SECRET_ACCESS_KEY']}" | sudo tee -a /etc/passwd-s3fs
   sudo chmod 640 /etc/passwd-s3fs
+  sed -i -e 's/\s*Defaults\s*requiretty$/#Defaults requiretty/' /etc/sudoers
 SCRIPT
 
 VAGRANTFILE_API_VERSION = "2"
