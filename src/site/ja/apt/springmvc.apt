@@ -6,7 +6,7 @@ Use Mixer2 with Spring MVC
 
  {{{http://www.google.com/search?q=springmvc}SpringMVC}}は、
  DIコンテナとして有名なSpringのサブプロジェクトとして提供されているWebアプリケーションフレームワークです。
- 
+
  Mixer2には、Spring MVC におけるViewResolverおよび抽象Viewクラスも同梱されています。
  ViewのテンプレートとしてJSPを使用する通常のControllerクラスの書き方とほとんど同じ形で
  普通のhtmlテンプレートをViewとして使用することができます。
@@ -54,7 +54,7 @@ src/
     │                   │   ├── FooController.java
     │                   └── view/
     │                       ├── FooView.java
-    │                       
+    │
     ├── resources/
     │   ├── mvc-dispatcher-servlet.xml
     │   └── m2mockup/
@@ -85,7 +85,7 @@ public class IndexController {
         model.addAttribute("someMessage", "Life is beautiful");
         // attach to FooView class with foo.html template
         // by Mixer2ViewResolver .
-        return "foo"; 
+        return "foo";
     }
 
     @RequestMapping(value = "/bar", method = RequestMethod.GET)
@@ -120,7 +120,7 @@ public class FooView extends AbstractMixer2XhtmlView {
     protected Html renderHtml(Html html, Map<String, Object> model, HttpServletRequest request,
             HttpServletResponse response) throws TagTypeUnmatchException {
 
-        // Mixer2ViewResolver has load "foo.html" template 
+        // Mixer2ViewResolver has load "foo.html" template
         // into "html" variable automatically.
         // So, You can modify it.
         Div div = html.getById("hellomsg", Div.class);
@@ -140,6 +140,14 @@ public class FooView extends AbstractMixer2XhtmlView {
 
         return html;
     }
+
+    @Override
+    protected String modifyHtmlStringHook(String htmlStr) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("<!--[if lt IE 9]><script src=\"/static/html5shiv.js\"></script><![endif]-->");
+        sb.append("</head>");
+        return htmlStr.replaceFirst("</head>", sb.toString());
+    }
 }
 ----
 
@@ -148,6 +156,9 @@ public class FooView extends AbstractMixer2XhtmlView {
  * html テンプレートファイルは必須です。Controllerクラスのメソッドが返すViewNameに該当するhtmlテンプレートファイルが見つからない場合、次のビューリゾルバーに処理を移譲します。
 
  * Viewクラスの作成は任意です。もしもControllerクラスのメソッドが返すViewNameに該当するViewクラスが見つからない場合、Mixer2ViewResolverはデフォルトのビュークラスを生成し、テンプレートファイルの内容をそのまま返します。
+
+ * mixer2のhtmlタグ型インスタンスでは操作できないことを行いたい場合（たとえばhtmlコメントを埋め込む）には、 modifyHtmlStringHook()をオーバーライドしてください。http resuponseされる直前のhtmlをStringとして操作可能です。
+   See {{{./apidocs/org/mixer2/spring/webmvc/AbstractMixer2XhtmlView.html#modifyHtmlStringHook(java.lang.String)}javadoc}} for details.
 
 * Fruit shop sample application
 

@@ -4,7 +4,9 @@
 
 Release Note
 
- * 1.2.34 add XMLStringUtil see javadoc.
+ * 1.2.34 add {{{./apidocs/org/mixer2/util/XMLStringUtil.html}XMLStringUtil}} and
+   {{{./apidocs/org/mixer2/spring/webmvc/AbstractMixer2XhtmlView.html#modifyHtmlStringHook(java.lang.String)}AbstractMixer2XhtmlView#modifyHtmlStringHook() method.}}
+   See also {{{./springmvc.html}Use Mixer2 with SpringMVC}}
 
  * 1.2.33 replace some methods signature (private -> protected)
 
@@ -42,8 +44,8 @@ Release Note
 
  * 1.2.2 add PathAjuster class and some fix.
 
- * 1.2.1 2013-03 bug fix. The bug had remove line break on html template. 
- 
+ * 1.2.1 2013-03 bug fix. The bug had remove line break on html template.
+
  * 1.1.17 add Mixer2XhtmlView for Spring MVC.
 
  * 1.1.14 can load html template from InputStream.
@@ -61,6 +63,6 @@ Release Note
  * 1.1.0 2011-07-31 html5
 
  * 1.0.0 2011-02-05 first release.
- 
+
  []
 

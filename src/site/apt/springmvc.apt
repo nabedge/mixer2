@@ -4,9 +4,9 @@
 
 Use Mixer2 with Spring MVC
 
- {{{http://www.google.com/search?q=springmvc}SpringMVC}} is 
+ {{{http://www.google.com/search?q=springmvc}SpringMVC}} is
  web application framework. It is a sub-project of springframework.
- 
+
  Mixer2 includes ViewResolver and AbstractView class for Spring MVC .
  You can use both normal html template and jsp template in controller class
 
@@ -73,8 +73,8 @@ src/
 
 * Controller code
 
- FooController class below processes 
- the access to "/foo" URI by Mixer2, and "/bar" URI by JSP . 
+ FooController class below processes
+ the access to "/foo" URI by Mixer2, and "/bar" URI by JSP .
 
 ----
 @Controller
@@ -84,7 +84,7 @@ public class IndexController {
         model.addAttribute("someMessage", "Life is beautiful");
         // attach to FooView class with foo.html template
         // by Mixer2ViewResolver .
-        return "foo"; 
+        return "foo";
     }
 
     @RequestMapping(value = "/bar", method = RequestMethod.GET)
@@ -98,9 +98,9 @@ public class IndexController {
 * View code
 
  You need to write FooView class as a View class for request URI "/foo" .
- 
+
  You need NOT to add @Component annotation
- because the DI configuration described above 
+ because the DI configuration described above
  specified "com.exxample.yourproject.web.view" as "basePackage"
  and Mixer2ViewResolver instantiate the View class and inject bean.
 
@@ -119,7 +119,7 @@ public class FooView extends AbstractMixer2XhtmlView {
     protected Html renderHtml(Html html, Map<String, Object> model, HttpServletRequest request,
             HttpServletResponse response) throws TagTypeUnmatchException {
 
-        // Mixer2ViewResolver has load "foo.html" template 
+        // Mixer2ViewResolver has load "foo.html" template
         // into "html" variable automatically.
         // So, You can modify it.
         Div div = html.getById("hellomsg", Div.class);
@@ -139,6 +139,15 @@ public class FooView extends AbstractMixer2XhtmlView {
 
         return html;
     }
+
+    @Override
+    protected String modifyHtmlStringHook(String htmlStr) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("<!--[if lt IE 9]><script src=\"/static/html5shiv.js\"></script><![endif]-->");
+        sb.append("</head>");
+        return htmlStr.replaceFirst("</head>", sb.toString());
+    }
+
 }
 ----
 
@@ -147,6 +156,9 @@ public class FooView extends AbstractMixer2XhtmlView {
  * Html template file is required. If nothing, Mixer2ViewResolver chains to next view resolver.
 
  * View class is not required. If nothing, Mixer2ViewResolver create default view class which responses html template as is.
+
+ * Override modifyHtmlStringHook() method if you have to modify html string just before http response.
+   See {{{./apidocs/org/mixer2/spring/webmvc/AbstractMixer2XhtmlView.html#modifyHtmlStringHook(java.lang.String)}javadoc}} for details.
 
 * Fruit shop sample application
 
