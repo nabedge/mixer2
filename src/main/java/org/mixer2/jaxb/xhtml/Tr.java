@@ -20,32 +20,38 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import javax.xml.namespace.QName;
 import org.jvnet.jaxb2_commons.lang.CopyStrategy;
 import org.jvnet.jaxb2_commons.lang.CopyTo;
+import org.jvnet.jaxb2_commons.lang.Equals;
+import org.jvnet.jaxb2_commons.lang.EqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.HashCode;
+import org.jvnet.jaxb2_commons.lang.HashCodeStrategy;
 import org.jvnet.jaxb2_commons.lang.JAXBCopyStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
+import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
 import org.jvnet.jaxb2_commons.locator.ObjectLocator;
 import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
 import org.mixer2.xhtml.AbstractJaxb;
 
 
 /**
- * <p>anonymous complex typeのJavaクラス。
+ * <p>Java class for anonymous complex type.
  * 
- * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;choice maxOccurs="unbounded">
- *         &lt;element ref="{http://www.w3.org/1999/xhtml}th"/>
- *         &lt;element ref="{http://www.w3.org/1999/xhtml}td"/>
- *       &lt;/choice>
- *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellvalign"/>
- *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellhalign"/>
- *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}attrs"/>
- *       &lt;attribute name="bgcolor" type="{http://www.w3.org/1999/xhtml}Color" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;choice maxOccurs="unbounded"&gt;
+ *         &lt;element ref="{http://www.w3.org/1999/xhtml}th"/&gt;
+ *         &lt;element ref="{http://www.w3.org/1999/xhtml}td"/&gt;
+ *       &lt;/choice&gt;
+ *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellvalign"/&gt;
+ *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}cellhalign"/&gt;
+ *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}attrs"/&gt;
+ *       &lt;attribute name="bgcolor" type="{http://www.w3.org/1999/xhtml}Color" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -57,7 +63,7 @@ import org.mixer2.xhtml.AbstractJaxb;
 @XmlRootElement(name = "tr")
 public class Tr
     extends AbstractJaxb
-    implements Cloneable, CopyTo
+    implements Cloneable, CopyTo, Equals, HashCode
 {
 
     @XmlElements({
@@ -235,6 +241,18 @@ public class Tr
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlSchemaType(name = "language")
     protected String lang;
+    @XmlAttribute(name = "itemscope")
+    protected String itemscope;
+    @XmlAttribute(name = "itemtype")
+    protected String itemtype;
+    @XmlAttribute(name = "itemprop")
+    @XmlSchemaType(name = "NMTOKENS")
+    protected List<String> itemprop;
+    @XmlAttribute(name = "itemref")
+    @XmlSchemaType(name = "NMTOKENS")
+    protected List<String> itemref;
+    @XmlAttribute(name = "itemid")
+    protected String itemid;
     @XmlAnyAttribute
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
@@ -277,7 +295,7 @@ public class Tr
     }
 
     /**
-     * bgcolorプロパティの値を取得します。
+     * Gets the value of the bgcolor property.
      * 
      * @return
      *     possible object is
@@ -289,7 +307,7 @@ public class Tr
     }
 
     /**
-     * bgcolorプロパティの値を設定します。
+     * Sets the value of the bgcolor property.
      * 
      * @param value
      *     allowed object is
@@ -305,7 +323,7 @@ public class Tr
     }
 
     /**
-     * valignプロパティの値を取得します。
+     * Gets the value of the valign property.
      * 
      * @return
      *     possible object is
@@ -317,7 +335,7 @@ public class Tr
     }
 
     /**
-     * valignプロパティの値を設定します。
+     * Sets the value of the valign property.
      * 
      * @param value
      *     allowed object is
@@ -333,7 +351,7 @@ public class Tr
     }
 
     /**
-     * alignプロパティの値を取得します。
+     * Gets the value of the align property.
      * 
      * @return
      *     possible object is
@@ -345,7 +363,7 @@ public class Tr
     }
 
     /**
-     * alignプロパティの値を設定します。
+     * Sets the value of the align property.
      * 
      * @param value
      *     allowed object is
@@ -361,7 +379,7 @@ public class Tr
     }
 
     /**
-     * charプロパティの値を取得します。
+     * Gets the value of the char property.
      * 
      * @return
      *     possible object is
@@ -373,7 +391,7 @@ public class Tr
     }
 
     /**
-     * charプロパティの値を設定します。
+     * Sets the value of the char property.
      * 
      * @param value
      *     allowed object is
@@ -389,7 +407,7 @@ public class Tr
     }
 
     /**
-     * charoffプロパティの値を取得します。
+     * Gets the value of the charoff property.
      * 
      * @return
      *     possible object is
@@ -401,7 +419,7 @@ public class Tr
     }
 
     /**
-     * charoffプロパティの値を設定します。
+     * Sets the value of the charoff property.
      * 
      * @param value
      *     allowed object is
@@ -417,7 +435,7 @@ public class Tr
     }
 
     /**
-     * onclickプロパティの値を取得します。
+     * Gets the value of the onclick property.
      * 
      * @return
      *     possible object is
@@ -429,7 +447,7 @@ public class Tr
     }
 
     /**
-     * onclickプロパティの値を設定します。
+     * Sets the value of the onclick property.
      * 
      * @param value
      *     allowed object is
@@ -445,7 +463,7 @@ public class Tr
     }
 
     /**
-     * ondblclickプロパティの値を取得します。
+     * Gets the value of the ondblclick property.
      * 
      * @return
      *     possible object is
@@ -457,7 +475,7 @@ public class Tr
     }
 
     /**
-     * ondblclickプロパティの値を設定します。
+     * Sets the value of the ondblclick property.
      * 
      * @param value
      *     allowed object is
@@ -473,7 +491,7 @@ public class Tr
     }
 
     /**
-     * onmousedownプロパティの値を取得します。
+     * Gets the value of the onmousedown property.
      * 
      * @return
      *     possible object is
@@ -485,7 +503,7 @@ public class Tr
     }
 
     /**
-     * onmousedownプロパティの値を設定します。
+     * Sets the value of the onmousedown property.
      * 
      * @param value
      *     allowed object is
@@ -501,7 +519,7 @@ public class Tr
     }
 
     /**
-     * onmouseupプロパティの値を取得します。
+     * Gets the value of the onmouseup property.
      * 
      * @return
      *     possible object is
@@ -513,7 +531,7 @@ public class Tr
     }
 
     /**
-     * onmouseupプロパティの値を設定します。
+     * Sets the value of the onmouseup property.
      * 
      * @param value
      *     allowed object is
@@ -529,7 +547,7 @@ public class Tr
     }
 
     /**
-     * onmouseoverプロパティの値を取得します。
+     * Gets the value of the onmouseover property.
      * 
      * @return
      *     possible object is
@@ -541,7 +559,7 @@ public class Tr
     }
 
     /**
-     * onmouseoverプロパティの値を設定します。
+     * Sets the value of the onmouseover property.
      * 
      * @param value
      *     allowed object is
@@ -557,7 +575,7 @@ public class Tr
     }
 
     /**
-     * onmousemoveプロパティの値を取得します。
+     * Gets the value of the onmousemove property.
      * 
      * @return
      *     possible object is
@@ -569,7 +587,7 @@ public class Tr
     }
 
     /**
-     * onmousemoveプロパティの値を設定します。
+     * Sets the value of the onmousemove property.
      * 
      * @param value
      *     allowed object is
@@ -585,7 +603,7 @@ public class Tr
     }
 
     /**
-     * onmouseoutプロパティの値を取得します。
+     * Gets the value of the onmouseout property.
      * 
      * @return
      *     possible object is
@@ -597,7 +615,7 @@ public class Tr
     }
 
     /**
-     * onmouseoutプロパティの値を設定します。
+     * Sets the value of the onmouseout property.
      * 
      * @param value
      *     allowed object is
@@ -613,7 +631,7 @@ public class Tr
     }
 
     /**
-     * onkeypressプロパティの値を取得します。
+     * Gets the value of the onkeypress property.
      * 
      * @return
      *     possible object is
@@ -625,7 +643,7 @@ public class Tr
     }
 
     /**
-     * onkeypressプロパティの値を設定します。
+     * Sets the value of the onkeypress property.
      * 
      * @param value
      *     allowed object is
@@ -641,7 +659,7 @@ public class Tr
     }
 
     /**
-     * onkeydownプロパティの値を取得します。
+     * Gets the value of the onkeydown property.
      * 
      * @return
      *     possible object is
@@ -653,7 +671,7 @@ public class Tr
     }
 
     /**
-     * onkeydownプロパティの値を設定します。
+     * Sets the value of the onkeydown property.
      * 
      * @param value
      *     allowed object is
@@ -669,7 +687,7 @@ public class Tr
     }
 
     /**
-     * onkeyupプロパティの値を取得します。
+     * Gets the value of the onkeyup property.
      * 
      * @return
      *     possible object is
@@ -681,7 +699,7 @@ public class Tr
     }
 
     /**
-     * onkeyupプロパティの値を設定します。
+     * Sets the value of the onkeyup property.
      * 
      * @param value
      *     allowed object is
@@ -697,7 +715,7 @@ public class Tr
     }
 
     /**
-     * onabortプロパティの値を取得します。
+     * Gets the value of the onabort property.
      * 
      * @return
      *     possible object is
@@ -709,7 +727,7 @@ public class Tr
     }
 
     /**
-     * onabortプロパティの値を設定します。
+     * Sets the value of the onabort property.
      * 
      * @param value
      *     allowed object is
@@ -725,7 +743,7 @@ public class Tr
     }
 
     /**
-     * onblurプロパティの値を取得します。
+     * Gets the value of the onblur property.
      * 
      * @return
      *     possible object is
@@ -737,7 +755,7 @@ public class Tr
     }
 
     /**
-     * onblurプロパティの値を設定します。
+     * Sets the value of the onblur property.
      * 
      * @param value
      *     allowed object is
@@ -753,7 +771,7 @@ public class Tr
     }
 
     /**
-     * oncanplayプロパティの値を取得します。
+     * Gets the value of the oncanplay property.
      * 
      * @return
      *     possible object is
@@ -765,7 +783,7 @@ public class Tr
     }
 
     /**
-     * oncanplayプロパティの値を設定します。
+     * Sets the value of the oncanplay property.
      * 
      * @param value
      *     allowed object is
@@ -781,7 +799,7 @@ public class Tr
     }
 
     /**
-     * oncanplaythroughプロパティの値を取得します。
+     * Gets the value of the oncanplaythrough property.
      * 
      * @return
      *     possible object is
@@ -793,7 +811,7 @@ public class Tr
     }
 
     /**
-     * oncanplaythroughプロパティの値を設定します。
+     * Sets the value of the oncanplaythrough property.
      * 
      * @param value
      *     allowed object is
@@ -809,7 +827,7 @@ public class Tr
     }
 
     /**
-     * onchangeプロパティの値を取得します。
+     * Gets the value of the onchange property.
      * 
      * @return
      *     possible object is
@@ -821,7 +839,7 @@ public class Tr
     }
 
     /**
-     * onchangeプロパティの値を設定します。
+     * Sets the value of the onchange property.
      * 
      * @param value
      *     allowed object is
@@ -837,7 +855,7 @@ public class Tr
     }
 
     /**
-     * oncontextmenuプロパティの値を取得します。
+     * Gets the value of the oncontextmenu property.
      * 
      * @return
      *     possible object is
@@ -849,7 +867,7 @@ public class Tr
     }
 
     /**
-     * oncontextmenuプロパティの値を設定します。
+     * Sets the value of the oncontextmenu property.
      * 
      * @param value
      *     allowed object is
@@ -865,7 +883,7 @@ public class Tr
     }
 
     /**
-     * oncuechangeプロパティの値を取得します。
+     * Gets the value of the oncuechange property.
      * 
      * @return
      *     possible object is
@@ -877,7 +895,7 @@ public class Tr
     }
 
     /**
-     * oncuechangeプロパティの値を設定します。
+     * Sets the value of the oncuechange property.
      * 
      * @param value
      *     allowed object is
@@ -893,7 +911,7 @@ public class Tr
     }
 
     /**
-     * ondragプロパティの値を取得します。
+     * Gets the value of the ondrag property.
      * 
      * @return
      *     possible object is
@@ -905,7 +923,7 @@ public class Tr
     }
 
     /**
-     * ondragプロパティの値を設定します。
+     * Sets the value of the ondrag property.
      * 
      * @param value
      *     allowed object is
@@ -921,7 +939,7 @@ public class Tr
     }
 
     /**
-     * ondragendプロパティの値を取得します。
+     * Gets the value of the ondragend property.
      * 
      * @return
      *     possible object is
@@ -933,7 +951,7 @@ public class Tr
     }
 
     /**
-     * ondragendプロパティの値を設定します。
+     * Sets the value of the ondragend property.
      * 
      * @param value
      *     allowed object is
@@ -949,7 +967,7 @@ public class Tr
     }
 
     /**
-     * ondragenterプロパティの値を取得します。
+     * Gets the value of the ondragenter property.
      * 
      * @return
      *     possible object is
@@ -961,7 +979,7 @@ public class Tr
     }
 
     /**
-     * ondragenterプロパティの値を設定します。
+     * Sets the value of the ondragenter property.
      * 
      * @param value
      *     allowed object is
@@ -977,7 +995,7 @@ public class Tr
     }
 
     /**
-     * ondragleaveプロパティの値を取得します。
+     * Gets the value of the ondragleave property.
      * 
      * @return
      *     possible object is
@@ -989,7 +1007,7 @@ public class Tr
     }
 
     /**
-     * ondragleaveプロパティの値を設定します。
+     * Sets the value of the ondragleave property.
      * 
      * @param value
      *     allowed object is
@@ -1005,7 +1023,7 @@ public class Tr
     }
 
     /**
-     * ondragoverプロパティの値を取得します。
+     * Gets the value of the ondragover property.
      * 
      * @return
      *     possible object is
@@ -1017,7 +1035,7 @@ public class Tr
     }
 
     /**
-     * ondragoverプロパティの値を設定します。
+     * Sets the value of the ondragover property.
      * 
      * @param value
      *     allowed object is
@@ -1033,7 +1051,7 @@ public class Tr
     }
 
     /**
-     * ondragstartプロパティの値を取得します。
+     * Gets the value of the ondragstart property.
      * 
      * @return
      *     possible object is
@@ -1045,7 +1063,7 @@ public class Tr
     }
 
     /**
-     * ondragstartプロパティの値を設定します。
+     * Sets the value of the ondragstart property.
      * 
      * @param value
      *     allowed object is
@@ -1061,7 +1079,7 @@ public class Tr
     }
 
     /**
-     * ondropプロパティの値を取得します。
+     * Gets the value of the ondrop property.
      * 
      * @return
      *     possible object is
@@ -1073,7 +1091,7 @@ public class Tr
     }
 
     /**
-     * ondropプロパティの値を設定します。
+     * Sets the value of the ondrop property.
      * 
      * @param value
      *     allowed object is
@@ -1089,7 +1107,7 @@ public class Tr
     }
 
     /**
-     * ondurationchangeプロパティの値を取得します。
+     * Gets the value of the ondurationchange property.
      * 
      * @return
      *     possible object is
@@ -1101,7 +1119,7 @@ public class Tr
     }
 
     /**
-     * ondurationchangeプロパティの値を設定します。
+     * Sets the value of the ondurationchange property.
      * 
      * @param value
      *     allowed object is
@@ -1117,7 +1135,7 @@ public class Tr
     }
 
     /**
-     * onemptiedプロパティの値を取得します。
+     * Gets the value of the onemptied property.
      * 
      * @return
      *     possible object is
@@ -1129,7 +1147,7 @@ public class Tr
     }
 
     /**
-     * onemptiedプロパティの値を設定します。
+     * Sets the value of the onemptied property.
      * 
      * @param value
      *     allowed object is
@@ -1145,7 +1163,7 @@ public class Tr
     }
 
     /**
-     * onendedプロパティの値を取得します。
+     * Gets the value of the onended property.
      * 
      * @return
      *     possible object is
@@ -1157,7 +1175,7 @@ public class Tr
     }
 
     /**
-     * onendedプロパティの値を設定します。
+     * Sets the value of the onended property.
      * 
      * @param value
      *     allowed object is
@@ -1173,7 +1191,7 @@ public class Tr
     }
 
     /**
-     * onerrorプロパティの値を取得します。
+     * Gets the value of the onerror property.
      * 
      * @return
      *     possible object is
@@ -1185,7 +1203,7 @@ public class Tr
     }
 
     /**
-     * onerrorプロパティの値を設定します。
+     * Sets the value of the onerror property.
      * 
      * @param value
      *     allowed object is
@@ -1201,7 +1219,7 @@ public class Tr
     }
 
     /**
-     * onfocusプロパティの値を取得します。
+     * Gets the value of the onfocus property.
      * 
      * @return
      *     possible object is
@@ -1213,7 +1231,7 @@ public class Tr
     }
 
     /**
-     * onfocusプロパティの値を設定します。
+     * Sets the value of the onfocus property.
      * 
      * @param value
      *     allowed object is
@@ -1229,7 +1247,7 @@ public class Tr
     }
 
     /**
-     * onformchangeプロパティの値を取得します。
+     * Gets the value of the onformchange property.
      * 
      * @return
      *     possible object is
@@ -1241,7 +1259,7 @@ public class Tr
     }
 
     /**
-     * onformchangeプロパティの値を設定します。
+     * Sets the value of the onformchange property.
      * 
      * @param value
      *     allowed object is
@@ -1257,7 +1275,7 @@ public class Tr
     }
 
     /**
-     * onforminputプロパティの値を取得します。
+     * Gets the value of the onforminput property.
      * 
      * @return
      *     possible object is
@@ -1269,7 +1287,7 @@ public class Tr
     }
 
     /**
-     * onforminputプロパティの値を設定します。
+     * Sets the value of the onforminput property.
      * 
      * @param value
      *     allowed object is
@@ -1285,7 +1303,7 @@ public class Tr
     }
 
     /**
-     * oninputプロパティの値を取得します。
+     * Gets the value of the oninput property.
      * 
      * @return
      *     possible object is
@@ -1297,7 +1315,7 @@ public class Tr
     }
 
     /**
-     * oninputプロパティの値を設定します。
+     * Sets the value of the oninput property.
      * 
      * @param value
      *     allowed object is
@@ -1313,7 +1331,7 @@ public class Tr
     }
 
     /**
-     * oninvalidプロパティの値を取得します。
+     * Gets the value of the oninvalid property.
      * 
      * @return
      *     possible object is
@@ -1325,7 +1343,7 @@ public class Tr
     }
 
     /**
-     * oninvalidプロパティの値を設定します。
+     * Sets the value of the oninvalid property.
      * 
      * @param value
      *     allowed object is
@@ -1341,7 +1359,7 @@ public class Tr
     }
 
     /**
-     * onloadプロパティの値を取得します。
+     * Gets the value of the onload property.
      * 
      * @return
      *     possible object is
@@ -1353,7 +1371,7 @@ public class Tr
     }
 
     /**
-     * onloadプロパティの値を設定します。
+     * Sets the value of the onload property.
      * 
      * @param value
      *     allowed object is
@@ -1369,7 +1387,7 @@ public class Tr
     }
 
     /**
-     * onloadeddataプロパティの値を取得します。
+     * Gets the value of the onloadeddata property.
      * 
      * @return
      *     possible object is
@@ -1381,7 +1399,7 @@ public class Tr
     }
 
     /**
-     * onloadeddataプロパティの値を設定します。
+     * Sets the value of the onloadeddata property.
      * 
      * @param value
      *     allowed object is
@@ -1397,7 +1415,7 @@ public class Tr
     }
 
     /**
-     * onloadedmetadataプロパティの値を取得します。
+     * Gets the value of the onloadedmetadata property.
      * 
      * @return
      *     possible object is
@@ -1409,7 +1427,7 @@ public class Tr
     }
 
     /**
-     * onloadedmetadataプロパティの値を設定します。
+     * Sets the value of the onloadedmetadata property.
      * 
      * @param value
      *     allowed object is
@@ -1425,7 +1443,7 @@ public class Tr
     }
 
     /**
-     * onloadstartプロパティの値を取得します。
+     * Gets the value of the onloadstart property.
      * 
      * @return
      *     possible object is
@@ -1437,7 +1455,7 @@ public class Tr
     }
 
     /**
-     * onloadstartプロパティの値を設定します。
+     * Sets the value of the onloadstart property.
      * 
      * @param value
      *     allowed object is
@@ -1453,7 +1471,7 @@ public class Tr
     }
 
     /**
-     * onmousewheelプロパティの値を取得します。
+     * Gets the value of the onmousewheel property.
      * 
      * @return
      *     possible object is
@@ -1465,7 +1483,7 @@ public class Tr
     }
 
     /**
-     * onmousewheelプロパティの値を設定します。
+     * Sets the value of the onmousewheel property.
      * 
      * @param value
      *     allowed object is
@@ -1481,7 +1499,7 @@ public class Tr
     }
 
     /**
-     * onpauseプロパティの値を取得します。
+     * Gets the value of the onpause property.
      * 
      * @return
      *     possible object is
@@ -1493,7 +1511,7 @@ public class Tr
     }
 
     /**
-     * onpauseプロパティの値を設定します。
+     * Sets the value of the onpause property.
      * 
      * @param value
      *     allowed object is
@@ -1509,7 +1527,7 @@ public class Tr
     }
 
     /**
-     * onplayプロパティの値を取得します。
+     * Gets the value of the onplay property.
      * 
      * @return
      *     possible object is
@@ -1521,7 +1539,7 @@ public class Tr
     }
 
     /**
-     * onplayプロパティの値を設定します。
+     * Sets the value of the onplay property.
      * 
      * @param value
      *     allowed object is
@@ -1537,7 +1555,7 @@ public class Tr
     }
 
     /**
-     * onplayingプロパティの値を取得します。
+     * Gets the value of the onplaying property.
      * 
      * @return
      *     possible object is
@@ -1549,7 +1567,7 @@ public class Tr
     }
 
     /**
-     * onplayingプロパティの値を設定します。
+     * Sets the value of the onplaying property.
      * 
      * @param value
      *     allowed object is
@@ -1565,7 +1583,7 @@ public class Tr
     }
 
     /**
-     * onprogressプロパティの値を取得します。
+     * Gets the value of the onprogress property.
      * 
      * @return
      *     possible object is
@@ -1577,7 +1595,7 @@ public class Tr
     }
 
     /**
-     * onprogressプロパティの値を設定します。
+     * Sets the value of the onprogress property.
      * 
      * @param value
      *     allowed object is
@@ -1593,7 +1611,7 @@ public class Tr
     }
 
     /**
-     * onratechangeプロパティの値を取得します。
+     * Gets the value of the onratechange property.
      * 
      * @return
      *     possible object is
@@ -1605,7 +1623,7 @@ public class Tr
     }
 
     /**
-     * onratechangeプロパティの値を設定します。
+     * Sets the value of the onratechange property.
      * 
      * @param value
      *     allowed object is
@@ -1621,7 +1639,7 @@ public class Tr
     }
 
     /**
-     * onreadystatechangeプロパティの値を取得します。
+     * Gets the value of the onreadystatechange property.
      * 
      * @return
      *     possible object is
@@ -1633,7 +1651,7 @@ public class Tr
     }
 
     /**
-     * onreadystatechangeプロパティの値を設定します。
+     * Sets the value of the onreadystatechange property.
      * 
      * @param value
      *     allowed object is
@@ -1649,7 +1667,7 @@ public class Tr
     }
 
     /**
-     * onresetプロパティの値を取得します。
+     * Gets the value of the onreset property.
      * 
      * @return
      *     possible object is
@@ -1661,7 +1679,7 @@ public class Tr
     }
 
     /**
-     * onresetプロパティの値を設定します。
+     * Sets the value of the onreset property.
      * 
      * @param value
      *     allowed object is
@@ -1677,7 +1695,7 @@ public class Tr
     }
 
     /**
-     * onscrollプロパティの値を取得します。
+     * Gets the value of the onscroll property.
      * 
      * @return
      *     possible object is
@@ -1689,7 +1707,7 @@ public class Tr
     }
 
     /**
-     * onscrollプロパティの値を設定します。
+     * Sets the value of the onscroll property.
      * 
      * @param value
      *     allowed object is
@@ -1705,7 +1723,7 @@ public class Tr
     }
 
     /**
-     * onseekedプロパティの値を取得します。
+     * Gets the value of the onseeked property.
      * 
      * @return
      *     possible object is
@@ -1717,7 +1735,7 @@ public class Tr
     }
 
     /**
-     * onseekedプロパティの値を設定します。
+     * Sets the value of the onseeked property.
      * 
      * @param value
      *     allowed object is
@@ -1733,7 +1751,7 @@ public class Tr
     }
 
     /**
-     * onseekingプロパティの値を取得します。
+     * Gets the value of the onseeking property.
      * 
      * @return
      *     possible object is
@@ -1745,7 +1763,7 @@ public class Tr
     }
 
     /**
-     * onseekingプロパティの値を設定します。
+     * Sets the value of the onseeking property.
      * 
      * @param value
      *     allowed object is
@@ -1761,7 +1779,7 @@ public class Tr
     }
 
     /**
-     * onselectプロパティの値を取得します。
+     * Gets the value of the onselect property.
      * 
      * @return
      *     possible object is
@@ -1773,7 +1791,7 @@ public class Tr
     }
 
     /**
-     * onselectプロパティの値を設定します。
+     * Sets the value of the onselect property.
      * 
      * @param value
      *     allowed object is
@@ -1789,7 +1807,7 @@ public class Tr
     }
 
     /**
-     * onshowプロパティの値を取得します。
+     * Gets the value of the onshow property.
      * 
      * @return
      *     possible object is
@@ -1801,7 +1819,7 @@ public class Tr
     }
 
     /**
-     * onshowプロパティの値を設定します。
+     * Sets the value of the onshow property.
      * 
      * @param value
      *     allowed object is
@@ -1817,7 +1835,7 @@ public class Tr
     }
 
     /**
-     * onstalledプロパティの値を取得します。
+     * Gets the value of the onstalled property.
      * 
      * @return
      *     possible object is
@@ -1829,7 +1847,7 @@ public class Tr
     }
 
     /**
-     * onstalledプロパティの値を設定します。
+     * Sets the value of the onstalled property.
      * 
      * @param value
      *     allowed object is
@@ -1845,7 +1863,7 @@ public class Tr
     }
 
     /**
-     * onsubmitプロパティの値を取得します。
+     * Gets the value of the onsubmit property.
      * 
      * @return
      *     possible object is
@@ -1857,7 +1875,7 @@ public class Tr
     }
 
     /**
-     * onsubmitプロパティの値を設定します。
+     * Sets the value of the onsubmit property.
      * 
      * @param value
      *     allowed object is
@@ -1873,7 +1891,7 @@ public class Tr
     }
 
     /**
-     * onsuspendプロパティの値を取得します。
+     * Gets the value of the onsuspend property.
      * 
      * @return
      *     possible object is
@@ -1885,7 +1903,7 @@ public class Tr
     }
 
     /**
-     * onsuspendプロパティの値を設定します。
+     * Sets the value of the onsuspend property.
      * 
      * @param value
      *     allowed object is
@@ -1901,7 +1919,7 @@ public class Tr
     }
 
     /**
-     * ontimeupdateプロパティの値を取得します。
+     * Gets the value of the ontimeupdate property.
      * 
      * @return
      *     possible object is
@@ -1913,7 +1931,7 @@ public class Tr
     }
 
     /**
-     * ontimeupdateプロパティの値を設定します。
+     * Sets the value of the ontimeupdate property.
      * 
      * @param value
      *     allowed object is
@@ -1929,7 +1947,7 @@ public class Tr
     }
 
     /**
-     * onvolumechangeプロパティの値を取得します。
+     * Gets the value of the onvolumechange property.
      * 
      * @return
      *     possible object is
@@ -1941,7 +1959,7 @@ public class Tr
     }
 
     /**
-     * onvolumechangeプロパティの値を設定します。
+     * Sets the value of the onvolumechange property.
      * 
      * @param value
      *     allowed object is
@@ -1957,7 +1975,7 @@ public class Tr
     }
 
     /**
-     * onwaitingプロパティの値を取得します。
+     * Gets the value of the onwaiting property.
      * 
      * @return
      *     possible object is
@@ -1969,7 +1987,7 @@ public class Tr
     }
 
     /**
-     * onwaitingプロパティの値を設定します。
+     * Sets the value of the onwaiting property.
      * 
      * @param value
      *     allowed object is
@@ -1985,7 +2003,7 @@ public class Tr
     }
 
     /**
-     * idプロパティの値を取得します。
+     * Gets the value of the id property.
      * 
      * @return
      *     possible object is
@@ -1997,7 +2015,7 @@ public class Tr
     }
 
     /**
-     * idプロパティの値を設定します。
+     * Sets the value of the id property.
      * 
      * @param value
      *     allowed object is
@@ -2050,7 +2068,7 @@ public class Tr
     }
 
     /**
-     * styleプロパティの値を取得します。
+     * Gets the value of the style property.
      * 
      * @return
      *     possible object is
@@ -2062,7 +2080,7 @@ public class Tr
     }
 
     /**
-     * styleプロパティの値を設定します。
+     * Sets the value of the style property.
      * 
      * @param value
      *     allowed object is
@@ -2078,7 +2096,7 @@ public class Tr
     }
 
     /**
-     * titleプロパティの値を取得します。
+     * Gets the value of the title property.
      * 
      * @return
      *     possible object is
@@ -2090,7 +2108,7 @@ public class Tr
     }
 
     /**
-     * titleプロパティの値を設定します。
+     * Sets the value of the title property.
      * 
      * @param value
      *     allowed object is
@@ -2106,7 +2124,7 @@ public class Tr
     }
 
     /**
-     * accesskeyプロパティの値を取得します。
+     * Gets the value of the accesskey property.
      * 
      * @return
      *     possible object is
@@ -2118,7 +2136,7 @@ public class Tr
     }
 
     /**
-     * accesskeyプロパティの値を設定します。
+     * Sets the value of the accesskey property.
      * 
      * @param value
      *     allowed object is
@@ -2134,7 +2152,7 @@ public class Tr
     }
 
     /**
-     * contenteditableプロパティの値を取得します。
+     * Gets the value of the contenteditable property.
      * 
      * @return
      *     possible object is
@@ -2146,7 +2164,7 @@ public class Tr
     }
 
     /**
-     * contenteditableプロパティの値を設定します。
+     * Sets the value of the contenteditable property.
      * 
      * @param value
      *     allowed object is
@@ -2166,7 +2184,7 @@ public class Tr
     }
 
     /**
-     * contextmenuプロパティの値を取得します。
+     * Gets the value of the contextmenu property.
      * 
      * @return
      *     possible object is
@@ -2178,7 +2196,7 @@ public class Tr
     }
 
     /**
-     * contextmenuプロパティの値を設定します。
+     * Sets the value of the contextmenu property.
      * 
      * @param value
      *     allowed object is
@@ -2194,7 +2212,7 @@ public class Tr
     }
 
     /**
-     * dirプロパティの値を取得します。
+     * Gets the value of the dir property.
      * 
      * @return
      *     possible object is
@@ -2210,7 +2228,7 @@ public class Tr
     }
 
     /**
-     * dirプロパティの値を設定します。
+     * Sets the value of the dir property.
      * 
      * @param value
      *     allowed object is
@@ -2226,7 +2244,7 @@ public class Tr
     }
 
     /**
-     * draggableプロパティの値を取得します。
+     * Gets the value of the draggable property.
      * 
      * @return
      *     possible object is
@@ -2242,7 +2260,7 @@ public class Tr
     }
 
     /**
-     * draggableプロパティの値を設定します。
+     * Sets the value of the draggable property.
      * 
      * @param value
      *     allowed object is
@@ -2295,7 +2313,7 @@ public class Tr
     }
 
     /**
-     * hiddenプロパティの値を取得します。
+     * Gets the value of the hidden property.
      * 
      * @return
      *     possible object is
@@ -2307,7 +2325,7 @@ public class Tr
     }
 
     /**
-     * hiddenプロパティの値を設定します。
+     * Sets the value of the hidden property.
      * 
      * @param value
      *     allowed object is
@@ -2323,7 +2341,7 @@ public class Tr
     }
 
     /**
-     * langCodeプロパティの値を取得します。
+     * Gets the value of the langCode property.
      * 
      * @return
      *     possible object is
@@ -2335,7 +2353,7 @@ public class Tr
     }
 
     /**
-     * langCodeプロパティの値を設定します。
+     * Sets the value of the langCode property.
      * 
      * @param value
      *     allowed object is
@@ -2351,7 +2369,7 @@ public class Tr
     }
 
     /**
-     * roleプロパティの値を取得します。
+     * Gets the value of the role property.
      * 
      * @return
      *     possible object is
@@ -2363,7 +2381,7 @@ public class Tr
     }
 
     /**
-     * roleプロパティの値を設定します。
+     * Sets the value of the role property.
      * 
      * @param value
      *     allowed object is
@@ -2379,7 +2397,7 @@ public class Tr
     }
 
     /**
-     * spellcheckプロパティの値を取得します。
+     * Gets the value of the spellcheck property.
      * 
      * @return
      *     possible object is
@@ -2391,7 +2409,7 @@ public class Tr
     }
 
     /**
-     * spellcheckプロパティの値を設定します。
+     * Sets the value of the spellcheck property.
      * 
      * @param value
      *     allowed object is
@@ -2407,7 +2425,7 @@ public class Tr
     }
 
     /**
-     * tabindexプロパティの値を取得します。
+     * Gets the value of the tabindex property.
      * 
      * @return
      *     possible object is
@@ -2419,7 +2437,7 @@ public class Tr
     }
 
     /**
-     * tabindexプロパティの値を設定します。
+     * Sets the value of the tabindex property.
      * 
      * @param value
      *     allowed object is
@@ -2435,7 +2453,7 @@ public class Tr
     }
 
     /**
-     * langプロパティの値を取得します。
+     * Gets the value of the lang property.
      * 
      * @return
      *     possible object is
@@ -2447,7 +2465,7 @@ public class Tr
     }
 
     /**
-     * langプロパティの値を設定します。
+     * Sets the value of the lang property.
      * 
      * @param value
      *     allowed object is
@@ -2460,6 +2478,164 @@ public class Tr
 
     public boolean isSetLang() {
         return (this.lang!= null);
+    }
+
+    /**
+     * Gets the value of the itemscope property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getItemscope() {
+        return itemscope;
+    }
+
+    /**
+     * Sets the value of the itemscope property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setItemscope(String value) {
+        this.itemscope = value;
+    }
+
+    public boolean isSetItemscope() {
+        return (this.itemscope!= null);
+    }
+
+    /**
+     * Gets the value of the itemtype property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getItemtype() {
+        return itemtype;
+    }
+
+    /**
+     * Sets the value of the itemtype property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setItemtype(String value) {
+        this.itemtype = value;
+    }
+
+    public boolean isSetItemtype() {
+        return (this.itemtype!= null);
+    }
+
+    /**
+     * Gets the value of the itemprop property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the itemprop property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getItemprop().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link String }
+     * 
+     * 
+     */
+    public List<String> getItemprop() {
+        if (itemprop == null) {
+            itemprop = new ArrayList<String>();
+        }
+        return this.itemprop;
+    }
+
+    public boolean isSetItemprop() {
+        return ((this.itemprop!= null)&&(!this.itemprop.isEmpty()));
+    }
+
+    public void unsetItemprop() {
+        this.itemprop = null;
+    }
+
+    /**
+     * Gets the value of the itemref property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the itemref property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getItemref().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link String }
+     * 
+     * 
+     */
+    public List<String> getItemref() {
+        if (itemref == null) {
+            itemref = new ArrayList<String>();
+        }
+        return this.itemref;
+    }
+
+    public boolean isSetItemref() {
+        return ((this.itemref!= null)&&(!this.itemref.isEmpty()));
+    }
+
+    public void unsetItemref() {
+        this.itemref = null;
+    }
+
+    /**
+     * Gets the value of the itemid property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getItemid() {
+        return itemid;
+    }
+
+    /**
+     * Sets the value of the itemid property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setItemid(String value) {
+        this.itemid = value;
+    }
+
+    public boolean isSetItemid() {
+        return (this.itemid!= null);
     }
 
     /**
@@ -3132,12 +3308,1250 @@ public class Tr
             } else {
                 copy.lang = null;
             }
+            if (this.isSetItemscope()) {
+                String sourceItemscope;
+                sourceItemscope = this.getItemscope();
+                String copyItemscope = ((String) strategy.copy(LocatorUtils.property(locator, "itemscope", sourceItemscope), sourceItemscope));
+                copy.setItemscope(copyItemscope);
+            } else {
+                copy.itemscope = null;
+            }
+            if (this.isSetItemtype()) {
+                String sourceItemtype;
+                sourceItemtype = this.getItemtype();
+                String copyItemtype = ((String) strategy.copy(LocatorUtils.property(locator, "itemtype", sourceItemtype), sourceItemtype));
+                copy.setItemtype(copyItemtype);
+            } else {
+                copy.itemtype = null;
+            }
+            if (this.isSetItemprop()) {
+                List<String> sourceItemprop;
+                sourceItemprop = (this.isSetItemprop()?this.getItemprop():null);
+                @SuppressWarnings("unchecked")
+                List<String> copyItemprop = ((List<String> ) strategy.copy(LocatorUtils.property(locator, "itemprop", sourceItemprop), sourceItemprop));
+                copy.unsetItemprop();
+                if (copyItemprop!= null) {
+                    List<String> uniqueItempropl = copy.getItemprop();
+                    uniqueItempropl.addAll(copyItemprop);
+                }
+            } else {
+                copy.unsetItemprop();
+            }
+            if (this.isSetItemref()) {
+                List<String> sourceItemref;
+                sourceItemref = (this.isSetItemref()?this.getItemref():null);
+                @SuppressWarnings("unchecked")
+                List<String> copyItemref = ((List<String> ) strategy.copy(LocatorUtils.property(locator, "itemref", sourceItemref), sourceItemref));
+                copy.unsetItemref();
+                if (copyItemref!= null) {
+                    List<String> uniqueItemrefl = copy.getItemref();
+                    uniqueItemrefl.addAll(copyItemref);
+                }
+            } else {
+                copy.unsetItemref();
+            }
+            if (this.isSetItemid()) {
+                String sourceItemid;
+                sourceItemid = this.getItemid();
+                String copyItemid = ((String) strategy.copy(LocatorUtils.property(locator, "itemid", sourceItemid), sourceItemid));
+                copy.setItemid(copyItemid);
+            } else {
+                copy.itemid = null;
+            }
         }
         return draftCopy;
     }
 
     public java.lang.Object createNewInstance() {
         return new Tr();
+    }
+
+    public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, java.lang.Object object, EqualsStrategy strategy) {
+        if (!(object instanceof Tr)) {
+            return false;
+        }
+        if (this == object) {
+            return true;
+        }
+        final Tr that = ((Tr) object);
+        {
+            List<Flow> lhsThOrTd;
+            lhsThOrTd = (this.isSetThOrTd()?this.getThOrTd():null);
+            List<Flow> rhsThOrTd;
+            rhsThOrTd = (that.isSetThOrTd()?that.getThOrTd():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "thOrTd", lhsThOrTd), LocatorUtils.property(thatLocator, "thOrTd", rhsThOrTd), lhsThOrTd, rhsThOrTd)) {
+                return false;
+            }
+        }
+        {
+            String lhsBgcolor;
+            lhsBgcolor = this.getBgcolor();
+            String rhsBgcolor;
+            rhsBgcolor = that.getBgcolor();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "bgcolor", lhsBgcolor), LocatorUtils.property(thatLocator, "bgcolor", rhsBgcolor), lhsBgcolor, rhsBgcolor)) {
+                return false;
+            }
+        }
+        {
+            String lhsValign;
+            lhsValign = this.getValign();
+            String rhsValign;
+            rhsValign = that.getValign();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "valign", lhsValign), LocatorUtils.property(thatLocator, "valign", rhsValign), lhsValign, rhsValign)) {
+                return false;
+            }
+        }
+        {
+            String lhsAlign;
+            lhsAlign = this.getAlign();
+            String rhsAlign;
+            rhsAlign = that.getAlign();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "align", lhsAlign), LocatorUtils.property(thatLocator, "align", rhsAlign), lhsAlign, rhsAlign)) {
+                return false;
+            }
+        }
+        {
+            String lhsChar;
+            lhsChar = this.getChar();
+            String rhsChar;
+            rhsChar = that.getChar();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "_char", lhsChar), LocatorUtils.property(thatLocator, "_char", rhsChar), lhsChar, rhsChar)) {
+                return false;
+            }
+        }
+        {
+            String lhsCharoff;
+            lhsCharoff = this.getCharoff();
+            String rhsCharoff;
+            rhsCharoff = that.getCharoff();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "charoff", lhsCharoff), LocatorUtils.property(thatLocator, "charoff", rhsCharoff), lhsCharoff, rhsCharoff)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnclick;
+            lhsOnclick = this.getOnclick();
+            String rhsOnclick;
+            rhsOnclick = that.getOnclick();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onclick", lhsOnclick), LocatorUtils.property(thatLocator, "onclick", rhsOnclick), lhsOnclick, rhsOnclick)) {
+                return false;
+            }
+        }
+        {
+            String lhsOndblclick;
+            lhsOndblclick = this.getOndblclick();
+            String rhsOndblclick;
+            rhsOndblclick = that.getOndblclick();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "ondblclick", lhsOndblclick), LocatorUtils.property(thatLocator, "ondblclick", rhsOndblclick), lhsOndblclick, rhsOndblclick)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnmousedown;
+            lhsOnmousedown = this.getOnmousedown();
+            String rhsOnmousedown;
+            rhsOnmousedown = that.getOnmousedown();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onmousedown", lhsOnmousedown), LocatorUtils.property(thatLocator, "onmousedown", rhsOnmousedown), lhsOnmousedown, rhsOnmousedown)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnmouseup;
+            lhsOnmouseup = this.getOnmouseup();
+            String rhsOnmouseup;
+            rhsOnmouseup = that.getOnmouseup();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onmouseup", lhsOnmouseup), LocatorUtils.property(thatLocator, "onmouseup", rhsOnmouseup), lhsOnmouseup, rhsOnmouseup)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnmouseover;
+            lhsOnmouseover = this.getOnmouseover();
+            String rhsOnmouseover;
+            rhsOnmouseover = that.getOnmouseover();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onmouseover", lhsOnmouseover), LocatorUtils.property(thatLocator, "onmouseover", rhsOnmouseover), lhsOnmouseover, rhsOnmouseover)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnmousemove;
+            lhsOnmousemove = this.getOnmousemove();
+            String rhsOnmousemove;
+            rhsOnmousemove = that.getOnmousemove();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onmousemove", lhsOnmousemove), LocatorUtils.property(thatLocator, "onmousemove", rhsOnmousemove), lhsOnmousemove, rhsOnmousemove)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnmouseout;
+            lhsOnmouseout = this.getOnmouseout();
+            String rhsOnmouseout;
+            rhsOnmouseout = that.getOnmouseout();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onmouseout", lhsOnmouseout), LocatorUtils.property(thatLocator, "onmouseout", rhsOnmouseout), lhsOnmouseout, rhsOnmouseout)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnkeypress;
+            lhsOnkeypress = this.getOnkeypress();
+            String rhsOnkeypress;
+            rhsOnkeypress = that.getOnkeypress();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onkeypress", lhsOnkeypress), LocatorUtils.property(thatLocator, "onkeypress", rhsOnkeypress), lhsOnkeypress, rhsOnkeypress)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnkeydown;
+            lhsOnkeydown = this.getOnkeydown();
+            String rhsOnkeydown;
+            rhsOnkeydown = that.getOnkeydown();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onkeydown", lhsOnkeydown), LocatorUtils.property(thatLocator, "onkeydown", rhsOnkeydown), lhsOnkeydown, rhsOnkeydown)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnkeyup;
+            lhsOnkeyup = this.getOnkeyup();
+            String rhsOnkeyup;
+            rhsOnkeyup = that.getOnkeyup();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onkeyup", lhsOnkeyup), LocatorUtils.property(thatLocator, "onkeyup", rhsOnkeyup), lhsOnkeyup, rhsOnkeyup)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnabort;
+            lhsOnabort = this.getOnabort();
+            String rhsOnabort;
+            rhsOnabort = that.getOnabort();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onabort", lhsOnabort), LocatorUtils.property(thatLocator, "onabort", rhsOnabort), lhsOnabort, rhsOnabort)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnblur;
+            lhsOnblur = this.getOnblur();
+            String rhsOnblur;
+            rhsOnblur = that.getOnblur();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onblur", lhsOnblur), LocatorUtils.property(thatLocator, "onblur", rhsOnblur), lhsOnblur, rhsOnblur)) {
+                return false;
+            }
+        }
+        {
+            String lhsOncanplay;
+            lhsOncanplay = this.getOncanplay();
+            String rhsOncanplay;
+            rhsOncanplay = that.getOncanplay();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "oncanplay", lhsOncanplay), LocatorUtils.property(thatLocator, "oncanplay", rhsOncanplay), lhsOncanplay, rhsOncanplay)) {
+                return false;
+            }
+        }
+        {
+            String lhsOncanplaythrough;
+            lhsOncanplaythrough = this.getOncanplaythrough();
+            String rhsOncanplaythrough;
+            rhsOncanplaythrough = that.getOncanplaythrough();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "oncanplaythrough", lhsOncanplaythrough), LocatorUtils.property(thatLocator, "oncanplaythrough", rhsOncanplaythrough), lhsOncanplaythrough, rhsOncanplaythrough)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnchange;
+            lhsOnchange = this.getOnchange();
+            String rhsOnchange;
+            rhsOnchange = that.getOnchange();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onchange", lhsOnchange), LocatorUtils.property(thatLocator, "onchange", rhsOnchange), lhsOnchange, rhsOnchange)) {
+                return false;
+            }
+        }
+        {
+            String lhsOncontextmenu;
+            lhsOncontextmenu = this.getOncontextmenu();
+            String rhsOncontextmenu;
+            rhsOncontextmenu = that.getOncontextmenu();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "oncontextmenu", lhsOncontextmenu), LocatorUtils.property(thatLocator, "oncontextmenu", rhsOncontextmenu), lhsOncontextmenu, rhsOncontextmenu)) {
+                return false;
+            }
+        }
+        {
+            String lhsOncuechange;
+            lhsOncuechange = this.getOncuechange();
+            String rhsOncuechange;
+            rhsOncuechange = that.getOncuechange();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "oncuechange", lhsOncuechange), LocatorUtils.property(thatLocator, "oncuechange", rhsOncuechange), lhsOncuechange, rhsOncuechange)) {
+                return false;
+            }
+        }
+        {
+            String lhsOndrag;
+            lhsOndrag = this.getOndrag();
+            String rhsOndrag;
+            rhsOndrag = that.getOndrag();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "ondrag", lhsOndrag), LocatorUtils.property(thatLocator, "ondrag", rhsOndrag), lhsOndrag, rhsOndrag)) {
+                return false;
+            }
+        }
+        {
+            String lhsOndragend;
+            lhsOndragend = this.getOndragend();
+            String rhsOndragend;
+            rhsOndragend = that.getOndragend();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "ondragend", lhsOndragend), LocatorUtils.property(thatLocator, "ondragend", rhsOndragend), lhsOndragend, rhsOndragend)) {
+                return false;
+            }
+        }
+        {
+            String lhsOndragenter;
+            lhsOndragenter = this.getOndragenter();
+            String rhsOndragenter;
+            rhsOndragenter = that.getOndragenter();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "ondragenter", lhsOndragenter), LocatorUtils.property(thatLocator, "ondragenter", rhsOndragenter), lhsOndragenter, rhsOndragenter)) {
+                return false;
+            }
+        }
+        {
+            String lhsOndragleave;
+            lhsOndragleave = this.getOndragleave();
+            String rhsOndragleave;
+            rhsOndragleave = that.getOndragleave();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "ondragleave", lhsOndragleave), LocatorUtils.property(thatLocator, "ondragleave", rhsOndragleave), lhsOndragleave, rhsOndragleave)) {
+                return false;
+            }
+        }
+        {
+            String lhsOndragover;
+            lhsOndragover = this.getOndragover();
+            String rhsOndragover;
+            rhsOndragover = that.getOndragover();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "ondragover", lhsOndragover), LocatorUtils.property(thatLocator, "ondragover", rhsOndragover), lhsOndragover, rhsOndragover)) {
+                return false;
+            }
+        }
+        {
+            String lhsOndragstart;
+            lhsOndragstart = this.getOndragstart();
+            String rhsOndragstart;
+            rhsOndragstart = that.getOndragstart();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "ondragstart", lhsOndragstart), LocatorUtils.property(thatLocator, "ondragstart", rhsOndragstart), lhsOndragstart, rhsOndragstart)) {
+                return false;
+            }
+        }
+        {
+            String lhsOndrop;
+            lhsOndrop = this.getOndrop();
+            String rhsOndrop;
+            rhsOndrop = that.getOndrop();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "ondrop", lhsOndrop), LocatorUtils.property(thatLocator, "ondrop", rhsOndrop), lhsOndrop, rhsOndrop)) {
+                return false;
+            }
+        }
+        {
+            String lhsOndurationchange;
+            lhsOndurationchange = this.getOndurationchange();
+            String rhsOndurationchange;
+            rhsOndurationchange = that.getOndurationchange();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "ondurationchange", lhsOndurationchange), LocatorUtils.property(thatLocator, "ondurationchange", rhsOndurationchange), lhsOndurationchange, rhsOndurationchange)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnemptied;
+            lhsOnemptied = this.getOnemptied();
+            String rhsOnemptied;
+            rhsOnemptied = that.getOnemptied();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onemptied", lhsOnemptied), LocatorUtils.property(thatLocator, "onemptied", rhsOnemptied), lhsOnemptied, rhsOnemptied)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnended;
+            lhsOnended = this.getOnended();
+            String rhsOnended;
+            rhsOnended = that.getOnended();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onended", lhsOnended), LocatorUtils.property(thatLocator, "onended", rhsOnended), lhsOnended, rhsOnended)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnerror;
+            lhsOnerror = this.getOnerror();
+            String rhsOnerror;
+            rhsOnerror = that.getOnerror();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onerror", lhsOnerror), LocatorUtils.property(thatLocator, "onerror", rhsOnerror), lhsOnerror, rhsOnerror)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnfocus;
+            lhsOnfocus = this.getOnfocus();
+            String rhsOnfocus;
+            rhsOnfocus = that.getOnfocus();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onfocus", lhsOnfocus), LocatorUtils.property(thatLocator, "onfocus", rhsOnfocus), lhsOnfocus, rhsOnfocus)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnformchange;
+            lhsOnformchange = this.getOnformchange();
+            String rhsOnformchange;
+            rhsOnformchange = that.getOnformchange();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onformchange", lhsOnformchange), LocatorUtils.property(thatLocator, "onformchange", rhsOnformchange), lhsOnformchange, rhsOnformchange)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnforminput;
+            lhsOnforminput = this.getOnforminput();
+            String rhsOnforminput;
+            rhsOnforminput = that.getOnforminput();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onforminput", lhsOnforminput), LocatorUtils.property(thatLocator, "onforminput", rhsOnforminput), lhsOnforminput, rhsOnforminput)) {
+                return false;
+            }
+        }
+        {
+            String lhsOninput;
+            lhsOninput = this.getOninput();
+            String rhsOninput;
+            rhsOninput = that.getOninput();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "oninput", lhsOninput), LocatorUtils.property(thatLocator, "oninput", rhsOninput), lhsOninput, rhsOninput)) {
+                return false;
+            }
+        }
+        {
+            String lhsOninvalid;
+            lhsOninvalid = this.getOninvalid();
+            String rhsOninvalid;
+            rhsOninvalid = that.getOninvalid();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "oninvalid", lhsOninvalid), LocatorUtils.property(thatLocator, "oninvalid", rhsOninvalid), lhsOninvalid, rhsOninvalid)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnload;
+            lhsOnload = this.getOnload();
+            String rhsOnload;
+            rhsOnload = that.getOnload();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onload", lhsOnload), LocatorUtils.property(thatLocator, "onload", rhsOnload), lhsOnload, rhsOnload)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnloadeddata;
+            lhsOnloadeddata = this.getOnloadeddata();
+            String rhsOnloadeddata;
+            rhsOnloadeddata = that.getOnloadeddata();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onloadeddata", lhsOnloadeddata), LocatorUtils.property(thatLocator, "onloadeddata", rhsOnloadeddata), lhsOnloadeddata, rhsOnloadeddata)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnloadedmetadata;
+            lhsOnloadedmetadata = this.getOnloadedmetadata();
+            String rhsOnloadedmetadata;
+            rhsOnloadedmetadata = that.getOnloadedmetadata();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onloadedmetadata", lhsOnloadedmetadata), LocatorUtils.property(thatLocator, "onloadedmetadata", rhsOnloadedmetadata), lhsOnloadedmetadata, rhsOnloadedmetadata)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnloadstart;
+            lhsOnloadstart = this.getOnloadstart();
+            String rhsOnloadstart;
+            rhsOnloadstart = that.getOnloadstart();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onloadstart", lhsOnloadstart), LocatorUtils.property(thatLocator, "onloadstart", rhsOnloadstart), lhsOnloadstart, rhsOnloadstart)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnmousewheel;
+            lhsOnmousewheel = this.getOnmousewheel();
+            String rhsOnmousewheel;
+            rhsOnmousewheel = that.getOnmousewheel();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onmousewheel", lhsOnmousewheel), LocatorUtils.property(thatLocator, "onmousewheel", rhsOnmousewheel), lhsOnmousewheel, rhsOnmousewheel)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnpause;
+            lhsOnpause = this.getOnpause();
+            String rhsOnpause;
+            rhsOnpause = that.getOnpause();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onpause", lhsOnpause), LocatorUtils.property(thatLocator, "onpause", rhsOnpause), lhsOnpause, rhsOnpause)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnplay;
+            lhsOnplay = this.getOnplay();
+            String rhsOnplay;
+            rhsOnplay = that.getOnplay();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onplay", lhsOnplay), LocatorUtils.property(thatLocator, "onplay", rhsOnplay), lhsOnplay, rhsOnplay)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnplaying;
+            lhsOnplaying = this.getOnplaying();
+            String rhsOnplaying;
+            rhsOnplaying = that.getOnplaying();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onplaying", lhsOnplaying), LocatorUtils.property(thatLocator, "onplaying", rhsOnplaying), lhsOnplaying, rhsOnplaying)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnprogress;
+            lhsOnprogress = this.getOnprogress();
+            String rhsOnprogress;
+            rhsOnprogress = that.getOnprogress();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onprogress", lhsOnprogress), LocatorUtils.property(thatLocator, "onprogress", rhsOnprogress), lhsOnprogress, rhsOnprogress)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnratechange;
+            lhsOnratechange = this.getOnratechange();
+            String rhsOnratechange;
+            rhsOnratechange = that.getOnratechange();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onratechange", lhsOnratechange), LocatorUtils.property(thatLocator, "onratechange", rhsOnratechange), lhsOnratechange, rhsOnratechange)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnreadystatechange;
+            lhsOnreadystatechange = this.getOnreadystatechange();
+            String rhsOnreadystatechange;
+            rhsOnreadystatechange = that.getOnreadystatechange();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onreadystatechange", lhsOnreadystatechange), LocatorUtils.property(thatLocator, "onreadystatechange", rhsOnreadystatechange), lhsOnreadystatechange, rhsOnreadystatechange)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnreset;
+            lhsOnreset = this.getOnreset();
+            String rhsOnreset;
+            rhsOnreset = that.getOnreset();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onreset", lhsOnreset), LocatorUtils.property(thatLocator, "onreset", rhsOnreset), lhsOnreset, rhsOnreset)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnscroll;
+            lhsOnscroll = this.getOnscroll();
+            String rhsOnscroll;
+            rhsOnscroll = that.getOnscroll();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onscroll", lhsOnscroll), LocatorUtils.property(thatLocator, "onscroll", rhsOnscroll), lhsOnscroll, rhsOnscroll)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnseeked;
+            lhsOnseeked = this.getOnseeked();
+            String rhsOnseeked;
+            rhsOnseeked = that.getOnseeked();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onseeked", lhsOnseeked), LocatorUtils.property(thatLocator, "onseeked", rhsOnseeked), lhsOnseeked, rhsOnseeked)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnseeking;
+            lhsOnseeking = this.getOnseeking();
+            String rhsOnseeking;
+            rhsOnseeking = that.getOnseeking();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onseeking", lhsOnseeking), LocatorUtils.property(thatLocator, "onseeking", rhsOnseeking), lhsOnseeking, rhsOnseeking)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnselect;
+            lhsOnselect = this.getOnselect();
+            String rhsOnselect;
+            rhsOnselect = that.getOnselect();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onselect", lhsOnselect), LocatorUtils.property(thatLocator, "onselect", rhsOnselect), lhsOnselect, rhsOnselect)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnshow;
+            lhsOnshow = this.getOnshow();
+            String rhsOnshow;
+            rhsOnshow = that.getOnshow();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onshow", lhsOnshow), LocatorUtils.property(thatLocator, "onshow", rhsOnshow), lhsOnshow, rhsOnshow)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnstalled;
+            lhsOnstalled = this.getOnstalled();
+            String rhsOnstalled;
+            rhsOnstalled = that.getOnstalled();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onstalled", lhsOnstalled), LocatorUtils.property(thatLocator, "onstalled", rhsOnstalled), lhsOnstalled, rhsOnstalled)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnsubmit;
+            lhsOnsubmit = this.getOnsubmit();
+            String rhsOnsubmit;
+            rhsOnsubmit = that.getOnsubmit();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onsubmit", lhsOnsubmit), LocatorUtils.property(thatLocator, "onsubmit", rhsOnsubmit), lhsOnsubmit, rhsOnsubmit)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnsuspend;
+            lhsOnsuspend = this.getOnsuspend();
+            String rhsOnsuspend;
+            rhsOnsuspend = that.getOnsuspend();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onsuspend", lhsOnsuspend), LocatorUtils.property(thatLocator, "onsuspend", rhsOnsuspend), lhsOnsuspend, rhsOnsuspend)) {
+                return false;
+            }
+        }
+        {
+            String lhsOntimeupdate;
+            lhsOntimeupdate = this.getOntimeupdate();
+            String rhsOntimeupdate;
+            rhsOntimeupdate = that.getOntimeupdate();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "ontimeupdate", lhsOntimeupdate), LocatorUtils.property(thatLocator, "ontimeupdate", rhsOntimeupdate), lhsOntimeupdate, rhsOntimeupdate)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnvolumechange;
+            lhsOnvolumechange = this.getOnvolumechange();
+            String rhsOnvolumechange;
+            rhsOnvolumechange = that.getOnvolumechange();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onvolumechange", lhsOnvolumechange), LocatorUtils.property(thatLocator, "onvolumechange", rhsOnvolumechange), lhsOnvolumechange, rhsOnvolumechange)) {
+                return false;
+            }
+        }
+        {
+            String lhsOnwaiting;
+            lhsOnwaiting = this.getOnwaiting();
+            String rhsOnwaiting;
+            rhsOnwaiting = that.getOnwaiting();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "onwaiting", lhsOnwaiting), LocatorUtils.property(thatLocator, "onwaiting", rhsOnwaiting), lhsOnwaiting, rhsOnwaiting)) {
+                return false;
+            }
+        }
+        {
+            String lhsId;
+            lhsId = this.getId();
+            String rhsId;
+            rhsId = that.getId();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "id", lhsId), LocatorUtils.property(thatLocator, "id", rhsId), lhsId, rhsId)) {
+                return false;
+            }
+        }
+        {
+            List<String> lhsCssClass;
+            lhsCssClass = (this.isSetCssClass()?this.getCssClass():null);
+            List<String> rhsCssClass;
+            rhsCssClass = (that.isSetCssClass()?that.getCssClass():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "cssClass", lhsCssClass), LocatorUtils.property(thatLocator, "cssClass", rhsCssClass), lhsCssClass, rhsCssClass)) {
+                return false;
+            }
+        }
+        {
+            String lhsStyle;
+            lhsStyle = this.getStyle();
+            String rhsStyle;
+            rhsStyle = that.getStyle();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "style", lhsStyle), LocatorUtils.property(thatLocator, "style", rhsStyle), lhsStyle, rhsStyle)) {
+                return false;
+            }
+        }
+        {
+            String lhsTitle;
+            lhsTitle = this.getTitle();
+            String rhsTitle;
+            rhsTitle = that.getTitle();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "title", lhsTitle), LocatorUtils.property(thatLocator, "title", rhsTitle), lhsTitle, rhsTitle)) {
+                return false;
+            }
+        }
+        {
+            String lhsAccesskey;
+            lhsAccesskey = this.getAccesskey();
+            String rhsAccesskey;
+            rhsAccesskey = that.getAccesskey();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "accesskey", lhsAccesskey), LocatorUtils.property(thatLocator, "accesskey", rhsAccesskey), lhsAccesskey, rhsAccesskey)) {
+                return false;
+            }
+        }
+        {
+            boolean lhsContenteditable;
+            lhsContenteditable = (this.isSetContenteditable()?this.isContenteditable():false);
+            boolean rhsContenteditable;
+            rhsContenteditable = (that.isSetContenteditable()?that.isContenteditable():false);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "contenteditable", lhsContenteditable), LocatorUtils.property(thatLocator, "contenteditable", rhsContenteditable), lhsContenteditable, rhsContenteditable)) {
+                return false;
+            }
+        }
+        {
+            String lhsContextmenu;
+            lhsContextmenu = this.getContextmenu();
+            String rhsContextmenu;
+            rhsContextmenu = that.getContextmenu();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "contextmenu", lhsContextmenu), LocatorUtils.property(thatLocator, "contextmenu", rhsContextmenu), lhsContextmenu, rhsContextmenu)) {
+                return false;
+            }
+        }
+        {
+            String lhsDir;
+            lhsDir = this.getDir();
+            String rhsDir;
+            rhsDir = that.getDir();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "dir", lhsDir), LocatorUtils.property(thatLocator, "dir", rhsDir), lhsDir, rhsDir)) {
+                return false;
+            }
+        }
+        {
+            String lhsDraggable;
+            lhsDraggable = this.getDraggable();
+            String rhsDraggable;
+            rhsDraggable = that.getDraggable();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "draggable", lhsDraggable), LocatorUtils.property(thatLocator, "draggable", rhsDraggable), lhsDraggable, rhsDraggable)) {
+                return false;
+            }
+        }
+        {
+            List<String> lhsDropzone;
+            lhsDropzone = (this.isSetDropzone()?this.getDropzone():null);
+            List<String> rhsDropzone;
+            rhsDropzone = (that.isSetDropzone()?that.getDropzone():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "dropzone", lhsDropzone), LocatorUtils.property(thatLocator, "dropzone", rhsDropzone), lhsDropzone, rhsDropzone)) {
+                return false;
+            }
+        }
+        {
+            String lhsHidden;
+            lhsHidden = this.getHidden();
+            String rhsHidden;
+            rhsHidden = that.getHidden();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "hidden", lhsHidden), LocatorUtils.property(thatLocator, "hidden", rhsHidden), lhsHidden, rhsHidden)) {
+                return false;
+            }
+        }
+        {
+            String lhsLangCode;
+            lhsLangCode = this.getLangCode();
+            String rhsLangCode;
+            rhsLangCode = that.getLangCode();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "langCode", lhsLangCode), LocatorUtils.property(thatLocator, "langCode", rhsLangCode), lhsLangCode, rhsLangCode)) {
+                return false;
+            }
+        }
+        {
+            String lhsRole;
+            lhsRole = this.getRole();
+            String rhsRole;
+            rhsRole = that.getRole();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "role", lhsRole), LocatorUtils.property(thatLocator, "role", rhsRole), lhsRole, rhsRole)) {
+                return false;
+            }
+        }
+        {
+            String lhsSpellcheck;
+            lhsSpellcheck = this.getSpellcheck();
+            String rhsSpellcheck;
+            rhsSpellcheck = that.getSpellcheck();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "spellcheck", lhsSpellcheck), LocatorUtils.property(thatLocator, "spellcheck", rhsSpellcheck), lhsSpellcheck, rhsSpellcheck)) {
+                return false;
+            }
+        }
+        {
+            Integer lhsTabindex;
+            lhsTabindex = this.getTabindex();
+            Integer rhsTabindex;
+            rhsTabindex = that.getTabindex();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "tabindex", lhsTabindex), LocatorUtils.property(thatLocator, "tabindex", rhsTabindex), lhsTabindex, rhsTabindex)) {
+                return false;
+            }
+        }
+        {
+            String lhsLang;
+            lhsLang = this.getLang();
+            String rhsLang;
+            rhsLang = that.getLang();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "lang", lhsLang), LocatorUtils.property(thatLocator, "lang", rhsLang), lhsLang, rhsLang)) {
+                return false;
+            }
+        }
+        {
+            String lhsItemscope;
+            lhsItemscope = this.getItemscope();
+            String rhsItemscope;
+            rhsItemscope = that.getItemscope();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "itemscope", lhsItemscope), LocatorUtils.property(thatLocator, "itemscope", rhsItemscope), lhsItemscope, rhsItemscope)) {
+                return false;
+            }
+        }
+        {
+            String lhsItemtype;
+            lhsItemtype = this.getItemtype();
+            String rhsItemtype;
+            rhsItemtype = that.getItemtype();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "itemtype", lhsItemtype), LocatorUtils.property(thatLocator, "itemtype", rhsItemtype), lhsItemtype, rhsItemtype)) {
+                return false;
+            }
+        }
+        {
+            List<String> lhsItemprop;
+            lhsItemprop = (this.isSetItemprop()?this.getItemprop():null);
+            List<String> rhsItemprop;
+            rhsItemprop = (that.isSetItemprop()?that.getItemprop():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "itemprop", lhsItemprop), LocatorUtils.property(thatLocator, "itemprop", rhsItemprop), lhsItemprop, rhsItemprop)) {
+                return false;
+            }
+        }
+        {
+            List<String> lhsItemref;
+            lhsItemref = (this.isSetItemref()?this.getItemref():null);
+            List<String> rhsItemref;
+            rhsItemref = (that.isSetItemref()?that.getItemref():null);
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "itemref", lhsItemref), LocatorUtils.property(thatLocator, "itemref", rhsItemref), lhsItemref, rhsItemref)) {
+                return false;
+            }
+        }
+        {
+            String lhsItemid;
+            lhsItemid = this.getItemid();
+            String rhsItemid;
+            rhsItemid = that.getItemid();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "itemid", lhsItemid), LocatorUtils.property(thatLocator, "itemid", rhsItemid), lhsItemid, rhsItemid)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean equals(java.lang.Object object) {
+        final EqualsStrategy strategy = JAXBEqualsStrategy.INSTANCE;
+        return equals(null, null, object, strategy);
+    }
+
+    public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
+        int currentHashCode = 1;
+        {
+            List<Flow> theThOrTd;
+            theThOrTd = (this.isSetThOrTd()?this.getThOrTd():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "thOrTd", theThOrTd), currentHashCode, theThOrTd);
+        }
+        {
+            String theBgcolor;
+            theBgcolor = this.getBgcolor();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "bgcolor", theBgcolor), currentHashCode, theBgcolor);
+        }
+        {
+            String theValign;
+            theValign = this.getValign();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "valign", theValign), currentHashCode, theValign);
+        }
+        {
+            String theAlign;
+            theAlign = this.getAlign();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "align", theAlign), currentHashCode, theAlign);
+        }
+        {
+            String theChar;
+            theChar = this.getChar();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "_char", theChar), currentHashCode, theChar);
+        }
+        {
+            String theCharoff;
+            theCharoff = this.getCharoff();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "charoff", theCharoff), currentHashCode, theCharoff);
+        }
+        {
+            String theOnclick;
+            theOnclick = this.getOnclick();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onclick", theOnclick), currentHashCode, theOnclick);
+        }
+        {
+            String theOndblclick;
+            theOndblclick = this.getOndblclick();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "ondblclick", theOndblclick), currentHashCode, theOndblclick);
+        }
+        {
+            String theOnmousedown;
+            theOnmousedown = this.getOnmousedown();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onmousedown", theOnmousedown), currentHashCode, theOnmousedown);
+        }
+        {
+            String theOnmouseup;
+            theOnmouseup = this.getOnmouseup();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onmouseup", theOnmouseup), currentHashCode, theOnmouseup);
+        }
+        {
+            String theOnmouseover;
+            theOnmouseover = this.getOnmouseover();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onmouseover", theOnmouseover), currentHashCode, theOnmouseover);
+        }
+        {
+            String theOnmousemove;
+            theOnmousemove = this.getOnmousemove();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onmousemove", theOnmousemove), currentHashCode, theOnmousemove);
+        }
+        {
+            String theOnmouseout;
+            theOnmouseout = this.getOnmouseout();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onmouseout", theOnmouseout), currentHashCode, theOnmouseout);
+        }
+        {
+            String theOnkeypress;
+            theOnkeypress = this.getOnkeypress();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onkeypress", theOnkeypress), currentHashCode, theOnkeypress);
+        }
+        {
+            String theOnkeydown;
+            theOnkeydown = this.getOnkeydown();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onkeydown", theOnkeydown), currentHashCode, theOnkeydown);
+        }
+        {
+            String theOnkeyup;
+            theOnkeyup = this.getOnkeyup();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onkeyup", theOnkeyup), currentHashCode, theOnkeyup);
+        }
+        {
+            String theOnabort;
+            theOnabort = this.getOnabort();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onabort", theOnabort), currentHashCode, theOnabort);
+        }
+        {
+            String theOnblur;
+            theOnblur = this.getOnblur();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onblur", theOnblur), currentHashCode, theOnblur);
+        }
+        {
+            String theOncanplay;
+            theOncanplay = this.getOncanplay();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "oncanplay", theOncanplay), currentHashCode, theOncanplay);
+        }
+        {
+            String theOncanplaythrough;
+            theOncanplaythrough = this.getOncanplaythrough();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "oncanplaythrough", theOncanplaythrough), currentHashCode, theOncanplaythrough);
+        }
+        {
+            String theOnchange;
+            theOnchange = this.getOnchange();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onchange", theOnchange), currentHashCode, theOnchange);
+        }
+        {
+            String theOncontextmenu;
+            theOncontextmenu = this.getOncontextmenu();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "oncontextmenu", theOncontextmenu), currentHashCode, theOncontextmenu);
+        }
+        {
+            String theOncuechange;
+            theOncuechange = this.getOncuechange();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "oncuechange", theOncuechange), currentHashCode, theOncuechange);
+        }
+        {
+            String theOndrag;
+            theOndrag = this.getOndrag();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "ondrag", theOndrag), currentHashCode, theOndrag);
+        }
+        {
+            String theOndragend;
+            theOndragend = this.getOndragend();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "ondragend", theOndragend), currentHashCode, theOndragend);
+        }
+        {
+            String theOndragenter;
+            theOndragenter = this.getOndragenter();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "ondragenter", theOndragenter), currentHashCode, theOndragenter);
+        }
+        {
+            String theOndragleave;
+            theOndragleave = this.getOndragleave();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "ondragleave", theOndragleave), currentHashCode, theOndragleave);
+        }
+        {
+            String theOndragover;
+            theOndragover = this.getOndragover();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "ondragover", theOndragover), currentHashCode, theOndragover);
+        }
+        {
+            String theOndragstart;
+            theOndragstart = this.getOndragstart();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "ondragstart", theOndragstart), currentHashCode, theOndragstart);
+        }
+        {
+            String theOndrop;
+            theOndrop = this.getOndrop();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "ondrop", theOndrop), currentHashCode, theOndrop);
+        }
+        {
+            String theOndurationchange;
+            theOndurationchange = this.getOndurationchange();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "ondurationchange", theOndurationchange), currentHashCode, theOndurationchange);
+        }
+        {
+            String theOnemptied;
+            theOnemptied = this.getOnemptied();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onemptied", theOnemptied), currentHashCode, theOnemptied);
+        }
+        {
+            String theOnended;
+            theOnended = this.getOnended();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onended", theOnended), currentHashCode, theOnended);
+        }
+        {
+            String theOnerror;
+            theOnerror = this.getOnerror();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onerror", theOnerror), currentHashCode, theOnerror);
+        }
+        {
+            String theOnfocus;
+            theOnfocus = this.getOnfocus();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onfocus", theOnfocus), currentHashCode, theOnfocus);
+        }
+        {
+            String theOnformchange;
+            theOnformchange = this.getOnformchange();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onformchange", theOnformchange), currentHashCode, theOnformchange);
+        }
+        {
+            String theOnforminput;
+            theOnforminput = this.getOnforminput();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onforminput", theOnforminput), currentHashCode, theOnforminput);
+        }
+        {
+            String theOninput;
+            theOninput = this.getOninput();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "oninput", theOninput), currentHashCode, theOninput);
+        }
+        {
+            String theOninvalid;
+            theOninvalid = this.getOninvalid();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "oninvalid", theOninvalid), currentHashCode, theOninvalid);
+        }
+        {
+            String theOnload;
+            theOnload = this.getOnload();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onload", theOnload), currentHashCode, theOnload);
+        }
+        {
+            String theOnloadeddata;
+            theOnloadeddata = this.getOnloadeddata();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onloadeddata", theOnloadeddata), currentHashCode, theOnloadeddata);
+        }
+        {
+            String theOnloadedmetadata;
+            theOnloadedmetadata = this.getOnloadedmetadata();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onloadedmetadata", theOnloadedmetadata), currentHashCode, theOnloadedmetadata);
+        }
+        {
+            String theOnloadstart;
+            theOnloadstart = this.getOnloadstart();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onloadstart", theOnloadstart), currentHashCode, theOnloadstart);
+        }
+        {
+            String theOnmousewheel;
+            theOnmousewheel = this.getOnmousewheel();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onmousewheel", theOnmousewheel), currentHashCode, theOnmousewheel);
+        }
+        {
+            String theOnpause;
+            theOnpause = this.getOnpause();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onpause", theOnpause), currentHashCode, theOnpause);
+        }
+        {
+            String theOnplay;
+            theOnplay = this.getOnplay();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onplay", theOnplay), currentHashCode, theOnplay);
+        }
+        {
+            String theOnplaying;
+            theOnplaying = this.getOnplaying();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onplaying", theOnplaying), currentHashCode, theOnplaying);
+        }
+        {
+            String theOnprogress;
+            theOnprogress = this.getOnprogress();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onprogress", theOnprogress), currentHashCode, theOnprogress);
+        }
+        {
+            String theOnratechange;
+            theOnratechange = this.getOnratechange();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onratechange", theOnratechange), currentHashCode, theOnratechange);
+        }
+        {
+            String theOnreadystatechange;
+            theOnreadystatechange = this.getOnreadystatechange();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onreadystatechange", theOnreadystatechange), currentHashCode, theOnreadystatechange);
+        }
+        {
+            String theOnreset;
+            theOnreset = this.getOnreset();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onreset", theOnreset), currentHashCode, theOnreset);
+        }
+        {
+            String theOnscroll;
+            theOnscroll = this.getOnscroll();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onscroll", theOnscroll), currentHashCode, theOnscroll);
+        }
+        {
+            String theOnseeked;
+            theOnseeked = this.getOnseeked();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onseeked", theOnseeked), currentHashCode, theOnseeked);
+        }
+        {
+            String theOnseeking;
+            theOnseeking = this.getOnseeking();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onseeking", theOnseeking), currentHashCode, theOnseeking);
+        }
+        {
+            String theOnselect;
+            theOnselect = this.getOnselect();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onselect", theOnselect), currentHashCode, theOnselect);
+        }
+        {
+            String theOnshow;
+            theOnshow = this.getOnshow();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onshow", theOnshow), currentHashCode, theOnshow);
+        }
+        {
+            String theOnstalled;
+            theOnstalled = this.getOnstalled();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onstalled", theOnstalled), currentHashCode, theOnstalled);
+        }
+        {
+            String theOnsubmit;
+            theOnsubmit = this.getOnsubmit();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onsubmit", theOnsubmit), currentHashCode, theOnsubmit);
+        }
+        {
+            String theOnsuspend;
+            theOnsuspend = this.getOnsuspend();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onsuspend", theOnsuspend), currentHashCode, theOnsuspend);
+        }
+        {
+            String theOntimeupdate;
+            theOntimeupdate = this.getOntimeupdate();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "ontimeupdate", theOntimeupdate), currentHashCode, theOntimeupdate);
+        }
+        {
+            String theOnvolumechange;
+            theOnvolumechange = this.getOnvolumechange();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onvolumechange", theOnvolumechange), currentHashCode, theOnvolumechange);
+        }
+        {
+            String theOnwaiting;
+            theOnwaiting = this.getOnwaiting();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onwaiting", theOnwaiting), currentHashCode, theOnwaiting);
+        }
+        {
+            String theId;
+            theId = this.getId();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "id", theId), currentHashCode, theId);
+        }
+        {
+            List<String> theCssClass;
+            theCssClass = (this.isSetCssClass()?this.getCssClass():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "cssClass", theCssClass), currentHashCode, theCssClass);
+        }
+        {
+            String theStyle;
+            theStyle = this.getStyle();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "style", theStyle), currentHashCode, theStyle);
+        }
+        {
+            String theTitle;
+            theTitle = this.getTitle();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "title", theTitle), currentHashCode, theTitle);
+        }
+        {
+            String theAccesskey;
+            theAccesskey = this.getAccesskey();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "accesskey", theAccesskey), currentHashCode, theAccesskey);
+        }
+        {
+            boolean theContenteditable;
+            theContenteditable = (this.isSetContenteditable()?this.isContenteditable():false);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "contenteditable", theContenteditable), currentHashCode, theContenteditable);
+        }
+        {
+            String theContextmenu;
+            theContextmenu = this.getContextmenu();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "contextmenu", theContextmenu), currentHashCode, theContextmenu);
+        }
+        {
+            String theDir;
+            theDir = this.getDir();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "dir", theDir), currentHashCode, theDir);
+        }
+        {
+            String theDraggable;
+            theDraggable = this.getDraggable();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "draggable", theDraggable), currentHashCode, theDraggable);
+        }
+        {
+            List<String> theDropzone;
+            theDropzone = (this.isSetDropzone()?this.getDropzone():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "dropzone", theDropzone), currentHashCode, theDropzone);
+        }
+        {
+            String theHidden;
+            theHidden = this.getHidden();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "hidden", theHidden), currentHashCode, theHidden);
+        }
+        {
+            String theLangCode;
+            theLangCode = this.getLangCode();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "langCode", theLangCode), currentHashCode, theLangCode);
+        }
+        {
+            String theRole;
+            theRole = this.getRole();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "role", theRole), currentHashCode, theRole);
+        }
+        {
+            String theSpellcheck;
+            theSpellcheck = this.getSpellcheck();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "spellcheck", theSpellcheck), currentHashCode, theSpellcheck);
+        }
+        {
+            Integer theTabindex;
+            theTabindex = this.getTabindex();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "tabindex", theTabindex), currentHashCode, theTabindex);
+        }
+        {
+            String theLang;
+            theLang = this.getLang();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "lang", theLang), currentHashCode, theLang);
+        }
+        {
+            String theItemscope;
+            theItemscope = this.getItemscope();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "itemscope", theItemscope), currentHashCode, theItemscope);
+        }
+        {
+            String theItemtype;
+            theItemtype = this.getItemtype();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "itemtype", theItemtype), currentHashCode, theItemtype);
+        }
+        {
+            List<String> theItemprop;
+            theItemprop = (this.isSetItemprop()?this.getItemprop():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "itemprop", theItemprop), currentHashCode, theItemprop);
+        }
+        {
+            List<String> theItemref;
+            theItemref = (this.isSetItemref()?this.getItemref():null);
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "itemref", theItemref), currentHashCode, theItemref);
+        }
+        {
+            String theItemid;
+            theItemid = this.getItemid();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "itemid", theItemid), currentHashCode, theItemid);
+        }
+        return currentHashCode;
+    }
+
+    public int hashCode() {
+        final HashCodeStrategy strategy = JAXBHashCodeStrategy.INSTANCE;
+        return this.hashCode(null, strategy);
     }
 
 }
