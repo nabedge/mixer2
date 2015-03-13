@@ -345,7 +345,13 @@
         role
         spellcheck
         tabindex
-      </xs:documentation>
+      ==== schema.org properties ====
+        itemscope
+        itemtype
+        itemprop
+        itemref
+        itemid
+    </xs:documentation>
     </xs:annotation>
     <xs:attribute name="id" type="xs:ID"/>
     <xs:attribute name="class" type="xs:NMTOKENS"/>
@@ -400,6 +406,11 @@
     </xs:attribute>
     <xs:attribute name="tabindex" type="tabindexNumber"/>
     <xs:attribute ref="xml:lang"/>
+    <xs:attribute name="itemscope" type="Text"/>
+    <xs:attribute name="itemtype" type="URI"/>
+    <xs:attribute name="itemprop" type="xs:NMTOKENS"/>
+    <xs:attribute name="itemref" type="xs:NMTOKENS"/>
+    <xs:attribute name="itemid" type="Character"/>
 
     <!-- html5: 全てのタグは任意の属性を与えることができるものとする -->
     <!-- data-*属性に対応するため。 -->

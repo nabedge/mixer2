@@ -7,24 +7,24 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>TFrameのJavaクラス。
+ * <p>Java class for TFrame.
  * 
- * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
- * &lt;simpleType name="TFrame">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}token">
- *     &lt;enumeration value="void"/>
- *     &lt;enumeration value="above"/>
- *     &lt;enumeration value="below"/>
- *     &lt;enumeration value="hsides"/>
- *     &lt;enumeration value="lhs"/>
- *     &lt;enumeration value="rhs"/>
- *     &lt;enumeration value="vsides"/>
- *     &lt;enumeration value="box"/>
- *     &lt;enumeration value="border"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
+ * &lt;simpleType name="TFrame"&gt;
+ *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}token"&gt;
+ *     &lt;enumeration value="void"/&gt;
+ *     &lt;enumeration value="above"/&gt;
+ *     &lt;enumeration value="below"/&gt;
+ *     &lt;enumeration value="hsides"/&gt;
+ *     &lt;enumeration value="lhs"/&gt;
+ *     &lt;enumeration value="rhs"/&gt;
+ *     &lt;enumeration value="vsides"/&gt;
+ *     &lt;enumeration value="box"/&gt;
+ *     &lt;enumeration value="border"/&gt;
+ *   &lt;/restriction&gt;
+ * &lt;/simpleType&gt;
  * </pre>
  * 
  */

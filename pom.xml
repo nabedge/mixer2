@@ -299,11 +299,12 @@
             <plugin>
                 <groupId>org.jvnet.jaxb2.maven2</groupId>
                 <artifactId>maven-jaxb2-plugin</artifactId>
-                <version>0.8.3</version>
+                <version>0.12.3</version>
                 <executions>
                     <execution>
                         <id>jaxb2-generate</id>
                         <!-- <phase>generate-sources</phase> -->
+                        <!-- replace phase above and Do "mvn jaxb2:generate" -->
                         <phase>dummy</phase>
                         <goals>
                             <goal>generate</goal>
@@ -313,8 +314,12 @@
                 <configuration>
                     <args>
                         <arg>-Xcopyable</arg>
+                        <arg>-Xequals</arg>
+                        <arg>-XhashCode</arg>
                         <arg>-no-header</arg>
                     </args>
+                    <specVersion>2.1</specVersion>
+                    <locale>en</locale>
                     <episode>false</episode>
                     <schemaDirectory>xjc</schemaDirectory>
                     <schemaIncludes>
@@ -326,13 +331,12 @@
                     </bindingIncludes>
                     <generatePackage>org.mixer2.jaxb.xhtml</generatePackage>
                     <generateDirectory>src/main/java</generateDirectory>
-                    <creanPackageDirectories>false</creanPackageDirectories>
-                    <!-- <forceRegenerate>true</forceRegenerate> -->
+                    <creanPackageDirectories>true</creanPackageDirectories>
                     <plugins>
                         <plugin>
                             <groupId>org.jvnet.jaxb2_commons</groupId>
                             <artifactId>jaxb2-basics</artifactId>
-                            <version>0.6.4</version>
+                            <version>0.9.3</version>
                         </plugin>
                     </plugins>
                 </configuration>

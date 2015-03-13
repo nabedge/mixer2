@@ -7,38 +7,38 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>InputTypeのJavaクラス。
+ * <p>Java class for InputType.
  * 
- * <p>次のスキーマ・フラグメントは、このクラス内に含まれる予期されるコンテンツを指定します。
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
- * &lt;simpleType name="InputType">
- *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}token">
- *     &lt;enumeration value="text"/>
- *     &lt;enumeration value="password"/>
- *     &lt;enumeration value="checkbox"/>
- *     &lt;enumeration value="radio"/>
- *     &lt;enumeration value="submit"/>
- *     &lt;enumeration value="reset"/>
- *     &lt;enumeration value="file"/>
- *     &lt;enumeration value="hidden"/>
- *     &lt;enumeration value="image"/>
- *     &lt;enumeration value="button"/>
- *     &lt;enumeration value="tel"/>
- *     &lt;enumeration value="search"/>
- *     &lt;enumeration value="url"/>
- *     &lt;enumeration value="email"/>
- *     &lt;enumeration value="datetime"/>
- *     &lt;enumeration value="date"/>
- *     &lt;enumeration value="month"/>
- *     &lt;enumeration value="week"/>
- *     &lt;enumeration value="time"/>
- *     &lt;enumeration value="datetime-local"/>
- *     &lt;enumeration value="number"/>
- *     &lt;enumeration value="range"/>
- *     &lt;enumeration value="color"/>
- *   &lt;/restriction>
- * &lt;/simpleType>
+ * &lt;simpleType name="InputType"&gt;
+ *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}token"&gt;
+ *     &lt;enumeration value="text"/&gt;
+ *     &lt;enumeration value="password"/&gt;
+ *     &lt;enumeration value="checkbox"/&gt;
+ *     &lt;enumeration value="radio"/&gt;
+ *     &lt;enumeration value="submit"/&gt;
+ *     &lt;enumeration value="reset"/&gt;
+ *     &lt;enumeration value="file"/&gt;
+ *     &lt;enumeration value="hidden"/&gt;
+ *     &lt;enumeration value="image"/&gt;
+ *     &lt;enumeration value="button"/&gt;
+ *     &lt;enumeration value="tel"/&gt;
+ *     &lt;enumeration value="search"/&gt;
+ *     &lt;enumeration value="url"/&gt;
+ *     &lt;enumeration value="email"/&gt;
+ *     &lt;enumeration value="datetime"/&gt;
+ *     &lt;enumeration value="date"/&gt;
+ *     &lt;enumeration value="month"/&gt;
+ *     &lt;enumeration value="week"/&gt;
+ *     &lt;enumeration value="time"/&gt;
+ *     &lt;enumeration value="datetime-local"/&gt;
+ *     &lt;enumeration value="number"/&gt;
+ *     &lt;enumeration value="range"/&gt;
+ *     &lt;enumeration value="color"/&gt;
+ *   &lt;/restriction&gt;
+ * &lt;/simpleType&gt;
  * </pre>
  * 
  */

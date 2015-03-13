@@ -30,11 +30,75 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Summary }
+     * Create an instance of {@link Html }
      * 
      */
-    public Summary createSummary() {
-        return new Summary();
+    public Html createHtml() {
+        return new Html();
+    }
+
+    /**
+     * Create an instance of {@link Head }
+     * 
+     */
+    public Head createHead() {
+        return new Head();
+    }
+
+    /**
+     * Create an instance of {@link Script }
+     * 
+     */
+    public Script createScript() {
+        return new Script();
+    }
+
+    /**
+     * Create an instance of {@link Style }
+     * 
+     */
+    public Style createStyle() {
+        return new Style();
+    }
+
+    /**
+     * Create an instance of {@link Meta }
+     * 
+     */
+    public Meta createMeta() {
+        return new Meta();
+    }
+
+    /**
+     * Create an instance of {@link Link }
+     * 
+     */
+    public Link createLink() {
+        return new Link();
+    }
+
+    /**
+     * Create an instance of {@link Object }
+     * 
+     */
+    public Object createObject() {
+        return new Object();
+    }
+
+    /**
+     * Create an instance of {@link Param }
+     * 
+     */
+    public Param createParam() {
+        return new Param();
+    }
+
+    /**
+     * Create an instance of {@link P }
+     * 
+     */
+    public P createP() {
+        return new P();
     }
 
     /**
@@ -86,27 +150,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Object }
+     * Create an instance of {@link Applet }
      * 
      */
-    public Object createObject() {
-        return new Object();
-    }
-
-    /**
-     * Create an instance of {@link Param }
-     * 
-     */
-    public Param createParam() {
-        return new Param();
-    }
-
-    /**
-     * Create an instance of {@link P }
-     * 
-     */
-    public P createP() {
-        return new P();
+    public Applet createApplet() {
+        return new Applet();
     }
 
     /**
@@ -550,11 +598,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Applet }
+     * Create an instance of {@link Img }
      * 
      */
-    public Applet createApplet() {
-        return new Applet();
+    public Img createImg() {
+        return new Img();
+    }
+
+    /**
+     * Create an instance of {@link Map }
+     * 
+     */
+    public Map createMap() {
+        return new Map();
     }
 
     /**
@@ -766,43 +822,19 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Summary }
+     * 
+     */
+    public Summary createSummary() {
+        return new Summary();
+    }
+
+    /**
      * Create an instance of {@link Datalist }
      * 
      */
     public Datalist createDatalist() {
         return new Datalist();
-    }
-
-    /**
-     * Create an instance of {@link Img }
-     * 
-     */
-    public Img createImg() {
-        return new Img();
-    }
-
-    /**
-     * Create an instance of {@link Map }
-     * 
-     */
-    public Map createMap() {
-        return new Map();
-    }
-
-    /**
-     * Create an instance of {@link Form }
-     * 
-     */
-    public Form createForm() {
-        return new Form();
-    }
-
-    /**
-     * Create an instance of {@link FormContent }
-     * 
-     */
-    public FormContent createFormContent() {
-        return new FormContent();
     }
 
     /**
@@ -950,11 +982,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Script }
+     * Create an instance of {@link Form }
      * 
      */
-    public Script createScript() {
-        return new Script();
+    public Form createForm() {
+        return new Form();
+    }
+
+    /**
+     * Create an instance of {@link FormContent }
+     * 
+     */
+    public FormContent createFormContent() {
+        return new FormContent();
     }
 
     /**
@@ -963,22 +1003,6 @@ public class ObjectFactory {
      */
     public Area createArea() {
         return new Area();
-    }
-
-    /**
-     * Create an instance of {@link Link }
-     * 
-     */
-    public Link createLink() {
-        return new Link();
-    }
-
-    /**
-     * Create an instance of {@link Meta }
-     * 
-     */
-    public Meta createMeta() {
-        return new Meta();
     }
 
     /**
@@ -1003,30 +1027,6 @@ public class ObjectFactory {
      */
     public Body createBody() {
         return new Body();
-    }
-
-    /**
-     * Create an instance of {@link Head }
-     * 
-     */
-    public Head createHead() {
-        return new Head();
-    }
-
-    /**
-     * Create an instance of {@link Style }
-     * 
-     */
-    public Style createStyle() {
-        return new Style();
-    }
-
-    /**
-     * Create an instance of {@link Html }
-     * 
-     */
-    public Html createHtml() {
-        return new Html();
     }
 
 }
