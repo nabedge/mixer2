@@ -27,6 +27,7 @@ import org.mixer2.xhtml.util.RemoveByIdUtil;
 import org.mixer2.xhtml.util.RemoveDescendantsUtil;
 import org.mixer2.xhtml.util.RemoveEmptyCssClassUtil;
 import org.mixer2.xhtml.util.ReplaceByIdUtil;
+import org.mixer2.xhtml.util.ReplaceInnerUtil;
 import org.mixer2.xhtml.util.ReplaceDescendantsUtil;
 import org.mixer2.xhtml.util.UnsetIdUtil;
 
@@ -467,6 +468,36 @@ public abstract class AbstractJaxb implements Serializable {
     public <T extends AbstractJaxb> void replaceDescendants(String clazz,
             String replacement) throws TagTypeUnmatchException {
         ReplaceDescendantsUtil.replaceDescendants((T) this, clazz, replacement);
+    }
+
+    /**
+     * TODO javadoc
+     * @param replacement
+     * @return
+     * @throws TagTypeUnmatchException
+     */
+    public <T extends AbstractJaxb> void replaceContent(T replacement) throws TagTypeUnmatchException {
+    	ReplaceInnerUtil.replaceInner(this, replacement);
+    }
+
+    /**
+     * TODO javadoc
+     * @param replacement
+     * @return
+     * @throws TagTypeUnmatchException
+     */
+    public void replaceContent(String replacement) throws TagTypeUnmatchException {
+    	ReplaceInnerUtil.replaceInner(this, replacement);
+    }
+    
+    /**
+     * TODO javadoc
+     * @param replacement
+     * @return
+     * @throws TagTypeUnmatchException
+     */
+    public void replaceContent(List<java.lang.Object> replacement) throws TagTypeUnmatchException {
+    	ReplaceInnerUtil.replaceInner(this, replacement);
     }
 
     /**
