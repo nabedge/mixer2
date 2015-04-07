@@ -476,7 +476,7 @@ public abstract class AbstractJaxb implements Serializable {
      * @return
      * @throws TagTypeUnmatchException
      */
-    public <T extends AbstractJaxb> void replaceContent(T replacement) throws TagTypeUnmatchException {
+    public <T extends AbstractJaxb> void replaceInner(T replacement) throws TagTypeUnmatchException {
     	ReplaceInnerUtil.replaceInner(this, replacement);
     }
 
@@ -486,7 +486,7 @@ public abstract class AbstractJaxb implements Serializable {
      * @return
      * @throws TagTypeUnmatchException
      */
-    public void replaceContent(String replacement) throws TagTypeUnmatchException {
+    public void replaceInner(String replacement) throws TagTypeUnmatchException {
     	ReplaceInnerUtil.replaceInner(this, replacement);
     }
     
@@ -496,7 +496,7 @@ public abstract class AbstractJaxb implements Serializable {
      * @return
      * @throws TagTypeUnmatchException
      */
-    public void replaceContent(List<java.lang.Object> replacement) throws TagTypeUnmatchException {
+    public void replaceInner(List<java.lang.Object> replacement) throws TagTypeUnmatchException {
     	ReplaceInnerUtil.replaceInner(this, replacement);
     }
 

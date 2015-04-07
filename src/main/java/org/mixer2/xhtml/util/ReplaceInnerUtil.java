@@ -1,6 +1,7 @@
 package org.mixer2.xhtml.util;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -13,9 +14,11 @@ import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 /**
  *
- * @see org.mixer2.xhtml.AbstractJaxb#replaceContent(String)
- * @see org.mixer2.xhtml.AbstractJaxb#replaceContent(AbstractJaxb)
- * @see org.mixer2.xhtml.AbstractJaxb#replaceContent(java.util.List<java.lang.Object>)
+ * @see org.mixer2.xhtml.AbstractJaxb#replaceInner(String)
+ * @see org.mixer2.xhtml.AbstractJaxb#replaceInner(AbstractJaxb)
+ * @see 
+ *      org.mixer2.xhtml.AbstractJaxb#replaceContent(java.util.List<java.lang.Object
+ *      >)
  * 
  * @author nabedge/watanabe
  *
@@ -25,49 +28,66 @@ public class ReplaceInnerUtil {
     @SuppressWarnings("unused")
     private static Log log = LogFactory.getLog(ReplaceInnerUtil.class);
 
-    public static <T extends AbstractJaxb> void replaceInner(T target, T replacement)
-            throws TagTypeUnmatchException {
-        //execute(target, tagType, clazz, replace);
+    public static <T extends AbstractJaxb> void replaceInner(T target,
+            T replacement) throws TagTypeUnmatchException {
+        execute(target,replacement);
     }
 
-    public static <T extends AbstractJaxb> void replaceInner(T target, String replacement)
-            throws TagTypeUnmatchException {
-        //execute(target, tagType, clazz, replace);
+    public static <T extends AbstractJaxb> void replaceInner(T target,
+            String replacement) throws TagTypeUnmatchException {
+        execute(target,replacement);
     }
 
-    public static <T extends AbstractJaxb> void replaceInner(T target, List<java.lang.Object> replacement)
-            throws TagTypeUnmatchException {
-        //execute(target, tagType, clazz, replace);
+    public static <T extends AbstractJaxb> void replaceInner(T target,
+            List<java.lang.Object> replacement) throws TagTypeUnmatchException {
+        execute(target,replacement);
     }
 
-    @SuppressWarnings({ "unchecked" })
-    private static <T extends AbstractJaxb> void execute(T target, java.lang.Object replacement)
-            throws TagTypeUnmatchException {
-    	
+    @SuppressWarnings({ "unchecked", "unused" })
+    private static <T extends AbstractJaxb> void execute(T target,
+            java.lang.Object replacement) throws TagTypeUnmatchException {
+
         TagEnum tagEnum = TagEnum.valueOf(target.getClass().getSimpleName()
                 .toUpperCase());
 
         switch (tagEnum) {
         case A:
             A a = (A) target;
+            a.unsetContent();
+            if (replacement instanceof List) {
+                a.getContent().addAll((Collection<? extends java.lang.Object>) replacement);
+            } else {
+                a.getContent().add(replacement);
+            }
             break;
         case ABBR:
             Abbr abbr = (Abbr) target;
+            abbr.unsetContent();
+            abbr.getContent().add(replacement);
             break;
         case ACRONYM:
             Acronym acronym = (Acronym) target;
+            acronym.unsetContent();
+            acronym.getContent().add(replacement);
             break;
         case ADDRESS:
             Address address = (Address) target;
+            address.unsetContent();
+            address.getContent().add(replacement);
             break;
         case APPLET:
             Applet applet = (Applet) target;
+            applet.unsetContent();
+            applet.getContent().add(replacement);
             break;
         case AREA:
             Area area = (Area) target;
+            // empty tag
             break;
         case B:
             B b = (B) target;
+            b.unsetContent();
+            b.getContent().add(replacement);
             break;
         case BASE:
             Base base = (Base) target;
@@ -79,15 +99,23 @@ public class ReplaceInnerUtil {
             break;
         case BDO:
             Bdo bdo = (Bdo) target;
+            bdo.unsetContent();
+            bdo.getContent().add(replacement);
             break;
         case BIG:
             Big big = (Big) target;
+            big.unsetContent();
+            big.getContent().add(replacement);
             break;
         case BLOCKQUOTE:
             Blockquote blockquote = (Blockquote) target;
+            blockquote.unsetContent();
+            blockquote.getContent().add(replacement);
             break;
         case BODY:
             Body body = (Body) target;
+            body.unsetContent();
+            body.getContent().add(replacement);
             break;
         case BR:
             Br br = (Br) target;
@@ -95,18 +123,28 @@ public class ReplaceInnerUtil {
             break;
         case BUTTON:
             Button button = (Button) target;
+            button.unsetContent();
+            button.getContent().add(replacement);
             break;
         case CAPTION:
             Caption caption = (Caption) target;
+            caption.unsetContent();
+            caption.getContent().add(replacement);
             break;
         case CENTER:
             Center center = (Center) target;
+            center.unsetContent();
+            center.getContent().add(replacement);
             break;
         case CITE:
             Cite cite = (Cite) target;
+            cite.unsetContent();
+            cite.getContent().add(replacement);
             break;
         case CODE:
             Code code = (Code) target;
+            code.unsetContent();
+            code.getContent().add(replacement);
             break;
         case COL:
             Col col = (Col) target;
@@ -114,25 +152,14 @@ public class ReplaceInnerUtil {
             break;
         case COLGROUP:
             Colgroup colgroup = (Colgroup) target;
-//            if (match(colgroup.getClass(), colgroup.getCssClass(), tagType,
-//                    clazz)) {
-//                return;
-//            }
-//            if (colgroup.isSetCol()) {
-//                for (ListIterator<Col> i = colgroup.getCol().listIterator(); i
-//                        .hasNext();) {
-//                    Col tmpcol = i.next();
-//                    if (match(tmpcol.getClass(), tmpcol.getCssClass(), tagType,
-//                            clazz)) {
-//                        if (replace.getClass().equals(Col.class)) {
-//                            i.set(((Col) replace).copy(Col.class));
-//                        } else {
-//                            throw new TagTypeUnmatchException(Col.class,
-//                                    replace.getClass());
-//                        }
-//                    }
-//                }
-//            }
+            if (replacement instanceof Col) {
+                colgroup.unsetCol();
+                colgroup.getCol().add((Col)replacement);
+            }
+            if (replacement instanceof List<?>) {
+                colgroup.unsetCol();
+                colgroup.getCol().addAll((Collection<? extends Col>) replacement);
+            }
             break;
         case DD:
             Dd dd = (Dd) target;
@@ -145,55 +172,55 @@ public class ReplaceInnerUtil {
             break;
         case DIR:
             Dir dir = (Dir) target;
-//            if (match(dir.getClass(), dir.getCssClass(), tagType, clazz)) {
-//                return;
-//            }
-//            if (dir.isSetLi()) {
-//                for (ListIterator<Li> i = dir.getLi().listIterator(); i
-//                        .hasNext();) {
-//                    Li li = i.next();
-//                    if (match(li.getClass(), li.getCssClass(), tagType, clazz)) {
-//                        if (replace.getClass().equals(Li.class)) {
-//                            i.set(((Li) replace).copy(Li.class));
-//                        } else {
-//                            throw new TagTypeUnmatchException(Li.class,
-//                                    replace.getClass());
-//                        }
-//                    } else {
-//                        replaceDescendantsWithinObjectList(li.getContent(),
-//                                tagType, clazz, replace);
-//                    }
-//                }
-//            }
+            // if (match(dir.getClass(), dir.getCssClass(), tagType, clazz)) {
+            // return;
+            // }
+            // if (dir.isSetLi()) {
+            // for (ListIterator<Li> i = dir.getLi().listIterator(); i
+            // .hasNext();) {
+            // Li li = i.next();
+            // if (match(li.getClass(), li.getCssClass(), tagType, clazz)) {
+            // if (replace.getClass().equals(Li.class)) {
+            // i.set(((Li) replace).copy(Li.class));
+            // } else {
+            // throw new TagTypeUnmatchException(Li.class,
+            // replace.getClass());
+            // }
+            // } else {
+            // replaceDescendantsWithinObjectList(li.getContent(),
+            // tagType, clazz, replace);
+            // }
+            // }
+            // }
             break;
         case DIV:
             Div div = (Div) target;
             break;
         case DL:
             Dl dl = (Dl) target;
-//            if (match(dl.getClass(), dl.getCssClass(), tagType, clazz)) {
-//                return;
-//            }
-//            if (dl.isSetDtOrDd()) {
-//                for (ListIterator<AbstractJaxb> i = dl.getDtOrDd()
-//                        .listIterator(); i.hasNext();) {
-//                    AbstractJaxb aj = i.next();
-//                    if (match(aj.getClass(), aj.getCssClass(), tagType,
-//                            clazz)) {
-//                        if (replace.getClass().equals(Dt.class)) {
-//                            i.set(((Dt) replace).copy(Dt.class));
-//                        } else if (replace.getClass().equals(Dd.class)) {
-//                            i.set(((Dd) replace).copy(Dd.class));
-//                        } else {
-//                            throw new TagTypeUnmatchException(
-//                                    "Dt or Dd expected but replace is "
-//                                            + replace.getClass());
-//                        }
-//                    } else {
-//                        execute(aj, tagType, clazz, replace);
-//                    }
-//                }
-//            }
+            // if (match(dl.getClass(), dl.getCssClass(), tagType, clazz)) {
+            // return;
+            // }
+            // if (dl.isSetDtOrDd()) {
+            // for (ListIterator<AbstractJaxb> i = dl.getDtOrDd()
+            // .listIterator(); i.hasNext();) {
+            // AbstractJaxb aj = i.next();
+            // if (match(aj.getClass(), aj.getCssClass(), tagType,
+            // clazz)) {
+            // if (replace.getClass().equals(Dt.class)) {
+            // i.set(((Dt) replace).copy(Dt.class));
+            // } else if (replace.getClass().equals(Dd.class)) {
+            // i.set(((Dd) replace).copy(Dd.class));
+            // } else {
+            // throw new TagTypeUnmatchException(
+            // "Dt or Dd expected but replace is "
+            // + replace.getClass());
+            // }
+            // } else {
+            // execute(aj, tagType, clazz, replace);
+            // }
+            // }
+            // }
             break;
         case DT:
             Dt dt = (Dt) target;
@@ -230,25 +257,31 @@ public class ReplaceInnerUtil {
             break;
         case HGROUP:
             Hgroup hgroup = (Hgroup) target;
-//            if (match(hgroup.getClass(), hgroup.getCssClass(), tagType, clazz)) {
-//                return;
-//            }
-//            if (hgroup.isSetH1OrH2OrH3()) {
-//                for (ListIterator<Inline> i = hgroup.getH1OrH2OrH3().listIterator(); i.hasNext();) {
-//                    Inline inline = i.next();
-//                    if (match(inline.getClass(), inline.getCssClass(), tagType,
-//                            clazz)) {
-//                        if (replace instanceof H1 ||replace instanceof H2 ||replace instanceof H3 ||replace instanceof H4 ||replace instanceof H5 ||replace instanceof H6) {
-//                            cls = ((T) replace).getClass();
-//                            i.set((Inline) ((T) replace).copy(cls));
-//                        } else {
-//                            throw new TagTypeUnmatchException("h1-h6 expected but replace is " + replace.getClass());
-//                        }
-//                    } else {
-//                        execute(inline, tagType, clazz, replace);
-//                    }
-//                }
-//            }
+            // if (match(hgroup.getClass(), hgroup.getCssClass(), tagType,
+            // clazz)) {
+            // return;
+            // }
+            // if (hgroup.isSetH1OrH2OrH3()) {
+            // for (ListIterator<Inline> i =
+            // hgroup.getH1OrH2OrH3().listIterator(); i.hasNext();) {
+            // Inline inline = i.next();
+            // if (match(inline.getClass(), inline.getCssClass(), tagType,
+            // clazz)) {
+            // if (replace instanceof H1 ||replace instanceof H2 ||replace
+            // instanceof H3 ||replace instanceof H4 ||replace instanceof H5
+            // ||replace instanceof H6) {
+            // cls = ((T) replace).getClass();
+            // i.set((Inline) ((T) replace).copy(cls));
+            // } else {
+            // throw new
+            // TagTypeUnmatchException("h1-h6 expected but replace is " +
+            // replace.getClass());
+            // }
+            // } else {
+            // execute(inline, tagType, clazz, replace);
+            // }
+            // }
+            // }
             break;
         case HEAD:
             Head head = (Head) target;
@@ -259,12 +292,12 @@ public class ReplaceInnerUtil {
             break;
         case HTML:
             Html html = (Html) target;
-//            if (html.isSetHead()) {
-//                execute(html.getHead(), tagType, clazz, replace);
-//            }
-//            if (html.isSetBody()) {
-//                execute(html.getBody(), tagType, clazz, replace);
-//            }
+            // if (html.isSetHead()) {
+            // execute(html.getHead(), tagType, clazz, replace);
+            // }
+            // if (html.isSetBody()) {
+            // execute(html.getBody(), tagType, clazz, replace);
+            // }
             break;
         case I:
             I i = (I) target;
@@ -305,43 +338,43 @@ public class ReplaceInnerUtil {
             break;
         case MAP:
             Map map = (Map) target;
-//            if (match(map.getClass(), map.getCssClass(), tagType, clazz)) {
-//                return;
-//            }
-//            if (map.isSetArea()) {
-//                for (ListIterator<Area> j = map.getArea().listIterator(); j
-//                        .hasNext();) {
-//                    Area tmparea = j.next();
-//                    if (match(tmparea.getClass(), tmparea.getCssClass(),
-//                            tagType, clazz)) {
-//                        if (replace.getClass().equals(Area.class)) {
-//                            j.set(((Area) replace).copy(Area.class));
-//                        } else {
-//                            throw new TagTypeUnmatchException(Area.class,
-//                                    replace.getClass());
-//                        }
-//                    }
-//                }
-//            }
-//            if (map.isSetPOrH1OrH2()) {
-//                for (ListIterator<AbstractJaxb> j = map.getPOrH1OrH2()
-//                        .listIterator(); j.hasNext();) {
-//                    AbstractJaxb aj = j.next();
-//                    if (match(aj.getClass(), aj.getCssClass(), tagType,
-//                            clazz)) {
-//                        if (replace instanceof AbstractJaxb) {
-//                            cls = replace.getClass();
-//                            j.set(((T) replace).copy(cls));
-//                        } else {
-//                            throw new TagTypeUnmatchException(
-//                                    "map object can not include "
-//                                            + replace.getClass());
-//                        }
-//                    } else {
-//                        execute(aj, tagType, clazz, replace);
-//                    }
-//                }
-//            }
+            // if (match(map.getClass(), map.getCssClass(), tagType, clazz)) {
+            // return;
+            // }
+            // if (map.isSetArea()) {
+            // for (ListIterator<Area> j = map.getArea().listIterator(); j
+            // .hasNext();) {
+            // Area tmparea = j.next();
+            // if (match(tmparea.getClass(), tmparea.getCssClass(),
+            // tagType, clazz)) {
+            // if (replace.getClass().equals(Area.class)) {
+            // j.set(((Area) replace).copy(Area.class));
+            // } else {
+            // throw new TagTypeUnmatchException(Area.class,
+            // replace.getClass());
+            // }
+            // }
+            // }
+            // }
+            // if (map.isSetPOrH1OrH2()) {
+            // for (ListIterator<AbstractJaxb> j = map.getPOrH1OrH2()
+            // .listIterator(); j.hasNext();) {
+            // AbstractJaxb aj = j.next();
+            // if (match(aj.getClass(), aj.getCssClass(), tagType,
+            // clazz)) {
+            // if (replace instanceof AbstractJaxb) {
+            // cls = replace.getClass();
+            // j.set(((T) replace).copy(cls));
+            // } else {
+            // throw new TagTypeUnmatchException(
+            // "map object can not include "
+            // + replace.getClass());
+            // }
+            // } else {
+            // execute(aj, tagType, clazz, replace);
+            // }
+            // }
+            // }
             break;
         case MENU:
             Menu menu = (Menu) target;
@@ -361,47 +394,47 @@ public class ReplaceInnerUtil {
             break;
         case OL:
             Ol ol = (Ol) target;
-//            if (match(ol.getClass(), ol.getCssClass(), tagType, clazz)) {
-//                return;
-//            }
-//            if (ol.isSetLi()) {
-//                for (ListIterator<Li> j = ol.getLi().listIterator(); j
-//                        .hasNext();) {
-//                    Li li2 = j.next();
-//                    if (match(li2.getClass(), li2.getCssClass(), tagType, clazz)) {
-//                        if (replace.getClass().equals(Li.class)) {
-//                            j.set(((Li) replace).copy(Li.class));
-//                        } else {
-//                            throw new TagTypeUnmatchException(Li.class,
-//                                    replace.getClass());
-//                        }
-//                    } else {
-//                        replaceDescendantsWithinObjectList(li2.getContent(),
-//                                tagType, clazz, replace);
-//                    }
-//                }
-//            }
+            // if (match(ol.getClass(), ol.getCssClass(), tagType, clazz)) {
+            // return;
+            // }
+            // if (ol.isSetLi()) {
+            // for (ListIterator<Li> j = ol.getLi().listIterator(); j
+            // .hasNext();) {
+            // Li li2 = j.next();
+            // if (match(li2.getClass(), li2.getCssClass(), tagType, clazz)) {
+            // if (replace.getClass().equals(Li.class)) {
+            // j.set(((Li) replace).copy(Li.class));
+            // } else {
+            // throw new TagTypeUnmatchException(Li.class,
+            // replace.getClass());
+            // }
+            // } else {
+            // replaceDescendantsWithinObjectList(li2.getContent(),
+            // tagType, clazz, replace);
+            // }
+            // }
+            // }
             break;
         case OPTGROUP:
             Optgroup optgroup = (Optgroup) target;
-//            if (match(optgroup.getClass(), optgroup.getCssClass(), tagType,
-//                    clazz)) {
-//                return;
-//            }
-//            if (optgroup.isSetOption()) {
-//                for (ListIterator<Option> j = optgroup.getOption()
-//                        .listIterator(); j.hasNext();) {
-//                    Option op = j.next();
-//                    if (match(op.getClass(), op.getCssClass(), tagType, clazz)) {
-//                        if (replace.getClass().equals(Option.class)) {
-//                            j.set(((Option) replace).copy(Option.class));
-//                        } else {
-//                            throw new TagTypeUnmatchException(Option.class,
-//                                    replace.getClass());
-//                        }
-//                    }
-//                }
-//            }
+            // if (match(optgroup.getClass(), optgroup.getCssClass(), tagType,
+            // clazz)) {
+            // return;
+            // }
+            // if (optgroup.isSetOption()) {
+            // for (ListIterator<Option> j = optgroup.getOption()
+            // .listIterator(); j.hasNext();) {
+            // Option op = j.next();
+            // if (match(op.getClass(), op.getCssClass(), tagType, clazz)) {
+            // if (replace.getClass().equals(Option.class)) {
+            // j.set(((Option) replace).copy(Option.class));
+            // } else {
+            // throw new TagTypeUnmatchException(Option.class,
+            // replace.getClass());
+            // }
+            // }
+            // }
+            // }
             break;
         case OPTION:
             Option option = (Option) target;
@@ -432,29 +465,30 @@ public class ReplaceInnerUtil {
             break;
         case SELECT:
             Select select = (Select) target;
-//            if (match(select.getClass(), select.getCssClass(), tagType, clazz)) {
-//                return;
-//            }
-//            if (select.isSetOptgroupOrOption()) {
-//                for (ListIterator<AbstractJaxb> j = select
-//                        .getOptgroupOrOption().listIterator(); j.hasNext();) {
-//                    AbstractJaxb aj = j.next();
-//                    if (match(aj.getClass(), aj.getCssClass(), tagType,
-//                            clazz)) {
-//                        if (replace.getClass().equals(Optgroup.class)) {
-//                            j.set(((Optgroup) replace).copy(Optgroup.class));
-//                        } else if (replace.getClass().equals(Option.class)) {
-//                            j.set(((Option) replace).copy(Option.class));
-//                        } else {
-//                            throw new TagTypeUnmatchException(
-//                                    "optgroup or option expected but replace is "
-//                                            + replace.getClass());
-//                        }
-//                    } else {
-//                        execute(aj, tagType, clazz, replace);
-//                    }
-//                }
-//            }
+            // if (match(select.getClass(), select.getCssClass(), tagType,
+            // clazz)) {
+            // return;
+            // }
+            // if (select.isSetOptgroupOrOption()) {
+            // for (ListIterator<AbstractJaxb> j = select
+            // .getOptgroupOrOption().listIterator(); j.hasNext();) {
+            // AbstractJaxb aj = j.next();
+            // if (match(aj.getClass(), aj.getCssClass(), tagType,
+            // clazz)) {
+            // if (replace.getClass().equals(Optgroup.class)) {
+            // j.set(((Optgroup) replace).copy(Optgroup.class));
+            // } else if (replace.getClass().equals(Option.class)) {
+            // j.set(((Option) replace).copy(Option.class));
+            // } else {
+            // throw new TagTypeUnmatchException(
+            // "optgroup or option expected but replace is "
+            // + replace.getClass());
+            // }
+            // } else {
+            // execute(aj, tagType, clazz, replace);
+            // }
+            // }
+            // }
             break;
         case SMALL:
             Small small = (Small) target;
@@ -480,115 +514,117 @@ public class ReplaceInnerUtil {
             break;
         case TABLE:
             Table table = (Table) target;
-//            if (match(table.getClass(), table.getCssClass(), tagType, clazz)) {
-//                return;
-//            }
-//            if (table.isSetCaption()) {
-//                if (match(table.getCaption().getClass(), table.getCaption()
-//                        .getCssClass(), tagType, clazz)) {
-//                    table.setCaption(((Caption) replace).copy(Caption.class));
-//                }
-//            }
-//
-//            if (table.isSetCol()) {
-//                for (ListIterator<Col> j = table.getCol().listIterator(); j
-//                        .hasNext();) {
-//                    Col col1 = j.next();
-//                    if (match(col1.getClass(), col1.getCssClass(), tagType,
-//                            clazz)) {
-//                        if (replace.getClass().equals(Col.class)) {
-//                            j.set(((Col) replace).copy(Col.class));
-//                        } else {
-//                            throw new TagTypeUnmatchException(Col.class,
-//                                    replace.getClass());
-//                        }
-//                    }
-//                }
-//            }
-//            if (table.isSetColgroup()) {
-//                for (ListIterator<Colgroup> j = table.getColgroup()
-//                        .listIterator(); j.hasNext();) {
-//                    Colgroup cg = j.next();
-//                    if (match(cg.getClass(), cg.getCssClass(), tagType, clazz)) {
-//                        if (replace.getClass().equals(Colgroup.class)) {
-//                            j.set(((Colgroup) replace).copy(Colgroup.class));
-//                        } else {
-//                            throw new TagTypeUnmatchException(Colgroup.class,
-//                                    replace.getClass());
-//                        }
-//                    } else {
-//                        execute(cg, tagType, clazz, replace);
-//                    }
-//                }
-//            }
-//            if (table.isSetTbody()) {
-//                for (ListIterator<Tbody> j = table.getTbody().listIterator(); j
-//                        .hasNext();) {
-//                    Tbody tbody = j.next();
-//                    if (match(tbody.getClass(), tbody.getCssClass(), tagType,
-//                            clazz)) {
-//                        if (replace.getClass().equals(Tbody.class)) {
-//                            j.set(((Tbody) replace).copy(Tbody.class));
-//                        } else {
-//                            throw new TagTypeUnmatchException(
-//                                    "Tbody,Tr expected but "
-//                                            + replace.getClass());
-//                        }
-//                    } else {
-//                        execute(tbody, tagType, clazz, replace);
-//                    }
-//                }
-//            }
-//            if (table.isSetThead()) {
-//                if (match(Head.class, table.getThead().getCssClass(), tagType,
-//                        clazz)) {
-//                    table.setThead(((Thead) replace).copy(Thead.class));
-//                }
-//            }
-//            if (table.isSetTfoot()) {
-//                if (match(Tfoot.class, table.getTfoot().getCssClass(), tagType,
-//                        clazz)) {
-//                    table.setTfoot(((Tfoot) replace).copy(Tfoot.class));
-//                }
-//            }
-//            if (table.isSetTr()) {
-//                for (ListIterator<Tr> j = table.getTr().listIterator(); j
-//                        .hasNext();) {
-//                    Tr tr = j.next();
-//                    if (match(Tr.class, tr.getCssClass(), tagType, clazz)) {
-//                        if (replace.getClass().equals(Tr.class)) {
-//                            j.set(((Tr) replace).copy(Tr.class));
-//                        } else {
-//                            throw new TagTypeUnmatchException(Tr.class,
-//                                    replace.getClass());
-//                        }
-//                    } else {
-//                        execute(tr, tagType, clazz, replace);
-//                    }
-//                }
-//            }
+            // if (match(table.getClass(), table.getCssClass(), tagType, clazz))
+            // {
+            // return;
+            // }
+            // if (table.isSetCaption()) {
+            // if (match(table.getCaption().getClass(), table.getCaption()
+            // .getCssClass(), tagType, clazz)) {
+            // table.setCaption(((Caption) replace).copy(Caption.class));
+            // }
+            // }
+            //
+            // if (table.isSetCol()) {
+            // for (ListIterator<Col> j = table.getCol().listIterator(); j
+            // .hasNext();) {
+            // Col col1 = j.next();
+            // if (match(col1.getClass(), col1.getCssClass(), tagType,
+            // clazz)) {
+            // if (replace.getClass().equals(Col.class)) {
+            // j.set(((Col) replace).copy(Col.class));
+            // } else {
+            // throw new TagTypeUnmatchException(Col.class,
+            // replace.getClass());
+            // }
+            // }
+            // }
+            // }
+            // if (table.isSetColgroup()) {
+            // for (ListIterator<Colgroup> j = table.getColgroup()
+            // .listIterator(); j.hasNext();) {
+            // Colgroup cg = j.next();
+            // if (match(cg.getClass(), cg.getCssClass(), tagType, clazz)) {
+            // if (replace.getClass().equals(Colgroup.class)) {
+            // j.set(((Colgroup) replace).copy(Colgroup.class));
+            // } else {
+            // throw new TagTypeUnmatchException(Colgroup.class,
+            // replace.getClass());
+            // }
+            // } else {
+            // execute(cg, tagType, clazz, replace);
+            // }
+            // }
+            // }
+            // if (table.isSetTbody()) {
+            // for (ListIterator<Tbody> j = table.getTbody().listIterator(); j
+            // .hasNext();) {
+            // Tbody tbody = j.next();
+            // if (match(tbody.getClass(), tbody.getCssClass(), tagType,
+            // clazz)) {
+            // if (replace.getClass().equals(Tbody.class)) {
+            // j.set(((Tbody) replace).copy(Tbody.class));
+            // } else {
+            // throw new TagTypeUnmatchException(
+            // "Tbody,Tr expected but "
+            // + replace.getClass());
+            // }
+            // } else {
+            // execute(tbody, tagType, clazz, replace);
+            // }
+            // }
+            // }
+            // if (table.isSetThead()) {
+            // if (match(Head.class, table.getThead().getCssClass(), tagType,
+            // clazz)) {
+            // table.setThead(((Thead) replace).copy(Thead.class));
+            // }
+            // }
+            // if (table.isSetTfoot()) {
+            // if (match(Tfoot.class, table.getTfoot().getCssClass(), tagType,
+            // clazz)) {
+            // table.setTfoot(((Tfoot) replace).copy(Tfoot.class));
+            // }
+            // }
+            // if (table.isSetTr()) {
+            // for (ListIterator<Tr> j = table.getTr().listIterator(); j
+            // .hasNext();) {
+            // Tr tr = j.next();
+            // if (match(Tr.class, tr.getCssClass(), tagType, clazz)) {
+            // if (replace.getClass().equals(Tr.class)) {
+            // j.set(((Tr) replace).copy(Tr.class));
+            // } else {
+            // throw new TagTypeUnmatchException(Tr.class,
+            // replace.getClass());
+            // }
+            // } else {
+            // execute(tr, tagType, clazz, replace);
+            // }
+            // }
+            // }
             break;
         case TBODY:
             Tbody tbody = (Tbody) target;
-//            if (match(tbody.getClass(), tbody.getCssClass(), tagType, clazz)) {
-//                return;
-//            }
-//            if (tbody.isSetTr()) {
-//                for (ListIterator<Tr> j = tbody.getTr().listIterator(); j
-//                        .hasNext();) {
-//                    Tr tr = j.next();
-//                    if (match(Tr.class, tr.getCssClass(), tagType, clazz)) {
-//                        if (replace.getClass().equals(Tr.class)) {
-//                            j.set(((Tr) replace).copy(Tr.class));
-//                        } else {
-//                            throw new TagTypeUnmatchException(Tr.class,
-//                                    replace.getClass());
-//                        }
-//                    } else {
-//                        execute(tr, tagType, clazz, replace);
-//                    }
-//                }
-//            }
+            // if (match(tbody.getClass(), tbody.getCssClass(), tagType, clazz))
+            // {
+            // return;
+            // }
+            // if (tbody.isSetTr()) {
+            // for (ListIterator<Tr> j = tbody.getTr().listIterator(); j
+            // .hasNext();) {
+            // Tr tr = j.next();
+            // if (match(Tr.class, tr.getCssClass(), tagType, clazz)) {
+            // if (replace.getClass().equals(Tr.class)) {
+            // j.set(((Tr) replace).copy(Tr.class));
+            // } else {
+            // throw new TagTypeUnmatchException(Tr.class,
+            // replace.getClass());
+            // }
+            // } else {
+            // execute(tr, tagType, clazz, replace);
+            // }
+            // }
+            // }
             break;
         case TD:
             Td td = (Td) target;
@@ -599,50 +635,52 @@ public class ReplaceInnerUtil {
             break;
         case TFOOT:
             Tfoot tfoot = (Tfoot) target;
-//            if (match(tfoot.getClass(), tfoot.getCssClass(), tagType, clazz)) {
-//                return;
-//            }
-//            if (tfoot.isSetTr()) {
-//                for (ListIterator<Tr> j = tfoot.getTr().listIterator(); j
-//                        .hasNext();) {
-//                    Tr tr = j.next();
-//                    if (match(Tr.class, tr.getCssClass(), tagType, clazz)) {
-//                        if (replace.getClass().equals(Tr.class)) {
-//                            j.set(((Tr) replace).copy(Tr.class));
-//                        } else {
-//                            throw new TagTypeUnmatchException(Tr.class,
-//                                    replace.getClass());
-//                        }
-//                    } else {
-//                        execute(tr, tagType, clazz, replace);
-//                    }
-//                }
-//            }
+            // if (match(tfoot.getClass(), tfoot.getCssClass(), tagType, clazz))
+            // {
+            // return;
+            // }
+            // if (tfoot.isSetTr()) {
+            // for (ListIterator<Tr> j = tfoot.getTr().listIterator(); j
+            // .hasNext();) {
+            // Tr tr = j.next();
+            // if (match(Tr.class, tr.getCssClass(), tagType, clazz)) {
+            // if (replace.getClass().equals(Tr.class)) {
+            // j.set(((Tr) replace).copy(Tr.class));
+            // } else {
+            // throw new TagTypeUnmatchException(Tr.class,
+            // replace.getClass());
+            // }
+            // } else {
+            // execute(tr, tagType, clazz, replace);
+            // }
+            // }
+            // }
             break;
         case TH:
             Th th = (Th) target;
             break;
         case THEAD:
             Thead thead = (Thead) target;
-//            if (match(thead.getClass(), thead.getCssClass(), tagType, clazz)) {
-//                return;
-//            }
-//            if (thead.isSetTr()) {
-//                for (ListIterator<Tr> j = thead.getTr().listIterator(); j
-//                        .hasNext();) {
-//                    Tr tr = j.next();
-//                    if (match(Tr.class, tr.getCssClass(), tagType, clazz)) {
-//                        if (replace.getClass().equals(Tr.class)) {
-//                            j.set(((Tr) replace).copy(Tr.class));
-//                        } else {
-//                            throw new TagTypeUnmatchException(Tr.class,
-//                                    replace.getClass());
-//                        }
-//                    } else {
-//                        execute(tr, tagType, clazz, replace);
-//                    }
-//                }
-//            }
+            // if (match(thead.getClass(), thead.getCssClass(), tagType, clazz))
+            // {
+            // return;
+            // }
+            // if (thead.isSetTr()) {
+            // for (ListIterator<Tr> j = thead.getTr().listIterator(); j
+            // .hasNext();) {
+            // Tr tr = j.next();
+            // if (match(Tr.class, tr.getCssClass(), tagType, clazz)) {
+            // if (replace.getClass().equals(Tr.class)) {
+            // j.set(((Tr) replace).copy(Tr.class));
+            // } else {
+            // throw new TagTypeUnmatchException(Tr.class,
+            // replace.getClass());
+            // }
+            // } else {
+            // execute(tr, tagType, clazz, replace);
+            // }
+            // }
+            // }
             break;
         case TITLE:
             Title title = (Title) target;
@@ -650,31 +688,31 @@ public class ReplaceInnerUtil {
             break;
         case TR:
             Tr tr = (Tr) target;
-//            if (match(tr.getClass(), tr.getCssClass(), tagType, clazz)) {
-//                return;
-//            }
-//            if (tr.isSetThOrTd()) {
-//                for (ListIterator<Flow> j = tr.getThOrTd().listIterator(); j
-//                        .hasNext();) {
-//                    Flow flow = j.next();
-//                    if (match(flow.getClass(), flow.getCssClass(), tagType,
-//                            clazz)) {
-//                        if (replace.getClass().equals(Th.class)) {
-//
-//                            j.set(((Th) replace).copy(Th.class));
-//                        } else if (replace.getClass().equals(Td.class)) {
-//
-//                            j.set(((Td) replace).copy(Td.class));
-//                        } else {
-//                            throw new TagTypeUnmatchException(
-//                                    "th or td expected but replace is "
-//                                            + replace.getClass());
-//                        }
-//                    } else {
-//                        execute(flow, tagType, clazz, replace);
-//                    }
-//                }
-//            }
+            // if (match(tr.getClass(), tr.getCssClass(), tagType, clazz)) {
+            // return;
+            // }
+            // if (tr.isSetThOrTd()) {
+            // for (ListIterator<Flow> j = tr.getThOrTd().listIterator(); j
+            // .hasNext();) {
+            // Flow flow = j.next();
+            // if (match(flow.getClass(), flow.getCssClass(), tagType,
+            // clazz)) {
+            // if (replace.getClass().equals(Th.class)) {
+            //
+            // j.set(((Th) replace).copy(Th.class));
+            // } else if (replace.getClass().equals(Td.class)) {
+            //
+            // j.set(((Td) replace).copy(Td.class));
+            // } else {
+            // throw new TagTypeUnmatchException(
+            // "th or td expected but replace is "
+            // + replace.getClass());
+            // }
+            // } else {
+            // execute(flow, tagType, clazz, replace);
+            // }
+            // }
+            // }
             break;
         case TT:
             Tt tt = (Tt) target;
@@ -684,149 +722,149 @@ public class ReplaceInnerUtil {
             break;
         case UL:
             Ul ul = (Ul) target;
-//            if (match(ul.getClass(), ul.getCssClass(), tagType, clazz)) {
-//                return;
-//            }
-//            if (ul.isSetLi()) {
-//                for (ListIterator<Li> j = ul.getLi().listIterator(); j
-//                        .hasNext();) {
-//                    Li li2 = j.next();
-//                    if (match(li2.getClass(), li2.getCssClass(), tagType, clazz)) {
-//                        if (replace.getClass().equals(Li.class)) {
-//                            j.set(((Li) replace).copy(Li.class));
-//                        } else {
-//                            throw new TagTypeUnmatchException(Li.class,
-//                                    replace.getClass());
-//                        }
-//                    } else {
-//                        execute(li2, tagType, clazz, replace);
-//                    }
-//                }
-//            }
+            // if (match(ul.getClass(), ul.getCssClass(), tagType, clazz)) {
+            // return;
+            // }
+            // if (ul.isSetLi()) {
+            // for (ListIterator<Li> j = ul.getLi().listIterator(); j
+            // .hasNext();) {
+            // Li li2 = j.next();
+            // if (match(li2.getClass(), li2.getCssClass(), tagType, clazz)) {
+            // if (replace.getClass().equals(Li.class)) {
+            // j.set(((Li) replace).copy(Li.class));
+            // } else {
+            // throw new TagTypeUnmatchException(Li.class,
+            // replace.getClass());
+            // }
+            // } else {
+            // execute(li2, tagType, clazz, replace);
+            // }
+            // }
+            // }
             break;
         case VAR:
             Var var = (Var) target;
             break;
         case ARTICLE:
-            Article article = (Article)target;
+            Article article = (Article) target;
             break;
         case ASIDE:
-            Aside aside = (Aside)target;
+            Aside aside = (Aside) target;
             break;
         case AUDIO:
-            Audio audio = (Audio)target;
+            Audio audio = (Audio) target;
             break;
         case BDI:
-            Bdi bdi =(Bdi) target;
+            Bdi bdi = (Bdi) target;
             break;
         case CANVAS:
-            Canvas canvas = (Canvas)target;
+            Canvas canvas = (Canvas) target;
             break;
         case COMMAND:
-            Command command = (Command)target;
+            Command command = (Command) target;
             // empty element
             break;
         case DATALIST:
-            Datalist datalist = (Datalist)target;
+            Datalist datalist = (Datalist) target;
             break;
         case DETAILS:
-            Details details = (Details)target;
+            Details details = (Details) target;
             break;
         case EMBED:
-            Embed embed = (Embed)target;
+            Embed embed = (Embed) target;
             // empty element
             break;
         case FIGCAPTION:
-            Figcaption figcaption = (Figcaption)target;
+            Figcaption figcaption = (Figcaption) target;
             break;
         case FIGURE:
-            Figure figure = (Figure)target;
+            Figure figure = (Figure) target;
             break;
         case FOOTER:
-            Footer footer = (Footer)target;
+            Footer footer = (Footer) target;
             break;
         case HEADER:
-            Header header = (Header)target;
+            Header header = (Header) target;
             break;
         case KEYGEN:
-            Keygen keygen = (Keygen)target;
+            Keygen keygen = (Keygen) target;
             // empty element
             break;
         case MARK:
-            Mark mark = (Mark)target;
+            Mark mark = (Mark) target;
             break;
         case METER:
-            Meter meter =(Meter)target;
+            Meter meter = (Meter) target;
             break;
         case NAV:
-            Nav nav = (Nav)target;
+            Nav nav = (Nav) target;
             break;
         case OUTPUT:
-            Output output = (Output)target;
+            Output output = (Output) target;
             break;
         case PROGRESS:
-            Progress progress = (Progress)target;
+            Progress progress = (Progress) target;
             break;
         case RP:
-            Rp rp = (Rp)target;
+            Rp rp = (Rp) target;
             break;
         case RT:
-            Rt rt = (Rt)target;
+            Rt rt = (Rt) target;
             break;
         case RUBY:
-            Ruby ruby = (Ruby)target;
+            Ruby ruby = (Ruby) target;
             break;
         case SECTION:
-            Section section = (Section)target;
+            Section section = (Section) target;
             break;
         case SOURCE:
-            Source source = (Source)target;
+            Source source = (Source) target;
             // empty element
             break;
         case SUMMARY:
-            Summary summary = (Summary)target;
+            Summary summary = (Summary) target;
             break;
         case TIME:
-            Time time = (Time)target;
+            Time time = (Time) target;
             break;
         case TRACK:
-            Track track = (Track)target;
+            Track track = (Track) target;
             // empty element
             break;
         case VIDEO:
-            Video video = (Video)target;
+            Video video = (Video) target;
             break;
         case WBR:
-            Wbr wbr = (Wbr)target;
+            Wbr wbr = (Wbr) target;
             // empty element
             break;
         }
     }
 
-//    private static boolean match(Class<?> targetType,
-//            List<String> targetCssClass, Class<?> tagType, String clazz) {
-//        if (tagType == null && clazz == null) {
-//            return false;
-//        }
-//        if (targetCssClass == null) {
-//            targetCssClass = new ArrayList<String>();
-//        }
-//        if (tagType != null && clazz == null) {
-//            if (targetType.equals(tagType)) {
-//                return true;
-//            }
-//        }
-//        if (tagType == null && clazz != null) {
-//            if (targetCssClass.contains(clazz)) {
-//                return true;
-//            }
-//        }
-//        if (tagType != null && clazz != null) {
-//            if (targetType.equals(tagType) && targetCssClass.contains(clazz)) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
+    // private static boolean match(Class<?> targetType,
+    // List<String> targetCssClass, Class<?> tagType, String clazz) {
+    // if (tagType == null && clazz == null) {
+    // return false;
+    // }
+    // if (targetCssClass == null) {
+    // targetCssClass = new ArrayList<String>();
+    // }
+    // if (tagType != null && clazz == null) {
+    // if (targetType.equals(tagType)) {
+    // return true;
+    // }
+    // }
+    // if (tagType == null && clazz != null) {
+    // if (targetCssClass.contains(clazz)) {
+    // return true;
+    // }
+    // }
+    // if (tagType != null && clazz != null) {
+    // if (targetType.equals(tagType) && targetCssClass.contains(clazz)) {
+    // return true;
+    // }
+    // }
+    // return false;
+    // }
 
 }
