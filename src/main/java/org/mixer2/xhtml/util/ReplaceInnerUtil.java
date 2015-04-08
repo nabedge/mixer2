@@ -43,6 +43,16 @@ public class ReplaceInnerUtil {
         execute(target,replacement);
     }
 
+    @SuppressWarnings("unchecked")
+    private static void replaceContent(List<java.lang.Object> list, java.lang.Object replacement) {
+        list.clear();
+        if (replacement instanceof List) {
+            list.addAll((Collection<? extends java.lang.Object>) replacement);
+        } else {
+            list.add(replacement);
+        }
+    }
+    
     @SuppressWarnings({ "unchecked", "unused" })
     private static <T extends AbstractJaxb> void execute(T target,
             java.lang.Object replacement) throws TagTypeUnmatchException {
@@ -53,32 +63,23 @@ public class ReplaceInnerUtil {
         switch (tagEnum) {
         case A:
             A a = (A) target;
-            a.unsetContent();
-            if (replacement instanceof List) {
-                a.getContent().addAll((Collection<? extends java.lang.Object>) replacement);
-            } else {
-                a.getContent().add(replacement);
-            }
+            replaceContent(a.getContent(), replacement);
             break;
         case ABBR:
             Abbr abbr = (Abbr) target;
-            abbr.unsetContent();
-            abbr.getContent().add(replacement);
+            // TODO
             break;
         case ACRONYM:
             Acronym acronym = (Acronym) target;
-            acronym.unsetContent();
-            acronym.getContent().add(replacement);
+            // TODO
             break;
         case ADDRESS:
             Address address = (Address) target;
-            address.unsetContent();
-            address.getContent().add(replacement);
+            // TODO
             break;
         case APPLET:
             Applet applet = (Applet) target;
-            applet.unsetContent();
-            applet.getContent().add(replacement);
+            // TODO
             break;
         case AREA:
             Area area = (Area) target;
@@ -86,8 +87,7 @@ public class ReplaceInnerUtil {
             break;
         case B:
             B b = (B) target;
-            b.unsetContent();
-            b.getContent().add(replacement);
+            // TODO
             break;
         case BASE:
             Base base = (Base) target;
@@ -99,23 +99,19 @@ public class ReplaceInnerUtil {
             break;
         case BDO:
             Bdo bdo = (Bdo) target;
-            bdo.unsetContent();
-            bdo.getContent().add(replacement);
+            // TODO
             break;
         case BIG:
             Big big = (Big) target;
-            big.unsetContent();
-            big.getContent().add(replacement);
+            // TODO
             break;
         case BLOCKQUOTE:
             Blockquote blockquote = (Blockquote) target;
-            blockquote.unsetContent();
-            blockquote.getContent().add(replacement);
+            // TODO
             break;
         case BODY:
             Body body = (Body) target;
-            body.unsetContent();
-            body.getContent().add(replacement);
+            // TODO
             break;
         case BR:
             Br br = (Br) target;
@@ -123,28 +119,23 @@ public class ReplaceInnerUtil {
             break;
         case BUTTON:
             Button button = (Button) target;
-            button.unsetContent();
-            button.getContent().add(replacement);
+            // TODO
             break;
         case CAPTION:
             Caption caption = (Caption) target;
-            caption.unsetContent();
-            caption.getContent().add(replacement);
+            // TODO
             break;
         case CENTER:
             Center center = (Center) target;
-            center.unsetContent();
-            center.getContent().add(replacement);
+            // TODO
             break;
         case CITE:
             Cite cite = (Cite) target;
-            cite.unsetContent();
-            cite.getContent().add(replacement);
+            // TODO
             break;
         case CODE:
             Code code = (Code) target;
-            code.unsetContent();
-            code.getContent().add(replacement);
+            // TODO
             break;
         case COL:
             Col col = (Col) target;
@@ -152,26 +143,29 @@ public class ReplaceInnerUtil {
             break;
         case COLGROUP:
             Colgroup colgroup = (Colgroup) target;
+            colgroup.unsetCol();
             if (replacement instanceof Col) {
-                colgroup.unsetCol();
                 colgroup.getCol().add((Col)replacement);
             }
             if (replacement instanceof List<?>) {
-                colgroup.unsetCol();
                 colgroup.getCol().addAll((Collection<? extends Col>) replacement);
             }
             break;
         case DD:
             Dd dd = (Dd) target;
+            // TODO
             break;
         case DEL:
             Del del = (Del) target;
+            // TODO
             break;
         case DFN:
             Dfn dfn = (Dfn) target;
+            // TODO
             break;
         case DIR:
             Dir dir = (Dir) target;
+            // TODO
             // if (match(dir.getClass(), dir.getCssClass(), tagType, clazz)) {
             // return;
             // }
@@ -195,9 +189,11 @@ public class ReplaceInnerUtil {
             break;
         case DIV:
             Div div = (Div) target;
+            // TODO
             break;
         case DL:
             Dl dl = (Dl) target;
+            // TODO
             // if (match(dl.getClass(), dl.getCssClass(), tagType, clazz)) {
             // return;
             // }
@@ -224,12 +220,15 @@ public class ReplaceInnerUtil {
             break;
         case DT:
             Dt dt = (Dt) target;
+            // TODO
             break;
         case EM:
             Em em = (Em) target;
+            // TODO
             break;
         case FIELDSET:
             Fieldset fieldset = (Fieldset) target;
+            // TODO
             break;
         case FONT:
             Font font = (Font) target;
@@ -840,31 +839,4 @@ public class ReplaceInnerUtil {
             break;
         }
     }
-
-    // private static boolean match(Class<?> targetType,
-    // List<String> targetCssClass, Class<?> tagType, String clazz) {
-    // if (tagType == null && clazz == null) {
-    // return false;
-    // }
-    // if (targetCssClass == null) {
-    // targetCssClass = new ArrayList<String>();
-    // }
-    // if (tagType != null && clazz == null) {
-    // if (targetType.equals(tagType)) {
-    // return true;
-    // }
-    // }
-    // if (tagType == null && clazz != null) {
-    // if (targetCssClass.contains(clazz)) {
-    // return true;
-    // }
-    // }
-    // if (tagType != null && clazz != null) {
-    // if (targetType.equals(tagType) && targetCssClass.contains(clazz)) {
-    // return true;
-    // }
-    // }
-    // return false;
-    // }
-
 }
