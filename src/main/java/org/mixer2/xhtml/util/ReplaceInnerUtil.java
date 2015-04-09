@@ -16,7 +16,7 @@ import org.mixer2.xhtml.exception.TagTypeUnmatchException;
  *
  * @see org.mixer2.xhtml.AbstractJaxb#replaceInner(String)
  * @see org.mixer2.xhtml.AbstractJaxb#replaceInner(AbstractJaxb)
- * @see org.mixer2.xhtml.AbstractJaxb#replaceContent(java.util.List<java.lang.Object>)
+ * @see org.mixer2.xhtml.AbstractJaxb#replaceContent(List<java.lang.Object>)
  * 
  * @author nabedge/watanabe
  *
@@ -26,31 +26,64 @@ public class ReplaceInnerUtil {
     @SuppressWarnings("unused")
     private static Log log = LogFactory.getLog(ReplaceInnerUtil.class);
 
+    /**
+     * @see org.mixer2.xhtml.AbstractJaxb#replaceInner(AbstractJaxb)
+     * @param target
+     * @param replacement
+     * @throws TagTypeUnmatchException
+     */
     public static <T extends AbstractJaxb> void replaceInner(T target,
             T replacement) throws TagTypeUnmatchException {
         execute(target, replacement);
     }
 
+    /**
+     * @see org.mixer2.xhtml.AbstractJaxb#replaceInner(String)
+     * @param target
+     * @param replacement
+     * @throws TagTypeUnmatchException
+     */
     public static <T extends AbstractJaxb> void replaceInner(T target,
             String replacement) throws TagTypeUnmatchException {
-        execute(target,replacement);
+        execute(target, replacement);
     }
 
+    /**
+     * @see org.mixer2.xhtml.AbstractJaxb#replaceInner(List<java.lang.Object>)
+     * @param target
+     * @param replacement
+     * @throws TagTypeUnmatchException
+     */
     public static <T extends AbstractJaxb> void replaceInner(T target,
             List<java.lang.Object> replacement) throws TagTypeUnmatchException {
-        execute(target,replacement);
+        execute(target, replacement);
     }
 
     @SuppressWarnings("unchecked")
-    private static void replaceContent(List<java.lang.Object> list, java.lang.Object replacement) {
+    private static void replaceContent(List<java.lang.Object> list,
+            java.lang.Object replacement) {
         list.clear();
         if (replacement instanceof List) {
-            list.addAll((Collection<? extends java.lang.Object>) replacement);
+            for (java.lang.Object o : (Collection<? extends java.lang.Object>) replacement) {
+                if (isStringOrTag(o)) {
+                    list.add(o);
+                }
+            }
         } else {
-            list.add(replacement);
+            if (isStringOrTag(replacement)) {
+                list.add(replacement);
+            }
         }
     }
-    
+
+    private static boolean isStringOrTag(java.lang.Object obj) {
+        if (obj instanceof String || obj instanceof AbstractJaxb) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     @SuppressWarnings({ "unchecked", "unused" })
     private static <T extends AbstractJaxb> void execute(T target,
             java.lang.Object replacement) throws TagTypeUnmatchException {
@@ -143,10 +176,14 @@ public class ReplaceInnerUtil {
             Colgroup colgroup = (Colgroup) target;
             colgroup.unsetCol();
             if (replacement instanceof Col) {
-                colgroup.getCol().add((Col)replacement);
+                colgroup.getCol().add((Col) replacement);
             }
             if (replacement instanceof List<?>) {
-                colgroup.getCol().addAll((Collection<? extends Col>) replacement);
+                for (java.lang.Object o : (Collection<? extends java.lang.Object>) replacement) {
+                    if (o instanceof Col) {
+                        colgroup.getCol().add((Col) o);
+                    }
+                }
             }
             break;
         case DD:
@@ -165,43 +202,38 @@ public class ReplaceInnerUtil {
             Dir dir = (Dir) target;
             dir.getLi().clear();
             if (replacement instanceof Li) {
-            	dir.getLi().add((Li) replacement);
+                dir.getLi().add((Li) replacement);
             }
             if (replacement instanceof List<?>) {
-            	dir.getLi().addAll((Collection<Li>) replacement);
+                for (java.lang.Object o : (Collection<? extends java.lang.Object>) replacement) {
+                    if (o instanceof Li) {
+                        dir.getLi().add((Li) o);
+                    }
+                }
             }
             break;
         case DIV:
             Div div = (Div) target;
             replaceContent(div.getContent(), replacement);
-            // TODO
             break;
         case DL:
             Dl dl = (Dl) target;
-            // TODO
-            // if (match(dl.getClass(), dl.getCssClass(), tagType, clazz)) {
-            // return;
-            // }
-            // if (dl.isSetDtOrDd()) {
-            // for (ListIterator<AbstractJaxb> i = dl.getDtOrDd()
-            // .listIterator(); i.hasNext();) {
-            // AbstractJaxb aj = i.next();
-            // if (match(aj.getClass(), aj.getCssClass(), tagType,
-            // clazz)) {
-            // if (replace.getClass().equals(Dt.class)) {
-            // i.set(((Dt) replace).copy(Dt.class));
-            // } else if (replace.getClass().equals(Dd.class)) {
-            // i.set(((Dd) replace).copy(Dd.class));
-            // } else {
-            // throw new TagTypeUnmatchException(
-            // "Dt or Dd expected but replace is "
-            // + replace.getClass());
-            // }
-            // } else {
-            // execute(aj, tagType, clazz, replace);
-            // }
-            // }
-            // }
+            if (replacement instanceof Dd) {
+                dl.getDtOrDd().add((Dd) replacement);
+            }
+            if (replacement instanceof Dt) {
+                dl.getDtOrDd().add((Dt) replacement);
+            }
+            if (replacement instanceof List) {
+                for (java.lang.Object o : (Collection<? extends java.lang.Object>) replacement) {
+                    if (o instanceof Dd) {
+                        dl.getDtOrDd().add((Dd) o);
+                    }
+                    if (o instanceof Dt) {
+                        dl.getDtOrDd().add((Dt) o);
+                    }
+                }
+            }
             break;
         case DT:
             Dt dt = (Dt) target;

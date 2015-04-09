@@ -39,6 +39,8 @@ public class HelloWorldTest {
         p.getContent().add("Hello World!");
         String result = m2e.saveToString(html);
         System.out.println(result);
+//        String cloneResult = m2e.saveToString((AbstractJaxb)html.clone());
+//        System.out.println(cloneResult);
         Assert.assertTrue(result
                 .contains("<p id=\"hellomsg\">Hello World!</p>"));
     }

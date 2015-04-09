@@ -472,6 +472,40 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * TODO javadoc
+     * <p>
+     * このタグの中身の全てをreplacementで完全に置換します。<br />
+     * このメソッドではreplacementのディープコピーで置換するのではない点に注意してください。<br />
+     * 他のメソッドとおなじようにディープコピーで置換するために、copy(T)を使って引数を渡すことを推奨します。
+     * </p>
+     * <p>
+     * For various reasons, this method does NOT use deep copy of replacement.<br/>
+     * It is recommended to use copy(T) in method argument.
+     * </p>
+     * 
+     * recommended pattern.
+     * <pre>
+     * // div and p is instance of Div, p tag object.
+     * Div div = TagCreator.div();
+     * P p = TagCreator.p();
+     * p.getContent.add("foo");
+     * div.replaceInner(p.copy(P.class)); // *** using copy()
+     * p.getContent.add("bar");
+     * System.out.println(mixer2Engine.saveToString(div));
+     * // you get &lt;div>&lt;p>foo&lt;/p>&lt;/div>
+     * </pre>
+     * 
+     * Not recommended pattern.
+     * <pre>
+     * // divA and divB is instance of Div tag object.
+     * Div div = TagCreator.div();
+     * P p = TagCreator.p();
+     * p.getContent.add("foo");
+     * div.replaceInner(p); // *** without copy()
+     * p.getContent.add("bar");
+     * System.out.println(mixer2Engine.saveToString(div));
+     * // you get &lt;div>&lt;p>foobar&lt;/p>&lt;/div>
+     * </pre>
+     * 
      * @param replacement
      * @return
      * @throws TagTypeUnmatchException
@@ -482,6 +516,7 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * TODO javadoc
+     * 
      * @param replacement
      * @return
      * @throws TagTypeUnmatchException
