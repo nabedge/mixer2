@@ -16,9 +16,7 @@ import org.mixer2.xhtml.exception.TagTypeUnmatchException;
  *
  * @see org.mixer2.xhtml.AbstractJaxb#replaceInner(String)
  * @see org.mixer2.xhtml.AbstractJaxb#replaceInner(AbstractJaxb)
- * @see 
- *      org.mixer2.xhtml.AbstractJaxb#replaceContent(java.util.List<java.lang.Object
- *      >)
+ * @see org.mixer2.xhtml.AbstractJaxb#replaceContent(java.util.List<java.lang.Object>)
  * 
  * @author nabedge/watanabe
  *
@@ -30,7 +28,7 @@ public class ReplaceInnerUtil {
 
     public static <T extends AbstractJaxb> void replaceInner(T target,
             T replacement) throws TagTypeUnmatchException {
-        execute(target,replacement);
+        execute(target, replacement);
     }
 
     public static <T extends AbstractJaxb> void replaceInner(T target,
@@ -67,19 +65,19 @@ public class ReplaceInnerUtil {
             break;
         case ABBR:
             Abbr abbr = (Abbr) target;
-            // TODO
+            replaceContent(abbr.getContent(), replacement);
             break;
         case ACRONYM:
             Acronym acronym = (Acronym) target;
-            // TODO
+            replaceContent(acronym.getContent(), replacement);
             break;
         case ADDRESS:
             Address address = (Address) target;
-            // TODO
+            replaceContent(address.getContent(), replacement);
             break;
         case APPLET:
             Applet applet = (Applet) target;
-            // TODO
+            replaceContent(applet.getContent(), replacement);
             break;
         case AREA:
             Area area = (Area) target;
@@ -87,7 +85,7 @@ public class ReplaceInnerUtil {
             break;
         case B:
             B b = (B) target;
-            // TODO
+            replaceContent(b.getContent(), replacement);
             break;
         case BASE:
             Base base = (Base) target;
@@ -99,19 +97,19 @@ public class ReplaceInnerUtil {
             break;
         case BDO:
             Bdo bdo = (Bdo) target;
-            // TODO
+            replaceContent(bdo.getContent(), replacement);
             break;
         case BIG:
             Big big = (Big) target;
-            // TODO
+            replaceContent(big.getContent(), replacement);
             break;
         case BLOCKQUOTE:
             Blockquote blockquote = (Blockquote) target;
-            // TODO
+            replaceContent(blockquote.getContent(), replacement);
             break;
         case BODY:
             Body body = (Body) target;
-            // TODO
+            replaceContent(body.getContent(), replacement);
             break;
         case BR:
             Br br = (Br) target;
@@ -119,23 +117,23 @@ public class ReplaceInnerUtil {
             break;
         case BUTTON:
             Button button = (Button) target;
-            // TODO
+            replaceContent(button.getContent(), replacement);
             break;
         case CAPTION:
             Caption caption = (Caption) target;
-            // TODO
+            replaceContent(caption.getContent(), replacement);
             break;
         case CENTER:
             Center center = (Center) target;
-            // TODO
+            replaceContent(center.getContent(), replacement);
             break;
         case CITE:
             Cite cite = (Cite) target;
-            // TODO
+            replaceContent(cite.getContent(), replacement);
             break;
         case CODE:
             Code code = (Code) target;
-            // TODO
+            replaceContent(code.getContent(), replacement);
             break;
         case COL:
             Col col = (Col) target;
@@ -153,42 +151,29 @@ public class ReplaceInnerUtil {
             break;
         case DD:
             Dd dd = (Dd) target;
-            // TODO
+            replaceContent(dd.getContent(), replacement);
             break;
         case DEL:
             Del del = (Del) target;
-            // TODO
+            replaceContent(del.getContent(), replacement);
             break;
         case DFN:
             Dfn dfn = (Dfn) target;
-            // TODO
+            replaceContent(dfn.getContent(), replacement);
             break;
         case DIR:
             Dir dir = (Dir) target;
-            // TODO
-            // if (match(dir.getClass(), dir.getCssClass(), tagType, clazz)) {
-            // return;
-            // }
-            // if (dir.isSetLi()) {
-            // for (ListIterator<Li> i = dir.getLi().listIterator(); i
-            // .hasNext();) {
-            // Li li = i.next();
-            // if (match(li.getClass(), li.getCssClass(), tagType, clazz)) {
-            // if (replace.getClass().equals(Li.class)) {
-            // i.set(((Li) replace).copy(Li.class));
-            // } else {
-            // throw new TagTypeUnmatchException(Li.class,
-            // replace.getClass());
-            // }
-            // } else {
-            // replaceDescendantsWithinObjectList(li.getContent(),
-            // tagType, clazz, replace);
-            // }
-            // }
-            // }
+            dir.getLi().clear();
+            if (replacement instanceof Li) {
+            	dir.getLi().add((Li) replacement);
+            }
+            if (replacement instanceof List<?>) {
+            	dir.getLi().addAll((Collection<Li>) replacement);
+            }
             break;
         case DIV:
             Div div = (Div) target;
+            replaceContent(div.getContent(), replacement);
             // TODO
             break;
         case DL:
