@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.mixer2.Mixer2Engine;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.P;
+import org.mixer2.jaxb.xhtml.Span;
 
 //@Ignore("for sample")
 public class HelloWorldTest {
@@ -38,7 +39,11 @@ public class HelloWorldTest {
         p.unsetContent();
         p.getContent().add("Hello World!");
         String result = m2e.saveToString(html);
-        System.out.println(result);
+//        System.out.println(result);
+        Span span = TagCreator.span();
+        span.getContent().add(p);
+        html.getHead().getContent().add(span);
+        System.out.println(m2e.saveToString(html));
 //        String cloneResult = m2e.saveToString((AbstractJaxb)html.clone());
 //        System.out.println(cloneResult);
         Assert.assertTrue(result

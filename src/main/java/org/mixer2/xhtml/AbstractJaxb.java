@@ -481,6 +481,9 @@ public abstract class AbstractJaxb implements Serializable {
      * For various reasons, this method does NOT use deep copy of replacement.<br/>
      * It is recommended to use copy(T) in method argument.
      * </p>
+     * <p>
+     * 
+     * </p>
      * 
      * recommended pattern.
      * <pre>
