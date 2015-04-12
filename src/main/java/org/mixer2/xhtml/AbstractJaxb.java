@@ -568,9 +568,8 @@ public abstract class AbstractJaxb implements Serializable {
     }
 
     /**
-     * <p>
-     * 指定したid属性を持つタグの直後（内部ではない）に文字列を挿入します。
-     * </p>
+     * <p>insert String after the element having specified id property</p>
+     * <p>指定したid属性を持つタグの直後（内部ではない）に文字列を挿入します。</p>
      *
      * @param id
      * @param insString
@@ -583,9 +582,8 @@ public abstract class AbstractJaxb implements Serializable {
     }
 
     /**
-     * <p>
-     * 指定したid属性を持つタグの直前に挿入します。 なお、挿入されるのはreplaceのディープコピーです。
-     * </p>
+     * <p>insert element before the element having specified id property.</p>
+     * <p>指定したid属性を持つタグの直前に挿入します。 なお、挿入されるのはreplaceのディープコピーです。</p>
      *
      * @param id
      * @param insObject
@@ -598,6 +596,7 @@ public abstract class AbstractJaxb implements Serializable {
     }
 
     /**
+     * <p>insert string before the element having specified id property.</p>
      * <p>
      * 指定したid属性を持つタグの直前に文字列を挿入します。
      * </p>
@@ -804,9 +803,8 @@ public abstract class AbstractJaxb implements Serializable {
     }
 
     /**
-     * <p>
-     * 指定されたdata-* 属性を消去します。
-     * </p>
+     * <p>remove a specified data-* property.</p>
+     * <p>指定されたdata-* 属性を消去します。</p>
      * <p>
      * remove attribute of data-* property.
      * </p>
@@ -819,9 +817,8 @@ public abstract class AbstractJaxb implements Serializable {
     }
 
     /**
-     * <p>
-     * 指定されたaria-* 属性を消去します。
-     * </p>
+     * <p>remove a specified aria-* property.</p>
+     * <p>指定されたaria-* 属性を消去します。</p>
      * <p>
      * remove attribute of aria-* property.
      * </p>
@@ -894,7 +891,7 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * delete id property of all descendant elements. Also, remove id property
+     * remove id property of all descendant elements. Also, remove id property
      * of myself.
      * </p>
      * <p>
@@ -906,6 +903,7 @@ public abstract class AbstractJaxb implements Serializable {
     }
 
     /**
+     * <p>remove id property that matches specified regex. Also, matches and remove of myself.</p>
      * <p>
      * 自分の子孫要素のうち、そのid属性が指定の正規表現とマッチする場合に、id属性を削除します。
      * 自分自身のid属性も、patternにマッチする場合は削除します。

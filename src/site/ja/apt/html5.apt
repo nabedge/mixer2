@@ -42,7 +42,7 @@ public class HelloWorld {
         Mixer2Engine m2e = new Mixer2Engine();
         Html html = m2e.loadHtmlTemplate(new File("HelloWorld.html"));
         html.getById("hellomsg",P.class).unsetContent();
-        html.getById("hellomsg",P.class).getContent().add("Hello World !");
+        html.getById("hellomsg", P.class).replaceInner("Hello World !");
         System.out.println(m2e.saveToString(html));
     }
 

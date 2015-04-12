@@ -30,8 +30,7 @@ public class Sample {
     public Html createHtml(String message) throws IOException, TagTypeUnmatchException {
         Mixer2Engine m2e = new Mixer2Engine();
         Html html = m2e.loadHtmlTemplate(new File("Sample.html"));
-        html.getById("foo", Div.class).unsetContent();
-        html.getById("foo", Div.class).getContent().add(message);
+        html.getById("foo", Div.class).replaceInner(message);
         return html;
     }
 

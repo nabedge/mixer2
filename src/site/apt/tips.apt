@@ -85,10 +85,15 @@ Span span = html.getById("bar", Span.class);
 html.getById("foo", Div.class).getContent().add("bbb");
 // you get <div id="foo">aaa bbb</div>
 
-// delete all content of divtag and add string to div tag.
+// delete all content of div tag and add new content.
 html.getById("foo", Div.class).unsetContent();
 html.getById("foo", Div.class).getContent().add("bbb");
 // you get<div id="foo">bbb</div>
+
+// The same effect by replaceInner()
+html.getById("foo", Div.class).replaceInner("bbb");
+// you get<div id="foo">bbb</div>
+
 ----
 
  using class property
@@ -184,8 +189,7 @@ Html html = mixer2Engine.loadHtmlTemplate(new File("HelloWorld.html"));
 Div helloWorldDiv = html.getById("hellomsg",Div.class)
 Div newDiv = helloWorldDiv.copy(Div.class);
 newDiv.setId("bar");
-newDiv.unsetContent();
-newDiv.getContent().add("Life is beautiful");
+newDiv.replaceInner("Life is beautiful");
 html.getBody().add(newDiv);
 System.out.println(html.saveToString());
 ----
@@ -206,9 +210,8 @@ System.out.println(html.saveToString());
 
 * replace
 
- see {{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html}javadoc}} for details
-
  replace() method use deep copy of replacer object.
+ see {{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html}javadoc}} for details
 
 ----
 // tag (no matter of variation) will be replace by p tag.
@@ -224,6 +227,11 @@ Span span = new Span();
 span.getContent.add("abc");
 boolean result = html.replaceById("foo", span);
 ----
+
+* replaceInner
+
+ replaceInner() method does <<NOT>> use deep copy of replacer object.
+ see {{{./apidocs/org/mixer2/xhtml/AbstractJaxb.html}javadoc}} for details
 
 * insert
 
