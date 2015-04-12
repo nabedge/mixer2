@@ -79,9 +79,13 @@ Span span = html.getById("bar", Span.class);
 // <div id="foo">aaa</div> というdivタグの中に文字列を追加する
 html.getById("foo", Div.class).getContent().add("bbb"); // <div id="foo">aaa bbb</div> になる
 
-// <div id="foo">aaa</div> というdivタグの中身を全削除してから文字列を追加する
+// <div id="foo">aaa</div> というdivタグのreplaceInnerで中身を置換する
+html.getById("foo", Div.class).replaceInner("bbb"); // <div id="foo">bbb</div> になる
+
+// 上と同じ効果。中身を全削除してから文字列を追加する
 html.getById("foo", Div.class).unsetContent();
 html.getById("foo", Div.class).getContent().add("bbb"); // <div id="foo">bbb</div> になる
+
 ----
 
  class属性を使う
@@ -180,8 +184,7 @@ Html html = mixer2Engine.loadHtmlTemplate(new File("HelloWorld.html"));
 Div helloWorldDiv = html.getById("hellomsg",Div.class)
 Div newDiv = helloWorldDiv.copy(Div.class);
 newDiv.setId("bar");
-newDiv.unsetContent();
-newDiv.getContent().add("Life is beautiful");
+newDiv.replaceInner("Life is beautiful");
 html.getBody().add(newDiv);
 System.out.println(html.saveToString());
 ----
