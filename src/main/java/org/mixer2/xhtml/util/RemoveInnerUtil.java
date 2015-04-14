@@ -19,14 +19,14 @@ public class RemoveInnerUtil {
 	private static Log log = LogFactory.getLog(RemoveInnerUtil.class);
 
 	/**
-	 * @see org.mixer2.xhtml.AbstractJaxb#replaceInner(AbstractJaxb)
+	 * @see org.mixer2.xhtml.AbstractJaxb#removeInner(AbstractJaxb)
 	 * @param target
-	 * @param replacement
 	 */
-	public static <T extends AbstractJaxb> void replaceInner(T target) {
+	public static <T extends AbstractJaxb> void removeInner(T target) {
 		execute(target);
 	}
 
+	@SuppressWarnings("unused")
 	private static <T extends AbstractJaxb> void execute(T target) {
 
 		TagEnum tagEnum = TagEnum.valueOf(target.getClass().getSimpleName()
@@ -75,15 +75,15 @@ public class RemoveInnerUtil {
 			break;
 		case BIG:
 			Big big = (Big) target;
-			// TODO;
+			big.unsetContent();
 			break;
 		case BLOCKQUOTE:
 			Blockquote blockquote = (Blockquote) target;
-			// TODO;
+			blockquote.unsetContent();
 			break;
 		case BODY:
 			Body body = (Body) target;
-			// TODO;
+			body.unsetContent();
 			break;
 		case BR:
 			Br br = (Br) target;
@@ -91,23 +91,23 @@ public class RemoveInnerUtil {
 			break;
 		case BUTTON:
 			Button button = (Button) target;
-			// TODO;
+			button.unsetContent();
 			break;
 		case CAPTION:
 			Caption caption = (Caption) target;
-			// TODO;
+			caption.unsetContent();
 			break;
 		case CENTER:
 			Center center = (Center) target;
-			// TODO;
+			center.unsetContent();
 			break;
 		case CITE:
 			Cite cite = (Cite) target;
-			// TODO;
+			cite.unsetContent();
 			break;
 		case CODE:
 			Code code = (Code) target;
-			// TODO;
+			code.unsetContent();
 			break;
 		case COL:
 			Col col = (Col) target;
@@ -116,76 +116,74 @@ public class RemoveInnerUtil {
 		case COLGROUP:
 			Colgroup colgroup = (Colgroup) target;
 			colgroup.unsetCol();
-			// TODO
 			break;
 		case DD:
 			Dd dd = (Dd) target;
-			// TODO;
+			dd.unsetContent();
 			break;
 		case DEL:
 			Del del = (Del) target;
-			// TODO;
+			del.unsetContent();
 			break;
 		case DFN:
 			Dfn dfn = (Dfn) target;
-			// TODO;
+			dfn.unsetContent();
 			break;
 		case DIR:
 			Dir dir = (Dir) target;
 			dir.getLi().clear();
-			// TODO
 			break;
 		case DIV:
 			Div div = (Div) target;
-			// TODO;
+			div.unsetContent();
 			break;
 		case DL:
 			Dl dl = (Dl) target;
-			// TODO
+			dl.unsetDtOrDd();
 			break;
 		case DT:
 			Dt dt = (Dt) target;
-			// TODO;
+			dt.unsetContent();
 			break;
 		case EM:
 			Em em = (Em) target;
-			// TODO;
+			em.unsetContent();
 			break;
 		case FIELDSET:
 			Fieldset fieldset = (Fieldset) target;
-			// TODO;
+			fieldset.unsetContent();
 			break;
 		case FONT:
 			Font font = (Font) target;
-			// TODO;
+			font.unsetContent();
 			break;
 		case FORM:
 			Form form = (Form) target;
-			// TODO;
+			form.unsetContent();
 			break;
 		case H1:
 			H1 h1 = (H1) target;
-			// TODO;
+			h1.unsetContent();
 			break;
 		case H2:
 			H2 h2 = (H2) target;
-			// TODO;
+			h2.unsetContent();
 			break;
 		case H3:
 			H3 h3 = (H3) target;
-			// TODO;
+			h3.unsetContent();
 			break;
 		case H4:
 			H4 h4 = (H4) target;
-			// TODO;
+			h4.unsetContent();
 			break;
 		case H5:
 			H5 h5 = (H5) target;
-			// TODO;
+			h5.unsetContent();
 			break;
 		case H6:
 			H6 h6 = (H6) target;
-			// TODO;
+			h6.unsetContent();
 			break;
 		case HGROUP:
 			Hgroup hgroup = (Hgroup) target;
@@ -206,11 +204,11 @@ public class RemoveInnerUtil {
 			break;
 		case I:
 			I i = (I) target;
-			// TODO;
+			i.unsetContent();
 			break;
 		case IFRAME:
 			Iframe iframe = (Iframe) target;
-			// TODO;
+			iframe.unsetContent();
 			break;
 		case IMG:
 			Img img = (Img) target;
@@ -222,7 +220,7 @@ public class RemoveInnerUtil {
 			break;
 		case INS:
 			Ins ins = (Ins) target;
-			// TODO;
+			ins.unsetContent();
 			break;
 		case ISINDEX:
 			Isindex isindex = (Isindex) target;
@@ -230,19 +228,19 @@ public class RemoveInnerUtil {
 			break;
 		case KBD:
 			Kbd kbd = (Kbd) target;
-			// TODO;
+			kbd.unsetContent();
 			break;
 		case LABEL:
 			Label label = (Label) target;
-			// TODO;
+			label.unsetContent();
 			break;
 		case LEGEND:
 			Legend legend = (Legend) target;
-			// TODO;
+			legend.unsetContent();
 			break;
 		case LI:
 			Li li = (Li) target;
-			// TODO;
+			li.unsetContent();
 			break;
 		case LINK:
 			Link link = (Link) target;
@@ -255,7 +253,7 @@ public class RemoveInnerUtil {
 			break;
 		case MENU:
 			Menu menu = (Menu) target;
-			// TODO;
+			menu.unsetContent();
 			break;
 		case META:
 			Meta meta = (Meta) target;
@@ -263,15 +261,15 @@ public class RemoveInnerUtil {
 			break;
 		case NOFRAMES:
 			Noframes noframes = (Noframes) target;
-			// TODO;
+			noframes.unsetContent();
 			break;
 		case NOSCRIPT:
 			Noscript noscript = (Noscript) target;
-			// TODO;
+			noscript.unsetContent();
 			break;
 		case OBJECT:
 			org.mixer2.jaxb.xhtml.Object object = (org.mixer2.jaxb.xhtml.Object) target;
-			// TODO;
+			object.unsetContent();
 			break;
 		case OL:
 			Ol ol = (Ol) target;
@@ -287,7 +285,7 @@ public class RemoveInnerUtil {
 			break;
 		case P:
 			P p = (P) target;
-			// TODO;
+			p.unsetContent();
 			break;
 		case PARAM:
 			Param param = (Param) target;
@@ -295,19 +293,19 @@ public class RemoveInnerUtil {
 			break;
 		case PRE:
 			Pre pre = (Pre) target;
-			// TODO;
+			pre.unsetContent();
 			break;
 		case Q:
 			Q q = (Q) target;
-			// TODO;
+			q.unsetContent();
 			break;
 		case S:
 			S s = (S) target;
-			// TODO;
+			s.unsetContent();
 			break;
 		case SAMP:
 			Samp samp = (Samp) target;
-			// TODO;
+			samp.unsetContent();
 			break;
 		case SCRIPT:
 			Script script = (Script) target;
@@ -319,19 +317,19 @@ public class RemoveInnerUtil {
 			break;
 		case SMALL:
 			Small small = (Small) target;
-			// TODO;
+			small.unsetContent();
 			break;
 		case SPAN:
 			Span span = (Span) target;
-			// TODO;
+			span.unsetContent();
 			break;
 		case STRIKE:
 			Strike strike = (Strike) target;
-			// TODO;
+			strike.unsetContent();
 			break;
 		case STRONG:
 			Strong strong = (Strong) target;
-			// TODO;
+			strong.unsetContent();
 			break;
 		case STYLE:
 			Style style = (Style) target;
@@ -339,11 +337,11 @@ public class RemoveInnerUtil {
 			break;
 		case SUB:
 			Sub sub = (Sub) target;
-			// TODO;
+			sub.unsetContent();
 			break;
 		case SUP:
 			Sup sup = (Sup) target;
-			// TODO;
+			sup.unsetContent();
 			break;
 		case TABLE:
 			Table table = (Table) target;
@@ -360,7 +358,7 @@ public class RemoveInnerUtil {
 			break;
 		case TD:
 			Td td = (Td) target;
-			// TODO;
+			td.unsetContent();
 			break;
 		case TEXTAREA:
 			Textarea textarea = (Textarea) target;
@@ -372,7 +370,7 @@ public class RemoveInnerUtil {
 			break;
 		case TH:
 			Th th = (Th) target;
-			// TODO;
+			th.unsetContent();
 			break;
 		case THEAD:
 			Thead thead = (Thead) target;
@@ -380,7 +378,7 @@ public class RemoveInnerUtil {
 			break;
 		case TITLE:
 			Title title = (Title) target;
-			// TODO
+			title.setContent(null);
 			break;
 		case TR:
 			Tr tr = (Tr) target;
@@ -388,11 +386,11 @@ public class RemoveInnerUtil {
 			break;
 		case TT:
 			Tt tt = (Tt) target;
-			// TODO;
+			tt.unsetContent();
 			break;
 		case U:
 			U u = (U) target;
-			// TODO;
+			u.unsetContent();
 			break;
 		case UL:
 			Ul ul = (Ul) target;
@@ -400,27 +398,27 @@ public class RemoveInnerUtil {
 			break;
 		case VAR:
 			Var var = (Var) target;
-			// TODO;
+			var.unsetContent();
 			break;
 		case ARTICLE:
 			Article article = (Article) target;
-			// TODO;
+			article.unsetContent();
 			break;
 		case ASIDE:
 			Aside aside = (Aside) target;
-			// TODO;
+			aside.unsetContent();
 			break;
 		case AUDIO:
 			Audio audio = (Audio) target;
-			// TODO;
+			audio.unsetContent();
 			break;
 		case BDI:
 			Bdi bdi = (Bdi) target;
-			// TODO;
+			bdi.unsetContent();
 			break;
 		case CANVAS:
 			Canvas canvas = (Canvas) target;
-			// TODO;
+			canvas.unsetContent();
 			break;
 		case COMMAND:
 			Command command = (Command) target;
@@ -428,11 +426,11 @@ public class RemoveInnerUtil {
 			break;
 		case DATALIST:
 			Datalist datalist = (Datalist) target;
-			// TODO;
+			datalist.unsetContent();
 			break;
 		case DETAILS:
 			Details details = (Details) target;
-			// TODO;
+			details.unsetContent();
 			break;
 		case EMBED:
 			Embed embed = (Embed) target;
@@ -440,71 +438,71 @@ public class RemoveInnerUtil {
 			break;
 		case FIGCAPTION:
 			Figcaption figcaption = (Figcaption) target;
-			// TODO;
+			figcaption.unsetContent();
 			break;
 		case FIGURE:
 			Figure figure = (Figure) target;
-			// TODO;
+			figure.unsetContent();
 			break;
 		case FOOTER:
 			Footer footer = (Footer) target;
-			// TODO;
+			footer.unsetContent();
 			break;
 		case HEADER:
 			Header header = (Header) target;
-			// TODO;
+			header.unsetContent();
 			break;
 		case KEYGEN:
 			Keygen keygen = (Keygen) target;
-			// empty element
+			// empty
 			break;
 		case MARK:
 			Mark mark = (Mark) target;
-			// TODO;
+			mark.unsetContent();
 			break;
 		case METER:
 			Meter meter = (Meter) target;
-			// TODO;
+			meter.unsetContent();
 			break;
 		case NAV:
 			Nav nav = (Nav) target;
-			// TODO;
+			nav.unsetContent();
 			break;
 		case OUTPUT:
 			Output output = (Output) target;
-			// TODO;
+			output.unsetContent();
 			break;
 		case PROGRESS:
 			Progress progress = (Progress) target;
-			// TODO;
+			progress.unsetContent();
 			break;
 		case RP:
 			Rp rp = (Rp) target;
-			// TODO;
+			rp.unsetContent();
 			break;
 		case RT:
 			Rt rt = (Rt) target;
-			// TODO;
+			rt.unsetContent();
 			break;
 		case RUBY:
 			Ruby ruby = (Ruby) target;
-			// TODO;
+			ruby.unsetContent();
 			break;
 		case SECTION:
 			Section section = (Section) target;
-			// TODO;
+			section.unsetContent();
 			break;
 		case SOURCE:
 			Source source = (Source) target;
-			// empty element
+			// empty
 			break;
 		case SUMMARY:
 			Summary summary = (Summary) target;
-			// TODO;
+			summary.unsetContent();
 			break;
 		case TIME:
 			Time time = (Time) target;
-			// TODO;
+			time.unsetContent();
 			break;
 		case TRACK:
 			Track track = (Track) target;
@@ -512,7 +510,7 @@ public class RemoveInnerUtil {
 			break;
 		case VIDEO:
 			Video video = (Video) target;
-			// TODO;
+			video.unsetContent();
 			break;
 		case WBR:
 			Wbr wbr = (Wbr) target;

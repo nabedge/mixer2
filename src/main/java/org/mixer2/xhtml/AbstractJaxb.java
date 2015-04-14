@@ -26,6 +26,7 @@ import org.mixer2.xhtml.util.InsertByIdUtil;
 import org.mixer2.xhtml.util.RemoveByIdUtil;
 import org.mixer2.xhtml.util.RemoveDescendantsUtil;
 import org.mixer2.xhtml.util.RemoveEmptyCssClassUtil;
+import org.mixer2.xhtml.util.RemoveInnerUtil;
 import org.mixer2.xhtml.util.ReplaceByIdUtil;
 import org.mixer2.xhtml.util.ReplaceInnerUtil;
 import org.mixer2.xhtml.util.ReplaceDescendantsUtil;
@@ -39,7 +40,7 @@ import org.mixer2.xhtml.util.UnsetIdUtil;
  * すべてのタグ型の基底クラスです。
  * </p>
  *
- * @author watanabe
+ * @author nabedge/watanabe
  *
  */
 @javax.xml.bind.annotation.XmlTransient
@@ -143,6 +144,14 @@ public abstract class AbstractJaxb implements Serializable {
             }
         }
         return RemoveByIdUtil.removeById(id, this);
+    }
+
+    /**
+     * <p>remove inner content of this tag. </p>
+     * <p>このタグの中をすべて削除します</p>
+     */
+    public void removeInner() {
+    	RemoveInnerUtil.removeInner(this);
     }
 
     /**
