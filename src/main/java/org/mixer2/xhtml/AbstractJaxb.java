@@ -526,7 +526,7 @@ public abstract class AbstractJaxb implements Serializable {
      * @param replacement
      * @return
      */
-    public void replaceInner(String replacement) throws TagTypeUnmatchException {
+    public void replaceInner(String replacement) {
     	ReplaceInnerUtil.replaceInner(this, replacement);
     }
     
