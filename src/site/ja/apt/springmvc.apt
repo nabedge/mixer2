@@ -124,12 +124,11 @@ public class FooView extends AbstractMixer2XhtmlView {
         // into "html" variable automatically.
         // So, You can modify it.
         Div div = html.getById("hellomsg", Div.class);
-        div.unsetContent();
-        div.getContent().add(helloWorldBean.getHelloWorldMessageString());
+        div.replaceInner(helloWorldBean.getHelloWorldMessageString());
 
         // Of course, you can use model that is delivered from controller.
         String someMessage = (String) model.get("someMessage");
-        div.getContent().add(someMessage);
+        div.replaceInner(someMessage);
 
         // replace static file path.
         // For example: <img src="../m2static/img/sample.png" />
@@ -148,6 +147,7 @@ public class FooView extends AbstractMixer2XhtmlView {
         sb.append("</head>");
         return htmlStr.replaceFirst("</head>", sb.toString());
     }
+
 }
 ----
 
