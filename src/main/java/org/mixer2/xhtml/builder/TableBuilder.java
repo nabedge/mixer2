@@ -94,6 +94,7 @@ public class TableBuilder {
         public tr addTr(Map<String, Object> attrMap) {
             tr tr = new tr();
             tr.setAttr(attrMap);
+            trList.add(tr);
             return tr;
         }
 
@@ -381,6 +382,7 @@ public class TableBuilder {
     public tr addTr(Map<String, Object> attrMap) {
         tr tr = new tr();
         tr.setAttr(attrMap);
+        trList.add(tr);
         return tr;
     }
 
