@@ -46,9 +46,6 @@
             <item name="SpringMVC Sample App" href="springmvcsample.html" />
             <item name="SpringMVC Archetype" href="springmvcarchetype.html" />
         </menu>
-        <menu name="SAStruts">
-            <item name="SAStruts Sample" href="sastrutssample.html" />
-        </menu>
         <menu ref="reports" />
         <menu name="External Site">
             <item name="Developer Blog" href="http://nabedge.blogspot.com/" />

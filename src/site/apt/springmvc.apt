@@ -36,6 +36,48 @@ Use Mixer2 with Spring MVC
     <!-- other configuration... -->
 ----
 
+ Java configuration.
+
+----
+@Configuration
+@EnableAutoConfiguration
+@EnableWebMvc
+@ComponentScan("com.example.yourproject")
+public MyConfig extends WebMvcConfigurerAdapter {
+
+    @Bean
+    public Mixer2Engine mixer2Engine() {
+        return new Mixer2Engine();
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/m2static/**")
+                .addResourceLocations("classpath:/m2mockup/m2static/");
+    }
+
+    @Bean
+    public Mixer2XhtmlViewResolver mixer2XhtmlViewResolver() {
+        Mixer2XhtmlViewResolver resolver = new Mixer2XhtmlViewResolver();
+        resolver.setPrefix("classpath:m2mockup/m2template/");
+        resolver.setSuffix(".html");
+        resolver.setBasePackage("com.example.yourproject.web.view");
+        resolver.setMixer2Engine(mixer2Engine);
+        resolver.setOrder(1);
+        return resolver;
+    }
+
+    @Bean
+    public InternalResourceViewResolver internalResourceViewResolver() {
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setPrefix("/WEB-INF/jsp/");
+        resolver.setSuffix(".jsp");
+        resolver.setOrder(2);
+        return resolver;
+    }
+}
+----
+
  The above configuration suppose the source code tree structure as below.
  This is maven standard directory structure.
  You can use other structure with same hierarchy of classpath and document root.
@@ -47,6 +89,7 @@ src/
     │   └── com/
     │       └── example/
     │           └── yourproject/
+    │               ├── Config.java // JavaConfig only
     │               ├── service/
     │               └── web/
     │                   ├── controller/
@@ -55,7 +98,7 @@ src/
     │                       └── FooView.java
     │
     ├── resources/
-    │   ├── mvc-dispatcher-servlet.xml
+    │   ├── mvc-dispatcher-servlet.xml // XML config only
     │   └── m2mockup/
     │       ├── m2static/
     │       │   ├── css/
@@ -162,5 +205,6 @@ public class FooView extends AbstractMixer2XhtmlView {
 * Fruit shop sample application
 
  There are full sample web application.
- See {{{springmvcsample.html}Fruit shop sample application for SpringMVC}}
+ See 
+ {{{springmvcsample.html}Fruit shop sample application for SpringMVC and SpringBoot}}
 

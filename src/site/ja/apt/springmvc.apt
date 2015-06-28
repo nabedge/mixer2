@@ -18,7 +18,7 @@ Use Mixer2 with Spring MVC
 
 ----
     <!-- other configuration... -->
-    <context:component-scan base-package="com.example.yourproject.web" />
+    <context:component-scan base-package="com.example.yourproject" />
     <mvc:annotation-driven />
     <mvc:resources mapping="/m2static/**" location="classpath:/m2mockup/m2static/" />
     <bean id="mixer2Engine" class="org.mixer2.Mixer2Engine" />
@@ -37,8 +37,51 @@ Use Mixer2 with Spring MVC
     <!-- other configuration... -->
 ----
 
- 上記の設定は、下記のようなソースコードツリー構造を想定しています。
- 下記はmaven標準ディレクトリ構造に習っていますが、
+ ただし、最近のSpringFrameworkはXML定義よりもJavaConfiguration方式を推奨しています。
+ JavaConfigを使う場合は下のような形になるでしょう。
+
+----
+@Configuration
+@EnableAutoConfiguration
+@EnableWebMvc
+@ComponentScan("com.example.yourproject")
+public MyConfig extends WebMvcConfigurerAdapter {
+
+    @Bean
+    public Mixer2Engine mixer2Engine() {
+        return new Mixer2Engine();
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/m2static/**")
+                .addResourceLocations("classpath:/m2mockup/m2static/");
+    }
+
+    @Bean
+    public Mixer2XhtmlViewResolver mixer2XhtmlViewResolver() {
+        Mixer2XhtmlViewResolver resolver = new Mixer2XhtmlViewResolver();
+        resolver.setPrefix("classpath:m2mockup/m2template/");
+        resolver.setSuffix(".html");
+        resolver.setBasePackage("com.example.yourproject.web.view");
+        resolver.setMixer2Engine(mixer2Engine);
+        resolver.setOrder(1);
+        return resolver;
+    }
+
+    @Bean
+    public InternalResourceViewResolver internalResourceViewResolver() {
+        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setPrefix("/WEB-INF/jsp/");
+        resolver.setSuffix(".jsp");
+        resolver.setOrder(2);
+        return resolver;
+    }
+}
+----
+
+ 上記の設定は、下のようなソースコードツリー構造を想定しています。
+ maven標準ディレクトリ構造に習っていますが、
  classpathやドキュメントルートからの階層が合っていれば、他の構造でも問題はありません。
 
 ----
@@ -48,6 +91,7 @@ src/
     │   └── com/
     │       └── example/
     │           └── yourproject/
+    │               ├── Config.java // JavaConfig方式の場合
     │               ├── service/
     │               └── web/
     │                   ├── controller/
@@ -56,7 +100,7 @@ src/
     │                       ├── FooView.java
     │
     ├── resources/
-    │   ├── mvc-dispatcher-servlet.xml
+    │   ├── mvc-dispatcher-servlet.xml // XML設定方式の場合
     │   └── m2mockup/
     │       ├── m2static/
     │       │   ├── css/
@@ -163,6 +207,6 @@ public class FooView extends AbstractMixer2XhtmlView {
 * Fruit shop sample application
 
  ECサイトを想定した簡単なサンプルアプリケーションもあります。
- {{{springmvcsample.html}Fruit shop sample application for SpringMVC}}
+ {{{springmvcsample.html}Fruit shop sample application for SpringMVC and SpringBoot}}
  をご覧ください。
 

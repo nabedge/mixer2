@@ -1,15 +1,15 @@
  ------
- Spring MVC Sample
+ Spring MVC, Spring Boot Sample
  ------
 
-Fruit shop sample web application on SpringMVC
+Fruit shop sample web application on SpringMVC, Spring Boot, and Mixer2 .
 
  This document explains how to expand and use 
  fruit shop sample application that uses
  mixer2 as view technology of SpringMVC
  on your own develop environment.
 
-[./images/flowershop-springmvc-01.png]
+[../images/fruitshop-springboot.png]
 
 get source code from github.com
 
@@ -24,24 +24,24 @@ get source code from github.com
  Now, Go {{https://github.com/nabedge/mixer2-sample/}} with browser
  and <<copy the URL on clip board>>.
 
-[./images/flowershop-springmvc-github-url.png]
+[../images/mixer2-sample-github-url.png]
 
  Start eclipse and open Git-Perspective.
 
-[./images/flowershop-springmvc-github-01.png]
+[../images/mixer2-sample-github-01.png]
 
  Choice "Git Repository Explorer".
 
-[./images/flowershop-springmvc-github-02.png]
+[../images/mixer2-sample-github-02.png]
 
  click button icon "<<Clone a Git Repository and add the clone to this view>>" .
 
-[./images/flowershop-springmvc-github-03.png]
+[../images/mixer2-sample-github-03.png]
 
  Github repository url that you got on clip boaard firstly 
  should be inputed already on dialog box.
 
-[./images/flowershop-springmvc-github-04.png]
+[../images/mixer2-sample-github-04.png]
 
  At the end, <<Finish>>. and you get clone 
  mixer2-sample repository on your own environment.
@@ -51,12 +51,12 @@ import mixer2-fruitshop-springmvc project into your workspace
  right-click mixer2-flowershop-springmvc on "WorkDirectory"
  and choice "import".
 
-[./images/flowershop-springmvc-import-01.png]
+[../images/fruitshop-springboot-import-01.png]
 
  choice <<Import as general project>> radio button.
  click "Next" .
 
-[./images/flowershop-springmvc-import-02.png]
+[../images/fruitshop-springboot-import-02.png]
 
  Switch the window to Java or JavaEE perspective.
  You can see mixer2-fruitshop-springmvc on your work space.
@@ -67,29 +67,28 @@ import mixer2-fruitshop-springmvc project into your workspace
  right-click on project and choice
  <<Configure->Convert to Maven Project>>
  
-[./images/flowershop-springmvc-import-03.png]
+[../images/fruitshop-springboot-import-03.png]
 
  If converted successfully, tree view is re-constructed.
  See project icon that have small "M" mark.
  That is a symbol of maven project format.
 
-[./images/flowershop-springmvc-import-04.png]
+[../images/fruitshop-springboot-import-04.png]
 
 start mixer2-fruitshop-springmvc project on tomcat as a web application
 
  You can run mixer2-fruitshop-springmvc application on tomcat useing eclipse.
  Right-click on project and click <<Run As -> Run on Server>>.
  
-[./images/flowershop-springmvc-import-05.png]
+[../images/fruitshop-springboot-import-05.png]
 
  Eclipse m2e-wtp plugin compile the source and deploy it into tomcat.
  If you can see top page on internal browser, Congratulations!
  
  If the internal browser don't start, 
- You can use normal browser and go 
- http://localhost:8080/mixer2-springmvc-fruitshop/ .
+ You can use normal browser and go http://localhost:8080/
 
-[./images/flowershop-springmvc-01.png]
+[../images/fruitshop-springboot.png]
 
 * maven and web proxy
 
