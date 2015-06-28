@@ -101,13 +101,11 @@ Step by step Hello World on Maven/Eclipse project
 </project>
 ----
 
-* 3. update maven project
- 
- * right click project -> Maven -> Update Project
+* 3. update maven project.
 
+  right click project -> Maven -> Update Project
 
 [./images/helloworld-updateproject.png]
-
 
 * 4. create hello world class under src/main/java
 
