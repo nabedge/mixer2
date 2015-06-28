@@ -4,7 +4,7 @@
 
 Hello World
 
- これがHelloWorldのテンプレートです。
+ template:
 
 ----
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -17,10 +17,13 @@ Hello World
 </html>
 ----
 
- Javaコードです。
+ Java code:
 
 ----
-import java.io.File;
+package com.example;
+
+import java.io.InputStream;
+
 import org.mixer2.Mixer2Engine;
 import org.mixer2.jaxb.xhtml.Div;
 import org.mixer2.jaxb.xhtml.Html;
@@ -28,16 +31,17 @@ import org.mixer2.jaxb.xhtml.Html;
 public class HelloWorld {
 
     public static void main(String[] args) throws Exception {
+        InputStream is = HelloWorld.class.getClassLoader().getResourceAsStream("HelloWorld.html");
         Mixer2Engine m2e = new Mixer2Engine();
-        Html html = m2e.loadHtmlTemplate(new File("HelloWorld.html"));
-        html.getById("hellomsg",Div.class).replaceInner("Hello World !");
+        Html html = m2e.loadHtmlTemplate(is);
+        html.getById("hellomsg", Div.class).replaceInner("Hello World !");
         System.out.println(m2e.saveToString(html));
     }
 
 }
 ----
 
- 実行結果です。
+ result:
 
 ----
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -49,4 +53,73 @@ public class HelloWorld {
 </body>
 </html>
 ----
+
+Step by step Hello World on Maven/Eclipse project
+
+* 1. create new project on eclipse
+ 
+ * File -> New -> Other -> Maven -> Maven Project .
+
+ * check the box of "Create a simple project (skip archetype selection)"
+
+ * Input artifact information.
+
+  * groupId: com.example
+
+  * artifactId: myhelloworld
+
+  * version: 0.0.1-SNAPSHOT
+
+  * packaging: jar
+
+* 2. edit pom.xml
+ 
+----
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>myhelloworld</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- 1.8 means Java8. change to 1.6(java6) or 1.7(java7) as you like. -->
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.mixer2</groupId>
+            <artifactId>mixer2</artifactId>
+            <version>1.2.38</version>
+        </dependency>
+    </dependencies>
+
+</project>
+----
+
+* 3. update maven project
+ 
+ * right click project -> Maven -> Update Project
+
+
+[../images/helloworld-updateproject.png]
+
+
+* 4. create hello world class under src/main/java
+
+ * see the code above.
+
+* 5. create template under src/main/resources
+
+ * see the code above.
+
+* 6. RUN !
+
+ * Right click the HelloWorld.java and choose "Run as -> Java Application"
+
+[../images/helloworld-run.png]
 
