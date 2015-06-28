@@ -4,11 +4,15 @@
 
 Download
 
- * jar files: {{http://search.maven.org/#search|ga|1|a%3A%22mixer2%22}}
+* jar file
 
- * zip archive : {{http://mixer2.org/dist/}}
+ http://search.maven.org/#search|ga|1|a%3A%22mixer2%22
 
- * maven dependency:
+* zip archive
+
+ http://mixer2.org/dist/
+
+* maven dependency
 
 ----
 <dependencies>
@@ -20,7 +24,7 @@ Download
 </dependencies>
 ----
 
-SNAPSHOT version
+* SNAPSHOT version
 
  To use SNAPSHOT version, search on 
  {{{https://oss.sonatype.org/index.html#nexus-search;gav~org.mixer2~mixer2~1.2-SNAPSHOT~~}oss.sonatype.org}}
