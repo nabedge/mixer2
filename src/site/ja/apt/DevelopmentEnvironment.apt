@@ -49,7 +49,7 @@ For BEGINNER
  Webアプリケーションそれ自体の開発手法は問いませんので、
  いわゆるサーブレットプログラミングのような原始的なWebアプリケーション開発での利用も可能です。
 
- しかし実際には、 SpringMVC, SAStruts, JAX-RS等のなんらかのMVCフレームワークと
+ しかし実際には、 SpringMVC, SAStruts, JAX-RS等のなんらかのMVCフレームワークとMixer2を
  組み合わせたアーキテクチャが現実的でしょう。
 
  Mixer2, Spring MVC, Spring Bootを組み合わせて開発することを想定した

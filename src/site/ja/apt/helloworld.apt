@@ -117,8 +117,7 @@ Step by step Hello World on Maven/Eclipse project
 
 * 6. RUN !
 
- * Right click the HelloWorld.java and choose "Run as -> Java Application"
+  Right click the HelloWorld.java and choose "Run as -> Java Application"
 
 [../images/helloworld-run.png]
 
- 
