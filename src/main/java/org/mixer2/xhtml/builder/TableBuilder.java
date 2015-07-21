@@ -292,7 +292,7 @@ public class TableBuilder {
         /**
          * tr内部のtdのリストの最後尾に、 指定されたタグオブジェクトをコンテンツとして含む新たなtdを追加します。
          *
-         * @param string
+         * @param tag
          * @return
          */
         public <T extends AbstractJaxb> tr addTd(T tag) {
@@ -319,7 +319,8 @@ public class TableBuilder {
         /**
          * 指定されたタグオブジェクトをコンテンツとして含み、 かつ、指定された属性を持つ新たなtdを、 tr内部のtdのリストの最後尾に追加します。
          *
-         * @param string
+         * @param tag
+         * @param attrMap
          * @return
          */
         public <T extends AbstractJaxb> tr addTd(T tag,
@@ -395,7 +396,7 @@ public class TableBuilder {
      * @return
      * @throws TagTypeUnmatchException
      * @throws TagTypeUnmatchException
-     *             String型またはAbstractJaxbを継承している型以外の<br />
+     *             String型またはAbstractJaxbを継承している型以外の<br>
      *             オブジェクトtdListに含まれている場合にスローします。
      */
     public <T extends AbstractJaxb> TableBuilder addTr(List<Object> tdList)
@@ -406,9 +407,8 @@ public class TableBuilder {
     /**
      * 指定されたListの内容のそれぞれをtdとして持つtrを tableの最後尾に追加します。 また、指定された属性をtrタグにセットします。
      *
-     * @param <T>
      * @param tdList
-     * @param coreAttr
+     * @param attrMap
      *            属性map
      * @return
      * @throws TagTypeUnmatchException

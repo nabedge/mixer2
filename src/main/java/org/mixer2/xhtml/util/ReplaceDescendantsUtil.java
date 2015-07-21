@@ -40,7 +40,6 @@ public class ReplaceDescendantsUtil {
      *            class property of tag
      * @param replace
      *            replacement tag object.
-     * @return
      * @throws TagTypeUnmatchException
      */
     public static <T extends AbstractJaxb> void replaceDescendants(T target,
@@ -57,16 +56,13 @@ public class ReplaceDescendantsUtil {
 
     /**
      * タグ指定で子孫要素を置換する なお、replaceのディープコピーで置換されます。
-     *
-     * @param <T>
-     *            tag type. (i.e. Div.class, Span.class...)
+     * 
      * @param target
      *            object for scan
      * @param tagType
      *            tag class
      * @param replace
      *            replacement tag object.
-     * @return
      * @throws TagTypeUnmatchException
      */
     public static <T extends AbstractJaxb> void replaceDescendants(T target,
@@ -81,14 +77,13 @@ public class ReplaceDescendantsUtil {
 
     /**
      * class属性の指定で子孫要素を置換する なお、replaceのディープコピーで置換されます。
-     *
+     * 
      * @param target
      *            object for scan
      * @param clazz
      *            class property of tag
      * @param replace
      *            replacement tag object
-     * @return
      * @throws TagTypeUnmatchException
      */
     public static <T extends AbstractJaxb> void replaceDescendants(T target,

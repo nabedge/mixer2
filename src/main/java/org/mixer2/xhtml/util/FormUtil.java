@@ -36,7 +36,7 @@ public class FormUtil {
      *
      * @param list
      * @param resultList
-     *            empty List. Usually, put new ArrayList<Option> as is.
+     *            empty List. Usually, put new ArrayList &lt;Option&gt; as is.
      *            空のlist。通常は new ArrayList してそのまま渡してください
      * @return
      */

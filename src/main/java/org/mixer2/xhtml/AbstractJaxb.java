@@ -229,9 +229,9 @@ public abstract class AbstractJaxb implements Serializable {
      * <p>
      * 自分自身の子孫要素のうち、指定したid属性を持つ要素を指定された文字列で置換します。 自分自身を置換することはできません。
      * </p>
-     *
+     * 
      * @param id
-     * @param string
+     * @param replacement
      * @return if success to replace, return true. if no hit, return false.
      * @throws TagTypeUnmatchException
      */
@@ -481,17 +481,17 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * Replace whole of inside the tag by replacement.<br />
-     * For various reasons, this method does NOT use deep copy of replacement.<br/>
+     * Replace whole of inside the tag by replacement.<br>
+     * For various reasons, this method does NOT use deep copy of replacement.<br>
      * It is recommended to use copy(T) in method argument.
      * </p>
      * <p>
-     * このタグの中身の全てをreplacementで完全に置換します。<br />
-     * このメソッドではreplacementのディープコピーで置換するのではない点に注意してください。<br />
+     * このタグの中身の全てをreplacementで完全に置換します。<br>
+     * このメソッドではreplacementのディープコピーで置換するのではない点に注意してください。<br>
      * 他のメソッドとおなじようにディープコピーで置換するために、copy(T)を使って引数を渡すことを推奨します。
      * </p>
      * 
-     * <h4>recommended pattern.</h4>
+     * <b>recommended pattern.</b>
      * <pre>
      * // div and p is instance of Div, p tag object.
      * Div div = TagCreator.div();
@@ -500,10 +500,10 @@ public abstract class AbstractJaxb implements Serializable {
      * div.replaceInner(p.copy(P.class)); // *** using copy()
      * p.getContent().add("bar");
      * System.out.println(mixer2Engine.saveToString(div));
-     * // you get &lt;div>&lt;p>foo&lt;/p>&lt;/div>
+     * // you get &lt;div&gt;&lt;p&gt;foo&lt;/p&gt;&lt;/div&gt;
      * </pre>
      * 
-     * <h4>anti pattern. use with caution.</h4>
+     * <b>anti pattern. use with caution.</b>
      * <pre>
      * // divA and divB is instance of Div tag object.
      * Div div = TagCreator.div();
@@ -512,11 +512,10 @@ public abstract class AbstractJaxb implements Serializable {
      * div.replaceInner(p); // *** without copy()
      * p.getContent().add("bar");
      * System.out.println(mixer2Engine.saveToString(div));
-     * // you get &lt;div>&lt;p>foo bar&lt;/p>&lt;/div>
+     * // you get &lt;div&gt;&lt;p&gt;foo bar&lt;/p&gt;&lt;/div&gt;
      * </pre>
      * 
      * @param replacement
-     * @return
      */
     public <T extends AbstractJaxb> void replaceInner(T replacement) {
     	ReplaceInnerUtil.replaceInner(this, replacement);
@@ -524,16 +523,15 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * Replace whole of inside the tag by replacement.<br />
+     * Replace whole of inside the tag by replacement.<br>
      * If this tag can not have String directory (ex. &lt;table&gt; tag), do nothing.
      * </p>
      * <p>
-     * このタグの中身の全てをreplacementで完全に置換します。<br />
+     * このタグの中身の全てをreplacementで完全に置換します。<br>
      * タグの中に直接Stringを入れることができない（例えば table タグ）場合には何もしません。
      * </p>
      * 
      * @param replacement
-     * @return
      */
     public void replaceInner(String replacement) {
     	ReplaceInnerUtil.replaceInner(this, replacement);
@@ -541,15 +539,15 @@ public abstract class AbstractJaxb implements Serializable {
     
     /**
      * <p>
-     * Replace whole of inside the tag by the whole elements of the list.<br />
+     * Replace whole of inside the tag by the whole elements of the list.<br>
      * If the element can not be use in this tag, There is a case that will be exclude.
      * </p>
      * <p>
-     * このタグの中身の全てをreplacementで完全に置換します。<br />
+     * このタグの中身の全てをreplacementで完全に置換します。<br>
      * list の中の全ての要素を使います。使用できない要素の場合にはそれだけを除外する場合があります。
      * </p>
+     * 
      * @param replacement
-     * @return
      */
     public void replaceInner(List<java.lang.Object> replacement) {
     	ReplaceInnerUtil.replaceInner(this, replacement);
@@ -593,7 +591,7 @@ public abstract class AbstractJaxb implements Serializable {
     /**
      * <p>insert element before the element having specified id property.</p>
      * <p>指定したid属性を持つタグの直前に挿入します。 なお、挿入されるのはreplaceのディープコピーです。</p>
-     *
+     * 
      * @param id
      * @param insObject
      * @return true if success to insert. if no hit, return false.
@@ -609,7 +607,7 @@ public abstract class AbstractJaxb implements Serializable {
      * <p>
      * 指定したid属性を持つタグの直前に文字列を挿入します。
      * </p>
-     *
+     * 
      * @param id
      * @param insString
      * @return true if success to insert. if no hit, return false.
@@ -950,7 +948,7 @@ public abstract class AbstractJaxb implements Serializable {
      * （html5では全てのタグがclass属性とstyle属性を持ちます。）
      * </p>
      *
-     * @return
+     * @param value
      */
     public void setStyle(String value) {
         return;
@@ -961,7 +959,7 @@ public abstract class AbstractJaxb implements Serializable {
      * return class property as List. NOTICE: this method is dummy for make
      * coding easy. Acrually, this method is overridden by each tag class.
      * </p>
-     * </p> タグのclass属性をリストで返します。このメソッドはコーディングしやすくするためのダミーです。
+     * <p> タグのclass属性をリストで返します。このメソッドはコーディングしやすくするためのダミーです。
      * 実際は各タグ型の同名メソッドによってオーバーライドされ、そちらが実行されます。
      * （html5では全てのタグがclass属性とstyle属性を持ちます。） </p>
      *

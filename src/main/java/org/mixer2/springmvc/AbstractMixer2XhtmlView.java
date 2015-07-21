@@ -18,7 +18,7 @@ import org.springframework.web.servlet.view.AbstractView;
  * <strong>NOTICE: view component scope shuld be "prototype"</strong>
  * </p>
  * 
- * <h4>implementation sample</h4>
+ * <b>implementation sample</b>
  * 
  * <pre><code>
  * {@literal @}Component
@@ -34,7 +34,7 @@ import org.springframework.web.servlet.view.AbstractView;
  *   private String mainTemplate = "classpath:helloWorldTemplate.html";
  * 
  *   {@literal @}Override
- *   protected Html createHtml(Map<String, Object> model,
+ *   protected Html createHtml(Map&lt;String, Object&gt; model,
  *           HttpServletRequest request, HttpServletResponse response)
  *           throws IOException, TagTypeUnmatchException {
  * 

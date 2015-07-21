@@ -13,8 +13,8 @@ import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.ViewResolver;
 
 /**
- * View Resolver for SpringMVC .
- * <h4>your should add dependency for your application:</h4>
+ * View Resolver for SpringMVC .<br>
+ * your should add dependency for your application:
  *
  * <pre>{@code
  * <dependency>
@@ -24,7 +24,7 @@ import org.springframework.web.servlet.ViewResolver;
  * </dependency>
  * }</pre>
  *
- * <h4>Spring MVC configuration Sample</h4>
+ * <b>Spring MVC configuration Sample</b>
  *
  * <pre>{@code
  * <bean id="mixer2Engine" class="org.mixer2.Mixer2Engine" />

@@ -14,8 +14,8 @@ import org.mixer2.jaxb.xhtml.*;
  * path ajustment utility for image, style sheet, etc.
  * </p>
  *
- * <h4>target tag and attribute.</h4>
- * <table border="1">
+ * <b>target tag and attribute.</b>
+ * <table border="1" summary="target tag and attribute">
  * <thead>
  * <tr>
  * <th>tag</th>
@@ -61,7 +61,7 @@ public class PathAdjuster {
      * replace all the path.
      * </p>
      *
-     * <h4>template html</h4>
+     * <b>template html</b>
      * <pre>{@code
      * <html>
      * <head>
@@ -74,14 +74,14 @@ public class PathAdjuster {
      * </html>
      * }</pre>
      *
-     * <h4>code</h4>
+     * <b>code</b>
      * <pre>{@code
      * Html html = mixer2Engine.loadHtmlTemplate(templateString);
      * PathAjuster.replacePath(html, Pattern.compile("^foo/"), "xyz/");
      * System.out.println(mixer2Engine.saveToString(html));
      * }</pre>
      *
-     * <h4>result:</h4>
+     * <b>result:</b>
      * <pre>{@code
      * <html>
      * <head>

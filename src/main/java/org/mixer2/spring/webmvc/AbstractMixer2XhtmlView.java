@@ -19,7 +19,7 @@ import org.springframework.web.servlet.view.AbstractUrlBasedView;
  * use this class with {@link Mixer2XhtmlViewResolver}
  * </p>
  * 
- * <h4>implementation sample</h4>
+ * <b>implementation sample</b>
  * 
  * <pre><code>
  * public class HelloWorldView extends AbstractMixer2XhtmlView {
@@ -28,7 +28,7 @@ import org.springframework.web.servlet.view.AbstractUrlBasedView;
  *    private FooBar fooBar;
  * 
  *    {@literal @}Override
- *    protected Html renderHtml(Html html, Map<String, Object> model, HttpServletRequest request,
+ *    protected Html renderHtml(Html html, Map&lt;String, Object&gt; model, HttpServletRequest request,
  *          HttpServletResponse response) throws TagTypeUnmatchException {
  *        
  *        {@literal @}SuppressWarnings("unchecked")
@@ -47,9 +47,9 @@ import org.springframework.web.servlet.view.AbstractUrlBasedView;
  * through AutowireCapableBeanFactory.
  * </p>
  * 
- * @see {@link http://mixer2.org/site/helloworld.html}
- * @see {@link http://mixer2.org/site/springmvcsample.html}
- * @see {@link https://github.com/nabedge/mixer2-sample/tree/master/mixer2-fruitshop-springmvc}
+ * @see <a href="http://mixer2.org/site/helloworld.html">helloworld</a>
+ * @see <a href="http://mixer2.org/site/springmvcsample.html">spring mvc sample</a>
+ * @see <a href="https://github.com/nabedge/mixer2-sample/tree/master/mixer2-fruitshop-springboot">spring mvc sample code</a>
  * @author kazuki43zoo
  * @author nabedge
  * 
@@ -155,7 +155,7 @@ public abstract class AbstractMixer2XhtmlView extends AbstractUrlBasedView {
      * @param response
      * @return
      * @throws Exception
-     * @see {@link Mixer2XhtmlViewResolver}
+     * {@link Mixer2XhtmlViewResolver}
      */
     protected abstract Html renderHtml(Html html, Map<String, Object> model,
             HttpServletRequest request, HttpServletResponse response)

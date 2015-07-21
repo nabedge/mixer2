@@ -15,8 +15,8 @@ import org.springframework.web.servlet.view.AbstractUrlBasedView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 /**
- * View Resolver for SpringMVC . <h4>your should add dependency for your
- * application:</h4>
+ * View Resolver for SpringMVC . <br>
+ * your should add dependency for your application .
  * 
  * <pre>
  * {@code
@@ -28,7 +28,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
  * }
  * </pre>
  * 
- * <h4>Spring MVC configuration Sample</h4>
+ * <b>Spring MVC configuration Sample</b><br>
  * 
  * <pre>
  * {@code
@@ -58,7 +58,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
  * 
  * <p>
  * Using this ViewResolver, Your controller method can returns <strong>template
- * html file path and name without file extension</strong>.<br />
+ * html file path and name without file extension</strong>.<br>
  * See sample below.
  * </p>
  * 
@@ -104,10 +104,8 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
  * resolver returns html on template file as is.
  * </p>
  * 
- * @see {@link http://mixer2.org/site/springmvcsample.html}
- * @see {@link https
- *      ://github.com/nabedge/mixer2-sample/tree/master/mixer2-fruitshop
- *      -springmvc}
+ * @see <a href="http://mixer2.org/site/springmvcsample.html">spring mvc sample</a>
+ * @see <a href="http://github.com/nabedge/mixer2-sample/tree/master/mixer2-fruitshop-springboot">spring mvc sample code</a>
  * @author kazuki43zoo
  * @author nabedge
  */

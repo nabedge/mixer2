@@ -34,7 +34,6 @@ public class RemoveDescendantsUtil {
      *            class property of tag
      * @param tagType
      *            tag class
-     * @return
      */
     public static <T extends AbstractJaxb> void removeDescendants(T target,
             String clazz, Class<T> tagType) {
@@ -50,7 +49,6 @@ public class RemoveDescendantsUtil {
      *            objects for scan
      * @param tagType
      *            tag class
-     * @return
      */
     public static <T extends AbstractJaxb> void removeDescendants(T target,
             Class<T> tagType) {
@@ -66,7 +64,6 @@ public class RemoveDescendantsUtil {
      *            objects for scan
      * @param clazz
      *            class property of tag
-     * @return
      */
     public static <T extends AbstractJaxb> void removeDescendants(T target,
             String clazz) {

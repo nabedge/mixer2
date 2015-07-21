@@ -25,13 +25,11 @@ public class ReplaceByIdUtil {
      * targetの子孫要素のうち、指定したid属性を持つ要素を置換します。 なお、replaceのディープコピーで置換されます。
      * target自身を置換することはできません。
      *
-     * @param <T>
      * @param id
      * @param target
      * @param replace
      * @return
      * @throws TagTypeUnmatchException
-     * @throws Exception
      */
     public static <T extends AbstractJaxb> boolean replaceById(String id,
             T target, T replace) throws TagTypeUnmatchException {

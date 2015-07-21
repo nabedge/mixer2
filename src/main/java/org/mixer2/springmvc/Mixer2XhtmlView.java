@@ -16,7 +16,7 @@ import org.springframework.util.Assert;
  * (You need not to use JSP.)
  * </p>
  *
- * <h4>your should add dependency for your application:</h4>
+ * <b>your should add dependency for your application:</b>
  *
  * <pre>{@code
  *   <dependency>
@@ -26,7 +26,7 @@ import org.springframework.util.Assert;
  *   </dependency>
  * }</pre>
  *
- * <h4>Controller Sample</h4>
+ * <b>Controller Sample</b><br>
  *
  * <pre><code>
  *   {@literal @}Controller

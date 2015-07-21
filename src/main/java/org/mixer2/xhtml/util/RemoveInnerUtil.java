@@ -19,7 +19,7 @@ public class RemoveInnerUtil {
 	private static Log log = LogFactory.getLog(RemoveInnerUtil.class);
 
 	/**
-	 * @see org.mixer2.xhtml.AbstractJaxb#removeInner(AbstractJaxb)
+	 * @see org.mixer2.xhtml.AbstractJaxb#removeInner()
 	 * @param target
 	 */
 	public static <T extends AbstractJaxb> void removeInner(T target) {

@@ -51,15 +51,15 @@ public class XMLStringUtil {
      * Checker for XML valid character.
      * </p>
      * <p>
-     * The Valid XML char is one of:<br />
+     * The Valid XML char is one of:<br>
      * #x9 | #xA | #xD | [#x20-#xD7FF] | [#xE000-#xFFFD] | [#x10000-#x10FFFF]
      * </p>
      * 
-     * @see http://www.w3.org/TR/REC-xml/#charsets
+     * @see <a href="http://www.w3.org/TR/REC-xml/#charsets">http://www.w3.org/TR/REC-xml/#charsets</a>
      * 
      * @param c
      *            The <code>char</code> to test.
-     * @return <code>true</code> if <code>c</code> is one of:<br />
+     * @return <code>true</code> if <code>c</code> is one of:<br>
      *         #x9 | #xA | #xD | [#x20-#xD7FF] | [#xE000-#xFFFD].
      * 
      */
