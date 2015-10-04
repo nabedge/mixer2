@@ -1,9 +1,8 @@
 package org.mixer2.xhtml;
 
 /**
- * xhtmlのタグの種類と、mixer2におけるそれらのJava型を結び付けるための列挙型です。
- *
- * @author watanabe
+ * 
+ * @author nabedge
  *
  */
 public enum TagEnum {

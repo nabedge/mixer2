@@ -43,12 +43,8 @@ import org.mixer2.xhtml.TagCustomizeWriter;
  * mixer2 engine. The instance of this class should be a singleton because of
  * high cost to initialize.
  * </p>
- * <p>
- * mixer2のエンジンです。現在はxhtml1.0またはhtml5の XML構文で書かれたテンプレートだけを取り扱います
- * このクラスのインスタンスは、APサーバもしくはDIコンテナ内において、 singletonとして使いまわすことをお勧めします。
- * </p>
  * 
- * @author watanabe
+ * @author nabedge
  * 
  */
 public class Mixer2Engine {
@@ -64,9 +60,6 @@ public class Mixer2Engine {
     /**
      * <p>
      * initialize method. This is called automatically by constructor method.
-     * </p>
-     * <p>
-     * 初期化です。 インスタンス化する際にコンストラクタから自動的に呼び出されます。
      * </p>
      */
     public synchronized void init() {
@@ -86,13 +79,6 @@ public class Mixer2Engine {
      * <p>
      * If error to parse xhtml string, returns null.
      * </p>
-     * <p>
-     * xhtmlテンプレートをJAXBのHtmlオブジェクト型にロード（unmarshal)します。
-     * テンプレート上にDOCTYPE宣言が指定されていてもそれは削除されます。
-     * </p>
-     * <p>
-     * xhtml文字列のパースに失敗した場合はnullを返します。
-     * </p>
      * 
      * @param file
      * @return html tag object. If parse error, returns null.
@@ -107,10 +93,6 @@ public class Mixer2Engine {
      * This is the same as
      * {@link #loadHtmlTemplate(File)} but if fail to
      * parse xhtml, throws Mixer2JAXBException.
-     * </p>
-     * <p>
-     * {@link #loadHtmlTemplate(File)}と同じですが
-     * xhtmlのパースに失敗するとMixer2JAXBExceptionをスローします。
      * </p>
      * 
      * @see #loadHtmlTemplate(File)
@@ -235,9 +217,6 @@ public class Mixer2Engine {
      * <p>
      * marshal tag object to string and return it.
      * </p>
-     * <p>
-     * 任意のタグオブジェクトをmarshalして文字列にして返します。
-     * </p>
      */
     public <T extends AbstractJaxb> String saveToString(T tag) {
         StringWriter sw = new StringWriter();
@@ -248,9 +227,6 @@ public class Mixer2Engine {
     /**
      * <p>
      * marshal tag object and write to StringWriter.
-     * </p>
-     * <p>
-     * 任意のタグのオブジェクトをmarshalして指定されたStringWriterに書き込みます。
      * </p>
      */
     public <T extends AbstractJaxb> void saveToStringWriter(T tag,
@@ -325,9 +301,6 @@ public class Mixer2Engine {
      * <p>
      * remove doctype declaration
      * </p>
-     * <p>
-     * DOCTYPE宣言を除去します。
-     * </p>
      */
     public StringBuilder removeDoctypeDeclaration(StringBuilder sb) {
         if (sb == null) {
@@ -357,10 +330,6 @@ public class Mixer2Engine {
      * <p>
      * replace the reference of character entity reference to numeric character
      * reference.
-     * </p>
-     * <p>
-     * 文字列内の&amp;copy; や &amp;trade; のようなHTMLの特殊文字の参照を、 数値実体参照に置換します。
-     * 主にxhtmlテンプレートをHtmlオブジェクトにunmarshalする直前に使用します。
      * </p>
      * 
      * @param sb

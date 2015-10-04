@@ -1,0 +1,56 @@
+ ------
+ Fast Boot
+ ------
+
+Make boot faster
+
+----
+Mixer2Engine m2e = new Mixer2Engine();
+---- 
+
+ The above code takes 3-5 seconds. JAXBContext initialization performance causes it.
+ Happily, There are some workaround.
+
+* com.sun.xml.internal.bind.v2.runtime.JAXBContextImpl.fastBoot system property
+
+ The system property can make it faster.
+ 
+----
+System.setProperty("com.sun.xml.internal.bind.v2.runtime.JAXBContextImpl.fastBoot","true");
+Mixer2Engine m2e = new Mixer2Engine();
+---- 
+
+ or you can use CLI option 
+
+----
+java -Dcom.sun.xml.internal.bind.v2.runtime.JAXBContextImpl.fastBoot=true ...
+----
+
+* Singleton pattern and asynchronous initialization on your application startup code.
+
+----
+public class Mixer2EngineSingleton {
+
+    private Mixer2EngineSingleton() {}
+
+    private static class SingletonHolder {
+        private static final Mixer2Engine instance = new Mixer2Engine();
+    }
+
+    public static Mixer2Engine getInstance() {
+        return SingletonHolder.instance;
+    }
+}
+----
+
+----
+// in your application startup code (Java8)
+
+CompletableFuture<Mixer2Engine> mixer2EngineCompletableFuture
+ = CompletableFuture.supplyAsync(() -> Mixer2EngineSingleton.getInstance());
+
+// other startup sequence...
+----
+
+ The above code does NOT interrupt other application start up sequence.
+ Of course, you can combine fastBoot system property with this.

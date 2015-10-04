@@ -11,10 +11,11 @@ import javax.xml.stream.events.XMLEvent;
 
 /**
  * <p>
- * mixer2Engine内のJAXB MarshallerにセットされるXMLEventWriterです。
+ * XMLEventWriter for JAXB marshaller in mixer2Engine.
  * </p>
  * <p>
- * なお、個別のタグに関係する実装は、scriptタグに関する実装のみです。 例えばテンプレートに次のようにインラインでJavaScriptが書かれているとすると、
+ * This class has only implements for script tag.
+ * For example, the template has in-line javascript below.
  * </p>
  * 
  * <pre>
@@ -25,34 +26,36 @@ import javax.xml.stream.events.XMLEvent;
  * &lt;/script&gt;
  * </pre>
  * <p>
- * 通常のMarshalでは、下記のように不等号記号が文字参照に置換されてしまい、 JavaScriptとして正常に作動しなくなってしまいます。 このEventWriterはそれを防いでいます。
+ * Normal marshaling replace &lt;,&gt; into reference. This javascript can not work.
+ * This EventWriter prevent it.
  * </p>
  * 
  * <pre>
  * if (a &amp;gt; 0) { alert('foo');} // this javascript can't work!
  * </pre>
  * <p>
- * 同様に、外部ファイルのJavascriptを読み込む場合についても細工されます。 下記のようなテンプレートがあったとして、
+ * Also, this class is for external javascript.
  * </p>
  * 
  * <pre>
  * &lt;script type=&quot;text/javascript&quot; src=&quot;foo.js&quot;&gt;&lt;/script&gt;
  * </pre>
  * <p>
- * 通常のXMLEventWriterでは、下記のように空要素として出力してしまいます。 これはFireFox等ではJavaScriptが作動しません。
+ * With the template above, normal marshaling outputs it as empty element. 
+ * This code can not work on firefox as java-script.
  * </p>
  * 
  * <pre>
  * &lt;script type=&quot;text/javascript&quot; src=&quot;foo.js&quot; /&gt;
  * </pre>
  * <p>
- * そのため、このクラスでは、script要素の内容として、空白を1個入れることで 回避しています。
+ * This class one white space into script tag.
  * </p>
  * 
  * <pre>
  * &lt;script type=&quot;text/javascript&quot; src=&quot;foo.js&quot;&gt;(one white space)&lt;/script&gt;
  * </pre>
- * @author watanabe
+ * @author nabedge
  */
 public class TagCustomizeWriter implements XMLEventWriter {
 

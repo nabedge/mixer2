@@ -19,45 +19,40 @@ import org.mixer2.xhtml.AbstractJaxb;
 import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 /**
- * table,tr,td,tbody,thead,tfoot等のタグを作ります。
- * org.mixer2.jaxb.xhtml.*の配下のタグ型を直接使うよりも、より直感的にテーブルを組み立てることができます。
+ * Builder for table,td,tr,tbody,thead,tfoot. This class is not thread safe.<br>
  *
- * なお、このクラスはスレッドセーフではありません。 This class is not thread safe.
- *
- * @author watanabe
+ * @author nabedge
  *
  */
 public class TableBuilder {
 
     private static Log log = LogFactory.getLog(TableBuilder.class);
 
-    /**
-     * テーブルのtbodyを表す内部クラスです。 mixer2のTbody型(org.mixer2.jaxb.xhtml.Tbody)とは異なります。
-     *
-     */
+    /**  */
     public class tbody {
 
         private List<tr> trList = new ArrayList<tr>();
 
-        // tbodyタグに与える属性情報
+        // attribute information for tbody
         private Map<String, Object> attrMap = new HashMap<String, Object>();
 
         /**
-         * tbodyタグに与える属性をセットします
+         * set property to tbody tag
          *
          * @param key
-         *            属性名です。例: id,title,class,style...
+         *            attribute name. id,title,class,style...
          * @param value
-         *            値です。class属性の場合はList&lt;String&gt;で渡すことも可能です。
+         *            value. you can use List&lt;String&gt;
          */
         public void setAttr(String key, Object value) {
             this.attrMap.put(key, value);
         }
 
         /**
-         * tbodyタグに与える属性をMapでまとめてセットします。 Mapのキーが属性名（id,title,class,etc...）です。
-         * class属性の場合は値の型はStringまたはList&lt;STring&gt;のどちらでも可能です。
-         *
+         * set property of tbody tag by map. <br>
+         * The key of map is attribute name (id,title,class,etc...)<br>
+         * In case of "class" attribute, you can use String or List&lt;STring&gt;<br>
+         * 
          * @param attrMap
          */
         public void setAttr(Map<String, Object> attrMap) {
@@ -65,10 +60,11 @@ public class TableBuilder {
         }
 
         /**
-         * tbodyタグに含まれる、指定された位置のtrの情報を返します。 その位置にまだtrが無い場合には自動的に生成されます。
+         * tr tag of specified index on tbody.
+         * if there no tr at the specified index, tr will be created automatically.
          *
          * @param index
-         *            添え字です。0なら最初のtr、1なら2つめのtr
+         *            0 = first tr, 1 = second tr.
          * @return
          */
         public tr tr(int index) {
@@ -79,7 +75,7 @@ public class TableBuilder {
         }
 
         /**
-         * tbody内のtrのリストの最後尾に新たなtrを追加し、それを返します。
+         * add new tr on list of tr in tbody and return the new tr.
          */
         public tr addTr() {
             tr tr = new tr();
@@ -88,7 +84,8 @@ public class TableBuilder {
         }
 
         /**
-         * trのリストの最後尾に新たなtrを追加し、それを返します。また、指定された属性をtrタグにセットします。
+         * Add new tr on list of tr in tbody and return the new tr. 
+         * The new tr has specified attributes.
          *
          */
         public tr addTr(Map<String, Object> attrMap) {
@@ -99,12 +96,12 @@ public class TableBuilder {
         }
 
         /**
-         * 指定されたListの内容のそれぞれをtdとして持つtrを tbody内の最後尾に追加します。
-         *
-         * @param tdList
+         * Add new tr tag to the last of tbody.
+         * The tr tag has tds having the value of list.
+         * 
+         * @param tdList the value of list must be tag or String that can be included in td tag.
          * @return
          * @throws TagTypeUnmatchException
-         *             tdList内にStringでもmixer2のタグ型でもないものが含まれている場合にスローされます。
          */
         public tbody addTr(List<Object> tdList) throws TagTypeUnmatchException {
             addTr(tdList, null);
@@ -112,15 +109,16 @@ public class TableBuilder {
         }
 
         /**
-         * 指定されたListの内容のそれぞれをtdとして持つtrを tbody内の最後尾に追加します。
-         * また、指定された属性をtrタグにセットします。
+         * Add new tr tag to the last of tbody.
+         * The tr tag has td tags having the each value of list.
+         * The specified attribute will be set to tr tag.
          *
          * @param <T>
-         * @param tdList
+         * @param tdList the value of list must be tag or String that can be included in td tag.
          * @param attrMap
          * @return
          * @throws TagTypeUnmatchException
-         *             tdList内にStringでもmixer2のタグ型でもないものが含まれている場合にスローされます。
+         * 
          */
         @SuppressWarnings("unchecked")
         public <T extends AbstractJaxb> tbody addTr(List<Object> tdList,
@@ -142,12 +140,6 @@ public class TableBuilder {
             return this;
         }
 
-        /**
-         * 内部に蓄積されているtr,tdの情報をもとに、 org.mixer2.jaxb.xhtml.Table,Tr,Td型を使って
-         * 最終的なtbodyタグオブジェクトを生成します。
-         *
-         * @return
-         */
         public Tbody buildTbody() {
             Tbody tbody = new Tbody();
             setAttribute(tbody, attrMap);
@@ -164,50 +156,45 @@ public class TableBuilder {
     }
 
     /**
-     * テーブルの行(tr)を表す内部クラスです。 mixer2のTr型(org.mixer2.jaxb.xhtml.Tr)とは異なります。
-     *
+     * Inner class of tr tag. This is different from org.mixer2.jaxb.xhtml.Tr .
      */
     public class tr {
 
         /**
-         * テーブルの列(td)を表す内部クラスです。 mixer2のTd型(org.mixer2.jaxb.xhtml.Td)とは異なります。
-         *
+         * Inner class of td tag. This is different from org.mixer2.jaxb.xhtml.Td .
          */
         public class td {
 
-            // tdタグに与える属性情報
+            // attribute for td tag
             private Map<String, Object> attrMap = new HashMap<String, Object>();
 
-            // td内のコンテンツ情報
+            // content of td
             private List<Object> content = new ArrayList<Object>();
 
             /**
-             * tdタグ内部のコンテンツをListで返します。
-             *
+             * get content in td tag.
              */
             public List<Object> getContent() {
                 return content;
             }
 
             /**
-             * tdタグ内部に文字列でコンテンツを追加します。
-             *
+             * add content into td tag
+             * @param string
              */
             public void add(String string) {
                 content.add(string);
             }
 
             /**
-             * tdタグ内部にhtmlタグ（div,span,...etc）でコンテンツを追加します。
-             *
+             * add content into tod tag
              */
             public <T extends AbstractJaxb> void add(T tag) {
                 content.add(tag);
             }
 
             /**
-             * td内に蓄積された情報をもとにTdタグを生成します。
-             *
+             * create Td tag
              * @return
              */
             public Td buildTd() {
@@ -220,8 +207,7 @@ public class TableBuilder {
             }
 
             /**
-             * Mapにまとめた属性情報をtd情報にセットする
-             *
+             * set attribute of td tag. key is attribute name, value is attribute value.
              * @param attrMap
              */
             public void setAttr(Map<String, Object> attrMap) {
@@ -229,8 +215,7 @@ public class TableBuilder {
             }
 
             /**
-             * 指定の属性情報をtd情報にセットする
-             *
+             * set attribute of td tag
              * @param key
              * @param value
              */
@@ -240,12 +225,11 @@ public class TableBuilder {
 
         }
 
-        // trタグに与える属性情報
+        // attribute information for tr tag
         private Map<String, Object> attrMap = new HashMap<String, Object>();
 
         /**
-         * trタグに与える属性をセットします
-         *
+         * set attributes for tr tag
          * @param attrMap
          */
         public void setAttr(Map<String, Object> attrMap) {
@@ -253,8 +237,7 @@ public class TableBuilder {
         }
 
         /**
-         * trタグに与える属性をセットします
-         *
+         * set attribute for tr tag
          * @param key
          * @param value
          */
@@ -265,10 +248,9 @@ public class TableBuilder {
         private List<td> tdList = new ArrayList<td>();
 
         /**
-         * 指定された位置のtdを返します。 その位置にまだtdが無い場合には自動的に生成されます。
-         *
-         * @param index
-         *            添え字です。0なら1列目のtd、1なら2列目のtd
+         * Get specified td. If there are no td at the specified index, td will be created on the index.
+         * 
+         * @param index 0=first td, 1=second td
          * @return
          */
         public td td(int index) {
@@ -279,8 +261,7 @@ public class TableBuilder {
         }
 
         /**
-         * tr内部のtdのリストの最後尾に、指定された文字列をコンテンツとして含む新たなtdを追加します。
-         *
+         * add new td having specified string into the last of td list of tr.
          * @param string
          * @return
          */
@@ -290,7 +271,7 @@ public class TableBuilder {
         }
 
         /**
-         * tr内部のtdのリストの最後尾に、 指定されたタグオブジェクトをコンテンツとして含む新たなtdを追加します。
+         * add new td having specified tag into the last of td list of tr.
          *
          * @param tag
          * @return
@@ -301,9 +282,10 @@ public class TableBuilder {
         }
 
         /**
-         * 指定された文字列をコンテンツとして含み、 かつ、指定された属性を持つ新たなtdを、 tr内部のtdのリストの最後尾に追加します。
-         *
+         * add new td having specified string and specified sttributes into the last of td list of tr.
+         * 
          * @param string
+         * @param attrMap
          * @return
          */
         public tr addTd(String string, Map<String, Object> attrMap) {
@@ -317,7 +299,7 @@ public class TableBuilder {
         }
 
         /**
-         * 指定されたタグオブジェクトをコンテンツとして含み、 かつ、指定された属性を持つ新たなtdを、 tr内部のtdのリストの最後尾に追加します。
+         * add new td having specified tag and specified sttributes into the last of td list of tr.
          *
          * @param tag
          * @param attrMap
@@ -334,11 +316,6 @@ public class TableBuilder {
             return this;
         }
 
-        /**
-         * 蓄積されたtdの情報をもとに、 org.mixer2.jaxb.xhtml.Trタグ型オブジェクトを生成します。
-         *
-         * @return
-         */
         public Tr buildTr() {
             Tr tr = new Tr();
             setAttribute(tr, attrMap);
@@ -353,10 +330,9 @@ public class TableBuilder {
     private List<tr> trList = new ArrayList<tr>();
 
     /**
-     * 指定された位置のtrを返します。 その位置にまだtrが無い場合には自動的に生成されます。
+     * Get tr of specified index. If there no tr at the specified index, new tr will be created.
      *
-     * @param index
-     *            添え字です。0なら1行目のtr、1なら2行目のtr
+     * @param index 0=first tr, 1= second tr
      * @return
      */
     public tr tr(int index) {
@@ -367,8 +343,8 @@ public class TableBuilder {
     }
 
     /**
-     * trのリストの最後尾に新たなtrを追加し、それを返します。
-     *
+     * add new tr.
+     * @return
      */
     public tr addTr() {
         tr tr = new tr();
@@ -377,8 +353,7 @@ public class TableBuilder {
     }
 
     /**
-     * trのリストの最後尾に新たなtrを追加し、それを返します。また、指定された属性をtrタグにセットします。
-     *
+     * add new tr having specified attributes.
      */
     public tr addTr(Map<String, Object> attrMap) {
         tr tr = new tr();
@@ -388,16 +363,11 @@ public class TableBuilder {
     }
 
     /**
-     * 指定されたListの内容のそれぞれをtdとして持つtrをtrのリストの最後尾に追加します。
-     *
-     * @param <T>
+     * add new tr having td tags that has content of each value of list.
+     * 
      * @param tdList
-     *            それぞれのtdに入れたいコンテンツのListです
      * @return
      * @throws TagTypeUnmatchException
-     * @throws TagTypeUnmatchException
-     *             String型またはAbstractJaxbを継承している型以外の<br>
-     *             オブジェクトtdListに含まれている場合にスローします。
      */
     public <T extends AbstractJaxb> TableBuilder addTr(List<Object> tdList)
             throws TagTypeUnmatchException {
@@ -405,14 +375,13 @@ public class TableBuilder {
     }
 
     /**
-     * 指定されたListの内容のそれぞれをtdとして持つtrを tableの最後尾に追加します。 また、指定された属性をtrタグにセットします。
+     * add new tr having td tags that has content of each value of list. 
+     * The new tr tag have specifed attributes.
      *
      * @param tdList
-     * @param attrMap
-     *            属性map
+     * @param attrMap attributes for new tr tag
      * @return
      * @throws TagTypeUnmatchException
-     *             Stringまたはtdに入れることができるタグ型以外のオブジェクトがtdListに含まれている場合にスローします
      */
     @SuppressWarnings("unchecked")
     public <T extends AbstractJaxb> TableBuilder addTr(List<Object> tdList,
@@ -437,9 +406,8 @@ public class TableBuilder {
     private List<tbody> tbodyList = new ArrayList<tbody>();
 
     /**
-     * 指定された位置のtbodyを返します。
-     *
-     * @param index
+     * Get tbody at specified index
+     * @param index 0=first tbody, 1=second tbody.
      *            添え字です。0なら一つ目のtbody、1なら二つ目のtbody
      * @return
      */
@@ -451,8 +419,7 @@ public class TableBuilder {
     }
 
     /**
-     * tbodyのリストの最後尾に新たなtbodyを作成し、それを返します
-     *
+     * add new tbody and get it.
      * @return
      */
     public tbody addTbody() {
@@ -462,13 +429,11 @@ public class TableBuilder {
     }
 
     /**
-     * 2次元のListの情報をもとに、tr,tdを含む新たなtbodyをテーブルに追加します。
-     *
-     * @param trList
-     *            ListのList。最終的にはこれをもとにtr,tdタグが形成されます。
+     * add new tbody into table having tr,td tags 
+     * 
+     * @param trList List of List for tr,td tags
      * @return
      * @throws TagTypeUnmatchException
-     *             trList内にStringでもタグ型でもない値が含まれている場合にスローされます。
      */
     public TableBuilder addTbody(List<List<Object>> trList)
             throws TagTypeUnmatchException {
@@ -487,19 +452,14 @@ public class TableBuilder {
         return this;
     }
 
-    /**
-     * TableBuilderのインスタンス内でtheadの情報を保持するプロパティです。
-     *
-     */
     public thead thead = new thead();
 
     /**
-     * テーブルのtheadを表す内部クラスです。 mixer2のThead型(org.mixer2.jaxb.xhtml.Thead)とは異なります。
-     *
+     * inner class for thead. It is different from org.mixer2.jaxb.xhtml.Thead
      */
     public class thead {
 
-        // 属性情報
+        // attributes
         private Map<String, Object> attrMap = new HashMap<String, Object>();
 
         public void setAttr(Map<String, Object> attrMap) {
@@ -546,8 +506,7 @@ public class TableBuilder {
         }
 
         /**
-         * thead内のtrのリストの最後尾に新たなtrを追加し、それを返します。
-         *
+         * add new tr into thead and get it
          */
         public tr addTr() {
             tr tr = new tr();
@@ -556,8 +515,7 @@ public class TableBuilder {
         }
 
         /**
-         * thead内のtrのリストの最後尾に新たなtrを追加し、それを返します。また、指定された属性をtrタグにセットします。
-         *
+         * add new tr having attributes into thead and get it
          */
         public tr addTr(Map<String, Object> attrMap) {
             tr tr = new tr();
@@ -579,19 +537,10 @@ public class TableBuilder {
 
     }
 
-    /**
-     * TableBuilderのインスタンス内でtheadの情報を保持するプロパティです。
-     *
-     */
     public tfoot tfoot = new tfoot();
 
-    /**
-     * テーブルのtfootを表す内部クラスです。mixer2のTfoot型(org.mixer2.jaxb.xhtml.Tfoot)とは異なります。
-     *
-     */
     public class tfoot {
 
-        // 属性情報
         private Map<String, Object> attrMap = new HashMap<String, Object>();
 
         public void setAttr(Map<String, Object> attrMap) {
@@ -663,10 +612,8 @@ public class TableBuilder {
     }
 
     /**
-     * 内部に蓄積されているtr,tbody,thead,tfootの情報をもとに、
-     * org.mixer2.jaxb.xhtml.Table,Tr,Td,Tbody,Thead,Tfoot型を使って
-     * 最終的なtableタグオブジェクトを生成します。
-     *
+     * build table tag object finally.
+     * 
      * @return
      */
     public Table build() {

@@ -36,11 +36,8 @@ import org.mixer2.xhtml.util.UnsetIdUtil;
  * <p>
  * base class of all tag type
  * </p>
- * <p>
- * すべてのタグ型の基底クラスです。
- * </p>
  *
- * @author nabedge/watanabe
+ * @author nabedge
  *
  */
 @javax.xml.bind.annotation.XmlTransient
@@ -52,9 +49,6 @@ public abstract class AbstractJaxb implements Serializable {
     /**
      * <p>
      * type cast.
-     * </p>
-     * <p>
-     * 型キャストをするメソッドです。 括弧記号でキャストをする手間を省きます。
      * </p>
      *
      * <pre>
@@ -74,15 +68,12 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * get tag that has specified id property. You don't need to cast() because
+     * get tag that has specified id attribute. You don't need to cast() because
      * you can specify the tag type.
-     * </p>
-     * <p>
-     * 指定したid属性を持つ子孫要素を取得します。 戻り値は指定したタグ型なのでキャストの必要はありません。
      * </p>
      *
      * <pre>
-     * // sample: get a Div tag having id=&quot;foo&quot; property.
+     * // sample: get a Div tag having id=&quot;foo&quot; attribute.
      * html.getById(&quot;foo&quot;, Div.class);
      * </pre>
      *
@@ -104,11 +95,8 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * get tag that has specified id property. To use return value as ussual
+     * get tag that has specified id attribute. To use return value as ussual
      * tag, you must cast() it.
-     * </p>
-     * <p>
-     * 指定したid属性を持つ子孫要素を取得します。 戻り値を正式なタグとして使うには適合するタグ型にキャストする必要があります。
      * </p>
      *
      * @param id
@@ -122,11 +110,8 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * delete element that has specified property within descendant element
+     * delete element that has specified attribute within descendant element
      * of oneself. you can't delete oneself.
-     * </p>
-     * <p>
-     * 自分自身の子孫要素のうち、指定した要素を削除します。 自分自身を削除することはできません。
      * </p>
      *
      * @param target
@@ -148,7 +133,6 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>remove inner content of this tag. </p>
-     * <p>このタグの中をすべて削除します</p>
      */
     public void removeInner() {
     	RemoveInnerUtil.removeInner(this);
@@ -156,11 +140,8 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * delete element that has specified id property within descendant element
+     * delete element that has specified id attribute within descendant element
      * of oneself. you can't delete oneself.
-     * </p>
-     * <p>
-     * 自分自身の子孫要素のうち、指定したid属性を持つ要素を削除します。 自分自身を削除することはできません。
      * </p>
      *
      * @param id
@@ -172,13 +153,9 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * replace element that has specified property within descendant element of
+     * replace element that has specified attribute within descendant element of
      * oneself. you can't replace oneself. It will be replaced by deep copy of
      * "replacement"
-     * </p>
-     * <p>
-     * 自分自身の子孫要素のうち、指定した要素を置換します。 自分自身を置換することはできません。
-     * なお、replaceのディープコピーで置換されます。
      * </p>
      *
      * @param target
@@ -203,13 +180,9 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * replace element that has specified id property within descendant element
+     * replace element that has specified id attribute within descendant element
      * of oneself. you can't replace oneself. It will be replaced by deep copy
      * of "replacement"
-     * </p>
-     * <p>
-     * 自分自身の子孫要素のうち、指定したid属性を持つ要素を置換します。 自分自身を置換することはできません。
-     * なお、replaceのディープコピーで置換されます。
      * </p>
      *
      * @param id
@@ -226,9 +199,6 @@ public abstract class AbstractJaxb implements Serializable {
      * <p>
      * replace element by string. you can't replace oneself.
      * </p>
-     * <p>
-     * 自分自身の子孫要素のうち、指定したid属性を持つ要素を指定された文字列で置換します。 自分自身を置換することはできません。
-     * </p>
      * 
      * @param id
      * @param replacement
@@ -243,10 +213,7 @@ public abstract class AbstractJaxb implements Serializable {
     /**
      * <p>
      * scan descendant element that is specified tag type having specified class
-     * property and return it as List.
-     * </p>
-     * <p>
-     * 指定したタグ型で、かつ指定したclass属性を持つ子孫要素を探してListで返します
+     * attribute and return it as List.
      * </p>
      *
      * <pre>
@@ -274,9 +241,6 @@ public abstract class AbstractJaxb implements Serializable {
      * scan descendant elements that has specified tag type and return it as
      * List.
      * </p>
-     * <p>
-     * 指定したタグ型の子孫要素を探してListで返します
-     * </p>
      *
      * <pre>
      * // usage:
@@ -297,15 +261,12 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * scan descendant elements that has specified class property and return it
+     * scan descendant elements that has specified class attribute and return it
      * as List
-     * </p>
-     * <p>
-     * 指定したclass属性を持つ子孫要素を探してListで返します
      * </p>
      *
      * @param clazz
-     *            class property
+     *            class attribute
      * @return
      */
     @SuppressWarnings("unchecked")
@@ -317,14 +278,11 @@ public abstract class AbstractJaxb implements Serializable {
     /**
      * <p>
      * delete all descendant elements that is specified tag type having
-     * specified class property.
-     * </p>
-     * <p>
-     * 指定したタグ型で、かつ、指定したclass属性を持つ子孫要素をすべて削除します
+     * specified class attribute.
      * </p>
      *
      * @param clazz
-     *            class property
+     *            class attribute
      * @param tagType
      */
     @SuppressWarnings("unchecked")
@@ -337,9 +295,6 @@ public abstract class AbstractJaxb implements Serializable {
      * <p>
      * delete all descendant elements that is specified tag type.
      * </p>
-     * <p>
-     * 指定したタグ型の子孫要素をすべて削除します
-     * </p>
      *
      * @param tagType
      */
@@ -350,14 +305,11 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * delete all descendant elements having specified classs property
-     * </p>
-     * <p>
-     * 指定したclass属性を持つ子孫要素をすべて削除します
+     * delete all descendant elements having specified class attribute
      * </p>
      *
      * @param clazz
-     *            class property
+     *            class attribute
      */
     @SuppressWarnings("unchecked")
     public <T extends AbstractJaxb> void removeDescendants(String clazz) {
@@ -366,15 +318,12 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * relpace all the descendant elements that is specified tag type having
-     * specified class property. this method use deep copy of "replacement"
-     * </p>
-     * <p>
-     * 指定したタグ型で、かつ、指定したclass属性を持つすべての子孫要素を置換します。 なお、replaceのディープコピーで置換されます。
+     * replace all the descendant elements that is specified tag type having
+     * specified class attribute. this method use deep copy of "replacement"
      * </p>
      *
      * @param clazz
-     *            class property
+     *            class attribute
      * @param tagType
      * @param replacement
      * @throws TagTypeUnmatchException
@@ -388,15 +337,12 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * relpace all the descendant elements by String. The target is specified
-     * tag type having specified class property.
-     * </p>
-     * <p>
-     * 指定したタグ型で、かつ、指定したclass属性を持つすべての子孫要素を 文字列で置換します。
+     * replace all the descendant elements by String. The target is specified
+     * tag type having specified class attribute.
      * </p>
      *
      * @param clazz
-     *            class property
+     *            class attribute
      * @param tagType
      * @param replacement
      * @throws TagTypeUnmatchException
@@ -414,9 +360,6 @@ public abstract class AbstractJaxb implements Serializable {
      * replace all descendant elements that is specified tag type. This method
      * use deep copy of "replacement"
      * </p>
-     * <p>
-     * 指定したタグ型の子孫要素を置換します。 なお、"replacement"のディープコピーで置換されます。
-     * </p>
      *
      * @param tagType
      * @param replacement
@@ -430,11 +373,10 @@ public abstract class AbstractJaxb implements Serializable {
     }
 
     /**
-     * 指定したclass属性を持つ子孫要素を置換します。 なお、replaceのディープコピーで置換されます。
-     *
-     *
-     * @param clazz
-     *            class property
+     * replace all descendant elements that has specified class attribute.
+     * This method user deep copy of "replacement"
+     * 
+     * @param clazz class attribute
      * @param replacement
      * @throws TagTypeUnmatchException
      */
@@ -469,7 +411,7 @@ public abstract class AbstractJaxb implements Serializable {
      * </p>
      *
      * @param clazz
-     *            class property
+     *            class attribute
      * @param replacement
      * @throws TagTypeUnmatchException
      */
@@ -526,10 +468,6 @@ public abstract class AbstractJaxb implements Serializable {
      * Replace whole of inside the tag by replacement.<br>
      * If this tag can not have String directory (ex. &lt;table&gt; tag), do nothing.
      * </p>
-     * <p>
-     * このタグの中身の全てをreplacementで完全に置換します。<br>
-     * タグの中に直接Stringを入れることができない（例えば table タグ）場合には何もしません。
-     * </p>
      * 
      * @param replacement
      */
@@ -542,10 +480,6 @@ public abstract class AbstractJaxb implements Serializable {
      * Replace whole of inside the tag by the whole elements of the list.<br>
      * If the element can not be use in this tag, There is a case that will be exclude.
      * </p>
-     * <p>
-     * このタグの中身の全てをreplacementで完全に置換します。<br>
-     * list の中の全ての要素を使います。使用できない要素の場合にはそれだけを除外する場合があります。
-     * </p>
      * 
      * @param replacement
      */
@@ -555,16 +489,12 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * insert element after the element having specified id property. This
+     * insert element after the element having specified id attribute. This
      * method use deep copy of "insObject"
-     * </p>
-     * 
-     * <p>
-     * 指定したid属性を持つタグの直後（内部ではない）に挿入します。 なお、挿入されるのはreplaceのディープコピーです。
      * </p>
      *
      * @param id
-     *            id property
+     *            id attribute
      * @param insObject
      * @return true if success to insert. if no hit, return false.
      * @throws TagTypeUnmatchException
@@ -575,8 +505,7 @@ public abstract class AbstractJaxb implements Serializable {
     }
 
     /**
-     * <p>insert String after the element having specified id property</p>
-     * <p>指定したid属性を持つタグの直後（内部ではない）に文字列を挿入します。</p>
+     * <p>insert String after the element having specified id attribute</p>
      *
      * @param id
      * @param insString
@@ -589,8 +518,9 @@ public abstract class AbstractJaxb implements Serializable {
     }
 
     /**
-     * <p>insert element before the element having specified id property.</p>
-     * <p>指定したid属性を持つタグの直前に挿入します。 なお、挿入されるのはreplaceのディープコピーです。</p>
+     * <p>insert element before the element having specified id attribute.
+     * This method use deep copy of insObject
+     * </p>
      * 
      * @param id
      * @param insObject
@@ -603,10 +533,7 @@ public abstract class AbstractJaxb implements Serializable {
     }
 
     /**
-     * <p>insert string before the element having specified id property.</p>
-     * <p>
-     * 指定したid属性を持つタグの直前に文字列を挿入します。
-     * </p>
+     * <p>insert string before the element having specified id attribute.</p>
      * 
      * @param id
      * @param insString
@@ -620,10 +547,7 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * write style property by TreeMap
-     * </p>
-     * <p>
-     * TreeMap形式で定義したstyle属性を書きこみます。
+     * write style attribute by TreeMap
      * </p>
      *
      * <pre>
@@ -648,10 +572,7 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * return style property as TreeMap
-     * </p>
-     * <p>
-     * タグのstyle属性をTreeMapで返します
+     * return style attributes as TreeMap
      * </p>
      *
      * @return
@@ -677,14 +598,6 @@ public abstract class AbstractJaxb implements Serializable {
      * <p>
      * <strong>NOTICE: DO NOT USE clone() and copyTo() method !</strong>
      * They has bug. Use this copy() method instead of them.
-     * </p>
-     * <p>
-     * 自分自身のディープコピーを返します。
-     * </p>
-     * <p>
-     * <strong>注意: clone()とcopyTo()メソッドは使わないでください。</strong>
-     * html5のaria-*属性やdata-*属性を持つタグをうまくコピーできないというバグがあります。
-     * かわりにこのcopy()メソッドを使ってください。
      * </p>
      *
      * <pre>
@@ -719,9 +632,6 @@ public abstract class AbstractJaxb implements Serializable {
      * same as {@link #copy(Class)} but never throw exception.
      * return null if failed to copy.
      * </p>
-     * <p>
-     * {@link #copy(Class)}と同じですが、失敗しても例外を発生させずにnullを返します
-     * </p>
      * 
      * @param tagType
      * @return
@@ -738,10 +648,7 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * set data-* property
-     * </p>
-     * <p>
-     * data-* 属性を設定します
+     * set data-* attribute
      * </p>
      *
      * <pre>
@@ -760,15 +667,12 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * return the value of data-* property. If not set, return null.
-     * </p>
-     * <p>
-     * data-* 属性の値を返します。値が設定されていない場合はnullが返されます
+     * return the value of data-* attribute. If not set, return null.
      * </p>
      *
      * @param key
      *            data-"key"
-     * @return null if not found property
+     * @return null if not found attribute
      */
     public String getData(String key) {
         QName qn = new QName("data-" + key);
@@ -777,10 +681,7 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * set area-* property
-     * </p>
-     * <p>
-     * aria-* 属性を設定します
+     * set area-* attribute
      * </p>
      *
      * @param key
@@ -794,10 +695,7 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * return the value of area-* property. If not set, return null.
-     * </p>
-     * <p>
-     * aria-* 属性の値を返します。値が設定されていない場合はnullが返されます
+     * return the value of area-* attribute. If not set, return null.
      * </p>
      *
      * @param key
@@ -810,11 +708,8 @@ public abstract class AbstractJaxb implements Serializable {
     }
 
     /**
-     * <p>remove a specified data-* property.</p>
-     * <p>指定されたdata-* 属性を消去します。</p>
-     * <p>
-     * remove attribute of data-* property.
-     * </p>
+     * <p>remove a specified data-* attribute.</p>
+     * 
      * @param key data-"key"
      * @return the previous value associated with key, or null if there was no mapping for key.
      */
@@ -824,11 +719,8 @@ public abstract class AbstractJaxb implements Serializable {
     }
 
     /**
-     * <p>remove a specified aria-* property.</p>
-     * <p>指定されたaria-* 属性を消去します。</p>
-     * <p>
-     * remove attribute of aria-* property.
-     * </p>
+     * <p>remove a specified aria-* attribute.</p>
+     * 
      * @param key data-"key"
      * @return the previous value associated with key, or null if there was no mapping for key.
      */
@@ -842,10 +734,6 @@ public abstract class AbstractJaxb implements Serializable {
      * get other attribute map. NOTICE: this method is dummy for make coding
      * easy. Acrually, this method is overridden by each tag class.
      * </p>
-     * <p>
-     * otherAttributeマップを取得します。 このメソッドはコーディングしやすくするためのダミーです。
-     * 実際は各タグ型の同名メソッドによってオーバーライドされ、そちらが実行されます。
-     * </p>
      *
      * @return
      */
@@ -855,12 +743,8 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * get id property. return null if not set. NOTICE: this method is dummy for
+     * get id attribute. return null if not set. NOTICE: this method is dummy for
      * make coding easy. Acrually, this method is overridden by each tag class.
-     * </p>
-     * <p>
-     * id属性を取得します。設定されていなければnullを返します。 このメソッドはコーディングしやすくするためのダミーです。
-     * 実際は各タグ型の同名メソッドによってオーバーライドされ、そちらが実行されます。 （xhtmlでは全種類のタグがid属性を持ちます）
      * </p>
      *
      * @return
@@ -871,12 +755,8 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * set id property. NOTICE: this method is dummy for make coding easy.
+     * set id attribute. NOTICE: this method is dummy for make coding easy.
      * Acrually, this method is overridden by each tag class.
-     * </p>
-     * <p>
-     * id属性をセットします。属性を削除したい場合にはnullを与えてください。 このメソッドはコーディングしやすくするためのダミーです。
-     * 実際は各タグ型の同名メソッドによってオーバーライドされ、そちらが実行されます。 （xhtmlでは全種類のタグがid属性を持ちます）
      * </p>
      */
     public void setId(String id) {
@@ -887,10 +767,6 @@ public abstract class AbstractJaxb implements Serializable {
      * NOTICE: this method is dummy for make coding easy. Acrually, this method
      * is overridden by each tag class.
      * </p>
-     * <p>
-     * id属性がセットされているか（nullではないか）を返します。 このメソッドはコーディングしやすくするためのダミーです。
-     * 実際は各タグ型の同名メソッドによってオーバーライドされ、そちらが実行されます。 （xhtmlでは全種類のタグがid属性を持ちます）
-     * </p>
      */
     public boolean isSetId() {
         return false;
@@ -898,11 +774,8 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * remove id property of all descendant elements. Also, remove id property
+     * remove id attribute of all descendant elements. Also, remove id attribute
      * of myself.
-     * </p>
-     * <p>
-     * 自分の子孫要素すべてのid属性を削除します。 自分自身のid属性も削除します。
      * </p>
      */
     public void unsetAllId() {
@@ -910,11 +783,7 @@ public abstract class AbstractJaxb implements Serializable {
     }
 
     /**
-     * <p>remove id property that matches specified regex. Also, matches and remove of myself.</p>
-     * <p>
-     * 自分の子孫要素のうち、そのid属性が指定の正規表現とマッチする場合に、id属性を削除します。
-     * 自分自身のid属性も、patternにマッチする場合は削除します。
-     * </p>
+     * <p>remove id attribute that matches specified regex. Also, matches and remove of myself.</p>
      */
     public void unsetAllId(Pattern pattern) {
         UnsetIdUtil.unsetAllId(this, pattern);
@@ -924,11 +793,6 @@ public abstract class AbstractJaxb implements Serializable {
      * <p>
      * NOTICE: this method is dummy for make coding easy. Acrually, this method
      * is overridden by each tag class.
-     * </p>
-     * <p>
-     * タグのstyle属性を返します。このメソッドはコーディングしやすくするためのダミーです。
-     * 実際は各タグ型の同名メソッドによってオーバーライドされ、そちらが実行されます。
-     * （html5では全てのタグがclass属性とstyle属性を持ちます。）
      * </p>
      *
      * @return
@@ -942,11 +806,6 @@ public abstract class AbstractJaxb implements Serializable {
      * NOTICE: this method is dummy for make coding easy. Acrually, this method
      * is overridden by each tag class.
      * </p>
-     * <p>
-     * タグのstyle属性をセットします。このメソッドはコーディングしやすくするためのダミーです。
-     * 実際は各タグ型の同名メソッドによってオーバーライドされ、そちらが実行されます。
-     * （html5では全てのタグがclass属性とstyle属性を持ちます。）
-     * </p>
      *
      * @param value
      */
@@ -956,12 +815,9 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * return class property as List. NOTICE: this method is dummy for make
+     * return class attribute as List. NOTICE: this method is dummy for make
      * coding easy. Acrually, this method is overridden by each tag class.
      * </p>
-     * <p> タグのclass属性をリストで返します。このメソッドはコーディングしやすくするためのダミーです。
-     * 実際は各タグ型の同名メソッドによってオーバーライドされ、そちらが実行されます。
-     * （html5では全てのタグがclass属性とstyle属性を持ちます。） </p>
      *
      * @return
      */
@@ -971,14 +827,11 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * return true if having specified class property.
-     * </p>
-     * <p>
-     * 指定した文字列がclass属性に含まれているかどうかを判定します
+     * return true if have specified class attribute.
      * </p>
      *
      * @param clazz
-     *            class property
+     *            class attribute
      * @return
      */
     public <T extends AbstractJaxb> boolean hasCssClass(String clazz) {
@@ -992,10 +845,7 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * add class property. If already set, do nothing.
-     * </p>
-     * <p>
-     * 指定した文字列をclass属性に追加します。既にある場合には何もしません。
+     * add class attribute. If already set, do nothing.
      * </p>
      */
     public <T extends AbstractJaxb> void addCssClass(String clazz) {
@@ -1007,10 +857,7 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * remove specified class property if having it.
-     * </p>
-     * <p>
-     * 指定した文字列がclass属性に含まれていればそれをすべて削除します
+     * remove specified class attribute if having it.
      * </p>
      */
     public <T extends AbstractJaxb> void removeCssClass(String clazz) {
@@ -1026,11 +873,8 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * remove class property if it has no value.
-     * </p>
-     * <p>
-     * class属性の内容が何も指定されていない場合にのみclass属性自体を削除します。 自分の配下の子孫要素すべてに作用します。
-     * これは下のような無意味なclass指定が出力されてしまうことを防ぐためのメソッドです。
+     * Remove class attribute if it has no value.
+     * This method prevent no-meaning class attribute like below.
      * </p>
      *
      * <pre>
@@ -1045,9 +889,6 @@ public abstract class AbstractJaxb implements Serializable {
     /**
      * <p>
      * returns byte sequence of myself.
-     * </p>
-     * <p>
-     * 自分自身のバイト列表現を返します。
      * </p>
      *
      * @return
@@ -1064,9 +905,6 @@ public abstract class AbstractJaxb implements Serializable {
      * <p>
      * FOR DEBUG. This method does not include the field of a null object in the
      * returned string.
-     * </p>
-     * <p>
-     * デバッグ用です。このメソッドは文字列表現に null オブジェクトを持つフィールドを加えません。
      * </p>
      */
     public String toString() {

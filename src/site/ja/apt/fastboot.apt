@@ -1,0 +1,58 @@
+ ------
+ Fast Boot
+ ------
+
+起動を早くする
+
+----
+Mixer2Engine m2e = new Mixer2Engine();
+---- 
+
+ 上のコードの実行には3-5秒程度かかります。JAXBContextの初期化にそれだけの時間がかかるからです。
+ 幸いなことに、いくつかの回避策があります。
+
+* com.sun.xml.internal.bind.v2.runtime.JAXBContextImpl.fastBoot system property
+
+ The system property can make it faster.
+ 
+----
+System.setProperty("com.sun.xml.internal.bind.v2.runtime.JAXBContextImpl.fastBoot","true");
+Mixer2Engine m2e = new Mixer2Engine();
+---- 
+
+ or you can use CLI option 
+
+----
+java -Dcom.sun.xml.internal.bind.v2.runtime.JAXBContextImpl.fastBoot=true ...
+----
+
+* Singleton pattern and asynchronous initialization on your application startup code.
+
+----
+public class Mixer2EngineSingleton {
+
+    private Mixer2EngineSingleton() {}
+
+    private static class SingletonHolder {
+        private static final Mixer2Engine instance = new Mixer2Engine();
+    }
+
+    public static Mixer2Engine getInstance() {
+        return SingletonHolder.instance;
+    }
+}
+----
+
+----
+// in your application startup code (Java8)
+
+CompletableFuture<Mixer2Engine> mixer2EngineCompletableFuture
+ = CompletableFuture.supplyAsync(() -> Mixer2EngineSingleton.getInstance());
+
+// other startup sequence...
+----
+
+ アプリケーションの種類にもよりますが、Mixer2Engineとは無関係に全体の起動に数秒程度かかってしまうことはよくあります。
+ アプリケーション全体を起動するときの様々な初期化処理の過程で、Mixer2Engineのインスタンス化を上のように非同期で実行させれば、
+ Mixer2Engineの初期化処理を待つことなく、他の処理が平行で実行されるため、
+ アプリケーション全体としての起動時間が短くなる効果を得られるでしょう。
