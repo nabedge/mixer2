@@ -4,6 +4,8 @@
 
 Release Note
 
+ * 1.2.39 javadoc fix.
+
  * 1.2.38 bug fix (issue #19).
 
  * 1.2.37 add removeInner() methods and bug fix.
