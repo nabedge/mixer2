@@ -46,9 +46,9 @@ get source code from github.com
  At the end, <<Finish>>. and you get clone 
  mixer2-sample repository on your own environment.
 
-import mixer2-fruitshop-springmvc project into your workspace
+import mixer2-fruitshop-springboot project into your workspace
 
- right-click mixer2-flowershop-springmvc on "WorkDirectory"
+ right-click mixer2-flowershop-springboot on "WorkDirectory"
  and choice "import".
 
 [./images/fruitshop-springboot-import-01.png]
@@ -59,7 +59,7 @@ import mixer2-fruitshop-springmvc project into your workspace
 [./images/fruitshop-springboot-import-02.png]
 
  Switch the window to Java or JavaEE perspective.
- You can see mixer2-fruitshop-springmvc on your work space.
+ You can see mixer2-fruitshop-springboot on your work space.
  
  But, this project is "general project" format.
  You need convert it to Maven project format.
@@ -75,9 +75,9 @@ import mixer2-fruitshop-springmvc project into your workspace
 
 [./images/fruitshop-springboot-import-04.png]
 
-start mixer2-fruitshop-springmvc project on tomcat as a web application
+start mixer2-fruitshop-springboot project on tomcat as a web application
 
- You can run mixer2-fruitshop-springmvc application on tomcat useing eclipse.
+ You can run mixer2-fruitshop-springboot application on tomcat useing eclipse.
  Right-click on project and click <<Run As -> Run on Server>>.
  
 [./images/fruitshop-springboot-import-05.png]
