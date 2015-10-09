@@ -56,3 +56,12 @@ CompletableFuture<Mixer2Engine> mixer2EngineCompletableFuture
  アプリケーション全体を起動するときの様々な初期化処理の過程で、Mixer2Engineのインスタンス化を上のように非同期で実行させれば、
  Mixer2Engineの初期化処理を待つことなく、他の処理が平行で実行されるため、
  アプリケーション全体としての起動時間が短くなる効果を得られるでしょう。
+
+ 実際にMixer2Engineを使うコードの中では、Singletonクラスからエンジンのインスタンスを取得して使用します。
+ このときすでにMixer2Engineは初期化済みのインスタンスが渡されますので、非常に高速です。
+
+----
+// in other code, use Mixer2Engine from Singleton class.
+Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
+----
+

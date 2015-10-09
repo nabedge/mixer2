@@ -54,3 +54,9 @@ CompletableFuture<Mixer2Engine> mixer2EngineCompletableFuture
 
  The above code does NOT interrupt other application start up sequence.
  Of course, you can combine fastBoot system property with this.
+
+----
+// in other code, use Mixer2Engine from Singleton class.
+Mixer2Engine m2e = Mixer2EngineSingleton.getInstance();
+----
+
