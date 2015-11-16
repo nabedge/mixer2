@@ -591,6 +591,16 @@ public class GetByIdUtil {
             }
             // empty element.
             break;
+        case MAIN:
+            Main main = (Main) target;
+            if (id.equals(main.getId())) {
+                return target;
+            }
+            if (main.isSetContent()) {
+                result = CastUtil.<T> cast(getByIdWithinObjectList(id,
+                        main.getContent()));
+            }
+            break;
         case MAP:
             Map map = (Map) target;
             if (id.equals(map.getId())) {

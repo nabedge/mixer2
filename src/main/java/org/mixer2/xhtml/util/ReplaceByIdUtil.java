@@ -452,6 +452,13 @@ public class ReplaceByIdUtil {
         case LINK:
             // empty element.
             break;
+        case MAIN:
+            Main main = (Main) target;
+            if (main.isSetContent()) {
+                return replaceByIdWithinObjectList(id, main.getContent(),
+                        replace);
+            }
+            break;
         case MAP:
             Map map = (Map) target;
             if (map.isSetArea()) {

@@ -502,6 +502,15 @@ public class RemoveEmptyCssClassUtil {
             }
             // empty element.
             break;
+        case MAIN:
+            Main main = (Main) target;
+            if (main.getCssClass().isEmpty()) {
+                main.unsetCssClass();
+            }
+            if (main.isSetContent()) {
+                removeCssClassWithinObjectList(main.getContent());
+            }
+            break;
         case MAP:
             Map map = (Map) target;
             // map has no class property

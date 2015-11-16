@@ -246,6 +246,10 @@ public class RemoveInnerUtil {
 			Link link = (Link) target;
 			// empty element.
 			break;
+        case MAIN:
+            Main main = (Main) target;
+            main.unsetContent();
+            break;
 		case MAP:
 			Map map = (Map) target;
 			map.unsetArea();

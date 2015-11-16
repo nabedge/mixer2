@@ -639,6 +639,16 @@ public class RemoveDescendantsUtil {
             }
             // empty element.
             break;
+        case MAIN:
+            Main main = (Main) target;
+            if (match(main.getClass(), main.getCssClass(), tagType, clazz)) {
+                return;
+            }
+            if (main.isSetContent()) {
+                removeDescendantsWithinObjectList(main.getContent(), tagType,
+                        clazz);
+            }
+            break;
         case MAP:
             Map map = (Map) target;
             // no class property

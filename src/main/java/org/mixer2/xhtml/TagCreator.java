@@ -229,6 +229,10 @@ public class TagCreator {
     public static Link link() {
         return new Link();
     }
+    
+    public static Main main() {
+        return new Main();
+    }
 
     public static Map map() {
         return new Map();

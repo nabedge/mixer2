@@ -655,6 +655,13 @@ public class PathAdjuster {
                 }
             }
             break;
+        case MAIN:
+            Main main = (Main) target;
+            if (main.isSetContent()) {
+                replacePathWithinObjectList(main.getContent(), pattern,
+                        replacement, which, clazz, tagType);
+            }
+            break;
         case MAP:
             Map map = (Map) target;
             if (map.isSetArea()) {

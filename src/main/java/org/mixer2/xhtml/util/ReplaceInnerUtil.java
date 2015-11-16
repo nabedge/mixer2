@@ -349,6 +349,10 @@ public class ReplaceInnerUtil {
             Link link = (Link) target;
             // empty element.
             break;
+        case MAIN:
+            Main main = (Main) target;
+            replaceContent(main.getContent(), replacement);
+            break;
         case MAP:
             Map map = (Map) target;
             map.unsetArea();

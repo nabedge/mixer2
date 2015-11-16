@@ -435,6 +435,13 @@ public class UnsetIdUtil {
             }
             // empty element.
             break;
+        case MAIN:
+            Main main = (Main) target;
+            if (idMatch(main.getId(), pattern)) {
+                main.setId(null);
+            }
+            unsetAllIdWithinObjectList(main.getContent(), pattern);
+            break;
         case MAP:
             Map map = (Map) target;
             if (idMatch(map.getId(), pattern)) {

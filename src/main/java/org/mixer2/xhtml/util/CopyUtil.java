@@ -527,6 +527,12 @@ public class CopyUtil {
                     link_orig.getOtherAttributes());
             // empty element
             break;
+        case MAIN:
+            Main main_orig = (Main) original;
+            Main main_copy = (Main) copy;
+            main_copy.getOtherAttributes().putAll(main_orig.getOtherAttributes());
+            executeForObjectList(main_orig.getContent(), main_copy.getContent());
+            break;
         case MAP:
             Map map_orig = (Map) original;
             Map map_copy = (Map) copy;
