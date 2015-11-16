@@ -84,7 +84,7 @@ public class ReplaceByIdTest {
     }
 
     @Test
-    public void testReplaceById() throws IOException, TagTypeUnmatchException {
+    public void testReplaceById() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
 
         Span span = span();
@@ -104,6 +104,7 @@ public class ReplaceByIdTest {
             html.replaceById("ol_a_li02", span);
             fail("liが入るべきところにspanを入れているためExceptionが発生するはず");
         } catch (TagTypeUnmatchException e) {
+            //
         }
         html.replaceById("ol_a_li02", li);
         assertNull(html.getById("ol_a_li02", Li.class));

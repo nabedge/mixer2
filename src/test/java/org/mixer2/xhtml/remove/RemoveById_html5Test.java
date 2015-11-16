@@ -14,7 +14,6 @@ import org.mixer2.jaxb.xhtml.Article;
 import org.mixer2.jaxb.xhtml.Br;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 /**
  *
@@ -44,7 +43,7 @@ public class RemoveById_html5Test {
     }
 
     @Test
-    public void testRemoveById() throws IOException, TagTypeUnmatchException {
+    public void testRemoveById() throws IOException {
         Html html = m2e.loadHtmlTemplate(new File(templateFilePath));
         //
         assertNotNull(html.getById("dummy_br", Br.class));

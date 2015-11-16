@@ -50,7 +50,7 @@ public class ReplaceById02Test {
     }
 
     @Test
-    public void test1() throws IOException, TagTypeUnmatchException {
+    public void test1() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
 
         Img img = img();
@@ -66,8 +66,8 @@ public class ReplaceById02Test {
 
     }
 
-    @Test
-    public void test2() throws IOException, TagTypeUnmatchException {
+    @Test(expected=TagTypeUnmatchException.class)
+    public void test2() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
 
         assertNotNull(html.getById("li1", Li.class));
@@ -85,11 +85,7 @@ public class ReplaceById02Test {
 
         Div div = div();
         div.getContent().add("aaa");
-        try {
-            html.replaceById("li1", div);
-            fail("ulの下のliをdivで置換しようとしているため例外が発生するはず");
-        } catch (TagTypeUnmatchException ex) {
-        }
-
+        html.replaceById("li1", div);
+        fail("ulの下のliをdivで置換しようとしているため例外が発生するはず");
     }
 }

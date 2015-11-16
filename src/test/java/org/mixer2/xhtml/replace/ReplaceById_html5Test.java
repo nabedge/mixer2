@@ -20,7 +20,6 @@ import org.mixer2.jaxb.xhtml.Option;
 import org.mixer2.jaxb.xhtml.Select;
 import org.mixer2.jaxb.xhtml.Span;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 /**
  * @author watanabe
@@ -52,10 +51,9 @@ public class ReplaceById_html5Test {
     /**
      * selectタグ内のoptionタグを別のoptionタグで置換してみる
      * @throws IOException
-     * @throws TagTypeUnmatchException
      */
     @Test
-    public void replaceOption() throws IOException, TagTypeUnmatchException {
+    public void replaceOption() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         assertNotNull(html.getById("option_1", Option.class));
         assertNotNull(html.getById("option_2", Option.class));
@@ -73,10 +71,9 @@ public class ReplaceById_html5Test {
     /**
      * selectタグ内のoptgroupタグを別のoptionタグで置換してみる
      * @throws IOException
-     * @throws TagTypeUnmatchException
      */
     @Test
-    public void replaceOptgroupByOption() throws IOException, TagTypeUnmatchException {
+    public void replaceOptgroupByOption() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         assertNotNull(html.getById("optgroup1", Optgroup.class));
         assertNotNull(html.getById("optgroup2", Optgroup.class));
@@ -95,10 +92,9 @@ public class ReplaceById_html5Test {
     /**
      * footerタグ内のbrタグをspanタグで置換してみる
      * @throws IOException
-     * @throws TagTypeUnmatchException
      */
     @Test
-    public void replaceById() throws IOException, TagTypeUnmatchException {
+    public void replaceById() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         assertNotNull(html.getById("dummy_br2", Br.class));
 
@@ -120,10 +116,9 @@ public class ReplaceById_html5Test {
     /**
      * footerタグ内のbrタグを文字列で置換してみる
      * @throws IOException
-     * @throws TagTypeUnmatchException
      */
     @Test
-    public void replaceByIdWithString() throws IOException, TagTypeUnmatchException {
+    public void replaceByIdWithString() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         assertNotNull(html.getById("dummy_br2", Br.class));
 

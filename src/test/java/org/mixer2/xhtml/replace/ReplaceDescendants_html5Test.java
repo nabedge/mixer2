@@ -18,7 +18,6 @@ import org.mixer2.jaxb.xhtml.Footer;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.Li;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 public class ReplaceDescendants_html5Test {
 
@@ -44,7 +43,7 @@ public class ReplaceDescendants_html5Test {
     }
 
     @Test
-    public void replaceByClass() throws IOException, TagTypeUnmatchException {
+    public void replaceByClass() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
 //        System.out.println(m2e.saveToString(html));
         A repA = new A();

@@ -11,7 +11,6 @@ import org.junit.Test;
 import org.mixer2.Mixer2Engine;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.Span;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 public class CssClassTest {
     private String templateFileName = "CssClassTest.html";
@@ -36,7 +35,7 @@ public class CssClassTest {
     }
 
     @Test
-    public void test() throws IOException, TagTypeUnmatchException {
+    public void test() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         Span span = html.getById("test1", Span.class);
         assertEquals(span.hasCssClass("aaa"), true);

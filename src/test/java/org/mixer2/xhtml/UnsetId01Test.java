@@ -14,7 +14,6 @@ import org.mixer2.Mixer2Engine;
 import org.mixer2.jaxb.xhtml.Dd;
 import org.mixer2.jaxb.xhtml.Div;
 import org.mixer2.jaxb.xhtml.Html;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 public class UnsetId01Test {
 
@@ -40,7 +39,7 @@ public class UnsetId01Test {
     }
 
     @Test
-    public void getIdTest() throws IOException, TagTypeUnmatchException {
+    public void getIdTest() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         List<AbstractJaxb> ajList = html.getDescendants("idtest");
         assertEquals("h1", ajList.get(0).getId());
@@ -48,7 +47,7 @@ public class UnsetId01Test {
     }
 
     @Test
-    public void setIdTest() throws IOException, TagTypeUnmatchException {
+    public void setIdTest() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         List<AbstractJaxb> ajList;
         ajList = html.getDescendants("idtest");
@@ -71,7 +70,7 @@ public class UnsetId01Test {
     }
 
     @Test
-    public void unsetIdTest01() throws IOException, TagTypeUnmatchException {
+    public void unsetIdTest01() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         Div div = html.getById("unsettest01");
         List<Dd> ddList;

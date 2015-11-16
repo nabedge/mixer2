@@ -21,7 +21,6 @@ import org.mixer2.jaxb.xhtml.Span;
 import org.mixer2.jaxb.xhtml.Track;
 import org.mixer2.jaxb.xhtml.Video;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 /**
  *
@@ -52,7 +51,7 @@ public class GetById_html5Test  {
     }
 
     @Test
-    public void testGetById() throws IOException, TagTypeUnmatchException {
+    public void testGetById() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
 //        System.out.println(html.toString());
 

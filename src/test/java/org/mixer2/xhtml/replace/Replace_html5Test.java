@@ -15,7 +15,6 @@ import org.mixer2.jaxb.xhtml.Header;
 import org.mixer2.jaxb.xhtml.Hgroup;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 /**
  *
@@ -122,10 +121,9 @@ public class Replace_html5Test {
     /**
      * idのないheaderタグを違う親要素のhtmlを起点に別のheaderタグで置換してみる
      * @throws IOException
-     * @throws TagTypeUnmatchException
      */
     @Test
-    public void replaceFail() throws IOException, TagTypeUnmatchException {
+    public void replaceFail() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         assertEquals(1, html.getDescendants(Header.class).size());
 

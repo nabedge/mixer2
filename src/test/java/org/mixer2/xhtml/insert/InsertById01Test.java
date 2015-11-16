@@ -22,7 +22,6 @@ import org.mixer2.jaxb.xhtml.Table;
 import org.mixer2.jaxb.xhtml.Td;
 import org.mixer2.jaxb.xhtml.Tr;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 /**
  *
@@ -56,7 +55,7 @@ public class InsertById01Test {
      * olにliタグを挿入してみる
      */
     @Test
-    public void liTest() throws IOException, TagTypeUnmatchException {
+    public void liTest() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
 
         List<Li> liList;
@@ -103,7 +102,7 @@ public class InsertById01Test {
      * 文字列を挿入してみる
      */
     @Test
-    public void stringTest() throws IOException, TagTypeUnmatchException {
+    public void stringTest() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         assertEquals(1, html.getById("test2div", Div.class).getContent().size());
         html.insertAfterId("test2span", "bar");
@@ -124,7 +123,7 @@ public class InsertById01Test {
     }
 
     @Test
-    public void trtdTest() throws IOException, TagTypeUnmatchException {
+    public void trtdTest() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         Tr tr = tr();
         Td td = td();

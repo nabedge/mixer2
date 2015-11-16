@@ -18,7 +18,6 @@ import org.mixer2.jaxb.xhtml.Input;
 import org.mixer2.jaxb.xhtml.Option;
 import org.mixer2.jaxb.xhtml.Textarea;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 import org.mixer2.xhtml.util.FormUtil;
 
 public class FormUtilTest {
@@ -45,7 +44,7 @@ public class FormUtilTest {
     }
 
     @Test
-    public void populateFormTest() throws IOException, TagTypeUnmatchException,
+    public void populateFormTest() throws IOException,
             IllegalAccessException, InvocationTargetException,
             NoSuchMethodException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));

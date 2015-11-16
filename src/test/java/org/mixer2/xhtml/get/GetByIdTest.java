@@ -23,7 +23,6 @@ import org.mixer2.jaxb.xhtml.Td;
 import org.mixer2.jaxb.xhtml.Thead;
 import org.mixer2.xhtml.AbstractJaxb;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 /**
  *
@@ -54,7 +53,7 @@ public class GetByIdTest {
     }
 
     @Test
-    public void testGetById() throws IOException, TagTypeUnmatchException {
+    public void testGetById() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
 
         assertTrue(html.getById("div_a", Div.class).getContent().get(0).equals(
@@ -84,10 +83,9 @@ public class GetByIdTest {
      * AbstractJaxbクラスで設定したダミーのgetId()メソッドでも
      * id属性をきちんと取得できるかどうかのテスト。
      * @throws IOException
-     * @throws TagTypeUnmatchException
      */
     @Test
-    public void getByIdOnAbstractJaxb() throws IOException, TagTypeUnmatchException {
+    public void getByIdOnAbstractJaxb() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         List<AbstractJaxb> ajList = html.getDescendants("h_foo");
         assertEquals("h1", ajList.get(0).getId());

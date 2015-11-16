@@ -18,7 +18,6 @@ import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.Nav;
 import org.mixer2.jaxb.xhtml.Track;
 import org.mixer2.jaxb.xhtml.Video;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 public class UnsetId_html5Test {
 
@@ -44,7 +43,7 @@ public class UnsetId_html5Test {
     }
 
     @Test
-    public void unsetIdTest_dl_dd() throws IOException, TagTypeUnmatchException {
+    public void unsetIdTest_dl_dd() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
 
         assertNotNull(html.getById("header_id",Header.class));

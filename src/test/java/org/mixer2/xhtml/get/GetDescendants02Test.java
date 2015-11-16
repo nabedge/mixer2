@@ -19,7 +19,6 @@ import org.mixer2.jaxb.xhtml.Span;
 import org.mixer2.jaxb.xhtml.Strong;
 import org.mixer2.xhtml.AbstractJaxb;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 public class GetDescendants02Test {
 
@@ -45,7 +44,7 @@ public class GetDescendants02Test {
     }
 
     @Test
-    public void getDescendants02() throws IOException, TagTypeUnmatchException {
+    public void getDescendants02() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
 
         List<AbstractJaxb> ajList;

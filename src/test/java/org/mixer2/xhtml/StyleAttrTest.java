@@ -14,7 +14,6 @@ import org.mixer2.Mixer2Engine;
 import org.mixer2.jaxb.xhtml.Div;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.Span;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 
 public class StyleAttrTest {
@@ -34,7 +33,7 @@ public class StyleAttrTest {
     }
 
     @Test
-    public void getStyle() throws IOException, TagTypeUnmatchException {
+    public void getStyle() throws IOException {
         Html html = m2e.loadHtmlTemplate(new File(templateFilePath));
         TreeMap<String,String> styleMap = html.getById("span1",Span.class).getStyleAsTreeMap();
         assertEquals("large", styleMap.get("font-weight"));
@@ -43,7 +42,7 @@ public class StyleAttrTest {
     }
 
     @Test
-    public void setStyle() throws IOException, TagTypeUnmatchException {
+    public void setStyle() throws IOException {
         Html html = m2e.loadHtmlTemplate(new File(templateFilePath));
         TreeMap<String,String> styleMap;
         styleMap = html.getById("div1",Div.class).getStyleAsTreeMap();
@@ -59,7 +58,7 @@ public class StyleAttrTest {
     }
 
     @Test
-    public void setStyleNew() throws IOException, TagTypeUnmatchException {
+    public void setStyleNew() throws IOException {
         Html html;
         TreeMap<String,String> styleMap;
 

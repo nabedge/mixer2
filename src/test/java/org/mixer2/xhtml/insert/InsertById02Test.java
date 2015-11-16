@@ -14,7 +14,6 @@ import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.Li;
 import org.mixer2.jaxb.xhtml.Menu;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 /**
  *
@@ -48,7 +47,7 @@ public class InsertById02Test {
      * menuタグ内で文字列を挿入してみる
      */
     @Test
-    public void menu_String_Test() throws IOException, TagTypeUnmatchException {
+    public void menu_String_Test() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         html.insertAfterId("menu2", "insert_after_menu2");
         List<Object> objList = html.getById("li2",Li.class).getContent();
@@ -59,7 +58,7 @@ public class InsertById02Test {
      * menuタグ内でliを挿入してみる
      */
     @Test
-    public void menu_li_Test() throws IOException, TagTypeUnmatchException {
+    public void menu_li_Test() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         //
         Li newli01 = new Li();

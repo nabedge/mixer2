@@ -14,7 +14,6 @@ import org.mixer2.jaxb.xhtml.A;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.Script;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 public class RemoveDescendantsTest {
 
@@ -52,8 +51,7 @@ public class RemoveDescendantsTest {
     }
 
     @Test
-    public void testRemoveDescendants() throws IOException,
-            TagTypeUnmatchException {
+    public void testRemoveDescendants() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         //
         assertNotNull(html.getById("a1", A.class));

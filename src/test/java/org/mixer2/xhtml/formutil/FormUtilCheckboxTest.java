@@ -16,7 +16,6 @@ import org.mixer2.jaxb.xhtml.Form;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.Input;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 import org.mixer2.xhtml.util.FormUtil;
 
 public class FormUtilCheckboxTest {
@@ -43,7 +42,7 @@ public class FormUtilCheckboxTest {
     }
 
     @Test
-    public void test01() throws IOException, TagTypeUnmatchException,
+    public void test01() throws IOException,
             IllegalAccessException, InvocationTargetException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         Form form = html.getById("test01", Form.class);

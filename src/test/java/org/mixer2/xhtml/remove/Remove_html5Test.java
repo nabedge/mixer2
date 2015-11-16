@@ -13,7 +13,6 @@ import org.mixer2.jaxb.xhtml.Header;
 import org.mixer2.jaxb.xhtml.Hgroup;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 /**
  *
@@ -82,10 +81,9 @@ public class Remove_html5Test {
     /**
      * idのないheaderタグを違う親要素のhtmlを起点に削除してみる
      * @throws IOException
-     * @throws TagTypeUnmatchException
      */
     @Test
-    public void removeFail() throws IOException, TagTypeUnmatchException {
+    public void removeFail() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         assertEquals(1, html.getDescendants(Header.class).size());
 

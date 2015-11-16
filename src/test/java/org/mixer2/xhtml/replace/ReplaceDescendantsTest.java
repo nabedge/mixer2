@@ -17,7 +17,6 @@ import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.I;
 import org.mixer2.jaxb.xhtml.Span;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 public class ReplaceDescendantsTest {
 
@@ -43,7 +42,7 @@ public class ReplaceDescendantsTest {
     }
 
     @Test
-    public void test1() throws IOException, TagTypeUnmatchException {
+    public void test1() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
 
         Span span;

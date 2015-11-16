@@ -20,7 +20,6 @@ import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.Option;
 import org.mixer2.jaxb.xhtml.Select;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 import org.mixer2.xhtml.util.FormUtil;
 import org.mixer2.xhtml.util.LabelValueBean;
 
@@ -48,7 +47,7 @@ public class FormUtilSelectTest {
     }
 
     @Test
-    public void test1() throws IOException, TagTypeUnmatchException,
+    public void test1() throws IOException,
             IllegalAccessException, InvocationTargetException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         Form form = html.getById("test1", Form.class);
@@ -66,7 +65,7 @@ public class FormUtilSelectTest {
     }
 
     @Test
-    public void test2() throws IOException, TagTypeUnmatchException,
+    public void test2() throws IOException,
             IllegalAccessException, InvocationTargetException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         Form form = html.getById("test2", Form.class);
@@ -90,10 +89,9 @@ public class FormUtilSelectTest {
      * selectボックスにoptionタグを入れ込むテスト
      *
      * @throws IOException
-     * @throws TagTypeUnmatchException
      */
     @Test
-    public void test3() throws IOException, TagTypeUnmatchException {
+    public void test3() throws IOException {
 
         List<LabelValueBean> lvList = new ArrayList<LabelValueBean>();
         lvList.add(new LabelValueBean("English", "en"));

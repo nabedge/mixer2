@@ -23,7 +23,6 @@ import org.mixer2.jaxb.xhtml.Pre;
 import org.mixer2.jaxb.xhtml.Section;
 import org.mixer2.jaxb.xhtml.Td;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 public class RemoveDescendants_html5Test {
 
@@ -51,11 +50,9 @@ public class RemoveDescendants_html5Test {
     /**
      * タグとclassを指定して削除
      * @throws IOException
-     * @throws TagTypeUnmatchException
      */
     @Test
-    public void removeByTagAndClass() throws IOException,
-            TagTypeUnmatchException {
+    public void removeByTagAndClass() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
 
         assertNotNull(html.getById("header", Header.class));
@@ -72,11 +69,9 @@ public class RemoveDescendants_html5Test {
     /**
      * classを指定して削除
      * @throws IOException
-     * @throws TagTypeUnmatchException
      */
     @Test
-    public void removeByCssClass() throws IOException,
-            TagTypeUnmatchException {
+    public void removeByCssClass() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         assertNotNull(html.getById("header", Header.class)); // class="aaa bbb ccc"
         assertNotNull(html.getById("nav", Nav.class));// class=bbb ccc
@@ -129,11 +124,9 @@ public class RemoveDescendants_html5Test {
     /**
      * タグを指定して削除
      * @throws IOException
-     * @throws TagTypeUnmatchException
      */
     @Test
-    public void removeByTag() throws IOException,
-            TagTypeUnmatchException {
+    public void removeByTag() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         assertNotNull(html.getById("bdi1", Bdi.class));// class=aaa
         assertNotNull(html.getById("bdi2", Bdi.class));// class=bbb

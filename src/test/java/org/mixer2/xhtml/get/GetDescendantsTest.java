@@ -22,7 +22,6 @@ import org.mixer2.jaxb.xhtml.Td;
 import org.mixer2.jaxb.xhtml.Tr;
 import org.mixer2.xhtml.AbstractJaxb;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 public class GetDescendantsTest {
 
@@ -48,7 +47,7 @@ public class GetDescendantsTest {
     }
 
     @Test
-    public void getDescendants01() throws IOException, TagTypeUnmatchException {
+    public void getDescendants01() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
 
         List<Span> spanList;
@@ -64,7 +63,7 @@ public class GetDescendantsTest {
     }
 
     @Test
-    public void getDescendants02() throws IOException, TagTypeUnmatchException {
+    public void getDescendants02() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
 
         List<AbstractJaxb> ajList;
@@ -86,8 +85,7 @@ public class GetDescendantsTest {
     }
 
     @Test
-    public void getDescendants_tbody() throws IOException,
-            TagTypeUnmatchException {
+    public void getDescendants_tbody() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         Table table = html.getById("tbl", Table.class);
 

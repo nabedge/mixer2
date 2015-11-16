@@ -19,7 +19,6 @@ import org.mixer2.jaxb.xhtml.Hgroup;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.P;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 /**
  *
@@ -53,7 +52,7 @@ public class InsertById_html5Test {
      * hgroupタグの後にpタグを挿入
      */
     @Test
-    public void insertAfterHgroup() throws IOException, TagTypeUnmatchException {
+    public void insertAfterHgroup() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         P p = pWithId("p1");
         p.getContent().add("paragraph");
@@ -74,7 +73,7 @@ public class InsertById_html5Test {
      * hgroupタグの後にpタグを挿入
      */
     @Test
-    public void insertBeforeHgroup() throws IOException, TagTypeUnmatchException {
+    public void insertBeforeHgroup() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         P p = pWithId("p1");
         p.getContent().add("paragraph");
@@ -89,13 +88,8 @@ public class InsertById_html5Test {
         }
     }
 
-    /**
-     * @throws IOException
-     * @throws TagTypeUnmatchException
-     *
-     */
     @Test
-    public void insertAfterDummyBr() throws IOException, TagTypeUnmatchException {
+    public void insertAfterDummyBr() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         html.insertAfterId("dummy_br", "test");
         List<Object> list = html.getById("footer",Footer.class).getContent();

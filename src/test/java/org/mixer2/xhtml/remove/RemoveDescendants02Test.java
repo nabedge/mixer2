@@ -22,7 +22,6 @@ import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.Img;
 import org.mixer2.jaxb.xhtml.Li;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 public class RemoveDescendants02Test {
 
@@ -48,8 +47,7 @@ public class RemoveDescendants02Test {
     }
 
     @Test
-    public void testRemoveDescendants() throws IOException,
-            TagTypeUnmatchException {
+    public void testRemoveDescendants() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
 
         Html html01 = html.copy(Html.class);

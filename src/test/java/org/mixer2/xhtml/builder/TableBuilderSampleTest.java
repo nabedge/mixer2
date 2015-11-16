@@ -12,7 +12,6 @@ import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.jaxb.xhtml.Table;
 import org.mixer2.jaxb.xhtml.Tr;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 public class TableBuilderSampleTest {
 
@@ -37,7 +36,7 @@ public class TableBuilderSampleTest {
     }
 
     @Test
-    public void sample() throws TagTypeUnmatchException, IOException {
+    public void sample() throws IOException {
 
         Html html = m2e.loadHtmlTemplate(new File(templateFilePath));
 

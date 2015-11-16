@@ -26,7 +26,6 @@ import org.mixer2.jaxb.xhtml.Table;
 import org.mixer2.jaxb.xhtml.Th;
 import org.mixer2.jaxb.xhtml.Ul;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
-import org.mixer2.xhtml.exception.TagTypeUnmatchException;
 
 public class RemoveByIdTest {
 
@@ -68,7 +67,7 @@ public class RemoveByIdTest {
     }
 
     @Test
-    public void testRemoveById() throws IOException, TagTypeUnmatchException {
+    public void testRemoveById() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
 
         assertTrue(html.getById("span2", Span.class) != null);
@@ -106,7 +105,7 @@ public class RemoveByIdTest {
     }
 
     @Test
-    public void removeMenuAndLi() throws IOException, TagTypeUnmatchException {
+    public void removeMenuAndLi() throws IOException {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         assertNotNull(html.getById("menu01", Menu.class));
         assertNotNull(html.getById("menu01_li", Li.class));
