@@ -552,6 +552,15 @@ public class GetDescendantsUtil {
             }
             // empty element.
             break;
+        case MAIN:
+            Main main = (Main) target;
+            if (match(main.getClass(), main.getCssClass(), tagType, clazz)) {
+                resultList.add((T) main);
+            }
+            for (java.lang.Object obj : main.getContent()) {
+                resultList = execute(obj, resultList, tagType, clazz);
+            }
+            break;
         case MAP:
             Map map = (Map) target;
             if (match(map.getClass(), map.getCssClass(), tagType, clazz)) {

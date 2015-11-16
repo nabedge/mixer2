@@ -74,6 +74,7 @@ public enum TagEnum {
     , LEGEND(org.mixer2.jaxb.xhtml.Legend.class, false) //
     , LI(org.mixer2.jaxb.xhtml.Li.class, true) //
     , LINK(org.mixer2.jaxb.xhtml.Link.class, true) //
+    , MAIN(org.mixer2.jaxb.xhtml.Main.class, true) //
     , MAP(org.mixer2.jaxb.xhtml.Map.class, false) //
     , MARK(org.mixer2.jaxb.xhtml.Mark.class, false) //
     , MENU(org.mixer2.jaxb.xhtml.Menu.class, true) //

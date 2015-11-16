@@ -715,6 +715,16 @@ public class ReplaceDescendantsUtil {
             }
             // empty element.
             break;
+        case MAIN:
+            Main main = (Main) target;
+            if (match(main.getClass(), main.getCssClass(), tagType, clazz)) {
+                return;
+            }
+            if (main.isSetContent()) {
+                replaceDescendantsWithinObjectList(main.getContent(), tagType,
+                        clazz, replace);
+            }
+            break;
         case MAP:
             Map map = (Map) target;
             if (match(map.getClass(), map.getCssClass(), tagType, clazz)) {

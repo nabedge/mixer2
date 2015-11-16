@@ -578,6 +578,14 @@ public class InsertByIdUtil {
         case LINK:
             // empty element
             break;
+        case MAIN:
+            Main main = (Main) target;
+            if (main.isSetContent()
+                    && executeWithinObjectList(opEnum, id, val,
+                            main.getContent())) {
+                return true;
+            }
+            break;
         case MAP:
             Map map = (Map) target;
             if (map.isSetArea()) {
