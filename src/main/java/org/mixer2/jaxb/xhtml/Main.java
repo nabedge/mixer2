@@ -9,8 +9,6 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAnyAttribute;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElementRef;
-import javax.xml.bind.annotation.XmlElementRefs;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
@@ -29,7 +27,6 @@ import org.jvnet.jaxb2_commons.lang.JAXBEqualsStrategy;
 import org.jvnet.jaxb2_commons.lang.JAXBHashCodeStrategy;
 import org.jvnet.jaxb2_commons.locator.ObjectLocator;
 import org.jvnet.jaxb2_commons.locator.util.LocatorUtils;
-import org.mixer2.xhtml.AbstractJaxb;
 
 
 /**
@@ -40,29 +37,10 @@ import org.mixer2.xhtml.AbstractJaxb;
  * <pre>
  * &lt;complexType&gt;
  *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;group ref="{http://www.w3.org/1999/xhtml}head.misc"/&gt;
- *         &lt;choice&gt;
- *           &lt;sequence&gt;
- *             &lt;element ref="{http://www.w3.org/1999/xhtml}title"/&gt;
- *             &lt;group ref="{http://www.w3.org/1999/xhtml}head.misc"/&gt;
- *             &lt;sequence minOccurs="0"&gt;
- *               &lt;element ref="{http://www.w3.org/1999/xhtml}base"/&gt;
- *               &lt;group ref="{http://www.w3.org/1999/xhtml}head.misc"/&gt;
- *             &lt;/sequence&gt;
- *           &lt;/sequence&gt;
- *           &lt;sequence&gt;
- *             &lt;element ref="{http://www.w3.org/1999/xhtml}base"/&gt;
- *             &lt;group ref="{http://www.w3.org/1999/xhtml}head.misc"/&gt;
- *             &lt;element ref="{http://www.w3.org/1999/xhtml}title"/&gt;
- *             &lt;group ref="{http://www.w3.org/1999/xhtml}head.misc"/&gt;
- *           &lt;/sequence&gt;
- *         &lt;/choice&gt;
- *       &lt;/sequence&gt;
+ *     &lt;extension base="{http://www.w3.org/1999/xhtml}Flow"&gt;
  *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}attrs"/&gt;
- *       &lt;attribute name="profile" type="{http://www.w3.org/1999/xhtml}URI" /&gt;
- *     &lt;/restriction&gt;
+ *       &lt;attGroup ref="{http://www.w3.org/1999/xhtml}TextAlign"/&gt;
+ *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
@@ -70,28 +48,13 @@ import org.mixer2.xhtml.AbstractJaxb;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
-    "content"
-})
-@XmlRootElement(name = "head")
-public class Head
-    extends AbstractJaxb
+@XmlType(name = "")
+@XmlRootElement(name = "main")
+public class Main
+    extends Flow
     implements Cloneable, CopyTo, Equals, HashCode
 {
 
-    @XmlElementRefs({
-        @XmlElementRef(name = "object", namespace = "http://www.w3.org/1999/xhtml", type = org.mixer2.jaxb.xhtml.Object.class),
-        @XmlElementRef(name = "script", namespace = "http://www.w3.org/1999/xhtml", type = Script.class),
-        @XmlElementRef(name = "title", namespace = "http://www.w3.org/1999/xhtml", type = Title.class),
-        @XmlElementRef(name = "isindex", namespace = "http://www.w3.org/1999/xhtml", type = Isindex.class),
-        @XmlElementRef(name = "base", namespace = "http://www.w3.org/1999/xhtml", type = Base.class),
-        @XmlElementRef(name = "link", namespace = "http://www.w3.org/1999/xhtml", type = Link.class),
-        @XmlElementRef(name = "meta", namespace = "http://www.w3.org/1999/xhtml", type = Meta.class),
-        @XmlElementRef(name = "style", namespace = "http://www.w3.org/1999/xhtml", type = Style.class)
-    })
-    protected List<AbstractJaxb> content;
-    @XmlAttribute(name = "profile")
-    protected String profile;
     @XmlAttribute(name = "id")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     @XmlID
@@ -262,82 +225,11 @@ public class Head
     protected String onvolumechange;
     @XmlAttribute(name = "onwaiting")
     protected String onwaiting;
+    @XmlAttribute(name = "align")
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
+    protected String align;
     @XmlAnyAttribute
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();
-
-    /**
-     * Gets the rest of the content model. 
-     * 
-     * <p>
-     * You are getting this "catch-all" property because of the following reason: 
-     * The field name "Base" is used by two different parts of a schema. See: 
-     * line 994 of file:/Users/nabedge/git/mixer2/xjc/mixer2-xhtml.xsd
-     * line 989 of file:/Users/nabedge/git/mixer2/xjc/mixer2-xhtml.xsd
-     * <p>
-     * To get rid of this property, apply a property customization to one 
-     * of both of the following declarations to change their names: 
-     * Gets the value of the content property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the content property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getContent().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link org.mixer2.jaxb.xhtml.Object }
-     * {@link Script }
-     * {@link Title }
-     * {@link Isindex }
-     * {@link Base }
-     * {@link Link }
-     * {@link Style }
-     * {@link Meta }
-     * 
-     * 
-     */
-    public List<AbstractJaxb> getContent() {
-        if (content == null) {
-            content = new ArrayList<AbstractJaxb>();
-        }
-        return this.content;
-    }
-
-    /**
-     * Gets the value of the profile property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getProfile() {
-        return profile;
-    }
-
-    /**
-     * Sets the value of the profile property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setProfile(String value) {
-        this.profile = value;
-    }
-
-    public boolean isSetProfile() {
-        return (this.profile!= null);
-    }
 
     /**
      * Gets the value of the id property.
@@ -2544,6 +2436,34 @@ public class Head
     }
 
     /**
+     * Gets the value of the align property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAlign() {
+        return align;
+    }
+
+    /**
+     * Sets the value of the align property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAlign(String value) {
+        this.align = value;
+    }
+
+    public boolean isSetAlign() {
+        return (this.align!= null);
+    }
+
+    /**
      * Gets a map that contains attributes that aren't bound to any typed property on this class.
      * 
      * <p>
@@ -2572,29 +2492,9 @@ public class Head
 
     public java.lang.Object copyTo(ObjectLocator locator, java.lang.Object target, CopyStrategy strategy) {
         final java.lang.Object draftCopy = ((target == null)?createNewInstance():target);
-        if (draftCopy instanceof Head) {
-            final Head copy = ((Head) draftCopy);
-            if ((this.content!= null)&&(!this.content.isEmpty())) {
-                List<AbstractJaxb> sourceContent;
-                sourceContent = (((this.content!= null)&&(!this.content.isEmpty()))?this.getContent():null);
-                @SuppressWarnings("unchecked")
-                List<AbstractJaxb> copyContent = ((List<AbstractJaxb> ) strategy.copy(LocatorUtils.property(locator, "content", sourceContent), sourceContent));
-                copy.content = null;
-                if (copyContent!= null) {
-                    List<AbstractJaxb> uniqueContentl = copy.getContent();
-                    uniqueContentl.addAll(copyContent);
-                }
-            } else {
-                copy.content = null;
-            }
-            if (this.isSetProfile()) {
-                String sourceProfile;
-                sourceProfile = this.getProfile();
-                String copyProfile = ((String) strategy.copy(LocatorUtils.property(locator, "profile", sourceProfile), sourceProfile));
-                copy.setProfile(copyProfile);
-            } else {
-                copy.profile = null;
-            }
+        super.copyTo(locator, draftCopy, strategy);
+        if (draftCopy instanceof Main) {
+            final Main copy = ((Main) draftCopy);
             if (this.isSetId()) {
                 String sourceId;
                 sourceId = this.getId();
@@ -3231,40 +3131,33 @@ public class Head
             } else {
                 copy.onwaiting = null;
             }
+            if (this.isSetAlign()) {
+                String sourceAlign;
+                sourceAlign = this.getAlign();
+                String copyAlign = ((String) strategy.copy(LocatorUtils.property(locator, "align", sourceAlign), sourceAlign));
+                copy.setAlign(copyAlign);
+            } else {
+                copy.align = null;
+            }
         }
         return draftCopy;
     }
 
     public java.lang.Object createNewInstance() {
-        return new Head();
+        return new Main();
     }
 
     public boolean equals(ObjectLocator thisLocator, ObjectLocator thatLocator, java.lang.Object object, EqualsStrategy strategy) {
-        if (!(object instanceof Head)) {
+        if (!(object instanceof Main)) {
             return false;
         }
         if (this == object) {
             return true;
         }
-        final Head that = ((Head) object);
-        {
-            List<AbstractJaxb> lhsContent;
-            lhsContent = (((this.content!= null)&&(!this.content.isEmpty()))?this.getContent():null);
-            List<AbstractJaxb> rhsContent;
-            rhsContent = (((that.content!= null)&&(!that.content.isEmpty()))?that.getContent():null);
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "content", lhsContent), LocatorUtils.property(thatLocator, "content", rhsContent), lhsContent, rhsContent)) {
-                return false;
-            }
+        if (!super.equals(thisLocator, thatLocator, object, strategy)) {
+            return false;
         }
-        {
-            String lhsProfile;
-            lhsProfile = this.getProfile();
-            String rhsProfile;
-            rhsProfile = that.getProfile();
-            if (!strategy.equals(LocatorUtils.property(thisLocator, "profile", lhsProfile), LocatorUtils.property(thatLocator, "profile", rhsProfile), lhsProfile, rhsProfile)) {
-                return false;
-            }
-        }
+        final Main that = ((Main) object);
         {
             String lhsId;
             lhsId = this.getId();
@@ -3958,6 +3851,15 @@ public class Head
                 return false;
             }
         }
+        {
+            String lhsAlign;
+            lhsAlign = this.getAlign();
+            String rhsAlign;
+            rhsAlign = that.getAlign();
+            if (!strategy.equals(LocatorUtils.property(thisLocator, "align", lhsAlign), LocatorUtils.property(thatLocator, "align", rhsAlign), lhsAlign, rhsAlign)) {
+                return false;
+            }
+        }
         return true;
     }
 
@@ -3967,17 +3869,7 @@ public class Head
     }
 
     public int hashCode(ObjectLocator locator, HashCodeStrategy strategy) {
-        int currentHashCode = 1;
-        {
-            List<AbstractJaxb> theContent;
-            theContent = (((this.content!= null)&&(!this.content.isEmpty()))?this.getContent():null);
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "content", theContent), currentHashCode, theContent);
-        }
-        {
-            String theProfile;
-            theProfile = this.getProfile();
-            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "profile", theProfile), currentHashCode, theProfile);
-        }
+        int currentHashCode = super.hashCode(locator, strategy);
         {
             String theId;
             theId = this.getId();
@@ -4362,6 +4254,11 @@ public class Head
             String theOnwaiting;
             theOnwaiting = this.getOnwaiting();
             currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "onwaiting", theOnwaiting), currentHashCode, theOnwaiting);
+        }
+        {
+            String theAlign;
+            theAlign = this.getAlign();
+            currentHashCode = strategy.hashCode(LocatorUtils.property(locator, "align", theAlign), currentHashCode, theAlign);
         }
         return currentHashCode;
     }

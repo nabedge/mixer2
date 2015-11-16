@@ -734,6 +734,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Main }
+     * 
+     */
+    public Main createMain() {
+        return new Main();
+    }
+
+    /**
      * Create an instance of {@link Section }
      * 
      */

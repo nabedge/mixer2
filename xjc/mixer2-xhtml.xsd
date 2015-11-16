@@ -824,6 +824,7 @@
       <xs:element ref="fieldset"/>
       <xs:element ref="table"/>
       <!-- HTML5 -->
+      <xs:element ref="main"/>
       <xs:element ref="section"/>
       <xs:element ref="article"/>
       <xs:element ref="aside"/>
@@ -1236,6 +1237,22 @@
           <xs:attribute name="link" type="Color"/>
           <xs:attribute name="vlink" type="Color"/>
           <xs:attribute name="alink" type="Color"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="main">
+    <xs:annotation>
+      <xs:documentation>
+      HTML5 "main" tag
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType mixed="true">
+      <xs:complexContent>
+        <xs:extension base="Flow">
+          <xs:attributeGroup ref="attrs"/>
+          <xs:attributeGroup ref="TextAlign"/>
         </xs:extension>
       </xs:complexContent>
     </xs:complexType>
