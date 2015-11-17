@@ -27,7 +27,7 @@ here comes message
 ----
 public class Sample {
 
-    public Html createHtml(String message) throws IOException, TagTypeUnmatchException {
+    public Html createHtml(String message) throws IOException {
         Mixer2Engine m2e = new Mixer2Engine();
         Html html = m2e.loadHtmlTemplate(new File("Sample.html"));
         html.getById("foo", Div.class).replaceInner(message);
@@ -43,7 +43,7 @@ public class Sample {
 public class SampleTest {
 
     @Test
-    public void executeHtmlTest() throws IOException, TagTypeUnmatchException {
+    public void executeHtmlTest() throws IOException {
         Sample sample = new Sample();
         Html html = sample.createHtml("aaa");
         assertEquals("aaa",html.getById("foo", Div.class).getContent().get(0));
