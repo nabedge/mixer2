@@ -1,7 +1,11 @@
-###
+### eclipse
 .settings
 .classpath
 .project
 target/
 bin/
 .*.md.html
+
+### intellij
+*.iml
+.idea/
