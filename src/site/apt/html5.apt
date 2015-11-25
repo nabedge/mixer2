@@ -72,10 +72,18 @@ public class HelloWorld {
  Also you should care property.
 
 *----:-----------------------------------------------+
-| NG | \<input type="email" required\>               |
+| NG | \<input type="email" required\>\              |
+|    | \<input type="checkbox" checked\>             |  
 *----:-----------------------------------------------+
-| OK | \<input type="email" required="required" /\>  |
+| OK | \<input type="email" required="required" /\>\ |
+|    | \<input type="checkbox" checked="checked" /\> |
 *----:-----------------------------------------------+
+
+----
+Input checkbox = html.getById("fooCheck", Input.class);
+checkbox.setChecked("checked");
+// You get <input type="checkbox" checked="checked" />
+----
 
 * {data-*, aria-* property}
 
