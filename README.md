@@ -6,3 +6,5 @@ XHTML template engine for java.
 see http://mixer2.org/site/
 
 The sample projects are https://github.com/nabedge/mixer2-sample
+
+----
