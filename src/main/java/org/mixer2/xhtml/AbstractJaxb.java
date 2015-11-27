@@ -483,7 +483,7 @@ public abstract class AbstractJaxb implements Serializable {
      * 
      * @param replacement
      */
-    public void replaceInner(List<java.lang.Object> replacement) {
+    public void replaceInner(List<? extends java.lang.Object> replacement) {
     	ReplaceInnerUtil.replaceInner(this, replacement);
     }
 

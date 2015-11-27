@@ -44,7 +44,7 @@ public class ReplaceInnerUtil {
      * @param target
      * @param replacement
      */
-    public static <T extends AbstractJaxb> void replaceInner(T target, List<java.lang.Object> replacement) {
+    public static <T extends AbstractJaxb> void replaceInner(T target, List<? extends java.lang.Object> replacement) {
         execute(target, replacement);
     }
 
