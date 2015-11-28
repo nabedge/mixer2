@@ -15,18 +15,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mixer2.Mixer2Engine;
-import org.mixer2.jaxb.xhtml.A;
-import org.mixer2.jaxb.xhtml.B;
-import org.mixer2.jaxb.xhtml.Div;
-import org.mixer2.jaxb.xhtml.Html;
-import org.mixer2.jaxb.xhtml.Li;
-import org.mixer2.jaxb.xhtml.P;
-import org.mixer2.jaxb.xhtml.Span;
-import org.mixer2.jaxb.xhtml.Table;
-import org.mixer2.jaxb.xhtml.Tr;
+import org.mixer2.jaxb.xhtml.*;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
 import org.mixer2.xhtml.TagCreator;
-import org.mixer2.xhtml.builder.TableBuilder;
 
 /**
  * 
@@ -109,7 +100,7 @@ public class ReplaceInnerTest {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
         A a = html.getById("href_google", A.class);
 
-        List<Object> list = new ArrayList<java.lang.Object>();
+        List<java.lang.Object> list = new ArrayList<java.lang.Object>();
         Span span = TagCreator.span();
         span.getContent().add("span1");
         B b = TagCreator.b();
@@ -120,7 +111,7 @@ public class ReplaceInnerTest {
 
         Html html2 = m2e.loadHtmlTemplate(m2e.saveToString(html));
         A a2 = html2.getById("href_google", A.class);
-        List<Object> list2 = a2.getContent();
+        List<java.lang.Object> list2 = a2.getContent();
 
         Assert.assertTrue(list2.get(0) instanceof Span);
         Assert.assertTrue(((Span) list.get(0)).getContent().get(0)
@@ -131,5 +122,21 @@ public class ReplaceInnerTest {
 
         Assert.assertTrue(list2.get(2) instanceof B);
         Assert.assertTrue(((B) list.get(2)).getContent().get(0).equals("b1"));
+    }
+
+    @Test
+    public void testReplaceInnerByList_li() throws Exception {
+        html = m2e.loadHtmlTemplate(new File(templateFilePath));
+        Li li0 = TagCreator.li();
+        Li li1 = TagCreator.li();
+        Li li2 = TagCreator.li();
+        li0.getContent().add("li0");
+        li1.getContent().add("li1");
+        li2.getContent().add("li2");
+        List<Li> list =Arrays.asList(li0,li1,li2);
+        Ol ol = html.getById("ol_a",Ol.class);
+        ol.replaceInner(list);
+        Assert.assertTrue(ol.getLi().size() == 3);
+        Assert.assertTrue(ol.getLi().get(2).getContent().get(0) == "li2");
     }
 }

@@ -12,11 +12,13 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mixer2.Mixer2Engine;
 import org.mixer2.jaxb.xhtml.Html;
 import org.mixer2.util.CastUtil;
 
+@Ignore
 public class ToStringPerformanceTest {
 
     private static Log log = LogFactory.getLog(ToStringPerformanceTest.class);
