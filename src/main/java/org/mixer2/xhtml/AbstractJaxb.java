@@ -889,7 +889,7 @@ public abstract class AbstractJaxb implements Serializable {
      * @param name
      * @return if not found, returns empty list.
      */
-    public List<Input> getInputByName(String name) {
+    public List<Input> getInputsByName(String name) {
         ArrayList<Input> list = new ArrayList<Input>();
         for(Input input : this.getDescendants(Input.class)) {
             if (input.getName() != null && input.getName().equals(name)) {
@@ -903,7 +903,7 @@ public abstract class AbstractJaxb implements Serializable {
      * <p>find input tag byname. (the first one in this tag)</p>
      * @return null if not found.
      */
-    public Input getInputByNameAsOne() {
+    public Input getInputByName() {
         List<Input> list = this.getDescendants(Input.class);
         if (list.size() > 0) {
             return list.get(0);
@@ -916,7 +916,7 @@ public abstract class AbstractJaxb implements Serializable {
      * <p>get header tag</p>
      * @return
      */
-    public List<Header> getHeader() {
+    public List<Header> getHeaders() {
         return this.getDescendants(Header.class);
     }
 
@@ -924,7 +924,7 @@ public abstract class AbstractJaxb implements Serializable {
      * <p>get header tag (the first one in this tag)</p>
      * @return null if not found.
      */
-    public Header getHeaderAsOne() {
+    public Header getHeader() {
         List<Header> list = this.getDescendants(Header.class);
         if (list.size() > 0) {
             return list.get(0);
@@ -937,7 +937,7 @@ public abstract class AbstractJaxb implements Serializable {
      * <p>get footer tag</p>
      * @return
      */
-    public List<Footer> getFooter() {
+    public List<Footer> getFooters() {
         return this.getDescendants(Footer.class);
     }
 
@@ -945,7 +945,7 @@ public abstract class AbstractJaxb implements Serializable {
      * <p>get footer tag (the first one in this tag)</p>
      * @return null if not found.
      */
-    public Footer getFooterAsOne() {
+    public Footer getFooter() {
         List<Footer> list = this.getDescendants(Footer.class);
         if (list.size() > 0) {
             return list.get(0);
