@@ -16,6 +16,9 @@ import javax.xml.namespace.QName;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.mixer2.jaxb.xhtml.Footer;
+import org.mixer2.jaxb.xhtml.Header;
+import org.mixer2.jaxb.xhtml.Input;
 import org.mixer2.util.CastUtil;
 import org.mixer2.util.M2StringUtils;
 import org.mixer2.xhtml.exception.TagTypeUnmatchException;
@@ -407,7 +410,7 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>
-     * 指定したclass属性を持つ子孫要素を文字列で置換します。
+     *     replace descendant tag with string. specifying class property.
      * </p>
      *
      * @param clazz
@@ -427,12 +430,7 @@ public abstract class AbstractJaxb implements Serializable {
      * For various reasons, this method does NOT use deep copy of replacement.<br>
      * It is recommended to use copy(T) in method argument.
      * </p>
-     * <p>
-     * このタグの中身の全てをreplacementで完全に置換します。<br>
-     * このメソッドではreplacementのディープコピーで置換するのではない点に注意してください。<br>
-     * 他のメソッドとおなじようにディープコピーで置換するために、copy(T)を使って引数を渡すことを推奨します。
-     * </p>
-     * 
+     *
      * <b>recommended pattern.</b>
      * <pre>
      * // div and p is instance of Div, p tag object.
@@ -884,6 +882,76 @@ public abstract class AbstractJaxb implements Serializable {
      */
     public void removeEmptyCssClass() {
         RemoveEmptyCssClassUtil.removeEmptyCssClass(this);
+    }
+
+    /**
+     * <p>find input tag by name returning as List.</p>
+     * @param name
+     * @return if not found, returns empty list.
+     */
+    public List<Input> getInputByName(String name) {
+        ArrayList<Input> list = new ArrayList<Input>();
+        for(Input input : this.getDescendants(Input.class)) {
+            if (input.getName() != null && input.getName().equals(name)) {
+                list.add(input);
+            }
+        }
+        return list;
+    }
+
+    /**
+     * <p>find input tag byname. (the first one in this tag)</p>
+     * @return null if not found.
+     */
+    public Input getInputByNameAsOne() {
+        List<Input> list = this.getDescendants(Input.class);
+        if (list.size() > 0) {
+            return list.get(0);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * <p>get header tag</p>
+     * @return
+     */
+    public List<Header> getHeader() {
+        return this.getDescendants(Header.class);
+    }
+
+    /**
+     * <p>get header tag (the first one in this tag)</p>
+     * @return null if not found.
+     */
+    public Header getHeaderAsOne() {
+        List<Header> list = this.getDescendants(Header.class);
+        if (list.size() > 0) {
+            return list.get(0);
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * <p>get footer tag</p>
+     * @return
+     */
+    public List<Footer> getFooter() {
+        return this.getDescendants(Footer.class);
+    }
+
+    /**
+     * <p>get footer tag (the first one in this tag)</p>
+     * @return null if not found.
+     */
+    public Footer getFooterAsOne() {
+        List<Footer> list = this.getDescendants(Footer.class);
+        if (list.size() > 0) {
+            return list.get(0);
+        } else {
+            return null;
+        }
     }
 
     /**
