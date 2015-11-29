@@ -876,6 +876,8 @@ public abstract class AbstractJaxb implements Serializable {
     /**
      * <p>find tag by "name" property returning as List.</p>
      * @param name
+     * @param tagType
+     * @param <T>
      * @return if not found, returns empty list.
      */
     public <T extends AbstractJaxb> List<T> getByNameAsList(String name, Class<T> tagType) {
@@ -884,6 +886,10 @@ public abstract class AbstractJaxb implements Serializable {
 
     /**
      * <p>find tag by "name" property. (the first one in this tag)</p>
+     *
+     * @param name
+     * @param tagType
+     * @param <T>
      * @return null if not found.
      */
     public <T extends AbstractJaxb> T getByName(String name, Class<T> tagType) {
