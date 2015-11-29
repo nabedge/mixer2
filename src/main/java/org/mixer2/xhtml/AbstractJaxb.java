@@ -22,18 +22,7 @@ import org.mixer2.jaxb.xhtml.Input;
 import org.mixer2.util.CastUtil;
 import org.mixer2.util.M2StringUtils;
 import org.mixer2.xhtml.exception.TagTypeUnmatchException;
-import org.mixer2.xhtml.util.CopyUtil;
-import org.mixer2.xhtml.util.GetByIdUtil;
-import org.mixer2.xhtml.util.GetDescendantsUtil;
-import org.mixer2.xhtml.util.InsertByIdUtil;
-import org.mixer2.xhtml.util.RemoveByIdUtil;
-import org.mixer2.xhtml.util.RemoveDescendantsUtil;
-import org.mixer2.xhtml.util.RemoveEmptyCssClassUtil;
-import org.mixer2.xhtml.util.RemoveInnerUtil;
-import org.mixer2.xhtml.util.ReplaceByIdUtil;
-import org.mixer2.xhtml.util.ReplaceInnerUtil;
-import org.mixer2.xhtml.util.ReplaceDescendantsUtil;
-import org.mixer2.xhtml.util.UnsetIdUtil;
+import org.mixer2.xhtml.util.*;
 
 /**
  * <p>
@@ -885,31 +874,20 @@ public abstract class AbstractJaxb implements Serializable {
     }
 
     /**
-     * <p>find input tag by name returning as List.</p>
+     * <p>find tag by "name" property returning as List.</p>
      * @param name
      * @return if not found, returns empty list.
      */
-    public List<Input> getInputByNameAsList(String name) {
-        ArrayList<Input> list = new ArrayList<Input>();
-        for(Input input : this.getDescendants(Input.class)) {
-            if (input.getName() != null && input.getName().equals(name)) {
-                list.add(input);
-            }
-        }
-        return list;
+    public <T extends AbstractJaxb> List<T> getByNameAsList(String name, Class<T> tagType) {
+        return GetByNameUtil.getByNameAsList((T) this, new ArrayList<T>(), name,tagType);
     }
 
     /**
-     * <p>find input tag byname. (the first one in this tag)</p>
+     * <p>find tag by "name" property. (the first one in this tag)</p>
      * @return null if not found.
      */
-    public Input getInputByName() {
-        List<Input> list = this.getDescendants(Input.class);
-        if (list.size() > 0) {
-            return list.get(0);
-        } else {
-            return null;
-        }
+    public <T extends AbstractJaxb> T getByName(String name, Class<T> tagType) {
+        return GetByNameUtil.getByName((T) this, name, tagType);
     }
 
     /**
