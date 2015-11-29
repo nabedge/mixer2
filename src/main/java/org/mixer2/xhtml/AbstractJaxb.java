@@ -889,7 +889,7 @@ public abstract class AbstractJaxb implements Serializable {
      * @param name
      * @return if not found, returns empty list.
      */
-    public List<Input> getInputsByName(String name) {
+    public List<Input> getInputByNameAsList(String name) {
         ArrayList<Input> list = new ArrayList<Input>();
         for(Input input : this.getDescendants(Input.class)) {
             if (input.getName() != null && input.getName().equals(name)) {
@@ -916,7 +916,7 @@ public abstract class AbstractJaxb implements Serializable {
      * <p>get header tag</p>
      * @return
      */
-    public List<Header> getHeaders() {
+    public List<Header> getHeaderAsList() {
         return this.getDescendants(Header.class);
     }
 
@@ -937,7 +937,7 @@ public abstract class AbstractJaxb implements Serializable {
      * <p>get footer tag</p>
      * @return
      */
-    public List<Footer> getFooters() {
+    public List<Footer> getFooterAsList() {
         return this.getDescendants(Footer.class);
     }
 
