@@ -11,20 +11,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import org.mixer2.Mixer2Engine;
-import org.mixer2.jaxb.xhtml.Button;
-import org.mixer2.jaxb.xhtml.Div;
-import org.mixer2.jaxb.xhtml.Dt;
-import org.mixer2.jaxb.xhtml.Html;
-import org.mixer2.jaxb.xhtml.Li;
-import org.mixer2.jaxb.xhtml.Menu;
-import org.mixer2.jaxb.xhtml.Script;
-import org.mixer2.jaxb.xhtml.Small;
-import org.mixer2.jaxb.xhtml.Span;
-import org.mixer2.jaxb.xhtml.Strong;
-import org.mixer2.jaxb.xhtml.Style;
-import org.mixer2.jaxb.xhtml.Table;
-import org.mixer2.jaxb.xhtml.Th;
-import org.mixer2.jaxb.xhtml.Ul;
+import org.mixer2.jaxb.xhtml.*;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
 
 public class RemoveByIdTest {
@@ -102,6 +89,9 @@ public class RemoveByIdTest {
         html.removeById("lastfoo");
         assertTrue(html.getById("lastfoo", Div.class) == null);
 
+        assertNotNull(html.getById("tbody_dummy", Tbody.class));
+        html.removeById("tbody_dummy");
+        assertNull(html.getById("tbody_dummy", Tbody.class));
     }
 
     @Test

@@ -602,7 +602,7 @@ public class RemoveByIdUtil {
             if (table.isSetTbody()) {
                 for (int j = 0; j < table.getTbody().size(); j++) {
                     Tbody tbody = table.getTbody().get(j);
-                    if (tbody.isSetId() && tbody.getId().equals(tbody)) {
+                    if (tbody.isSetId() && tbody.getId().equals(id)) {
                         table.getTbody().remove(j);
                         return true;
                     } else {
