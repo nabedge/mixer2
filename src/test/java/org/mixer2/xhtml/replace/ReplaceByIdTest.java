@@ -16,16 +16,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import org.mixer2.Mixer2Engine;
-import org.mixer2.jaxb.xhtml.Div;
-import org.mixer2.jaxb.xhtml.Html;
-import org.mixer2.jaxb.xhtml.Li;
-import org.mixer2.jaxb.xhtml.Ol;
-import org.mixer2.jaxb.xhtml.Script;
-import org.mixer2.jaxb.xhtml.Span;
-import org.mixer2.jaxb.xhtml.Style;
-import org.mixer2.jaxb.xhtml.Table;
-import org.mixer2.jaxb.xhtml.Td;
-import org.mixer2.jaxb.xhtml.Tr;
+import org.mixer2.jaxb.xhtml.*;
 import org.mixer2.xhtml.Mixer2EngineSingleton;
 import org.mixer2.xhtml.TagCreator;
 import org.mixer2.xhtml.exception.TagTypeUnmatchException;
@@ -84,7 +75,25 @@ public class ReplaceByIdTest {
     }
 
     @Test
-    public void testReplaceById() throws IOException {
+    public void testReplaceById_tbody() throws Exception {
+        html = m2e.loadHtmlTemplate(new File(templateFilePath));
+
+        Tbody tbody = TagCreator.tbody();
+        Tr tr = TagCreator.tr();
+        Td td = TagCreator.td();
+        td.setId("td_hoge");
+        td.getContent().add("foobar");
+        tr.getThOrTd().add(td);
+        tbody.getTr().add(tr);
+
+        assertNotNull(html.getById("tbody_dummy", Tbody.class));
+        html.replaceById("tbody_dummy", tbody);
+        assertNull(html.getById("tbody_dummy", Tbody.class));
+        assertNotNull(html.getById("td_hoge", Td.class));
+    }
+
+    @Test
+    public void testReplaceById() throws Exception {
         html = m2e.loadHtmlTemplate(new File(templateFilePath));
 
         Span span = span();
