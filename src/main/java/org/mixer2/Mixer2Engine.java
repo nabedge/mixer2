@@ -32,6 +32,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.mixer2.jaxb.exception.Mixer2JAXBException;
 import org.mixer2.jaxb.xhtml.Html;
+import org.mixer2.jaxb.xhtml.Iframe;
 import org.mixer2.jaxb.xhtml.Script;
 import org.mixer2.jaxb.xhtml.Textarea;
 import org.mixer2.xhtml.AbstractJaxb;
@@ -239,6 +240,13 @@ public class Mixer2Engine {
                 script.setContent(" ");
             }
         }
+
+        // add one white space into iframe tag having empty content.
+        for (Iframe iframe : tag.getDescendants(Iframe.class)) {
+            if (iframe.getContent() == null || iframe.getContent().size() < 1) {
+                iframe.getContent().add(" ");
+            }
+        }
         
         // add one line break into textarea tag
         // having empty content.
@@ -399,6 +407,17 @@ public class Mixer2Engine {
         return stringBuilder;
     }
 
+    protected StringBuilder replaceIframeEndTag(StringBuilder sb) {
+        if (sb == null) {
+            return null;
+        }
+        String patternStr = "</iframe>";
+        String replaceStr = " </iframe>";
+        Pattern ptn = Pattern.compile(patternStr, Pattern.CASE_INSENSITIVE);
+        String result = ptn.matcher(sb).replaceAll(replaceStr);
+        return new StringBuilder(result);
+    }
+
     /**
      * <p>
      * unmarshal from html string to html object.
@@ -410,6 +429,7 @@ public class Mixer2Engine {
      */
     protected Html unmarshal(StringBuilder sb) throws JAXBException {
         Html html = null;
+        sb = replaceIframeEndTag(sb);
         sb = removeDoctypeDeclaration(sb);
         sb = replaceNamedEntity(sb);
         StringReader stringReader = new StringReader(sb.toString());
