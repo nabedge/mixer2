@@ -49,7 +49,7 @@
         </menu>
         <menu ref="reports" />
         <menu name="External Site">
-            <item name="Developer Blog" href="http://nabedge.blogspot.com/" />
+            <item name="Developer Blog" href="http://nabedge.mixer2.org/" />
             <item name="Mailing List" href="http://groups.google.com/group/mixer2-ja" />
         </menu>
     </body>
