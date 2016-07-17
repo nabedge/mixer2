@@ -4,7 +4,7 @@
 
 Release Note
 
- * 1.3.8 bug fix of copy() method. (NullPointerException)
+ * 1.3.10 bug fix of copy() method. (NullPointerException)
 
  * 1.3.7 bug fix for "iframe" tag (issue #36)
 
