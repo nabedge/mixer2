@@ -36,6 +36,10 @@ public class CopyUtil {
 
     private static void execute(java.lang.Object original, java.lang.Object copy) {
 
+        if (original == null || copy == null) {
+            return;
+        }
+
         if (!original.getClass().equals(copy.getClass())) {
             log.warn("tag type is different between original and copy");
             return;
