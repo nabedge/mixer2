@@ -9,11 +9,9 @@ The sample projects are https://github.com/nabedge/mixer2-sample
 
 ----
 
-## BEFORE import int IDE (IntelliJ, Eclipse, etc.)
+## Memory size for Maven
 
-Before import this project into your IDE, the JAXB source code auto generation should be run with "compile" phase in maven.
+If you got OutOfMemoryError in "mvn compile", increase it.
 
-1. git clone [this repository]
-1. export MAVEN_OPTS=-Xmx512m
-1. mvn clean compile
-1. import projects into Intellij or Eclipse as a maven project.
+$ export MAVEN_OPTS=-Xmx512m
+$ mvn clean compile
