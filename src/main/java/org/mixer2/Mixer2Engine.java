@@ -69,6 +69,7 @@ public class Mixer2Engine {
         } catch (JAXBException e) {
             log.fatal("can't make newInstance of JAXBContext.", e);
         }
+        log.info("completed initializing mixer2 engine.");
     }
 
     /**
