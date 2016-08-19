@@ -1,17 +1,15 @@
 package org.mixer2;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.StringReader;
-import java.io.StringWriter;
-import java.nio.charset.Charset;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.mixer2.jaxb.exception.Mixer2JAXBException;
+import org.mixer2.jaxb.xhtml.Html;
+import org.mixer2.jaxb.xhtml.Iframe;
+import org.mixer2.jaxb.xhtml.Script;
+import org.mixer2.jaxb.xhtml.Textarea;
+import org.mixer2.xhtml.AbstractJaxb;
+import org.mixer2.xhtml.NamedEntityEnum;
+import org.mixer2.xhtml.TagCustomizeWriter;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -27,17 +25,18 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.mixer2.jaxb.exception.Mixer2JAXBException;
-import org.mixer2.jaxb.xhtml.Html;
-import org.mixer2.jaxb.xhtml.Iframe;
-import org.mixer2.jaxb.xhtml.Script;
-import org.mixer2.jaxb.xhtml.Textarea;
-import org.mixer2.xhtml.AbstractJaxb;
-import org.mixer2.xhtml.NamedEntityEnum;
-import org.mixer2.xhtml.TagCustomizeWriter;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.nio.charset.Charset;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * <p>
@@ -323,15 +322,6 @@ public class Mixer2Engine {
         } else {
             return sb;
         }
-    }
-
-    /**
-     * @see #removeDoctypeDeclaration(StringBuilder)
-     * @param sb
-     * @return
-     */
-    public StringBuffer removeDoctypeDeclaration(StringBuffer sb) {
-        return removeDoctypeDeclaration(sb);
     }
 
     /**
