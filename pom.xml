@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.mixer2</groupId>
@@ -7,7 +7,7 @@
     <version>1.3-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Mixer2</name>
-    <description>Mixer2 is template engine for java. </description>
+    <description>Mixer2 is template engine for java.</description>
     <url>http://mixer2.org/</url>
 
     <issueManagement>
@@ -186,7 +186,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
-                <version>2.3</version>
+                <version>1.3.1</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -304,8 +304,6 @@
                 <executions>
                     <execution>
                         <id>jaxb2-generate</id>
-                        <!-- <phase>generate-sources</phase> -->
-                        <!-- replace phase above and Do "mvn jaxb2:generate" -->
                         <phase>generate-sources</phase>
                         <goals>
                             <goal>generate</goal>
@@ -331,9 +329,7 @@
                         <include>binding.xml</include>
                     </bindingIncludes>
                     <generatePackage>org.mixer2.jaxb.xhtml</generatePackage>
-                    <!--<generateDirectory>src/main/java</generateDirectory>-->
                     <generateDirectory>${project.build.directory}/generated-sources/java</generateDirectory>
-                    <creanPackageDirectories>true</creanPackageDirectories>
                     <plugins>
                         <plugin>
                             <groupId>org.jvnet.jaxb2_commons</groupId>
@@ -343,12 +339,6 @@
                     </plugins>
                 </configuration>
             </plugin>
-
-        </plugins>
-    </build>
-
-    <reporting>
-        <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
@@ -357,67 +347,58 @@
                     <locales>en,ja</locales>
                     <inputEncoding>${encoding}</inputEncoding>
                     <outputEncoding>${encoding}</outputEncoding>
+                    <reportPlugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-project-info-reports-plugin</artifactId>
+                            <version>2.4</version>
+                            <configuration>
+                                <dependencyDetailsEnabled>false</dependencyDetailsEnabled>
+                                <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+                            </configuration>
+                            <!-- simpler configuration without reportSets available for usual cases -->
+                            <reports>
+                                <report>dependencies</report>
+                                <report>dependency-convergence</report>
+                                <report>dependency-management</report>
+                                <report>index</report>
+                                <report>license</report>
+                                <report>mailing-list</report>
+                                <!-- <report>plugin-management</report> -->
+                                <report>project-team</report>
+                                <!-- <report>plugins</report> -->
+                                <!-- <report>summary</report> -->
+                                <report>issue-tracking</report>
+                                <report>scm</report>
+                            </reports>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-javadoc-plugin</artifactId>
+                            <version>2.10.4</version>
+                            <configuration>
+                                <nohelp>true</nohelp>
+                                <charset>${encoding}</charset>
+                                <encoding>${encoding}</encoding>
+                                <docencoding>${encoding}</docencoding>
+                                <locale>en_US</locale>
+                                <maxmemory>512m</maxmemory>
+                            </configuration>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.sonatype.maven.plugin</groupId>
+                            <artifactId>emma-maven-plugin</artifactId>
+                            <version>1.2</version>
+                            <configuration>
+                                <filters>
+                                    <filter>-org.mixer2.jaxb.xhtml.*</filter>
+                                </filters>
+                                <verbose>true</verbose>
+                            </configuration>
+                        </plugin>
+                    </reportPlugins>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.4</version>
-                <configuration>
-                    <nohelp>true</nohelp>
-                    <charset>${encoding}</charset>
-                    <encoding>${encoding}</encoding>
-                    <docencoding>${encoding}</docencoding>
-                    <locale>en_US</locale>
-                    <maxmemory>512m</maxmemory>
-                </configuration>
-            </plugin>
-            <!-- <plugin> -->
-            <!-- <groupId>org.apache.maven.plugins</groupId> -->
-            <!-- <artifactId>maven-surefire-report-plugin</artifactId> -->
-            <!-- <version>2.12.4</version> -->
-            <!-- </plugin> -->
-
-            <plugin>
-                <groupId>org.sonatype.maven.plugin</groupId>
-                <artifactId>emma-maven-plugin</artifactId>
-                <version>1.2</version>
-                <configuration>
-                    <filters>
-                        <filter>-org.mixer2.jaxb.xhtml.*</filter>
-                    </filters>
-                    <verbose>true</verbose>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>2.1.2</version>
-                <configuration>
-                    <dependencyDetailsEnabled>false</dependencyDetailsEnabled>
-                    <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
-                </configuration>
-                <reportSets>
-                    <reportSet>
-                        <reports>
-                            <report>dependencies</report>
-                            <report>dependency-convergence</report>
-                            <report>dependency-management</report>
-                            <report>index</report>
-                            <report>license</report>
-                            <report>mailing-list</report>
-                            <!-- <report>plugin-management</report> -->
-                            <report>project-team</report>
-                            <!-- <report>plugins</report> -->
-                            <!-- <report>summary</report> -->
-                            <report>issue-tracking</report>
-                            <report>scm</report>
-                        </reports>
-                    </reportSet>
-                </reportSets>
             </plugin>
         </plugins>
-    </reporting>
-
+    </build>
 </project>
