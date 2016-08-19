@@ -8,3 +8,12 @@ see http://mixer2.org/site/
 The sample projects are https://github.com/nabedge/mixer2-sample
 
 ----
+
+## BEFORE import int IDE (IntelliJ, Eclipse, etc.)
+
+The JAXB source code auto generation should be run in "compile" phase in maven.
+
+1. git clone [this repository]
+2. export MAVEN_OPTS=-Xmx512m
+3. mvn clean compile
+4. import projects into Intellij or Eclipse as a maven project.
