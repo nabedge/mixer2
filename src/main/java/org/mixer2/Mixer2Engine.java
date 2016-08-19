@@ -1,17 +1,15 @@
 package org.mixer2;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.StringReader;
-import java.io.StringWriter;
-import java.nio.charset.Charset;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.mixer2.jaxb.exception.Mixer2JAXBException;
+import org.mixer2.jaxb.xhtml.Html;
+import org.mixer2.jaxb.xhtml.Iframe;
+import org.mixer2.jaxb.xhtml.Script;
+import org.mixer2.jaxb.xhtml.Textarea;
+import org.mixer2.xhtml.AbstractJaxb;
+import org.mixer2.xhtml.NamedEntityEnum;
+import org.mixer2.xhtml.TagCustomizeWriter;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -27,17 +25,19 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.mixer2.jaxb.exception.Mixer2JAXBException;
-import org.mixer2.jaxb.xhtml.Html;
-import org.mixer2.jaxb.xhtml.Iframe;
-import org.mixer2.jaxb.xhtml.Script;
-import org.mixer2.jaxb.xhtml.Textarea;
-import org.mixer2.xhtml.AbstractJaxb;
-import org.mixer2.xhtml.NamedEntityEnum;
-import org.mixer2.xhtml.TagCustomizeWriter;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.nio.charset.Charset;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * <p>
@@ -303,6 +303,38 @@ public class Mixer2Engine {
         } catch (TransformerException e) {
             log.warn("TransformerException happend. while saveToWriter().", e);
         }
+    }
+
+	/**
+     * <p>
+     * marshal the inner objects of tag to string and return it.
+     * </p>
+     * <pre>
+     *     &lt;-- html --&gt;
+     *     &lt;div id="foo"&gt;aaa&lt;span&gt;bbb&lt;/span&gt;ccc&lt;/div&gt;
+     * </pre>
+     * <pre>
+     *     // code
+     *     List&lt;Object&gt; list = html.getById("foo", Div.class).getContent();
+     *     String contents = mixer2Engine.saveToString(list);
+     *     // "contents" has "aaa&lt;span&gt;bbb&lt;/span&gt;ccc"
+     * </pre>
+     *
+     * @param list
+     * @return
+     */
+    public String saveToString(List<Object> list) {
+        StringBuilder sb = new StringBuilder();
+        for(Object obj : list) {
+            if (obj == null) {
+                continue;
+            } else if (obj instanceof AbstractJaxb) {
+                sb.append(this.saveToString((AbstractJaxb) obj));
+            } else {
+                sb.append(obj.toString());
+            }
+        }
+        return sb.toString();
     }
 
     /**
