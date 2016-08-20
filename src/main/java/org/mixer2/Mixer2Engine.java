@@ -35,6 +35,7 @@ import java.io.Reader;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.nio.charset.Charset;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -43,9 +44,9 @@ import java.util.regex.Pattern;
  * mixer2 engine. The instance of this class should be a singleton because of
  * high cost to initialize.
  * </p>
- * 
+ *
  * @author nabedge
- * 
+ *
  */
 public class Mixer2Engine {
 
@@ -80,7 +81,7 @@ public class Mixer2Engine {
      * <p>
      * If error to parse xhtml string, returns null.
      * </p>
-     * 
+     *
      * @param file
      * @return html tag object. If parse error, returns null.
      * @throws IOException
@@ -95,7 +96,7 @@ public class Mixer2Engine {
      * {@link #loadHtmlTemplate(File)} but if fail to
      * parse xhtml, throws Mixer2JAXBException.
      * </p>
-     * 
+     *
      * @see #loadHtmlTemplate(File)
      * @param file
      * @return
@@ -109,7 +110,7 @@ public class Mixer2Engine {
     }
 
     /**
-     * 
+     *
      * @see #loadHtmlTemplate(File)
      * @param str
      * @return html tag object. If parse error, returns null.
@@ -131,7 +132,7 @@ public class Mixer2Engine {
     }
 
     /**
-     * 
+     *
      * @see #loadHtmlTemplate(File)
      * @param sb
      * @return html tag object. If parse error, returns null.
@@ -146,7 +147,7 @@ public class Mixer2Engine {
     }
 
     /**
-     * 
+     *
      * @see #loadHtmlTemplate(File)
      * @param sb
      *            xhtml template string.
@@ -186,7 +187,7 @@ public class Mixer2Engine {
      * end of this method. Doctype declaration on template will be deleted. If
      * failed to parse error, returns null.
      * </p>
-     * 
+     *
      * @param inputStream
      * @return html tag object. If parse error, returns null.
      * @throws IOException
@@ -201,7 +202,7 @@ public class Mixer2Engine {
      * This is the same as
      * {@link #loadHtmlTemplate(InputStream)} but if fail to
      * parse xhtml, throws Mixer2JAXBException.
-     * 
+     *
      * @see #loadHtmlTemplate(InputStream)
      * @param inputStream
      * @return html tag object.
@@ -247,7 +248,7 @@ public class Mixer2Engine {
                 iframe.getContent().add(" ");
             }
         }
-        
+
         // add one line break into textarea tag
         // having empty content.
         for (Textarea textarea : tag.getDescendants(Textarea.class)) {
@@ -305,6 +306,38 @@ public class Mixer2Engine {
         }
     }
 
+	/**
+     * <p>
+     * marshal the inner objects of tag to string and return it.
+     * </p>
+     * <pre>
+     *     &lt;-- html --&gt;
+     *     &lt;div id="foo"&gt;aaa&lt;span&gt;bbb&lt;/span&gt;ccc&lt;/div&gt;
+     * </pre>
+     * <pre>
+     *     // code
+     *     List&lt;Object&gt; list = html.getById("foo", Div.class).getContent();
+     *     String contents = mixer2Engine.saveToString(list);
+     *     // "contents" has "aaa&lt;span&gt;bbb&lt;/span&gt;ccc"
+     * </pre>
+     *
+     * @param list
+     * @return
+     */
+    public String saveToString(List<Object> list) {
+        StringBuilder sb = new StringBuilder();
+        for(Object obj : list) {
+            if (obj == null) {
+                continue;
+            } else if (obj instanceof AbstractJaxb) {
+                sb.append(this.saveToString((AbstractJaxb) obj));
+            } else {
+                sb.append(obj.toString());
+            }
+        }
+        return sb.toString();
+    }
+
     /**
      * <p>
      * remove doctype declaration
@@ -330,7 +363,7 @@ public class Mixer2Engine {
      * replace the reference of character entity reference to numeric character
      * reference.
      * </p>
-     * 
+     *
      * @param sb
      *            xhtml template
      * @return replaced xhtml template
@@ -413,7 +446,7 @@ public class Mixer2Engine {
      * <p>
      * unmarshal from html string to html object.
      * </p>
-     * 
+     *
      * @param sb
      * @return
      * @throws JAXBException
@@ -427,5 +460,5 @@ public class Mixer2Engine {
         html = (Html) jaxbContext.createUnmarshaller().unmarshal(stringReader);
         return html;
     }
-    
+
 }
