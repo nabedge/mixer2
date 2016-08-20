@@ -8,3 +8,14 @@ see http://mixer2.org/site/
 The sample projects are https://github.com/nabedge/mixer2-sample
 
 ----
+
+## Maven version
+
+Use Maven3.2.x or higher.
+
+## Memory size for Maven
+
+If you got OutOfMemoryError in "mvn compile", increase it.
+
+$ export MAVEN_OPTS=-Xmx512m
+$ mvn clean compile
