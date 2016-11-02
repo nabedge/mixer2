@@ -5,7 +5,9 @@ Mixer2
 XHTML template engine for java.
 see http://mixer2.org/site/
 
-The sample projects are https://github.com/nabedge/mixer2-sample
+The sample projects.
+* https://github.com/nabedge/mixer2-sample
+* https://github.com/nabedge/mixer2-spboot14-sample (Spring Boot 1.4.x + Mixer2)
 
 ----
 
@@ -17,5 +19,7 @@ Use Maven3.2.x or higher.
 
 If you got OutOfMemoryError in "mvn compile", increase it.
 
+```
 $ export MAVEN_OPTS=-Xmx512m
 $ mvn clean compile
+```
