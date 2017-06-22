@@ -441,6 +441,18 @@
   </xs:attributeGroup>
   -->
 
+  <!-- html5 cross origin -->
+  <xs:simpleType name="CrossOriginType">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="anonymous"/>
+      <xs:enumeration value="use-credentials"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:attributeGroup name="cors">
+    <xs:attribute name="crossorigin" type="CrossOriginType"/>
+  </xs:attributeGroup>
+
   <xs:attributeGroup name="events">
     <xs:annotation>
       <xs:documentation>
@@ -1109,6 +1121,7 @@
     </xs:annotation>
     <xs:complexType mixed="true">
       <xs:attributeGroup ref="attrs"/>
+      <xs:attributeGroup ref="cors"/>
       <xs:attribute name="charset" type="Charset"/>
       <xs:attribute name="type" use="required" type="ContentType"/>
       <xs:attribute name="language"/>
@@ -2288,6 +2301,7 @@
   <xs:element name="img">
     <xs:complexType>
       <xs:attributeGroup ref="attrs"/>
+      <xs:attributeGroup ref="cors"/>
       <xs:attribute name="src" use="required" type="URI"/>
       <xs:attribute name="alt" use="required" type="Text"/>
       <xs:attribute name="name" type="xs:NMTOKEN"/>
@@ -3421,6 +3435,7 @@
       <xs:complexContent>
         <xs:extension base="Flow">
           <xs:attributeGroup ref="attrs"/>
+          <xs:attributeGroup ref="cors"/>
           <xs:attributeGroup ref="media"/>
         </xs:extension>
       </xs:complexContent>
@@ -3437,6 +3452,7 @@
       <xs:complexContent>
         <xs:extension base="Flow">
           <xs:attributeGroup ref="attrs"/>
+          <xs:attributeGroup ref="cors"/>
           <xs:attributeGroup ref="media"/>
           <xs:attribute name="poster" type="URI"/>
           <xs:attribute name="width" type="Pixels"/>
