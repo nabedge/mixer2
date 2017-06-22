@@ -1079,6 +1079,7 @@
     </xs:annotation>
     <xs:complexType>
       <xs:attributeGroup ref="attrs"/>
+      <xs:attributeGroup ref="cors"/>
       <xs:attribute name="charset" type="Charset"/>
       <xs:attribute name="href" type="URI"/>
       <xs:attribute name="hreflang" type="LanguageCode"/>
