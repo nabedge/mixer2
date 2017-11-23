@@ -1,0 +1,9 @@
+version: '2'
+services:
+    app:
+        #image: openjdk:8-jdk-alpine
+        image: openjdk:9.0.1-11-jdk
+        volumes:
+            - ../../:/mixer2
+        working_dir: /mixer2
+        command: ./mvnw clean test
