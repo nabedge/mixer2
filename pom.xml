@@ -4,7 +4,7 @@
 
     <groupId>org.mixer2</groupId>
     <artifactId>mixer2</artifactId>
-    <version>1.3-SNAPSHOT</version>
+    <version>1.4-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Mixer2</name>
     <description>Mixer2 is template engine for java.</description>
