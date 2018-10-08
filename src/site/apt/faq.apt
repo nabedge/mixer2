@@ -4,9 +4,13 @@
 
 FAQ
 
-* Requirement
+* Requirement (Java6 to Java8)
 
- Java6 or higher
+ use version 1.3.x
+
+* Requirement (Java11 or higher)
+
+ use version 1.4.x
 
 * Does mixer2 depends on servlet-api ?
 
