@@ -405,17 +405,17 @@
                                 <maxmemory>512m</maxmemory>
                             </configuration>
                         </plugin>
-                        <plugin>
-                            <groupId>org.sonatype.maven.plugin</groupId>
-                            <artifactId>emma-maven-plugin</artifactId>
-                            <version>1.2</version>
-                            <configuration>
-                                <filters>
-                                    <filter>-org.mixer2.jaxb.xhtml.*</filter>
-                                </filters>
-                                <verbose>true</verbose>
-                            </configuration>
-                        </plugin>
+                        <!--<plugin>-->
+                            <!--<groupId>org.sonatype.maven.plugin</groupId>-->
+                            <!--<artifactId>emma-maven-plugin</artifactId>-->
+                            <!--<version>1.2</version>-->
+                            <!--<configuration>-->
+                                <!--<filters>-->
+                                    <!--<filter>-org.mixer2.jaxb.xhtml.*</filter>-->
+                                <!--</filters>-->
+                                <!--<verbose>true</verbose>-->
+                            <!--</configuration>-->
+                        <!--</plugin>-->
                     </reportPlugins>
                 </configuration>
             </plugin>
