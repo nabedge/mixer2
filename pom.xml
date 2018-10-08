@@ -362,7 +362,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
-                <version>3.4</version>
+                <version>3.7.1</version>
                 <configuration>
                     <locales>en,ja</locales>
                     <inputEncoding>${encoding}</inputEncoding>
@@ -371,7 +371,7 @@
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-project-info-reports-plugin</artifactId>
-                            <version>2.4</version>
+                            <version>3.0.0</version>
                             <configuration>
                                 <dependencyDetailsEnabled>false</dependencyDetailsEnabled>
                                 <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
