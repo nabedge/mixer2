@@ -100,17 +100,17 @@
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
-            <version>2.3.0</version>
+            <version>2.3.1</version>
         </dependency>
         <dependency>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-core</artifactId>
-            <version>2.3.0.1</version>
+            <version>4.0.1</version>
         </dependency>
         <dependency>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
-            <version>2.3.0.1</version>
+            <version>2.3.7</version>
         </dependency>
         <dependency>
             <groupId>javax.activation</groupId>
@@ -120,7 +120,7 @@
         <dependency>
             <groupId>org.jvnet.jaxb2_commons</groupId>
             <artifactId>jaxb2-basics-runtime</artifactId>
-            <version>0.6.4</version>
+            <version>0.13.1</version>
         </dependency>
         <dependency>
             <groupId>commons-beanutils</groupId>
@@ -206,12 +206,12 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
-                <version>1.3.1</version>
+                <version>2.14.2</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.10.1</version>
                 <configuration>
                     <source>${jdk.version}</source>
                     <target>${jdk.version}</target>
@@ -221,7 +221,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>3.0.1</version>
+                <version>3.3.0</version>
                 <configuration>
                     <encoding>${encoding}</encoding>
                 </configuration>
@@ -229,7 +229,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-install-plugin</artifactId>
-                <version>2.5.2</version>
+                <version>3.1.0</version>
                 <configuration>
                     <createChecksum>true</createChecksum>
                 </configuration>
@@ -237,7 +237,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.0.1</version>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
                         <id>source-jar</id>
@@ -251,7 +251,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.0.1</version>
+                <version>3.4.1</version>
                 <configuration>
                     <nohelp>true</nohelp>
                     <charset>${encoding}</charset>
@@ -259,6 +259,7 @@
                     <docencoding>${encoding}</docencoding>
                     <locale>en_US</locale>
                     <maxmemory>512m</maxmemory>
+                    <additionalOptions>-Xdoclint:none</additionalOptions>
                 </configuration>
                 <executions>
                     <execution>
@@ -272,9 +273,13 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.4</version>
+                <version>3.0.1</version>
                 <configuration>
-                    <!-- <skip>true</skip> -->
+                    <skip>false</skip>
+                    <gpgArguments>
+                        <argument>--pinentry-mode</argument>
+                        <argument>loopback</argument>
+                    </gpgArguments>
                 </configuration>
                 <executions>
                     <execution>
@@ -310,7 +315,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.0</version>
+                <version>2.22.2</version>
                 <configuration>
                     <argLine>-Xmx128m -Dfile.encoding=${encoding}</argLine>
                     <forkCount>1</forkCount>
@@ -320,7 +325,7 @@
             <plugin>
                 <groupId>org.jvnet.jaxb2.maven2</groupId>
                 <artifactId>maven-jaxb23-plugin</artifactId>
-                <version>0.14.0</version>
+                <version>0.15.2</version>
                 <executions>
                     <execution>
                         <id>jaxb2-generate</id>
@@ -337,7 +342,7 @@
                         <arg>-XhashCode</arg>
                         <arg>-no-header</arg>
                     </args>
-                    <specVersion>2.1</specVersion>
+                    <specVersion>2.2</specVersion>
                     <locale>en</locale>
                     <episode>false</episode>
                     <schemaDirectory>xjc</schemaDirectory>
@@ -354,7 +359,7 @@
                         <plugin>
                             <groupId>org.jvnet.jaxb2_commons</groupId>
                             <artifactId>jaxb2-basics</artifactId>
-                            <version>0.9.3</version>
+                            <version>0.13.1</version>
                         </plugin>
                     </plugins>
                 </configuration>
@@ -395,7 +400,7 @@
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-javadoc-plugin</artifactId>
-                            <version>3.0.1</version>
+                            <version>3.4.1</version>
                             <configuration>
                                 <nohelp>true</nohelp>
                                 <charset>${encoding}</charset>
@@ -403,19 +408,9 @@
                                 <docencoding>${encoding}</docencoding>
                                 <locale>en_US</locale>
                                 <maxmemory>512m</maxmemory>
+                                <additionalOptions>-Xdoclint:none</additionalOptions>
                             </configuration>
                         </plugin>
-                        <!--<plugin>-->
-                            <!--<groupId>org.sonatype.maven.plugin</groupId>-->
-                            <!--<artifactId>emma-maven-plugin</artifactId>-->
-                            <!--<version>1.2</version>-->
-                            <!--<configuration>-->
-                                <!--<filters>-->
-                                    <!--<filter>-org.mixer2.jaxb.xhtml.*</filter>-->
-                                <!--</filters>-->
-                                <!--<verbose>true</verbose>-->
-                            <!--</configuration>-->
-                        <!--</plugin>-->
                     </reportPlugins>
                 </configuration>
             </plugin>
